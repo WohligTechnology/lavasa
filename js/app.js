@@ -109,7 +109,46 @@ firstapp.directive('fancyboxBox', function($document) {
         }
     };
 });
+firstapp.directive('hovericon', function($document) {
+    return {
+        restrict: 'EA',
+        replace: true,
+        templateUrl: './views/directive/hovericon.html',
+        scope: {
+            game: '='
+        },
+        link: function(scope, element, attr) {
 
+            scope.$watch('demo', function() {
+                //			   console.log(demo);
+
+                var ishover;
+                var $element = $(element);
+                $test = $element;
+                $element.ready(function() {
+
+                    if (scope.game.grey) {
+                        $element.addClass("grey");
+                    } else {
+                        var $top = $element.children(".top");
+                        var $bottom = $element.children(".bottom");
+                        $bottom.width($top.width());
+
+                        $element.hover(function() {
+                            $element.addClass("bigger");
+                        }, function() {
+                            $element.removeClass("bigger");
+                            $bottom.width($top.width());
+                        });
+                    }
+
+                });
+            })
+
+        }
+
+    }
+});
 
 firstapp.config(function ($translateProvider) {
   $translateProvider.translations('en', LanguageEnglish);

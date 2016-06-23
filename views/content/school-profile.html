@@ -1,98 +1,161 @@
 <section>
-  <div class="banner sf-relative">
-    <img src="img/sf-school-profile.png" alt="" class="img-responsive">
-    <div class="sf-absulate">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3">
-            <div class="sf-school-logo">
-              <img src="" alt="">
+    <div class="banner sf-relative">
+        <img src="img/sf-school-profile.png" alt="" class="img-responsive">
+        <div class="sf-absulate">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="sf-school-logo">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="sf-school-data">
+                            <div class="scl-title">
+                                <h4>DHIRUBHAI AMBANI INTERNATIONAL SCHOOL</h4>
+                            </div>
+                            <div class="display-inline">
+                                <img src="img/sf-cup.png" alt="">
+                            </div>
+                            <div class="data-list">
+                                <ul>
+                                    <li>
+                                        <div class="stu-data">
+                                            <span>CONTINGENT STRENGTH</span>
+                                        </div>
+                                        <ul>
+                                            <li>
+                                                <div class="sto-pro-list">
+                                                    <img src="img/sf-boys.png" alt="">80
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="sto-pro-list display-inline">
+                                                    <img src="img/sf-girl.png" alt="">50
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="sto-pro-list display-inline">
+                                                    50
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="stu-data">
+                                            <p>2015 rank</p>
+                                            <p>15</p>
+                                        </div>
+                                        <div class="stu-data display-inline">
+                                            <p>2016 rank</p>
+                                            <p>4</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="sf-medal-list">
+                                            <ul>
+                                                <li>
+                                                    <div class="medal-num">
+                                                        <div class="img-medal">
+                                                            <img src="img/sf-gold-big.png" alt="">
+                                                        </div>
+                                                        <div class="display-inline">
+                                                            <p>2</p>
+                                                            <p>gold</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="medal-num">
+                                                        <div class="img-medal">
+                                                            <img src="img/sf-silver-big.png" alt="">
+                                                        </div>
+                                                        <div class="display-inline">
+                                                            <p>2</p>
+                                                            <p>silver</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="medal-num">
+                                                        <div class="img-medal">
+                                                            <img src="img/sf-bronze-big.png" alt="">
+                                                        </div>
+                                                        <div class="display-inline">
+                                                            <p>2</p>
+                                                            <p>Bronze</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="btn-common">
+                                <button type="button" name="button">school bio</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-md-9">
-            <div class="sf-school-data">
-              <div class="scl-title">
-                <h4>DHIRUBHAI AMBANI INTERNATIONAL SCHOOL</h4>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="text-center">
+                <h4>sports participated</h4>
+            </div>
+            <div class="sport-slider">
+                <flex-slider class="carousel" flex-slide="slide in games track by $index" animation="slide" item-width="140" item-margin="60">
+                    <li>
+                        <a href="">
+                            <div class="sports-participate text-center">
+                                <img ng-src="{{slide.icon}}" alt="" class="img-responsive">
+                                <span>{{slide.name}}</span>
+                            </div>
+                        </a>
+                    </li>
+                </flex-slider>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="text-center">
+                <h4>CONTINGENT</h4>
+            </div>
+            <div class="float-right">
+                <div class="text">Year</div>
+                <div class="display-inline">
+                    <div class="sfa-select">
+                        <select class="select" ng-model="filter.sport">
+                            <option value="">Select Year</option>
+                            <option value="2016">20016</option>
+                            <option value="2016">20016</option>
+                            <option value="2016">20016</option>
+                            <option value="2016">20016</option>
+                        </select>
+                        <span class="only-border"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4" ng-repeat="data in student track by $index">
+            <div class="student-box">
+              <div class="stu-img">
+                <img ng-src="{{data.icon}}" alt="">
               </div>
-              <div class="display-inline">
-                <img src="img/sf-cup.png" alt="">
+              <div class="stu-name">
+                <span>{{data.name}}</span>
               </div>
-              <div class="data-list">
-                <ul>
-                  <li>
-                    <div class="stu-data">
-                      <span>CONTINGENT STRENGTH</span>
-                    </div>
-                    <ul>
-                      <li><div class="sto-pro-list">
-                        <img src="img/sf-boys.png" alt="">80
-                      </div></li>
-                      <li>  <div class="sto-pro-list display-inline">
-                          <img src="img/sf-girl.png" alt="">50
-                        </div></li>
-                      <li><div class="sto-pro-list display-inline">
-                        50
-                      </div></li>
-                    </ul>
-                </li>
-                  <li>
-                    <div class="stu-data">
-                      <p>2015 rank</p>
-                      <p>15</p>
-                    </div>
-                    <div class="stu-data display-inline">
-                      <p>2016 rank</p>
-                      <p>4</p>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="sf-medal-list">
-                      <ul>
-                        <li>
-                          <div class="medal-num">
-                            <div class="img-medal">
-                              <img src="img/sf-gold-big.png" alt="">
-                            </div>
-                            <div class="display-inline">
-                              <p>2</p>
-                              <p>gold</p>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="medal-num">
-                            <div class="img-medal">
-                              <img src="img/sf-silver-big.png" alt="">
-                            </div>
-                            <div class="display-inline">
-                              <p>2</p>
-                              <p>silver</p>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="medal-num">
-                            <div class="img-medal">
-                              <img src="img/sf-bronze-big.png" alt="">
-                            </div>
-                            <div class="display-inline">
-                              <p>2</p>
-                              <p>Bronze</p>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div class="btn-common">
-                <button type="button" name="button">school bio</button>
+              <div class="stu-id">
+                <span>{{data.id}}</span>
               </div>
             </div>
           </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
