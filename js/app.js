@@ -17,6 +17,16 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     url: "/",
     templateUrl: "views/template.html",
     controller: 'HomeCtrl'
+  })
+    .state('school', {
+    url: "/",
+    templateUrl: "views/template.html",
+    controller: 'SchoolCtrl'
+  })
+    .state('students', {
+    url: "/",
+    templateUrl: "views/template.html",
+    controller: 'StudentsCtrl'
   });
   $urlRouterProvider.otherwise("/");
   $locationProvider.html5Mode(isproduction);
