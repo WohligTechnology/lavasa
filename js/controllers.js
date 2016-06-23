@@ -23,7 +23,33 @@ $scope.template = TemplateService.changecontent("school");
   $scope.menutitle = NavigationService.makeactive("School");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-
+  $scope.school = [
+  {
+    img:"img/sf-school.png",
+    name:"Dhirubhai Ambani Intertional School",
+    rank:"1"
+  },{
+    img:"img/sf-school.png",
+    name:"Dhirubhai Ambani Intertional School",
+    rank:"2"
+  },{
+    img:"img/sf-school.png",
+    name:"Dhirubhai Ambani Intertional School",
+    rank:"3"
+  },{
+    img:"img/sf-school.png",
+    name:"Dhirubhai Ambani Intertional School",
+    rank:"4"
+  },{
+    img:"img/sf-school.png",
+    name:"Dhirubhai Ambani Intertional School",
+    rank:"19"
+  },{
+    img:"img/sf-school.png",
+    name:"Dhirubhai Ambani Intertional School",
+    rank:"20"
+  }
+  ];
 })
 .controller('StudentsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file

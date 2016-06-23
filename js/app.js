@@ -32,7 +32,34 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
   $locationProvider.html5Mode(isproduction);
 });
 
+firstapp.directive('giveitmargin', function($compile, $parse) {
+    return {
+        restrict: 'EA',
+        replace: false,
+        link: function($scope, element, attrs) {
+            $element = $(element);
+            var i = 0;
 
+            function addmarginleft(j) {
+                $("ul.menu-list").css("margin-left", 0);
+                var windowwidth = $(window).width();
+                var navigationlogowidth = $(".logoli").width();
+                var leftcomp = $(".logoli").position();
+                var marginleft = ((windowwidth - navigationlogowidth) / 2) - leftcomp.left;
+                if (j == i) {
+
+                    $("ul.menu-list").css("margin-left", marginleft);
+                }
+            }
+            $element.find("img").load(function() {
+                addmarginleft(++i);
+            });
+            $(window).resize(function() {
+                addmarginleft(++i);
+            });
+        }
+    };
+});
 firstapp.directive('img', function($compile, $parse) {
   return {
     restrict: 'E',

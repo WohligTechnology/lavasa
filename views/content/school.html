@@ -1,0 +1,70 @@
+<section>
+    <div class="head-banner">
+        <img src="img/school.png" class="img-responsive img">
+
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="search-title">
+                    <h4>search from <span>1200</span> schools</h4>
+                </div>
+                <div class="search-input">
+                    <form class="">
+                        <input type="text" class="inbinding" name="q" value="Enter your SFA ID" ng-model="search.name">
+                        <input type="image" value="Search" src="img/searchbig.png" class="sbs" ng-click="getSearchById(idSearch.search);">
+                    </form>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="row">
+            <div class="text-center">
+                <h4>Top 20 schools</h4>
+            </div>
+            <div class="top-school">
+                <div class="col-md-4" ng-repeat="data in school track by $index">
+                    <div class="school-box">
+                      <div class="box-header">
+
+
+                        <div class="school-img">
+                            <img ng-src="{{data.img}}" alt="">
+                            <div class="sigh-img">
+                              <img src="img/sf-right.png" alt="">
+                            </div>
+                        </div>
+                        <div class="rank">
+                            <span class="text-up">{{data.rank}}</span>
+                        </div>
+                        <div class="school-name">
+                            <span class="text-up">{{data.name}}</span>
+                        </div>
+                        <div class="medal">
+                            <span class="text-up">Medals Won</span>
+                            <div class="medal-count">
+                                <ul>
+                                    <li>
+                                        <img src="img/sf-gold.png" alt="">2
+                                    </li>
+                                    <li>
+                                        <img src="img/sf-silver.png" alt="">4
+                                    </li>
+                                    <li>
+                                        <img src="img/sf-bronze.png" alt="">5
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="box-footer">
+                        <span class="text-up">total point</span>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
