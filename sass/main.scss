@@ -14,6 +14,7 @@ $brand-info: #000072 !default;
 $base: #303030 !default;
 $white: #fff !default;
 $dark-grey: #e1e1e1 !default;
+$light-grey: #ebebeb !default;
 $font-family-sans-serif: "Titillium Web", Arial, sans-serif !default;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
@@ -70,6 +71,66 @@ a, .btn {
   border-color: $brand-primary;
   outline: 0;
   @include box-shadow(none);
+}
+//basic
+
+a{
+  text-decoration: none;
+  outline: 0;
+  &:focus{
+    text-decoration: none;
+    outline: 0;
+  }
+  &:hover{
+    text-decoration: none;
+    outline: 0;
+  }
+}
+.margin0{
+  margin: 0px;
+}
+.padding0{
+  padding: 0px;
+}
+.float-right{
+  float: right;
+}
+.float-left{
+  float: left;
+}
+.sf-list{
+  ul{
+    display: block;
+    list-style: none;
+    li{
+      display: inline-block;
+    }
+  }
+}
+.sf-relative{
+  position: relative;
+}
+.sf-absulate{
+  position: absolute;
+}
+.display-inline{
+  display: inline-block;
+}
+.color-blue{
+  color:$brand-primary;
+}
+.color-orange{
+  color:$brand-success;
+}
+.color-white{
+  color:$white;
+}
+
+.color-base{
+  color:$base;
+}
+.text-up{
+  text-transform: uppercase;
 }
 //bootstrap forms
 /* Start writing sass here */
