@@ -51,6 +51,14 @@ $scope.template = TemplateService.changecontent("school");
   }
   ];
 })
+.controller('SchoolProfileCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  //Used to name the .html file
+  $scope.template = TemplateService.changecontent("school-profile");
+  $scope.menutitle = NavigationService.makeactive("School-Profile");
+  TemplateService.title = $scope.menutitle;
+  $scope.navigation = NavigationService.getnav();
+
+})
 .controller('StudentsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("students");
