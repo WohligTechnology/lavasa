@@ -6,14 +6,35 @@
 @import "../bower_components/font-awesome/css/font-awesome.min.css";
 @import "../bower_components/fancyBox/source/jquery.fancybox.css";
 /* Bootstrap Variables Goes Here */
-$brand-primary: #0d9dff !default;
-$brand-success: #84ce3c !default;
-$brand-warning: #ffec39 !default;
+$brand-primary: #0a1a72 !default;
+$brand-success: #fc7700 !default;
+$brand-warning: #9f9f9f !default;
 $brand-danger: #fc483f !default;
 $brand-info: #000072 !default;
+$base: #303030 !default;
+$white: #fff !default;
+$dark-grey: #e1e1e1 !default;
+$font-family-sans-serif: "Titillium Web", Arial, sans-serif !default;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
+/* mixing*/
+@mixin placeholder {
+  $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+  @each $placeholder in $placeholders {
+    &:#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+}
+@mixin transition($transition...) {
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  -webkit-transition: $transition;
+  transition: $transition;
+}
 body {
   padding-top: 70px;
+  font-family: $font-family-sans-serif;
 }
 img.loading {
   text-align: center;
