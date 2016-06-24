@@ -1,29 +1,30 @@
 <section>
     <div class="head-banner">
-        <img src="img/school.png" class="img-responsive img">
+        <img src="img/school.png" class="img-responsive img width100 margin-auto">
 
     </div>
 </section>
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-xs-12">
-                <div class="search-title">
-                    <h4>search from <span>1200</span> schools</h4>
+            <div class="col-md-offset-1 col-md-10 col-xs-12">
+                <div class="search-title text-center">
+                    <h3 class="color-blue text-up font-semi">search from <span class="color-orange">1200</span> schools</h3>
                 </div>
-                <div class="search-input">
+                <div class="mt15 text-center border-bottom">
                     <form class="">
-                        <input type="text" class="inbinding" name="q" value="Enter your SFA ID" ng-model="search.name">
-                        <input type="image" value="Search" src="img/searchbig.png" class="sbs" ng-click="getSearchById(idSearch.search);">
+                        <input type="text" class="search-input" name="q" value="Type school name" ng-model="search.name">
+                        <input type="image" value="Search" src="img/sfa-search.png" class="search-btn" ng-click="getSearchById(idSearch.search);">
                     </form>
                 </div>
             </div>
-            <hr>
+
         </div>
-        <!-- <div class="row">
-            <div class="text-center">
-                <h4>Top 20 schools</h4>
+        <div class="row">
+            <div class="text-center mt40">
+                <h3 class="font-semi color-orange text-up">Top 20 schools</h3>
             </div>
+                  <div class="col-md-offset-1 col-md-10 col-xs-12">
             <div class="top-school">
                 <div class="col-md-4" ng-repeat="data in school track by $index">
                     <div class="school-box">
@@ -63,8 +64,9 @@
                     </div>
                 </div>
             </div>
-        </div> -->
-        <div class="row">
+          </div>
+        </div>
+        <!-- <div class="row">
             <div class="text-center">
                 <h4>50 Search Results</h4>
             </div>
@@ -84,10 +86,10 @@
                             </div>
 
                         </div>
-                    
+
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>

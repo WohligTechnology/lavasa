@@ -34,7 +34,6 @@ $font-family-sans-serif: "Titillium Web", Arial, sans-serif !default;
   transition: $transition;
 }
 body {
-  padding-top: 70px;
   font-family: $font-family-sans-serif;
 }
 img.loading {
@@ -89,6 +88,10 @@ a{
 .margin0{
   margin: 0px;
 }
+.margin-auto{
+  margin: 0 auto;
+}
+
 .padding0{
   padding: 0px;
 }
@@ -131,6 +134,63 @@ a{
 }
 .text-up{
   text-transform: uppercase;
+}
+.width100{
+  width: 100%;
+}
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+}
+.logoli{
+  vertical-align: middle;
+}
+.menu-list{
+  margin-top: 20px;
+  margin-bottom: -25px;
+  li{
+    padding: 0px 14px;
+  }
+}
+.font-semi{
+  font-weight: 600;
+}
+.font-bold{
+  font-weight: 700;
+}
+.mt15{
+  margin-top: 15px;
+}
+.mt25{
+  margin-top:25px;
+}
+.mt40{
+  margin-top: 40px;
+}
+.search-btn{
+  background: $brand-primary;
+height: 45px;
+width: 45px;
+padding: 16px;
+margin: 0px 0px 0px -3px;
+
+}
+.search-input{
+  width: 70%;
+background: #e0e0e0;
+border: none;
+height: 45px;
+vertical-align: top;
+padding: 0px 8px;
+font-size: 16px;
+&:focus{
+  outline: 0;
+}
+
+}
+.border-bottom{
+  border-bottom: 1px solid #000;
+padding-bottom: 50px;
 }
 //bootstrap forms
 /* Start writing sass here */
