@@ -15,6 +15,7 @@ $base: #303030 !default;
 $white: #fff !default;
 $dark-grey: #e1e1e1 !default;
 $light-grey: #ebebeb !default;
+$other-blue: #2a45d4 !default;
 $font-family-sans-serif: "Titillium Web", Arial, sans-serif !default;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
@@ -221,6 +222,10 @@ border-radius: 6px;
   left: 50px;
   bottom: 10px;
 }
+.sigh-second {
+  left:30px;
+  bottom: 0px;
+}
 .school-boxs {
     background: #ebebeb;
     border-radius: 12px;
@@ -295,24 +300,24 @@ float: right;
   };
 }
 .btn-go{
-  background: #2a45d4;
-border: 1px solid #2a45d4;
+  background: $other-blue;
+border: 1px solid $other-blue;
 color: #fff;
 &:focus{
   outline: 0px;
-  background: #2a45d4;
-border: 1px solid #2a45d4;
+  background: $other-blue;
+border: 1px solid $other-blue;
 color: #fff;
 }
 &:hover{
-  background: #2a45d4;
-border: 1px solid #2a45d4;
+  background: $other-blue;
+border: 1px solid $other-blue;
 color: #fff;
 outline: 0px;
 }
 &:active:focus{
-  background: #2a45d4;
-border: 1px solid #2a45d4;
+  background: $other-blue;
+border: 1px solid $other-blue;
 color: #fff;
 outline: 0px;
 }
@@ -323,7 +328,7 @@ outline: 0px;
 
       i{
         color: #112697;
-      background: #2a45d4;
+      background: $other-blue;
       border-radius: 100%;
       font-size: 16px;
       height: 26px;
@@ -345,6 +350,47 @@ outline: 0px;
         padding: 0px 15px;
     }
   }
+}
+.banner-set{
+  top: 50%;
+left: 50%;
+    @include transform(translate(-50%,-50%));
+}
+.cup{
+  img{
+    vertical-align: bottom;
+
+  }
+}
+.pad-line{
+  li{
+    padding: 0px 8px;
+  }
+}
+.sto-pro-list {
+  img {
+      width: 16px;
+      margin-right: 6px;
+  }
+}
+.mt10{
+  margin-top: 10px;
+}
+.total{
+  color: $brand-success;
+border: 1px solid #fff;
+border-radius: 2px;
+padding: 3px 6px;
+}
+.stu-data {
+  margin-left: 15px;
+}
+.sf-school-logo{
+  width: 201px;
+height: 201px;
+text-align: center;
+margin: 0 auto;
+overflow: hidden;
 }
 //bootstrap forms
 /* Start writing sass here */
