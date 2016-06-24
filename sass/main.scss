@@ -236,6 +236,105 @@ border-radius: 6px;
     font-size: 16px;
   }
 }
+.curve-footer{
+  background: url(../img/curve-footer.png)no-repeat;
+  width: 100%;
+  height: 45px;
+background-size: cover;
+position: relative;
+}
+.footer-link{
+  ul{
+    li{
+      border-right: 1px solid #fff;
+      padding: 0px 8px;
+line-height: 100%;
+      &:last-child{
+        border:none;
+      }
+      a{
+        color: $white;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+    }
+  }
+}
+.footer-bg{
+  background-color: #112697;
+  padding: 5px 0px 15px 0px;
+
+}
+.emailclass{
+  width: 80%;
+display: inline-block;
+float: left;
+background: #1a34c0;
+border: none;
+}
+.newslettersubmit{
+  display: inline-block;
+float: right;
+}
+.news-letter{
+  p{
+    margin-top: 8px;
+    margin-bottom: 0px;
+  };
+}
+.btn-go{
+  background: #2a45d4;
+border: 1px solid #2a45d4;
+color: #fff;
+&:focus{
+  outline: 0px;
+  background: #2a45d4;
+border: 1px solid #2a45d4;
+color: #fff;
+}
+&:hover{
+  background: #2a45d4;
+border: 1px solid #2a45d4;
+color: #fff;
+outline: 0px;
+}
+&:active:focus{
+  background: #2a45d4;
+border: 1px solid #2a45d4;
+color: #fff;
+outline: 0px;
+}
+}
+.social-link{
+  ul{
+    li{
+
+      i{
+        color: #112697;
+      background: #2a45d4;
+      border-radius: 100%;
+      font-size: 16px;
+      height: 26px;
+      width: 26px;
+      padding: 5px 6px;
+      }
+    }
+  }
+}
+.footer-slider {
+    background: #0a1a72;
+    padding: 15px 0px 15px 0px;
+}
+.sponser-list{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  ul{
+    li{
+        padding: 0px 15px;
+    }
+  }
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
