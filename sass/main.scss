@@ -392,6 +392,47 @@ text-align: center;
 margin: 0 auto;
 overflow: hidden;
 }
+.img-medal{
+  img{
+        vertical-align: bottom;
+            width: 20px;
+  }
+}
+.padd-left{
+  li{
+    padding: 0px 5px;
+  }
+}
+.sf-list-padding{
+  .border-right-1{
+      padding: 0px 10px;
+      border-right: 1px solid #fff;
+      line-height: 100%;
+          min-height: 60px;
+      &:last-child{
+        border: none;
+      }
+      &:first-child{
+        padding-left: 0px;
+      }
+  }
+
+}
+.custom-li{
+  ul{
+    list-style: none;
+    display: block;
+    li{
+      float: left;
+    }
+  }
+}
+.btn-orange {
+    @include button-variant($white, $brand-success, $brand-success);
+    &:hover {
+        @include button-variant($white, $brand-success, $brand-success);
+    }
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
