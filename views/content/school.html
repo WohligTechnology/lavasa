@@ -20,7 +20,7 @@
             </div>
 
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="text-center mt40">
                 <h3 class="font-semi color-orange text-up">Top 20 schools</h3>
             </div>
@@ -67,24 +67,25 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- <div class="row">
-            <div class="text-center">
-                <h4>50 Search Results</h4>
+        </div> -->
+        <div class="row ">
+            <div class="text-center mt40">
+                <h3 class="font-semi color-orange text-up">50 Search Results</h3>
             </div>
-            <div class="top-school">
-                <div class="col-md-4" ng-repeat="data in school track by $index">
-                    <div class="school-box">
-                        <div class="box-header">
-                            <div class="school-img">
-                                <img ng-src="{{data.img}}" alt="">
-                                <div class="sigh-img">
+            <div class="col-md-offset-2 col-md-8 col-xs-12">
+            <div class="">
+                <div class="col-md-4 mt15" ng-repeat="data in school track by $index">
+                    <div class="school-boxs">
+                        <div class="box-headers">
+                            <div class="school-imgs text-center sf-relative">
+                                <img src="img/sf-school-grey.png" alt="">
+                                <div class="sigh-imgs sf-absulate">
                                     <img src="img/sf-right.png" alt="">
                                 </div>
                             </div>
 
-                            <div class="school-name">
-                                <span class="text-up">{{data.name}}</span>
+                            <div class="school-names text-center">
+                                <h4 class="text-up font-semi color-orange">{{data.name}}</h4>
                             </div>
 
                         </div>
@@ -92,6 +93,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+          </div>
+        </div>
     </div>
 </section>
