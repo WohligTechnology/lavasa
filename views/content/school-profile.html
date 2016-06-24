@@ -20,9 +20,10 @@
                             <div class="display-inline cup">
                                 <img src="img/sf-cup.png" alt="">
                             </div>
-                            <div class="data-list sf-list color-white">
-                                <ul class="padding0">
-                                    <li>
+                              </div>
+                            <div class="data-list custom-li color-white display-inline mt15">
+                                <ul class="padding0 sf-list-padding">
+                                    <li class="border-right-1">
                                         <div class="stu-data">
                                             <span class="">CONTINGENT STRENGTH</span>
                                         </div>
@@ -44,9 +45,9 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li>
+                                    <li class="border-right-1">
                                         <div class="display-inline text-up text-center">
-                                            <p >2015 rank</p>
+                                            <p>2015 rank</p>
                                             <p class="total display-inline">15</p>
                                         </div>
                                         <div class="stu-data display-inline text-up text-center">
@@ -54,62 +55,68 @@
                                             <p class="total display-inline">4</p>
                                         </div>
                                     </li>
-                                    <!-- <li>
-                                        <div class="sf-medal-list sf-list">
-                                            <ul>
+                                    <li class="border-right-1">
+
+                                        <div class="stu-data text-center sf-list">
+                                            <span class="text-center text-up">Medals Won</span>
+
+                                            <ul class="padd-left padding0">
                                                 <li>
                                                     <div class="medal-num">
-                                                        <div class="img-medal">
+                                                        <div class="img-medal display-inline">
                                                             <img src="img/sf-gold-big.png" alt="">
                                                         </div>
                                                         <div class="display-inline">
-                                                            <p>2</p>
-                                                            <p>gold</p>
+                                                            <p class="margin0 color-orange text-center">2</p>
+                                                            <p class="margin0">Gold</p>
                                                         </div>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="medal-num">
-                                                        <div class="img-medal ">
+                                                        <div class="img-medal display-inline ">
                                                             <img src="img/sf-silver-big.png" alt="">
                                                         </div>
                                                         <div class="display-inline">
-                                                            <p>2</p>
-                                                            <p>silver</p>
+                                                            <p class="margin0 color-orange text-center">2</p>
+                                                            <p class="margin0">Silver</p>
                                                         </div>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="medal-num">
-                                                        <div class="img-medal">
+                                                        <div class="img-medal display-inline">
                                                             <img src="img/sf-bronze-big.png" alt="">
                                                         </div>
                                                         <div class="display-inline">
-                                                            <p>2</p>
-                                                            <p>Bronze</p>
+                                                            <p class="margin0 color-orange text-center">2</p>
+                                                            <p class="margin0">Bronze</p>
                                                         </div>
                                                     </div>
                                                 </li>
                                             </ul>
                                         </div>
-                                    </li> -->
-                                </ul>
-                            </div>
-                            <!-- <div class="btn-common">
-                                <button type="button" name="button">school bio</button>
-                            </div> -->
+
+                            </li>
+                            </ul>
+                              </div>
+
+
+                        <div class="btn-common">
+                          <button type="button" name="button" class="text-up btn-orange">school bio</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
 </section>
 <section>
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <h4>sports participated</h4>
+                <h4 class="color-blue text-up font-semi">sports participated</h4>
             </div>
             <div class="sport-slider">
                 <flex-slider class="carousel" flex-slide="slide in games track by $index" animation="slide" item-width="140" item-margin="60">
@@ -146,19 +153,19 @@
             </div>
         </div>
         <div class="row">
-          <div class="col-md-4" ng-repeat="data in student track by $index">
-            <div class="student-box">
-              <div class="stu-img">
-                <img ng-src="{{data.icon}}" alt="">
-              </div>
-              <div class="stu-name">
-                <span>{{data.name}}</span>
-              </div>
-              <div class="stu-id">
-                <span>{{data.id}}</span>
-              </div>
+            <div class="col-md-4" ng-repeat="data in student track by $index">
+                <div class="student-box">
+                    <div class="stu-img">
+                        <img ng-src="{{data.icon}}" alt="">
+                    </div>
+                    <div class="stu-name">
+                        <span>{{data.name}}</span>
+                    </div>
+                    <div class="stu-id">
+                        <span>{{data.id}}</span>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
     </div>
 </section>
