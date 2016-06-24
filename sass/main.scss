@@ -176,7 +176,7 @@ margin: 0px 0px 0px -3px;
 
 }
 .search-input{
-  width: 70%;
+  width: 80%;
 background: #e0e0e0;
 border: none;
 height: 45px;
@@ -191,6 +191,50 @@ font-size: 16px;
 .border-bottom{
   border-bottom: 1px solid #000;
 padding-bottom: 50px;
+}
+.box-header{
+  background: url(../img/bg-circle.png)no-repeat;
+  background-position: center;
+background-size: cover;
+border-radius: 6px;
+}
+.school-box {
+    background-color: #1d3fbc;
+    border-radius: 16px;
+        padding-bottom: 10px;
+}
+.top-school {
+    margin-top: 100px;
+}
+.school-img {
+    position: relative;
+    top: -65px;
+    text-align: center;
+}
+
+.sigh-img {
+    position: absolute;
+    top: 97px;
+    left: 50px;
+}
+.rank {
+  position: absolute;
+  top: 70px;
+  right: 7px;
+}
+.medal-count{
+  ul{
+    li{
+      font-size: 20px;
+  padding: 0px 3px;
+    }
+  }
+}
+.box-footer{
+  span{
+    margin: -10px 0px 0px 0px;
+    font-size: 16px;
+  }
 }
 //bootstrap forms
 /* Start writing sass here */
