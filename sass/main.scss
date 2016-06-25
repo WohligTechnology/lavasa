@@ -580,7 +580,7 @@ hr{border-top: 1px solid #000000 !important;}
 padding: 15px 0px;
       a{
         font-size: 18px;
-        
+
         background: #dcdbdb;
             padding: 8px 60px;
             &:hover{
@@ -596,6 +596,13 @@ padding: 15px 0px;
       }
     }
   }
+}
+.table-img{
+  vertical-align: baseline;
+    margin-right: 5px;
+}
+.ver-mid{
+  vertical-align: middle;
 }
 //bootstrap forms
 /* Start writing sass here */
