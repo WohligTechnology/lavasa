@@ -56,6 +56,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
+        $scope.tab = 'player';
+     $scope.classa = 'active-list';
+     $scope.classb = '';
+     $scope.classc = '';
+
+     $scope.tabchange = function(tab, a) {
+         //        console.log(tab);
+         $scope.tab = tab;
+         if (a == 1) {
+
+             $scope.classa = "active-list";
+             $scope.classb = '';
+             $scope.classc = '';
+         } else if (a == 2){
+
+             $scope.classa = '';
+             $scope.classb = "active-list";
+             $scope.classc = "";
+         }
+          else {
+
+             $scope.classa = '';
+             $scope.classb = '';
+             $scope.classc = "active-list";
+         }
+     };
+
         $scope.games = [{
             icon: "img/sf-icon.png",
             icon2: "img/sf-icon-big.png",
@@ -134,7 +161,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           name: "Harshit Shah",
           id: "45211"
         }];
+        $scope.video = [{
+            icon: "img/m1.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
 
+        }, {
+          icon: "img/m2.jpg",
+          name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+        }, {
+          icon: "img/m3.jpg",
+          name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+        }, {
+          icon: "img/m2.jpg",
+          name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+        }, {
+          icon: "img/m1.jpg",
+          name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+        }, {
+          icon: "img/m3.jpg",
+          name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+        }];
     })
     .controller('StudentsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file

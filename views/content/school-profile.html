@@ -142,7 +142,7 @@
             </div>
         </div>
         <hr>
-        <div class="row mt40">
+        <!-- <div class="row mt40">
             <div class="col-md-12 ">
                 <div class=" text-center">
                     <h3 class="font-semi color-blue margin0">CONTINGENT</h3>
@@ -166,8 +166,8 @@
                 </div>
             </div>
 
-        </div>
-        <div class="row">
+        </div> -->
+        <!-- <div class="row">
             <div class="col-md-3 mt15" ng-repeat="data in student track by $index">
                 <a href="">
                     <div class="school-sec">
@@ -187,6 +187,163 @@
                     </div>
                 </a>
             </div>
-        </div>
+        </div> -->
     </div>
+    <section>
+      <div class="container">
+    <div class="row">
+            <div class="text-center">
+                <div class="tab-list sf-list text-up">
+                    <ul class="padding0">
+                        <li ><a href="" ng-click="tabchange('player',1)" class="{{classa}}">
+                player
+              </a></li>
+                        <li ><a href="" ng-click="tabchange('match',2)" class="{{classb}}">
+                match-videos
+              </a></li>
+                        <li ><a href="" ng-click="tabchange('statistics',3)" class="{{classc}}">
+                statistics
+              </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box-content">
+              <div class="player"  ng-show="tab=='player'">
+              <div class="row">
+                <div class="col-md-offset-2 col-md-3">
+                  <h4 class="text-up color-blue display-inline">Year</h4>
+                  <div class="display-inline">
+                      <div class="sfa-select">
+                          <select class="select" ng-model="filter.sport">
+                              <option value="">20016</option>
+                              <option value="2016">20016</option>
+                              <option value="2016">20016</option>
+                              <option value="2016">20016</option>
+                          </select>
+                          <span class="only-border"></span>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <h4 class="text-up color-blue display-inline">gender</h4>
+                  <div class="display-inline">
+                      <div class="sfa-select">
+                          <select class="select" ng-model="filter.sport">
+                              <option value="">ALL</option>
+                              <option value="2016">Male</option>
+                              <option value="2016">female</option>
+                              <!-- <option value="2016">ALL</option> -->
+                          </select>
+                          <span class="only-border"></span>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <h4 class="text-up color-blue display-inline">age group</h4>
+                  <div class="display-inline">
+                      <div class="sfa-select">
+                          <select class="select" ng-model="filter.sport">
+                              <option value="">ALL</option>
+                              <option value="2016">U-16</option>
+                              <option value="2016">U-19</option>
+                              <option value="2016">U-21</option>
+                          </select>
+                          <span class="only-border"></span>
+                      </div>
+                  </div>
+                </div>
+              </div>
+             <div class="row mt25">
+                  <div class="col-md-3 mt15" ng-repeat="data in student track by $index">
+                      <a href="">
+                          <div class="school-sec">
+                            <img src="img/sf-cl.png" alt="" class="mt-min-18">
+                              <div class="stu-img text-center sf-relative">
+                                  <img ng-src="{{data.icon}}" alt="">
+                                  <div class="sigh-pro sf-absulate">
+                                      <img src="img/sf-right.png" alt="">
+                                  </div>
+                              </div>
+                              <div class="stu-name text-center">
+                                  <h4 class="color-orange text-up font-semi">{{data.name}}</h4>
+                              </div>
+                              <div class="stu-id text-center">
+                                  <h4 class="color-blue">SFA ID: {{data.id}}</h4>
+                              </div>
+                          </div>
+                      </a>
+                  </div>
+              </div>
+              </div>
+              <div class="match-video" ng-show="tab=='match'">
+                <div class="row">
+                  <div class="col-md-offset-2 col-md-3">
+                    <h4 class="text-up color-blue display-inline">Year</h4>
+                    <div class="display-inline">
+                        <div class="sfa-select">
+                            <select class="select" ng-model="filter.sport">
+                                <option value="">20016</option>
+                                <option value="2016">20016</option>
+                                <option value="2016">20016</option>
+                                <option value="2016">20016</option>
+                            </select>
+                            <span class="only-border"></span>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <h4 class="text-up color-blue display-inline">gender</h4>
+                    <div class="display-inline">
+                        <div class="sfa-select">
+                            <select class="select" ng-model="filter.sport">
+                                <option value="">ALL</option>
+                                <option value="2016">Male</option>
+                                <option value="2016">female</option>
+                                <!-- <option value="2016">ALL</option> -->
+                            </select>
+                            <span class="only-border"></span>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <h4 class="text-up color-blue display-inline">age group</h4>
+                    <div class="display-inline">
+                        <div class="sfa-select">
+                            <select class="select" ng-model="filter.sport">
+                                <option value="">ALL</option>
+                                <option value="2016">U-16</option>
+                                <option value="2016">U-19</option>
+                                <option value="2016">U-21</option>
+                            </select>
+                            <span class="only-border"></span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt25">
+                  <div class="col-md-4 mt15" ng-repeat="data in video track by $index">
+                    <div class="videow-box">
+                      <div class="video-img">
+                        <img ng-src="{{data.icon}}" alt="" class="img-responsive width100">
+                      </div>
+                      <div class="video-name">
+                        <h4 class="text-up color-blue font-semi">{{data.name}}</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+          </div>
+        <!-- <div class="row" >
+          asd
+        </div>
+        <div class="row" ng-show="tab=='match'">
+          asdsad
+        </div>
+        <div class="row" ng-show="tab=='statistics'">
+          qwerty
+        </div> -->
+    </section>
 </section>
