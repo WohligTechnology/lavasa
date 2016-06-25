@@ -604,6 +604,28 @@ padding: 15px 0px;
 .ver-mid{
   vertical-align: middle;
 }
+.table{
+  .bg-table{
+    background-color: $brand-primary;
+    th{
+      border-bottom: none !important;
+      text-align: center;
+    }
+  }
+  tbody{
+    tr{
+      background-color: #e1e1e1;
+      td{
+        text-align: center;
+            vertical-align: middle;
+      }
+    }
+  }
+}
+.box-content {
+    background-color: #f4f4f4;
+    padding: 25px 30px 25px 30px;
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
