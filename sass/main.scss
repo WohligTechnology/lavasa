@@ -124,7 +124,7 @@ a{
   color:$brand-primary;
 }
 .color-orange{
-  color:$brand-success;
+  color:$brand-success !important;
 }
 .color-white{
   color:$white;
@@ -389,6 +389,15 @@ border: 1px solid #fff;
 border-radius: 2px;
 padding: 3px 6px;
 }
+.total-count{
+  @extend .total;
+    color: $brand-primary;
+border: 1px solid $brand-primary;
+
+}
+.pl0{
+  padding-left: 0px !important;
+}
 .stu-data {
   margin-left: 15px;
 }
@@ -640,6 +649,42 @@ padding: 15px 0px;
 }
 .box-margin{
   margin: 0px 80px;
+}
+
+.tables{
+border: 1px solid #000;
+  tr{
+    text-transform: uppercase;
+    font-size: 16px;
+    td{
+      padding:15px 25px;
+          border-top: 1px solid #000;
+          color:$brand-primary;
+      &:first-child{
+        background-color: #102983;
+    color: #fff;
+    border-bottom: 1px solid #4c4c4c;
+
+      }
+      &:last-child{
+        border-left: 1px solid #000;
+      }
+    }
+    th{
+        padding:15px 25px;
+        text-transform: uppercase;
+        font-size: 16px;
+      &:first-child{
+        background-color: #102983;
+    color: #fff;
+      font-weight: 300;
+          border-bottom: 1px solid #4c4c4c;
+      }
+      &:last-child{
+        border-left: 1px solid #000;
+      }
+    }
+  }
 }
 //bootstrap forms
 /* Start writing sass here */
