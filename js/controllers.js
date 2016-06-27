@@ -17,72 +17,86 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
         ];
     })
-.controller('SchoolBioCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    .controller('SchoolBioCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
         //Used to name the .html file
 
-        console.log("Testing Consoles");
 
         $scope.template = TemplateService.changecontent("school-bio");
         $scope.menutitle = NavigationService.makeactive("School-Bio");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
- $scope.oneAtATime = true;
+        $scope.open = function (size) {
 
-                $scope.tab = 'about';
-             $scope.classa = 'active-list';
-             $scope.classb = '';
-             $scope.classc = '';
-             $scope.classd = '';
+  var modalInstance = $uibModal.open({
+    animation: $scope.animationsEnabled,
+    templateUrl: 'views/modal/sports.html',
+    controller: 'SchoolBioCtrl',
+    size: size,
+    resolve: {
+      items: function () {
+        return $scope.items;
+      }
+    }
+  });
+}
 
-             $scope.tabchange = function(tab, a) {
-                 //        console.log(tab);
-                 $scope.tab = tab;
-                 if (a == 1) {
 
-                     $scope.classa = "active-list";
-                     $scope.classb = '';
-                     $scope.classc = '';
-                     $scope.classd = '';
-                 } else if (a == 2){
+        $scope.oneAtATime = true;
 
-                     $scope.classa = '';
-                     $scope.classb = "active-list";
-                     $scope.classc = "";
-                     $scope.classd = "";
+        $scope.tab = 'about';
+        $scope.classa = 'active-list';
+        $scope.classb = '';
+        $scope.classc = '';
+        $scope.classd = '';
 
-                 } else if (a == 3){
+        $scope.tabchange = function(tab, a) {
+            //        console.log(tab);
+            $scope.tab = tab;
+            if (a == 1) {
 
-                     $scope.classa = '';
-                     $scope.classc = "active-list";
-                     $scope.classb = "";
-                     $scope.classd = "";
-                 }
-                  else {
+                $scope.classa = "active-list";
+                $scope.classb = '';
+                $scope.classc = '';
+                $scope.classd = '';
+            } else if (a == 2) {
 
-                     $scope.classa = '';
-                     $scope.classb = '';
-                     $scope.classd = "active-list";
-                     $scope.classc = "";
-                 }
-             };
-             $scope.student = [{
-                 icon: "img/sf-student-profile.png",
-                 name: "Harshit Shah",
-                 dep: "sports head"
-             }, {
-               icon: "img/sf-student-profile.png",
-               name: "Harshit Shah",
-               dep: "sports head"
-             }, {
-               icon: "img/sf-student-profile.png",
-               name: "Harshit Shah",
-                dep: "sports head"
-             }, {
-               icon: "img/sf-student-profile.png",
-               name: "Harshit Shah",
-               dep: "sports head"
-             }];
+                $scope.classa = '';
+                $scope.classb = "active-list";
+                $scope.classc = "";
+                $scope.classd = "";
+
+            } else if (a == 3) {
+
+                $scope.classa = '';
+                $scope.classc = "active-list";
+                $scope.classb = "";
+                $scope.classd = "";
+            } else {
+
+                $scope.classa = '';
+                $scope.classb = '';
+                $scope.classd = "active-list";
+                $scope.classc = "";
+            }
+        };
+        $scope.student = [{
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "sports head"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "sports head"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "sports head"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "sports head"
+        }];
     })
     .controller('SchoolCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
@@ -124,71 +138,70 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
         $scope.tab = 'player';
-     $scope.classa = 'active-list';
-     $scope.classb = '';
-     $scope.classc = '';
+        $scope.classa = 'active-list';
+        $scope.classb = '';
+        $scope.classc = '';
 
-     $scope.tabchange = function(tab, a) {
-         //        console.log(tab);
-         $scope.tab = tab;
-         if (a == 1) {
+        $scope.tabchange = function(tab, a) {
+            //        console.log(tab);
+            $scope.tab = tab;
+            if (a == 1) {
 
-             $scope.classa = "active-list";
-             $scope.classb = '';
-             $scope.classc = '';
-         } else if (a == 2){
+                $scope.classa = "active-list";
+                $scope.classb = '';
+                $scope.classc = '';
+            } else if (a == 2) {
 
-             $scope.classa = '';
-             $scope.classb = "active-list";
-             $scope.classc = "";
-         }
-          else {
+                $scope.classa = '';
+                $scope.classb = "active-list";
+                $scope.classc = "";
+            } else {
 
-             $scope.classa = '';
-             $scope.classb = '';
-             $scope.classc = "active-list";
-         }
-     };
+                $scope.classa = '';
+                $scope.classb = '';
+                $scope.classc = "active-list";
+            }
+        };
 
         $scope.games = [{
             icon: "img/sf-icon.png",
             icon2: "img/sf-icon-big.png",
             name: "Table Tennis"
         }, {
-          icon: "img/sf-icon.png",
-          icon2: "img/sf-icon-big.png",
+            icon: "img/sf-icon.png",
+            icon2: "img/sf-icon-big.png",
             name: "Table Tennis"
         }, {
-          icon: "img/sf-icon.png",
-          icon2: "img/sf-icon-big.png",
+            icon: "img/sf-icon.png",
+            icon2: "img/sf-icon-big.png",
             name: "Table Tennis"
         }, {
-          icon: "img/sf-icon.png",
-          icon2: "img/sf-icon-big.png",
+            icon: "img/sf-icon.png",
+            icon2: "img/sf-icon-big.png",
             name: "Table Tennis"
         }, {
-          icon: "img/sf-icon.png",
-          icon2: "img/sf-icon-big.png",
+            icon: "img/sf-icon.png",
+            icon2: "img/sf-icon-big.png",
             name: "Table Tennis"
         }, {
-          icon: "img/sf-icon.png",
-          icon2: "img/sf-icon-big.png",
+            icon: "img/sf-icon.png",
+            icon2: "img/sf-icon-big.png",
             name: "Table Tennis"
         }, {
-          icon: "img/sf-icon.png",
-          icon2: "img/sf-icon-big.png",
+            icon: "img/sf-icon.png",
+            icon2: "img/sf-icon-big.png",
             name: "Table Tennis"
         }, {
-          icon: "img/sf-icon.png",
-          icon2: "img/sf-icon-big.png",
+            icon: "img/sf-icon.png",
+            icon2: "img/sf-icon-big.png",
             name: "Table Tennis"
         }, {
-          icon: "img/sf-icon.png",
-          icon2: "img/sf-icon-big.png",
+            icon: "img/sf-icon.png",
+            icon2: "img/sf-icon-big.png",
             name: "Table Tennis"
         }, {
-          icon: "img/sf-icon.png",
-          icon2: "img/sf-icon-big.png",
+            icon: "img/sf-icon.png",
+            icon2: "img/sf-icon-big.png",
             name: "Table Tennis"
         }];
         $scope.student = [{
@@ -196,57 +209,57 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             name: "Harshit Shah",
             id: "45211"
         }, {
-          icon: "img/sf-student-profile.png",
-          name: "Harshit Shah",
-          id: "45211"
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            id: "45211"
         }, {
-          icon: "img/sf-student-profile.png",
-          name: "Harshit Shah",
-          id: "45211"
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            id: "45211"
         }, {
-          icon: "img/sf-student-profile.png",
-          name: "Harshit Shah",
-          id: "45211"
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            id: "45211"
         }, {
-          icon: "img/sf-student-profile.png",
-          name: "Harshit Shah",
-          id: "45211"
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            id: "45211"
         }, {
-          icon: "img/sf-student-profile.png",
-          name: "Harshit Shah",
-          id: "45211"
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            id: "45211"
         }, {
-          icon: "img/sf-student-profile.png",
-          name: "Harshit Shah",
-          id: "45211"
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            id: "45211"
         }, {
-          icon: "img/sf-student-profile.png",
-          name: "Harshit Shah",
-          id: "45211"
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            id: "45211"
         }, {
-          icon: "img/sf-student-profile.png",
-          name: "Harshit Shah",
-          id: "45211"
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            id: "45211"
         }];
         $scope.video = [{
             icon: "img/m1.jpg",
             name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
 
         }, {
-          icon: "img/m2.jpg",
-          name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+            icon: "img/m2.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
         }, {
-          icon: "img/m3.jpg",
-          name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+            icon: "img/m3.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
         }, {
-          icon: "img/m2.jpg",
-          name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+            icon: "img/m2.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
         }, {
-          icon: "img/m1.jpg",
-          name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+            icon: "img/m1.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
         }, {
-          icon: "img/m3.jpg",
-          name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+            icon: "img/m3.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
         }];
     })
     .controller('StudentsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
