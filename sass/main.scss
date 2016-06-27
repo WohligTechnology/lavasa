@@ -234,7 +234,6 @@ border-radius: 6px;
     background: #ebebeb;
     border-radius: 12px;
     border: 2px solid #afafaf;
-    border: 2px solid #afafaf;
 padding: 17px 0px 16px 0px;
 }
 .school-sec{
@@ -625,6 +624,22 @@ padding: 15px 0px;
 .box-content {
     background-color: #f4f4f4;
     padding: 25px 30px 25px 30px;
+}
+.school-about{
+  span{
+    color:$brand-primary;
+    width: 100px;
+    display: inline-block;
+  }
+  p{
+    color:$base;
+  }
+}
+.margin15{
+      margin: 10px 30px;
+}
+.box-margin{
+  margin: 0px 80px;
 }
 //bootstrap forms
 /* Start writing sass here */

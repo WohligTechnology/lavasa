@@ -112,3 +112,74 @@
     </div>
     </div>
 </section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+          <h3 class="color-blue text-up font-semi">school bio</h3>
+      </div>
+      <div class="text-center mt25">
+          <div class="tab-list sf-list text-up">
+              <ul class="padding0 margin0">
+                  <li><a href="" ng-click="tabchange('about',1)" class="{{classa}}">
+      about school
+    </a></li>
+                  <li><a href="" ng-click="tabchange('record',2)" class="{{classb}}">
+      sfa track record
+    </a></li>
+                  <li><a href="" ng-click="tabchange('gallery',3)" class="{{classc}}">
+      gallery
+    </a></li>
+                  <li><a href="" ng-click="tabchange('blog',4)" class="{{classd}}">
+      school’s blog
+    </a></li>
+              </ul>
+          </div>
+      </div>
+      <div class="box-content">
+            <div class="about-school" ng-show="tab=='about'">
+            <div class="row">
+              <div class="col-md-offset-1 col-md-10">
+                <div class="school-about text-up font-semi f16 mt40">
+                  <p><span >Name:</span>dhirubhai ambani intertional schoo</p>
+                  <p><span>sfa id:</span>28736</p>
+                  <p><span>Address:</span>13th floor, pancharatna towers, charni road, mumbai.</p>
+                  <p><span>board:</span>gcse (intertional board)</p>
+                  <p><span>status:</span>verified</p>
+                  <p><span>c. l. 2016:</span>manav mehta</p>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="text-center">
+                    <h3 class="color-blue text-up font-semi">sports department</h3>
+              </div>
+<div class="box-margin">
+
+
+              <div class="col-md-6" ng-repeat="data in student track by $index">
+                <div class="row mt15 school-boxs margin15">
+                  <a href=""><div class="">
+                  <div class="col-md-6">
+                    <div class="student-pro-img text-center">
+                      <img ng-src="{{data.icon}}" alt="" class="img-responsive margin-auto">
+                    </div>
+                  </div>
+                  <div class="col-md-6 text-center">
+                    <div class="student-pro-data text-up mt40">
+                      <h4 class="color-orange font-semi">{{data.name}}</h4>
+                      <h4 class="color-blue">{{data.dep}}</h4>
+                    </div>
+                  </div>
+                  </div>
+                  </a>
+                </div>
+              </div>
+</div>
+            </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</section>

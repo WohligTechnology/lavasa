@@ -27,6 +27,62 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
+
+
+                $scope.tab = 'about';
+             $scope.classa = 'active-list';
+             $scope.classb = '';
+             $scope.classc = '';
+             $scope.classd = '';
+
+             $scope.tabchange = function(tab, a) {
+                 //        console.log(tab);
+                 $scope.tab = tab;
+                 if (a == 1) {
+
+                     $scope.classa = "active-list";
+                     $scope.classb = '';
+                     $scope.classc = '';
+                     $scope.classd = '';
+                 } else if (a == 2){
+
+                     $scope.classa = '';
+                     $scope.classb = "active-list";
+                     $scope.classc = "";
+                     $scope.classd = "";
+
+                 } else if (a == 3){
+
+                     $scope.classa = '';
+                     $scope.classc = "active-list";
+                     $scope.classb = "";
+                     $scope.classd = "";
+                 }
+                  else {
+
+                     $scope.classa = '';
+                     $scope.classb = '';
+                     $scope.classd = "active-list";
+                     $scope.classc = "";
+                 }
+             };
+             $scope.student = [{
+                 icon: "img/sf-student-profile.png",
+                 name: "Harshit Shah",
+                 dep: "sports head"
+             }, {
+               icon: "img/sf-student-profile.png",
+               name: "Harshit Shah",
+               dep: "sports head"
+             }, {
+               icon: "img/sf-student-profile.png",
+               name: "Harshit Shah",
+                dep: "sports head"
+             }, {
+               icon: "img/sf-student-profile.png",
+               name: "Harshit Shah",
+               dep: "sports head"
+             }];
     })
     .controller('SchoolCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
