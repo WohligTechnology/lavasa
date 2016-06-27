@@ -686,6 +686,21 @@ border: 1px solid #000;
     }
   }
 }
+.record-table {
+    padding-bottom: 25px;
+}
+.accrordian{
+  .panel{
+    .panel-heading {
+    color: #ffffff;
+    background-color: #9d9d9d;
+    border-color: #9d9d9d;
+    border-top-right-radius: 0px;
+border-top-left-radius: 0px;
+padding: 15px;
+}
+  }
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";

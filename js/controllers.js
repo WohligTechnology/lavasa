@@ -27,7 +27,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
-
+ $scope.oneAtATime = true;
 
                 $scope.tab = 'about';
              $scope.classa = 'active-list';
