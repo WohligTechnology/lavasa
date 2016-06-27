@@ -738,6 +738,10 @@ border-bottom: 1px solid #ccc;
 .list-img{
   margin-right: 15px;
 }
+.hr-padding{
+      margin-top: -6px;
+          border-top: 1px solid #d3d3d3 !important;
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
