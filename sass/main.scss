@@ -742,6 +742,17 @@ border-bottom: 1px solid #ccc;
       margin-top: -6px;
           border-top: 1px solid #d3d3d3 !important;
 }
+.sf-share{
+  span{
+    i{
+      font-size: 20px;
+      color:#545454;
+    }
+  }
+}
+.mt20{
+  margin-top: 20px;
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
