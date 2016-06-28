@@ -815,6 +815,32 @@ padding: 8px 60px;
 .margin-bottom{
   margin-bottom: 40px;
 }
+.school-table{
+  table{
+    text-transform: uppercase;
+    border: 1px solid #000;
+    tr{
+      background:transparent;
+      th{
+        border: none;
+        text-align: center;
+        font-weight: 400;
+        padding: 15px 0px;
+        &:first-child{
+        color:$brand-primary;
+
+        }
+      }
+      td{
+        padding: 15px 0px;
+        border-top:1px solid #000;
+        &:first-child{
+        color:$brand-primary;
+      }
+    }
+  }
+}
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
