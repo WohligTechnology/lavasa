@@ -27,43 +27,45 @@
             <div class="col-md-offset-2 col-md-8 col-xs-12">
                 <div class="">
                     <div class="col-md-4 top-school" ng-repeat="data in school track by $index">
-                        <div class="school-box">
-                            <div class="box-header">
-                                <div class="school-img">
-                                    <img ng-src="{{data.img}}" alt="" class="margin-auto">
-                                    <div class="sigh-img">
-                                        <img src="img/sf-right.png" alt="">
-                                    </div>
-                                    <div class="rank">
-                                        <h3 class="text-up color-white margin0">{{data.rank}}</h3>
-                                    </div>
+                        <a ui-sref="school-profile">
+                            <div class="school-box">
+                                <div class="box-header">
+                                    <div class="school-img">
+                                        <img ng-src="{{data.img}}" alt="" class="margin-auto">
+                                        <div class="sigh-img">
+                                            <img src="img/sf-right.png" alt="">
+                                        </div>
+                                        <div class="rank">
+                                            <h3 class="text-up color-white margin0">{{data.rank}}</h3>
+                                        </div>
 
 
-                               <div class="school-name text-center">
-                                    <h4 class="color-orange font-semi">{{data.name}}</h4>
-                                </div>
-                              <div class="medal text-center">
-                                    <span class="text-up color-white text-center">Medals Won</span>
-                                    <div class="medal-count sf-list color-orange font-semi">
-                                        <ul class="padding0">
-                                            <li>
-                                                <img src="img/sf-gold.png" alt="">2
-                                            </li>
-                                            <li>
-                                                <img src="img/sf-silver.png" alt="">4
-                                            </li>
-                                            <li>
-                                                <img src="img/sf-bronze.png" alt="">5
-                                            </li>
-                                        </ul>
+                                        <div class="school-name text-center">
+                                            <h4 class="color-orange font-semi">{{data.name}}</h4>
+                                        </div>
+                                        <div class="medal text-center">
+                                            <span class="text-up color-white text-center">Medals Won</span>
+                                            <div class="medal-count sf-list color-orange font-semi">
+                                                <ul class="padding0">
+                                                    <li>
+                                                        <img src="img/sf-gold.png" alt="">2
+                                                    </li>
+                                                    <li>
+                                                        <img src="img/sf-silver.png" alt="">4
+                                                    </li>
+                                                    <li>
+                                                        <img src="img/sf-bronze.png" alt="">5
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                  </div>
+                                <div class="box-footer text-center">
+                                    <span class="text-up color-white font-semi">total point 26</span>
+                                </div>
                             </div>
-                            <div class="box-footer text-center">
-                                <span class="text-up color-white font-semi">total point 26</span>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -73,28 +75,29 @@
                 <h3 class="font-semi color-orange text-up">50 Search Results</h3>
             </div>
             <div class="col-md-offset-2 col-md-8 col-xs-12">
-            <div class="">
-                <div class="col-md-4 mt15" ng-repeat="data in school track by $index">
-                    <a ui-sref="school-profile"><div class="school-boxs">
-                        <div class="box-headers">
-                            <div class="school-imgs text-center sf-relative">
-                                <img src="img/sf-school-grey.png" alt="">
-                                <div class="sigh-imgs sf-absulate">
-                                    <img src="img/sf-right.png" alt="">
+                <div class="">
+                    <div class="col-md-4 mt15" ng-repeat="data in school track by $index">
+                        <a ui-sref="school-profile">
+                            <div class="school-boxs">
+                                <div class="box-headers">
+                                    <div class="school-imgs text-center sf-relative">
+                                        <img src="img/sf-school-grey.png" alt="">
+                                        <div class="sigh-imgs sf-absulate">
+                                            <img src="img/sf-right.png" alt="">
+                                        </div>
+                                    </div>
+
+                                    <div class="school-names text-center">
+                                        <h4 class="text-up font-semi color-orange">{{data.name}}</h4>
+                                    </div>
+
                                 </div>
+
                             </div>
-
-                            <div class="school-names text-center">
-                                <h4 class="text-up font-semi color-orange">{{data.name}}</h4>
-                            </div>
-
-                        </div>
-
+                        </a>
                     </div>
-                    </a>
                 </div>
             </div>
-          </div>
         </div>
     </div>
 </section>
