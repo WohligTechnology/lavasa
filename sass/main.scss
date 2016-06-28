@@ -768,7 +768,8 @@ img.fancybox-image {
 .bg-sport{
   background: url(../img/bg-sports.jpg)no-repeat #ebeaea;
   background-size: cover;
-      margin-top: -35px;
+      margin-top: -45px;
+      margin-bottom: -45px;
 }
 .data-box{
   text-align: left;
@@ -792,6 +793,18 @@ padding-left: 15px;
         text-transform: capitalize;
             border-top: 0px solid #ddd;
       }
+    }
+  }
+}
+.bottom-padding{
+  padding-bottom: 100px;
+}
+.download{
+  a{
+    padding-right: 15px;
+    &:hover{
+      text-decoration: underline;
+      color:$brand-primary;
     }
   }
 }
