@@ -743,6 +743,9 @@ hr {
 .mt20 {
     margin-top: 20px;
 }
+img.fancybox-image {
+  opacity: 1;
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";

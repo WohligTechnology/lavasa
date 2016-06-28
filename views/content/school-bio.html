@@ -465,7 +465,7 @@ match videos
                     </div>
                     <div class="row" ng-show="tabs=='photos'">
                         <div class="col-md-3 mt15" ng-repeat="data in photos track by $index">
-                            <a href=""><img ng-src="{{data}}" alt="" class="img-responsive width100"></a>
+                            <a href="{{data}}" fancybox-box><img ng-src="{{data}}" alt="" class="img-responsive width100"></a>
                         </div>
                     </div>
 
