@@ -629,6 +629,11 @@ hr {
     background-color: #f4f4f4;
     padding: 25px 30px;
 }
+.box-content-white {
+  @extend .box-content;
+    background-color: #fff;
+
+}
 .school-about {
     span {
         color: $brand-primary;
@@ -694,6 +699,18 @@ hr {
         }
     }
 }
+.accrodian-sec{
+  @extend .accrordian;
+  .panel{
+    border:none;
+    .panel-heading {
+        color: $brand-primary !important;
+        background-color: #dfdfdf !important;
+        border-color: #dfdfdf !important;
+    }
+  }
+
+}
 .text-underline {
     text-decoration: underline;
 }
@@ -747,6 +764,36 @@ hr {
 }
 img.fancybox-image {
   opacity: 1;
+}
+.bg-sport{
+  background: url(../img/bg-sports.jpg)no-repeat #ebeaea;
+  background-size: cover;
+      margin-top: -35px;
+}
+.data-box{
+  text-align: left;
+text-transform: capitalize;
+color: #353535;
+padding-left: 15px;
+
+}
+.box-table{
+  table{
+    tr{
+      background: transparent !important;
+      th{
+        background: $brand-primary;
+        color: $white;
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
+      }
+      td{
+        text-transform: capitalize;
+            border-top: 0px solid #ddd;
+      }
+    }
+  }
 }
 //bootstrap forms
 /* Start writing sass here */
