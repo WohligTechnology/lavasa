@@ -322,14 +322,16 @@
                         </div>
                         <div class="row mt25">
                             <div class="col-md-4 mt25" ng-repeat="data in video track by $index">
-                                <div class="videow-box">
-                                    <div class="video-img">
-                                        <img ng-src="{{data.icon}}" alt="" class="img-responsive width100">
+                                <a class="various fancybox.iframe" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
+                                    <div class="videow-box">
+                                        <div class="video-img">
+                                            <img ng-src="{{data.icon}}" alt="" class="img-responsive width100">
+                                        </div>
+                                        <div class="video-name">
+                                            <h4 class="text-up color-blue font-semi">{{data.name}}</h4>
+                                        </div>
                                     </div>
-                                    <div class="video-name">
-                                        <h4 class="text-up color-blue font-semi">{{data.name}}</h4>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -428,33 +430,34 @@
                                                 <td><span class="text-up">ROUND-ROBIN</span></td>
                                                 <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Soheb Shaikh</td>
                                                 <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
-                                                <p>Don Bosco School</p></td>
-                                                <td>
-                                                  <div class="table-data display-inline text-center text-up">
-                                                    <p>GAME 1</p>
-                                                    <p>5/11</p>
-                                                  </div>
-                                                  <div class="table-data display-inline text-center text-up">
-                                                    <p>GAME 3</p>
-                                                    <p>5/11</p>
-                                                  </div>
-                                                  <div class="table-data display-inline text-center text-up">
-                                                    <p>GAME 2</p>
-                                                    <p>5/11</p>
-                                                  </div>
+                                                    <p>Don Bosco School</p>
                                                 </td>
                                                 <td>
-                                                  <div class="text-center display-inline ver-mid ">
-                                                    <div class="replay-img ">
-                                                      <a href=""><img src="img/sf-play.png" alt=""></a>
+                                                    <div class="table-data display-inline text-center text-up">
+                                                        <p>GAME 1</p>
+                                                        <p>5/11</p>
                                                     </div>
-                                                    <div class="sf-play">
-                                                      <span>Replay</span>
+                                                    <div class="table-data display-inline text-center text-up">
+                                                        <p>GAME 3</p>
+                                                        <p>5/11</p>
                                                     </div>
-                                                  </div>
-                                                  <div class="display-inline stu-data">
-                                                    <a href=""><img src="img/sf-play-btn.png" alt=""></a>
-                                                  </div>
+                                                    <div class="table-data display-inline text-center text-up">
+                                                        <p>GAME 2</p>
+                                                        <p>5/11</p>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="text-center display-inline ver-mid ">
+                                                        <div class="replay-img ">
+                                                            <a href=""><img src="img/sf-play.png" alt=""></a>
+                                                        </div>
+                                                        <div class="sf-play">
+                                                            <span>Replay</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="display-inline stu-data">
+                                                        <a href=""><img src="img/sf-play-btn.png" alt=""></a>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         </tbody>
