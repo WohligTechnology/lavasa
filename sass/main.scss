@@ -570,6 +570,7 @@ hr {
         height: 36px;
         top: -2px;
         z-index: -1;
+        right:0;
     }
 }
 .mt-min-30 {
@@ -581,7 +582,7 @@ hr {
 .tab-list {
     ul {
         li {
-            padding: 15px 0;
+            padding: 15px 3px;
             a {
                 font-size: 18px;
                 background: #dcdbdb;
@@ -840,6 +841,9 @@ padding: 8px 60px;
     }
   }
 }
+}
+.other-bg{
+      background-color: #f4f4f4 !important;
 }
 //bootstrap forms
 /* Start writing sass here */
