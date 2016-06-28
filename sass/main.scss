@@ -232,6 +232,7 @@ a {
 }
 .school-sec {
     @extend .school-boxs;
+        min-height: 290px;
 }
 .rank {
     position: absolute;

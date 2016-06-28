@@ -13,14 +13,14 @@
                 </div>
                 <div class="mt15 text-center border-bottom">
                     <form class="">
-                        <input type="text" class="search-input" name="q" value="Type school name" ng-model="search.name">
+                        <input type="text" class="search-input" name="q" value="Type school name" ng-model="search">
                         <input type="image" value="Search" src="img/sfa-search.png" class="search-btn" ng-click="getSearchById(idSearch.search);">
                     </form>
                 </div>
             </div>
 
         </div>
-        <!-- <div class="row">
+        <div class="row" ng-show="!search">
             <div class="text-center mt40">
                 <h3 class="font-semi color-orange text-up">Top 20 schools</h3>
             </div>
@@ -67,8 +67,8 @@
                     </div>
                 </div>
             </div>
-        </div> -->
-        <div class="row ">
+        </div>
+        <div class="row" ng-show="search">
             <div class="text-center mt40">
                 <h3 class="font-semi color-orange text-up">50 Search Results</h3>
             </div>
