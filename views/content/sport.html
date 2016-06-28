@@ -34,6 +34,7 @@ sport’s bio
         <div class="row">
             <div class="col-md-12">
                 <div class="box-content-white">
+                  <div class="2016" ng-show="tab=='2016'">
                     <div class="text-center">
                         <h3 class="font-semi color-blue ">DATE:13<sup>th</sup> DECEMBER to 19<sup>th</sup> DECEMBER</h3>
                     </div>
@@ -241,6 +242,59 @@ sport’s bio
                             </div>
                         </div>
                     </div>
+                  </div>
+  <div class="2015" ng-show="tab=='2015'">
+    <div class="mt40">
+      <div class="sport-content color-base">
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+      </div>
+    </div>
+    <div class="mt20">
+      <div class="text-center">
+        <h3 class="color-blue font-semi text-up">analytics of sfa mumbai 2015</h3>
+      </div>
+    </div>
+    <hr>
+    <div class="mt40">
+      <div class="text-center">
+        <h3 class="color-blue font-semi text-up">results of sfa mumbai 2015</h3>
+      </div>
+      <div class="row mt40">
+        <div class="col-md-offset-4 col-md-2">
+          <div class="display-inline ">
+              <div class="sfa-select">
+                  <select class="select" ng-model="filter.sport">
+                      <option value="">Gender</option>
+                      <option value="2016">Male</option>
+                      <option value="2016">Female</option>
+
+                  </select>
+                  <span class="only-border"></span>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="display-inline">
+              <div class="sfa-select">
+                  <select class="select" ng-model="filter.sport">
+                      <option value="">Age Group</option>
+                      <option value="2016">u-16</option>
+                      <option value="2016">u-15</option>
+
+                  </select>
+                  <span class="only-border"></span>
+              </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="text-center mt40 margin-bottom">
+        <button type="button" name="button" class="btn-orange text-up get">get results</button>
+      </div>
+      <hr>
+    </div>
+  </div>
                 </div>
             </div>
         </div>
