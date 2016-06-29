@@ -325,6 +325,7 @@ a {
 .social-link {
     ul {
         li {
+          padding: 0px 3px;
             i {
                 color: #112697;
                 background: $other-blue;
@@ -437,6 +438,20 @@ a {
     border: 1px solid #fc7700;
     &:hover {
         @include button-variant($white, $brand-success, $brand-success);
+        border: 1px solid #fc7700;
+    }
+    &:focus{
+      outline: 0
+    }
+    &:active{
+      outline: 0
+    }
+}
+.btn-outline {
+    @include button-variant($brand-success, $white, $brand-success);
+    border: 1px solid #fc7700;
+    &:hover {
+        @include button-variant($brand-success, $white, $brand-success);
         border: 1px solid #fc7700;
     }
     &:focus{
@@ -844,6 +859,16 @@ padding: 8px 60px;
 }
 .other-bg{
       background-color: #f4f4f4 !important;
+}
+.center-cl{
+  text-align: left !important;
+padding-left: 30px !important;
+}
+.f18{
+  font-size: 18px;
+}
+.padding15{
+  padding: 5px 20px;
 }
 //bootstrap forms
 /* Start writing sass here */

@@ -19,7 +19,7 @@ sfa mumbai 2016
                                 <li><a href="" ng-click="tabchange('2015',2)" class="{{classb}}">
 sfa mumbai 2015
 </a></li>
-                                <li><a href="" ng-click="tabchange('gallery',3)" class="{{classc}}">
+                                <li><a href="" ng-click="tabchange('gallerys',3)" class="{{classc}}">
 gallery
 </a></li>
                                 <li><a href="" ng-click="tabchange('bio',4)" class="{{classd}}">
@@ -243,8 +243,8 @@ sport’s bio
                         </div>
                     </div>
                   </div>
-  <div class="2015" ng-show="tab=='2015'">
-    <div class="mt40">
+<div class="2015" ng-show="tab=='2015'">
+     <div class="mt40">
       <div class="sport-content color-base">
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
@@ -332,6 +332,101 @@ industry's standard dummy text ever since the 1500s, when an unknown printer too
       </div>
 
     </div>
+  </div>
+  <div class="gallery" ng-show="tab=='gallerys'">
+    <div class="row">
+      <div class="text-center">
+        <h4 class="text-up color-blue display-inline">Year</h4>
+        <div class="display-inline">
+            <div class="sfa-select">
+                <select class="select">
+                    <option value="All">All</option>
+                    <option value="2016">2016</option>
+                    <option value="2016">2016</option>
+                    <option value="2016">2016</option>
+                </select>
+                <span class="only-border"></span>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="text-center mt25">
+            <div class="tab-list sf-list text-up">
+                <ul class="padding0 margin0">
+                    <li><a href="" ng-click="tabchanges('photos',1)" class="{{classp}}">
+photos
+</a></li>
+                    <li><a href="" ng-click="tabchanges('videos',2)" class="{{classv}}">
+match videos
+</a></li>
+
+                </ul>
+            </div>
+            <hr class="hr-padding">
+        </div>
+    </div>
+    <div class="row" ng-show="tabs=='photos'">
+        <div class="col-md-3 mt15" ng-repeat="data in photos track by $index">
+            <a href="{{data}}" fancybox-box><img ng-src="{{data}}" alt="" class="img-responsive width100"></a>
+        </div>
+    </div>
+
+    <div class="row mt25" ng-show="tabs=='videos'">
+        <div class="col-md-4 mt25" ng-repeat="data in video track by $index">
+            <a class="various fancybox.iframe" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
+                <div class="videow-box">
+                    <div class="video-img">
+                        <img ng-src="{{data.icon}}" alt="" class="img-responsive width100">
+                    </div>
+                    <div class="video-name">
+                        <h4 class="text-up color-blue font-semi">{{data.name}}</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+  </div>
+  <div class="bio" ng-show="tab=='bio'">
+    <div class="text-center">
+      <h3 class="color-blue text-up font-semi">featured athletes</h3>
+    </div>
+    <div class="row mt25">
+        <div class="col-md-3 mt15" ng-repeat="data in student track by $index">
+            <a href="">
+                <div class="school-sec">
+                    <!-- <img src="img/sf-cl.png" alt="" class="mt-min-18"> -->
+                    <div class="stu-img text-center sf-relative">
+                        <img ng-src="{{data.icon}}" alt="">
+                        <!-- <div class="sigh-pro sf-absulate">
+                            <img src="img/sf-right.png" alt="">
+                        </div> -->
+                    </div>
+                    <div class="stu-name text-center">
+                        <h4 class="color-orange text-up font-semi">{{data.name}}</h4>
+                    </div>
+                    <div class="stu-id text-center">
+                        <h4 class="color-blue">SFA ID: {{data.dep}}</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <hr class="mt40">
+    <div class="row">
+      <div class="text-center">
+        <h3 class="color-blue text-up font-semi">about sport</h3>
+      </div>
+      <div class="data-box">
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+        </p>
+      </div>
+      <div class="text-center mt25">
+        <button type="button" name="button" class="btn-outline text-up f18 padding15">read more</button>
+      </div>
+    </div>
+    <hr class="mt40">
   </div>
                 </div>
             </div>
