@@ -398,8 +398,8 @@ display: block;
     margin-left: 15px;
 }
 .sf-school-logo {
-    width: 201px;
-    height: 201px;
+    width: 204px;
+    height: 204px;
     text-align: center;
     margin: 0 auto;
     overflow: hidden;
@@ -564,7 +564,7 @@ hr {
         border: none;
         text-transform: uppercase;
         font-size: 15px;
-        padding: 5px 40px 0 20px;
+        padding: 3px 40px 0 20px;
         width: 100%;
         background-color: transparent;
         outline: 0;
@@ -574,23 +574,23 @@ hr {
     &:after {
         font: normal normal normal 14px/1 FontAwesome;
         content: '\f0dd';
-        height: 36px;
-        width: 42px;
+        height: 30px;
+        width: 36px;
         background-color: #fc7700;
         color: white;
         position: absolute;
         top: -2px;
         right: -21px;
         text-align: center;
-        line-height: 25px;
-        font-size: 30px;
+        line-height: 22px;
+        font-size: 22px;
         z-index: -1;
     }
     .only-border {
         border: 1px solid #0a1a72;
         width: 100%;
         position: absolute;
-        height: 36px;
+        height: 30px;
         top: -2px;
         z-index: -1;
         right:0;
@@ -606,7 +606,7 @@ hr {
 .tab-list {
     ul {
         li {
-            padding: 15px 3px;
+            padding: 15px 3px 9px;
             a {
                 font-size: 18px;
                 background: #dcdbdb;
@@ -773,7 +773,7 @@ hr {
     margin-right: 15px;
 }
 .hr-padding {
-    margin-top: -6px;
+    margin-top: 0px;
     border-top: 1px solid #d3d3d3 !important;
 }
 .sf-share {
@@ -878,6 +878,19 @@ padding-left: 30px !important;
 }
 .padding15{
   padding: 5px 20px;
+}
+.table-data{
+  p{
+    margin: 0px 5px 10px;
+  }
+}
+.blog-footer {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+}
+.blog-share{
+  text-align: right;
 }
 //bootstrap forms
 /* Start writing sass here */

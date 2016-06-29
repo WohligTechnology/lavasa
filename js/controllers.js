@@ -134,7 +134,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         $scope.template = TemplateService.changecontent("school-bio");
-        $scope.menutitle = NavigationService.makeactive("School-Bio");
+        $scope.menutitle = NavigationService.makeactive("School Bio");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -297,7 +297,7 @@ $scope.tabchanges = function(tabs, a) {
     .controller('SchoolProfileCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("school-profile");
-        $scope.menutitle = NavigationService.makeactive("School-Profile");
+        $scope.menutitle = NavigationService.makeactive("School Profile");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
