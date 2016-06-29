@@ -433,6 +433,40 @@ $scope.tabchanges = function(tabs, a) {
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
+        $scope.student = [{
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }];
+
     })
 
 .controller('headerctrl', function($scope, TemplateService) {
