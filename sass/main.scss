@@ -449,10 +449,13 @@ a {
 }
 .btn-outline {
     @include button-variant($brand-success, $white, $brand-success);
-    border: 1px solid #fc7700;
+    border: 2px solid #fc7700;
+
     &:hover {
-        @include button-variant($brand-success, $white, $brand-success);
-        border: 1px solid #fc7700;
+      color: #fff;
+  background-color: #fc7700 !important;
+  border-color: #fc7700;
+        border: 2px solid #fc7700;
     }
     &:focus{
       outline: 0
