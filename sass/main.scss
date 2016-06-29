@@ -193,6 +193,9 @@ a {
     background-position: center;
     background-size: cover;
     border-radius: 6px;
+    display: block;
+height: 200px;
+min-height: 200px;
 }
 .school-box {
     background-color: #1d3fbc;
@@ -232,7 +235,8 @@ a {
 }
 .school-sec {
     @extend .school-boxs;
-        min-height: 290px;
+        min-height: 260px;
+        position: relative;
 }
 .rank {
     position: absolute;
@@ -249,8 +253,9 @@ a {
 }
 .box-footer {
     span {
-        margin: -10px 0 0;
-        font-size: 16px;
+      margin-top: 10px;
+font-size: 16px;
+display: block;
     }
 }
 .curve-footer {
@@ -595,7 +600,8 @@ hr {
     margin-top: -30px;
 }
 .mt-min-18 {
-    margin: -18px 0 0;
+  position: absolute;
+  top:0;
 }
 .tab-list {
     ul {
