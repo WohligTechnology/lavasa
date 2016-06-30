@@ -17,6 +17,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
         ];
     })
+.controller('StudentProfileCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        console.log("Testing Consoles");
+
+        $scope.template = TemplateService.changecontent("student-profile");
+        $scope.menutitle = NavigationService.makeactive("Student Profile");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
 .controller('SportCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         $scope.template = TemplateService.changecontent("sport");
         $scope.menutitle = NavigationService.makeactive("Sports");

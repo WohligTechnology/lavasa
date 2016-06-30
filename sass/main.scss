@@ -429,6 +429,18 @@ display: block;
         }
     }
 }
+.border-right-2{
+  padding: 0 15px;
+border-right: 1px solid #8097e8;
+line-height: 98%;
+min-height: 44px;
+&:last-child {
+    border: none;
+}
+&:first-child {
+    padding-left: 0;
+}
+}
 .custom-li {
     ul {
         list-style: none;
@@ -891,6 +903,18 @@ padding-left: 30px !important;
 }
 .blog-share{
   text-align: right;
+}
+.img-border{
+  border: 5px solid #fff;
+border-radius: 100%;
+}
+.second-border{
+  li{
+  border-right: 1px solid #8097e8;
+  &:last-child{
+    border: none;
+  }
+  }
 }
 //bootstrap forms
 /* Start writing sass here */
