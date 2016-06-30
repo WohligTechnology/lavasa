@@ -27,6 +27,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
+        $scope.games = // JavaScript Document
+    [{
+        "icon": "img/sf-icon.png",
+        "icon2": "img/sf-icon-big.png",
+        "url": "tabletennis",
+        "game": "table tennis"
+    }, {
+      "icon": "img/sf-icon.png",
+      "icon2": "img/sf-icon-big.png",
+        "url": "tennis",
+        "game": "tennis"
+    }, {
+      "icon": "img/sf-icon.png",
+      "icon2": "img/sf-icon-big.png",
+        "url": "badminton",
+        "game": "badminton"
+    }];
+
     })
 .controller('SportCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         $scope.template = TemplateService.changecontent("sport");

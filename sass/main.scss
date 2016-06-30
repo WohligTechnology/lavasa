@@ -916,6 +916,97 @@ border-radius: 100%;
   }
   }
 }
+.blue-cat {
+  ul {
+    display: block;
+    list-style: none;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+      margin: 0 auto;
+      padding: 0;
+      width: 114px;
+      img {
+        text-align: center;
+        margin: 0 auto;
+        width: 60px;
+        @include transition(all 300ms ease);
+      }
+      .bottom {
+        position: absolute;
+        top: 0;
+        text-align: center;
+      }
+      figcaption {
+        text-transform: uppercase;
+        padding-top: 10px;
+        color: $base;
+        font-weight: 600;
+        font-size: 13px;
+        @include transition(all 300ms ease);
+      }
+      .top {
+      opacity: 1;
+        @include transition(all 300ms ease);
+      }
+      .bottom {
+      opacity: 0;
+        @include transition(all 300ms ease);
+      }
+    }
+    li.grey {
+      // .filter(grayscale(1) brightness(1.5));
+      filter:gray;
+      filter:url( "data:image/svg+xml;utf8,&lt;svg xmlns=\'http://www.w3.org/2000/svg\'&gt;&lt;filter id=\'grayscale\'&gt;&lt;feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/&gt;&lt;/filter&gt;&lt;/svg&gt;#grayscale");
+      /* Firefox 10+, Firefox on Android */
+    }
+    li.active,
+    li.bigger {
+      cursor: pointer;
+      .top {
+        opacity: 0;
+      }
+      .bottom {
+        opacity: 1;
+        //                     width:100px !important;
+      }
+      figcaption {
+        color: $brand-primary;
+      }
+      img {
+        width: 86px;
+      }
+      figcaption {
+        font-size: 15px;
+      }
+    }
+  }
+  ul.reverse {
+    li {
+      figcaption {
+        color:$base;
+      }
+    }
+    li.active,
+    li.bigger {
+      figcaption {
+        color: $brand-success;
+      }
+    }
+  }
+  .blue-act {
+    color:$brand-primary;
+    font-size: 14px;
+  }
+  .orange-act {
+    color:$brand-success;
+    font-size: 14px;
+  }
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
