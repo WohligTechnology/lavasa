@@ -32,25 +32,25 @@
 
                                 </li>
                                 <li class="border-right-2">
-                                  <div class="">
-                                      <p class="text-up color-orange">SFA ID</p>
-                                      <p>45621</p>
-                                  </div>
+                                    <div class="">
+                                        <p class="text-up color-orange">SFA ID</p>
+                                        <p>45621</p>
+                                    </div>
                                 </li>
                                 <li class="border-right-2">
 
-                                  <div class="">
-                                      <p class="text-up color-orange">Date of Birth</p>
-                                      <p class="text-up">AUG 06, 2002 </p>
-                                  </div>
+                                    <div class="">
+                                        <p class="text-up color-orange">Date of Birth</p>
+                                        <p class="text-up">AUG 06, 2002 </p>
+                                    </div>
 
                                 </li>
                                 <li class="border-right-2">
 
-                                  <div class="">
-                                      <p class="text-up color-orange">gender</p>
-                                      <p class="text-up">male</p>
-                                  </div>
+                                    <div class="">
+                                        <p class="text-up color-orange">gender</p>
+                                        <p class="text-up">male</p>
+                                    </div>
 
                                 </li>
                             </ul>
@@ -110,15 +110,57 @@
         <div class="row">
             <div class="text-center">
                 <h4 class="color-blue text-up font-semi">sports participated</h4>
-                <div class="sf-relative">
-                  <div class="sport-icon-list sf-list blue-cat">
-                    <ul>
-              <hovericon game="game" ng-repeat="game in games" ng-click="makeactive(game);"></hovericon>
-          </ul>
-                  </div>
+                <div class="sf-relative mt15">
+                    <div class="sport-icon-list sf-list blue-cat">
+                        <ul>
+                            <hovericon game="game" ng-repeat="game in games" ng-click="makeactive(game);"></hovericon>
+                        </ul>
+                    </div>
                 </div>
             </div>
-          </div>
+
 
         </div>
-      </section>
+        <div class="box-content">
+            <div class="row">
+                <div class="col-md-12 mt15">
+                    <div class="text-center">
+                        <h3 class="color-orange font-semi text-up">statistics</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt25">
+                <div class="col-md-offset-3 col-md-3">
+                    <h4 class="text-up color-blue display-inline">Year</h4>
+                    <div class="display-inline">
+                        <div class="sfa-select">
+                            <select class="select">
+                                <option value="2016">2016</option>
+                                <option value="2016">2016</option>
+                                <option value="2016">2016</option>
+                                <option value="2016">2016</option>
+                            </select>
+                            <span class="only-border"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <h4 class="text-up color-blue display-inline">Category</h4>
+                    <div class="display-inline">
+                        <div class="sfa-select">
+                            <select class="select">
+                                <option value="ALL">ALL</option>
+                                <option value="U-16">U-16</option>
+                                <option value="U-19">U-19</option>
+                                <option value="U-21">U-21</option>
+                            </select>
+                            <span class="only-border"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

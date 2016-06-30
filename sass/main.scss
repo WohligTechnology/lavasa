@@ -934,7 +934,7 @@ border-radius: 100%;
         text-align: center;
         margin: 0 auto;
         width: 60px;
-        @include transition(all 300ms ease);
+        @include transition(all 1s ease);
       }
       .bottom {
         position: absolute;
@@ -947,15 +947,15 @@ border-radius: 100%;
         color: $base;
         font-weight: 600;
         font-size: 13px;
-        @include transition(all 300ms ease);
+        @include transition(all 1s ease);
       }
       .top {
       opacity: 1;
-        @include transition(all 300ms ease);
+        @include transition(all 1s ease);
       }
       .bottom {
       opacity: 0;
-        @include transition(all 300ms ease);
+        @include transition(all 1s ease);
       }
     }
     li.grey {
