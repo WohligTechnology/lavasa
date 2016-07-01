@@ -27,6 +27,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
+        $scope.tabs = 'photos';
+        $scope.classp = 'active-list';
+        $scope.classv= '';
+
+
+        $scope.tabchanges = function(tabs, a) {
+            //        console.log(tab);
+            $scope.tabs = tabs;
+            if (a == 1) {
+
+                $scope.classp = "active-list";
+                $scope.classv = '';
+
+            } else {
+
+                $scope.classp = '';
+                $scope.classv = "active-list";
+            }
+        };
+
         $scope.tab = 'record';
         $scope.classa = 'active-list';
         $scope.classb = '';
@@ -71,6 +91,36 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         "game": "badminton"
     }];
 
+
+            $scope.photos = [
+                'img/m1.jpg',
+                'img/m2.jpg',
+                'img/m3.jpg',
+                'img/m1.jpg',
+                'img/m2.jpg',
+                'img/m3.jpg'
+
+            ];
+            $scope.video = [{
+                icon: "img/m1.jpg",
+                name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+
+            }, {
+                icon: "img/m2.jpg",
+                name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+            }, {
+                icon: "img/m3.jpg",
+                name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+            }, {
+                icon: "img/m2.jpg",
+                name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+            }, {
+                icon: "img/m1.jpg",
+                name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+            }, {
+                icon: "img/m3.jpg",
+                name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+            }];
     })
 .controller('SportCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         $scope.template = TemplateService.changecontent("sport");
