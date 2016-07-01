@@ -121,11 +121,30 @@
 
 
         </div>
+        <div class="row mt25">
+            <div class="col-md-12">
+                <div class="text-center">
+                    <div class="tab-list sf-list text-up">
+                        <ul class="padding0 margin0">
+                            <li><a href="" ng-click="tabchange('record',1)" class="{{classa}}">
+sfa track record
+</a></li>
+                            <li><a href="" ng-click="tabchange('gallery',2)" class="{{classb}}">
+gallery
+</a></li>
+                            <li><a href="" ng-click="tabchange('blog',3)" class="{{classc}}">
+student’s blog
+</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="box-content">
-            <div class="row">
-                <div class="col-md-12 mt15">
+            <!-- <div class="row">
+                <div class="col-md-12">
                     <div class="text-center">
-                        <h3 class="color-orange font-semi text-up">statistics</h3>
+                        <h3 class="color-orange font-semi text-up margin0">statistics</h3>
                     </div>
                 </div>
             </div>
@@ -175,9 +194,7 @@
                                     <th>
                                         <span>ROUND</span>
                                     </th>
-                                    <!-- <th>
-                                        <span>STUDENT NAME</span>
-                                    </th> -->
+
                                     <th>
                                         <span>OPPONENT NAME</span>
                                     </th>
@@ -190,25 +207,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr style="background:transparent;">
                                     <td><span>2016</span></td>
                                     <td><span class="text-up">U-10 <br> GIRLS  <br>SINGLES</span></td>
-                                    <!-- <td><span class="text-up">ROUND-ROBIN</span></td> -->
+
                                     <td class="text-up">Soheb Shaikh</td>
                                     <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
                                         <p>Don Bosco School</p>
                                     </td>
                                     <td>
                                         <div class="table-data display-inline text-center text-up">
-                                            <!-- <p>GAME 1</p> -->
+
                                             <p>5/11</p>
                                         </div>
                                         <div class="table-data display-inline text-center text-up">
-                                            <!-- <p>GAME 3</p> -->
+
                                             <p>5/11</p>
                                         </div>
                                         <div class="table-data display-inline text-center text-up">
-                                            <!-- <p>GAME 2</p> -->
+
                                             <p>5/11</p>
                                         </div>
                                     </td>
@@ -222,30 +239,28 @@
                                             </div>
 
                                         </div>
-                                        <!-- <div class="display-inline stu-data">
-                                            <a href=""><img src="img/sf-play-btn.png" alt=""></a>
-                                        </div> -->
+
                                     </td>
                                 </tr>
                                 <tr class="other-bg">
                                     <td><span>2016</span></td>
                                     <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
-                                    <!-- <td><span class="text-up">ROUND-ROBIN</span></td> -->
+
                                     <td class="text-up">Soheb Shaikh</td>
                                     <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
                                         <p>Don Bosco School</p>
                                     </td>
                                     <td>
                                         <div class="table-data display-inline text-center text-up">
-                                            <!-- <p>GAME 1</p> -->
+
                                             <p>5/11</p>
                                         </div>
                                         <div class="table-data display-inline text-center text-up">
-                                            <!-- <p>GAME 3</p> -->
+
                                             <p>5/11</p>
                                         </div>
                                         <div class="table-data display-inline text-center text-up">
-                                            <!-- <p>GAME 2</p> -->
+
                                             <p>5/11</p>
                                         </div>
                                     </td>
@@ -259,30 +274,28 @@
                                             </div>
 
                                         </div>
-                                        <!-- <div class="display-inline stu-data">
-                                            <a href=""><img src="img/sf-play-btn.png" alt=""></a>
-                                        </div> -->
+
                                     </td>
                                 </tr>
                                 <tr class="other-bg">
                                     <td><span>2016</span></td>
                                     <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
-                                    <!-- <td><span class="text-up">ROUND-ROBIN</span></td> -->
+
                                     <td class="text-up">Soheb Shaikh</td>
                                     <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
                                         <p>Don Bosco School</p>
                                     </td>
                                     <td>
                                         <div class="table-data display-inline text-center text-up">
-                                            <!-- <p>GAME 1</p> -->
+
                                             <p>5/11</p>
                                         </div>
                                         <div class="table-data display-inline text-center text-up">
-                                            <!-- <p>GAME 3</p> -->
+
                                             <p>5/11</p>
                                         </div>
                                         <div class="table-data display-inline text-center text-up">
-                                            <!-- <p>GAME 2</p> -->
+
                                             <p>5/11</p>
                                         </div>
                                     </td>
@@ -296,15 +309,124 @@
                                             </div>
 
                                         </div>
-                                        <!-- <div class="display-inline stu-data">
-                                            <a href=""><img src="img/sf-play-btn.png" alt=""></a>
-                                        </div> -->
+
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
+            </div> -->
+            <div class="record" ng-show="tab=='record'">
+            <div class="row mt25">
+                <div class="col-md-12 text-center">
+                    <h4 class="text-up color-blue display-inline">Year</h4>
+                    <div class="display-inline">
+                        <div class="sfa-select">
+                            <select class="select">
+                                <option value="2016">2016</option>
+                                <option value="2016">2016</option>
+                                <option value="2016">2016</option>
+                                <option value="2016">2016</option>
+                            </select>
+                            <span class="only-border"></span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+              <div class="col-md-offset-1 col-md-10">
+                  <div class="sport-slider mt40 bg-none">
+                      <flex-slider class="carousel" flex-slide="slide in games track by $index" animation="slide">
+                          <li>
+                            <div class="record-table">
+                                <table class="tables text-up margin-auto">
+                                    <thead class="text-set-cap">
+                                        <tr>
+                                            <th>
+                                                sports
+                                            </th>
+                                            <th class="color-orange">
+                                                table tennis
+                                            </th>
+                                            <th class="color-orange">
+                                                aquatics
+                                            </th>
+
+                                            <th class="color-orange">
+                                                basketball
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-set-cap">
+
+
+                                        <tr>
+                                            <td>
+                                                school
+                                            </td>
+                                            <td>
+                                                Dhirubhai Ambani
+Intertional School
+                                            </td>
+                                            <td>
+                                                Jamnabai Narsee School
+                                            </td>
+                                            <td>
+                                              Shishuranjan School
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            age group
+                                            </td>
+                                            <td>
+                                              U- 12
+                                            </td>
+                                            <td>
+                                                U- 12
+                                            </td>
+                                            <td>
+                                              U- 12
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                              category
+                                            </td>
+                                            <td>
+                                              Doubles
+                                            </td>
+                                            <td>
+                                              <span>50 m Butterfly<br>200 m Individual Medley<br>100 m Breaststroke</span>
+                                            </td>
+                                            <td>
+                                              Doubles
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                result
+                                            </td>
+                                            <td>
+                                              2<sup>nd</sup>
+                                            </td>
+                                            <td>
+                                    <span>1 <sup>st</sup> - in 50 m Butterfly<br>5 <sup>th</sup> - 200 m Individual Medley<br> 2 <sup>nd</sup> - 100 m Breaststroke</span>
+                                            </td>
+                                            <td>No show</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                          </li>
+                      </flex-slider>
+                  </div>
+              </div>
+            </div>
             </div>
         </div>
 

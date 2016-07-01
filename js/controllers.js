@@ -27,6 +27,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
+        $scope.tab = 'record';
+        $scope.classa = 'active-list';
+        $scope.classb = '';
+        $scope.classc = '';
+
+        $scope.tabchange = function(tab, a) {
+            //        console.log(tab);
+            $scope.tab = tab;
+            if (a == 1) {
+
+                $scope.classa = "active-list";
+                $scope.classb = '';
+                $scope.classc = '';
+            } else if (a == 2) {
+
+                $scope.classa = '';
+                $scope.classb = "active-list";
+                $scope.classc = "";
+            } else {
+
+                $scope.classa = '';
+                $scope.classb = '';
+                $scope.classc = "active-list";
+            }
+        };
+
         $scope.games = // JavaScript Document
     [{
         "icon": "img/sf-icon.png",
