@@ -192,361 +192,361 @@
     <section>
         <div class="container">
             <div class="row">
-<div class="col-md-12">
-  <div class="text-center">
-      <div class="tab-list sf-list text-up">
-          <ul class="padding0 margin0">
-              <li><a href="" ng-click="tabchange('player',1)" class="{{classa}}">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <div class="tab-list sf-list text-up">
+                            <ul class="padding0 margin0">
+                                <li><a href="" ng-click="tabchange('player',1)" class="{{classa}}">
   player
 </a></li>
-              <li><a href="" ng-click="tabchange('match',2)" class="{{classb}}">
+                                <li><a href="" ng-click="tabchange('match',2)" class="{{classb}}">
   match-videos
 </a></li>
-              <li><a href="" ng-click="tabchange('statistics',3)" class="{{classc}}">
+                                <li><a href="" ng-click="tabchange('statistics',3)" class="{{classc}}">
   statistics
 </a></li>
-          </ul>
-      </div>
-  </div>
-</div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="box-content">
-          <div class="player" ng-show="tab=='player'">
-              <div class="row">
-                  <div class="col-md-offset-2 col-md-3">
-                      <h4 class="text-up color-blue display-inline">Year</h4>
-                      <div class="display-inline">
-                          <div class="sfa-select">
-                              <select class="select">
-                                  <option value="2016">2016</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2016">2016</option>
-                              </select>
-                              <span class="only-border"></span>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-3">
-                      <h4 class="text-up color-blue display-inline">gender</h4>
-                      <div class="display-inline">
-                          <div class="sfa-select">
-                              <select class="select" >
-                                  <option value="ALL">ALL</option>
-                                  <option value="Male">Male</option>
-                                  <option value="female">female</option>
-                                  <!-- <option value="2016">ALL</option> -->
-                              </select>
-                              <span class="only-border"></span>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-3">
-                      <h4 class="text-up color-blue display-inline">age group</h4>
-                      <div class="display-inline">
-                          <div class="sfa-select">
-                              <select class="select" >
-                                  <option value="ALL">ALL</option>
-                                  <option value="U-16">U-16</option>
-                                  <option value="U-19">U-19</option>
-                                  <option value="U-21">U-21</option>
-                              </select>
-                              <span class="only-border"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="row mt25">
-                  <div class="col-md-3 mt15" ng-repeat="data in student track by $index">
-                      <a href="">
-                          <div class="school-sec">
-                              <img src="img/sf-cl.png" alt="" class="mt-min-18" ng-if="$index==0">
-                              <div class="stu-img text-center sf-relative">
-                                  <img ng-src="{{data.icon}}" alt="">
-                                  <div class="sigh-pro sf-absulate">
-                                      <img src="img/sf-right.png" alt="">
-                                  </div>
-                              </div>
-                              <div class="stu-name text-center">
-                                  <h4 class="color-orange text-up font-semi">{{data.name}}</h4>
-                              </div>
-                              <div class="stu-id text-center">
-                                  <h4 class="color-blue">SFA ID: {{data.id}}</h4>
-                              </div>
-                          </div>
-                      </a>
-                  </div>
-              </div>
-          </div>
-          <div class="match-video" ng-show="tab=='match'">
-              <div class="row">
-                  <div class="col-md-offset-2 col-md-3">
-                      <h4 class="text-up color-blue display-inline">Year</h4>
-                      <div class="display-inline">
-                          <div class="sfa-select">
-                              <select class="select" >
-                                  <option value="2016">2016</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2016">2016</option>
-                              </select>
-                              <span class="only-border"></span>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-3">
-                      <h4 class="text-up color-blue display-inline">gender</h4>
-                      <div class="display-inline">
-                          <div class="sfa-select">
-                              <select class="select" >
-                                  <option value="ALL">ALL</option>
-                                  <option value="Male">Male</option>
-                                  <option value="female">female</option>
-                                  <!-- <option value="2016">ALL</option> -->
-                              </select>
-                              <span class="only-border"></span>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-3">
-                      <h4 class="text-up color-blue display-inline">age group</h4>
-                      <div class="display-inline">
-                          <div class="sfa-select">
-                              <select class="select" >
-                                  <option value="ALL">ALL</option>
-                                  <option value="U-16">U-16</option>
-                                  <option value="U-19">U-19</option>
-                                  <option value="U-21">U-21</option>
-                              </select>
-                              <span class="only-border"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="row mt25">
-                  <div class="col-md-3 mt25" ng-repeat="data in video track by $index">
-                      <a class="various fancybox.iframe" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
-                          <div class="videow-box">
-                              <div class="video-img">
-                                  <img ng-src="{{data.icon}}" alt="" class="img-responsive width100">
-                              </div>
-                              <div class="video-name">
-                                  <h5 class="text-up color-blue font-semi">{{data.name}}</h5>
-                              </div>
-                          </div>
-                      </a>
-                  </div>
-              </div>
-          </div>
-          <div class="statistics" ng-show="tab=='statistics'">
-              <div class="row">
-                  <div class="col-md-3">
-                      <h4 class="text-up color-blue display-inline">Year</h4>
-                      <div class="display-inline">
-                          <div class="sfa-select">
-                              <select class="select" >
-                                  <option value="2016">2016</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2016">2016</option>
-                              </select>
-                              <span class="only-border"></span>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-3">
-                      <h4 class="text-up color-blue display-inline">gender</h4>
-                      <div class="display-inline">
-                          <div class="sfa-select">
-                              <select class="select" >
-                                  <option value="ALL">ALL</option>
-                                  <option value="Male">Male</option>
-                                  <option value="Male">Male</option>
-                                  <!-- <option value="2016">ALL</option> -->
-                              </select>
-                              <span class="only-border"></span>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-3">
-                      <h4 class="text-up color-blue display-inline">age group</h4>
-                      <div class="display-inline">
-                          <div class="sfa-select">
-                              <select class="select" >
-                                  <option value="ALL">ALL</option>
-                                  <option value="U-16">U-16</option>
-                                  <option value="U-19">U-19</option>
-                                  <option value="U-21">U-21</option>
-                              </select>
-                              <span class="only-border"></span>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-3">
-                      <h4 class="text-up color-blue display-inline">category</h4>
-                      <div class="display-inline">
-                          <div class="sfa-select">
-                              <select class="select" >
-                                  <option value="ALL">ALL</option>
-                                  <option value="U-16">U-16</option>
-                                  <option value="U-19">U-19</option>
-                                  <option value="U-21">U-21</option>
-                              </select>
-                              <span class="only-border"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="row mt25">
-                  <div class="col-md-12 mt25">
-                      <div class="table-statistics">
-                          <table class="table">
-                              <thead>
-                                  <tr class="text-up color-white bg-table">
-                                      <th>
-                                          <span>year</span>
-                                      </th>
-                                      <th>
-                                          <span>CATEGORY</span>
-                                      </th>
-                                      <th>
-                                          <span>ROUND</span>
-                                      </th>
-                                      <th>
-                                          <span>STUDENT NAME</span>
-                                      </th>
-                                      <th>
-                                          <span>OPPONENT NAME</span>
-                                      </th>
-                                      <th>
-                                          <span>score</span>
-                                      </th>
-                                      <th>
-                                          <span>match videos</span>
-                                      </th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr>
-                                      <td><span>2016</span></td>
-                                      <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
-                                      <td><span class="text-up">ROUND-ROBIN</span></td>
-                                      <td class="text-up">Soheb Shaikh</td>
-                                      <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
-                                          <p>Don Bosco School</p>
-                                      </td>
-                                      <td>
-                                          <div class="table-data display-inline text-center text-up">
-                                              <!-- <p>GAME 1</p> -->
-                                              <p>5/11</p>
-                                          </div>
-                                          <div class="table-data display-inline text-center text-up">
-                                              <!-- <p>GAME 3</p> -->
-                                              <p>5/11</p>
-                                          </div>
-                                          <div class="table-data display-inline text-center text-up">
-                                              <!-- <p>GAME 2</p> -->
-                                              <p>5/11</p>
-                                          </div>
-                                      </td>
-                                      <td>
-                                          <div class="text-center display-inline ver-mid ">
-                                              <div class="replay-img ">
-                                                  <a href=""><img src="img/sf-play.png" alt=""></a>
-                                              </div>
-                                              <div class="sf-play">
-                                                  <span>Replay</span>
-                                              </div>
-                                          </div>
-                                          <div class="display-inline stu-data">
-                                              <a href=""><img src="img/sf-play-btn.png" alt=""></a>
-                                          </div>
-                                      </td>
-                                  </tr>
-                                  <tr class="other-bg">
-                                      <td><span>2016</span></td>
-                                      <td><span class="text-up">U-10 <br> GIRLS  <br>SINGLES</span></td>
-                                      <td><span class="text-up">ROUND-ROBIN</span></td>
-                                      <td class="text-up">Soheb Shaikh</td>
-                                      <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
-                                          <p>Don Bosco School</p>
-                                      </td>
-                                      <td>
-                                          <div class="table-data display-inline text-center text-up">
-                                              <!-- <p>GAME 1</p> -->
-                                              <p>5/11</p>
-                                          </div>
-                                          <div class="table-data display-inline text-center text-up">
-                                              <!-- <p>GAME 3</p> -->
-                                              <p>5/11</p>
-                                          </div>
-                                          <div class="table-data display-inline text-center text-up">
-                                              <!-- <p>GAME 2</p> -->
-                                              <p>5/11</p>
-                                          </div>
-                                      </td>
-                                      <td class="center-cl">
-                                          <div class="text-center display-inline ver-mid ">
-                                              <div class="replay-img ">
-                                                  <a href=""><img src="img/sf-play.png" alt=""></a>
-                                              </div>
-                                              <div class="sf-play">
-                                                  <span>Replay</span>
-                                              </div>
-                                          </div>
-                                          <!-- <div class="display-inline stu-data">
-                                              <a href=""><img src="img/sf-play-btn.png" alt=""></a>
-                                          </div> -->
-                                      </td>
-                                  </tr>
-                                  <tr class="other-bg">
-                                      <td><span>2016</span></td>
-                                      <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
-                                      <td><span class="text-up">ROUND-ROBIN</span></td>
-                                      <td class="text-up">Soheb Shaikh</td>
-                                      <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
-                                          <p>Don Bosco School</p>
-                                      </td>
-                                      <td>
-                                          <div class="table-data display-inline text-center text-up">
-                                              <!-- <p>GAME 1</p> -->
-                                              <p>5/11</p>
-                                          </div>
-                                          <div class="table-data display-inline text-center text-up">
-                                              <!-- <p>GAME 3</p> -->
-                                              <p>5/11</p>
-                                          </div>
-                                          <div class="table-data display-inline text-center text-up">
-                                              <!-- <p>GAME 2</p> -->
-                                              <p>5/11</p>
-                                          </div>
-                                      </td>
-                                      <td class="center-cl">
-                                          <div class="text-center display-inline ver-mid ">
-                                              <div class="replay-img ">
-                                                  <a href=""><img src="img/sf-play.png" alt=""></a>
-                                              </div>
-                                              <div class="sf-play">
-                                                  <span>Replay</span>
-                                              </div>
-                                          </div>
-                                          <!-- <div class="display-inline stu-data">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box-content">
+                        <div class="player" ng-show="tab=='player'">
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-3">
+                                    <h4 class="text-up color-blue display-inline">Year</h4>
+                                    <div class="display-inline">
+                                        <div class="sfa-select">
+                                            <select class="select">
+                                                <option value="2016">2016</option>
+                                                <option value="2016">2016</option>
+                                                <option value="2016">2016</option>
+                                                <option value="2016">2016</option>
+                                            </select>
+                                            <span class="only-border"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <h4 class="text-up color-blue display-inline">gender</h4>
+                                    <div class="display-inline">
+                                        <div class="sfa-select">
+                                            <select class="select">
+                                                <option value="ALL">ALL</option>
+                                                <option value="Male">Male</option>
+                                                <option value="female">female</option>
+                                                <!-- <option value="2016">ALL</option> -->
+                                            </select>
+                                            <span class="only-border"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <h4 class="text-up color-blue display-inline">age group</h4>
+                                    <div class="display-inline">
+                                        <div class="sfa-select">
+                                            <select class="select">
+                                                <option value="ALL">ALL</option>
+                                                <option value="U-16">U-16</option>
+                                                <option value="U-19">U-19</option>
+                                                <option value="U-21">U-21</option>
+                                            </select>
+                                            <span class="only-border"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt25">
+                                <div class="col-md-3 mt15" ng-repeat="data in student track by $index">
+                                    <a href="">
+                                        <div class="school-sec">
+                                            <img src="img/sf-cl.png" alt="" class="mt-min-18" ng-if="$index==0">
+                                            <div class="stu-img text-center sf-relative">
+                                                <img ng-src="{{data.icon}}" alt="">
+                                                <div class="sigh-pro sf-absulate">
+                                                    <img src="img/sf-right.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="stu-name text-center">
+                                                <h4 class="color-orange text-up font-semi">{{data.name}}</h4>
+                                            </div>
+                                            <div class="stu-id text-center">
+                                                <h4 class="color-blue">SFA ID: {{data.id}}</h4>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="match-video" ng-show="tab=='match'">
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-3">
+                                    <h4 class="text-up color-blue display-inline">Year</h4>
+                                    <div class="display-inline">
+                                        <div class="sfa-select">
+                                            <select class="select">
+                                                <option value="2016">2016</option>
+                                                <option value="2016">2016</option>
+                                                <option value="2016">2016</option>
+                                                <option value="2016">2016</option>
+                                            </select>
+                                            <span class="only-border"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <h4 class="text-up color-blue display-inline">gender</h4>
+                                    <div class="display-inline">
+                                        <div class="sfa-select">
+                                            <select class="select">
+                                                <option value="ALL">ALL</option>
+                                                <option value="Male">Male</option>
+                                                <option value="female">female</option>
+                                                <!-- <option value="2016">ALL</option> -->
+                                            </select>
+                                            <span class="only-border"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <h4 class="text-up color-blue display-inline">age group</h4>
+                                    <div class="display-inline">
+                                        <div class="sfa-select">
+                                            <select class="select">
+                                                <option value="ALL">ALL</option>
+                                                <option value="U-16">U-16</option>
+                                                <option value="U-19">U-19</option>
+                                                <option value="U-21">U-21</option>
+                                            </select>
+                                            <span class="only-border"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt25">
+                                <div class="col-md-3 mt25" ng-repeat="data in video track by $index">
+                                    <a class="various fancybox.iframe" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
+                                        <div class="videow-box">
+                                            <div class="video-img">
+                                                <img ng-src="{{data.icon}}" alt="" class="img-responsive width100">
+                                            </div>
+                                            <div class="video-name">
+                                                <h5 class="text-up color-blue font-semi">{{data.name}}</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="statistics" ng-show="tab=='statistics'">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h4 class="text-up color-blue display-inline">Year</h4>
+                                    <div class="display-inline">
+                                        <div class="sfa-select">
+                                            <select class="select">
+                                                <option value="2016">2016</option>
+                                                <option value="2016">2016</option>
+                                                <option value="2016">2016</option>
+                                                <option value="2016">2016</option>
+                                            </select>
+                                            <span class="only-border"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <h4 class="text-up color-blue display-inline">gender</h4>
+                                    <div class="display-inline">
+                                        <div class="sfa-select">
+                                            <select class="select">
+                                                <option value="ALL">ALL</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Male">Male</option>
+                                                <!-- <option value="2016">ALL</option> -->
+                                            </select>
+                                            <span class="only-border"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <h4 class="text-up color-blue display-inline">age group</h4>
+                                    <div class="display-inline">
+                                        <div class="sfa-select">
+                                            <select class="select">
+                                                <option value="ALL">ALL</option>
+                                                <option value="U-16">U-16</option>
+                                                <option value="U-19">U-19</option>
+                                                <option value="U-21">U-21</option>
+                                            </select>
+                                            <span class="only-border"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <h4 class="text-up color-blue display-inline">category</h4>
+                                    <div class="display-inline">
+                                        <div class="sfa-select">
+                                            <select class="select">
+                                                <option value="ALL">ALL</option>
+                                                <option value="U-16">U-16</option>
+                                                <option value="U-19">U-19</option>
+                                                <option value="U-21">U-21</option>
+                                            </select>
+                                            <span class="only-border"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt25">
+                                <div class="col-md-12 mt25">
+                                    <div class="table-statistics">
+                                        <table class="table">
+                                            <thead>
+                                                <tr class="text-up color-white bg-table">
+                                                    <th>
+                                                        <span>year</span>
+                                                    </th>
+                                                    <th>
+                                                        <span>CATEGORY</span>
+                                                    </th>
+                                                    <th>
+                                                        <span>ROUND</span>
+                                                    </th>
+                                                    <th>
+                                                        <span>STUDENT NAME</span>
+                                                    </th>
+                                                    <th>
+                                                        <span>OPPONENT NAME</span>
+                                                    </th>
+                                                    <th>
+                                                        <span>score</span>
+                                                    </th>
+                                                    <th>
+                                                        <span>match videos</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><span>2016</span></td>
+                                                    <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
+                                                    <td><span class="text-up">ROUND-ROBIN</span></td>
+                                                    <td class="text-up">Soheb Shaikh</td>
+                                                    <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
+                                                        <p>Don Bosco School</p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="table-data display-inline text-center text-up">
+                                                            <!-- <p>GAME 1</p> -->
+                                                            <p>5/11</p>
+                                                        </div>
+                                                        <div class="table-data display-inline text-center text-up">
+                                                            <!-- <p>GAME 3</p> -->
+                                                            <p>5/11</p>
+                                                        </div>
+                                                        <div class="table-data display-inline text-center text-up">
+                                                            <!-- <p>GAME 2</p> -->
+                                                            <p>5/11</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-center display-inline ver-mid ">
+                                                            <div class="replay-img ">
+                                                                <a href=""><img src="img/sf-play.png" alt=""></a>
+                                                            </div>
+                                                            <div class="sf-play">
+                                                                <span>Replay</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="display-inline stu-data">
+                                                            <a href=""><img src="img/sf-play-btn.png" alt=""></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-bg">
+                                                    <td><span>2016</span></td>
+                                                    <td><span class="text-up">U-10 <br> GIRLS  <br>SINGLES</span></td>
+                                                    <td><span class="text-up">ROUND-ROBIN</span></td>
+                                                    <td class="text-up">Soheb Shaikh</td>
+                                                    <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
+                                                        <p>Don Bosco School</p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="table-data display-inline text-center text-up">
+                                                            <!-- <p>GAME 1</p> -->
+                                                            <p>5/11</p>
+                                                        </div>
+                                                        <div class="table-data display-inline text-center text-up">
+                                                            <!-- <p>GAME 3</p> -->
+                                                            <p>5/11</p>
+                                                        </div>
+                                                        <div class="table-data display-inline text-center text-up">
+                                                            <!-- <p>GAME 2</p> -->
+                                                            <p>5/11</p>
+                                                        </div>
+                                                    </td>
+                                                    <td class="center-cl">
+                                                        <div class="text-center display-inline ver-mid ">
+                                                            <div class="replay-img ">
+                                                                <a href=""><img src="img/sf-play.png" alt=""></a>
+                                                            </div>
+                                                            <div class="sf-play">
+                                                                <span>Replay</span>
+                                                            </div>
+                                                        </div>
+                                                        <!-- <div class="display-inline stu-data">
                                               <a href=""><img src="img/sf-play-btn.png" alt=""></a>
                                           </div> -->
-                                      </td>
-                                  </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="other-bg">
+                                                    <td><span>2016</span></td>
+                                                    <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
+                                                    <td><span class="text-up">ROUND-ROBIN</span></td>
+                                                    <td class="text-up">Soheb Shaikh</td>
+                                                    <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
+                                                        <p>Don Bosco School</p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="table-data display-inline text-center text-up">
+                                                            <!-- <p>GAME 1</p> -->
+                                                            <p>5/11</p>
+                                                        </div>
+                                                        <div class="table-data display-inline text-center text-up">
+                                                            <!-- <p>GAME 3</p> -->
+                                                            <p>5/11</p>
+                                                        </div>
+                                                        <div class="table-data display-inline text-center text-up">
+                                                            <!-- <p>GAME 2</p> -->
+                                                            <p>5/11</p>
+                                                        </div>
+                                                    </td>
+                                                    <td class="center-cl">
+                                                        <div class="text-center display-inline ver-mid ">
+                                                            <div class="replay-img ">
+                                                                <a href=""><img src="img/sf-play.png" alt=""></a>
+                                                            </div>
+                                                            <div class="sf-play">
+                                                                <span>Replay</span>
+                                                            </div>
+                                                        </div>
+                                                        <!-- <div class="display-inline stu-data">
+                                              <a href=""><img src="img/sf-play-btn.png" alt=""></a>
+                                          </div> -->
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    </div>
-  </div>
+                </div>
+            </div>
 
         </div>
 
