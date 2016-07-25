@@ -1041,6 +1041,38 @@ img.fancybox-image {
     display: inline-block;
     padding: 2px 20px;
 }
+.sport-name-bg{
+  margin-top: 50px;
+  height: 64px;
+background: url("../img/patch.jpg");
+text-align: center;
+h1{
+  background: #fff;
+    display: inline-block;
+    padding: 7px 0px 5px 0px;
+    width: 50%;
+}
+}
+.final-table{
+  table{
+    thead{
+      tr{
+        th{
+              vertical-align: middle;
+        }
+      }
+    }
+    tbody{
+      tr{
+        background-color: #ffffff;
+        td{
+          border-top: 3px solid #f4f4f4;
+              height: 62px;
+        }
+      }
+    }
+  }
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";

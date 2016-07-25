@@ -573,6 +573,54 @@ $scope.tabchanges = function(tabs, a) {
         }];
 
     })
+    .controller('HeatsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("heats");
+        $scope.menutitle = NavigationService.makeactive("Heats");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+          $scope.oneAtATime = true;
+          $scope.status = {
+  isCustomHeaderOpen: false,
+  isFirstOpen: true,
+  isFirstDisabled: false
+};
+
+        $scope.student = [{
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }];
+
+    })
 
 .controller('headerctrl', function($scope, TemplateService) {
     $scope.template = TemplateService;
