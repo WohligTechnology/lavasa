@@ -776,19 +776,16 @@ hr {
     }
 }
 .sports-all-list {
-
-      list-style: none;
-      display: block;
-      li {
-          padding: 15px 24px;
-display: inline-block;
-text-align: center;
-img{
-  margin: 0 auto;
-}
-      }
-
-
+    list-style: none;
+    display: block;
+    li {
+        padding: 15px 24px;
+        display: inline-block;
+        text-align: center;
+        img {
+            margin: 0 auto;
+        }
+    }
 }
 // .list-img {
 //     margin-right: 15px;
@@ -1014,65 +1011,104 @@ img.fancybox-image {
         font-size: 14px;
     }
 }
-.text-set-cap{
-  tr{
-    th{
-        border-right: 1px solid #000;
+.text-set-cap {
+    tr {
+        th {
+            border-right: 1px solid #000;
+        }
+        td {
+            text-transform: capitalize;
+            border-right: 1px solid #000;
+            &:first-child {
+                text-transform: uppercase;
+            }
+        }
     }
-    td{
-      text-transform: capitalize;
-        border-right: 1px solid #000;
-      &:first-child{
-        text-transform: uppercase;
-      }
-
+}
+.bg-none {
+    .flexslider {
+        background-color: transparent;
+        border: none;
+        margin: 0 auto;
     }
-  }
-}
-.bg-none{
-.flexslider{
-  background-color: transparent;
-  border: none;
-  margin: 0 auto;
-}
 }
 .total-medals-count {
     border: 1px solid #000;
     display: inline-block;
     padding: 2px 20px;
 }
-.sport-name-bg{
-  margin-top: 50px;
-  height: 64px;
-background: url("../img/patch.jpg");
-text-align: center;
-h1{
-  background: #fff;
-    display: inline-block;
-    padding: 7px 0px 5px 0px;
-    width: 50%;
+.sport-name-bg {
+    margin-top: 50px;
+    height: 64px;
+    background: url("../img/patch.jpg");
+    text-align: center;
+    h1 {
+        background: #fff;
+        display: inline-block;
+        padding: 7px 0 5px;
+        width: 50%;
+    }
 }
+.final-table {
+    table {
+        thead {
+            tr {
+                th {
+                    vertical-align: middle;
+                }
+            }
+        }
+        tbody {
+            tr {
+                background-color: #ffffff;
+                td {
+                    border-top: 4px solid #f4f4f4;
+                    height: 62px;
+                }
+            }
+        }
+    }
 }
-.final-table{
+.sf-acc {
+  .panel{
+        background-color: #cdcdcd;
+  }
+    .panel-heading {
+        color: #fc7700 !important;
+        background-color: #0a1a72 !important;
+        .panel-title {
+            font-weight: 700;
+            line-height: 200%;
+        }
+    }
+}
+.bg-dark{
+  background-color: #a8a7a7;
+}
+.inner-table{
   table{
     thead{
       tr{
         th{
-              vertical-align: middle;
+          color:$brand-primary;
+          text-align: center;
         }
       }
     }
     tbody{
       tr{
-        background-color: #ffffff;
         td{
-          border-top: 3px solid #f4f4f4;
-              height: 62px;
+          background-color: #ffffff;
+border-top: 4px solid #cdcdcd;
         }
       }
     }
   }
 }
+.bg-orange{
+  background-color: $brand-success;
+}
+
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
