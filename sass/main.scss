@@ -776,15 +776,23 @@ hr {
     }
 }
 .sports-all-list {
-    list-style: none;
-    li {
-        padding: 15px 0;
-        border-bottom: 1px solid #ccc;
-    }
+
+      list-style: none;
+      display: block;
+      li {
+          padding: 15px 24px;
+display: inline-block;
+text-align: center;
+img{
+  margin: 0 auto;
 }
-.list-img {
-    margin-right: 15px;
+      }
+
+
 }
+// .list-img {
+//     margin-right: 15px;
+// }
 .hr-padding {
     margin-top: 0;
     border-top: 1px solid #d3d3d3 !important;
