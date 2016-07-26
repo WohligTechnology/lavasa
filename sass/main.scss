@@ -1126,6 +1126,25 @@ border-top: 4px solid #cdcdcd;
     }
   }
 }
+.left-side-score{
+  .panel{
+        background-color: #cdcdcd;
+            border-radius: 0px;
+    .panel-heading{
+      background-color: #0a1a72;
+    }
+  }
+}
+.a-link{
+  line-height: 274%;
+  a{
+    text-decoration: underline;
+
+    &:hover{
+      color:$white;
+    }
+  }
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
