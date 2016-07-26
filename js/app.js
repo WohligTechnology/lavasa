@@ -38,6 +38,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     templateUrl: "views/template.html",
     controller: 'QualifyCtrl'
   })
+    .state('round-robin', {
+    url: "/round-robin",
+    templateUrl: "views/template.html",
+    controller: 'RoundRobinCtrl'
+  })
     .state('school-bio', {
     url: "/school-bio",
     templateUrl: "views/template.html",

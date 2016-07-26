@@ -669,6 +669,62 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }];
 
     })
+    .controller('RoundRobinCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("round-robin");
+        $scope.menutitle = NavigationService.makeactive("Round Robin");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.oneAtATime = true;
+        $scope.status = {
+            isCustomHeaderOpen: false,
+            isFirstOpen: true,
+            isFirstDisabled: false
+        };
+  $scope.feedLimit = 5;
+        $scope.matchs = [{
+            match: "1",
+            team1: "dhirubhai ambani intertional school",
+            team2: "dhirubhai ambani intertional school",
+            score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+        }, {
+          match: "1",
+          team1: "dhirubhai ambani intertional school",
+          team2: "dhirubhai ambani intertional school",
+          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+        }, {
+          match: "1",
+          team1: "dhirubhai ambani intertional school",
+          team2: "dhirubhai ambani intertional school",
+          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+        }, {
+          match: "1",
+          team1: "dhirubhai ambani intertional school",
+          team2: "dhirubhai ambani intertional school",
+          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+        }, {
+          match: "1",
+          team1: "dhirubhai ambani intertional school",
+          team2: "dhirubhai ambani intertional school",
+          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+        }, {
+          match: "1",
+          team1: "dhirubhai ambani intertional school",
+          team2: "dhirubhai ambani intertional school",
+          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+        }, {
+          match: "1",
+          team1: "dhirubhai ambani intertional school",
+          team2: "dhirubhai ambani intertional school",
+          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+        }, {
+          match: "1",
+          team1: "dhirubhai ambani intertional school",
+          team2: "dhirubhai ambani intertional school",
+          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+        }];
+
+    })
 
 .controller('headerctrl', function($scope, TemplateService) {
     $scope.template = TemplateService;

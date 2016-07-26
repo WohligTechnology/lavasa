@@ -475,9 +475,16 @@ a {
     }
     &:focus {
         outline: 0;
+          border: 2px solid #fc7700;
     }
     &:active {
         outline: 0;
+          border: 2px solid #fc7700;
+          &:focus {
+              outline: 0;
+                border: 2px solid #fc7700;
+          }
+
     }
 }
 .sports-participate {
@@ -1108,7 +1115,17 @@ border-top: 4px solid #cdcdcd;
 .bg-orange{
   background-color: $brand-success;
 }
-
+.list-style{
+  list-style: none;
+}
+.score-1st{
+  padding: 0px 2px;
+  ul{
+    li{
+          line-height: 75%;
+    }
+  }
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
