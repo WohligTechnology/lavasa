@@ -133,6 +133,9 @@ a {
 .text-up {
     text-transform: uppercase;
 }
+.text-cap {
+    text-transform: capitalize;
+}
 .width100 {
     width: 100%;
 }
@@ -475,16 +478,15 @@ a {
     }
     &:focus {
         outline: 0;
-          border: 2px solid #fc7700;
+        border: 2px solid #fc7700;
     }
     &:active {
         outline: 0;
-          border: 2px solid #fc7700;
-          &:focus {
-              outline: 0;
-                border: 2px solid #fc7700;
-          }
-
+        border: 2px solid #fc7700;
+        &:focus {
+            outline: 0;
+            border: 2px solid #fc7700;
+        }
     }
 }
 .sports-participate {
@@ -1077,9 +1079,9 @@ img.fancybox-image {
     }
 }
 .sf-acc {
-  .panel{
+    .panel {
         background-color: #cdcdcd;
-  }
+    }
     .panel-heading {
         color: #fc7700 !important;
         background-color: #0a1a72 !important;
@@ -1089,61 +1091,157 @@ img.fancybox-image {
         }
     }
 }
-.bg-dark{
-  background-color: #a8a7a7;
+.bg-dark {
+    background-color: #a8a7a7;
 }
-.inner-table{
-  table{
-    thead{
-      tr{
-        th{
-          color:$brand-primary;
-          text-align: center;
+.inner-table {
+    table {
+        thead {
+            tr {
+                th {
+                    color: $brand-primary;
+                    text-align: center;
+                }
+            }
         }
-      }
-    }
-    tbody{
-      tr{
-        td{
-          background-color: #ffffff;
-border-top: 4px solid #cdcdcd;
+        tbody {
+            tr {
+                td {
+                    background-color: #ffffff;
+                    border-top: 4px solid #cdcdcd;
+                }
+            }
         }
-      }
     }
-  }
 }
-.bg-orange{
-  background-color: $brand-success;
+.bg-orange {
+    background-color: $brand-success;
 }
-.list-style{
-  list-style: none;
+.list-style {
+    list-style: none;
 }
-.score-1st{
-  padding: 0px 2px;
-  ul{
-    li{
-          line-height: 75%;
+.score-1st {
+    padding: 0 2px;
+    ul {
+        li {
+            line-height: 75%;
+        }
     }
-  }
 }
-.left-side-score{
-  .panel{
+.left-side-score {
+    .panel {
         background-color: #cdcdcd;
-            border-radius: 0px;
-    .panel-heading{
-      background-color: #0a1a72;
+        border-radius: 0;
+        .panel-heading {
+            background-color: #0a1a72;
+        }
     }
-  }
 }
-.a-link{
-  line-height: 274%;
-  a{
-    text-decoration: underline;
-
-    &:hover{
-      color:$white;
+.a-link {
+    line-height: 274%;
+    a {
+        text-decoration: underline;
+        &:hover {
+            color: $white;
+        }
     }
-  }
+}
+.mt80 {
+    margin-top: 80px;
+}
+.result-list {}
+.cm-pad {
+    margin: 0 8px;
+    vertical-align: top;
+}
+.rslt-img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 6px;
+    img {
+        height: 100%;
+        width: auto;
+    }
+}
+.reslt-box {
+    margin-top: 10px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 7px 15px;
+}
+.pos-right {
+    right: 10px;
+}
+.widht25 {
+    width: 20px;
+}
+.box-level {
+    background: #fff;
+    display: inline-block;
+    border-radius: 6px;
+}
+.comp-name {
+    padding: 10px 35px 10px 10px;
+}
+.border-bottom2 {
+    border-bottom: 1px solid #d4d4d4;
+}
+.footer-level {
+    background: #0a1a72;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    color: #fff;
+    padding: 4px 0 4px 10px;
+    ul {
+        li {
+            padding: 0 3px;
+        }
+    }
+}
+.min-height-150 {
+    min-height: 147px;
+    margin: 0;
+    position: relative;
+}
+// .mt30{
+//   margin-top: 20px !important;
+// }
+.all-sets {
+    .pad-more {
+        padding-top: 135px;
+    }
+}
+.top-level {
+    &:before {
+        background: transparent;
+        content: '';
+        width: 50px;
+        height: 98px;
+        border-top: 1px solid black;
+        position: absolute;
+        right: -68px;
+        border-right: 1px solid black;
+        top: 55px;
+    }
+}
+.bottom-level {
+    @extend .top-level;
+    &:before {
+        border-top: none;
+        border-bottom: 1px solid black;
+        bottom: 88px;
+        top: inherit;
+    }
+}
+.all-sets {
+    display: inline-block;
+    width: 233px;
+    padding-left: 15px;
+padding-right: 15px;
+float: left;
 }
 //bootstrap forms
 /* Start writing sass here */

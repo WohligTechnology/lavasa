@@ -207,6 +207,17 @@ firstapp.directive('hovericon', function($document) {
 
     }
 });
+firstapp.directive('scores', function($document) {
+    return {
+        restrict: 'EA',
+        replace: true,
+        templateUrl: "views/directive/score.html",
+        link: function(scope, element, attr) {
+            // console.info(scope.person);
+        }
+    };
+});
+
 
 firstapp.config(function ($translateProvider) {
   $translateProvider.translations('en', LanguageEnglish);
