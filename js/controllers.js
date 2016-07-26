@@ -17,7 +17,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
         ];
     })
-.controller('StudentProfileCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    .controller('StudentProfileCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -29,7 +29,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.tabs = 'photos';
         $scope.classp = 'active-list';
-        $scope.classv= '';
+        $scope.classv = '';
 
 
         $scope.tabchanges = function(tabs, a) {
@@ -74,55 +74,55 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
         $scope.games = // JavaScript Document
-    [{
-        "icon": "img/sf-icon.png",
-        "icon2": "img/sf-icon-big.png",
-        "url": "tabletennis",
-        "game": "table tennis"
-    }, {
-      "icon": "img/sf-icon.png",
-      "icon2": "img/sf-icon-big.png",
-        "url": "tennis",
-        "game": "tennis"
-    }, {
-      "icon": "img/sf-icon.png",
-      "icon2": "img/sf-icon-big.png",
-        "url": "badminton",
-        "game": "badminton"
-    }];
-
-
-            $scope.photos = [
-                'img/m1.jpg',
-                'img/m2.jpg',
-                'img/m3.jpg',
-                'img/m1.jpg',
-                'img/m2.jpg',
-                'img/m3.jpg'
-
-            ];
-            $scope.video = [{
-                icon: "img/m1.jpg",
-                name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
-
+            [{
+                "icon": "img/sf-icon.png",
+                "icon2": "img/sf-icon-big.png",
+                "url": "tabletennis",
+                "game": "table tennis"
             }, {
-                icon: "img/m2.jpg",
-                name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+                "icon": "img/sf-icon.png",
+                "icon2": "img/sf-icon-big.png",
+                "url": "tennis",
+                "game": "tennis"
             }, {
-                icon: "img/m3.jpg",
-                name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
-            }, {
-                icon: "img/m2.jpg",
-                name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
-            }, {
-                icon: "img/m1.jpg",
-                name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
-            }, {
-                icon: "img/m3.jpg",
-                name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+                "icon": "img/sf-icon.png",
+                "icon2": "img/sf-icon-big.png",
+                "url": "badminton",
+                "game": "badminton"
             }];
+
+
+        $scope.photos = [
+            'img/m1.jpg',
+            'img/m2.jpg',
+            'img/m3.jpg',
+            'img/m1.jpg',
+            'img/m2.jpg',
+            'img/m3.jpg'
+
+        ];
+        $scope.video = [{
+            icon: "img/m1.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+
+        }, {
+            icon: "img/m2.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+        }, {
+            icon: "img/m3.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+        }, {
+            icon: "img/m2.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+        }, {
+            icon: "img/m1.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+        }, {
+            icon: "img/m3.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+        }];
     })
-.controller('SportCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    .controller('SportCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         $scope.template = TemplateService.changecontent("sport");
         $scope.menutitle = NavigationService.makeactive("Sports");
         TemplateService.title = $scope.menutitle;
@@ -147,7 +147,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.tabs = 'photos';
         $scope.classp = 'active-list';
-        $scope.classv= '';
+        $scope.classv = '';
 
 
         $scope.tabchanges = function(tabs, a) {
@@ -166,7 +166,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
 
-            $scope.oneAtATime = true;
+        $scope.oneAtATime = true;
         $scope.tab = '2016';
         $scope.classa = 'active-list';
         $scope.classb = '';
@@ -255,39 +255,39 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         ];
 
-        $scope.open = function (size) {
+        $scope.open = function(size) {
 
-  var modalInstance = $uibModal.open({
-    animation: $scope.animationsEnabled,
-    templateUrl: 'views/modal/sports.html',
-    controller: 'SchoolBioCtrl',
-    size: size,
-    resolve: {
-      items: function () {
-        return $scope.items;
-      }
-    }
-  });
-}
-$scope.tabs = 'photos';
-$scope.classp = 'active-list';
-$scope.classv= '';
-
-
-$scope.tabchanges = function(tabs, a) {
-    //        console.log(tab);
-    $scope.tabs = tabs;
-    if (a == 1) {
-
-        $scope.classp = "active-list";
+            var modalInstance = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/sports.html',
+                controller: 'SchoolBioCtrl',
+                size: size,
+                resolve: {
+                    items: function() {
+                        return $scope.items;
+                    }
+                }
+            });
+        }
+        $scope.tabs = 'photos';
+        $scope.classp = 'active-list';
         $scope.classv = '';
 
-    } else {
 
-        $scope.classp = '';
-        $scope.classv = "active-list";
-    }
-};
+        $scope.tabchanges = function(tabs, a) {
+            //        console.log(tab);
+            $scope.tabs = tabs;
+            if (a == 1) {
+
+                $scope.classp = "active-list";
+                $scope.classv = '';
+
+            } else {
+
+                $scope.classp = '';
+                $scope.classv = "active-list";
+            }
+        };
 
 
         $scope.oneAtATime = true;
@@ -579,12 +579,60 @@ $scope.tabchanges = function(tabs, a) {
         $scope.menutitle = NavigationService.makeactive("Heats");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-          $scope.oneAtATime = true;
-          $scope.status = {
-  isCustomHeaderOpen: false,
-  isFirstOpen: true,
-  isFirstDisabled: false
-};
+        $scope.oneAtATime = true;
+        $scope.status = {
+            isCustomHeaderOpen: false,
+            isFirstOpen: true,
+            isFirstDisabled: false
+        };
+
+        $scope.student = [{
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }];
+
+    })
+    .controller('QualifyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("qualify");
+        $scope.menutitle = NavigationService.makeactive("Qualify");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.oneAtATime = true;
+        $scope.status = {
+            isCustomHeaderOpen: false,
+            isFirstOpen: true,
+            isFirstDisabled: false
+        };
 
         $scope.student = [{
             icon: "img/sf-student-profile.png",
