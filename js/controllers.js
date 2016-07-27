@@ -17,6 +17,46 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
         ];
     })
+    .controller('DrawCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+
+        $scope.template = TemplateService.changecontent("draw");
+        $scope.menutitle = NavigationService.makeactive("Draw");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+        $scope.round = [{
+            name: "round1",
+            class : "classa",
+            tab: "round1",
+            id: "1"
+        }, {
+            name: "round2",
+            class : "classb",
+            tab: "round2",
+            id: "2"
+        }, {
+            name: "round2",
+            class : "classc",
+            tab: "round3",
+            id: "3"
+        }, {
+            name: "quater-final",
+            class : "classd",
+            tab: "round4",
+            id: "4"
+        }, {
+            name: "semi-final",
+            class : "classe",
+            tab: "round5",
+            id: "5"
+        }, {
+            name: "final",
+            class : "classf",
+            tab: "round2",
+            id: "6"
+        }];
+
+    })
     .controller('StudentProfileCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
@@ -681,47 +721,143 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             isFirstOpen: true,
             isFirstDisabled: false
         };
-  $scope.feedLimit = 5;
+        $scope.feedLimit = 5;
         $scope.matchs = [{
             match: "1",
             team1: "dhirubhai ambani intertional school",
             team2: "dhirubhai ambani intertional school",
-            score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+            score: [{
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, ]
         }, {
-          match: "1",
-          team1: "dhirubhai ambani intertional school",
-          team2: "dhirubhai ambani intertional school",
-          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+            match: "1",
+            team1: "dhirubhai ambani intertional school",
+            team2: "dhirubhai ambani intertional school",
+            score: [{
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, ]
         }, {
-          match: "1",
-          team1: "dhirubhai ambani intertional school",
-          team2: "dhirubhai ambani intertional school",
-          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+            match: "1",
+            team1: "dhirubhai ambani intertional school",
+            team2: "dhirubhai ambani intertional school",
+            score: [{
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, ]
         }, {
-          match: "1",
-          team1: "dhirubhai ambani intertional school",
-          team2: "dhirubhai ambani intertional school",
-          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+            match: "1",
+            team1: "dhirubhai ambani intertional school",
+            team2: "dhirubhai ambani intertional school",
+            score: [{
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, ]
         }, {
-          match: "1",
-          team1: "dhirubhai ambani intertional school",
-          team2: "dhirubhai ambani intertional school",
-          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+            match: "1",
+            team1: "dhirubhai ambani intertional school",
+            team2: "dhirubhai ambani intertional school",
+            score: [{
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, ]
         }, {
-          match: "1",
-          team1: "dhirubhai ambani intertional school",
-          team2: "dhirubhai ambani intertional school",
-          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+            match: "1",
+            team1: "dhirubhai ambani intertional school",
+            team2: "dhirubhai ambani intertional school",
+            score: [{
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, ]
         }, {
-          match: "1",
-          team1: "dhirubhai ambani intertional school",
-          team2: "dhirubhai ambani intertional school",
-          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+            match: "1",
+            team1: "dhirubhai ambani intertional school",
+            team2: "dhirubhai ambani intertional school",
+            score: [{
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, ]
         }, {
-          match: "1",
-          team1: "dhirubhai ambani intertional school",
-          team2: "dhirubhai ambani intertional school",
-          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+            match: "1",
+            team1: "dhirubhai ambani intertional school",
+            team2: "dhirubhai ambani intertional school",
+            score: [{
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, ]
         }];
 
     })
@@ -737,47 +873,143 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             isFirstOpen: true,
             isFirstDisabled: false
         };
-  $scope.feedLimit = 5;
+        $scope.feedLimit = 5;
         $scope.matchs = [{
             match: "1",
             team1: "dhirubhai ambani intertional school",
             team2: "dhirubhai ambani intertional school",
-            score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+            score: [{
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, ]
         }, {
-          match: "1",
-          team1: "dhirubhai ambani intertional school",
-          team2: "dhirubhai ambani intertional school",
-          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+            match: "1",
+            team1: "dhirubhai ambani intertional school",
+            team2: "dhirubhai ambani intertional school",
+            score: [{
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, ]
         }, {
-          match: "1",
-          team1: "dhirubhai ambani intertional school",
-          team2: "dhirubhai ambani intertional school",
-          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+            match: "1",
+            team1: "dhirubhai ambani intertional school",
+            team2: "dhirubhai ambani intertional school",
+            score: [{
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, ]
         }, {
-          match: "1",
-          team1: "dhirubhai ambani intertional school",
-          team2: "dhirubhai ambani intertional school",
-          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+            match: "1",
+            team1: "dhirubhai ambani intertional school",
+            team2: "dhirubhai ambani intertional school",
+            score: [{
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, ]
         }, {
-          match: "1",
-          team1: "dhirubhai ambani intertional school",
-          team2: "dhirubhai ambani intertional school",
-          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+            match: "1",
+            team1: "dhirubhai ambani intertional school",
+            team2: "dhirubhai ambani intertional school",
+            score: [{
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, ]
         }, {
-          match: "1",
-          team1: "dhirubhai ambani intertional school",
-          team2: "dhirubhai ambani intertional school",
-          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+            match: "1",
+            team1: "dhirubhai ambani intertional school",
+            team2: "dhirubhai ambani intertional school",
+            score: [{
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, ]
         }, {
-          match: "1",
-          team1: "dhirubhai ambani intertional school",
-          team2: "dhirubhai ambani intertional school",
-          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+            match: "1",
+            team1: "dhirubhai ambani intertional school",
+            team2: "dhirubhai ambani intertional school",
+            score: [{
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, ]
         }, {
-          match: "1",
-          team1: "dhirubhai ambani intertional school",
-          team2: "dhirubhai ambani intertional school",
-          score: [{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},{score1:"11",score2:"5"},]
+            match: "1",
+            team1: "dhirubhai ambani intertional school",
+            team2: "dhirubhai ambani intertional school",
+            score: [{
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, {
+                score1: "11",
+                score2: "5"
+            }, ]
         }];
 
     })
