@@ -13,7 +13,7 @@
                         <flex-slider flex-slide="item in round track by $index" animation="slide" item-width="180" item-margin="10" animationloop="true" move="2">
 
                             <li class="text-center">
-                                <button type="button" class="btn {{item.class}}" ng-click="tabchange(item.tab,item.id)">{{item.name}} </button>
+                                <button type="button" class="btn {{item.class}}" ng-click="tabchanges(item.tab,item.id)">{{item.name}} </button>
                             </li>
 
                         </flex-slider>
@@ -22,7 +22,20 @@
             </div>
             <div class="bg-draw">
               <div class="row">
-                <div class="col-md-8"></div>
+                <div class="col-md-8">
+                  <div class="round1" ng-if="tabs=='round1'">
+                    aaasasasasasassssssssssssssa
+                  </div>
+                  <div class="round2" ng-if="tabs=='round2'">
+                    b
+                  </div>
+                  <div class="round3" ng-if="tabs=='round3'">
+                    c
+                  </div>
+                  <div class="round4" ng-if="tabs=='round4'">
+                    d
+                  </div>
+                </div>
                 <div class="col-md-4">
                   <div class=" pos-right">
                       <div class="result-list display-inline">

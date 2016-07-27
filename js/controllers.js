@@ -24,6 +24,55 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
+        $scope.tabs = 'round1';
+        $scope.classa = 'active-list';
+        $scope.classb = '';
+        $scope.classc = '';
+        $scope.classd = '';
+        $scope.classf = '';
+        $scope.tabchanges = function(tabs, a) {
+            //        console.log(tab);
+            $scope.tabs = tabs;
+            if (a == 1) {
+
+              $scope.classa = 'active-list';
+              $scope.classb = '';
+              $scope.classc = '';
+              $scope.classd = '';
+              $scope.classf = '';
+
+            } else if (a==2){
+
+              $scope.classa = '';
+              $scope.classb = 'active-list';
+              $scope.classc = '';
+              $scope.classd = '';
+              $scope.classf = '';
+            }else if (a==3){
+
+              $scope.classa = '';
+              $scope.classb = '';
+              $scope.classc = 'active-list';
+              $scope.classd = '';
+              $scope.classf = '';
+            } else if (a==4){
+
+              $scope.classa = '';
+              $scope.classb = '';
+              $scope.classc = '';
+              $scope.classd = 'active-list';
+              $scope.classf = '';
+            } else if (a==5){
+
+              $scope.classa = '';
+              $scope.classb = '';
+              $scope.classc = '';
+              $scope.classd = '';
+              $scope.classf = 'active-list';
+            }
+        };
+
+
         $scope.round = [{
             name: "round1",
             class : "classa",
@@ -52,7 +101,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             name: "final",
             class : "classf",
-            tab: "round2",
+            tab: "round6",
             id: "6"
         }];
 
