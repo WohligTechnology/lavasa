@@ -1329,6 +1329,11 @@ img.fancybox-image {
         }
     }
 }
+.bg-draw{
+  background: url(../img/bg-draw.jpg)no-repeat;
+  background-size: cover;
+  position: relative;
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
