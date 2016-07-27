@@ -1302,6 +1302,14 @@ right: 0px;
     bottom: -123px;
 top: inherit;
 }
+.b-right{
+    padding-right: 0;
+}
+.pt150{
+  margin-top: 150px;
+    border-right: 2px solid #c1c1c1;
+  padding-right: 20px;
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
