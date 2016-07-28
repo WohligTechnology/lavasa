@@ -1248,6 +1248,7 @@ img.fancybox-image {
         height: 254px;
     }
 }
+
 .all-sets {
     display: inline-block;
     width: 215px;
@@ -1259,6 +1260,10 @@ img.fancybox-image {
             padding-bottom: 100px;
         }
     }
+}
+.comp-width{
+  @extend .all-sets;
+  width: 290px;
 }
 .min-height-fix {
     min-height: 500px;
@@ -1335,7 +1340,16 @@ img.fancybox-image {
   position: relative;
 }
 .round1 {
-    padding: 20px 0px 0px 100px;
+    padding: 20px 0px 0px 0px;
+}
+.comp-img{
+  padding-right: 8px;
+  img{
+    vertical-align: baseline;
+  }
+}
+.one-sec {
+    padding: 10px 30px 10px 10px;
 }
 //bootstrap forms
 /* Start writing sass here */

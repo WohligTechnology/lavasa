@@ -222,6 +222,16 @@ firstapp.directive('scores', function($document) {
         }
     };
 });
+firstapp.directive('draw', function($document) {
+    return {
+        restrict: 'EA',
+        replace: true,
+        templateUrl: "views/directive/draw-list.html",
+        link: function(scope, element, attr) {
+            // console.info(scope.person);
+        }
+    };
+});
 
 
 firstapp.config(function ($translateProvider) {
