@@ -1338,6 +1338,8 @@ img.fancybox-image {
   background: url(../img/bg-draw.jpg)no-repeat;
   background-size: cover;
   position: relative;
+  padding: 0px 0px 40px 0px;
+
 }
 .round1 {
     padding: 20px 0px 0px 0px;
@@ -1350,6 +1352,12 @@ img.fancybox-image {
 }
 .one-sec {
     padding: 10px 30px 10px 10px;
+}
+.text-right{
+  text-align: right;
+}
+.pad-ul{
+
 }
 //bootstrap forms
 /* Start writing sass here */
