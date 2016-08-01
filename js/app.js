@@ -124,6 +124,15 @@ firstapp.directive('img', function($compile, $parse) {
     }
   };
 });
+firstapp.directive('mychart', function($compile, $parse) {
+  return {
+    restrict: 'C',
+    replace: false,
+    link: function($scope, element, attrs) {
+   $(element).mychart();
+    }
+  };
+});
 
 firstapp.directive('fancyboxBox', function($document) {
     return {
