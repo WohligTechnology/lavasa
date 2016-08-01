@@ -1356,8 +1356,8 @@ img.fancybox-image {
 .text-right{
   text-align: right;
 }
-.pad-ul{
-
+.fancybox-inner {
+    overflow: hidden !important;
 }
 //bootstrap forms
 /* Start writing sass here */
