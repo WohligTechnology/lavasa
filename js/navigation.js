@@ -50,10 +50,21 @@ var navigationservice = angular.module('navigationservice', [])
         getSearchData: function(input,callback) {
             // console.log('form data: ', formData);
             $http({
-                url: adminurl + 'student/searchStudent',
+                url: adminurl + 'school/searchSchool',
                 method: 'POST',
                 withCredentials: true,
                 data:input
+            }).success(callback);
+        },
+        getSchoolProfile: function(id,callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'school/getOne',
+                method: 'POST',
+                withCredentials: true,
+                data: {
+                    "_id": id
+                }
             }).success(callback);
         },
 

@@ -6,7 +6,8 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="sf-school-logo sf-relative text-center">
-                            <img src="img/sf-school-profile-big.png" alt="">
+                            <img ng-src="{{getSchoolProfile.image|uploadpath}}" alt="">
+                            <!-- <img src="img/sf-school-profile-big.png" alt=""> -->
                             <div class="sigh-second sf-absulate">
                                 <img src="img/sf-right-org.png" alt="">
                             </div>
@@ -15,7 +16,7 @@
                     <div class="col-md-9">
                         <div class="sf-school-data">
                             <div class="scl-title display-inline">
-                                <h3 class="color-orange font-semi">DHIRUBHAI AMBANI INTERNATIONAL SCHOOL</h3>
+                                <h3 class="color-orange font-semi">{{getSchoolProfile.name}}</h3>
                             </div>
                             <!-- <div class="display-inline cup">
                                 <img src="img/sf-cup.png" alt="">
@@ -125,7 +126,7 @@
             </div>
             <div class="col-md-offset-1 col-md-10">
                 <div class="sport-slider mt40">
-                    <flex-slider class="carousel" flex-slide="slide in games track by $index" animation="slide" item-width="140" item-margin="60">
+                    <flex-slider class="carousel" flex-slide="slide in schoolSports track by $index" animation="slide" item-width="140" item-margin="60">
                         <li>
                             <a href="">
                                 <div class="sports-participate text-center">

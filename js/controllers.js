@@ -621,7 +621,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     })
-    .controller('SchoolProfileCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    .controller('SchoolProfileCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("school-profile");
         $scope.menutitle = NavigationService.makeactive("School Profile");
@@ -752,6 +752,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             icon: "img/m3.jpg",
             name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
         }];
+        NavigationService.getSchoolProfile($stateParams.id,function(data) {
+            console.log('edit');
+            $scope.getSchoolProfile = data.data;
+            $scope.schoolSports = data.data.sports;
+            console.log('$scope.getSchoolProfile', $scope.getSchoolProfile);
+
+        });
+
     })
     .controller('StudentsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
