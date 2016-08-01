@@ -13,30 +13,30 @@
                 </div>
                 <div class="mt15 text-center border-bottom">
                     <form class="">
-                        <input type="text" class="search-input" name="q" value="Type school name" ng-model="search" placeholder="Type school name or ID">
-                        <input type="image" value="Search" src="img/sfa-search.png" class="search-btn" ng-click="getSearchById(idSearch.search);">
+                        <input type="text" class="search-input" name="q" value="Type school name" placeholder="Type school name or ID" ng-change="doSearch();" ng-model="searchFilter.search">
+                        <input type="image" value="Search" src="img/sfa-search.png" class="search-btn" ng-click="doSearch();">
                     </form>
                 </div>
             </div>
 
         </div>
-        <div class="row" ng-show="!search">
+        <div class="row" ng-show="!getsearch">
             <div class="text-center mt40">
                 <h3 class="font-semi color-orange text-up">Top 20 schools</h3>
             </div>
             <div class="col-md-offset-2 col-md-8 col-xs-12">
                 <div class="">
-                    <div class="col-md-4 top-school" ng-repeat="data in school track by $index">
+                    <div class="col-md-4 top-school" ng-repeat="data in getFirstList track by $index">
                         <a ui-sref="school-profile">
                             <div class="school-box">
                                 <div class="box-header">
                                     <div class="school-img">
-                                        <img ng-src="{{data.img}}" alt="" class="margin-auto">
+                                        <img ng-src="{{data.image | uploadpath}}" alt="" class="margin-auto">
                                         <div class="sigh-img">
                                             <img src="img/sf-right.png" alt="">
                                         </div>
                                         <div class="rank">
-                                            <h3 class="text-up color-white margin0">{{data.rank}}</h3>
+                                            <h3 class="text-up color-white margin0">{{$index+1}}</h3>
                                         </div>
 
 
@@ -48,13 +48,13 @@
                                             <div class="medal-count sf-list color-orange font-semi">
                                                 <ul class="padding0">
                                                     <li>
-                                                        <img src="img/sf-gold.png" alt="">2
+                                                        <img src="img/sf-gold.png" alt="">{{data.medal.gold}}
                                                     </li>
                                                     <li>
-                                                        <img src="img/sf-silver.png" alt="">4
+                                                        <img src="img/sf-silver.png" alt="">{{data.medal.silver}}
                                                     </li>
                                                     <li>
-                                                        <img src="img/sf-bronze.png" alt="">5
+                                                        <img src="img/sf-bronze.png" alt="">{{data.medal.bronze}}
                                                     </li>
                                                 </ul>
                                             </div>
@@ -70,18 +70,19 @@
                 </div>
             </div>
         </div>
-        <div class="row" ng-show="search">
+        <div class="row" ng-show="getsearch">
             <div class="text-center mt40">
-                <h3 class="font-semi color-orange text-up">50 Search Results</h3>
+                <h3 class="font-semi color-orange text-up">{{getSearchData.length}} Search Results</h3>
             </div>
             <div class="col-md-offset-2 col-md-8 col-xs-12">
                 <div class="">
-                    <div class="col-md-4 mt15" ng-repeat="data in school track by $index">
+                    <div class="col-md-4 mt15" ng-repeat="data in getSearchData track by $index">
                         <a ui-sref="school-profile">
                             <div class="school-boxs">
                                 <div class="box-headers">
                                     <div class="school-imgs text-center sf-relative">
                                         <img src="img/sf-school-grey.png" alt="">
+                                        <img ng-src="{{data.image|uploadpath}}" alt="">
                                         <div class="sigh-imgs sf-absulate">
                                             <img src="img/sf-right.png" alt="">
                                         </div>

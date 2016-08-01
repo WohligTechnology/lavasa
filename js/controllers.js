@@ -35,72 +35,72 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.tabs = tabs;
             if (a == 1) {
 
-              $scope.classa = 'active-list';
-              $scope.classb = '';
-              $scope.classc = '';
-              $scope.classd = '';
-              $scope.classf = '';
+                $scope.classa = 'active-list';
+                $scope.classb = '';
+                $scope.classc = '';
+                $scope.classd = '';
+                $scope.classf = '';
 
-            } else if (a==2){
+            } else if (a == 2) {
 
-              $scope.classa = '';
-              $scope.classb = 'active-list';
-              $scope.classc = '';
-              $scope.classd = '';
-              $scope.classf = '';
-            }else if (a==3){
+                $scope.classa = '';
+                $scope.classb = 'active-list';
+                $scope.classc = '';
+                $scope.classd = '';
+                $scope.classf = '';
+            } else if (a == 3) {
 
-              $scope.classa = '';
-              $scope.classb = '';
-              $scope.classc = 'active-list';
-              $scope.classd = '';
-              $scope.classf = '';
-            } else if (a==4){
+                $scope.classa = '';
+                $scope.classb = '';
+                $scope.classc = 'active-list';
+                $scope.classd = '';
+                $scope.classf = '';
+            } else if (a == 4) {
 
-              $scope.classa = '';
-              $scope.classb = '';
-              $scope.classc = '';
-              $scope.classd = 'active-list';
-              $scope.classf = '';
-            } else if (a==5){
+                $scope.classa = '';
+                $scope.classb = '';
+                $scope.classc = '';
+                $scope.classd = 'active-list';
+                $scope.classf = '';
+            } else if (a == 5) {
 
-              $scope.classa = '';
-              $scope.classb = '';
-              $scope.classc = '';
-              $scope.classd = '';
-              $scope.classf = 'active-list';
+                $scope.classa = '';
+                $scope.classb = '';
+                $scope.classc = '';
+                $scope.classd = '';
+                $scope.classf = 'active-list';
             }
         };
 
 
         $scope.round = [{
             name: "round1",
-            class : "classa",
+            class: "classa",
             tab: "round1",
             id: "1"
         }, {
             name: "round2",
-            class : "classb",
+            class: "classb",
             tab: "round2",
             id: "2"
         }, {
             name: "round2",
-            class : "classc",
+            class: "classc",
             tab: "round3",
             id: "3"
         }, {
             name: "quater-final",
-            class : "classd",
+            class: "classd",
             tab: "round4",
             id: "4"
         }, {
             name: "semi-final",
-            class : "classe",
+            class: "classe",
             tab: "round5",
             id: "5"
         }, {
             name: "final",
-            class : "classf",
+            class: "classf",
             tab: "round6",
             id: "6"
         }];
@@ -592,6 +592,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             name: "Dhirubhai Ambani Intertional School",
             rank: "20"
         }];
+        NavigationService.getFirstList(function(data) {
+            console.log('defghjfghjkfghj');
+            $scope.getFirstList = data.data;
+            console.log('$scope.getFirstList', $scope.getFirstList);
+
+        });
+        $scope.getsearch = false;
+        $scope.searchFilter = {};
+        $scope.searchFilter.pagenumber = 1;
+        $scope.searchFilter.pagesize = 3;
+        $scope.searchFilter.search = "";
+        $scope.doSearch = function() {
+            if ($scope.searchFilter.search == '') {
+                $scope.getsearch = false;
+            } else {
+                $scope.getsearch = true;
+                NavigationService.getSearchData($scope.searchFilter, function(data) {
+                    console.log($scope.searchFilter);
+                    console.log('defghjfghjkfghj');
+                    $scope.getSearchData = data.data.data;
+
+                });
+
+            }
+
+        }
+
+
     })
     .controller('SchoolProfileCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file

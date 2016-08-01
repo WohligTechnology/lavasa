@@ -1,85 +1,108 @@
 // JavaScript Document
 var firstapp = angular.module('firstapp', [
-  'ui.router',
-  'phonecatControllers',
-  'templateservicemod',
-  'navigationservice',
-  'pascalprecht.translate',
-  'angulartics',
-  'angulartics.google.analytics'
+    'ui.router',
+    'phonecatControllers',
+    'templateservicemod',
+    'navigationservice',
+    'pascalprecht.translate',
+    'angulartics',
+    'angulartics.google.analytics'
 ]);
 
 firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
-  // for http request with session
-  $httpProvider.defaults.withCredentials = true;
-  $stateProvider
-    .state('home', {
-    url: "/",
-    templateUrl: "views/template.html",
-    controller: 'HomeCtrl'
-  })
-    .state('school', {
-    url: "/school",
-    templateUrl: "views/template.html",
-    controller: 'SchoolCtrl'
-  })
-    .state('draw', {
-    url: "/draw",
-    templateUrl: "views/template.html",
-    controller: 'DrawCtrl'
-  })
-    .state('sport', {
-    url: "/sport",
-    templateUrl: "views/template.html",
-    controller: 'SportCtrl'
-  })
-    .state('heats', {
-    url: "/heats",
-    templateUrl: "views/template.html",
-    controller: 'HeatsCtrl'
-  })
-    .state('qualify', {
-    url: "/qualify",
-    templateUrl: "views/template.html",
-    controller: 'QualifyCtrl'
-  })
-    .state('knockout', {
-    url: "/knockout",
-    templateUrl: "views/template.html",
-    controller: 'KnockoutCtrl'
-  })
-    .state('round-robin', {
-    url: "/round-robin",
-    templateUrl: "views/template.html",
-    controller: 'RoundRobinCtrl'
-  })
-    .state('school-bio', {
-    url: "/school-bio",
-    templateUrl: "views/template.html",
-    controller: 'SchoolBioCtrl'
-  })
-    .state('school-profile', {
-    url: "/school-profile",
-    templateUrl: "views/template.html",
-    controller: 'SchoolProfileCtrl'
-  })
-    .state('student-bio', {
-    url: "/student-bio",
-    templateUrl: "views/template.html",
-    controller: 'StudentBioCtrl'
-  })
-    .state('student-profile', {
-    url: "/student-profile",
-    templateUrl: "views/template.html",
-    controller: 'StudentProfileCtrl'
-  })
-    .state('students', {
-    url: "/students",
-    templateUrl: "views/template.html",
-    controller: 'StudentsCtrl'
-  });
-  $urlRouterProvider.otherwise("/school");
-  $locationProvider.html5Mode(isproduction);
+    // for http request with session
+    $httpProvider.defaults.withCredentials = true;
+    $stateProvider
+        .state('home', {
+            url: "/",
+            templateUrl: "views/template.html",
+            controller: 'HomeCtrl'
+        })
+        .state('school', {
+            url: "/school",
+            templateUrl: "views/template.html",
+            controller: 'SchoolCtrl'
+        })
+        .state('draw', {
+            url: "/draw",
+            templateUrl: "views/template.html",
+            controller: 'DrawCtrl'
+        })
+        .state('sport', {
+            url: "/sport",
+            templateUrl: "views/template.html",
+            controller: 'SportCtrl'
+        })
+        .state('heats', {
+            url: "/heats",
+            templateUrl: "views/template.html",
+            controller: 'HeatsCtrl'
+        })
+        .state('qualify', {
+            url: "/qualify",
+            templateUrl: "views/template.html",
+            controller: 'QualifyCtrl'
+        })
+        .state('knockout', {
+            url: "/knockout",
+            templateUrl: "views/template.html",
+            controller: 'KnockoutCtrl'
+        })
+        .state('round-robin', {
+            url: "/round-robin",
+            templateUrl: "views/template.html",
+            controller: 'RoundRobinCtrl'
+        })
+        .state('school-bio', {
+            url: "/school-bio",
+            templateUrl: "views/template.html",
+            controller: 'SchoolBioCtrl'
+        })
+        .state('school-profile', {
+            url: "/school-profile",
+            templateUrl: "views/template.html",
+            controller: 'SchoolProfileCtrl'
+        })
+        .state('student-bio', {
+            url: "/student-bio",
+            templateUrl: "views/template.html",
+            controller: 'StudentBioCtrl'
+        })
+        .state('student-profile', {
+            url: "/student-profile",
+            templateUrl: "views/template.html",
+            controller: 'StudentProfileCtrl'
+        })
+        .state('students', {
+            url: "/students",
+            templateUrl: "views/template.html",
+            controller: 'StudentsCtrl'
+        });
+    $urlRouterProvider.otherwise("/school");
+    $locationProvider.html5Mode(isproduction);
+});
+
+
+firstapp.filter('uploadpath', function() {
+    return function(input, width, height, style) {
+        var other = "";
+        if (width && width !== "") {
+            other += "&width=" + width;
+        }
+        if (height && height !== "") {
+            other += "&height=" + height;
+        }
+        if (style && style !== "") {
+            other += "&style=" + style;
+        }
+        if (input) {
+            if (input.indexOf('https://') == -1) {
+                return imgpath + "?file=" + input + other;
+            } else {
+                return input;
+            }
+        }
+    };
 });
 
 firstapp.directive('giveitmargin', function($compile, $parse) {
@@ -111,32 +134,32 @@ firstapp.directive('giveitmargin', function($compile, $parse) {
     };
 });
 firstapp.directive('img', function($compile, $parse) {
-  return {
-    restrict: 'E',
-    replace: false,
-    link: function($scope, element, attrs) {
-      var $element = $(element);
-      if (!attrs.noloading) {
-        $element.after("<img src='img/loading.gif' class='loading' />");
-        var $loading = $element.next(".loading");
-        $element.load(function() {
-          $loading.remove();
-          $(this).addClass("doneLoading");
-        });
-      } else {
-        $($element).addClass("doneLoading");
-      }
-    }
-  };
+    return {
+        restrict: 'E',
+        replace: false,
+        link: function($scope, element, attrs) {
+            var $element = $(element);
+            if (!attrs.noloading) {
+                $element.after("<img src='img/loading.gif' class='loading' />");
+                var $loading = $element.next(".loading");
+                $element.load(function() {
+                    $loading.remove();
+                    $(this).addClass("doneLoading");
+                });
+            } else {
+                $($element).addClass("doneLoading");
+            }
+        }
+    };
 });
 firstapp.directive('mychart', function($compile, $parse) {
-  return {
-    restrict: 'C',
-    replace: false,
-    link: function($scope, element, attrs) {
-   $(element).mychart();
-    }
-  };
+    return {
+        restrict: 'C',
+        replace: false,
+        link: function($scope, element, attrs) {
+            $(element).mychart();
+        }
+    };
 });
 
 firstapp.directive('fancyboxBox', function($document) {
@@ -147,7 +170,7 @@ firstapp.directive('fancyboxBox', function($document) {
             var $element = $(element);
             var target;
             if (attr.rel) {
-               target = $("[rel='" + attr.rel + "']");
+                target = $("[rel='" + attr.rel + "']");
             } else {
                 target = element;
             }
@@ -248,8 +271,8 @@ firstapp.directive('draw', function($document) {
 });
 
 
-firstapp.config(function ($translateProvider) {
-  $translateProvider.translations('en', LanguageEnglish);
-  $translateProvider.translations('hi', LanguageHindi);
-  $translateProvider.preferredLanguage('en');
+firstapp.config(function($translateProvider) {
+    $translateProvider.translations('en', LanguageEnglish);
+    $translateProvider.translations('hi', LanguageHindi);
+    $translateProvider.preferredLanguage('en');
 });
