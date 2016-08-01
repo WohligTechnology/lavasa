@@ -240,9 +240,19 @@ sport’s bio
                             <div class="text-center">
                                 <h3 class="color-blue font-semi text-up">analytics of sfa mumbai 2016</h3>
                             </div>
+
+                        </div>
+                        <div class="row mt15">
+                          <div class="col-md-6">
                             <div class="chart">
-                              <div  class="mychart"  style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+                              <div  id="mychart"  style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
                             </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="chart">
+                              <div  id="mychart2"  style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+                            </div>
+                          </div>
                         </div>
                     </div>
                   </div>
@@ -444,13 +454,13 @@ match videos
     </div>
     <div class="row" ng-show="tabs=='photos'">
         <div class="col-md-3 mt15" ng-repeat="data in photos track by $index">
-            <a href="{{data}}" fancybox-box><img ng-src="{{data}}" alt="" class="img-responsive width100"></a>
+            <a href="{{data}}" fancybox-box rel="gallery1"><img ng-src="{{data}}" alt="" class="img-responsive width100"></a>
         </div>
     </div>
 
     <div class="row mt25" ng-show="tabs=='videos'">
         <div class="col-md-4 mt25" ng-repeat="data in video track by $index">
-            <a class="various fancybox.iframe" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
+            <a class="various fancybox.iframe" rel="gallery1" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
                 <div class="videow-box">
                     <div class="video-img">
                         <img ng-src="{{data.icon}}" alt="" class="img-responsive width100">
@@ -540,3 +550,99 @@ dynamic and static drills, a variety in workouts and an innovative and scientifi
         </div>
     </div>
 </section>
+<script type="text/javascript">
+$(function () {
+    $('#mychart').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'NO. OF TEAMS'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Teams',
+            colorByPoint: true,
+            data: [{
+                name: 'Girls',
+                y: 25
+            }, {
+                name: 'Boys',
+                y: 75,
+                sliced: true,
+                selected: true
+            }]
+        }]
+    });
+});
+
+</script>
+<script type="text/javascript">
+$(function () {
+    $('#mychart2').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'NO. OF MATCHES'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                      color: {
+    radialGradient: { cx: 0.5, cy: 0.5, r: 0.5 },
+    stops: [
+       [0, '#003399'],
+       [1, '#3366AA']
+    ]
+}
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Teams',
+            colorByPoint: true,
+            data: [{
+                name: 'Girls',
+                y: 25
+            }, {
+                name: 'Boys',
+                y: 75,
+                sliced: true,
+                selected: true
+            }]
+        }]
+    });
+});
+
+</script>
