@@ -236,11 +236,13 @@ a {
     border-radius: 12px;
     border: 2px solid #afafaf;
     padding: 17px 0 16px;
+        margin: 0px 30px;
 }
 .school-sec {
     @extend .school-boxs;
     min-height: 260px;
     position: relative;
+        margin: 10px 3px;
 }
 .rank {
     position: absolute;
@@ -397,6 +399,9 @@ a {
 }
 .pl0 {
     padding-left: 0 !important;
+}
+.pl20{
+      padding-left: 20px;
 }
 .stu-data {
     margin-left: 15px;
@@ -692,8 +697,14 @@ hr {
 .margin15 {
     margin: 10px 30px;
 }
+.margin152 {
+    margin: 10px 0px;
+}
 .box-margin {
     margin: 0 80px;
+}
+.box-margin2 {
+    margin: 0 150px;
 }
 .tables {
     border: 1px solid #000;
@@ -1359,6 +1370,26 @@ img.fancybox-image {
 }
 .fancybox-inner {
     overflow: hidden !important;
+}
+.main-pos{
+  left: 38%;
+top: 50%;
+transform: translate(-50%,-50%);
+
+}
+.right-pos{
+  right: 15px;
+top: 50%;
+transform: translateY(-50%);
+}
+.blog-title{
+  p{
+        font-size: 15px;
+  }
+}
+.spon{
+  right: 15%;
+bottom: 15%;
 }
 //bootstrap forms
 /* Start writing sass here */

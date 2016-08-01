@@ -1,12 +1,12 @@
 <section>
     <div class="banner sf-relative">
-        <img src="img/sf-school-profile.png" alt="" class="img-responsive width100">
+        <img src="img/new-banner.png" alt="" class="img-responsive width100">
         <div class="sf-absulate banner-set">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="sf-school-logo sf-relative text-center">
-                            <img src="img/sf-school-profile-big.png" alt="">
+                            <a ui-sref="school-profile"><img src="img/sf-school-profile-big.png" alt=""></a>
                             <div class="sigh-second sf-absulate">
                                 <img src="img/sf-right-big.png" alt="">
                             </div>
@@ -15,11 +15,11 @@
                     <div class="col-md-9">
                         <div class="sf-school-data">
                             <div class="scl-title display-inline">
-                                <h3 class="color-orange font-semi">DHIRUBHAI AMBANI INTERNATIONAL SCHOOL</h3>
+                                <a ui-sref="school-profile"><h3 class="color-orange font-semi">DHIRUBHAI AMBANI INTERNATIONAL SCHOOL</h3></a>
                             </div>
-                            <div class="display-inline cup">
+                            <!-- <div class="display-inline cup">
                                 <img src="img/sf-cup.png" alt="">
-                            </div>
+                            </div> -->
                         </div>
                         <div class="data-list custom-li color-white display-inline mt15">
                             <ul class="padding0 sf-list-padding">
@@ -50,10 +50,10 @@
                                         <p>2015 rank</p>
                                         <p class="total display-inline mt5">15</p>
                                     </div>
-                                    <div class="stu-data display-inline text-up text-center">
+                                    <!-- <div class="stu-data display-inline text-up text-center">
                                         <p>2016 rank</p>
                                         <p class="total display-inline mt5">4</p>
-                                    </div>
+                                    </div> -->
                                 </li>
                                 <li class="border-right-1">
 
@@ -144,8 +144,8 @@ school’s blog
                 <div class="box-content">
                     <div class="about-school" ng-show="tab=='about'">
                         <div class="row">
-                            <div class="col-md-offset-4 col-md-8">
-                                <div class="school-about text-up font-semi f16 mt40">
+                            <div class="col-md-offset-1 col-md-8">
+                                <div class="school-about text-up font-semi f16 mt40 pl20">
                                     <p><span>Name:</span>dhirubhai ambani intertional schoo</p>
                                     <p><span>sfa id:</span>28736</p>
                                     <p><span>Address:</span>13th floor, pancharatna towers, charni road, mumbai.</p>
@@ -160,11 +160,11 @@ school’s blog
                             <div class="text-center">
                                 <h3 class="color-blue text-up font-semi">sports department</h3>
                             </div>
-                            <div class="box-margin">
+                            <div class="box-margin2">
 
 
                                 <div class="col-md-6" ng-repeat="data in student track by $index">
-                                    <div class="row mt15 school-boxs margin15">
+                                    <div class="row mt15 school-boxs margin152">
                                         <a href="">
                                             <div class="">
                                                 <div class="col-md-6">
@@ -477,8 +477,8 @@ match videos
                             </div>
                         </div>
 
-                        <div class="row mt25" ng-show="tabs=='videos'">
-                            <div class="col-md-3 mt25" ng-repeat="data in video track by $index">
+                        <div class="row" ng-show="tabs=='videos'">
+                            <div class="col-md-3 mt15" ng-repeat="data in video track by $index">
                                 <a class="various fancybox.iframe" rel="gallery1" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
                                     <div class="videow-box">
                                         <div class="video-img">
