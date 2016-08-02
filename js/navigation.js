@@ -8,8 +8,8 @@
 
 var adminurl = "http://104.199.151.75:84/";
 // var adminurl = "http://192.168.1.119:84/";
-var imgpath = imgurl + "upload/readFile";
-var uploadurl = imgurl;
+var imgpath = adminurl + "upload/readFile";
+var uploadurl = adminurl + "upload/";
 var currentYears = ["2015", "2016"];
 var navigationservice = angular.module('navigationservice', [])
 
