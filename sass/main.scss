@@ -1484,6 +1484,67 @@ min-height: 330px;
   @extend .first-top-img;
     background-image: url("../img/purav-raja.png");
 }
+.curve{
+  background: url("../img/curves1.png") no-repeat center;
+width: 100%;
+height: 40px;
+position: relative;
+z-index: 1;
+background-position-y: 0;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+background-size: cover;
+}
+.home-slider{
+  margin-top: -37px;
+z-index: 0;
+position: relative;
+}
+.home-slider{
+  .flexslider {
+    border: none;
+}
+.flex-direction-nav a.flex-next:before {
+    content: '';
+    background: url("../img/arrow-right.png") no-repeat center;
+    width: 42px;
+    height: 62px;
+}
+.flex-direction-nav a.flex-prev:before {
+    content: '';
+    background: url("../img/arrow-left.png") no-repeat center;
+    width: 42px;
+    height: 62px;
+}
+.flex-direction-nav a {
+    width: 54px;
+    height: 66px;
+      opacity:1;
+}
+.flex-direction-nav .flex-prev {
+    left: 50px;
+}
+.flex-direction-nav .flex-next {
+    right: 50px;
+    text-align: right;
+}
+.flexslider:hover .flex-direction-nav .flex-prev:hover {
+    opacity:1;
+}
+.flexslider:hover .flex-direction-nav .flex-next:hover {
+    opacity:1;
+}
+.flexslider:hover .flex-direction-nav .flex-prev {
+      opacity:1;
+    left: 50px;
+    outline: 0;
+}
+.flexslider:hover .flex-direction-nav .flex-next {
+    opacity:1;
+    right: 50px;
+    outline: 0;
+}
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
