@@ -15,8 +15,8 @@
                     <div class="col-md-9">
                         <div class="sf-school-data">
                             <div class="scl-title display-inline">
-                                <h3 class="color-orange font-semi text-up">Shah Harshit</h3>
-                                <h4 class="color-white text-up">Dhirubhai Ambani International School</h4>
+                                <h3 class="color-orange font-semi text-up">{{studentProfile.name}}</h3>
+                                <h4 class="color-white text-up">{{studentProfile.school.name}}</h4>
                             </div>
                             <!-- <div class="display-inline cup">
                                 <img src="img/sf-cup.png" alt="">
@@ -27,37 +27,31 @@
                                 <li class="border-right-2">
                                     <div class="">
                                         <p class="text-up color-orange">age group</p>
-                                        <p>U-17</p>
+                                        <p>{{studentProfile.agegroup.name}}</p>
                                     </div>
-
                                 </li>
                                 <li class="border-right-2">
                                     <div class="">
                                         <p class="text-up color-orange">SFA ID</p>
-                                        <p>45621</p>
+                                        <p>{{studentProfile.sfaid}}</p>
                                     </div>
                                 </li>
                                 <li class="border-right-2">
-
                                     <div class="">
                                         <p class="text-up color-orange">Date of Birth</p>
-                                        <p class="text-up">AUG 06, 2002 </p>
+                                        <p class="text-up">{{studentProfile.dob | date:"MMM dd, yyyy"}} </p>
                                     </div>
-
                                 </li>
                                 <li class="border-right-2">
-
                                     <div class="">
                                         <p class="text-up color-orange">gender</p>
-                                        <p class="text-up">male</p>
+                                        <p class="text-up">{{studentProfile.gender}}</p>
                                     </div>
-
                                 </li>
                             </ul>
                         </div>
                         <div class="sf-list">
                             <span class="text-center text-up color-orange">Medals Won</span>
-
                             <ul class="padd-left padding0 mt5 second-border">
                                 <li>
                                     <div class="medal-num">
@@ -94,7 +88,6 @@
                                 </li>
                             </ul>
                         </div>
-
                         <div class="btn-common mt25">
                             <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="student-bio">student bio</button>
                         </div>
@@ -118,8 +111,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
         <!-- <div class="row mt25">
             <div class="col-md-12">
@@ -142,186 +133,163 @@ student’s blog
         </div> -->
         <div class="box-content">
             <div class="">
-
-
-           <div class="row">
-                <div class="col-md-12">
-                    <div class="text-center">
-                        <h3 class="color-orange font-semi text-up margin0">statistics</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt25">
-                <div class="col-md-offset-3 col-md-3">
-                    <h4 class="text-up color-blue display-inline">Year</h4>
-                    <div class="display-inline">
-                        <div class="sfa-select">
-                            <select class="select">
-                                <option value="2016">2016</option>
-                                <option value="2016">2016</option>
-                                <option value="2016">2016</option>
-                                <option value="2016">2016</option>
-                            </select>
-                            <span class="only-border"></span>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <h3 class="color-orange font-semi text-up margin0">statistics</h3>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-3">
-                    <h4 class="text-up color-blue display-inline">Category</h4>
-                    <div class="display-inline">
-                        <div class="sfa-select">
-                            <select class="select">
-                                <option value="ALL">ALL</option>
-                                <option value="U-16">U-16</option>
-                                <option value="U-19">U-19</option>
-                                <option value="U-21">U-21</option>
-                            </select>
-                            <span class="only-border"></span>
+                <div class="row mt25">
+                    <div class="col-md-offset-3 col-md-3">
+                        <h4 class="text-up color-blue display-inline">Year</h4>
+                        <div class="display-inline">
+                            <div class="sfa-select">
+                                <select class="select">
+                                    <option value="2016">2016</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                                <span class="only-border"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <h4 class="text-up color-blue display-inline">Category</h4>
+                        <div class="display-inline">
+                            <div class="sfa-select">
+                                <select class="select">
+                                    <option value="ALL">ALL</option>
+                                    <option value="U-16">U-16</option>
+                                    <option value="U-19">U-19</option>
+                                    <option value="U-21">U-21</option>
+                                </select>
+                                <span class="only-border"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt25">
+                    <div class="col-md-12 mt25">
+                        <div class="table-statistics">
+                            <table class="table">
+                                <thead>
+                                    <tr class="text-up color-white bg-table">
+                                        <th>
+                                            <span>year</span>
+                                        </th>
+                                        <th>
+                                            <span>CATEGORY</span>
+                                        </th>
+                                        <th>
+                                            <span>ROUND</span>
+                                        </th>
+                                        <th>
+                                            <span>OPPONENT NAME</span>
+                                        </th>
+                                        <th>
+                                            <span>score</span>
+                                        </th>
+                                        <th>
+                                            <span>result</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="background:transparent;">
+                                        <td><span>2016</span></td>
+                                        <td><span class="text-up">U-10 <br> GIRLS  <br>SINGLES</span></td>
+                                        <td class="text-up">Soheb Shaikh</td>
+                                        <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
+                                            <p>Don Bosco School</p>
+                                        </td>
+                                        <td>
+                                            <div class="table-data display-inline text-center text-up">
+                                                <p>5/11</p>
+                                            </div>
+                                            <div class="table-data display-inline text-center text-up">
+                                                <p>5/11</p>
+                                            </div>
+                                            <div class="table-data display-inline text-center text-up">
+                                                <p>5/11</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-center display-inline ver-mid ">
+                                                <div class="sf-play">
+                                                    <span>Won</span>
+                                                </div>
+                                                <div class="replay-img ">
+                                                    <a href=""><img src="img/sf-play.png" alt=""></a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="other-bg">
+                                        <td><span>2016</span></td>
+                                        <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
+                                        <td class="text-up">Soheb Shaikh</td>
+                                        <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
+                                            <p>Don Bosco School</p>
+                                        </td>
+                                        <td>
+                                            <div class="table-data display-inline text-center text-up">
+                                                <p>5/11</p>
+                                            </div>
+                                            <div class="table-data display-inline text-center text-up">
+                                                <p>5/11</p>
+                                            </div>
+                                            <div class="table-data display-inline text-center text-up">
+                                                <p>5/11</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-center display-inline ver-mid ">
+                                                <div class="sf-play">
+                                                    <span>Won</span>
+                                                </div>
+                                                <div class="replay-img ">
+                                                    <a href=""><img src="img/sf-play.png" alt=""></a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="other-bg">
+                                        <td><span>2016</span></td>
+                                        <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
+                                        <td class="text-up">Soheb Shaikh</td>
+                                        <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
+                                            <p>Don Bosco School</p>
+                                        </td>
+                                        <td>
+                                            <div class="table-data display-inline text-center text-up">
+                                                <p>5/11</p>
+                                            </div>
+                                            <div class="table-data display-inline text-center text-up">
+                                                <p>5/11</p>
+                                            </div>
+                                            <div class="table-data display-inline text-center text-up">
+                                                <p>5/11</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="text-center display-inline ver-mid ">
+                                                <div class="sf-play">
+                                                    <span>Won</span>
+                                                </div>
+                                                <div class="replay-img ">
+                                                    <a href=""><img src="img/sf-play.png" alt=""></a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row mt25">
-                <div class="col-md-12 mt25">
-                    <div class="table-statistics">
-                        <table class="table">
-                            <thead>
-                                <tr class="text-up color-white bg-table">
-                                    <th>
-                                        <span>year</span>
-                                    </th>
-                                    <th>
-                                        <span>CATEGORY</span>
-                                    </th>
-                                    <th>
-                                        <span>ROUND</span>
-                                    </th>
-
-                                    <th>
-                                        <span>OPPONENT NAME</span>
-                                    </th>
-                                    <th>
-                                        <span>score</span>
-                                    </th>
-                                    <th>
-                                        <span>result</span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="background:transparent;">
-                                    <td><span>2016</span></td>
-                                    <td><span class="text-up">U-10 <br> GIRLS  <br>SINGLES</span></td>
-
-                                    <td class="text-up">Soheb Shaikh</td>
-                                    <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
-                                        <p>Don Bosco School</p>
-                                    </td>
-                                    <td>
-                                        <div class="table-data display-inline text-center text-up">
-
-                                            <p>5/11</p>
-                                        </div>
-                                        <div class="table-data display-inline text-center text-up">
-
-                                            <p>5/11</p>
-                                        </div>
-                                        <div class="table-data display-inline text-center text-up">
-
-                                            <p>5/11</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="text-center display-inline ver-mid ">
-                                          <div class="sf-play">
-                                              <span>Won</span>
-                                          </div>
-                                            <div class="replay-img ">
-                                                <a href=""><img src="img/sf-play.png" alt=""></a>
-                                            </div>
-
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr class="other-bg">
-                                    <td><span>2016</span></td>
-                                    <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
-
-                                    <td class="text-up">Soheb Shaikh</td>
-                                    <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
-                                        <p>Don Bosco School</p>
-                                    </td>
-                                    <td>
-                                        <div class="table-data display-inline text-center text-up">
-
-                                            <p>5/11</p>
-                                        </div>
-                                        <div class="table-data display-inline text-center text-up">
-
-                                            <p>5/11</p>
-                                        </div>
-                                        <div class="table-data display-inline text-center text-up">
-
-                                            <p>5/11</p>
-                                        </div>
-                                    </td>
-                                    <td >
-                                        <div class="text-center display-inline ver-mid ">
-                                          <div class="sf-play">
-                                              <span>Won</span>
-                                          </div>
-                                            <div class="replay-img ">
-                                                <a href=""><img src="img/sf-play.png" alt=""></a>
-                                            </div>
-
-                                        </div>
-
-                                    </td>
-                                </tr>
-                                <tr class="other-bg">
-                                    <td><span>2016</span></td>
-                                    <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
-
-                                    <td class="text-up">Soheb Shaikh</td>
-                                    <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
-                                        <p>Don Bosco School</p>
-                                    </td>
-                                    <td>
-                                        <div class="table-data display-inline text-center text-up">
-
-                                            <p>5/11</p>
-                                        </div>
-                                        <div class="table-data display-inline text-center text-up">
-
-                                            <p>5/11</p>
-                                        </div>
-                                        <div class="table-data display-inline text-center text-up">
-
-                                            <p>5/11</p>
-                                        </div>
-                                    </td>
-                                    <td >
-                                        <div class="text-center display-inline ver-mid ">
-                                          <div class="sf-play">
-                                              <span>Won</span>
-                                          </div>
-                                            <div class="replay-img ">
-                                                <a href=""><img src="img/sf-play.png" alt=""></a>
-                                            </div>
-
-                                        </div>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-                </div>
-
             <!-- <div class="record" ng-show="tab=='record'">
                 <div class="row mt25">
                     <div class="col-md-12 text-center">
@@ -672,6 +640,5 @@ Certificate</a></span>
                 </div>
             </div> -->
         </div>
-
     </div>
 </section>

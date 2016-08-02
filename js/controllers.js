@@ -682,7 +682,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Student Profile");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-
+    $scope.studentProfile = {};
     $scope.tabs = 'photos';
     $scope.classp = 'active-list';
     $scope.classv = '';
@@ -779,6 +779,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
     NavigationService.getStudentProfile($stateParams.id, function(data) {
         console.log(data);
+        $scope.studentProfile = data.data;
+        if ($scope.studentProfile.gender == "Boys") {
+            $scope.studentProfile.gender = "Male";
+        } else {
+            $scope.studentProfile.gender = "Female";
+        }
     });
 })
 
