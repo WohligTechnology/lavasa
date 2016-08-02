@@ -601,7 +601,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.getsearch = false;
         $scope.searchFilter = {};
         $scope.searchFilter.pagenumber = 1;
-        $scope.searchFilter.pagesize = 3;
+        $scope.searchFilter.pagesize = 9;
         $scope.searchFilter.search = "";
         $scope.doSearch = function() {
             if ($scope.searchFilter.search == '') {

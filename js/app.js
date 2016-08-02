@@ -103,7 +103,7 @@ firstapp.filter('uploadpath', function() {
             }
         } else {
             console.log("in me");
-            return "./img/noimage.jpg";
+            return "img/noimage.png";
         }
     };
 });
