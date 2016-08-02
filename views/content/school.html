@@ -1,7 +1,6 @@
 <section>
     <div class="head-banner">
         <img src="img/school.png" class="img-responsive img width100 margin-auto">
-
     </div>
 </section>
 <section class="bottom-padding">
@@ -9,7 +8,7 @@
         <div class="row">
             <div class="col-md-offset-2 col-md-8 col-xs-12">
                 <div class="search-title text-center">
-                    <h3 class="color-blue text-up font-semi">search from <span class="color-orange">1200</span> schools</h3>
+                    <h3 class="color-blue text-up font-semi">search from <span class="color-orange">{{count}}</span> schools</h3>
                 </div>
                 <div class="mt15 text-center border-bottom">
                     <form class="">
@@ -18,7 +17,6 @@
                     </form>
                 </div>
             </div>
-
         </div>
         <div class="row" ng-show="!getsearch">
             <div class="text-center mt40">
@@ -26,7 +24,7 @@
             </div>
             <div class="col-md-offset-2 col-md-8 col-xs-12">
                 <div class="">
-                    <div class="col-md-4 top-school" ng-repeat="data in getFirstList track by $index">
+                    <div class="col-md-4 top-school" ng-repeat="data in getFirstList" ng-if="getFirstList.length > 0">
                         <a ui-sref="school-profile({id:data._id})">
                             <div class="school-box">
                                 <div class="box-header">
@@ -38,8 +36,6 @@
                                         <div class="rank">
                                             <h3 class="text-up color-white margin0">{{$index+1}}</h3>
                                         </div>
-
-
                                         <div class="school-name text-center">
                                             <h4 class="color-orange font-semi">{{data.name}}</h4>
                                         </div>
@@ -67,6 +63,9 @@
                             </div>
                         </a>
                     </div>
+                    <div ng-if="getFirstList.length <= 0 ">
+                        <h1 class="text-center">No Data Found.</h1>
+                    </div>
                 </div>
             </div>
         </div>
@@ -76,8 +75,8 @@
             </div>
             <div class="col-md-offset-2 col-md-8 col-xs-12">
                 <div class="">
-                    <div class="col-md-4 mt15" ng-repeat="data in getSearchData track by $index">
-                        <a ui-sref="school-profile">
+                    <div class="col-md-4 mt15" ng-repeat="data in getSearchData" ng-if="getSearchData.length > 0">
+                        <a ui-sref="school-profile({id:data._id})">
                             <div class="school-boxs2">
                                 <div class="box-headers">
                                     <div class="school-imgs text-center sf-relative">
@@ -87,15 +86,15 @@
                                             <img src="img/sf-right.png" alt="">
                                         </div>
                                     </div>
-
                                     <div class="school-names text-center">
                                         <h4 class="text-up font-semi color-orange">{{data.name}}</h4>
                                     </div>
-
                                 </div>
-
                             </div>
                         </a>
+                    </div>
+                    <div ng-if="getSearchData.length <= 0 ">
+                        <h1 class="text-center">No Data Found.</h1>
                     </div>
                 </div>
             </div>

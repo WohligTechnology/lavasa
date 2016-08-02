@@ -6,11 +6,11 @@
 // }
 
 
-var adminurl = "http://192.168.1.119:84/";
-var imgurl = "http://192.168.1.119:84/upload/";
-var imgpath = imgurl + "readFile";
+var adminurl = "http://104.199.151.75:84/";
+// var adminurl = "http://192.168.1.119:84/";
+var imgpath = imgurl + "upload/readFile";
 var uploadurl = imgurl;
-
+var currentYears = ["2015", "2016"];
 var navigationservice = angular.module('navigationservice', [])
 
 .factory('NavigationService', function($http) {
@@ -39,7 +39,10 @@ var navigationservice = angular.module('navigationservice', [])
             }
             return menuname;
         },
-        getFirstList: function(callback) {
+        getAllYears: function() {
+            return currentYears;
+        },
+        getFirstListSchool: function(callback) {
             // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'school/getFirstList',
@@ -47,16 +50,25 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true
             }).success(callback);
         },
-        getSearchData: function(input,callback) {
+        getSearchDataSchool: function(input, callback) {
             // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'school/searchSchool',
                 method: 'POST',
                 withCredentials: true,
-                data:input
+                data: input
             }).success(callback);
         },
-        getSchoolProfile: function(id,callback) {
+        getSearchDataStudent: function(input, callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'student/searchStudent',
+                method: 'POST',
+                withCredentials: true,
+                data: input
+            }).success(callback);
+        },
+        getSchoolProfile: function(id, callback) {
             // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'school/getOne',
@@ -67,6 +79,37 @@ var navigationservice = angular.module('navigationservice', [])
                 }
             }).success(callback);
         },
-
+        getStudentProfile: function(id, callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'student/getOne',
+                method: 'POST',
+                withCredentials: true,
+                data: {
+                    "_id": id
+                }
+            }).success(callback);
+        },
+        getAgegroup: function(callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'agegroup/getAll',
+                method: 'POST'
+            }).success(callback);
+        },
+        countStudent: function(callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'student/countStudent',
+                method: 'POST'
+            }).success(callback);
+        },
+        filterStud: function(data, callback) {
+            $http({
+                url: adminurl + 'school/filterStud',
+                method: 'POST',
+                data: data
+            }).success(callback);
+        }
     };
 });

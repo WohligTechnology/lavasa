@@ -57,10 +57,8 @@
                                     </div> -->
                                 </li>
                                 <li class="border-right-1">
-
                                     <div class="stu-data text-center sf-list">
                                         <span class="text-center text-up">Medals Won</span>
-
                                         <ul class="padd-left padding0 mt5">
                                             <li>
                                                 <div class="medal-num">
@@ -97,12 +95,9 @@
                                             </li>
                                         </ul>
                                     </div>
-
                                 </li>
                             </ul>
                         </div>
-
-
                         <div class="btn-common">
                             <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="school-bio">school bio</button>
                         </div>
@@ -111,9 +106,9 @@
             </div>
         </div>
         <div class="sf-absulate spon">
-          <div class="spon">
-            <span class="color-orange text-cap f16">Supported by: <img src="img/s1.png" alt=""></span>
-          </div>
+            <div class="spon">
+                <span class="color-orange text-cap f16">Supported by: <img src="img/s1.png" alt=""></span>
+            </div>
         </div>
     </div>
     </div>
@@ -130,7 +125,7 @@
                         <li>
                             <a href="">
                                 <div class="sports-participate text-center">
-                                    <img ng-src="{{slide.icon}}" alt="" class="img-responsive image-width">
+                                    <img ng-src="{{slide.icon | uploadpath}}" alt="" class="img-responsive image-width">
                                     <span class="color-base text-up f16 mt10">{{slide.name}}</span>
                                     <div class="combine mt10">
                                         <div class="boy-sec display-inline color-base icon-right">
@@ -153,7 +148,6 @@
                 <div class=" text-center">
                     <h3 class="font-semi color-blue margin0">CONTINGENT</h3>
                 </div>
-
                 <div class="mt-min-30">
                     <div class="float-right">
                         <h4 class="text-up color-blue display-inline">Year</h4>
@@ -171,7 +165,6 @@
                     </div>
                 </div>
             </div>
-
         </div> -->
         <!-- <div class="row">
             <div class="col-md-3 mt15" ng-repeat="data in student track by $index">
@@ -202,15 +195,9 @@
                     <div class="text-center">
                         <div class="tab-list sf-list text-up">
                             <ul class="padding0 margin0">
-                                <li><a href="" ng-click="tabchange('player',1)" class="{{classa}}">
-  player
-</a></li>
-                                <li><a href="" ng-click="tabchange('match',2)" class="{{classb}}">
-  match-videos
-</a></li>
-                                <li><a href="" ng-click="tabchange('statistics',3)" class="{{classc}}">
-  statistics
-</a></li>
+                                <li><a href="" ng-click="tabchange('player',1)" class="{{classa}}">player</a></li>
+                                <li><a href="" ng-click="tabchange('match',2)" class="{{classb}}">match-videos</a></li>
+                                <li><a href="" ng-click="tabchange('statistics',3)" class="{{classc}}">statistics</a></li>
                             </ul>
                         </div>
                     </div>
@@ -225,11 +212,7 @@
                                     <h4 class="text-up color-blue display-inline">Year</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
-                                            <select class="select">
-                                                <option value="2016">2016</option>
-                                                <option value="2016">2016</option>
-                                                <option value="2016">2016</option>
-                                                <option value="2016">2016</option>
+                                            <select class="select" ng-change="callReload();" ng-model="callObject.year" ng-options="item for item in allYears">
                                             </select>
                                             <span class="only-border"></span>
                                         </div>
@@ -239,11 +222,7 @@
                                     <h4 class="text-up color-blue display-inline">gender</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
-                                            <select class="select">
-                                                <option value="ALL">ALL</option>
-                                                <option value="Male">Male</option>
-                                                <option value="female">female</option>
-                                                <!-- <option value="2016">ALL</option> -->
+                                            <select class="select" ng-change="callReload();" ng-model="callObject.gender" ng-options="item.value as item.name for item in gender">
                                             </select>
                                             <span class="only-border"></span>
                                         </div>
@@ -253,11 +232,7 @@
                                     <h4 class="text-up color-blue display-inline">age group</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
-                                            <select class="select">
-                                                <option value="ALL">ALL</option>
-                                                <option value="U-16">U-16</option>
-                                                <option value="U-19">U-19</option>
-                                                <option value="U-21">U-21</option>
+                                            <select class="select" ng-change="callReload();" ng-model="callObject.agegroup" ng-options="item.name as item.name for item in agegroup">
                                             </select>
                                             <span class="only-border"></span>
                                         </div>
@@ -265,12 +240,12 @@
                                 </div>
                             </div>
                             <div class="row mt25">
-                                <div class="col-md-3 mt15" ng-repeat="data in student track by $index">
+                                <div class="col-md-3 mt15" ng-repeat="data in students.student" ng-if="students.student.length > 0">
                                     <a href="">
                                         <div class="school-sec">
-                                            <img src="img/sf-cl.png" alt="" class="mt-min-18" ng-if="$index==0">
+                                            <img ng-src="img/sf-cl.png" alt="" class="mt-min-18" ng-if="data.isCl">
                                             <div class="stu-img text-center sf-relative">
-                                                <img ng-src="{{data.icon}}" alt="">
+                                                <img ng-src="{{data.profilePic | uploadpath}}" alt="">
                                                 <div class="sigh-pro sf-absulate">
                                                     <img src="img/sf-right.png" alt="">
                                                 </div>
@@ -279,10 +254,13 @@
                                                 <h4 class="color-orange text-up font-semi">{{data.name}}</h4>
                                             </div>
                                             <div class="stu-id text-center">
-                                                <h4 class="color-blue">SFA ID: {{data.id}}</h4>
+                                                <h4 class="color-blue">SFA ID: {{data.sfaid}}</h4>
                                             </div>
                                         </div>
                                     </a>
+                                </div>
+                                <div ng-if="students.student.length <= 0 ">
+                                    <h1 class="text-center">No Data Found.</h1>
                                 </div>
                             </div>
                         </div>
@@ -446,27 +424,26 @@
                                                     <td>
                                                         <div class="table-data display-inline text-center text-up score-1st">
                                                             <!-- <p>GAME 1</p> -->
-
                                                             <ul class="padding0 list-style">
-                                                              <li>5</li>
-                                                              <li>&ndash;</li>
-                                                              <li>11</li>
+                                                                <li>5</li>
+                                                                <li>&ndash;</li>
+                                                                <li>11</li>
                                                             </ul>
                                                         </div>
                                                         <div class="table-data display-inline text-center text-up score-1st">
                                                             <!-- <p>GAME 3</p> -->
                                                             <ul class="padding0 list-style">
-                                                              <li>5</li>
-                                                              <li>&ndash;</li>
-                                                              <li>11</li>
+                                                                <li>5</li>
+                                                                <li>&ndash;</li>
+                                                                <li>11</li>
                                                             </ul>
                                                         </div>
                                                         <div class="table-data display-inline text-center text-up score-1st">
                                                             <!-- <p>GAME 2</p> -->
                                                             <ul class="padding0 list-style">
-                                                              <li>5</li>
-                                                              <li>&ndash;</li>
-                                                              <li>11</li>
+                                                                <li>5</li>
+                                                                <li>&ndash;</li>
+                                                                <li>11</li>
                                                             </ul>
                                                         </div>
                                                     </td>
@@ -496,25 +473,25 @@
                                                         <div class="table-data display-inline text-center text-up score-1st">
                                                             <!-- <p>GAME 1</p> -->
                                                             <ul class="padding0 list-style">
-                                                              <li>5</li>
-                                                              <li>&ndash;</li>
-                                                              <li>11</li>
+                                                                <li>5</li>
+                                                                <li>&ndash;</li>
+                                                                <li>11</li>
                                                             </ul>
                                                         </div>
                                                         <div class="table-data display-inline text-center text-up score-1st">
                                                             <!-- <p>GAME 3</p> -->
                                                             <ul class="padding0 list-style">
-                                                              <li>5</li>
-                                                              <li>&ndash;</li>
-                                                              <li>11</li>
+                                                                <li>5</li>
+                                                                <li>&ndash;</li>
+                                                                <li>11</li>
                                                             </ul>
                                                         </div>
                                                         <div class="table-data display-inline text-center text-up score-1st">
                                                             <!-- <p>GAME 2</p> -->
                                                             <ul class="padding0 list-style">
-                                                              <li>5</li>
-                                                              <li>&ndash;</li>
-                                                              <li>11</li>
+                                                                <li>5</li>
+                                                                <li>&ndash;</li>
+                                                                <li>11</li>
                                                             </ul>
                                                         </div>
                                                     </td>
@@ -544,25 +521,25 @@
                                                         <div class="table-data display-inline text-center text-up score-1st">
                                                             <!-- <p>GAME 1</p> -->
                                                             <ul class="padding0 list-style">
-                                                              <li>5</li>
-                                                              <li>&ndash;</li>
-                                                              <li>11</li>
+                                                                <li>5</li>
+                                                                <li>&ndash;</li>
+                                                                <li>11</li>
                                                             </ul>
                                                         </div>
                                                         <div class="table-data display-inline text-center text-up score-1st">
                                                             <!-- <p>GAME 3</p> -->
                                                             <ul class="padding0 list-style">
-                                                              <li>5</li>
-                                                              <li>&ndash;</li>
-                                                              <li>11</li>
+                                                                <li>5</li>
+                                                                <li>&ndash;</li>
+                                                                <li>11</li>
                                                             </ul>
                                                         </div>
                                                         <div class="table-data display-inline text-center text-up score-1st">
                                                             <!-- <p>GAME 2</p> -->
                                                             <ul class="padding0 list-style">
-                                                              <li>5</li>
-                                                              <li>&ndash;</li>
-                                                              <li>11</li>
+                                                                <li>5</li>
+                                                                <li>&ndash;</li>
+                                                                <li>11</li>
                                                             </ul>
                                                         </div>
                                                     </td>
@@ -587,11 +564,8 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
-
     </section>
 </section>

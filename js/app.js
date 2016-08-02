@@ -69,7 +69,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'StudentBioCtrl'
         })
         .state('student-profile', {
-            url: "/student-profile",
+            url: "/student-profile/:id",
             templateUrl: "views/template.html",
             controller: 'StudentProfileCtrl'
         })
@@ -102,7 +102,6 @@ firstapp.filter('uploadpath', function() {
                 return input;
             }
         } else {
-            console.log("in me");
             return "img/noimage.png";
         }
     };
