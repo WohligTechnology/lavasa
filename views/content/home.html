@@ -1,7 +1,251 @@
 <section>
-  <flex-slider flex-slide="s in mySlides track by $index" prev-text="" next-text="">
-      <li>
-          <img ng-src="{{s}}">
-      </li>
-  </flex-slider>
+    <flex-slider flex-slide="s in mySlides track by $index" prev-text="" next-text="">
+        <li>
+            <img ng-src="{{s}}">
+        </li>
+    </flex-slider>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default">CHAMPIONS OF SFA 2015: WINNERS</button>
+                    </div>
+
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default">SCHOOL RANKING LEADER BOARD</button>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p>Videos of individual matches will soon be hosted on the respective participant and school profile page. If you would like for us to notify you on the same, kindly leave your email address here:</p>
+                    <div class="input-sb">
+                        <form ng-submit="savenewsletter(newsletter.email);">
+                            <div class="mdl">
+                                <div class="input-text">
+                                    <input class="form-control" ng-model="newsletter.email" placeholder="Email Address" required type="email">
+                                </div>
+                                <div class="button-text">
+                                    <button type="submit" class="btn btn-default newslettersubmit">GO!</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="first-top">
+          <div class="sf-absulate text-center">
+            <img src="img/play.png" alt="Sports For All">
+            <div class="top-title">
+              <h1>THE BEGINNING</h1>
+            </div>
+            <div class="img-hr">
+              <img src="img/hr.png" alt="Sports For All">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="v_ul">
+          <ul>
+            <li>
+              <div class="first-top-img">
+                <div class="sf-absulate text-center">
+                  <img src="img/play-mini.png" alt="Sports For All">
+                  <div class="top-title">
+                    <h1>Founder’s Message</h1>
+                  </div>
+                  <div class="img-hr">
+                    <img src="img/hr-mini.png" alt="Sports For All">
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="second-top-img">
+                <div class="sf-absulate text-center">
+                  <img src="img/play-mini.png" alt="Sports For All">
+                  <div class="top-title">
+                    <h1>Founder’s Message</h1>
+                  </div>
+                  <div class="img-hr">
+                    <img src="img/hr-mini.png" alt="Sports For All">
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="first-left">
+          <div class="sf-absulate text-center">
+            <img src="img/play-mini.png" alt="Sports For All">
+            <div class="top-title">
+              <h1>DAY - 02</h1>
+            </div>
+            <div class="img-hr">
+              <img src="img/hr-mini.png" alt="Sports For All">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="middle-left">
+          <div class="sf-absulate text-center">
+            <img src="img/play-mini.png" alt="Sports For All">
+            <div class="top-title">
+              <h1>DAY - 03</h1>
+            </div>
+            <div class="img-hr">
+              <img src="img/hr-mini.png" alt="Sports For All">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="last-left">
+          <div class="sf-absulate text-center">
+            <img src="img/play-mini.png" alt="Sports For All">
+            <div class="top-title">
+              <h1>DAY - 04</h1>
+            </div>
+            <div class="img-hr">
+              <img src="img/hr-mini.png" alt="Sports For All">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="second-bottom">
+          <div class="sf-absulate text-center">
+            <img src="img/play-mini.png" alt="Sports For All">
+            <div class="top-title">
+              <h1>Bird’s eye View</h1>
+            </div>
+            <div class="img-hr">
+              <img src="img/hr-mini.png" alt="Sports For All">
+            </div>
+            <div class="below-line">
+              <h4>OF SFA MUMBAI 2015</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="middle-bottom">
+          <div class="sf-absulate text-center">
+            <img src="img/play-mini.png" alt="Sports For All">
+            <div class="top-title">
+              <h1>Farah Khan</h1>
+            </div>
+            <div class="img-hr">
+              <img src="img/hr-mini.png" alt="Sports For All">
+            </div>
+            <div class="below-line">
+              <h4>OF SFA MUMBAI 2015</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="last-bottom">
+          <div class="sf-absulate text-center">
+            <img src="img/play-mini.png" alt="Sports For All">
+            <div class="top-title">
+              <h1>Purav Raja</h1>
+            </div>
+            <div class="img-hr">
+              <img src="img/hr-mini.png" alt="Sports For All">
+            </div>
+            <div class="below-line">
+              <h4>OF SFA MUMBAI 2015</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="text-center">
+          <div class="social-logo">
+            <img src="img/fb-logo.png" alt="Sports For All">
+
+          </div>
+          <div class="box-social">
+            <div class="fb-page" data-href="https://www.facebook.com/sportsforallnow" data-width="360" data-height="355" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true">
+                       <div class="fb-xfbml-parse-ignore">
+                          <blockquote cite="https://www.facebook.com/sportsforallnow"><a href="https://www.facebook.com/sportsforallnow">SFA Now</a></blockquote>
+                       </div>
+                    </div>
+
+                    <div id="fb-root"></div>
+                    <script>
+                       (function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s);
+                          js.id = id;
+                          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1452795161694777";
+                          fjs.parentNode.insertBefore(js, fjs);
+                       }(document, 'script', 'facebook-jssdk'));
+                    </script>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-center">
+          <div class="social-logo">
+            <img src="img/tw-logo.png" alt="Sports For All">
+
+          </div>
+          <div class="box-social">
+            <a class="twitter-timeline" href="https://twitter.com/sfanow" data-widget-id="641859487024869376">Tweets by @sfanow</a>
+                  <script>
+                     ! function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0],
+                           p = /^http:/.test(d.location) ? 'http' : 'https';
+                        if (!d.getElementById(id)) {
+                           js = d.createElement(s);
+                           js.id = id;
+                           js.src = p + "://platform.twitter.com/widgets.js";
+                           fjs.parentNode.insertBefore(js, fjs);
+                        }
+                     }(document, "script", "twitter-wjs");
+                  </script>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-center">
+          <div class="social-logo">
+            <img src="img/inst-logo.png" alt="Sports For All">
+
+          </div>
+          <div class="box-social">
+            <div class="fb-set" style="height: 365px;overflow-y: scroll;">
+                         <script src="//instansive.com/widget/js/instansive.js"></script>
+                         <iframe src="//instansive.com/widgets/554a6dce8ad5309ecff0f538b9995e1429320d57.html" id="instansive_554a6dce8a" name="instansive_554a6dce8a" scrolling="no" allowtransparency="true" class="instansive-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
+                      </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

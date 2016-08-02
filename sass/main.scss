@@ -1423,6 +1423,67 @@ bottom: 15%;
 .school-names{
     padding: 0px 15px;
 }
+.first-top{
+  width: 100%;
+height: 660px;
+overflow: hidden;
+background-image: url("../img/n1.jpg");
+background-position: center center;
+background-repeat: no-repeat;
+background-color: rgba(204, 204, 204, 0);
+position: relative;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+min-height: 660px;
+}
+.v_ul {
+    list-style: none;
+}
+.first-top-img{
+  width: 100%;
+height: 330px;
+overflow: hidden;
+background-image: url("../img/v1.jpg");
+background-position: center center;
+background-repeat: no-repeat;
+background-color: rgba(204, 204, 204, 0);
+position: relative;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+min-height: 330px;
+}
+.second-top-img{
+  @extend .first-top-img;
+  background-image: url("../img/vn1.jpg");
+}
+.first-left{
+  @extend .first-top-img;
+    background-image: url("../img/day-02.png");
+}
+.middle-left{
+  @extend .first-top-img;
+    background-image: url("../img/day-03.png");
+}
+.last-left{
+  @extend .first-top-img;
+    background-image: url("../img/day-04.png");
+}
+.second-bottom{
+  @extend .first-top-img;
+    background-image: url("../img/drone-video.png");
+}
+.middle-bottom{
+  @extend .first-top-img;
+    background-image: url("../img/farahkhan-thumb.png");
+}
+.last-bottom{
+  @extend .first-top-img;
+    background-image: url("../img/purav-raja.png");
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
