@@ -836,6 +836,54 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
 
 })
+.controller('TeamCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("team");
+    $scope.menutitle = NavigationService.makeactive("Team");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.oneAtATime = true;
+    $scope.status = {
+        isCustomHeaderOpen: false,
+        isFirstOpen: true,
+        isFirstDisabled: false
+    };
+
+    $scope.student = [{
+        icon: "img/sf-student-profile.png",
+        name: "Harshit Shah",
+        dep: "45211"
+    }, {
+        icon: "img/sf-student-profile.png",
+        name: "Harshit Shah",
+        dep: "45211"
+    }, {
+        icon: "img/sf-student-profile.png",
+        name: "Harshit Shah",
+        dep: "45211"
+    }, {
+        icon: "img/sf-student-profile.png",
+        name: "Harshit Shah",
+        dep: "45211"
+    }, {
+        icon: "img/sf-student-profile.png",
+        name: "Harshit Shah",
+        dep: "45211"
+    }, {
+        icon: "img/sf-student-profile.png",
+        name: "Harshit Shah",
+        dep: "45211"
+    }, {
+        icon: "img/sf-student-profile.png",
+        name: "Harshit Shah",
+        dep: "45211"
+    }, {
+        icon: "img/sf-student-profile.png",
+        name: "Harshit Shah",
+        dep: "45211"
+    }];
+
+})
 
 .controller('QualifyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file

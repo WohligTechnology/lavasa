@@ -28,6 +28,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'DrawCtrl'
         })
+        .state('team', {
+            url: "/team",
+            templateUrl: "views/template.html",
+            controller: 'TeamCtrl'
+        })
         .state('sport', {
             url: "/sport",
             templateUrl: "views/template.html",
@@ -78,7 +83,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'StudentsCtrl'
         });
-    $urlRouterProvider.otherwise("/school");
+    $urlRouterProvider.otherwise("/home");
     $locationProvider.html5Mode(isproduction);
 });
 

@@ -27,7 +27,11 @@ $font-family-sans-serif: "Titillium Web", Arial, sans-serif !default;
         }
     }
 }
-
+@mixin x-appearance ($value) {
+    -webkit-appearance: $value;
+    -moz-appearance: $value;
+    appearance: $value;
+}
 @mixin transition($transition...) {
     -moz-transition: $transition;
     -o-transition: $transition;
@@ -195,7 +199,7 @@ a {
 .box-header {
     background: url(../img/bg-circle.png)no-repeat;
     background-position: center;
-    background-size: cover;
+    @include background-size(cover);
     border-radius: 6px;
     display: block;
     height: 200px;
@@ -272,13 +276,13 @@ a {
     background: url(../img/curve-footer.png)no-repeat;
     width: 100%;
     height: 60px;
-    background-size: cover;
+    @include background-size(cover);
     position: relative;
 }
 .footer-link {
     ul {
         li {
-            border-right: 1px solid #fff;
+            border-right: 1px solid $white;
             padding: 0 8px;
             line-height: 100%;
             &:last-child {
@@ -317,23 +321,23 @@ a {
 .btn-go {
     background: $other-blue;
     border: 1px solid $other-blue;
-    color: #fff;
+    color:$white;
     &:focus {
         outline: 0;
         background: $other-blue;
         border: 1px solid $other-blue;
-        color: #fff;
+        color: $white;
     }
     &:hover {
         background: $other-blue;
         border: 1px solid $other-blue;
-        color: #fff;
+        color: $white;
         outline: 0;
     }
     &:active:focus {
         background: $other-blue;
         border: 1px solid $other-blue;
-        color: #fff;
+        color: $white;
         outline: 0;
     }
 }
@@ -392,7 +396,7 @@ a {
 }
 .total {
     color: $brand-success;
-    border: 1px solid #fff;
+    border: 1px solid $white;
     border-radius: 2px;
     padding: 3px 6px;
 }
@@ -431,7 +435,7 @@ a {
 .sf-list-padding {
     .border-right-1 {
         padding: 0 10px;
-        border-right: 1px solid #fff;
+        border-right: 1px solid $white;
         line-height: 100%;
         min-height: 60px;
         &:last-child {
@@ -466,8 +470,9 @@ a {
 .btn-orange {
     @include button-variant($white, $brand-success, $brand-success);
     border: 1px solid #fc7700;
+    @include transition(all 300ms ease);
     &:hover {
-        @include button-variant($white, $brand-success, $brand-success);
+        @include button-variant($brand-success, $white, $brand-success);
         border: 1px solid #fc7700;
     }
     &:focus {
@@ -480,11 +485,11 @@ a {
 .btn-outline {
     @include button-variant($brand-success, $white, $brand-success);
     border: 2px solid #fc7700;
+    @include transition(all 300ms ease);
     &:hover {
-        color: #fff;
-        background-color: #fc7700 !important;
+        @include button-variant($white, $brand-success, $brand-success);
         border-color: #fc7700;
-        border: 2px solid #fc7700;
+
     }
     &:focus {
         outline: 0;
@@ -588,9 +593,7 @@ hr {
     z-index: 99;
     margin-left: 10px;
     .select {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
+          @include appearance(none);
         border: none;
         text-transform: uppercase;
         font-size: 15px;
@@ -690,7 +693,7 @@ hr {
 }
 .box-content-white {
     @extend .box-content;
-    background-color: #fff;
+    background-color: $white;
 }
 .school-about {
     span {
@@ -741,7 +744,7 @@ hr {
             text-align: center;
             &:first-child {
                 background-color: #102983;
-                color: #fff;
+                color: $white;
                 font-weight: 300;
                 border-bottom: 1px solid #4c4c4c;
                 text-align: left;
@@ -758,7 +761,7 @@ hr {
 .accrordian {
     .panel {
         .panel-heading {
-            color: #ffffff;
+            color: $white;
             background-color: #9d9d9d;
             border-color: #9d9d9d;
             border-top-right-radius: 0;
@@ -839,7 +842,7 @@ img.fancybox-image {
 }
 .bg-sport {
     background: url(../img/bg-sports.jpg)no-repeat #ebeaea;
-    background-size: cover;
+      @include background-size(cover);
     margin-top: -45px;
     margin-bottom: -45px;
 }
@@ -938,7 +941,7 @@ img.fancybox-image {
     text-align: right;
 }
 .img-border {
-    border: 5px solid #fff;
+    border: 5px solid $white;
     border-radius: 100%;
 }
 .second-border {
@@ -1072,7 +1075,7 @@ img.fancybox-image {
     background: url("../img/patch.jpg");
     text-align: center;
     h1 {
-        background: #fff;
+        background:$white;
         display: inline-block;
         padding: 7px 0 5px;
         width: 50%;
@@ -1089,7 +1092,7 @@ img.fancybox-image {
         }
         tbody {
             tr {
-                background-color: #ffffff;
+                background-color: $white;
                 td {
                     border-top: 4px solid #f4f4f4;
                     height: 62px;
@@ -1127,15 +1130,17 @@ img.fancybox-image {
         tbody {
             tr {
                 td {
-                    background-color: #ffffff;
+                    background-color: $white;
                     border-top: 4px solid #cdcdcd;
                 }
             }
         }
     }
 }
-.bg-orange {
-    background-color: $brand-success;
+.btn-orange:hover:hover {
+
+    background-color: $white;
+
 }
 .list-style {
     list-style: none;
@@ -1188,7 +1193,7 @@ img.fancybox-image {
 }
 .reslt-box {
     margin-top: 10px;
-    background: #fff;
+    background: $white;
     border-radius: 6px;
     padding: 7px 15px;
 }
@@ -1199,7 +1204,7 @@ img.fancybox-image {
     width: 20px;
 }
 .box-level {
-    background: #fff;
+    background: $white;
     display: inline-block;
     border-radius: 6px;
 }
@@ -1213,7 +1218,7 @@ img.fancybox-image {
     background: #0a1a72;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
-    color: #fff;
+    color: $white;
     padding: 4px 0 4px 10px;
     ul {
         li {
@@ -1362,7 +1367,7 @@ img.fancybox-image {
 }
 .bg-draw{
   background: url(../img/bg-draw.jpg)no-repeat;
-  background-size: cover;
+  @include background-size(cover);
   position: relative;
   padding: 0px 0px 40px 0px;
 
@@ -1388,13 +1393,14 @@ img.fancybox-image {
 .main-pos{
   left: 38%;
 top: 50%;
-transform: translate(-50%,-50%);
+  @include transform(translate(-50%,-50%));
 
 }
 .right-pos{
   right: 15px;
 top: 50%;
-transform: translateY(-50%);
+// transform: translateY(-50%);
+  @include transform(translateY(-50%));
 }
 .blog-title{
   p{
@@ -1432,10 +1438,7 @@ background-position: center center;
 background-repeat: no-repeat;
 background-color: rgba(204, 204, 204, 0);
 position: relative;
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
+  @include background-size(cover);
 min-height: 660px;
 }
 .v_ul {
@@ -1450,10 +1453,7 @@ background-position: center center;
 background-repeat: no-repeat;
 background-color: rgba(204, 204, 204, 0);
 position: relative;
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
+  @include background-size(cover);
 min-height: 330px;
 }
 .second-top-img{
@@ -1491,9 +1491,7 @@ height: 40px;
 position: relative;
 z-index: 1;
 background-position-y: 0;
--webkit-background-size: cover;
--moz-background-size: cover;
-background-size: cover;
+  @include background-size(cover);
 }
 .home-slider{
   margin-top: -37px;
@@ -1549,6 +1547,36 @@ position: relative;
     display: none;
 }
 }
+.home-btn{
+  .btn-home{
+    font-size: 20px;
+
+padding: 10px 0px;
+&:focus{
+  outline: 0;
+}
+&:active{
+  background: $brand-success;
+  color: $white;
+  box-shadow: none;
+}
+  }
+  .btn-group{
+        padding: 0px 30px;
+  }
+}
+.curve2 {
+    background: url("../img/curves2.png") no-repeat center;
+    width: 100%;
+    height: 48px;
+    position: relative;
+    z-index: 0;
+    margin-top: -103px;
+    @include background-size(cover);
+
+}
+
+
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
