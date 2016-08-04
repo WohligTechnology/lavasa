@@ -1684,8 +1684,11 @@ margin-bottom: 0;
 }
 .dropdown-menu{
 display: none !important;
+margin: -2px 0px;
 }
 .hide-op{
+      padding: 8px 14px !important;
+
   &:hover{
     .dropdown-menu{
     display: block !important;
