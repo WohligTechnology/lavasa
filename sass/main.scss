@@ -1682,7 +1682,34 @@ margin-bottom: 0;
     background-color: #fc7700;
     border-color: #fc7700;
 }
-
+.dropdown-menu{
+display: none !important;
+}
+.hide-op{
+  &:hover{
+    .dropdown-menu{
+    display: block !important;
+    }
+  }
+}
+.show-op{
+  padding: 0px !important;
+  li{
+    padding: 0px !important;
+        display: block !important;
+    a{
+      padding: 10px 25px !important;
+      &:hover{
+        color: #ffffff;
+background-color: #091760;
+      }
+      &:focus{
+        color: #ffffff;
+background-color: #091760;
+      }
+    }
+  }
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";

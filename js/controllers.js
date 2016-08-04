@@ -17,6 +17,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/banner2.jpg'
     ];
 })
+.controller('AboutUsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+
+    console.log("Testing Consoles");
+
+    $scope.template = TemplateService.changecontent("about-us");
+    $scope.menutitle = NavigationService.makeactive("About-Us");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+    $scope.mySlides = [
+        'img/banner1.jpg',
+        'img/banner2.jpg',
+        'img/banner1.jpg',
+        'img/banner2.jpg'
+    ];
+})
 
 .controller('DrawCtrl', function($scope, TemplateService, NavigationService, $timeout) {
 
