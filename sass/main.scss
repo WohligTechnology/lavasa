@@ -701,6 +701,12 @@ hr {
 .ver-mid {
     vertical-align: middle;
 }
+.ver-base {
+    vertical-align: baseline;
+}
+.w25{
+  width: 25px;
+}
 .table {
     .bg-table {
         background-color: $brand-primary;
@@ -1670,6 +1676,7 @@ margin-bottom: 0;
 .f12{
   font-size: 12px;
 }
+
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
