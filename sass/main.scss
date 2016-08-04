@@ -16,8 +16,19 @@ $white: #fff !default;
 $dark-grey: #e1e1e1 !default;
 $light-grey: #ebebeb !default;
 $other-blue: #2a45d4 !default;
-$font-family-sans-serif: "Titillium Web", Arial, sans-serif !default;
+$font-family-sans-serif: "Titillium Web", "Sansation", Arial, sans-serif !default;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
+@font-face {
+    font-family: 'Sansation';
+    src: url("../fonts/Sansation_Regular.ttf");
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Sansation';
+    src: url("../fonts/Sansation_Bold.ttf");
+    font-weight: 700;
+}
 /* mixing*/
 @mixin placeholder {
     $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
@@ -31,6 +42,11 @@ $font-family-sans-serif: "Titillium Web", Arial, sans-serif !default;
     -webkit-appearance: $value;
     -moz-appearance: $value;
     appearance: $value;
+}
+@mixin background-size($size) {
+  -webkit-background-size:$size;
+  -moz-background-size: $size;
+  background-size: $size;
 }
 @mixin transition($transition...) {
     -moz-transition: $transition;
@@ -77,6 +93,7 @@ a {
     outline: 0;
     @include box-shadow(none);
 }
+
 //basic
 a {
     text-decoration: none;
@@ -135,6 +152,9 @@ a {
 .color-base {
     color: $base;
 }
+.font-sansation{
+  font-family: 'Sansation';
+}
 .text-up {
     text-transform: uppercase;
 }
@@ -179,6 +199,11 @@ a {
     width: 45px;
     padding: 16px;
     margin: 0 0 0 -3px;
+}
+.home-main{
+  p{
+    font-size: 16px;
+  }
 }
 .search-input {
     width: 80%;
@@ -1575,8 +1600,62 @@ padding: 10px 0px;
     @include background-size(cover);
 
 }
+.mdl {
+    padding: 1px 0 20px;
+    max-width: 300px;
+    margin: 0 auto;
+    .input-text {
+    float: left;
+    width: 82%;
+}
+input {
+   -webkit-border-radius: 0;
+   -webkit-background-clip: padding-box;
+   -moz-border-radius: 0;
+   -moz-background-clip: padding;
+   border-radius: 0;
+   background-clip: padding-box;
+   width: 100%;
+   background-color: #dbdbdb;
+   box-shadow: 0 0 0 0;
+   border-color: #dbdbdb;
+   padding: 10px 0 10px 12px;
+   height: 40px;
+   outline: 0;
+}
+.button-text{
 
-
+  text-align: left;
+  button{
+    padding: 9px 14px;
+    outline: 0;
+    -webkit-border-radius: 0;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 0;
+    -moz-background-clip: padding;
+    border-radius: 0;
+    background-clip: padding-box;
+  }
+}
+}
+.f4v{
+  font-size: 4vw;
+}
+.f2v{
+  font-size: 2.3vw;
+margin-bottom: 0;
+}
+.box-social{
+  margin-top: 22%;
+}
+.mb50{
+  margin-bottom: 50%;
+}
+.thank {
+    margin-top: 32px;
+    font-size: 15px;
+    font-weight: 600;
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
