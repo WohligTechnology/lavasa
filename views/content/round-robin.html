@@ -32,7 +32,14 @@
                                 <tbody class="text-up">
                                     <tr>
                                         <td>1</td>
-                                        <td>dhirubhai ambani intertional school</td>
+                                        <td>
+                                            <a href="">
+                                                <div class="display-inline ver-base">
+                                                    <img src="img/sf-school.png" alt="" class="w25">
+                                                </div>
+                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                            </a>
+                                        </td>
                                         <td>3</td>
                                         <td>4</td>
                                         <td>1</td>
@@ -40,7 +47,14 @@
                                     </tr>
                                     <tr>
                                         <td>1</td>
-                                        <td>dhirubhai ambani intertional school</td>
+                                        <td>
+                                            <a href="">
+                                                <div class="display-inline ver-base">
+                                                    <img src="img/sf-school.png" alt="" class="w25">
+                                                </div>
+                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                            </a>
+                                        </td>
                                         <td>3</td>
                                         <td>4</td>
                                         <td>1</td>
@@ -48,7 +62,14 @@
                                     </tr>
                                     <tr>
                                         <td>1</td>
-                                        <td>dhirubhai ambani intertional school</td>
+                                        <td>
+                                            <a href="">
+                                                <div class="display-inline ver-base">
+                                                    <img src="img/sf-school.png" alt="" class="w25">
+                                                </div>
+                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                            </a>
+                                        </td>
                                         <td>3</td>
                                         <td>4</td>
                                         <td>1</td>
@@ -56,7 +77,14 @@
                                     </tr>
                                     <tr>
                                         <td>1</td>
-                                        <td>dhirubhai ambani intertional school</td>
+                                        <td>
+                                            <a href="">
+                                                <div class="display-inline ver-base">
+                                                    <img src="img/sf-school.png" alt="" class="w25">
+                                                </div>
+                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                            </a>
+                                        </td>
                                         <td>3</td>
                                         <td>4</td>
                                         <td>1</td>
@@ -64,7 +92,14 @@
                                     </tr>
                                     <tr>
                                         <td>1</td>
-                                        <td>dhirubhai ambani intertional school</td>
+                                        <td>
+                                            <a href="">
+                                                <div class="display-inline ver-base">
+                                                    <img src="img/sf-school.png" alt="" class="w25">
+                                                </div>
+                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                            </a>
+                                        </td>
                                         <td>3</td>
                                         <td>4</td>
                                         <td>1</td>
@@ -101,19 +136,29 @@
                                 <tbody class="text-up">
                                     <tr ng-repeat="item in (feedLoader = (matchs | limitTo:feedLimit)) track by $index">
                                         <td>{{item.match}}</td>
-                                        <td>{{item.team1}}</td>
+                                        <td>  <a href="">
+                                              <div class="display-inline ver-base">
+                                                  <img src="img/sf-school.png" alt="" class="w25">
+                                              </div>
+                                              <div class="display-inline ver-mid">{{item.team1}}</div>
+                                          </a></td>
                                         <td></td>
-                                        <td>{{item.team2}}</td>
-                                        <td >
-                                          <div class="score-list" >
-                                            <div class="score-1st display-inline" ng-repeat="scores in item.score track by $index">
-                                              <ul class="padding0 list-style">
-                                                <li>{{scores.score1}}</li>
-                                                <li>&ndash;</li>
-                                                <li>{{scores.score2}}</li>
-                                              </ul>
-                                            </div>
-                                            <!-- <div class="score-1st display-inline">
+                                        <td><a href="">
+                                              <div class="display-inline ver-base">
+                                                  <img src="img/sf-school.png" alt="" class="w25">
+                                              </div>
+                                              <div class="display-inline ver-mid">{{item.team2}}</div>
+                                          </a></td>
+                                        <td>
+                                            <div class="score-list">
+                                                <div class="score-1st display-inline" ng-repeat="scores in item.score track by $index">
+                                                    <ul class="padding0 list-style">
+                                                        <li>{{scores.score1}}</li>
+                                                        <li>&ndash;</li>
+                                                        <li>{{scores.score2}}</li>
+                                                    </ul>
+                                                </div>
+                                                <!-- <div class="score-1st display-inline">
                                               <ul class="padding0 list-style">
                                                 <li>11</li>
                                                 <li>&ndash;</li>
@@ -141,18 +186,20 @@
                                                 <li>5</li>
                                               </ul>
                                             </div> -->
-                                          </div>
+                                            </div>
                                         </td>
-                                      <td>  <a href=""><img src="img/sf-play.png" alt=""></a></td>
+                                        <td>
+                                            <a href=""><img src="img/sf-play.png" alt=""></a>
+                                        </td>
                                     </tr>
 
 
                                 </tbody>
                             </table>
                         </div>
-                      <div class="mt30 text-center">
-                          <button type="button" name="button" class="btn-outline text-up padding15" ng-click="feedLimit = feedLimit + 1">view more</button>
-                      </div>
+                        <div class="mt30 text-center">
+                            <button type="button" name="button" class="btn-outline text-up padding15" ng-click="feedLimit = feedLimit + 1">view more</button>
+                        </div>
                     </div>
                 </div>
 
