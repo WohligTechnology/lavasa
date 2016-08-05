@@ -28,6 +28,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 
 })
+.controller('ContactCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+
+    console.log("Testing Consoles");
+
+    $scope.template = TemplateService.changecontent("contact");
+    $scope.menutitle = NavigationService.makeactive("Contact");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+})
 .controller('TermsConditionCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
