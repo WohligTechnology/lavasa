@@ -1367,6 +1367,9 @@ img.fancybox-image {
 .ml25 {
     margin-left: 25px;
 }
+.ml15{
+  margin-left: 10px;
+}
 .pos-set {
     position: absolute;
     right: 0;
@@ -1757,11 +1760,18 @@ background-color: #091760;
     text-align: center;
     height: 180px;
     overflow: hidden;
+    img{
+      max-height: 100%;
+max-width: 100%;
+    }
 
 }
 .same-sec {
     display: inline-block;
     border-bottom: 1px solid #bbbbbb;
+    padding-bottom: 15px;
+    padding-bottom: 20px;
+padding-top: 20px;
 }
 //bootstrap forms
 /* Start writing sass here */
