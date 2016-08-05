@@ -1773,6 +1773,27 @@ max-width: 100%;
     padding-bottom: 20px;
 padding-top: 20px;
 }
+.accrd{
+  .panel-title{
+  i{
+      font-size: 24px;
+  }
+
+  }
+}
+.data-vox{
+  h4{
+    text-transform: uppercase;
+    color:$brand-primary;
+    font-weight: 600;
+    font-size: 16px;
+        line-height: 30%;
+  }
+p{
+  color:#535353;
+  font-size: 15px;
+}
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";

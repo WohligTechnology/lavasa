@@ -28,6 +28,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 
 })
+.controller('FaqCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+
+    console.log("Testing Consoles");
+
+    $scope.template = TemplateService.changecontent("faq");
+    $scope.menutitle = NavigationService.makeactive("Faq");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+      $scope.oneAtATime = true;
+      $scope.status = {
+          isCustomHeaderOpen: false,
+          isFirstOpen: true,
+          isFirstDisabled: false
+      };
+
+})
 .controller('ContactCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
