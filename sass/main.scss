@@ -1757,7 +1757,11 @@ background-color: #091760;
     text-align: center;
     height: 180px;
     overflow: hidden;
-    
+
+}
+.same-sec {
+    display: inline-block;
+    border-bottom: 1px solid #bbbbbb;
 }
 //bootstrap forms
 /* Start writing sass here */
