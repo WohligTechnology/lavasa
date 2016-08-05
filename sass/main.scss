@@ -1751,6 +1751,14 @@ background-color: #091760;
             margin: 7px 0;
       }
 }
+.image-box {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    height: 180px;
+    overflow: hidden;
+    
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
