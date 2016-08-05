@@ -1713,6 +1713,44 @@ background-color: #091760;
     }
   }
 }
+.contact-set{
+      margin-top: 30px;
+  p{
+    font-size: 16px;
+  }
+  li{
+    font-size: 16px;
+  }
+}
+.rule2{
+  margin-top: 4%;
+
+}
+.rules{
+  p{
+      font-size: 16px;
+  }
+  ol{
+        padding-left: 15px;
+    li{
+          margin: 25px 0;
+            font-size: 16px;
+    }
+  }
+}
+.li-font{
+      padding-left: 15px;
+  li{
+    font-size: 15px;
+      margin: 7px 0;
+  }
+}
+.no-list{
+      font-size: 15px;
+      li{
+            margin: 7px 0;
+      }
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";

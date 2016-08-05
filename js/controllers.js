@@ -34,6 +34,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/banner2.jpg'
     ];
 })
+.controller('TermsConditionCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+
+    console.log("Testing Consoles");
+
+    $scope.template = TemplateService.changecontent("terms-condition");
+    $scope.menutitle = NavigationService.makeactive("Terms Condition");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+    $scope.mySlides = [
+        'img/banner1.jpg',
+        'img/banner2.jpg',
+        'img/banner1.jpg',
+        'img/banner2.jpg'
+    ];
+})
 
 .controller('DrawCtrl', function($scope, TemplateService, NavigationService, $timeout) {
 
