@@ -27,12 +27,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-    $scope.mySlides = [
-        'img/banner1.jpg',
-        'img/banner2.jpg',
-        'img/banner1.jpg',
-        'img/banner2.jpg'
-    ];
 })
 .controller('TermsConditionCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -44,12 +38,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-    $scope.mySlides = [
-        'img/banner1.jpg',
-        'img/banner2.jpg',
-        'img/banner1.jpg',
-        'img/banner2.jpg'
-    ];
+
+})
+.controller('TraininDevelopmentCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+
+    console.log("Testing Consoles");
+
+    $scope.template = TemplateService.changecontent("training-development");
+    $scope.menutitle = NavigationService.makeactive("Training Development");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
 })
 
 .controller('DrawCtrl', function($scope, TemplateService, NavigationService, $timeout) {
