@@ -1767,7 +1767,7 @@ max-width: 100%;
 
 }
 .same-sec {
-    display: inline-block;
+    // display: inline-block;
     border-bottom: 1px solid #bbbbbb;
     padding-bottom: 15px;
     padding-bottom: 20px;
@@ -1851,6 +1851,9 @@ p{
   font-size: 18px;
   margin-top:25px;
 }
+}
+.f15{
+  font-size: 15px;
 }
 //bootstrap forms
 /* Start writing sass here */
