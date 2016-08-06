@@ -1845,6 +1845,13 @@ p{
 vertical-align: text-bottom;
 margin: 0 20px;
 }
+.statement{
+p{
+  text-align: center;
+  font-size: 18px;
+  margin-top:25px;
+}
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
