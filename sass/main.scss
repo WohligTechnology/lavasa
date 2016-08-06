@@ -1774,6 +1774,18 @@ max-width: 100%;
 padding-top: 20px;
 }
 .accrd{
+  .panel {
+    margin-bottom: 0;
+    border-radius: 0px;
+    border: 0px solid transparent;
+border-radius: 0px;
+-webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.05);
+box-shadow: 0 0px 0px rgba(0, 0, 0, 0.05);
+}
+.panel-heading{
+  box-shadow: 3px 3px 3px 0 #d9d9d9 !important;
+
+}
   .panel-title{
   i{
       font-size: 24px;
@@ -1793,6 +1805,40 @@ p{
   color:#535353;
   font-size: 15px;
 }
+}
+.border-r{
+    img{
+        border-radius: 100%;
+    }
+}
+.faq-table {
+    table {
+        border: 1px solid #ddd;
+        tbody {
+            text-align: center;
+        }
+    }
+    .table > thead > tr > th {
+        vertical-align: bottom;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+        color: $brand-primary;
+    }
+    .table > tbody > tr{
+      background: transparent;
+    }
+    .table > thead:first-child > tr:first-child > th {
+        border-top: 0;
+        border-left: 1px solid #ddd;
+    }
+    .table > tbody > tr > td,
+    .table > tbody > tr > th,
+    .table > tfoot > tr > td,
+    .table > tfoot > tr > th,
+    .table > thead > tr > td,
+    .table > thead > tr > th {
+        border-right: 1px solid #ddd;
+    }
 }
 //bootstrap forms
 /* Start writing sass here */
