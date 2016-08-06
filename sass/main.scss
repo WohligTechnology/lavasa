@@ -1840,6 +1840,11 @@ p{
         border-right: 1px solid #ddd;
     }
 }
+.vid-min{
+  max-width: 56px;
+vertical-align: text-bottom;
+margin: 0 20px;
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
