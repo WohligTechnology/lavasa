@@ -1901,6 +1901,20 @@ p{
 .f15{
   font-size: 15px;
 }
+.main-f{
+
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background: #0a1a72;
+    color: #fff;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+
+}
+.color-d{
+  color:#606060;
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
