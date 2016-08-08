@@ -457,6 +457,15 @@ a {
     margin: 0 auto;
     overflow: hidden;
 }
+.sf-school-logo2{
+  @extend .sf-school-logo;
+  width: 150px;
+height: 150px;
+}
+.img-border2{
+  @extend .img-border;
+  border:5px solid transparent;
+}
 .img-medal {
     img {
         vertical-align: bottom;
