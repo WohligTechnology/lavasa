@@ -113,7 +113,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'StudentsCtrl'
         });
-    $urlRouterProvider.otherwise("/school");
+    $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);
 });
 

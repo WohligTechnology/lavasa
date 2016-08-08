@@ -16,6 +16,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/banner1.jpg',
         'img/banner2.jpg'
     ];
+
+    setTimeout(function() {
+      (function(d, s, id) {
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) return;
+         js = d.createElement(s);
+         js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1452795161694777";
+         fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+      ! function(d, s, id) {
+         var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+         if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + "://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+         }
+      }(document, "script", "twitter-wjs");
+     })
 })
 .controller('AboutUsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -1190,7 +1211,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             score1: "11",
             score2: "5"
-        }, ]
+        }]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -1207,7 +1228,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             score1: "11",
             score2: "5"
-        }, ]
+        }]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -1224,7 +1245,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             score1: "11",
             score2: "5"
-        }, ]
+        }]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -1241,7 +1262,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             score1: "11",
             score2: "5"
-        }, ]
+        }]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -1258,7 +1279,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             score1: "11",
             score2: "5"
-        }, ]
+        }]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -1275,7 +1296,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             score1: "11",
             score2: "5"
-        }, ]
+        }]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -1292,7 +1313,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             score1: "11",
             score2: "5"
-        }, ]
+        }]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -1309,7 +1330,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }, {
             score1: "11",
             score2: "5"
-        }, ]
+        }]
     }];
 
 })
