@@ -464,7 +464,7 @@ height: 150px;
 }
 .img-border2{
   @extend .img-border;
-  border:5px solid transparent;
+  border:5px solid transparent !important;
 }
 .img-medal {
     img {
