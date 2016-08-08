@@ -945,37 +945,45 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.student = [{
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
+        icon: "img/sf-icon-big.png",
+        sport: "basketball | girls u-17 ‘A’",
+        school: "dhirubhai ambani intertional school",
+        id: "586"
     }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
+      icon: "img/sf-icon-big.png",
+      sport: "basketball | girls u-17 ‘A’",
+      school: "dhirubhai ambani intertional school",
+      id: "586"
     }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
+      icon: "img/sf-icon-big.png",
+      sport: "basketball | girls u-17 ‘A’",
+      school: "dhirubhai ambani intertional school",
+      id: "586"
     }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
+      icon: "img/sf-icon-big.png",
+      sport: "basketball | girls u-17 ‘A’",
+      school: "dhirubhai ambani intertional school",
+      id: "586"
     }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
+      icon: "img/sf-icon-big.png",
+      sport: "basketball | girls u-17 ‘A’",
+      school: "dhirubhai ambani intertional school",
+      id: "586"
     }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
+      icon: "img/sf-icon-big.png",
+      sport: "basketball | girls u-17 ‘A’",
+      school: "dhirubhai ambani intertional school",
+      id: "586"
     }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
+      icon: "img/sf-icon-big.png",
+      sport: "basketball | girls u-17 ‘A’",
+      school: "dhirubhai ambani intertional school",
+      id: "586"
     }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
+      icon: "img/sf-icon-big.png",
+      sport: "basketball | girls u-17 ‘A’",
+      school: "dhirubhai ambani intertional school",
+      id: "586"
     }];
 
 })

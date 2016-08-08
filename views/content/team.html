@@ -1,0 +1,50 @@
+<section>
+    <div class="head-banner">
+        <img src="img/team.png" class="img-responsive img width100 margin-auto">
+    </div>
+</section>
+<section class="bottom-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="search-title text-center">
+                    <h3 class="color-blue text-up font-semi">search from <span class="color-orange">1200</span> schools</h3>
+                </div>
+                <div class="mt15 text-center border-bottom">
+                    <form class="">
+                        <!-- <input type="text" class="search-input" name="q" value="Type school name" ng-model="search">
+                        <input type="image" value="Search" src="img/sfa-search.png" class="search-btn" ng-click="getSearchById(idSearch.search);"> -->
+                        <input type="text" class="search-input" name="q" value="Type student name" placeholder="Type school name, sports or team id" ng-change="doSearch();" ng-model="searchFilter.search">
+                        <input type="image" value="Search" src="img/sfa-search.png" class="search-btn" ng-click="doSearch();">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="text-center mt40">
+                <h3 class="font-semi color-orange text-up">50 Search Results</h3>
+            </div>
+            <div class="col-md-3" ng-repeat="data in student track by $index">
+              <a ui-sref="student-profile">
+                  <div class="school-sec">
+                      <img src="img/sf-cl.png" alt="" class="mt-min-18">
+                      <div class="stu-img text-center sf-relative">
+                          <img ng-src="{{data.icon}}" alt="">
+                          <div class="sigh-pro sf-absulate">
+                              <img src="img/sf-right.png" alt="">
+                          </div>
+                      </div>
+                      <div class="stu-name text-center">
+                          <h4 class="color-orange text-up">{{data.sport}}</h4>
+                      </div>
+                      <div class="stu-name text-center">
+                          <h4 class="color-orange text-up">{{data.school}}</h4>
+                      </div>
+                      <div class="stu-id text-center">
+                          <h4 class="color-blue">SFA ID: {{data.id}}</h4>
+                      </div>
+                  </div>
+              </a>
+            </div>
+      </div>
+      </section>
