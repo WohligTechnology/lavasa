@@ -73,6 +73,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'RoundRobinCtrl'
         })
+        .state('team-detail', {
+            url: "/team-detail",
+            templateUrl: "views/template.html",
+            controller: 'TeamDetailCtrl'
+        })
         .state('school-bio', {
             url: "/school-bio",
             templateUrl: "views/template.html",

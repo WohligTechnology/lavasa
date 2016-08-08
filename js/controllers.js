@@ -1036,6 +1036,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
 
 })
+.controller('TeamDetailCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    $scope.template = TemplateService.changecontent("team-detail");
+    $scope.menutitle = NavigationService.makeactive("Team Detail");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+})
 
 .controller('RoundRobinCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
