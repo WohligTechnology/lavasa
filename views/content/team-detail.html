@@ -51,7 +51,226 @@ squad
 
           <div class="record" ng-show="tab=='squad'">
             <div class="row">
-              <div class="col-md-3"></div>
+              <div class="col-md-3" ng-repeat="data in student track by $index">
+                <a ui-sref="student-profile({id:data._id})">
+                    <div class="school-sec">
+                        <img src="img/sf-cl.png" alt="" class="mt-min-18" ng-if="$index==0">
+                        <div class="stu-img text-center sf-relative">
+                            <img ng-src="{{data.icon}}" alt="">
+                            <div class="sigh-pro sf-absulate">
+                                <img src="img/sf-right.png" alt="">
+                            </div>
+                        </div>
+                        <div class="stu-name text-center">
+                            <h4 class="color-orange text-up font-semi">{{data.name}}</h4>
+                        </div>
+                        <div class="stu-id text-center">
+                            <h4 class="color-blue">SFA ID: {{data.dep}}</h4>
+                        </div>
+                    </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="record" ng-show="tab=='statistic'">
+            <div class="row">
+                <div class="col-md-12 mt25">
+                    <div class="table-statistics">
+                        <table class="table">
+                            <thead>
+                                <tr class="text-up color-white bg-table">
+                                    <th>
+                                        <span>year</span>
+                                    </th>
+                                    <th>
+                                        <span>CATEGORY</span>
+                                    </th>
+                                    <th>
+                                        <span>ROUND</span>
+                                    </th>
+                                    <th>
+                                        <span>OPPONENT NAME</span>
+                                    </th>
+                                    <th>
+                                        <span>score</span>
+                                    </th>
+                                    <th>
+                                        <span>result</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background:transparent;">
+                                    <td><span>2016</span></td>
+                                    <td><span class="text-up">U-10 <br> GIRLS  <br>SINGLES</span></td>
+                                    <td class="text-up">Soheb Shaikh</td>
+                                    <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
+                                        <p>Don Bosco School</p>
+                                    </td>
+                                    <td>
+                                      <div class="score-list">
+                                          <div class="score-1st display-inline" >
+                                              <ul class="padding0 list-style">
+                                                  <li>5</li>
+                                                  <li>&ndash;</li>
+                                                  <li>11</li>
+                                              </ul>
+                                          </div>
+                                          <div class="score-1st display-inline" >
+                                              <ul class="padding0 list-style">
+                                                  <li>5</li>
+                                                  <li>&ndash;</li>
+                                                  <li>11</li>
+                                              </ul>
+                                          </div>
+                                          <div class="score-1st display-inline" >
+                                              <ul class="padding0 list-style">
+                                                  <li>5</li>
+                                                  <li>&ndash;</li>
+                                                  <li>11</li>
+                                              </ul>
+                                          </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-center display-inline ver-mid ">
+                                            <div class="sf-play">
+                                                <span>Won</span>
+                                            </div>
+                                            <div class="replay-img ">
+                                                <a href=""><img src="img/sf-play.png" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="other-bg">
+                                    <td><span>2016</span></td>
+                                    <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
+                                    <td class="text-up">Soheb Shaikh</td>
+                                    <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
+                                        <p>Don Bosco School</p>
+                                    </td>
+                                    <td>
+                                      <div class="score-list">
+                                          <div class="score-1st display-inline" >
+                                              <ul class="padding0 list-style">
+                                                  <li>5</li>
+                                                  <li>&ndash;</li>
+                                                  <li>11</li>
+                                              </ul>
+                                          </div>
+                                          <div class="score-1st display-inline" >
+                                              <ul class="padding0 list-style">
+                                                  <li>5</li>
+                                                  <li>&ndash;</li>
+                                                  <li>11</li>
+                                              </ul>
+                                          </div>
+                                          <div class="score-1st display-inline" >
+                                              <ul class="padding0 list-style">
+                                                  <li>5</li>
+                                                  <li>&ndash;</li>
+                                                  <li>11</li>
+                                              </ul>
+                                          </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-center display-inline ver-mid ">
+                                            <div class="sf-play">
+                                                <span>Won</span>
+                                            </div>
+                                            <div class="replay-img ">
+                                                <a href=""><img src="img/sf-play.png" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="other-bg">
+                                    <td><span>2016</span></td>
+                                    <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
+                                    <td class="text-up">Soheb Shaikh</td>
+                                    <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
+                                        <p>Don Bosco School</p>
+                                    </td>
+                                    <td>
+                                      <div class="score-list">
+                                          <div class="score-1st display-inline" >
+                                              <ul class="padding0 list-style">
+                                                  <li>5</li>
+                                                  <li>&ndash;</li>
+                                                  <li>11</li>
+                                              </ul>
+                                          </div>
+                                          <div class="score-1st display-inline" >
+                                              <ul class="padding0 list-style">
+                                                  <li>5</li>
+                                                  <li>&ndash;</li>
+                                                  <li>11</li>
+                                              </ul>
+                                          </div>
+                                          <div class="score-1st display-inline" >
+                                              <ul class="padding0 list-style">
+                                                  <li>5</li>
+                                                  <li>&ndash;</li>
+                                                  <li>11</li>
+                                              </ul>
+                                          </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-center display-inline ver-mid ">
+                                            <div class="sf-play">
+                                                <span>Won</span>
+                                            </div>
+                                            <div class="replay-img ">
+                                                <a href=""><img src="img/sf-play.png" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="gallery"  ng-show="tab=='gallery'">
+            <div class="row">
+                <div class="text-center mt25">
+                    <div class="tab-list sf-list text-up">
+                        <ul class="padding0 margin0">
+                            <li><a href="" ng-click="tabchanges('photos',1)" class="{{classp}}">
+photos
+</a></li>
+                            <li><a href="" ng-click="tabchanges('videos',2)" class="{{classv}}">
+match videos
+</a></li>
+
+                        </ul>
+                    </div>
+                    <hr class="hr-padding">
+                </div>
+                <div class="row" ng-show="tabs=='photos'">
+                    <div class="col-md-3 mt15" ng-repeat="data in photos track by $index">
+                        <a href="{{data}}" fancybox-box rel="gallery"><img ng-src="{{data}}" alt="" class="img-responsive width100"></a>
+                    </div>
+                </div>
+
+                <div class="row " ng-show="tabs=='videos'">
+                    <div class="col-md-3 mt15" ng-repeat="data in video track by $index">
+                        <a class="various fancybox.iframe" fancybox rel="gallery" href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
+                            <div class="videow-box">
+                                <div class="video-img">
+                                    <img ng-src="{{data.icon}}" alt="" class="img-responsive width100">
+                                </div>
+                                <div class="video-name">
+                                    <h5 class="text-up color-blue font-semi">{{data.name}}</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
           </div>
         </div>

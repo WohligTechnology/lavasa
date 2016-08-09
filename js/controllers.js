@@ -1043,6 +1043,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
+    $scope.tabs = 'photos';
+    $scope.classp = 'active-list';
+    $scope.classv = '';
+
+
+    $scope.tabchanges = function(tabs, a) {
+        //        console.log(tab);
+        $scope.tabs = tabs;
+        if (a == 1) {
+
+            $scope.classp = "active-list";
+            $scope.classv = '';
+
+        } else {
+
+            $scope.classp = '';
+            $scope.classv = "active-list";
+        }
+    };
 
         $scope.tab = 'squad';
         $scope.classa = 'active-list';
@@ -1069,6 +1088,70 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classc = "active-list";
             }
         };
+
+        $scope.student = [{
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }];
+
+        $scope.photos = [
+            'img/m1.jpg',
+            'img/m2.jpg',
+            'img/m3.jpg',
+            'img/m1.jpg',
+            'img/m2.jpg',
+            'img/m3.jpg'
+
+        ];
+        $scope.video = [{
+            icon: "img/m1.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+
+        }, {
+            icon: "img/m2.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+        }, {
+            icon: "img/m3.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+        }, {
+            icon: "img/m2.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+        }, {
+            icon: "img/m1.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+        }, {
+            icon: "img/m3.jpg",
+            name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
+        }];
 
 })
 
