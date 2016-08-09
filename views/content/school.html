@@ -12,19 +12,19 @@
                 </div>
                 <div class="mt15 text-center border-bottom">
                     <form class="">
-                        <input type="text" class="search-input" name="q" value="Type school name" placeholder="Type school name or ID" ng-change="doSearch();" ng-model="searchFilter.search">
-                        <input type="image" value="Search" src="img/sfa-search.png" class="search-btn" ng-click="doSearch();">
+                        <input type="text" class="search-input" name="q"  value="Type school name" placeholder="Type school name or ID" ng-change="parseSearch(search.text);" ng-model="search.text">
+                        <input type="image" value="Search" src="img/sfa-search.png" class="search-btn" ng-click="submitSearch();">
                     </form>
                 </div>
             </div>
         </div>
-        <div class="row" ng-show="!getsearch">
+        <div class="row" ng-if="!search.active">
             <div class="text-center mt40">
                 <h3 class="font-semi color-orange text-up">Top 20 schools</h3>
             </div>
             <div class="col-md-offset-2 col-md-8 col-xs-12">
                 <div class="">
-                    <div class="col-md-4 top-school" ng-repeat="data in getFirstList" ng-if="getFirstList.length > 0">
+                    <div class="col-md-4 top-school" ng-repeat="data in topschools" >
                         <a ui-sref="school-profile({id:data._id})">
                             <div class="school-box">
                                 <div class="box-header">
@@ -34,23 +34,23 @@
                                             <img src="img/sf-right.png" alt="">
                                         </div>
                                         <div class="rank">
-                                            <h3 class="text-up color-white margin0">{{$index+1}}</h3>
+                                            <h3 class="text-up color-white margin0">{{data.sfaid}}</h3>
                                         </div>
                                         <div class="school-name text-center">
-                                            <h4 class="color-orange font-semi">{{data.name}}</h4>
+                                            <h4 class="color-orange font-semi">{{data.name | letterLimit : 30}}</h4>
                                         </div>
                                         <div class="medal text-center">
                                             <span class="text-up color-white text-center">Medals Won</span>
                                             <div class="medal-count sf-list color-orange font-semi">
                                                 <ul class="padding0">
                                                     <li>
-                                                        <img src="img/sf-gold.png" alt="">{{data.medal.gold}}
+                                                        <img src="img/sf-gold.png" alt="">{{data.medal.gold || '0'}}
                                                     </li>
                                                     <li>
-                                                        <img src="img/sf-silver.png" alt="">{{data.medal.silver}}
+                                                        <img src="img/sf-silver.png" alt="">{{data.medal.silver || '0'}}
                                                     </li>
                                                     <li>
-                                                        <img src="img/sf-bronze.png" alt="">{{data.medal.bronze}}
+                                                        <img src="img/sf-bronze.png" alt="">{{data.medal.bronze || '0'}}
                                                     </li>
                                                 </ul>
                                             </div>
@@ -69,13 +69,13 @@
                 </div>
             </div>
         </div>
-        <div class="row" ng-show="getsearch">
+        <div class="row" ng-if="search.active">
             <div class="text-center mt40">
-                <h3 class="font-semi color-orange text-up">{{getSearchData.length}} Search Results</h3>
+                <h3 class="font-semi color-orange text-up">{{pagination.total || '0'}} Search Results</h3>
             </div>
             <div class="col-md-offset-2 col-md-8 col-xs-12">
                 <div class="">
-                    <div class="col-md-4 mt15" ng-repeat="data in getSearchData" ng-if="getSearchData.length > 0">
+                    <div class="col-md-4 mt15" ng-repeat="data in schools" ng-if="schools.length > 0">
                         <a ui-sref="school-profile({id:data._id})">
                             <div class="school-boxs2">
                                 <div class="box-headers">
@@ -87,43 +87,45 @@
                                         </div>
                                     </div>
                                     <div class="school-names text-center">
-                                        <h4 class="text-up font-semi color-orange">{{data.name}}</h4>
+                                        <h4 class="text-up font-semi color-orange">{{data.name |  letterLimit : 25}}</h4>
                                     </div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div ng-if="getSearchData.length <= 0 ">
-                        <h1 class="text-center">No Data Found.</h1>
-                    </div>
+                    <!-- <div ng-if="schools.length <= 0 ">
+                        <h1 class="text-center">No data found.</h1>
+                    </div> -->
                 </div>
             </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
-            <div class="float-right sf-list">
-              <nav aria-label="Page navigation">
-    <ul class="pagination">
-      <li>
-        <a href="#" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li>
-        <a href="#" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+            <div class="col-md-12">
+                <div class="float-right sf-list">
+                    <nav aria-label="Page navigation" ng-if="search.active && pagination.totalpages > 1">
+                      <uib-pagination ng-change="submitSearch()" total-items="pagination.total" ng-model="filter.pagenumber" items-per-page="pagination.pagesize" ></uib-pagination>
+                      <!-- <uib-pagination  total-items="5" ng-model="2" items-per-page="20" ></uib-pagination> -->
+                        <!-- <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul> -->
+                    </nav>
 
+                </div>
             </div>
-          </div>
         </div>
     </div>
 </section>

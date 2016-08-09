@@ -1,117 +1,117 @@
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
+        //Used to name the .html file
 
-    console.log("Testing Consoles");
+        console.log("Testing Consoles");
 
-    $scope.template = TemplateService.changecontent("home");
-    $scope.menutitle = NavigationService.makeactive("Home");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+        $scope.template = TemplateService.changecontent("home");
+        $scope.menutitle = NavigationService.makeactive("Home");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-    $scope.mySlides = [
-        'img/banner1.jpg',
-        'img/banner2.jpg',
-        'img/banner1.jpg',
-        'img/banner2.jpg'
-    ];
+        $scope.mySlides = [
+            'img/banner1.jpg',
+            'img/banner2.jpg',
+            'img/banner1.jpg',
+            'img/banner2.jpg'
+        ];
 
-    setTimeout(function() {
-      (function(d, s, id) {
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) return;
-         js = d.createElement(s);
-         js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1452795161694777";
-         fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-      ! function(d, s, id) {
-         var js, fjs = d.getElementsByTagName(s)[0],
-            p = /^http:/.test(d.location) ? 'http' : 'https';
-         if (!d.getElementById(id)) {
-            js = d.createElement(s);
-            js.id = id;
-            js.src = p + "://platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js, fjs);
-         }
-      }(document, "script", "twitter-wjs");
-     })
-})
-.controller('AboutUsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
+        setTimeout(function() {
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1452795161694777";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+            ! function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                    p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = p + "://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, "script", "twitter-wjs");
+        })
+    })
+    .controller('AboutUsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
 
-    console.log("Testing Consoles");
+        console.log("Testing Consoles");
 
-    $scope.template = TemplateService.changecontent("about-us");
-    $scope.menutitle = NavigationService.makeactive("About-Us");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+        $scope.template = TemplateService.changecontent("about-us");
+        $scope.menutitle = NavigationService.makeactive("About-Us");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-})
-.controller('FaqCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
+    })
+    .controller('FaqCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
 
-    console.log("Testing Consoles");
+        console.log("Testing Consoles");
 
-    $scope.template = TemplateService.changecontent("faq");
-    $scope.menutitle = NavigationService.makeactive("Faq");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+        $scope.template = TemplateService.changecontent("faq");
+        $scope.menutitle = NavigationService.makeactive("Faq");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-      $scope.oneAtATime = true;
-      $scope.status = {
-          isCustomHeaderOpen: false,
-          isFirstOpen: true,
-          isFirstDisabled: false
-      };
+        $scope.oneAtATime = true;
+        $scope.status = {
+            isCustomHeaderOpen: false,
+            isFirstOpen: true,
+            isFirstDisabled: false
+        };
 
-})
-.controller('ContactCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
+    })
+    .controller('ContactCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
 
-    console.log("Testing Consoles");
+        console.log("Testing Consoles");
 
-    $scope.template = TemplateService.changecontent("contact");
-    $scope.menutitle = NavigationService.makeactive("Contact");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+        $scope.template = TemplateService.changecontent("contact");
+        $scope.menutitle = NavigationService.makeactive("Contact");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-})
-.controller('RegistrationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
+    })
+    .controller('RegistrationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
 
-    console.log("Testing Consoles");
+        console.log("Testing Consoles");
 
-    $scope.template = TemplateService.changecontent("Registration");
-    $scope.menutitle = NavigationService.makeactive("Registration");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+        $scope.template = TemplateService.changecontent("Registration");
+        $scope.menutitle = NavigationService.makeactive("Registration");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-})
-.controller('TermsConditionCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
+    })
+    .controller('TermsConditionCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
 
-    console.log("Testing Consoles");
+        console.log("Testing Consoles");
 
-    $scope.template = TemplateService.changecontent("terms-condition");
-    $scope.menutitle = NavigationService.makeactive("Terms Condition");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+        $scope.template = TemplateService.changecontent("terms-condition");
+        $scope.menutitle = NavigationService.makeactive("Terms Condition");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
 
-})
-.controller('TraininDevelopmentCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
+    })
+    .controller('TraininDevelopmentCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
 
-    console.log("Testing Consoles");
+        console.log("Testing Consoles");
 
-    $scope.template = TemplateService.changecontent("training-development");
-    $scope.menutitle = NavigationService.makeactive("Training Development");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+        $scope.template = TemplateService.changecontent("training-development");
+        $scope.menutitle = NavigationService.makeactive("Training Development");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-})
+    })
 
 .controller('DrawCtrl', function($scope, TemplateService, NavigationService, $timeout) {
 
@@ -455,7 +455,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             }
         });
-    }
+    };
     $scope.tabs = 'photos';
     $scope.classp = 'active-list';
     $scope.classv = '';
@@ -561,61 +561,92 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("School");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    $scope.school = [{
-        img: "img/sf-school.png",
-        name: "Dhirubhai Ambani Intertional School",
-        rank: "1"
-    }, {
-        img: "img/sf-school.png",
-        name: "Dhirubhai Ambani Intertional School",
-        rank: "2"
-    }, {
-        img: "img/sf-school.png",
-        name: "Dhirubhai Ambani Intertional School",
-        rank: "3"
-    }, {
-        img: "img/sf-school.png",
-        name: "Dhirubhai Ambani Intertional School",
-        rank: "4"
-    }, {
-        img: "img/sf-school.png",
-        name: "Dhirubhai Ambani Intertional School",
-        rank: "19"
-    }, {
-        img: "img/sf-school.png",
-        name: "Dhirubhai Ambani Intertional School",
-        rank: "20"
-    }];
-    NavigationService.getFirstListSchool(function(data) {
-        console.log('defghjfghjkfghj');
-        if (data.value != false) {
-            $scope.getFirstList = data.data.data;
-            console.log('$scope.getFirstList', $scope.getFirstList);
-            $scope.count = data.data.count;
+    $scope.search = {};
+    $scope.search.active = false;
+    $scope.filter= {};
+
+    // $scope.school = [{
+    //     img: "img/sf-school.png",
+    //     name: "Dhirubhai Ambani Intertional School",
+    //     rank: "1"
+    // }, {
+    //     img: "img/sf-school.png",
+    //     name: "Dhirubhai Ambani Intertional School",
+    //     rank: "2"
+    // }, {
+    //     img: "img/sf-school.png",
+    //     name: "Dhirubhai Ambani Intertional School",
+    //     rank: "3"
+    // }, {
+    //     img: "img/sf-school.png",
+    //     name: "Dhirubhai Ambani Intertional School",
+    //     rank: "4"
+    // }, {
+    //     img: "img/sf-school.png",
+    //     name: "Dhirubhai Ambani Intertional School",
+    //     rank: "19"
+    // }, {
+    //     img: "img/sf-school.png",
+    //     name: "Dhirubhai Ambani Intertional School",
+    //     rank: "20"
+    // }];
+    $scope.pagination= {};
+    $scope.pagination.pagesize = 20;
+    $scope.getMoreSchools = function() {
+        NavigationService.getFirstListSchool(function(data) {
+            if (data.value !== false) {
+                $scope.getFirstList = data.data.data;
+                console.log('$scope.getFirstList', $scope.getFirstList);
+                $scope.count = data.data.count;
+            } else {
+                $scope.getFirstList = [];
+            }
+        });
+    };
+    $scope.filter.pagenumber = 1;
+    $scope.parseSearch = function(input) {
+      $scope.search.active = false;
+      $scope.filter.pagenumber = 1;
+        if (input === '' || input === null) {
+            $scope.filter.name = undefined;
+            $scope.filter.sfaid = undefined;
         } else {
-            $scope.getFirstList = [];
+            if (isNaN(input)) {
+                $scope.filter.name = input;
+                $scope.filter.sfaid = undefined;
+            } else {
+                $scope.filter.name = undefined;
+                $scope.filter.sfaid = parseInt(input);
+            }
+            $scope.schools = [];
+            $scope.pagination.total = 0;
+            $scope.pagination.totalpages = 0;
+            $scope.search.active = true;
         }
-    });
-    $scope.getsearch = false;
-    $scope.searchFilter = {};
-    $scope.searchFilter.pagenumber = 1;
-    $scope.searchFilter.pagesize = 9;
-    $scope.searchFilter.search = "";
-    $scope.doSearch = function() {
-        if ($scope.searchFilter.search == '') {
-            $scope.getsearch = false;
-        } else {
-            $scope.getsearch = true;
-            NavigationService.getSearchDataSchool($scope.searchFilter, function(data) {
-                console.log($scope.searchFilter);
-                if (data.value != false) {
-                    $scope.getSearchData = data.data.data;
-                } else {
-                    $scope.getSearchData = [];
-                }
-            });
-        }
-    }
+    };
+    $scope.submitSearch = function () {
+      if($scope.search.active){
+        console.log("its searching");
+        NavigationService.schoolSearch($scope.filter,function (data) {
+          console.log(data);
+          if(data.value){
+            $scope.schools =data.data.data;
+            $scope.pagination.totalpages = data.data.totalpages;
+            $scope.pagination.total = data.data.total;
+          }
+        });
+      }else{
+        NavigationService.getFirstListSchool(function(data) {
+          if (data.value != false) {
+              $scope.topschools = data.data.data;
+              $scope.count = data.data.count;
+          } else {
+              $scope.getFirstList = [];
+          }
+      });
+      }
+    };
+    $scope.submitSearch();
 })
 
 .controller('SchoolProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
@@ -632,7 +663,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.callObject.agegroup = "All";
     console.log($scope.callObject);
     $scope.allYears = NavigationService.getAllYears();
-    $scope.gender = [{ value: "All", name: "All" }, { value: "Boys", name: "Male" }, { value: "Girls", name: "Female" }];
+    $scope.gender = [{
+        value: "All",
+        name: "All"
+    }, {
+        value: "Boys",
+        name: "Male"
+    }, {
+        value: "Girls",
+        name: "Female"
+    }];
     $scope.tab = 'player';
     $scope.classa = 'active-list';
     $scope.classb = '';
@@ -701,7 +741,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.schoolSports = data.data.sports;
     });
     NavigationService.getAgegroup(function(data) {
-        data.data.unshift({ _id: "All", name: "All" });
+        data.data.unshift({
+            _id: "All",
+            name: "All"
+        });
         $scope.agegroup = data.data;
     });
     $scope.callReload();
@@ -884,184 +927,184 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 .controller('HeatsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("heats");
-    $scope.menutitle = NavigationService.makeactive("Heats");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.oneAtATime = true;
-    $scope.status = {
-        isCustomHeaderOpen: false,
-        isFirstOpen: true,
-        isFirstDisabled: false
-    };
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("heats");
+        $scope.menutitle = NavigationService.makeactive("Heats");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.oneAtATime = true;
+        $scope.status = {
+            isCustomHeaderOpen: false,
+            isFirstOpen: true,
+            isFirstDisabled: false
+        };
 
-    $scope.student = [{
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
-    }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
-    }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
-    }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
-    }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
-    }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
-    }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
-    }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
-    }];
+        $scope.student = [{
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }];
 
-})
-.controller('TeamCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("team");
-    $scope.menutitle = NavigationService.makeactive("Team");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.oneAtATime = true;
-    $scope.status = {
-        isCustomHeaderOpen: false,
-        isFirstOpen: true,
-        isFirstDisabled: false
-    };
+    })
+    .controller('TeamCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("team");
+        $scope.menutitle = NavigationService.makeactive("Team");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.oneAtATime = true;
+        $scope.status = {
+            isCustomHeaderOpen: false,
+            isFirstOpen: true,
+            isFirstDisabled: false
+        };
 
-    $scope.student = [{
-        icon: "img/sf-icon-big.png",
-        sport: "basketball | girls u-17 ‘A’",
-        school: "dhirubhai ambani intertional school",
-        id: "586"
-    }, {
-      icon: "img/sf-icon-big.png",
-      sport: "basketball | girls u-17 ‘A’",
-      school: "dhirubhai ambani intertional school",
-      id: "586"
-    }, {
-      icon: "img/sf-icon-big.png",
-      sport: "basketball | girls u-17 ‘A’",
-      school: "dhirubhai ambani intertional school",
-      id: "586"
-    }, {
-      icon: "img/sf-icon-big.png",
-      sport: "basketball | girls u-17 ‘A’",
-      school: "dhirubhai ambani intertional school",
-      id: "586"
-    }, {
-      icon: "img/sf-icon-big.png",
-      sport: "basketball | girls u-17 ‘A’",
-      school: "dhirubhai ambani intertional school",
-      id: "586"
-    }, {
-      icon: "img/sf-icon-big.png",
-      sport: "basketball | girls u-17 ‘A’",
-      school: "dhirubhai ambani intertional school",
-      id: "586"
-    }, {
-      icon: "img/sf-icon-big.png",
-      sport: "basketball | girls u-17 ‘A’",
-      school: "dhirubhai ambani intertional school",
-      id: "586"
-    }, {
-      icon: "img/sf-icon-big.png",
-      sport: "basketball | girls u-17 ‘A’",
-      school: "dhirubhai ambani intertional school",
-      id: "586"
-    }];
+        $scope.student = [{
+            icon: "img/sf-icon-big.png",
+            sport: "basketball | girls u-17 ‘A’",
+            school: "dhirubhai ambani intertional school",
+            id: "586"
+        }, {
+            icon: "img/sf-icon-big.png",
+            sport: "basketball | girls u-17 ‘A’",
+            school: "dhirubhai ambani intertional school",
+            id: "586"
+        }, {
+            icon: "img/sf-icon-big.png",
+            sport: "basketball | girls u-17 ‘A’",
+            school: "dhirubhai ambani intertional school",
+            id: "586"
+        }, {
+            icon: "img/sf-icon-big.png",
+            sport: "basketball | girls u-17 ‘A’",
+            school: "dhirubhai ambani intertional school",
+            id: "586"
+        }, {
+            icon: "img/sf-icon-big.png",
+            sport: "basketball | girls u-17 ‘A’",
+            school: "dhirubhai ambani intertional school",
+            id: "586"
+        }, {
+            icon: "img/sf-icon-big.png",
+            sport: "basketball | girls u-17 ‘A’",
+            school: "dhirubhai ambani intertional school",
+            id: "586"
+        }, {
+            icon: "img/sf-icon-big.png",
+            sport: "basketball | girls u-17 ‘A’",
+            school: "dhirubhai ambani intertional school",
+            id: "586"
+        }, {
+            icon: "img/sf-icon-big.png",
+            sport: "basketball | girls u-17 ‘A’",
+            school: "dhirubhai ambani intertional school",
+            id: "586"
+        }];
 
-})
+    })
 
 .controller('QualifyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("qualify");
-    $scope.menutitle = NavigationService.makeactive("Qualify");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.oneAtATime = true;
-    $scope.status = {
-        isCustomHeaderOpen: false,
-        isFirstOpen: true,
-        isFirstDisabled: false
-    };
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("qualify");
+        $scope.menutitle = NavigationService.makeactive("Qualify");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.oneAtATime = true;
+        $scope.status = {
+            isCustomHeaderOpen: false,
+            isFirstOpen: true,
+            isFirstDisabled: false
+        };
 
-    $scope.student = [{
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
-    }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
-    }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
-    }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
-    }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
-    }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
-    }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
-    }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "45211"
-    }];
+        $scope.student = [{
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }, {
+            icon: "img/sf-student-profile.png",
+            name: "Harshit Shah",
+            dep: "45211"
+        }];
 
-})
-.controller('TeamDetailCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
-    $scope.template = TemplateService.changecontent("team-detail");
-    $scope.menutitle = NavigationService.makeactive("Team Detail");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+    })
+    .controller('TeamDetailCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+        $scope.template = TemplateService.changecontent("team-detail");
+        $scope.menutitle = NavigationService.makeactive("Team Detail");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-    $scope.tabs = 'photos';
-    $scope.classp = 'active-list';
-    $scope.classv = '';
+        $scope.tabs = 'photos';
+        $scope.classp = 'active-list';
+        $scope.classv = '';
 
 
-    $scope.tabchanges = function(tabs, a) {
-        //        console.log(tab);
-        $scope.tabs = tabs;
-        if (a == 1) {
+        $scope.tabchanges = function(tabs, a) {
+            //        console.log(tab);
+            $scope.tabs = tabs;
+            if (a == 1) {
 
-            $scope.classp = "active-list";
-            $scope.classv = '';
+                $scope.classp = "active-list";
+                $scope.classv = '';
 
-        } else {
+            } else {
 
-            $scope.classp = '';
-            $scope.classv = "active-list";
-        }
-    };
+                $scope.classp = '';
+                $scope.classv = "active-list";
+            }
+        };
 
         $scope.tab = 'squad';
         $scope.classa = 'active-list';
@@ -1153,7 +1196,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
         }];
 
-})
+    })
 
 .controller('RoundRobinCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file

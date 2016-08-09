@@ -174,7 +174,15 @@ firstapp.filter('uploadpath', function() {
         }
     };
 });
-
+firstapp.filter('letterLimit',function(){
+  return function (value,limit) {
+    if(value.length < limit){
+      return value;
+    }else{
+      return value.slice(0,limit - 2)+ "..";
+    }
+  };
+});
 firstapp.directive('giveitmargin', function($compile, $parse) {
     return {
         restrict: 'EA',
