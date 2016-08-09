@@ -1444,7 +1444,7 @@ img.fancybox-image {
   text-align: right;
 }
 .fancybox-inner {
-    overflow: hidden !important;
+    // overflow: hidden !important;
 }
 .main-pos{
   left: 38%;
@@ -1930,6 +1930,17 @@ p{
     background-image: none;
     -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.125);
     box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.125);
+}
+.fancy1 {
+    .ptl {
+        img {
+            position: absolute;
+            top: 1%;
+            width: 10%;
+            height: auto;
+            left: 89%;
+        }
+    }
 }
 //bootstrap forms
 /* Start writing sass here */

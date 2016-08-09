@@ -248,6 +248,7 @@ firstapp.directive('fancyboxBox', function($document) {
             target.fancybox({
                 openEffect: 'fade',
                 closeEffect: 'fade',
+                overflow: 'hidden',
                 closeBtn: true,
                 helpers: {
                     media: {}
@@ -268,6 +269,7 @@ firstapp.directive('fancybox', function($compile, $parse) {
                     maxWidth: 800,
                     maxHeight: 600,
                     fitToView: false,
+                    overflow: 'hidden',
                     width: '70%',
                     height: '70%',
                     autoSize: false,
@@ -351,6 +353,7 @@ firstapp.directive('fancyboxButton', function($compile, $parse) {
                     maxWidth: 800,
                     maxHeight: 600,
                     fitToView: false,
+                    overflow: 'auto',
                     width: '70%',
                     height: '70%',
                     autoSize: false,
