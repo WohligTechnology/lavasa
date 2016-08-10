@@ -87,4 +87,18 @@
         transform: translateX(-50%);
     }
 }
-@media (max-width:480px) {}
+@media (max-width:480px) {
+  .f4v {
+    font-size: 6vw;
+}
+  .curve2 {
+    margin-top: -70px;
+}
+.home-slider {
+    margin-top: -10px;
+
+}
+.home-btn .btn-group {
+    padding: 0px 10px;
+}
+}
