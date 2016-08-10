@@ -1,0 +1,33 @@
+@media (max-width:1200px) {}
+@media (max-width:$screen-sm-max) {
+  .menu-list li {
+    padding: 0 10px;
+}
+.home-btn .btn-home {
+    font-size: 16px;
+
+}
+.box-social {
+    margin-top: 6%;
+}
+.news-letter p {
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-size: 12px;
+}
+.emailclass {
+    width: 77%;
+
+}
+.pad0{
+      padding: 0;
+}
+.curve-footer {
+  height: 40px;
+
+}
+}
+@media (max-width:$screen-xs-max) {
+
+}
+@media (max-width:480px) {}
