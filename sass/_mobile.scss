@@ -86,8 +86,28 @@
         left: 50%;
         transform: translateX(-50%);
     }
+    .contact-set p {
+    font-size: 14px;
+}
+.sport-name-bg h1 {
+    padding: 20px 0 5px;
+    font-size: 25px;
+}
+.contact-set li {
+    font-size: 14px;
+}
 }
 @media (max-width:480px) {
+  .contact-set li {
+    font-size: 14px;
+}
+  .sport-name-bg h1 {
+      padding: 20px 0 5px;
+      font-size: 25px;
+  }
+  .contact-set p {
+    font-size: 14px;
+}
   .f4v {
     font-size: 6vw;
 }
