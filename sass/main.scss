@@ -287,6 +287,9 @@ a {
         li {
             font-size: 20px;
             padding: 0 3px;
+            img{
+              vertical-align: baseline;
+            }
         }
     }
 }
@@ -1484,6 +1487,11 @@ bottom: 15%;
 }
 .school-names{
     padding: 0px 15px;
+
+}
+.school-name{
+      min-height: 38px;
+
 }
 .first-top{
   width: 100%;
