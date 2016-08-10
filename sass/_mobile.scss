@@ -1,33 +1,90 @@
 @media (max-width:1200px) {}
 @media (max-width:$screen-sm-max) {
-  .menu-list li {
-    padding: 0 10px;
-}
-.home-btn .btn-home {
-    font-size: 16px;
-
-}
-.box-social {
-    margin-top: 6%;
-}
-.news-letter p {
-    margin-top: 8px;
-    margin-bottom: 0;
-    font-size: 12px;
-}
-.emailclass {
-    width: 77%;
-
-}
-.pad0{
-      padding: 0;
-}
-.curve-footer {
-  height: 40px;
-
-}
+    .menu-list li {
+        padding: 0 10px;
+    }
+    .home-btn .btn-home {
+        font-size: 16px;
+    }
+    .box-social {
+        margin-top: 6%;
+    }
+    .news-letter p {
+        margin-top: 8px;
+        margin-bottom: 0;
+        font-size: 12px;
+    }
+    .emailclass {
+        width: 77%;
+    }
+    .pad0 {
+        padding: 0;
+    }
+    .curve-footer {
+        height: 40px;
+    }
 }
 @media (max-width:$screen-xs-max) {
+  .fl{
+    float: none;
+  }
+  .mt40{
+    margin-top: 20px;
+  }
+  .home-slider .flexslider:hover .flex-direction-nav .flex-next {
 
+    right: 6px;
+
+}
+  .home-slider .flexslider:hover .flex-direction-nav .flex-prev {
+
+    left: 6px;
+
+}
+    .curve2 {
+        height: 25px;
+        margin-top: -83px;
+    }
+    .home-slider .flex-direction-nav .flex-next {
+        right: 6px;
+        transform: scale(0.6);
+    }
+    .home-slider .flex-direction-nav .flex-prev {
+        left: 6px;
+        transform: scale(0.6);
+    }
+    .home-btn .btn-home {
+        font-size: 14px !important;
+    }
+    .home-btn .btn-home {
+        font-size: 20px;
+        padding: 10px 15px;
+    }
+    .text-c {
+        text-align: center;
+    }
+    .mb50 {
+        margin-bottom: 15%;
+    }
+    .navbar-default .navbar-nav > li > a {
+        color: #0b1c72;
+        font-weight: 600;
+    }
+    .navbar-collapse {
+        border-top: 0 solid transparent;
+        margin-top: 64px;
+    }
+    .navbar {
+        position: relative;
+        min-height: 95px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        padding: 10px 0 0;
+    }
+    .mobile-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 @media (max-width:480px) {}
