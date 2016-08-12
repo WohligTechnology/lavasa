@@ -33,6 +33,25 @@
     }
 }
 @media (max-width:$screen-xs-max) {
+  .acc-img.float-right{
+    float: right;
+}
+  .final-table{
+    max-width: 685px;
+width: 680px;
+overflow: auto;
+min-width: 680px;
+overflow-x: auto;
+  }
+  .table {
+    overflow-x: auto;
+}
+  .bx-mob{
+    overflow-x: scroll;
+  }
+  .over-fl{
+    overflow: auto;
+  }
   .sport-name-bg h1{
     padding: 0px;
     margin: 0px;
