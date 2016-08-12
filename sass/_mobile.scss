@@ -104,8 +104,35 @@
     .rules p {
         font-size: 14px;
     }
+    .data-vox h4 {
+    text-transform: uppercase;
+    color: #0a1a72;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 130%;
+}
+.mob-sec{
+  display: inline;
+  font-size: 16px;
+
+}
+
 }
 @media (max-width:480px) {
+  .mob-sec{
+    display: inline;
+    font-size: 16px;
+
+  }
+  .data-vox h4 {
+    text-transform: uppercase;
+    color: #0a1a72;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 130%;
+}
+
+
     .rule2 {
         margin-top: 10%;
     }
