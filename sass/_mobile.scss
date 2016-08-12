@@ -131,8 +131,51 @@
 .p0-m{
   padding: 0px !important;
 }
+.statement p {
+
+  font-size: 14px;
+
+}
+.f20{
+  font-size: 20px;
+}
+.mt15{
+  h4{
+    font-size: 16px;
+  }
+}
+.float-right {
+    float: none;
+    text-align: center;
+}
+.contain-box {
+  text-align: center;
+}
 }
 @media (max-width:480px) {
+  .contain-box {
+    text-align: center;
+}
+  .float-right {
+    float: none;
+    text-align: center;
+}
+  .mt15{
+    h4{
+      font-size: 16px;
+    }
+  }
+  .f20{
+    font-size: 20px;
+  }
+  .statement p {
+
+    font-size: 14px;
+
+}
+  .pad0{
+    padding: 0px !important;
+  }
   .p0-m{
     padding: 0px !important;
   }
