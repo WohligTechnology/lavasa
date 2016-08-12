@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="search-title text-center">
-                    <h3 class="color-blue text-up font-semi">search from <span class="color-orange">{{count}}</span> schools</h3>
+                    <h3 class="color-blue text-up font-semi f16">search from <span class="color-orange">{{count}}</span> schools</h3>
                 </div>
                 <div class="mt15 text-center border-bottom">
                     <form class="">
@@ -20,15 +20,15 @@
         </div>
         <div class="row" ng-if="!search.active">
             <div class="text-center mt40">
-                <h3 class="font-semi color-orange text-up">Top 20 schools</h3>
+                <h3 class="font-semi color-orange text-up f16">Top 20 schools</h3>
             </div>
             <div class="col-md-offset-2 col-md-8 col-xs-12">
                 <div class="">
-                    <div class="col-md-4 top-school" ng-repeat="data in topschools" >
+                    <div class="col-md-4 top-school col-sm-4 col-xs-12" ng-repeat="data in topschools" >
                         <a ui-sref="school-profile({id:data._id})">
                             <div class="school-box">
                                 <div class="box-header">
-                                    <div class="school-img border-r">
+                                    <div class="school-img border-r w130">
                                         <img ng-src="{{data.logo | uploadpath}}" alt="" class="margin-auto">
                                         <div class="sigh-img">
                                             <img src="img/sf-right.png" alt="">
@@ -73,13 +73,13 @@
             <div class="text-center mt40">
                 <h3 class="font-semi color-orange text-up">{{pagination.total || '0'}} Search Results</h3>
             </div>
-            <div class="col-md-offset-2 col-md-8 col-xs-12">
+            <div class="col-md-offset-2 col-md-8 col-xs-10">
                 <div class="">
-                    <div class="col-md-4 mt15" ng-repeat="data in schools" ng-if="schools.length > 0">
+                    <div class="col-md-4 mt15 col-sm-4 col-xs-12" ng-repeat="data in schools" ng-if="schools.length > 0">
                         <a ui-sref="school-profile({id:data._id})">
                             <div class="school-boxs2">
                                 <div class="box-headers">
-                                    <div class="school-imgs text-center sf-relative border-r">
+                                    <div class="school-imgs text-center sf-relative border-r w130">
                                         <!-- <img src="img/sf-school-grey.png" alt=""> -->
                                         <img ng-src="{{data.logo|uploadpath}}" alt="">
                                         <div class="sigh-imgs sf-absulate">

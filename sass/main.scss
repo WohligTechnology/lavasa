@@ -246,10 +246,10 @@ a {
 .sigh-img {
     position: absolute;
     top: 97px;
-    left: 50px;
+    left: 0px;
 }
 .sigh-imgs {
-    left: 50px;
+    left: 0px;
     bottom: 10px;
 }
 .sigh-pro {
@@ -1959,6 +1959,10 @@ p{
 }
 .w100p{
   width: 100px;
+  margin: 0 auto;
+}
+.w130{
+  width: 130px;
   margin: 0 auto;
 }
 //bootstrap forms
