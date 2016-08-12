@@ -23,8 +23,17 @@
     .curve-footer {
         height: 40px;
     }
+    .sport-name-bg h1{
+      padding: 12px 0 11px;
+      width: 53%;
+      font-size: 30px;
+    }
 }
 @media (max-width:$screen-xs-max) {
+  .sport-name-bg h1{
+    padding: 0px;
+    margin: 0px;
+  }
     .fl {
         float: none;
     }
@@ -116,9 +125,14 @@
   font-size: 16px;
 
 }
-
+.p0-m{
+  padding: 0px !important;
+}
 }
 @media (max-width:480px) {
+  .p0-m{
+    padding: 0px !important;
+  }
   .mob-sec{
     display: inline;
     font-size: 16px;
