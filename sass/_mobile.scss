@@ -256,8 +256,33 @@ overflow-x: auto;
     }
   }
 }
+.m-15{
+      margin: 15px 0px;
+}
+.get {
+  font-size: 14px;
+  padding: 8px 40px;
+  text-align: center;
+}
+.f18-m{
+  font-size: 18px;
+}
 }
 @media (max-width:480px) {
+  .f18-m{
+    font-size: 18px;
+  }
+  .mt25 {
+    margin-top: 20px;
+}
+  .get {
+    font-size: 14px;
+    padding: 8px 40px;
+    text-align: center;
+}
+  .m-15{
+        margin: 15px 0px;
+  }
   .table{
     tr{
       th{
