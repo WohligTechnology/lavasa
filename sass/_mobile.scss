@@ -53,6 +53,7 @@
 }
 }
 @media (max-width:$screen-xs-max) {
+
   .sigh-pro {
   left: 15px;
   bottom: 10px;
@@ -267,8 +268,69 @@ overflow-x: auto;
 .f18-m{
   font-size: 18px;
 }
+.my-banner {
+background: url(../img/sfa-bg.png);
+    background-size: cover;
+    background-position: center center;
+background-repeat: no-repeat;
+
+}
+.ptop-per{
+  padding-top: 20%;
+}
+.p100 {
+    padding: 70px 0px;
+}
+.sf-school-logo, .sf-school-logo2 {
+    width:120px;
+    height:120px;
+}
+.w30-main{
+  width: 30px;
+}
+.l6{
+  left:5px !important;
+}
+.f16-main{
+  font-size: 16px;
+}
+.f18-main{
+  font-size: 18px;
+}
+.mar0-main{
+  margin: 0px;
+}
 }
 @media (max-width:480px) {
+  .f18-main{
+    font-size: 18px;
+  }
+  .f16-main{
+    font-size: 16px;
+  }
+  .l6{
+    left:5px !important;
+  }
+  .w30-main{
+    width: 30px;
+  }
+  .sf-school-logo, .sf-school-logo2 {
+      width:120px;
+      height:120px;
+  }
+  .p100 {
+    padding: 70px 0px;
+}
+  .ptop-per{
+    padding-top: 20%;
+  }
+  .my-banner {
+background: url(../img/sfa-bg.png);
+      background-size: cover;
+      background-position: center center;
+background-repeat: no-repeat;
+
+  }
   .f18-m{
     font-size: 18px;
   }
