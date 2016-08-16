@@ -47,7 +47,7 @@ squad
                     </div>
                 </div>
             </div>
-            <div class="box-content">
+            <div class="box-content bx-mob">
 
           <div class="record" ng-show="tab=='squad'">
             <div class="row">
@@ -72,9 +72,9 @@ squad
               </div>
             </div>
           </div>
-          <div class="record" ng-show="tab=='statistic'">
-            <div class="row">
-                <div class="col-md-12 mt25">
+          <div class="record " ng-show="tab=='statistic'">
+            <div class="row over-fl">
+                <div class="col-md-12 mt25 over-fl">
                     <div class="table-statistics">
                         <table class="table">
                             <thead>
@@ -252,7 +252,7 @@ match videos
                     <hr class="hr-padding">
                 </div>
                 <div class="row" ng-show="tabs=='photos'">
-                    <div class="col-md-3 mt15" ng-repeat="data in photos track by $index">
+                    <div class="col-md-3 mt15 col-sm-4 col-xs-6" ng-repeat="data in photos track by $index">
                         <a href="{{data}}" fancybox-box rel="gallery"><img ng-src="{{data}}" alt="" class="img-responsive width100"></a>
                     </div>
                 </div>
