@@ -46,6 +46,11 @@
     left: 15px;
     bottom: 10px;
 }
+.my-banner {
+
+    background-size: cover;
+
+}
 }
 @media (max-width:$screen-xs-max) {
   .sigh-pro {
@@ -55,7 +60,7 @@
   .m-top-zero{
     margin-top: 0px;
   }
-  .sigh-second{
+  .sigh-seconds{
     left: 10px;
 img{
       width: 13px;
@@ -87,6 +92,7 @@ overflow-x: auto;
 }
   .bx-mob{
     overflow-x: scroll;
+    overflow: overlay;
   }
   .over-fl{
     overflow: auto;
@@ -230,12 +236,52 @@ overflow-x: auto;
 .box-content2 {
   padding: 25px 32px;
 }
+.text-c-m{
+  text-align: center;
+}
+.border-right-2 {
+    padding: 0 6px;
+    font-size: 12px;
+}
+.sf-list {
+  font-size: 12px;
+}
+.table{
+  tr{
+    th{
+      font-size: 12px;
+    }
+    td{
+      font-size: 12px;
+    }
+  }
+}
 }
 @media (max-width:480px) {
+  .table{
+    tr{
+      th{
+        font-size: 12px;
+      }
+      td{
+        font-size: 12px;
+      }
+    }
+  }
+  .sf-list {
+    font-size: 12px;
+  }
+  .border-right-2 {
+      padding: 0 6px;
+      font-size: 12px;
+  }
+  .text-c-m{
+    text-align: center;
+  }
   .box-content2 {
     padding: 25px 32px;
 }
-  .sigh-second{
+  .sigh-seconds{
     left: 6px;
 img{
       width: 11px;

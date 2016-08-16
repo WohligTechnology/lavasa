@@ -260,6 +260,10 @@ a {
     left: 0px;
     bottom: 10px;
 }
+.sigh-seconds {
+    left: 30px;
+    bottom: 0;
+}
 .sigh-second {
     left: 30px;
     bottom: 0;
@@ -1968,6 +1972,17 @@ p{
 .sigh-pro {
 left: 15px;
 bottom: 10px;
+}
+
+  .my-banner {
+      background: url(../img/new-banner.png)center;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      position: relative;
+      min-height: 419px;
+  }
+.p100{
+      padding: 100px 0px;
 }
 //bootstrap forms
 /* Start writing sass here */
