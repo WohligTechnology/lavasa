@@ -1,6 +1,6 @@
 @media (max-width:1200px) {
   .font16{
-    font-size: 16px;
+    font-size: 16px !important;
   }
 
 }
@@ -220,8 +220,21 @@ overflow-x: auto;
     left: 15px;
 
 }
+.font16-mob{
+  font-size: 16px;
+}
+.panel-title {
+    font-size: 14px;
+
+}
+.box-content2 {
+  padding: 25px 32px;
+}
 }
 @media (max-width:480px) {
+  .box-content2 {
+    padding: 25px 32px;
+}
   .sigh-second{
     left: 6px;
 img{
