@@ -51,11 +51,11 @@ squad
 
           <div class="record" ng-show="tab=='squad'">
             <div class="row">
-              <div class="col-md-3" ng-repeat="data in student track by $index">
+              <div class="col-md-3 col-sm-4" ng-repeat="data in student track by $index">
                 <a ui-sref="student-profile({id:data._id})">
                     <div class="school-sec">
                         <img src="img/sf-cl.png" alt="" class="mt-min-18" ng-if="$index==0">
-                        <div class="stu-img text-center sf-relative">
+                        <div class="stu-img text-center sf-relative w130">
                             <img ng-src="{{data.icon}}" alt="">
                             <div class="sigh-pro sf-absulate">
                                 <img src="img/sf-right.png" alt="">

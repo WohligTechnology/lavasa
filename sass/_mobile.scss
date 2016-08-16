@@ -42,8 +42,16 @@
       width: 53%;
       font-size: 30px;
     }
+    .sigh-pro {
+    left: 15px;
+    bottom: 10px;
+}
 }
 @media (max-width:$screen-xs-max) {
+  .sigh-pro {
+  left: 15px;
+  bottom: 10px;
+}
   .m-top-zero{
     margin-top: 0px;
   }
@@ -203,6 +211,14 @@ overflow-x: auto;
 }
 .f162{
   font-size: 17px;
+}
+.tab-list ul li a {
+    font-size: 16px;
+    padding: 8px 35px;
+}
+.sigh-pro {
+    left: 15px;
+
 }
 }
 @media (max-width:480px) {
