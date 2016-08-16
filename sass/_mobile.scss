@@ -2,8 +2,15 @@
   .font16{
     font-size: 16px;
   }
+
 }
 @media (max-width:$screen-sm-max) {
+  .f26{
+    font-size: 26px;
+  }
+  .f20{
+    font-size: 20px;
+  }
   .w80{
     width: 83% !important;
   }
@@ -37,6 +44,26 @@
     }
 }
 @media (max-width:$screen-xs-max) {
+  .m-top-zero{
+    margin-top: 0px;
+  }
+  .sigh-second{
+    left: 10px;
+img{
+      width: 20px;
+}
+
+  }
+  .sf-school-logo2 {
+    width: 80px;
+    height: 80px;
+}
+.f26{
+  font-size: 18px;
+}
+.f20{
+  font-size: 16px;
+}
   .acc-img.float-right{
     float: right;
 }
