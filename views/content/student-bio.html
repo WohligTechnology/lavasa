@@ -120,10 +120,10 @@ student’s blog
                 </div>
             </div>
         </div>
-        <div class="box-content">
+        <div class="box-content main-over">
 
       <div class="record" ng-show="tab=='record'">
-                <div class="row mt25">
+                <div class="row mt25 ">
                     <div class="col-md-12 text-center">
                         <h4 class="text-up color-blue display-inline">Year</h4>
                         <div class="display-inline">
@@ -141,9 +141,12 @@ student’s blog
 
 
                 </div>
-                <div class="row">
-                    <div class="col-md-offset-1 col-md-10">
-                        <div class="sport-slider mt40 bg-none">
+                <div class="">
+
+
+                <div class="row w700">
+                    <div class="col-md-offset-1 col-md-10 ">
+                        <div class="sport-slider mt40 bg-none ">
                             <flex-slider class="carousel" flex-slide="slide in games track by $index" animation="slide">
                                 <li>
                                     <div class="record-table">
@@ -276,9 +279,10 @@ student’s blog
                     </div>
                 </div>
             </div>
+                </div>
             <div class="gallery" ng-show="tab=='gallery'">
                 <div class="row">
-                    <div class="col-md-offset-3 col-md-3">
+                    <div class="col-md-offset-3 col-md-3 col-sm-6 col-xs-12 text-c-m">
                         <h4 class="text-up color-blue display-inline">sport</h4>
                         <div class="display-inline">
                             <div class="sfa-select">
@@ -292,7 +296,7 @@ student’s blog
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-sm-6 col-xs-12 text-c-m">
                         <h4 class="text-up color-blue display-inline">year</h4>
                         <div class="display-inline">
                             <div class="sfa-select">
@@ -325,13 +329,13 @@ match videos
                     </div>
                 </div>
                 <div class="row" ng-show="tabs=='photos'">
-                    <div class="col-md-3 mt15" ng-repeat="data in photos track by $index">
+                    <div class="col-md-3 mt15 col-sm-4 col-xs-6" ng-repeat="data in photos track by $index">
                         <a href="{{data}}" fancybox-box><img ng-src="{{data}}" alt="" class="img-responsive width100"></a>
                     </div>
                 </div>
 
                 <div class="row" ng-show="tabs=='videos'">
-                    <div class="col-md-3 mt15" ng-repeat="data in video track by $index">
+                    <div class="col-md-3 mt15 col-sm-4" ng-repeat="data in video track by $index">
                         <a class="various fancybox.iframe" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
                             <div class="videow-box">
                                 <div class="video-img">
@@ -350,7 +354,7 @@ match videos
                 <div class="data-box" style="text-align:center;">
                     <p>Sport For All (SFA) cannot be held responsible for the details of the student's achievements in other tournaments. SFA does not guarantee the authenticity of the below mentioned triumphs.</p>
                 </div>
-                <div class="row">
+                <div class="row w700">
                     <div class="table-statistics mt15">
                         <table class="table">
                             <thead>
