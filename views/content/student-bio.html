@@ -1,63 +1,57 @@
 <section>
-    <div class="banner sf-relative">
-        <img src="img/new-banner.png" alt="" class="img-responsive width100">
-        <div class="sf-absulate banner-set">
+    <div class="banner my-banner">
+        <!-- <img src="img/new-banner.png" alt="" class="img-responsive width100"> -->
+        <div class="p100">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="sf-school-logo sf-relative text-center">
-                            <img src="img/sf-student-big.png" alt="" class="img-border">
-                            <div class="sigh-second sf-absulate">
-                                <img src="img/sf-right-org.png" alt="">
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class="sf-school-logo sf-relative text-center border-r">
+                            <img src="img/sf-student-big.png" alt="" class="img-border img-responsive">
+                            <div class="sigh-second sf-absulate l6">
+                                <img src="img/sf-right-org.png" alt="" class="w30-main">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-9">
-                        <div class="sf-school-data">
-                            <div class="scl-title display-inline">
-                                <h3 class="color-orange font-semi text-up">Shah Harshit</h3>
-                                <h4 class="color-white text-up">Dhirubhai Ambani International School</h4>
+                    <div class="col-md-9 col-xs-12 col-sm-8 text-c-m">
+                        <div class="sf-school-data text-c-m">
+                            <div class="scl-title display-inline ">
+                                <h3 class="color-orange font-semi text-up f18-main">{{studentProfile.name}}</h3>
+                                <h4 class="color-white text-up f16-main">{{studentProfile.school.name}}</h4>
                             </div>
                             <!-- <div class="display-inline cup">
                                 <img src="img/sf-cup.png" alt="">
                             </div> -->
                         </div>
-                        <div class="data-list custom-li color-white mt15 display-inline">
+                        <div class="data-list custom-li color-white mt15 display-inline text-c-m mar0-main" >
                             <ul class="padding0 sf-list-padding">
                                 <li class="border-right-2">
                                     <div class="">
                                         <p class="text-up color-orange">age group</p>
-                                        <p>U-17</p>
+                                        <p>{{studentProfile.agegroup.name}}</p>
                                     </div>
-
                                 </li>
                                 <li class="border-right-2">
                                     <div class="">
                                         <p class="text-up color-orange">SFA ID</p>
-                                        <p>45621</p>
+                                        <p>{{studentProfile.sfaid}}</p>
                                     </div>
                                 </li>
                                 <li class="border-right-2">
-
                                     <div class="">
                                         <p class="text-up color-orange">Date of Birth</p>
-                                        <p class="text-up">AUG 06, 2002 </p>
+                                        <p class="text-up">{{studentProfile.dob | date:"MMM dd, yyyy"}} </p>
                                     </div>
-
                                 </li>
                                 <li class="border-right-2">
-
                                     <div class="">
                                         <p class="text-up color-orange">gender</p>
-                                        <p class="text-up">male</p>
+                                        <p class="text-up">{{studentProfile.gender}}</p>
                                     </div>
-
                                 </li>
                             </ul>
                         </div>
-                        <div class="sf-list">
+                        <div class="sf-list ptop-per">
                             <span class="text-center text-up color-orange">Medals Won</span>
-
                             <ul class="padd-left padding0 mt5 second-border">
                                 <li>
                                     <div class="medal-num">
@@ -94,9 +88,8 @@
                                 </li>
                             </ul>
                         </div>
-
                         <div class="btn-common mt25">
-                            <button type="button" name="button" class="text-up btn-orange padd-btn">student bio</button>
+                            <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="student-bio">student bio</button>
                         </div>
                     </div>
                 </div>
