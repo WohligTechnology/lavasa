@@ -292,6 +292,10 @@ background-repeat: no-repeat;
 .sf-school-logo, .sf-school-logo2 {
     width:120px;
     height:120px;
+  img{
+    max-width: 100px;
+    max-height: 100px;
+  }
 }
 .w30-main{
   width: 30px;
@@ -308,8 +312,61 @@ background-repeat: no-repeat;
 .mar0-main{
   margin: 0px;
 }
+.sigh-second {
+    left: 8px;
+    bottom: 0;
+}
+.spon {
+  right: inherit;
+    left:50%;
+    bottom: 2%;
+    transform: translateX(-50%);
+    padding: 20px 0px;
+}
+.p1002 {
+    padding: 40px 0px 100px 0px !important;
+}
+.m40-main{
+margin-top: 40px;
+}
+.w40{
+  width: 40px;
+}
+.sf-list-padding .border-right-1 {
+    padding: 0px 4px;
+    border-right: 1px solid #fff;
+    line-height: 100%;
+    min-height: 60px;
+    font-size: 10px;
+    margin: 0px 0px 15px 0px;
+}
 }
 @media (max-width:480px) {
+  .sf-list-padding .border-right-1 {
+    padding: 0px 4px;
+    border-right: 1px solid #fff;
+    line-height: 100%;
+    min-height: 60px;
+    font-size: 10px;
+    margin: 0px 0px 15px 0px;
+}
+  .w40{
+    width: 40px;
+  }
+  .m40-main{
+  margin-top: 40px;
+  }
+  .spon {
+    padding: 20px 0px;
+    right: inherit;
+    left: 50%;
+    bottom: 2%;
+      transform: translateX(-50%);
+}
+  .sigh-second {
+    left: 8px;
+    bottom: 0;
+}
   .f18-main{
     font-size: 18px;
   }
@@ -325,9 +382,16 @@ background-repeat: no-repeat;
   .sf-school-logo, .sf-school-logo2 {
       width:120px;
       height:120px;
+      img{
+        max-width: 100%;
+    max-height: 100%;
+      }
   }
   .p100 {
     padding: 70px 0px;
+}
+.p1002 {
+    padding: 40px 0px 100px 0px !important;
 }
   .ptop-per{
     padding-top: 20%;

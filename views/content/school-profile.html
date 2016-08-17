@@ -1,19 +1,19 @@
 <section>
-    <div class="banner sf-relative">
-        <img src="img/new-banner.png" alt="" class="img-responsive width100">
-        <div class="sf-absulate banner-set">
+    <div class="banner sf-relative my-banner">
+        <!-- <img src="img/new-banner.png" alt="" class="img-responsive width100"> -->
+      <div class="p100 p1002">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-sm-3 col-xs-12">
                         <div class="sf-school-logo sf-relative text-center border-r">
                             <img ng-src="{{getSchoolProfile.logo|uploadpath}}" alt="">
                             <!-- <img src="img/sf-school-profile-big.png" alt=""> -->
                             <div class="sigh-second sf-absulate">
-                                <img src="img/sf-right-org.png" alt="">
+                                <img src="img/sf-right-org.png" alt="" class="w30-main">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-9 col-xs-12 col-sm-9 text-c-m">
                         <div class="sf-school-data">
                             <div class="scl-title display-inline">
                                 <h3 class="color-orange font-semi">{{getSchoolProfile.name}}</h3>
@@ -22,7 +22,7 @@
                                 <img src="img/sf-cup.png" alt="">
                             </div> -->
                         </div>
-                        <div class="data-list custom-li color-white display-inline mt15">
+                        <div class="data-list custom-li color-white display-inline mt15 text-c-m">
                             <ul class="padding0 sf-list-padding">
                                 <li class="border-right-1">
                                     <div class="">
@@ -98,7 +98,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="btn-common">
+                        <div class="btn-common m40-main">
                             <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="school-bio">school bio</button>
                         </div>
                     </div>
@@ -106,8 +106,8 @@
             </div>
         </div>
         <div class="sf-absulate spon">
-            <div class="spon">
-                <span class="color-orange text-cap f16">Supported by: <img src="img/s1.png" alt=""></span>
+            <div class="">
+                <span class="color-orange text-cap f16">Supported by: <img src="img/s1.png" alt="" class="w40"></span>
             </div>
         </div>
     </div>
@@ -205,10 +205,10 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="box-content">
+                    <div class="box-content bx-mob">
                         <div class="player" ng-show="tab=='player'">
                             <div class="row">
-                                <div class="col-md-offset-2 col-md-3">
+                                <div class="col-md-offset-2 col-md-3 col-sm-4 col-xs-12 text-c-m">
                                     <h4 class="text-up color-blue display-inline">Year</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
@@ -218,7 +218,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-4 col-xs-12 text-c-m">
                                     <h4 class="text-up color-blue display-inline">gender</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
@@ -228,7 +228,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-4 col-xs-12 text-c-m">
                                     <h4 class="text-up color-blue display-inline">age group</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
@@ -266,7 +266,7 @@
                         </div>
                         <div class="match-video" ng-show="tab=='match'">
                             <div class="row">
-                                <div class="col-md-offset-2 col-md-3">
+                                <div class="col-md-offset-2 col-md-3 col-sm-4 col-xs-12 text-c-m">
                                     <h4 class="text-up color-blue display-inline">Year</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
@@ -280,7 +280,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-4 col-xs-12 text-c-m">
                                     <h4 class="text-up color-blue display-inline">gender</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
@@ -294,7 +294,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-4 col-xs-12 text-c-m">
                                     <h4 class="text-up color-blue display-inline">age group</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
@@ -324,9 +324,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="statistics" ng-show="tab=='statistics'">
+                        <div class="statistics " ng-show="tab=='statistics'">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-4 col-xs-12 text-c-m">
                                     <h4 class="text-up color-blue display-inline">Year</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
@@ -340,7 +340,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                              <div class="col-md-3 col-sm-4 col-xs-12 text-c-m">
                                     <h4 class="text-up color-blue display-inline">gender</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
@@ -354,7 +354,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-4 col-xs-12 text-c-m">
                                     <h4 class="text-up color-blue display-inline">age group</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
@@ -368,7 +368,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 col-sm-4 col-xs-12 text-c-m">
                                     <h4 class="text-up color-blue display-inline">category</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
@@ -383,9 +383,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt25">
+                            <div class="row mt25 main-over">
                                 <div class="col-md-12 mt25">
-                                    <div class="table-statistics">
+                                    <div class="table-statistics w700">
                                         <table class="table">
                                             <thead>
                                                 <tr class="text-up color-white bg-table">
