@@ -340,8 +340,18 @@ margin-top: 40px;
     font-size: 10px;
     margin: 0px 0px 15px 0px;
 }
+.school-boxs, .school-boxs2, .school-sec {
+
+    padding: 17px 0 50px;
+
+}
 }
 @media (max-width:480px) {
+  .school-boxs, .school-boxs2, .school-sec {
+
+      padding: 17px 0 60px;
+
+  }
   .sf-list-padding .border-right-1 {
     padding: 0px 4px;
     border-right: 1px solid #fff;
