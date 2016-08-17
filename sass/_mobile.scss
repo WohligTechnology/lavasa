@@ -51,8 +51,16 @@
     background-size: cover;
 
 }
+.main-over{
+  overflow-x: scroll;
+    overflow: auto;
+}
+.w700{
+  width: 780px;
+}
 }
 @media (max-width:$screen-xs-max) {
+
 
   .sigh-pro {
   left: 15px;
