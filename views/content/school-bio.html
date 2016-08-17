@@ -1,18 +1,18 @@
 <section>
-    <div class="banner sf-relative">
-        <img src="img/new-banner.png" alt="" class="img-responsive width100">
-        <div class="sf-absulate banner-set">
+    <div class="banner sf-relative  my-banner">
+        <!-- <img src="img/new-banner.png" alt="" class="img-responsive width100"> -->
+        <div class="p100 p1002">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="sf-school-logo sf-relative text-center">
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <div class="sf-school-logo sf-relative text-center border-r">
                             <a ui-sref="school-profile"><img src="img/sf-school-profile-big.png" alt=""></a>
                             <div class="sigh-second sf-absulate">
-                                <img src="img/sf-right-big.png" alt="">
+                                <img src="img/sf-right-big.png" alt="" class="w30-main">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-9  col-xs-12 col-sm-9 text-c-m">
                         <div class="sf-school-data">
                             <div class="scl-title display-inline">
                                 <a ui-sref="school-profile"><h3 class="color-orange font-semi">DHIRUBHAI AMBANI INTERNATIONAL SCHOOL</h3></a>
@@ -21,7 +21,7 @@
                                 <img src="img/sf-cup.png" alt="">
                             </div> -->
                         </div>
-                        <div class="data-list custom-li color-white display-inline mt15">
+                        <div class="data-list custom-li color-white display-inline mt15  text-c-m">
                             <ul class="padding0 sf-list-padding">
                                 <li class="border-right-1">
                                     <div class="">
@@ -102,11 +102,16 @@
                         </div>
 
 
-                        <div class="btn-common">
+                        <div class="btn-common m40-main">
                             <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="school-bio">school bio</button>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="sf-absulate spon">
+            <div class="">
+                <span class="color-orange text-cap f16">Supported by: <img src="img/s1.png" alt="" class="w40"></span>
             </div>
         </div>
     </div>
@@ -141,7 +146,7 @@ school’s blog
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="box-content">
+                <div class="box-content bx-mob">
                     <div class="about-school" ng-show="tab=='about'">
                         <div class="row">
                             <div class="col-md-offset-1 col-md-8">
@@ -163,7 +168,7 @@ school’s blog
                             <div class="box-margin2">
 
 
-                                <div class="col-md-6" ng-repeat="data in student track by $index">
+                                <div class="col-md-6 col-sm-6" ng-repeat="data in student track by $index">
                                     <div class="row mt15 school-boxs margin152">
                                         <a href="">
                                             <div class="">
@@ -185,9 +190,9 @@ school’s blog
                             </div>
                         </div>
                     </div>
-                    <div class="record" ng-show="tab=='record'">
-                        <div class="row">
-                            <div class="col-md-offset-2 col-md-8">
+                    <div class="record " ng-show="tab=='record'">
+                        <div class="row  main-over">
+                            <div class="col-md-offset-2 col-md-8 w700">
                                 <div class="record-table">
                                     <table class="tables text-up">
                                         <thead>
