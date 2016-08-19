@@ -2,9 +2,16 @@
   .font16{
     font-size: 16px !important;
   }
+  .main-hide{
+    display: none;
+  }
 
 }
 @media (max-width:$screen-sm-max) {
+  .main-hide{
+    display: none;
+  }
+
   .f26{
     font-size: 26px;
   }
@@ -60,7 +67,9 @@
 }
 }
 @media (max-width:$screen-xs-max) {
-
+  .main-hide{
+    display: none;
+  }
 
   .sigh-pro {
   left: 15px;
@@ -345,8 +354,53 @@ margin-top: 40px;
     padding: 17px 0 50px;
 
 }
+.w-mob-100{
+  width: 100%;
+}
+.footer-level {
+  padding: 7px 0 6px 10px;
+}
+.min-height-set-m {
+  min-height: 206px;
+
+  top: 15px;
+}
+.min-height-set2-m {
+  min-height: 215px;
+  position: relative;
+  top: 15px;
+}
 }
 @media (max-width:480px) {
+  .mt15 h4 {
+    font-size: 14px;
+    text-align: center;
+}
+  .one-sec {
+    padding: 10px 7px 10px 10px;
+}
+  .min-height-set2-m {
+    min-height: 215px;
+    position: relative;
+    top: 15px;
+}
+  .min-height-set-m {
+    min-height: 206px;
+
+    top: 15px;
+}
+.footer-level {
+    padding: 9px 0 8px 10px;
+}
+  .m-auto{
+    margin: 0 auto;
+  }
+  .w-mob-100{
+    width: 100%;
+  }
+  .main-hide{
+    display: none;
+  }
   .school-boxs, .school-boxs2, .school-sec {
 
       padding: 17px 0 60px;
