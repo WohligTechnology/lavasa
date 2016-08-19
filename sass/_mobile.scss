@@ -5,7 +5,9 @@
   .main-hide{
     display: none;
   }
-
+.w1200{
+  width: 1200px;
+}
 }
 @media (max-width:$screen-sm-max) {
   .main-hide{
@@ -64,6 +66,11 @@
 }
 .w700{
   width: 780px;
+}
+.social-logo{
+  img{
+    transform: scale(0.8);
+  }
 }
 }
 @media (max-width:$screen-xs-max) {
