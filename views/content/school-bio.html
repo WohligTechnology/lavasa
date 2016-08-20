@@ -55,7 +55,7 @@
                                         <p class="total display-inline mt5">4</p>
                                     </div> -->
                                 </li>
-                                <li class="border-right-1">
+                                <li class="border-right-1 hidden-xs">
 
                                     <div class="stu-data text-center sf-list">
                                         <span class="text-center text-up">Medals Won</span>
@@ -100,7 +100,44 @@
                                 </li>
                             </ul>
                         </div>
-
+                        <div class="sf-list ptop-per hidden-md hidden-lg hidden-sm">
+                            <span class="text-center text-up color-orange">Medals Won</span>
+                            <ul class="padd-left padding0 mt5 second-border">
+                                <li>
+                                    <div class="medal-num">
+                                        <div class="img-medal display-inline">
+                                            <img src="img/sf-gold-big.png" alt="">
+                                        </div>
+                                        <div class="display-inline">
+                                            <p class="margin0 color-orange text-center">2</p>
+                                            <p class="margin0 color-white">Gold</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="medal-num">
+                                        <div class="img-medal display-inline ">
+                                            <img src="img/sf-silver-big.png" alt="">
+                                        </div>
+                                        <div class="display-inline">
+                                            <p class="margin0 color-orange text-center">2</p>
+                                            <p class="margin0 color-white">Silver</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="medal-num">
+                                        <div class="img-medal display-inline">
+                                            <img src="img/sf-bronze-big.png" alt="">
+                                        </div>
+                                        <div class="display-inline">
+                                            <p class="margin0 color-orange text-center">2</p>
+                                            <p class="margin0 color-white">Bronze</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
 
                         <div class="btn-common m40-main">
                             <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="school-bio">school bio</button>
@@ -146,7 +183,7 @@ school’s blog
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="box-content bx-mob">
+                <div class="box-content bx-mob pad-m-main pad-m-main">
                     <div class="about-school" ng-show="tab=='about'">
                         <div class="row">
                             <div class="col-md-offset-1 col-md-8">
@@ -168,16 +205,16 @@ school’s blog
                             <div class="box-margin2">
 
 
-                                <div class="col-md-6 col-sm-6" ng-repeat="data in student track by $index">
+                                <div class="col-md-6 col-sm-6 col-xs-12" ng-repeat="data in student track by $index">
                                     <div class="row mt15 school-boxs margin152">
                                         <a href="">
                                             <div class="">
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 col-xs-12">
                                                     <div class="student-pro-img text-center">
                                                         <img ng-src="{{data.icon}}" alt="" class="img-responsive margin-auto">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6 text-center">
+                                                <div class="col-md-6 text-center col-xs-12">
                                                     <div class="student-pro-data text-up mt40">
                                                         <h4 class="color-orange font-semi">{{data.name}}</h4>
                                                         <h4 class="color-blue">{{data.dep}}</h4>

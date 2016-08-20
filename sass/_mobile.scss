@@ -377,8 +377,26 @@ margin-top: 40px;
   position: relative;
   top: 15px;
 }
+.box-margin2 {
+    margin: 0 25px;
+}
 }
 @media (max-width:480px) {
+  .box-margin2 {
+    margin: 0 25px;
+}
+  .school-about span {
+    width: 60px;
+
+}
+  .school-about{
+    p{
+      font-size: 12px;
+    }
+  }
+  .pad-m-main{
+    padding: 25px 0px !important;
+  }
   .mt15 h4 {
     font-size: 14px;
     text-align: center;
