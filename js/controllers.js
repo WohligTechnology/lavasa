@@ -49,6 +49,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
+    .controller('SwissCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        console.log("Testing Consoles");
+
+        $scope.template = TemplateService.changecontent("swiss");
+        $scope.menutitle = NavigationService.makeactive("Swiss");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
     .controller('FaqCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 

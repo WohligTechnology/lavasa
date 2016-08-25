@@ -28,6 +28,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'DrawCtrl'
         })
+        .state('swiss', {
+            url: "/swiss",
+            templateUrl: "views/template.html",
+            controller: 'SwissCtrl'
+        })
         .state('contact', {
             url: "/contact",
             templateUrl: "views/template.html",
