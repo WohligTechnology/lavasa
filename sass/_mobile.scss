@@ -380,8 +380,83 @@ margin-top: 40px;
 .box-margin2 {
     margin: 0 25px;
 }
+.mb-min-fn{
+.tables{
+
+    tr{
+      th{
+        font-size: 13px;
+      }
+      td{
+          font-size: 13px;
+      }
+    }
+
+
+}
+}
+.search-title{
+  h3{
+    font-size: 20px;
+  }
+}
+.mt-min-30 {
+    margin-top: 28px;
+}
+.sport-slider {
+
+    .flex-direction-nav .flex-prev {
+        left: 0px;
+    }
+    .flex-direction-nav .flex-next {
+        right: 0px;
+
+    }
+
+    .flexslider:hover .flex-direction-nav .flex-prev {
+
+        left: 0px;
+
+    }
+    .flexslider:hover .flex-direction-nav .flex-next {
+
+        right: 0px;
+
+    }
+}
 }
 @media (max-width:480px) {
+  .sport-slider {
+
+      .flex-direction-nav .flex-prev {
+          left: 0px;
+      }
+      .flex-direction-nav .flex-next {
+          right: 0px;
+
+      }
+
+      .flexslider:hover .flex-direction-nav .flex-prev {
+
+          left: 0px;
+
+      }
+      .flexslider:hover .flex-direction-nav .flex-next {
+
+          right: 0px;
+
+      }
+  }
+  .mt-min-30 {
+    margin-top: 28px;
+    float: none;
+    text-align: center;
+}
+  .search-title{
+    h3{
+      font-size: 20px;
+    }
+  }
   .box-margin2 {
     margin: 0 25px;
 }

@@ -6,7 +6,7 @@
 // }
 
 
-var adminurl = "http://104.154.89.21:83/";
+var adminurl = "http://104.154.89.21:83/api/";
 // var adminurl = "http://localhost:1337/";
 // var adminurl = "http://192.168.1.119:84/";
 var imgpath = adminurl + "upload/readFile";

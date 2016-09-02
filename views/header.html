@@ -1,4 +1,4 @@
-<header class="{{nav}}">
+<header class="{{nav}}" ng-controller="headerctrl">
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="row">
@@ -6,8 +6,11 @@
                     <ul class="menu-list hidden-xs text-up padding0">
 
                         <li><a ui-sref="about-us">ABOUT US</a></li>
+                        <li><a ui-sref="#" ng-click="options=!options" ng-model="checkbox">sports <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+
+                        </li>
                         <li><a ui-sref="school">Schools</a></li>
-                        <li><a ui-sref="students">STUDENTS</a></li>
+
 
                         </li>
 
@@ -16,12 +19,13 @@
                                 <img src="img/logo.png" alt="logo" class="img-responsive onlylogo">
                             </a>
                         </li>
+                        <li><a ui-sref="students">STUDENTS</a></li>
                         <li><a ui-sref="training-development">TRAINING & DEVELOPMENT</a></li>
                         <li class="sf-relative hide-op"><a ui-sref="students">SFA MUMBAI 2016</a>
-                          <ul class="dropdown-menu sf-absulate show-op">
-                              <li><a ui-sref="registration">Registration Form</a></li>
-                              <li><a ui-sref="faq">FAQs</a></li>
-                          </ul>
+                            <ul class="dropdown-menu sf-absulate show-op">
+                                <li><a ui-sref="registration">Registration Form</a></li>
+                                <li><a ui-sref="faq">FAQs</a></li>
+                            </ul>
                         </li>
 
                     </ul>
@@ -48,19 +52,203 @@
             <div class="collapse navbar-collapse" id="nav-collapse">
                 <ul class="nav navbar-nav visible-xs text-up text-center color-blue">
 
-                  <li><a ui-sref="about-us">ABOUT US</a></li>
-                  <li><a ui-sref="school">Schools</a></li>
-                  <li><a ui-sref="students">STUDENTS</a></li>
+                    <li><a ui-sref="about-us">ABOUT US</a></li>
+                    <li><a ui-sref="school">Schools</a></li>
+                    <li><a ui-sref="students">STUDENTS</a></li>
 
-                      <li><a ui-sref="training-development">TRAINING & DEVELOPMENT</a></li>
-                        <li><a ui-sref="registration">Registration Form</a></li>
-                <li><a ui-sref="faq">FAQs</a></li>
+                    <li><a ui-sref="training-development">TRAINING & DEVELOPMENT</a></li>
+                    <li><a ui-sref="registration">Registration Form</a></li>
+                    <li><a ui-sref="faq">FAQs</a></li>
 
 
 
 
                 </ul>
             </div>
+        </div>
+        <div class="on-mouse-hover" ng-mouseenter="options=true" ng-mouseleave="options=false"  >
+
+            <div class="bg-head curve-head" ng-show="options || checkbox">
+                <div class="container">
+                    <div class="row">
+                        <div class="head-table">
+                            <div class="col-md-2 padding0">
+                                <div class="menu-list-hover">
+                                    <h5 class="text-up " style="color:#f67012">team sports</h5>
+                                    <ul class="padding0">
+                                        <li>
+                                            <a href="">
+handball
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+basketball
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+volleyball
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+throwball
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                          hockey
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                          kho-kho
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                          kabaddi
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                          football
+                        </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 padding0">
+                                <div class="menu-list-hover">
+                                    <h5 class="text-up" style="color:#c9e000">racquet sports</h5>
+                                    <ul class="padding0">
+                                        <li>
+                                            <a href="">
+badminton
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+tennis
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+table tennis
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+squash
+                        </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 padding0">
+                                <div class="menu-list-hover">
+                                    <h5 class="text-up" style="color:#aa33ff">combat sports</h5>
+                                    <ul class="padding0">
+                                        <li>
+                                            <a href="">
+judo
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+taekwondo
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+boxing
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+fencing
+                        </a>
+                                        </li>
+                                        <li>
+
+                                            <a href="">
+                                            karate
+                                          </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                          sport mma
+                                        </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 padding0">
+                                <div class="menu-list-hover">
+                                    <h5 class="text-up" style="color:#d8485a">target sports</h5>
+                                    <ul class="padding0">
+                                        <li>
+                                            <a href="">
+shooting
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+archery
+                        </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 padding0">
+                                <div class="menu-list-hover">
+                                    <h5 class="text-up" style="color:#00aaff">aquatics</h5>
+                                    <ul class="padding0">
+                                        <li>
+                                            <a href="">
+swimming
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+water polo
+                        </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 padding0">
+                                <div class="menu-list-hover">
+                                    <h5 class="text-up" style="color:#0edb87">individual sports</h5>
+                                    <ul class="padding0">
+                                        <li>
+                                            <a href="">
+carrom
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+chess
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+    athletics
+  </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
     </nav>
 

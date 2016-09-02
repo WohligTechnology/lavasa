@@ -10,6 +10,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
+
+        $scope.games = // JavaScript Document
+            [{
+                "icon": "img/sf-icon.png",
+                "icon2": "img/sf-icon-big.png",
+                "url": "tabletennis",
+                "game": "table tennis"
+            }, {
+                "icon": "img/sf-icon.png",
+                "icon2": "img/sf-icon-big.png",
+                "url": "tennis",
+                "game": "tennis"
+            }, {
+                "icon": "img/sf-icon.png",
+                "icon2": "img/sf-icon-big.png",
+                "url": "badminton",
+                "game": "badminton"
+            },{
+                "icon": "img/sf-icon.png",
+                "icon2": "img/sf-icon-big.png",
+                "url": "tabletennis",
+                "game": "table tennis"
+            }, {
+                "icon": "img/sf-icon.png",
+                "icon2": "img/sf-icon-big.png",
+                "url": "tennis",
+                "game": "tennis"
+            }, {
+                "icon": "img/sf-icon.png",
+                "icon2": "img/sf-icon-big.png",
+                "url": "badminton",
+                "game": "badminton"
+            }];
+
         $scope.mySlides = [
             'img/banner1.jpg',
             'img/banner2.jpg',
@@ -56,6 +90,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("swiss");
         $scope.menutitle = NavigationService.makeactive("Swiss");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
+    .controller('MediaGalleryCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        console.log("Testing Consoles");
+
+        $scope.template = TemplateService.changecontent("media-gallery");
+        $scope.menutitle = NavigationService.makeactive("Media Gallery");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -1520,6 +1565,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
+
+
 })
 
 .controller('languageCtrl', function($scope, TemplateService, $translate, $rootScope) {
