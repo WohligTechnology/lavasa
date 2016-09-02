@@ -28,6 +28,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'MediaGalleryCtrl'
         })
+        .state('media-gallery-inside', {
+            url: "/media-gallery/:name",
+            templateUrl: "views/template.html",
+            controller: 'MediaGalleryCtrl'
+        })
         .state('draw', {
             url: "/draw",
             templateUrl: "views/template.html",

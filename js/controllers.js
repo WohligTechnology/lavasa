@@ -94,7 +94,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('MediaGalleryCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    .controller('MediaGalleryCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -103,8 +103,82 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Media Gallery");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+        $scope.flags = {};
+        $scope.flags.openGallery = false;
+        $scope.flag = {};
+        $scope.flag.openGallerys = false;
+        if($stateParams.name){
+          console.log($stateParams);
+          $scope.flags.openGallery = true
+        }
+        if($stateParams.name){
+          console.log($stateParams);
+          $scope.flag.openGallerys = true
+        }
+        $scope.tab = 'photos';
+        $scope.classa = 'active-list';
+        $scope.classb = '';
+        $scope.classc = '';
 
+
+        $scope.tabchange = function(tab, a) {
+            //        console.log(tab);
+            $scope.tab = tab;
+            if (a == 1) {
+
+                $scope.classa = "active-list";
+                $scope.classb = '';
+                $scope.classc = '';
+
+            } else if (a == 2) {
+
+                $scope.classa = '';
+                $scope.classb = "active-list";
+                $scope.classc = "";
+
+
+            }  else {
+
+                $scope.classa = '';
+                $scope.classb = '';
+                $scope.classc = "active-list";
+
+            }
+        };
+
+        $scope.tabs = 'photos';
+        $scope.classp = 'active-list';
+        $scope.classv = '';
+
+
+        $scope.tabchanges = function(tabs, a) {
+            //        console.log(tab);
+            $scope.tabs = tabs;
+            if (a == 1) {
+
+                $scope.classp = "active-list";
+                $scope.classv = '';
+
+            } else {
+
+                $scope.classp = '';
+                $scope.classv = "active-list";
+            }
+        };
+
+        $scope.folder = [
+            'img/m1.jpg',
+            'img/m2.jpg',
+            'img/m3.jpg',
+            'img/m1.jpg',
+            'img/m2.jpg',
+            'img/m3.jpg',
+            'img/m3.jpg',
+            'img/m3.jpg'
+
+        ];
     })
+
     .controller('FaqCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 

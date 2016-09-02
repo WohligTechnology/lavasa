@@ -1,0 +1,219 @@
+<section>
+    <div class="head-banner">
+        <img src="img/media-gallery.png" class="img-responsive img width100 margin-auto">
+
+    </div>
+</section>
+<section class="bottom-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="text-center mt25">
+                    <div class="tab-list sf-list text-up">
+                        <ul class="padding0 margin0">
+                            <li><a href="" ng-click="tabchange('photos',1)" class="{{classa}}">
+photos
+</a></li>
+                            <li><a href="" ng-click="tabchange('video',2)" class="{{classb}}">
+videos
+</a></li>
+                            <li><a href="" ng-click="tabchange('press',3)" class="{{classc}}">
+press coverage
+</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-content bx-mob pad-m-main pad-m-main">
+                  <div class="pht" ng-show="tab=='photos'">
+                    <div class="row" ng-hide="flags.openGallery">
+                      <div class="col-md-4 mb15" ng-repeat="item in folder track by $index" ui-sref="media-gallery-inside({name:'tennis'})">
+<a href="" ng-modal="inner" ng-click="inner==!inner">
+                          <div class="folder-box sf-relative">
+                             <img src="{{item}}" alt="Sports For All" class="img-responsive width100 hover-min">
+                            <div class="over-layer sf-absulate">
+                              <h4 class="banner-set sf-absulate">TENNIS</h4>
+                            </div>
+                          </div>
+</a>
+
+                      </div>
+                    </div>
+                    <div class="main-view" ng-mouseenter="inner=true" ng-show="flags.openGallery">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="back-btn">
+                        <div class="float-left">
+                            <a ui-sref="media-gallery"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="text-center">
+                          <h4 class="color-orange text-up font-bold">tennis</h4>
+                        </div>
+<div class="mt-min-30 mt-min-40">
+                          <div class="float-right">
+                              <h4 class="text-up color-blue display-inline">year</h4>
+                              <div class="display-inline">
+                                  <div class="sfa-select">
+                                      <select class="select" ng-model="filter.sport">
+                                          <option value="">SFA MUMBAI 2015</option>
+                                          <option value="2016">SFA MUMBAI 2015</option>
+                                          <option value="2016">SFA MUMBAI 2015</option>
+                                          <option value="2016">SFA MUMBAI 2015</option>
+                                      </select>
+                                      <span class="only-border"></span>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row mt15">
+                      <div class="col-md-3 mb15" ng-repeat="item in folder track by $index">
+<a href="{{item}}" rel="gallery1" fancybox-box>
+                          <div class="folder-box sf-relative">
+                             <img src="{{item}}" alt="Sports For All" class="img-responsive width100 hover-min">
+                            <div class="over-layer sf-absulate">
+                              <h4 class="banner-set sf-absulate">TENNIS</h4>
+                            </div>
+                          </div>
+</a>
+
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="pht" ng-show="tab=='video'">
+                    <div class="row" ng-hide="flag.openGallerys">
+                      <div class="col-md-4 mb15" ng-repeat="item in folder track by $index" ui-sref="media-gallery-inside({names:'table tennis'})">
+<a href="">
+                          <div class="folder-box sf-relative">
+                             <img src="{{item}}" alt="Sports For All" class="img-responsive width100 hover-min">
+                            <div class="over-layer sf-absulate">
+                              <h4 class="banner-set sf-absulate">TABLE TENNIS</h4>
+                            </div>
+                          </div>
+</a>
+
+                      </div>
+                    </div>
+                    <div class="main-view" ng-show="flag.openGallerys">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="back-btn">
+                        <div class="float-left">
+                            <a ui-sref="media-gallery"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="text-center">
+                          <h4 class="color-orange text-up font-bold">table tennis</h4>
+                        </div>
+<div class="mt-min-30 mt-min-40">
+                          <div class="float-right">
+                              <h4 class="text-up color-blue display-inline">year</h4>
+                              <div class="display-inline">
+                                  <div class="sfa-select">
+                                      <select class="select" ng-model="filter.sport">
+                                          <option value="">SFA MUMBAI 2015</option>
+                                          <option value="2016">SFA MUMBAI 2015</option>
+                                          <option value="2016">SFA MUMBAI 2015</option>
+                                          <option value="2016">SFA MUMBAI 2015</option>
+                                      </select>
+                                      <span class="only-border"></span>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row mt15">
+                      <div class="col-md-3 mb15" ng-repeat="item in folder track by $index">
+<a href="{{item}}" rel="gallery1" fancybox-box>
+                          <div class="folder-box sf-relative">
+                             <img src="{{item}}" alt="Sports For All" class="img-responsive width100 hover-min">
+                            <div class="over-layer sf-absulate">
+                              <h4 class="banner-set sf-absulate">TENNIS</h4>
+                            </div>
+                          </div>
+</a>
+
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="pht" ng-show="tab=='press'">
+                    <div class="row">
+                      <div class="text-center">
+                        <div class="col-md-12 col-xs-12 col-sm-6 text-c-m">
+                            <h4 class="text-up color-blue display-inline">year</h4>
+                            <div class="display-inline">
+                                <div class="sfa-select">
+                                    <select class="select" >
+                                        <option value="2016">2016</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2016">2016</option>
+                                    </select>
+                                    <span class="only-border"></span>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="text-center mt25">
+                            <div class="tab-list sf-list text-up">
+                                <ul class="padding0 margin0">
+                                    <li><a href="" ng-click="tabchanges('photos',1)" class="{{classp}}">
+photos
+</a></li>
+                                    <li><a href="" ng-click="tabchanges('videos',2)" class="{{classv}}">
+match videos
+</a></li>
+
+                                </ul>
+                            </div>
+                            <hr class="hr-padding">
+                        </div>
+                    </div>
+                    <div class="row" ng-show="tabs=='photos'">
+                        <div class="col-md-3 mt15 col-sm-6 col-xs-6" ng-repeat="data in folder track by $index">
+                        <a href="{{data}}" fancybox-box rel="gallery">
+                          <div class="folder-box sf-relative">
+                             <img src="{{data}}" alt="Sports For All" class="img-responsive width100 hover-min">
+                            <div class="over-layer sf-absulate">
+                              <h4 class="banner-set sf-absulate ">Times Of India <br><span class="font-semi f16">23<sup>rd</sup> Sep 2014</span></h4>
+
+                            </div>
+                          </div>
+                        </a>
+                        </div>
+                    </div>
+
+                    <div class="row" ng-show="tabs=='videos'">
+
+                        <div class="col-md-3 mt15 col-sm-6 col-xs-6" ng-repeat="data in folder track by $index">
+                          <a class="various fancybox.iframe" rel="gallery1" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
+                          <div class="folder-box sf-relative">
+                             <img src="{{data}}" alt="Sports For All" class="img-responsive width100 hover-min">
+                            <div class="over-layer sf-absulate">
+                              <h4 class="banner-set sf-absulate ">Times Of India <br><span class="font-semi f16">23<sup>rd</sup> Sep 2014</span></h4>
+
+                            </div>
+                          </div>
+                        </a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </container>
+    </section>
