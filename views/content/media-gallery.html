@@ -32,7 +32,7 @@ press coverage
                 <div class="box-content bx-mob pad-m-main pad-m-main">
                   <div class="pht" ng-show="tab=='photos'">
                     <div class="row" ng-hide="flags.openGallery">
-                      <div class="col-md-4 mb15" ng-repeat="item in folder track by $index" ui-sref="media-gallery-inside({name:'tennis'})">
+                      <div class="col-md-4 mb15 col-sm-6 col-xs-12" ng-repeat="item in folder track by $index" ui-sref="media-gallery-inside({name:'tennis'})">
 <a href="" ng-modal="inner" ng-click="inner==!inner">
                           <div class="folder-box sf-relative">
                              <img src="{{item}}" alt="Sports For All" class="img-responsive width100 hover-min">
@@ -91,7 +91,7 @@ press coverage
                   </div>
                   <div class="pht" ng-show="tab=='video'">
                     <div class="row" ng-hide="flag.openGallerys">
-                      <div class="col-md-4 mb15" ng-repeat="item in folder track by $index" ui-sref="media-gallery-inside({names:'table tennis'})">
+                      <div class="col-md-4 mb15 col-xs-12 col-sm-6" ng-repeat="item in folder track by $index" ui-sref="media-gallery-inside({names:'table tennis'})">
 <a href="">
                           <div class="folder-box sf-relative">
                              <img src="{{item}}" alt="Sports For All" class="img-responsive width100 hover-min">
@@ -134,7 +134,7 @@ press coverage
                     </div>
                     <hr>
                     <div class="row mt15">
-                      <div class="col-md-3 mb15" ng-repeat="item in folder track by $index">
+                      <div class="col-md-3 mb15 col-sm-6 col-xs-12" ng-repeat="item in folder track by $index">
 <a href="{{item}}" rel="gallery1" fancybox-box>
                           <div class="folder-box sf-relative">
                              <img src="{{item}}" alt="Sports For All" class="img-responsive width100 hover-min">
