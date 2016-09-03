@@ -43,7 +43,7 @@ sport’s bio
                       </div>
                       <div class="col-md-8 col-xs-12">
                         <div class="contain-box f15">
-                      
+
                           <p>Having a strong presence at the grass roots level in the city, Mumbai Handball Academy has made significant efforts to take the Olympic sport of Handball to the next level. While abundant talent exists at the inter-school level, Handball requires the right platform for the young athletes to showcase their talent at national and international sporting events. The Mumbai Handball Academy hopes to bridge the gap in the years to come.</p>
                           <div class="mt15">
                             <h4><span class="color-blue font-semi">Tournament Dates: </span> 8th to 19th December 2016</h4>
@@ -469,22 +469,27 @@ match videos
     </div>
     <div class="row" ng-show="tabs=='photos'">
         <div class="col-md-3 mt15 col-sm-4 col-xs-6" ng-repeat="data in photos track by $index">
-            <a href="{{data}}" fancybox-box rel="gallery1"><img ng-src="{{data}}" alt="" class="img-responsive width100"></a>
+          <a fancybox-box rel="gallery1" href="{{data}}">
+        <div class="folder-box sf-relative videow-box">
+           <img ng-src="{{data}}" alt="Sports For All" class="img-responsive width100 hover-min">
+          <div class="over-layer sf-absulate">
+
+          </div>
+        </div>
+      </a>
         </div>
     </div>
 
     <div class="row mt25" ng-show="tabs=='videos'">
         <div class="col-md-4 mt25" ng-repeat="data in video track by $index">
-            <a class="various fancybox.iframe" rel="gallery1" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
-                <div class="videow-box">
-                    <div class="video-img">
-                        <img ng-src="{{data.icon}}" alt="" class="img-responsive width100">
-                    </div>
-                    <div class="video-name">
-                        <h5 class="text-up color-blue font-semi">{{data.name}}</h5>
-                    </div>
-                </div>
-            </a>
+          <a class="various fancybox.iframe" rel="gallery1" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
+        <div class="folder-box sf-relative videow-box">
+           <img ng-src="{{data.icon}}" alt="Sports For All" class="img-responsive width100 hover-min">
+          <div class="over-layer sf-absulate">
+            <h5 class="banner-set sf-absulate text-up color-white font-semi">{{data.name}}</h5>
+          </div>
+        </div>
+      </a>
         </div>
     </div>
   </div>
