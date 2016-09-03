@@ -521,16 +521,24 @@ match videos
 
                         <div class="row" ng-show="tabs=='videos'">
                             <div class="col-md-3 mt15" ng-repeat="data in video track by $index">
-                                <a class="various fancybox.iframe" rel="gallery1" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
-                                    <div class="videow-box">
+                                <!-- <a class="various fancybox.iframe" rel="gallery1" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
+                                    <div class="">
                                         <div class="video-img">
-                                            <img ng-src="{{data.icon}}" alt="" class="img-responsive width100">
+                                            <img ng-src="" alt="" class="img-responsive width100">
                                         </div>
                                         <div class="video-name">
-                                            <h5 class="text-up color-blue font-semi">{{data.name}}</h5>
+                                            <h5 class="">{{data.name}}</h5>
                                         </div>
                                     </div>
-                                </a>
+                                </a> -->
+                                  <a class="various fancybox.iframe" rel="gallery1" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
+                                <div class="folder-box sf-relative videow-box">
+                                   <img ng-src="{{data.icon}}" alt="Sports For All" class="img-responsive width100 hover-min">
+                                  <div class="over-layer sf-absulate">
+                                    <h5 class="banner-set sf-absulate text-up color-white font-semi">{{data.name}}</h5>
+                                  </div>
+                                </div>
+                              </a>
                             </div>
                         </div>
 

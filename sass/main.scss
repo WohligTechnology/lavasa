@@ -2110,6 +2110,30 @@ color: grey;
 .br-btm{
   border-bottom: 2px solid grey;
 }
+.sc-name{
+  ul{
+    padding: 0;
+list-style: none;
+li{
+  text-transform: uppercase;
+    color: #0a1a72;
+    font-size: 17px;
+    background: #E9E9E9;
+    padding: 4px 10px;
+    margin: 0 0 5px;
+  span{
+    border-right: 2px solid #898989;
+padding: 0 9px 0 0;
+  }
+  p{
+    padding: 0 0 0 10px;
+    margin: 0;
+    display: inline-block;
+    cursor: pointer;
+  }
+}
+  }
+}
 //bootstrap forms
 /* Start writing sass here */
 @import "fancybox-override";
