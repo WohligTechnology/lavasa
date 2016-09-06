@@ -13,8 +13,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.games = // JavaScript Document
             [{
-                "icon": "img/sf-icon.png",
-                "icon2": "img/sf-icon-big.png",
+                "icon": "img/icon/11_Table-Tennis.png",
+                "icon2": "img/icon/11_Table-Tennis.png",
                 "url": "tabletennis",
                 "game": "table tennis"
             }, {
