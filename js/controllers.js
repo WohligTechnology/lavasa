@@ -13,35 +13,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.games = // JavaScript Document
             [{
-                "icon": "img/icon/11_Table-Tennis.png",
+                "icon": "img/icon/blue/Table-tennis.png",
                 "icon2": "img/icon/11_Table-Tennis.png",
                 "url": "tabletennis",
                 "game": "table tennis"
             }, {
-                "icon": "img/sf-icon.png",
-                "icon2": "img/sf-icon-big.png",
+                "icon": "img/icon/blue/Tennis.png",
+                "icon2": "img/icon/10_Tennis.png",
                 "url": "tennis",
                 "game": "tennis"
             }, {
-                "icon": "img/sf-icon.png",
-                "icon2": "img/sf-icon-big.png",
+                "icon": "img/icon/blue/Badminton.png",
+                "icon2": "img/icon/9_Badminton.png",
                 "url": "badminton",
                 "game": "badminton"
             },{
-                "icon": "img/sf-icon.png",
-                "icon2": "img/sf-icon-big.png",
-                "url": "tabletennis",
-                "game": "table tennis"
+                "icon": "img/icon/blue/Handball.png",
+                "icon2": "img/icon/1_Handball.png",
+                "url": "handball",
+                "game": "handball"
             }, {
-                "icon": "img/sf-icon.png",
-                "icon2": "img/sf-icon-big.png",
-                "url": "tennis",
-                "game": "tennis"
+                "icon": "img/icon/blue/Judo.png",
+                "icon2": "img/icon/13_Judo.png",
+                "url": "judo",
+                "game": "judo"
             }, {
-                "icon": "img/sf-icon.png",
-                "icon2": "img/sf-icon-big.png",
-                "url": "badminton",
-                "game": "badminton"
+                "icon": "img/icon/blue/Squash.png",
+                "icon2": "img/icon/12_Squash.png",
+                "url": "squash",
+                "game": "squash"
+            },{
+                "icon": "img/icon/blue/Volleyball.png",
+                "icon2": "img/icon/3_Volleyball.png",
+                "url": "volleyball",
+                "game": "volleyball"
             }];
 
         $scope.mySlides = [
