@@ -47,6 +47,41 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "icon2": "img/icon/3_Volleyball.png",
                 "url": "volleyball",
                 "game": "volleyball"
+            },{
+                "icon": "img/icon/blue/Volleyball.png",
+                "icon2": "img/icon/3_Volleyball.png",
+                "url": "volleyball",
+                "game": "volleyball"
+            },{
+                "icon": "img/icon/blue/Volleyball.png",
+                "icon2": "img/icon/3_Volleyball.png",
+                "url": "volleyball",
+                "game": "volleyball"
+            },{
+                "icon": "img/icon/blue/Volleyball.png",
+                "icon2": "img/icon/3_Volleyball.png",
+                "url": "volleyball",
+                "game": "volleyball"
+            },{
+                "icon": "img/icon/blue/Volleyball.png",
+                "icon2": "img/icon/3_Volleyball.png",
+                "url": "volleyball",
+                "game": "volleyball"
+            },{
+                "icon": "img/icon/blue/Volleyball.png",
+                "icon2": "img/icon/3_Volleyball.png",
+                "url": "volleyball",
+                "game": "volleyball"
+            },{
+                "icon": "img/icon/blue/Volleyball.png",
+                "icon2": "img/icon/3_Volleyball.png",
+                "url": "volleyball",
+                "game": "volleyball"
+            },{
+                "icon": "img/icon/blue/Volleyball.png",
+                "icon2": "img/icon/3_Volleyball.png",
+                "url": "volleyball",
+                "game": "volleyball"
             }];
 
         $scope.mySlides = [

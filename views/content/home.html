@@ -13,14 +13,15 @@
     <div class="container">
       <div class="row">
           <div class="text-center">
-
-              <div class="sf-relative mt15">
-                  <div class="sport-icon-list sf-list blue-cat">
-                    <ul>
-                        <hovericon game="game" ng-repeat="game in games" ng-click="makeactive(game);"></hovericon>
-                    </ul>
-                  </div>
-              </div>
+<div class="slider-mini">
+  <flex-slider class="carousel" flex-slide="s in games track by $index" prev-text="" next-text="" startAt="0" item-width="100" item-margin="60"  animation="slide" move="1">
+      <li>
+        <a href="" class="{{hover-active}}">
+            <img ng-src="{{s.icon}}" class="img-responsive">
+        </a>
+      </li>
+  </flex-slider>
+</div>
           </div>
       </div>
         <div class="row">

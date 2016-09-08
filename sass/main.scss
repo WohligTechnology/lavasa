@@ -2132,7 +2132,49 @@ padding: 0 9px 0 0;
 }
   }
 }
+// .slider-mini{
+//   .flexslider {
+//   .slides{
+//     li{
+//           width: 180px !important;
+//       img{
+//           width: 180px !important;
+//       }
+//     }
+//   }
+//   }
+// }
 //bootstrap forms
 /* Start writing sass here */
+.cl90{
+  img{
+    width: 90px;
+  }
+}
+.cl80{
+  img{
+    width: 80px;
+  }
+}
+.cl70{
+  img{
+    width: 70px;
+  }
+}
+.cl60{
+  img{
+    width: 60px;
+  }
+}
+.cl50{
+  img{
+    width: 50px;
+  }
+}
+.cl40{
+  img{
+    width: 40px;
+  }
+}
 @import "fancybox-override";
 @import "mobile";
