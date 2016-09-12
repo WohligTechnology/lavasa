@@ -9,7 +9,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Home");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+        $scope.changeSlideClass = function(obj,index) {
+          obj.class="active";
+          console.log(index);
+          for(var i=index-1,j=1;i>=0;i--) {
+            $scope.games[i].class = "near-"+(j++);
+          }
+          for(var i=index+1,j=1;i<$scope.games.length;i++) {
+            $scope.games[i].class = "near-"+(j++);
+          }
 
+        };
 
         $scope.games = // JavaScript Document
             [{

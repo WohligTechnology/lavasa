@@ -13,11 +13,13 @@
     <div class="container">
       <div class="row">
           <div class="text-center">
-<div class="slider-mini">
-  <flex-slider class="carousel" flex-slide="s in games track by $index" prev-text="" next-text="" startAt="0" item-width="100" item-margin="60"  animation="slide" move="1">
-      <li>
-        <a href="" class="{{hover-active}}">
-            <img ng-src="{{s.icon}}" class="img-responsive">
+<div class="slider-mini sport-slider">
+  <flex-slider class="carousel" flex-slide="s in games track by $index" prev-text="" next-text="" startAt="0" item-width="100" item-margin="60"  animation="slide" move="1" slideshow="false">
+
+      <li class="sf-relative" ng-class="s.class " ng-mouseover="changeSlideClass(s,$index)" >
+        <a href=""  class=" isHover">
+            <img ng-src="{{s.icon2}}"  class="img-responsive onlyHover absolute0">
+            <img ng-src="{{s.icon}}" class="img-responsive notHover">
         </a>
       </li>
   </flex-slider>
