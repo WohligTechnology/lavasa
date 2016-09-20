@@ -6,9 +6,9 @@
 // }
 
 
-var adminurl = "http://104.154.89.21:83/api/";
+// var adminurl = "http://104.154.89.21:83/api/";
 // var adminurl = "http://localhost:1337/";
-// var adminurl = "http://192.168.1.119:84/";
+var adminurl = "http://192.168.0.108:1337/api/";
 var imgpath = adminurl + "upload/readFile";
 var uploadurl = adminurl + "upload/";
 var currentYears = ["2015", "2016"];
@@ -78,6 +78,15 @@ var navigationservice = angular.module('navigationservice', [])
                 data: {
                     "_id": id
                 }
+            }).success(callback);
+        },
+        getSportRuleByName: function(request, callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'sportrule/getOneByName',
+                method: 'POST',
+                withCredentials: true,
+                data: request
             }).success(callback);
         },
         getStudentProfile: function(id, callback) {

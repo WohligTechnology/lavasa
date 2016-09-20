@@ -489,7 +489,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
 })
 
-.controller('SportCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('SportCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
+  console.log("FUCK THIS SHIT");
     $scope.template = TemplateService.changecontent("sport");
     $scope.menutitle = NavigationService.makeactive("Sports");
     TemplateService.title = $scope.menutitle;
@@ -531,8 +532,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.classv = "active-list";
         }
     };
+    $scope.getSport = function () {
+      NavigationService.getSportRuleByName($stateParams,function (response) {
+        if(response.value){
+          $scope.sport = response.data;
+        }else{
 
-
+        }
+      });
+    };
+    $scope.getSport();
     $scope.oneAtATime = true;
     $scope.tab = '2016';
     $scope.classa = 'active-list';

@@ -44,10 +44,11 @@ sport’s bio
                       <div class="col-md-8 col-xs-12">
                         <div class="contain-box f15">
 
-                          <p>Having a strong presence at the grass roots level in the city, Mumbai Handball Academy has made significant efforts to take the Olympic sport of Handball to the next level. While abundant talent exists at the inter-school level, Handball requires the right platform for the young athletes to showcase their talent at national and international sporting events. The Mumbai Handball Academy hopes to bridge the gap in the years to come.</p>
+                          <!-- <p>Having a strong presence at the grass roots level in the city, Mumbai Handball Academy has made significant efforts to take the Olympic sport of Handball to the next level. While abundant talent exists at the inter-school level, Handball requires the right platform for the young athletes to showcase their talent at national and international sporting events. The Mumbai Handball Academy hopes to bridge the gap in the years to come.</p> -->
+                          <div ng-bind-html="sport.dateContent | rawHtml"></div>
                           <div class="mt15">
                             <h4><span class="color-blue font-semi">Tournament Dates: </span> 8th to 19th December 2016</h4>
-                            <h4><span class="color-blue font-semi">Venue : </span> D.Y. Patil Sports Academy, Nerul</h4>
+                            <h4><span class="color-blue font-semi">Venue : </span> {{sport.venue}}</h4>
                             <h4><span class="color-blue font-semi">Last day for student registration: </span>30th September 2016</h4>
                           </div>
                           <div class="float-right mt25">
@@ -60,8 +61,8 @@ sport’s bio
                     <div class="accrodian-sec mt25">
                         <uib-accordion close-others="oneAtATime" class="text-up text-center ">
                             <uib-accordion-group heading="Tournament formats and rules" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-                                <div class="data-box">
-                                    <ul class="padding0 margin0">
+                                <div class="data-box" ng-bind-html="sport.rules | rawHtml">
+                                    <!-- <ul class="padding0 margin0">
                                         <li>
                                             <p>A knockout tournament will be played across all age groups and event categories for both, Boys and Girls. </p>
                                         </li>
@@ -104,7 +105,7 @@ sport’s bio
                                                 For any kind of further details of the tournament the school Coach / Manager can contact the below mentioned mobile no’s: +91 7045684365/66/67 Email: info@sfanow.in
                                             </p>
                                         </li>
-                                    </ul>
+                                    </ul> -->
                                 </div>
                             </uib-accordion-group>
                             <uib-accordion-group heading="age groups, events and entries">
@@ -175,23 +176,25 @@ sport’s bio
 
                             <uib-accordion-group heading="eligibility">
                                 <div class="data-box ">
-                                    <ul class="paddin0">
-                                        <li>
-                                            <p>Only teams from Sports For All member schools will be eligible to participate.</p>
-                                        </li>
-                                        <li>
-                                            <p>Teams having State and National Players in their squad will be given first preference.</p>
-                                        </li>
-                                        <li>
-                                            <p>All Team entries will be evaluated on the basis of their performance in DSO / MSSA / NMSA / Open tournaments in the period 1st January 2014 to 25th October 2015.</p>
-                                        </li>
-                                        <li>
-                                            <p>Incomplete details in the entry forms or any manipulations in the entries will not be accepted by the organizing committee.</p>
-                                        </li>
-                                        <li>
-                                            <p>The below mentioned age criteria’s will be considered:-</p>
-                                        </li>
-                                    </ul>
+                                    <div ng-bind-html="sport.eligibilityContent | rawHtml">
+                                      <!-- <ul class="paddin0">
+                                          <li>
+                                              <p>Only teams from Sports For All member schools will be eligible to participate.</p>
+                                          </li>
+                                          <li>
+                                              <p>Teams having State and National Players in their squad will be given first preference.</p>
+                                          </li>
+                                          <li>
+                                              <p>All Team entries will be evaluated on the basis of their performance in DSO / MSSA / NMSA / Open tournaments in the period 1st January 2014 to 25th October 2015.</p>
+                                          </li>
+                                          <li>
+                                              <p>Incomplete details in the entry forms or any manipulations in the entries will not be accepted by the organizing committee.</p>
+                                          </li>
+                                          <li>
+                                              <p>The below mentioned age criteria’s will be considered:-</p>
+                                          </li>
+                                      </ul> -->
+                                    </div>
                                     <div class="box-table mt25 bx-mob">
                                         <table class="table">
                                             <thead>
@@ -203,14 +206,14 @@ sport’s bio
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>U-10</td>
-                                                    <td>Born on or After 1st January 2005</td>
+                                                <tr ng-repeat="eligible in sport.eligibilityTable">
+                                                    <td>{{eligible.agegroup.name}}</td>
+                                                    <td>Born on or After {{eligible.date | date : 'd MMMM yyyy'}}</td>
                                                     <td></td>
                                                     <td></td>
 
                                                 </tr>
-                                                <tr>
+                                                <!-- <tr>
                                                     <td>U-10</td>
                                                     <td>Born on or After 1st January 2005</td>
                                                     <td></td>
@@ -227,7 +230,7 @@ sport’s bio
                                                     <td>Born on or After 1st January 2005</td>
                                                     <td></td>
                                                     <td></td>
-                                                </tr>
+                                                </tr> -->
                                             </tbody>
                                         </table>
                                     </div>

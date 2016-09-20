@@ -64,7 +64,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'TeamCtrl'
         })
         .state('sport', {
-            url: "/sport",
+            url: "/sport/:name",
             templateUrl: "views/template.html",
             controller: 'SportCtrl'
         })
@@ -364,6 +364,13 @@ firstapp.directive('draw', function($document) {
         }
     };
 });
+firstapp.filter('rawHtml', ['$sce',
+ function($sce) {
+   return function(val) {
+     return $sce.trustAsHtml(val);
+   };
+ }
+]);
 firstapp.directive('fancyboxButton', function($compile, $parse) {
     return {
         restrict: 'EA',
