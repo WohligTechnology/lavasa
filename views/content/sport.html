@@ -208,7 +208,7 @@ sport’s bio
                                             <tbody>
                                                 <tr ng-repeat="eligible in sport.eligibilityTable">
                                                     <td>{{eligible.agegroup.name}}</td>
-                                                    <td>Born on or After {{eligible.date | date : 'd MMMM yyyy'}}</td>
+                                                    <td>Born on or After {{eligible.date | englishNumeralDate}}</td>
                                                     <td></td>
                                                     <td></td>
 
