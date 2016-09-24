@@ -2199,3 +2199,11 @@ img.fancybox-image {
 }
 @import "fancybox-override";
 @import "mobile";
+.text-center{
+    text-align: center;
+}
+.text-sort{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

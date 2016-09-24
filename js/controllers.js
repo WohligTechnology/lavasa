@@ -610,7 +610,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     ];
 })
 
-.controller('SchoolBioCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+.controller('SchoolBioCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal,$stateParams) {
     //Used to name the .html file
 
 
@@ -628,7 +628,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/m1.jpg',
         'img/m2.jpg',
         'img/m3.jpg'
-
     ];
 
     $scope.open = function(size) {
@@ -742,6 +741,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         name: "Harshit Shah",
         dep: "sports head"
     }];
+    NavigationService.getSchoolProfile($stateParams.id, function(data) {
+        console.log(data.data);
+        $scope.getSchoolProfile = data.data;
+        if($scope.getSchoolProfile.status){
+            $scope.getSchoolProfile.isVerified = "Verified"; 
+        }else{
+            $scope.getSchoolProfile.isVerified = "Not Verified"; 
+        }
+    });
 })
 
 .controller('SchoolCtrl', function($scope, TemplateService, NavigationService, $timeout) {

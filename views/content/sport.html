@@ -47,9 +47,9 @@ sport’s bio
                           <!-- <p>Having a strong presence at the grass roots level in the city, Mumbai Handball Academy has made significant efforts to take the Olympic sport of Handball to the next level. While abundant talent exists at the inter-school level, Handball requires the right platform for the young athletes to showcase their talent at national and international sporting events. The Mumbai Handball Academy hopes to bridge the gap in the years to come.</p> -->
                           <div ng-bind-html="sport.dateContent | rawHtml"></div>
                           <div class="mt15">
-                            <h4><span class="color-blue font-semi">Tournament Dates: </span> 8th to 19th December 2016</h4>
-                            <h4><span class="color-blue font-semi">Venue : </span> {{sport.venue}}</h4>
-                            <h4><span class="color-blue font-semi">Last day for student registration: </span>30th September 2016</h4>
+                            <h4><span class="color-blue font-semi">Tournament Dates: </span><span ng-show="!sport.fromDate && !sport.toDate">Not Available</span>{{sport.fromDate  | englishNumeralDate}}<span ng-show="sport.fromDate && sport.toDate"> to </span> {{sport.toDate  | englishNumeralDate}}</h4>
+                            <h4><span class="color-blue font-semi">Venue : </span><span ng-show="!sport.venue">Not Available</span> {{sport.venue}}</h4>
+                            <h4><span class="color-blue font-semi">Last day for student registration: </span><span ng-show="!sport.lastDate">Not Available</span>{{sport.lastDate  | englishNumeralDate}}</h4>
                           </div>
                           <div class="float-right mt25">
 
@@ -62,51 +62,10 @@ sport’s bio
                         <uib-accordion close-others="oneAtATime" class="text-up text-center ">
                             <uib-accordion-group heading="Tournament formats and rules" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
                                 <div class="data-box" ng-bind-html="sport.rules | rawHtml">
-                                    <!-- <ul class="padding0 margin0">
-                                        <li>
-                                            <p>A knockout tournament will be played across all age groups and event categories for both, Boys and Girls. </p>
-                                        </li>
-                                        <li>
-                                            <p>Matches will consist of 2 halves of 10 minutes each with a 2 minutes break between the two halves. </p>
-                                        </li>
-                                        <li>
-                                            <p>Every player must carry his/her School ID along with age proof at all times during the tournament. </p>
-                                        </li>
-                                        <li>
-                                            <p>Participants must produce their ID cards as and when required during the tournament.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p>No player will be allowed to play his/her match if they do not have they school ID along with proper age proof.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p>The team has to report at the venue’s main registration desk 45 minutes prior to their scheduled match.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p>The team has to report 15 minutes prior to their scheduled match time at the Handball registration desk.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p>If any participant is found over age or with any manipulation in the documents, the entire team will be disqualified without any kind of prior intimation.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p>The players must be in appropriate uniform for the sport of Handball. Only goal keepers are allowed to wear track pants. All players should wear flat sole sport shoes. No studs will be allowed.</p>
-                                        </li>
-                                        <li>
-                                            <p>
-                                                The Handball organizing committee has the right to postpone or cancel the tournament in case of unavoidable circumstances. All schools are requested to co-operate with the organizers in any such case.
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p>
-                                                For any kind of further details of the tournament the school Coach / Manager can contact the below mentioned mobile no’s: +91 7045684365/66/67 Email: info@sfanow.in
-                                            </p>
-                                        </li>
-                                    </ul> -->
-                                </div>
+                                   </div>
+                                   <div class="data-box text-center" ng-if="!sport.rules">
+                                       Not Available
+                                   </div>
                             </uib-accordion-group>
                             <uib-accordion-group heading="age groups, events and entries">
                                 <div class="data-box">
@@ -176,6 +135,9 @@ sport’s bio
 
                             <uib-accordion-group heading="eligibility">
                                 <div class="data-box ">
+                                   <div class="data-box text-center" ng-if="!sport.eligibilityContent">
+                                       Not Available
+                                   </div>
                                     <div ng-bind-html="sport.eligibilityContent | rawHtml">
                                       <!-- <ul class="paddin0">
                                           <li>
@@ -195,7 +157,8 @@ sport’s bio
                                           </li>
                                       </ul> -->
                                     </div>
-                                    <div class="box-table mt25 bx-mob">
+                                    
+                                    <div class="box-table mt25 bx-mob" ng-hide="!sport.eligibilityTable" >
                                         <table class="table">
                                             <thead>
                                                 <tr>

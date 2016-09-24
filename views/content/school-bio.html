@@ -15,7 +15,7 @@
                     <div class="col-md-9  col-xs-12 col-sm-9 text-c-m">
                         <div class="sf-school-data">
                             <div class="scl-title display-inline">
-                                <a ui-sref="school-profile"><h3 class="color-orange font-semi">DHIRUBHAI AMBANI INTERNATIONAL SCHOOL</h3></a>
+                                <a ui-sref="school-profile"><h3 class="color-orange font-semi">{{getSchoolProfile.name}}</h3></a>
                             </div>
                             <!-- <div class="display-inline cup">
                                 <img src="img/sf-cup.png" alt="">
@@ -186,14 +186,14 @@ school’s blog
                 <div class="box-content bx-mob pad-m-main pad-m-main">
                     <div class="about-school" ng-show="tab=='about'">
                         <div class="row">
-                            <div class="col-md-offset-1 col-md-8">
+                            <div class="col-md-offset-1 col-md-10">
                                 <div class="school-about text-up font-semi f16 mt40 pl20">
-                                    <p><span>Name:</span>dhirubhai ambani intertional schoo</p>
-                                    <p><span>sfa id:</span>28736</p>
-                                    <p><span>Address:</span>13th floor, pancharatna towers, charni road, mumbai.</p>
-                                    <p><span>board:</span>gcse (intertional board)</p>
-                                    <p><span>status:</span>verified</p>
-                                    <p><span>c. l. 2016:</span>manav mehta</p>
+                                    <p><span>Name:</span>{{getSchoolProfile.name || 'Not Available'}}</p>
+                                    <p><span>sfa id:</span>{{getSchoolProfile.sfaid || 'Not Available'}}</p>
+                                    <p class="text-sort"><span >Address:</span>{{getSchoolProfile.address || 'Not Available' }}</p>
+                                    <p><span>board:</span>{{getSchoolProfile.board || 'Not Available'}}</p>
+                                    <p><span>status:</span>{{getSchoolProfile.isVerified }}</p>
+                                    <p><span>c. l. 2016:</span>Manish sharma</p>
                                 </div>
                             </div>
                         </div>
