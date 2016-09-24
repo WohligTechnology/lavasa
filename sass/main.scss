@@ -150,6 +150,9 @@ a {
 .color-base {
     color: $base;
 }
+.color-grey {
+    color: #838383;
+}
 .font-sansation {
     font-family: 'Sansation';
 }
@@ -168,6 +171,33 @@ a {
 }
 .logoli {
     vertical-align: middle;
+}
+.side-l {
+    height: 390px;
+    overflow-y: scroll;
+    ul{
+      list-style: none;
+      li{
+        padding: 15px 0px 15px 0px;
+border-bottom: 1px solid grey;
+      }
+    }
+}
+.side-l::-webkit-scrollbar-track
+{
+    background-color: #a9a9a9;
+}
+
+.side-l::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+.side-l::-webkit-scrollbar-thumb
+{
+  background-color: #112697;
+  border: 2px solid #555555;
 }
 .menu-list {
     margin-top: 20px;

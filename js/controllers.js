@@ -9,15 +9,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Home");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-        $scope.changeSlideClass = function(obj,index) {
-          obj.class="active";
-          console.log(index);
-          for(var i=index-1,j=1;i>=0;i--) {
-            $scope.games[i].class = "near-"+(j++);
-          }
-          for(var i=index+1,j=1;i<$scope.games.length;i++) {
-            $scope.games[i].class = "near-"+(j++);
-          }
+        $scope.changeSlideClass = function(obj, index) {
+            obj.class = "active";
+            console.log(index);
+            for (var i = index - 1, j = 1; i >= 0; i--) {
+                $scope.games[i].class = "near-" + (j++);
+            }
+            for (var i = index + 1, j = 1; i < $scope.games.length; i++) {
+                $scope.games[i].class = "near-" + (j++);
+            }
 
         };
 
@@ -37,7 +37,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "icon2": "img/icon/9_Badminton.png",
                 "url": "badminton",
                 "game": "badminton"
-            },{
+            }, {
                 "icon": "img/icon/blue/Handball.png",
                 "icon2": "img/icon/1_Handball.png",
                 "url": "handball",
@@ -52,42 +52,42 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "icon2": "img/icon/12_Squash.png",
                 "url": "squash",
                 "game": "squash"
-            },{
+            }, {
                 "icon": "img/icon/blue/Volleyball.png",
                 "icon2": "img/icon/3_Volleyball.png",
                 "url": "volleyball",
                 "game": "volleyball"
-            },{
+            }, {
                 "icon": "img/icon/blue/Volleyball.png",
                 "icon2": "img/icon/3_Volleyball.png",
                 "url": "volleyball",
                 "game": "volleyball"
-            },{
+            }, {
                 "icon": "img/icon/blue/Volleyball.png",
                 "icon2": "img/icon/3_Volleyball.png",
                 "url": "volleyball",
                 "game": "volleyball"
-            },{
+            }, {
                 "icon": "img/icon/blue/Volleyball.png",
                 "icon2": "img/icon/3_Volleyball.png",
                 "url": "volleyball",
                 "game": "volleyball"
-            },{
+            }, {
                 "icon": "img/icon/blue/Volleyball.png",
                 "icon2": "img/icon/3_Volleyball.png",
                 "url": "volleyball",
                 "game": "volleyball"
-            },{
+            }, {
                 "icon": "img/icon/blue/Volleyball.png",
                 "icon2": "img/icon/3_Volleyball.png",
                 "url": "volleyball",
                 "game": "volleyball"
-            },{
+            }, {
                 "icon": "img/icon/blue/Volleyball.png",
                 "icon2": "img/icon/3_Volleyball.png",
                 "url": "volleyball",
                 "game": "volleyball"
-            },{
+            }, {
                 "icon": "img/icon/blue/Volleyball.png",
                 "icon2": "img/icon/3_Volleyball.png",
                 "url": "volleyball",
@@ -144,7 +144,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('MediaGalleryCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
+    .controller('MediaGalleryCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -157,18 +157,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.flags.openGallery = false;
         $scope.flag = {};
         $scope.flag.openGallerys = false;
-        if($stateParams.name){
-          console.log($stateParams);
-          $scope.flags.openGallery = true
+        if ($stateParams.name) {
+            console.log($stateParams);
+            $scope.flags.openGallery = true
         }
-        if($stateParams.name){
-          console.log($stateParams);
-          $scope.flag.openGallerys = true
+        if ($stateParams.name) {
+            console.log($stateParams);
+            $scope.flag.openGallerys = true
         }
         $scope.tab = 'photos';
         $scope.classa = 'active-list';
         $scope.classb = '';
         $scope.classc = '';
+        $scope.classd = '';
 
 
         $scope.tabchange = function(tab, a) {
@@ -179,19 +180,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classa = "active-list";
                 $scope.classb = '';
                 $scope.classc = '';
+                $scope.classd = '';
 
             } else if (a == 2) {
 
                 $scope.classa = '';
                 $scope.classb = "active-list";
                 $scope.classc = "";
+                $scope.classd = '';
 
 
-            }  else {
+            } else if (a == 3) {
 
                 $scope.classa = '';
                 $scope.classb = '';
+                $scope.classd = '';
                 $scope.classc = "active-list";
+
+            } else {
+
+                $scope.classa = '';
+                $scope.classb = '';
+                $scope.classc = '';
+                $scope.classd = "active-list";
 
             }
         };
@@ -229,7 +240,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         ];
     })
 
-    .controller('FaqCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('FaqCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -489,8 +500,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
 })
 
-.controller('SportCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
-  console.log("FUCK THIS SHIT");
+.controller('SportCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+    console.log("FUCK THIS SHIT");
     $scope.template = TemplateService.changecontent("sport");
     $scope.menutitle = NavigationService.makeactive("Sports");
     TemplateService.title = $scope.menutitle;
@@ -532,14 +543,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.classv = "active-list";
         }
     };
-    $scope.getSport = function () {
-      NavigationService.getSportRuleByName($stateParams,function (response) {
-        if(response.value){
-          $scope.sport = response.data;
-        }else{
+    $scope.getSport = function() {
+        NavigationService.getSportRuleByName($stateParams, function(response) {
+            if (response.value) {
+                $scope.sport = response.data;
+            } else {
 
-        }
-      });
+            }
+        });
     };
     $scope.getSport();
     $scope.oneAtATime = true;
@@ -752,7 +763,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
     $scope.search = {};
     $scope.search.active = false;
-    $scope.filter= {};
+    $scope.filter = {};
 
     // $scope.school = [{
     //     img: "img/sf-school.png",
@@ -779,7 +790,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     name: "Dhirubhai Ambani Intertional School",
     //     rank: "20"
     // }];
-    $scope.pagination= {};
+    $scope.pagination = {};
     $scope.pagination.pagesize = 20;
     $scope.getMoreSchools = function() {
         NavigationService.getFirstListSchool(function(data) {
@@ -794,8 +805,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.filter.pagenumber = 1;
     $scope.parseSearch = function(input) {
-      $scope.search.active = false;
-      $scope.filter.pagenumber = 1;
+        $scope.search.active = false;
+        $scope.filter.pagenumber = 1;
         if (input === '' || input === null) {
             $scope.filter.name = undefined;
             $scope.filter.sfaid = undefined;
@@ -813,27 +824,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.search.active = true;
         }
     };
-    $scope.submitSearch = function () {
-      if($scope.search.active){
-        console.log("its searching");
-        NavigationService.schoolSearch($scope.filter,function (data) {
-          console.log(data);
-          if(data.value){
-            $scope.schools =data.data.data;
-            $scope.pagination.totalpages = data.data.totalpages;
-            $scope.pagination.total = data.data.total;
-          }
-        });
-      }else{
-        NavigationService.getFirstListSchool(function(data) {
-          if (data.value != false) {
-              $scope.topschools = data.data.data;
-              $scope.count = data.data.count;
-          } else {
-              $scope.getFirstList = [];
-          }
-      });
-      }
+    $scope.submitSearch = function() {
+        if ($scope.search.active) {
+            console.log("its searching");
+            NavigationService.schoolSearch($scope.filter, function(data) {
+                console.log(data);
+                if (data.value) {
+                    $scope.schools = data.data.data;
+                    $scope.pagination.totalpages = data.data.totalpages;
+                    $scope.pagination.total = data.data.total;
+                }
+            });
+        } else {
+            NavigationService.getFirstListSchool(function(data) {
+                if (data.value != false) {
+                    $scope.topschools = data.data.data;
+                    $scope.count = data.data.count;
+                } else {
+                    $scope.getFirstList = [];
+                }
+            });
+        }
     };
     $scope.submitSearch();
 })
