@@ -735,31 +735,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
     }];
 
-    $scope.student = [{
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "sports head"
-    }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "sports head"
-    }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "sports head"
-    }, {
-        icon: "img/sf-student-profile.png",
-        name: "Harshit Shah",
-        dep: "sports head"
-    }];
     NavigationService.getSchoolProfile($stateParams.id, function(data) {
         console.log(data.data);
         $scope.getSchoolProfile = data.data;
         if($scope.getSchoolProfile.status){
             $scope.getSchoolProfile.isVerified = "Verified"; 
         }else{
-            $scope.getSchoolProfile.isVerified = "Not Verified"; 
+            $scope.getSchoolProfile.isVerified = "Not Verif ied"; 
         }
+        $scope.getSchoolProfile.contingentLeader = _.map($scope.getSchoolProfile.contingentLeader).join(', ');
+        $scope.department = $scope.getSchoolProfile.department;
+
+        _.forEach($scope.department, function(value, key) {
+            value = _.merge(value,{ icon: "img/sf-student-profile.png" });    
+        });
+        
+        console.log($scope.department);
     });
 })
 

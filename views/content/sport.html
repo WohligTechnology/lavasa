@@ -1,6 +1,6 @@
 <section>
     <div class="head-banner">
-        <img src="img/sf-handball.png" class="img-responsive img width100 margin-auto">
+        <img ng-src="{{sport.banner | uploadpath:null:null:null:false }}" class="img-responsive img width100 margin-auto">
 
     </div>
 </section>
@@ -38,7 +38,7 @@ sport’s bio
                     <div class="row">
                       <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="image-box2">
-                          <img src="img/r1.jpg" alt="Sport For All" class="img-responsive banner-set sf-absulate">
+                          <img ng-src="{{sport.federationLogo | uploadpath }}" alt="Sport For All" class="img-responsive banner-set sf-absulate">
                         </div>
                       </div>
                       <div class="col-md-8 col-xs-12">

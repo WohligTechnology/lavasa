@@ -167,7 +167,8 @@ firstapp.directive('giveitmargin', function($compile, $parse) {
     };
 });
 firstapp.filter('uploadpath', function() {
-    return function(input, width, height, style) {
+    return function(input, width, height, style,defaultFlag) {
+    console.log(width, height, style,defaultFlag)
         var other = "";
         if (width && width !== "") {
             other += "&width=" + width;
@@ -185,7 +186,13 @@ firstapp.filter('uploadpath', function() {
                 return input;
             }
         } else {
+            if(defaultFlag === false){
+            return "img/sf-handball.png";
+
+            }else{
             return "img/noimage.png";
+                
+            }
         }
     };
 });
