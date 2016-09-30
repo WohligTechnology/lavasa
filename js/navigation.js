@@ -43,6 +43,14 @@ var navigationservice = angular.module('navigationservice', [])
         getAllYears: function() {
             return currentYears;
         },
+        getAllBanner : function(callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'banner/getAll',
+                method: 'POST',
+                withCredentials: true
+            }).success(callback);
+        },
         getFirstListSchool: function(callback) {
             // console.log('form data: ', formData);
             $http({
@@ -80,10 +88,21 @@ var navigationservice = angular.module('navigationservice', [])
                 }
             }).success(callback);
         },
-        getSportRuleByName: function(request, callback) {
+        getSportRuleByName: function(name, callback) {
             // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'sportrule/getOneByName',
+                method: 'POST',
+                withCredentials: true,
+                data: {
+                    "name": name
+                }
+            }).success(callback);
+        },
+        getAllSportList: function(request, callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'sportsList/getAll',
                 method: 'POST',
                 withCredentials: true,
                 data: request

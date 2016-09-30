@@ -1,6 +1,6 @@
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -21,78 +21,78 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         };
 
-        $scope.games = // JavaScript Document
-            [{
-                "icon": "img/icon/blue/Table-tennis.png",
-                "icon2": "img/icon/11_Table-Tennis.png",
-                "url": "tabletennis",
-                "game": "table tennis"
-            }, {
-                "icon": "img/icon/blue/Tennis.png",
-                "icon2": "img/icon/10_Tennis.png",
-                "url": "tennis",
-                "game": "tennis"
-            }, {
-                "icon": "img/icon/blue/Badminton.png",
-                "icon2": "img/icon/9_Badminton.png",
-                "url": "badminton",
-                "game": "badminton"
-            }, {
-                "icon": "img/icon/blue/Handball.png",
-                "icon2": "img/icon/1_Handball.png",
-                "url": "handball",
-                "game": "handball"
-            }, {
-                "icon": "img/icon/blue/Judo.png",
-                "icon2": "img/icon/13_Judo.png",
-                "url": "judo",
-                "game": "judo"
-            }, {
-                "icon": "img/icon/blue/Squash.png",
-                "icon2": "img/icon/12_Squash.png",
-                "url": "squash",
-                "game": "squash"
-            }, {
-                "icon": "img/icon/blue/Volleyball.png",
-                "icon2": "img/icon/3_Volleyball.png",
-                "url": "volleyball",
-                "game": "volleyball"
-            }, {
-                "icon": "img/icon/blue/Volleyball.png",
-                "icon2": "img/icon/3_Volleyball.png",
-                "url": "volleyball",
-                "game": "volleyball"
-            }, {
-                "icon": "img/icon/blue/Volleyball.png",
-                "icon2": "img/icon/3_Volleyball.png",
-                "url": "volleyball",
-                "game": "volleyball"
-            }, {
-                "icon": "img/icon/blue/Volleyball.png",
-                "icon2": "img/icon/3_Volleyball.png",
-                "url": "volleyball",
-                "game": "volleyball"
-            }, {
-                "icon": "img/icon/blue/Volleyball.png",
-                "icon2": "img/icon/3_Volleyball.png",
-                "url": "volleyball",
-                "game": "volleyball"
-            }, {
-                "icon": "img/icon/blue/Volleyball.png",
-                "icon2": "img/icon/3_Volleyball.png",
-                "url": "volleyball",
-                "game": "volleyball"
-            }, {
-                "icon": "img/icon/blue/Volleyball.png",
-                "icon2": "img/icon/3_Volleyball.png",
-                "url": "volleyball",
-                "game": "volleyball"
-            }, {
-                "icon": "img/icon/blue/Volleyball.png",
-                "icon2": "img/icon/3_Volleyball.png",
-                "url": "volleyball",
-                "game": "volleyball"
-            }];
+        // $scope.games = // JavaScript Document
+        //     [{
+        //         "icon": "img/icon/blue/Table-tennis.png",
+        //         "icon2": "img/icon/11_Table-Tennis.png",
+        //         "url": "tabletennis",
+        //         "game": "table tennis"
+        //     }, {
+        //         "icon": "img/icon/blue/Tennis.png",
+        //         "icon2": "img/icon/10_Tennis.png",
+        //         "url": "tennis",
+        //         "game": "tennis"
+        //     }, {
+        //         "icon": "img/icon/blue/Badminton.png",
+        //         "icon2": "img/icon/9_Badminton.png",
+        //         "url": "badminton",
+        //         "game": "badminton"
+        //     }, {
+        //         "icon": "img/icon/blue/Handball.png",
+        //         "icon2": "img/icon/1_Handball.png",
+        //         "url": "handball",
+        //         "game": "handball"
+        //     }, {
+        //         "icon": "img/icon/blue/Judo.png",
+        //         "icon2": "img/icon/13_Judo.png",
+        //         "url": "judo",
+        //         "game": "judo"
+        //     }, {
+        //         "icon": "img/icon/blue/Squash.png",
+        //         "icon2": "img/icon/12_Squash.png",
+        //         "url": "squash",
+        //         "game": "squash"
+        //     }, {
+        //         "icon": "img/icon/blue/Volleyball.png",
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
+        //         "game": "volleyball"
+        //     }, {
+        //         "icon": "img/icon/blue/Volleyball.png",
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
+        //         "game": "volleyball"
+        //     }, {
+        //         "icon": "img/icon/blue/Volleyball.png",
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
+        //         "game": "volleyball"
+        //     }, {
+        //         "icon": "img/icon/blue/Volleyball.png",
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
+        //         "game": "volleyball"
+        //     }, {
+        //         "icon": "img/icon/blue/Volleyball.png",
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
+        //         "game": "volleyball"
+        //     }, {
+        //         "icon": "img/icon/blue/Volleyball.png",
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
+        //         "game": "volleyball"
+        //     }, {
+        //         "icon": "img/icon/blue/Volleyball.png",
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
+        //         "game": "volleyball"
+        //     }, {
+        //         "icon": "img/icon/blue/Volleyball.png",
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
+        //         "game": "volleyball"
+        //     }];
 
         $scope.mySlides = [
             'img/banner1.jpg',
@@ -100,6 +100,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             'img/banner1.jpg',
             'img/banner2.jpg'
         ];
+        NavigationService.getAllBanner(function(response) {
+            if (response.value) {
+                $scope.banners = response.data;        
+            } else {
+                console.log("Banner not found");
+            }
+        });
 
         setTimeout(function() {
             (function(d, s, id) {
@@ -121,6 +128,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             }(document, "script", "twitter-wjs");
         })
+
+        NavigationService.getAllSportList($stateParams, function(response) {
+            if (response.value) {
+                $scope.game = response.data;            
+            } else {
+                console.log("Sports List data not found");
+            }
+        });
     })
     .controller('AboutUsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
@@ -528,7 +543,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.classp = 'active-list';
     $scope.classv = '';
 
-
+    NavigationService.getSportRuleByName($stateParams, function(response) {
+            if (response.value) {
+                $scope.sport = response.data;
+            } else {
+                console.log("No sports data found");
+            }
+        });
+        
     $scope.tabchanges = function(tabs, a) {
         //        console.log(tab);
         $scope.tabs = tabs;
@@ -548,7 +570,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (response.value) {
                 $scope.sport = response.data;
             } else {
-
+                console.log("No sports data found");
             }
         });
     };
