@@ -34,112 +34,139 @@ sport’s bio
         <div class="row">
             <div class="col-md-12">
                 <div class="box-content-white box-content2">
-                  <div class="2016" ng-show="tab=='2016'">
-                    <div class="row">
-                      <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="image-box2">
-                          <img ng-src="{{sport.federationLogo | uploadpath }}" alt="Sport For All" class="img-responsive banner-set sf-absulate">
-                        </div>
+                    <div class="2016" ng-show="tab=='2016'">
+                      <div class="text-center">
+                          <h3 class="color-blue text-up font-semi f18-m">featured athletes</h3>
                       </div>
-                      <div class="col-md-8 col-xs-12">
-                        <div class="contain-box f15">
-
-                          <!-- <p>Having a strong presence at the grass roots level in the city, Mumbai Handball Academy has made significant efforts to take the Olympic sport of Handball to the next level. While abundant talent exists at the inter-school level, Handball requires the right platform for the young athletes to showcase their talent at national and international sporting events. The Mumbai Handball Academy hopes to bridge the gap in the years to come.</p> -->
-                          <div ng-bind-html="sport.dateContent | rawHtml"></div>
-                          <div class="mt15">
-                            <h4><span class="color-blue font-semi">Tournament Dates: </span><span ng-show="!sport.fromDate && !sport.toDate">Not Available</span>{{sport.fromDate  | englishNumeralDate}}<span ng-show="sport.fromDate && sport.toDate"> to </span> {{sport.toDate  | englishNumeralDate}}</h4>
-                            <h4><span class="color-blue font-semi">Venue : </span><span ng-show="!sport.venue">Not Available</span> {{sport.venue}}</h4>
-                            <h4><span class="color-blue font-semi">Last day for student registration: </span><span ng-show="!sport.lastDate">Not Available</span>{{sport.lastDate  | englishNumeralDate}}</h4>
+                      <div class="row mt25">
+                          <div class="col-md-3 mt15 col-sm-4 col-xs-12" ng-repeat="data in student track by $index">
+                              <a href="">
+                                  <div class="school-sec">
+                                      <!-- <img src="img/sf-cl.png" alt="" class="mt-min-18"> -->
+                                      <div class="stu-img text-center sf-relative">
+                                          <img ng-src="{{data.icon}}" alt="">
+                                          <!-- <div class="sigh-pro sf-absulate">
+                          <img src="img/sf-right.png" alt="">
+                      </div> -->
+                                      </div>
+                                      <div class="stu-name text-center">
+                                          <h4 class="color-orange text-up font-semi">{{data.name}}</h4>
+                                      </div>
+                                      <div class="stu-id text-center">
+                                          <h4 class="color-blue">SFA ID: {{data.dep}}</h4>
+                                      </div>
+                                  </div>
+                              </a>
                           </div>
-                          <div class="float-right mt25">
-
-                              <a href="img/pdf/HANDBALL.pdf" target="_blank"><button type="button" name="button" class="btn btn-outline text-up ml15">download form</button></a>
-                          </div>
-                        </div>
                       </div>
-                    </div>
-                    <div class="accrodian-sec mt25">
-                        <uib-accordion close-others="oneAtATime" class="text-up text-center ">
-                            <uib-accordion-group heading="Tournament formats and rules" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-                                <div class="data-box" ng-bind-html="sport.rules | rawHtml">
-                                   </div>
-                                   <div class="data-box text-center" ng-if="!sport.rules">
-                                       Not Available
-                                   </div>
-                            </uib-accordion-group>
-                            <uib-accordion-group heading="age groups, events and entries">
-                                <div class="data-box">
-                                    <p>The SFA Inter-school Handball tournament will be conducted in the categories mentioned in the table below. </p>
-                                    <p>We have a maximum draw capacity as mentioned in the below table. Entries will be accommodated basis the eligibility criteria set out in Point 3.</p>
+                        <hr class="mt40">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="image-box2">
+                                    <img ng-src="{{sport.federationLogo | uploadpath }}" alt="Sport For All" class="img-responsive banner-set sf-absulate">
                                 </div>
-                                <div class="box-table mt25 bx-mob">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Sr. No.</th>
-                                                <th>Age </th>
-                                                <th>Players Per Team</th>
-                                                <th>Boys</th>
-                                                <th>Girls</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
+                            </div>
+                            <div class="col-md-8 col-xs-12">
+                                <div class="contain-box f15">
 
-                                                <td>U-10</td>
+                                    <!-- <p>Having a strong presence at the grass roots level in the city, Mumbai Handball Academy has made significant efforts to take the Olympic sport of Handball to the next level. While abundant talent exists at the inter-school level, Handball requires the right platform for the young athletes to showcase their talent at national and international sporting events. The Mumbai Handball Academy hopes to bridge the gap in the years to come.</p> -->
+                                    <div ng-bind-html="sport.dateContent | rawHtml"></div>
+                                    <div class="mt15">
+                                        <h4><span class="color-blue font-semi">Tournament Dates: </span><span ng-show="!sport.fromDate && !sport.toDate">Not Available</span>{{sport.fromDate  | englishNumeralDate}}<span ng-show="sport.fromDate && sport.toDate"> to </span> {{sport.toDate  | englishNumeralDate}}</h4>
+                                        <h4><span class="color-blue font-semi">Venue : </span><span ng-show="!sport.venue">Not Available</span> {{sport.venue}}</h4>
+                                        <h4><span class="color-blue font-semi">Last day for student registration: </span><span ng-show="!sport.lastDate">Not Available</span>{{sport.lastDate  | englishNumeralDate}}</h4>
+                                    </div>
+                                    <div class="float-right mt25">
 
-                                                <td>10</td>
-
-                                                <td>16 Teams</td>
-
-                                                <td>16 Teams</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-
-                                                <td>U-10</td>
-
-                                                <td>10</td>
-
-                                                <td>16 Teams</td>
-
-                                                <td>16 Teams</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-
-                                                <td>U-10</td>
-
-                                                <td>10</td>
-
-                                                <td>16 Teams</td>
-
-                                                <td>16 Teams</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-
-                                                <td>U-10</td>
-
-                                                <td>10</td>
-
-                                                <td>16 Teams</td>
-
-                                                <td>16 Teams</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                        <a href="img/pdf/HANDBALL.pdf" target="_blank">
+                                            <button type="button" name="button" class="btn btn-outline text-up ml15">download form</button>
+                                        </a>
+                                    </div>
                                 </div>
-                            </uib-accordion-group>
+                            </div>
+                        </div>
+                        <div class="accrodian-sec mt25">
+                            <uib-accordion close-others="oneAtATime" class="text-up text-center ">
+                                <uib-accordion-group heading="Tournament formats and rules" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                                    <div class="data-box" ng-bind-html="sport.rules | rawHtml">
+                                    </div>
+                                    <div class="data-box text-center" ng-if="!sport.rules">
+                                        Not Available
+                                    </div>
+                                </uib-accordion-group>
+                                <uib-accordion-group heading="age groups, events and entries">
+                                    <div class="data-box">
+                                        <p>The SFA Inter-school Handball tournament will be conducted in the categories mentioned in the table below. </p>
+                                        <p>We have a maximum draw capacity as mentioned in the below table. Entries will be accommodated basis the eligibility criteria set out in Point 3.</p>
+                                    </div>
+                                    <div class="box-table mt25 bx-mob">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sr. No.</th>
+                                                    <th>Age </th>
+                                                    <th>Players Per Team</th>
+                                                    <th>Boys</th>
+                                                    <th>Girls</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
 
-                            <uib-accordion-group heading="eligibility">
-                                <div class="data-box ">
-                                   <div class="data-box text-center" ng-if="!sport.eligibilityContent">
-                                       Not Available
-                                   </div>
-                                    <div ng-bind-html="sport.eligibilityContent | rawHtml">
-                                      <!-- <ul class="paddin0">
+                                                    <td>U-10</td>
+
+                                                    <td>10</td>
+
+                                                    <td>16 Teams</td>
+
+                                                    <td>16 Teams</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+
+                                                    <td>U-10</td>
+
+                                                    <td>10</td>
+
+                                                    <td>16 Teams</td>
+
+                                                    <td>16 Teams</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+
+                                                    <td>U-10</td>
+
+                                                    <td>10</td>
+
+                                                    <td>16 Teams</td>
+
+                                                    <td>16 Teams</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+
+                                                    <td>U-10</td>
+
+                                                    <td>10</td>
+
+                                                    <td>16 Teams</td>
+
+                                                    <td>16 Teams</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </uib-accordion-group>
+
+                                <uib-accordion-group heading="eligibility">
+                                    <div class="data-box ">
+                                        <div class="data-box text-center" ng-if="!sport.eligibilityContent">
+                                            Not Available
+                                        </div>
+                                        <div ng-bind-html="sport.eligibilityContent | rawHtml">
+                                            <!-- <ul class="paddin0">
                                           <li>
                                               <p>Only teams from Sports For All member schools will be eligible to participate.</p>
                                           </li>
@@ -156,27 +183,27 @@ sport’s bio
                                               <p>The below mentioned age criteria’s will be considered:-</p>
                                           </li>
                                       </ul> -->
-                                    </div>
-                                    
-                                    <div class="box-table mt25 bx-mob" ng-hide="!sport.eligibilityTable" >
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th>age</th>
-                                                    <th>Cut Off Date</th>
-                                                    <th></th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr ng-repeat="eligible in sport.eligibilityTable">
-                                                    <td>{{eligible.agegroup.name}}</td>
-                                                    <td>Born on or After {{eligible.date | englishNumeralDate}}</td>
-                                                    <td></td>
-                                                    <td></td>
+                                        </div>
 
-                                                </tr>
-                                                <!-- <tr>
+                                        <div class="box-table mt25 bx-mob" ng-hide="!sport.eligibilityTable">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>age</th>
+                                                        <th>Cut Off Date</th>
+                                                        <th></th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="eligible in sport.eligibilityTable">
+                                                        <td>{{eligible.agegroup.name}}</td>
+                                                        <td>Born on or After {{eligible.date | englishNumeralDate}}</td>
+                                                        <td></td>
+                                                        <td></td>
+
+                                                    </tr>
+                                                    <!-- <tr>
                                                     <td>U-10</td>
                                                     <td>Born on or After 1st January 2005</td>
                                                     <td></td>
@@ -194,174 +221,205 @@ sport’s bio
                                                     <td></td>
                                                     <td></td>
                                                 </tr> -->
-                                            </tbody>
-                                        </table>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </uib-accordion-group>
+                                <uib-accordion-group heading="schedules and draws">
+                                    <p class="color-base f16">best contingent leader : <span class="color-blue font-semi"> Manav mehta</span></p>
+                                </uib-accordion-group>
+
+                            </uib-accordion>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mt40">
+                                    <div class="download float-right">
+                                        <a href="" class="color-blue text-underline f16">Download Form</a>
                                     </div>
                                 </div>
-                            </uib-accordion-group>
-                            <uib-accordion-group heading="schedules and draws">
-                                <p class="color-base f16">best contingent leader : <span class="color-blue font-semi"> Manav mehta</span></p>
-                            </uib-accordion-group>
+                            </div>
 
-                        </uib-accordion>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
+                        </div>
+                        <hr class="mt40">
+                        <div class="row">
+                            <div class="text-center">
+                                <h3 class="text-up color-blue font-semi f18-m">training and development</h3>
+                            </div>
                             <div class="mt40">
-                                <div class="download float-right">
-                                    <a href="" class="color-blue text-underline f16">Download Form</a>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="image-box text-center">
+                                            <img src="img/sf-training.png" alt="" class="img-responsive margin-auto">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="tr-dev-content">
+                                            <div class="title">
+                                                <h3 class="color-orange text-up font-semi margin0 f18-m text-c-m">Kleinetics</h3>
+                                            </div>
+                                            <div class="text-c-m">
+                                                <p>Kleinetics is India's premiere Kids Fitness Program backed by scientific training and technology to improve fitness and well being of kids. Through numerous dynamic and static drills, a variety in workouts
+                                                    and an innovative and scientific curriculum, Kleinetics focuses on cardiovascular endurance, strength, speed, agility, reaction time, power, flexibility, balance and co-ordination of the children.</p>
+                                            </div>
+                                            <div class="float-right mt25">
+                                                <button type="button" name="button" class="btn-outline text-up f18 padding15 btn">Know more</button>
+                                                <button type="button" name="button" class="btn-outline text-up f18 padding15 btn">download form</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="text-center">
+                                    <h3 class="color-blue font-semi text-up font16-mob">analytics of sfa mumbai 2016</h3>
+                                </div>
+
+                            </div>
+                            <div class="row mt15">
+                                <div class="col-md-6">
+                                    <div class="chart">
+                                        <div id="mychart" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="chart">
+                                        <div id="mychart2" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-12">
+                    <div class="2015" ng-show="tab=='2015'">
+                        <div class="mt40">
+                            <div class="sport-content color-base">
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+                                    make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                            </div>
+                        </div>
+                        <div class="mt20">
                             <div class="text-center">
-                                <h3 class="color-blue font-semi text-up font16-mob">analytics of sfa mumbai 2016</h3>
+                                <h3 class="color-blue font-semi text-up font16-mob">analytics of sfa mumbai 2015</h3>
                             </div>
-
                         </div>
-                        <div class="row mt15">
-                          <div class="col-md-6">
-                            <div class="chart">
-                              <div  id="mychart"  style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+                        <hr>
+                        <div class="mt40">
+                            <div class="text-center">
+                                <h3 class="color-blue font-semi text-up font16-mob">results of sfa mumbai 2015</h3>
                             </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="chart">
-                              <div  id="mychart2"  style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+                            <div class="row mt40">
+                                <div class="col-md-offset-4 col-md-2 col-sm-6 col-xs-12 text-c-m">
+                                    <div class="display-inline m-15">
+                                        <div class="sfa-select">
+                                            <select class="select" ng-model="filter.sport">
+                                                <option value="">Gender</option>
+                                                <option value="2016">Male</option>
+                                                <option value="2016">Female</option>
+
+                                            </select>
+                                            <span class="only-border"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-6 col-xs-12 text-c-m">
+                                    <div class="display-inline">
+                                        <div class="sfa-select">
+                                            <select class="select" ng-model="filter.sport">
+                                                <option value="">Age Group</option>
+                                                <option value="2016">u-16</option>
+                                                <option value="2016">u-15</option>
+
+                                            </select>
+                                            <span class="only-border"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
-                          </div>
+                            <div class="text-center mt40 margin-bottom">
+                                <button type="button" name="button" class="btn-orange text-up get">get results</button>
+                            </div>
+                            <hr>
                         </div>
-                    </div>
-                  </div>
-<div class="2015" ng-show="tab=='2015'">
-     <div class="mt40">
-      <div class="sport-content color-base">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-      </div>
-    </div>
-    <div class="mt20">
-      <div class="text-center">
-        <h3 class="color-blue font-semi text-up font16-mob">analytics of sfa mumbai 2015</h3>
-      </div>
-    </div>
-    <hr>
-    <div class="mt40">
-      <div class="text-center">
-        <h3 class="color-blue font-semi text-up font16-mob">results of sfa mumbai 2015</h3>
-      </div>
-      <div class="row mt40">
-        <div class="col-md-offset-4 col-md-2 col-sm-6 col-xs-12 text-c-m">
-          <div class="display-inline m-15">
-              <div class="sfa-select">
-                  <select class="select" ng-model="filter.sport">
-                      <option value="">Gender</option>
-                      <option value="2016">Male</option>
-                      <option value="2016">Female</option>
+                        <div class="accrordian mt25 accrodian-sec">
+                            <uib-accordion close-others="oneAtATime" class="text-up text-center ">
+                                <uib-accordion-group heading="winners of sfa mumbai 2015" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-6">
+                                            <div class="school-table mt25">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>under- 14 boys</th>
+                                                            <th>Jamnabai Narsee School</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>under- 14 boys</td>
+                                                            <td>Jamnabai Narsee School</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>under- 14 boys</td>
+                                                            <td>Jamnabai Narsee School</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>under- 14 boys</td>
+                                                            <td>Jamnabai Narsee School</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>under- 14 boys</td>
+                                                            <td>Jamnabai Narsee School</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </uib-accordion-group>
+                                <uib-accordion-group heading="handball team of sfa mumbai 2015">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-6">
+                                            <div class="school-table mt25">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>under- 14 boys</th>
+                                                            <th>Jamnabai Narsee School</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>under- 14 boys</td>
+                                                            <td>Jamnabai Narsee School</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>under- 14 boys</td>
+                                                            <td>Jamnabai Narsee School</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>under- 14 boys</td>
+                                                            <td>Jamnabai Narsee School</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>under- 14 boys</td>
+                                                            <td>Jamnabai Narsee School</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </uib-accordion-group>
 
-                  </select>
-                  <span class="only-border"></span>
-              </div>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-6 col-xs-12 text-c-m">
-          <div class="display-inline">
-              <div class="sfa-select">
-                  <select class="select" ng-model="filter.sport">
-                      <option value="">Age Group</option>
-                      <option value="2016">u-16</option>
-                      <option value="2016">u-15</option>
-
-                  </select>
-                  <span class="only-border"></span>
-              </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="text-center mt40 margin-bottom">
-        <button type="button" name="button" class="btn-orange text-up get">get results</button>
-      </div>
-      <hr>
-    </div>
-    <div class="accrordian mt25 accrodian-sec">
-        <uib-accordion close-others="oneAtATime" class="text-up text-center ">
-            <uib-accordion-group heading="winners of sfa mumbai 2015" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-              <div class="row">
-                <div class="col-md-offset-3 col-md-6">
-                  <div class="school-table mt25">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>under- 14 boys</th>
-                          <th>Jamnabai Narsee School</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>under- 14 boys</td>
-                          <td>Jamnabai Narsee School</td>
-                        </tr>
-                        <tr>
-                          <td>under- 14 boys</td>
-                          <td>Jamnabai Narsee School</td>
-                        </tr>
-                        <tr>
-                          <td>under- 14 boys</td>
-                          <td>Jamnabai Narsee School</td>
-                        </tr>
-                        <tr>
-                          <td>under- 14 boys</td>
-                          <td>Jamnabai Narsee School</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </uib-accordion-group>
-            <uib-accordion-group heading="handball team of sfa mumbai 2015">
-              <div class="row">
-                <div class="col-md-offset-3 col-md-6">
-                  <div class="school-table mt25">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>under- 14 boys</th>
-                          <th>Jamnabai Narsee School</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>under- 14 boys</td>
-                          <td>Jamnabai Narsee School</td>
-                        </tr>
-                        <tr>
-                          <td>under- 14 boys</td>
-                          <td>Jamnabai Narsee School</td>
-                        </tr>
-                        <tr>
-                          <td>under- 14 boys</td>
-                          <td>Jamnabai Narsee School</td>
-                        </tr>
-                        <tr>
-                          <td>under- 14 boys</td>
-                          <td>Jamnabai Narsee School</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </uib-accordion-group>
-
-        </uib-accordion>
-    </div>
-    <!-- <div class="mt40">
+                            </uib-accordion>
+                        </div>
+                        <!-- <div class="mt40">
       <div class="text-center">
         <h3 class="color-blue font-semi text-up">winners of sfa mumbai 2015</h3>
       </div>
@@ -399,138 +457,85 @@ industry's standard dummy text ever since the 1500s, when an unknown printer too
       </div>
 
     </div> -->
-  </div>
-  <div class="gallery" ng-show="tab=='gallerys'">
-    <div class="row">
-      <div class="text-center">
-        <h4 class="text-up color-blue display-inline">Year</h4>
-        <div class="display-inline">
-            <div class="sfa-select">
-                <select class="select">
-                    <option value="All">All</option>
-                    <option value="2016">2016</option>
-                    <option value="2016">2016</option>
-                    <option value="2016">2016</option>
-                </select>
-                <span class="only-border"></span>
-            </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-        <div class="text-center mt25">
-            <div class="tab-list sf-list text-up">
-                <ul class="padding0 margin0">
-                    <li><a href="" ng-click="tabchanges('photos',1)" class="{{classp}}">
+                    </div>
+                    <div class="gallery" ng-show="tab=='gallerys'">
+                        <div class="row">
+                            <div class="text-center">
+                                <h4 class="text-up color-blue display-inline">Year</h4>
+                                <div class="display-inline">
+                                    <div class="sfa-select">
+                                        <select class="select">
+                                            <option value="All">All</option>
+                                            <option value="2016">2016</option>
+                                            <option value="2016">2016</option>
+                                            <option value="2016">2016</option>
+                                        </select>
+                                        <span class="only-border"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="text-center mt25">
+                                <div class="tab-list sf-list text-up">
+                                    <ul class="padding0 margin0">
+                                        <li><a href="" ng-click="tabchanges('photos',1)" class="{{classp}}">
 photos
 </a></li>
-                    <li><a href="" ng-click="tabchanges('videos',2)" class="{{classv}}">
+                                        <li><a href="" ng-click="tabchanges('videos',2)" class="{{classv}}">
 match videos
 </a></li>
 
-                </ul>
-            </div>
-            <hr class="hr-padding">
-        </div>
-    </div>
-    <div class="row" ng-show="tabs=='photos'">
-        <div class="col-md-3 mt15 col-sm-4 col-xs-6" ng-repeat="data in photos track by $index">
-          <a fancybox-box rel="gallery1" href="{{data}}">
-        <div class="folder-box sf-relative videow-box">
-           <img ng-src="{{data}}" alt="Sports For All" class="img-responsive width100 hover-min">
-          <div class="over-layer sf-absulate">
+                                    </ul>
+                                </div>
+                                <hr class="hr-padding">
+                            </div>
+                        </div>
+                        <div class="row" ng-show="tabs=='photos'">
+                            <div class="col-md-3 mt15 col-sm-4 col-xs-6" ng-repeat="data in photos track by $index">
+                                <a fancybox-box rel="gallery1" href="{{data}}">
+                                    <div class="folder-box sf-relative videow-box">
+                                        <img ng-src="{{data}}" alt="Sports For All" class="img-responsive width100 hover-min">
+                                        <div class="over-layer sf-absulate">
 
-          </div>
-        </div>
-      </a>
-        </div>
-    </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
 
-    <div class="row mt25" ng-show="tabs=='videos'">
-        <div class="col-md-4 mt25" ng-repeat="data in video track by $index">
-          <a class="various fancybox.iframe" rel="gallery1" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
-        <div class="folder-box sf-relative videow-box">
-           <img ng-src="{{data.icon}}" alt="Sports For All" class="img-responsive width100 hover-min">
-          <div class="over-layer sf-absulate">
-            <h5 class="banner-set sf-absulate text-up color-white font-semi">{{data.name}}</h5>
-          </div>
-        </div>
-      </a>
-        </div>
-    </div>
-  </div>
-  <div class="bio" ng-show="tab=='bio'">
-    <div class="text-center">
-      <h3 class="color-blue text-up font-semi f18-m">featured athletes</h3>
-    </div>
-    <div class="row mt25">
-        <div class="col-md-3 mt15 col-sm-4 col-xs-12" ng-repeat="data in student track by $index">
-            <a href="">
-                <div class="school-sec">
-                    <!-- <img src="img/sf-cl.png" alt="" class="mt-min-18"> -->
-                    <div class="stu-img text-center sf-relative">
-                        <img ng-src="{{data.icon}}" alt="">
-                        <!-- <div class="sigh-pro sf-absulate">
-                            <img src="img/sf-right.png" alt="">
-                        </div> -->
+                        <div class="row mt25" ng-show="tabs=='videos'">
+                            <div class="col-md-4 mt25" ng-repeat="data in video track by $index">
+                                <a class="various fancybox.iframe" rel="gallery1" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
+                                    <div class="folder-box sf-relative videow-box">
+                                        <img ng-src="{{data.icon}}" alt="Sports For All" class="img-responsive width100 hover-min">
+                                        <div class="over-layer sf-absulate">
+                                            <h5 class="banner-set sf-absulate text-up color-white font-semi">{{data.name}}</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stu-name text-center">
-                        <h4 class="color-orange text-up font-semi">{{data.name}}</h4>
-                    </div>
-                    <div class="stu-id text-center">
-                        <h4 class="color-blue">SFA ID: {{data.dep}}</h4>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <hr class="mt40">
-    <div class="row">
-      <div class="text-center">
-        <h3 class="color-blue text-up font-semi f18-m">about sport</h3>
-      </div>
-      <div class="data-box text-c-m">
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
-        </p>
-      </div>
-      <div class="text-center mt25">
-        <button type="button" name="button" class="btn-outline text-up f18 padding15">read more</button>
-      </div>
-    </div>
-    <hr class="mt40">
-    <div class="row">
-      <div class="text-center">
-        <h3 class="text-up color-blue font-semi f18-m">training and development</h3>
-      </div>
-      <div class="mt40">
-        <div class="row">
-        <div class="col-md-3">
-          <div class="image-box text-center">
-            <img src="img/sf-training.png" alt="" class="img-responsive margin-auto">
-          </div>
-        </div>
-        <div class="col-md-9">
-          <div class="tr-dev-content">
-            <div class="title">
-              <h3 class="color-orange text-up font-semi margin0 f18-m text-c-m">Kleinetics</h3>
-            </div>
-            <div class="text-c-m">
-              <p>Kleinetics is India's premiere Kids Fitness Program backed by scientific training and technology to improve fitness and well being of kids. Through numerous
-dynamic and static drills, a variety in workouts and an innovative and scientific curriculum, Kleinetics focuses on cardiovascular endurance, strength, speed, agility, reaction time, power, flexibility, balance and co-ordination of the children.</p>
-            </div>
-            <div class="float-right mt25">
-              <button type="button" name="button" class="btn-outline text-up f18 padding15 btn">Know more</button>
-              <button type="button" name="button" class="btn-outline text-up f18 padding15 btn">download form</button>
-            </div>
-          </div>
-        </div>
-        </div>
-        <hr>
-      </div>
-    </div>
+                    <div class="bio" ng-show="tab=='bio'">
 
-  </div>
+
+                        <div class="row">
+                            <div class="text-center">
+                                <h3 class="color-blue text-up font-semi f18-m">about sport</h3>
+                            </div>
+                            <div class="data-box text-c-m">
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+                                    survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+                                </p>
+                            </div>
+                            <div class="text-center mt25">
+                                <button type="button" name="button" class="btn-outline text-up f18 padding15">read more</button>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
