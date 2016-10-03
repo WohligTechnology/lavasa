@@ -31,17 +31,17 @@
                                     <ul class="padding0 pad-line mt15">
                                         <li>
                                             <div class="sto-pro-list">
-                                                <img src="img/sf-boys.png" alt="">80
+                                                <img src="img/sf-boys.png" alt="">{{schooldata.Boys || 0}}
                                             </div>
                                         </li>
                                         <li>
                                             <div class="sto-pro-list display-inline">
-                                                <img src="img/sf-girl.png" alt="">50
+                                                <img src="img/sf-girl.png" alt="">{{schooldata.Girls || 0}}
                                             </div>
                                         </li>
                                         <li>
                                             <div class="sto-pro-list total display-inline">
-                                                50
+                                                {{ schooldata.Boys + schooldata.Girls }}
                                             </div>
                                         </li>
                                     </ul>
@@ -162,11 +162,10 @@
                     <h4 class="text-up color-blue display-inline">Year</h4>
                     <div class="display-inline">
                         <div class="sfa-select">
-                            <select class="select" ng-model="filter.sport">
-                                <option value="">20016</option>
-                                <option value="2016">20016</option>
-                                <option value="2016">20016</option>
-                                <option value="2016">20016</option>
+                            <select class="select" ng-model="filter.year" ng-change = "changeYear()">
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+
                             </select>
                             <span class="only-border"></span>
                         </div>
@@ -175,24 +174,27 @@
             </div>
             <div class="col-md-offset-1 col-md-10">
                 <div class="sport-slider mt40">
-                    <flex-slider class="carousel" flex-slide="slide in schoolSports track by $index" animation="slide" item-width="140" item-margin="60">
-                        <li>
-                            <a href="">
-                                <div class="sports-participate text-center">
-                                    <img ng-src="{{slide.icon | uploadpath}}" alt="" class="img-responsive image-width">
-                                    <span class="color-base text-up f16 mt10">{{slide.name}}</span>
-                                    <div class="combine mt10">
-                                        <div class="boy-sec display-inline color-base icon-right">
-                                            <img src="img/sf-boys-mini.png" alt="">80
-                                        </div>
-                                        <div class="boy-sec display-inline color-base icon-left">
-                                            <img src="img/sf-girl-mini.png" alt="">70
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </flex-slider>
+                  <flex-slider class="carousel" flex-slide="sportDetails in sportsStudentGender track by $index" animation="slide" item-width="140" item-margin="60">
+                      <li>
+                          <a href="">
+                              <div class="sports-participate text-center">
+                                  <img ng-if="sportDetails._id.name !== filter.sport" ng-src="{{sportDetails._id.inactiveimage | uploadpath}}" alt="" class="img-responsive image-width"
+                                  ng-click="showHide(sportDetails._id.name)">
+                                  <img ng-if="sportDetails._id.name == filter.sport" ng-src="{{sportDetails._id.image | uploadpath}}" alt="" class="img-responsive image-width"
+                                  ng-click="showHide(sportDetails._id.name)">
+                                  <span class="color-base text-up f16 mt10">{{sportDetails._id.name}}</span>
+                                  <div class="combine mt10">
+                                      <div class="boy-sec display-inline color-base icon-right">
+                                          <img src="img/sf-boys-mini.png" alt="">{{ sportDetails.Boys || 0 }}
+                                      </div>
+                                      <div class="boy-sec display-inline color-base icon-left">
+                                          <img src="img/sf-girl-mini.png" alt="">{{ sportDetails.Girls || 0 }}
+                                      </div>
+                                  </div>
+                              </div>
+                          </a>
+                      </li>
+                  </flex-slider>
                 </div>
             </div>
         </div>
@@ -226,11 +228,9 @@
                         <h4 class="text-up color-blue display-inline">Year</h4>
                         <div class="display-inline">
                             <div class="sfa-select">
-                                <select class="select" ng-model="filter.sport">
-                                    <option value="">20016</option>
-                                    <option value="2016">20016</option>
-                                    <option value="2016">20016</option>
-                                    <option value="2016">20016</option>
+                                <select class="select" ng-model="filter.year" ng-change = "changeYear()">
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
                                 </select>
                                 <span class="only-border"></span>
                             </div>
@@ -262,7 +262,7 @@
         </div>
     </div>
     <!-- when user select any sports -->
-    <!-- <section>
+    <section ng-show="sportContingent.showContingent">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -637,5 +637,5 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
 </section>
