@@ -35,32 +35,7 @@ sport’s bio
             <div class="col-md-12">
                 <div class="box-content-white box-content2">
                     <div class="2016" ng-show="tab=='2016'">
-                      <div class="text-center">
-                          <h3 class="color-blue text-up font-semi f18-m">featured athletes</h3>
-                      </div>
-                      <div class="row mt25">
-                          <div class="col-md-3 mt15 col-sm-4 col-xs-12" ng-repeat="data in student track by $index">
-                              <a href="">
-                                  <div class="school-sec">
-                                      <!-- <img src="img/sf-cl.png" alt="" class="mt-min-18"> -->
-                                      <div class="stu-img text-center sf-relative">
-                                          <img ng-src="{{data.icon}}" alt="">
-                                          <!-- <div class="sigh-pro sf-absulate">
-                          <img src="img/sf-right.png" alt="">
-                      </div> -->
-                                      </div>
-                                      <div class="stu-name text-center">
-                                          <h4 class="color-orange text-up font-semi">{{data.name}}</h4>
-                                      </div>
-                                      <div class="stu-id text-center">
-                                          <h4 class="color-blue">SFA ID: {{data.dep}}</h4>
-                                      </div>
-                                  </div>
-                              </a>
-                          </div>
-                      </div>
-                        <hr class="mt40">
-                        <div class="row">
+                        <div class="row mt25">
                             <div class="col-md-4 col-sm-4 col-xs-12">
                                 <div class="image-box2">
                                     <img ng-src="{{sport.federationLogo | uploadpath }}" alt="Sport For All" class="img-responsive banner-set sf-absulate">
@@ -232,7 +207,7 @@ sport’s bio
 
                             </uib-accordion>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="mt40">
                                     <div class="download float-right">
@@ -240,8 +215,34 @@ sport’s bio
                                     </div>
                                 </div>
                             </div>
-
+                        </div> -->
+                        <hr class="mt40">
+                        <div class="row">
+                        <div class="text-center">
+                            <h3 class="color-blue text-up font-semi f18-m">featured athletes</h3>
                         </div>
+                        <div class="row mt25">
+                            <div class="col-md-3 mt15 col-sm-4 col-xs-12" ng-repeat="data in student track by $index">
+                                <a href="">
+                                    <div class="school-sec">
+                                        <!-- <img src="img/sf-cl.png" alt="" class="mt-min-18"> -->
+                                        <div class="stu-img text-center sf-relative">
+                                            <img ng-src="{{data.icon}}" alt="">
+                                            <!-- <div class="sigh-pro sf-absulate">
+                            <img src="img/sf-right.png" alt="">
+                        </div> -->
+                                        </div>
+                                        <div class="stu-name text-center">
+                                            <h4 class="color-orange text-up font-semi">{{data.name}}</h4>
+                                        </div>
+                                        <div class="stu-id text-center">
+                                            <h4 class="color-blue">SFA ID: {{data.dep}}</h4>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                      </div>
                         <hr class="mt40">
                         <div class="row">
                             <div class="text-center">
@@ -270,17 +271,17 @@ sport’s bio
                                         </div>
                                     </div>
                                 </div>
-                                <hr>
+                                <!-- <hr> -->
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-12">
+                            <!-- <div class="col-md-12">
                                 <div class="text-center">
                                     <h3 class="color-blue font-semi text-up font16-mob">analytics of sfa mumbai 2016</h3>
                                 </div>
 
-                            </div>
+                            </div> -->
                             <div class="row mt15">
                                 <div class="col-md-6">
                                     <div class="chart">
@@ -518,8 +519,6 @@ match videos
                         </div>
                     </div>
                     <div class="bio" ng-show="tab=='bio'">
-
-
                         <div class="row">
                             <div class="text-center">
                                 <h3 class="color-blue text-up font-semi f18-m">about sport</h3>

@@ -9,7 +9,8 @@
                             <img ng-src="{{getSchoolProfile.logo|uploadpath}}" alt="">
                             <!-- <img src="img/sf-school-profile-big.png" alt=""> -->
                             <div class="sigh-second sf-absulate">
-                                <img src="img/sf-right-org.png" alt="" class="w30-main">
+                                <img ng-show="getSchoolProfile.notRight" src="img/sf-right-org.png" alt="" class="w30-main">
+                                <img ng-show="getSchoolProfile.right" src="img/sf-right-big.png" alt="" class="w30-main">
                             </div>
                         </div>
                     </div>
@@ -26,7 +27,7 @@
                             <ul class="padding0 sf-list-padding">
                                 <li class="border-right-1">
                                     <div class="">
-                                        <span class="">CONTINGENT STRENGTH 2015</span>
+                                        <span class="">CONTINGENT STRENGTH {{filter.year}}</span>
                                     </div>
                                     <ul class="padding0 pad-line mt15">
                                         <li>
@@ -48,7 +49,7 @@
                                 </li>
                                 <li class="border-right-1">
                                     <div class="display-inline text-up text-center">
-                                        <p>2015 rank</p>
+                                        <p>{{filter.year}} rank</p>
                                         <p class="total display-inline mt5">15</p>
                                     </div>
                                     <!-- <div class="stu-data display-inline text-up text-center">
@@ -143,7 +144,7 @@
                 </div>
             </div>
         </div>
-        <div class="sf-absulate spon">
+        <div class="sf-absulate spon" ng-if="getSchoolProfile.supportedBy">
             <div class="">
                 <span class="color-orange text-cap f16">Supported by: <img src="img/menulogo.jpg" alt="" class="w40"></span>
             </div>
@@ -178,9 +179,11 @@
                       <li>
                           <a href="">
                               <div class="sports-participate text-center">
-                                  <img ng-if="sportDetails._id.name !== filter.sport" ng-src="{{sportDetails._id.inactiveimage | uploadpath}}" alt="" class="img-responsive image-width"
+                                  <!-- <img ng-if="sportDetails._id.name !== filter.sport" ng-src="{{sportDetails._id.inactiveimage | uploadpath}}" alt="" class="img-responsive image-width"
                                   ng-click="showHide(sportDetails._id.name)">
                                   <img ng-if="sportDetails._id.name == filter.sport" ng-src="{{sportDetails._id.image | uploadpath}}" alt="" class="img-responsive image-width"
+                                  ng-click="showHide(sportDetails._id.name)"> -->
+                                  <img ng-src="{{ sportDetails._id.name !== filter.sport && (sportDetails._id.inactiveimage | uploadpath)|| (sportDetails._id.image  | uploadpath)}}" alt="" class="img-responsive image-width"
                                   ng-click="showHide(sportDetails._id.name)">
                                   <span class="color-base text-up f16 mt10">{{sportDetails._id.name}}</span>
                                   <div class="combine mt10">
@@ -202,7 +205,7 @@
         <div class="row mt40">
             <div class="col-md-12 ">
                 <div class=" text-center">
-                    <h3 class="font-semi color-blue margin0">CONTINGENT STRENGTH 2016</h3>
+                    <h3 class="font-semi color-blue margin0">CONTINGENT STRENGTH {{filter.year}}</h3>
                     <div class="sf-list">
                     <ul class="padding0 pad-line mt15 ">
                         <li>
@@ -320,9 +323,9 @@
                                             <img ng-src="img/sf-cl.png" alt="" class="mt-min-18" ng-if="data.isCl">
                                             <div class="stu-img text-center sf-relative">
                                                 <img ng-src="{{data.profilePic | uploadpath}}" alt="">
-                                                <div class="sigh-pro sf-absulate">
+                                                <!-- <div class="sigh-pro sf-absulate">
                                                     <img src="img/sf-right.png" alt="">
-                                                </div>
+                                                </div> -->
                                             </div>
                                             <div class="stu-name text-center">
                                                 <h4 class="color-orange text-up font-semi">{{data.name}}</h4>

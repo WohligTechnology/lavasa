@@ -29,7 +29,7 @@
                     <div class="col-md-3 mt15" ng-repeat="data in getSearchData" ng-if="getSearchData.length > 0">
                         <a ui-sref="student-profile({id:data._id})">
                             <div class="school-sec">
-                                <img src="img/sf-cl.png" alt="" class="mt-min-18" ng-if="$index==0">
+                                <!-- <img src="img/sf-cl.png" alt="" class="mt-min-18" ng-if="$index==0"> -->
                                 <div class="stu-img text-center sf-relative w130">
                                     <img ng-src="{{data.profilePic | uploadpath}}" alt="">
                                     <div class="sigh-pro sf-absulate">

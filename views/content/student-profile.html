@@ -27,7 +27,7 @@
                                 <li class="border-right-2">
                                     <div class="">
                                         <p class="text-up color-orange">age group</p>
-                                        <p>{{studentProfile.agegroup.name}}</p>
+                                        <p>{{studentProfile.dob | ageFilter}}</p>
                                     </div>
                                 </li>
                                 <li class="border-right-2">
@@ -88,9 +88,9 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="btn-common mt25">
+                        <!-- <div class="btn-common mt25">
                             <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="student-bio">student bio</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

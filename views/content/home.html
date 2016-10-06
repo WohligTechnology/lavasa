@@ -2,9 +2,9 @@
 
 </div>
 <section class="home-slider">
-    <flex-slider flex-slide="s in mySlides track by $index" prev-text="" next-text="">
+    <flex-slider flex-slide="banner in banners track by $index" prev-text="" next-text="">
         <li>
-            <img ng-src="{{s}}" class="img-responsive">
+            <a href="{{banner.link | ""}}"><img ng-src="{{banner.image | uploadpath}}" class="img-responsive"></a>
         </li>
     </flex-slider>
 </section>
@@ -13,9 +13,9 @@
     <div class="container">
       <div class="row">
           <div class="text-center">
-<div class="slider-mini sport-slider">
-  <flex-slider class="carousel" flex-slide="s in game track by $index" prev-text="" next-text="" startAt="0" item-width="100" item-margin="60"  animation="slide" move="1" slideshow="false">
-      <li class="sf-relative" ng-class="s.class " ng-mouseover="changeSlideClass(s,$index)" >
+<div class="slider-mini sport-slider" ng-mouseleave="removeSlideClass()">
+  <flex-slider class="carousel" flex-slide="s in game track by $index" prev-text="" next-text="" startAt="0" item-width="100" item-margin="60"  animation="slide" move="1" slideshow="false" >
+      <li class="sf-relative" ng-class="s.class " ng-mouseover="changeSlideClass(s,$index)"  >
         <a ui-sref="sport({name:s.name})" class=" isHover">
             <img ng-src="{{s.image | uploadpath}}"  class="img-responsive onlyHover absolute0">
             <img ng-src="{{s.inactiveimage | uploadpath}}" class="img-responsive notHover">

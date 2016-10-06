@@ -11,14 +11,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
         $scope.changeSlideClass = function(obj, index) {
             obj.class = "active";
-            console.log(index);
+            console.log("active = ", index);
             for (var i = index - 1, j = 1; i >= 0; i--) {
                 $scope.game[i].class = "near-" + (j++);
             }
             for (var i = index + 1, j = 1; i < $scope.game.length; i++) {
                 $scope.game[i].class = "near-" + (j++);
             }
-
+        };
+        $scope.removeSlideClass = function() {
+            // obj.class = "";
+            // console.log("deactive = ", index);
+            for (var i = $scope.game.length - 1, j = 1; i >= 0; i--) {
+                $scope.game[i].class = "";
+            }
+            for (var i = $scope.game.length + 1, j = 1; i < $scope.game.length; i++) {
+                $scope.game[i].class = "";
+            }
+            // $scope.$apply();
+            console.log($scope.game);
         };
 
         // $scope.games = // JavaScript Document
@@ -94,12 +105,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //         "game": "volleyball"
         //     }];
 
-        $scope.mySlides = [
-            'img/banner1.jpg',
-            'img/banner2.jpg',
-            'img/banner1.jpg',
-            'img/banner2.jpg'
-        ];
+        // $scope.mySlides = [
+        //     'img/banner1.jpg',
+        //     'img/banner2.jpg',
+        //     'img/banner1.jpg',
+        //     'img/banner2.jpg'
+        // ];
         NavigationService.getAllBanner(function(response) {
             if (response.value) {
                 $scope.banners = response.data;
@@ -964,9 +975,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
     }];
     NavigationService.getSchoolProfile($stateParams.id, function(data) {
-        console.log(data.data);
+        notRight = {};
+        right = {};
+        console.log("school data : ",data.data);
         $scope.getSchoolProfile = data.data;
         $scope.schoolSports = data.data.sports;
+        if($scope.getSchoolProfile.status == true)
+        {
+            $scope.getSchoolProfile.right = true;
+        }
+        else {
+            $scope.getSchoolProfile.notRight = true;
+        }
     });
    $scope.changeYear = function(){
      $scope.schooldata.Boys = 0
@@ -974,8 +994,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
        $scope.getSportParticipated();
        console.log("hrearea");
    }
-    $scope.showInactive = true;
-    $scope.showActive = false;
+    // $scope.showInactive = true;
+    // $scope.showActive = false;
     $scope.showHide = function (selected) {
       $scope.sportContingent.showContingent = true;
       console.log("value");

@@ -15,7 +15,7 @@
                     <div class="col-md-9  col-xs-12 col-sm-9 text-c-m">
                         <div class="sf-school-data">
                             <div class="scl-title display-inline">
-                                <a ui-sref="school-profile"><h3 class="color-orange font-semi">{{getSchoolProfile.name}}</h3></a>
+                                <a ui-sref="school-profile({id:getSchoolProfile._id})"><h3 class="color-orange font-semi">{{getSchoolProfile.name}}</h3></a>
                             </div>
                             <!-- <div class="display-inline cup">
                                 <img src="img/sf-cup.png" alt="">
@@ -146,7 +146,7 @@
                 </div>
             </div>
         </div>
-        <div class="sf-absulate spon">
+        <div class="sf-absulate spon" ng-if="getSchoolProfile.supportedBy">
             <div class="">
                 <span class="color-orange text-cap f16">Supported by: <img src="img/menulogo.png" alt="" class="w40"></span>
             </div>
@@ -173,9 +173,9 @@ sfa track record
                             <li><a href="" ng-click="tabchange('gallery',3)" class="{{classc}}">
 gallery
 </a></li>
-                            <li><a href="" ng-click="tabchange('blog',4)" class="{{classd}}">
+                            <!-- <li><a href="" ng-click="tabchange('blog',4)" class="{{classd}}">
 school’s blog
-</a></li>
+</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -438,9 +438,9 @@ school’s blog
                                 </div>
                             </div>
                         </div>
-                        <hr>
+                        <!-- <hr> -->
                         <div class="row">
-                            <div class="text-center">
+                            <!-- <div class="text-center">
                                 <h3 class="color-blue text-up font-semi">Accolades sfa mumbai 2016</h3>
                             </div>
                             <div class="col-md-12">
@@ -462,7 +462,7 @@ school’s blog
 
                                     </uib-accordion>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="gallery" ng-show="tab=='gallery'">
@@ -551,7 +551,7 @@ match videos
                         </div>
 
                     </div>
-                    <div class="blogs" ng-show="tab=='blog'">
+                    <!-- <div class="blogs" ng-show="tab=='blog'">
                         <div class="row">
                             <div class="text-center">
                                 <h3 class="color-blue text-up font-semi">school’s blog</h3>
@@ -649,7 +649,7 @@ match videos
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>

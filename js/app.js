@@ -29,7 +29,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'MediaGalleryCtrl'
         })
         .state('media-gallery-inside', {
-            url: "/media-gallery/:name",
+            url: "/media-gallery/:type/:folder",
             templateUrl: "views/template.html",
             controller: 'MediaGalleryCtrl'
         })
@@ -167,8 +167,8 @@ firstapp.directive('giveitmargin', function($compile, $parse) {
     };
 });
 firstapp.filter('uploadpath', function() {
-    return function(input, width, height, style,defaultFlag) {
-    console.log(width, height, style,defaultFlag)
+    return function(input, width, height, style, defaultFlag) {
+        console.log(width, height, style, defaultFlag)
         var other = "";
         if (width && width !== "") {
             other += "&width=" + width;
@@ -186,24 +186,69 @@ firstapp.filter('uploadpath', function() {
                 return input;
             }
         } else {
-            if(defaultFlag === false){
-            return "img/sf-handball.png";
+            if (defaultFlag === false) {
+                return "img/sf-handball.png";
 
-            }else{
-            return "img/noimage.png";
-                
+            } else {
+                return "img/noimage.png";
+
             }
         }
     };
 });
-firstapp.filter('letterLimit',function(){
-  return function (value,limit) {
-    if(value.length < limit){
-      return value;
-    }else{
-      return value.slice(0,limit - 2)+ "..";
-    }
-  };
+firstapp.filter('letterLimit', function() {
+    return function(value, limit) {
+        if (value.length < limit) {
+            return value;
+        } else {
+            return value.slice(0, limit - 2) + "..";
+        }
+    };
+});
+
+
+firstapp.filter('ageFilter', function() {
+    return function(birthdate) { // birthday is a date
+        if (birthdate) {
+            // var date = moment(birthdate).format('YYYY/MM/DD');
+            // var years = moment().diff(date, 'years',false);
+            // console.log("Moment Birthdate : ", date);
+            // console.log("Birthdate : ", birthdate);
+            // console.log("years", years);
+            // return years;
+            if (new Date(birthdate) > new Date(2011, 1, 1)) {
+                return 'U-6';
+            } else if (new Date(birthdate) > new Date(2010, 1, 1)) {
+                return 'U-7';
+            } else if (new Date(birthdate) > new Date(2009, 1, 1)) {
+                return 'U-8';
+            } else if (new Date(birthdate) > new Date(2008, 1, 1)) {
+                return 'U-9';
+            } else if (new Date(birthdate) > new Date(2007, 1, 1)) {
+                return 'U-10';
+            } else if (new Date(birthdate) > new Date(2006, 1, 1)) {
+                return 'U-11';
+            } else if (new Date(birthdate) > new Date(2005, 1, 1)) {
+                return 'U-12';
+            } else if (new Date(birthdate) > new Date(2004, 1, 1)) {
+                return 'U-13';
+            } else if (new Date(birthdate) > new Date(2003, 1, 1)) {
+                return 'U-14';
+            } else if (new Date(birthdate) > new Date(2002, 1, 1)) {
+                return 'U-15';
+            } else if (new Date(birthdate) > new Date(2001, 1, 1)) {
+                return 'U-16';
+            } else if (new Date(birthdate) > new Date(2000, 1, 1)) {
+                return 'U-17';
+            } else if (new Date(birthdate) > new Date(1999, 1, 1)) {
+                return 'U-18';
+            } else if (new Date(birthdate) > new Date(1998, 1, 1)) {
+                return 'U-19';
+            } else {
+                return "";
+            }
+        }
+    };
 });
 firstapp.directive('giveitmargin', function($compile, $parse) {
     return {
@@ -372,19 +417,19 @@ firstapp.directive('draw', function($document) {
     };
 });
 firstapp.filter('rawHtml', ['$sce',
- function($sce) {
-   return function(val) {
-     return $sce.trustAsHtml(val);
-   };
- }
-]);
-firstapp.filter('englishNumeralDate',function(){
-  return function (value) {
-    if(value){
-      console.log(angular.isDate(value));
-      return moment(new Date(value)).format("Mo MMMM YYYY");
+    function($sce) {
+        return function(val) {
+            return $sce.trustAsHtml(val);
+        };
     }
-  };
+]);
+firstapp.filter('englishNumeralDate', function() {
+    return function(value) {
+        if (value) {
+            console.log(angular.isDate(value));
+            return moment(new Date(value)).format("Mo MMMM YYYY");
+        }
+    };
 });
 firstapp.directive('fancyboxButton', function($compile, $parse) {
     return {
