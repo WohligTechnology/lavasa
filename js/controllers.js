@@ -252,12 +252,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if(response){
               console.log(response);
               $scope.folders = response.data;
-              console.log($scope.folders);
+              //console.log("folder data : ",$scope.folders);
             }
             else {
               console.log("No data found");
             }
           })
+      }
+      $scope.loadMedia = function() {
+        NavigationService.getLimitedMedia($scope.filter,function (response) {
+          if(response){
+            console.log("get limited media : ",response);
+              $scope.mediaArr = response.data;
+            console.log();
+            //console.log("folder data : ",$scope.folders);
+          }
+          else {
+            console.log("No data found");
+            $scope.mediaArr = [];
+          }
+        })
       }
         console.log($stateParams);
         if(!$stateParams.type && !$stateParams.folder){
@@ -268,6 +282,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }else{
           if($stateParams.type && $stateParams.folder){
               $scope.filter.mediatype = $stateParams.type;
+              $scope.filter.folder = $stateParams.folder;
+              $scope.filter.year = "2015";
+              $scope.filter.pagenumber = 1;
+
+              $scope.loadMedia();
               $scope.tabchanges($scope.filter.mediatype,1);
               $scope.flags.openGallery =  true;
           }else if($stateParams.type){
@@ -281,9 +300,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.tabs = 'photo';
         $scope.classp = 'active-list';
         $scope.classv = '';
-
-
-
 
         $scope.folder = [
             'img/m1.jpg',

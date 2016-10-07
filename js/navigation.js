@@ -165,6 +165,13 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST',
                 data: request
             }).success(callback);
+        },
+        getLimitedMedia: function(request, callback) {
+            $http({
+                url: adminurl + 'media/getLimitedMedia',
+                method: 'POST',
+                data: request
+            }).success(callback);
         }
     };
 });
