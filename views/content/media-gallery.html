@@ -10,7 +10,7 @@
                 <div class="text-center mt25">
                     <div class="tab-list sf-list text-up">
                         <ul class="padding0 margin0">
-                            <li><a href="" ng-click="tabchange('photos',1)" class="{{classa}}">
+                            <li><a href="" ng-click="tabchange('photo',1)" class="{{classa}}">
 photos
 </a></li>
                             <li><a href="" ng-click="tabchange('video',2)" class="{{classb}}">
@@ -31,8 +31,8 @@ Press release
         <div class="row">
             <div class="col-md-12">
                 <div class="box-content bx-mob pad-m-main pad-m-main">
-                  <div class="pht" ng-show="tab=='photos'">
-                    <div class="row" ng-hide="flags.openGallery">
+                  <div class="pht" ng-if="filter.mediatype=='photo'">
+                    <div class="row" ng-if="flags.openGallery">
                       <div class="col-md-4 mb15 col-sm-6 col-xs-12" ng-repeat="item in folder track by $index" ui-sref="media-gallery-inside({name:'tennis'})">
 <a href="" ng-modal="inner" ng-click="inner==!inner">
                           <div class="folder-box sf-relative">
@@ -172,7 +172,7 @@ Press release
                         <div class="text-center mt25">
                             <div class="tab-list sf-list text-up">
                                 <ul class="padding0 margin0">
-                                    <li><a href="" ng-click="tabchanges('photos',1)" class="{{classp}}">
+                                    <li><a href="" ng-click="tabchanges('photo',1)" class="{{classp}}">
 photos
 </a></li>
                                     <li><a href="" ng-click="tabchanges('videos',2)" class="{{classv}}">
@@ -184,7 +184,7 @@ match videos
                             <hr class="hr-padding">
                         </div>
                     </div>
-                    <div class="row" ng-show="tabs=='photos'">
+                    <div class="row" ng-show="tabs=='photo'">
                         <div class="col-md-3 mt15 col-sm-6 col-xs-12" ng-repeat="data in folder track by $index">
                         <a href="{{data}}" fancybox-box rel="gallery">
                           <div class="folder-box sf-relative">

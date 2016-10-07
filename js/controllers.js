@@ -11,7 +11,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
         $scope.changeSlideClass = function(obj, index) {
             obj.class = "active";
-            console.log("active = ", index);
+            // console.log("active = ", index);
             for (var i = index - 1, j = 1; i >= 0; i--) {
                 $scope.game[i].class = "near-" + (j++);
             }
@@ -19,17 +19,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.game[i].class = "near-" + (j++);
             }
         };
-        $scope.removeSlideClass = function() {
-            // obj.class = "";
-            // console.log("deactive = ", index);
-            for (var i = $scope.game.length - 1, j = 1; i >= 0; i--) {
-                $scope.game[i].class = "";
-            }
-            for (var i = $scope.game.length + 1, j = 1; i < $scope.game.length; i++) {
+        $scope.removeSlideClass = function(obj, index) {
+            for (var i =  0; i < $scope.game.length; i++) {
                 $scope.game[i].class = "";
             }
             // $scope.$apply();
-            console.log($scope.game);
         };
 
         // $scope.games = // JavaScript Document
@@ -183,14 +177,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.flags.openGallery = false;
         $scope.flag = {};
         $scope.flag.openGallerys = false;
-        if ($stateParams.name) {
-            console.log($stateParams);
-            $scope.flags.openGallery = true
-        }
-        if ($stateParams.name) {
-            console.log($stateParams);
-            $scope.flag.openGallerys = true
-        }
+        // if ($stateParams.name) {
+        //     console.log($stateParams);
+        //     $scope.flags.openGallery = true
+        // }
+        // if ($stateParams.name) {
+        //     console.log($stateParams);
+        //     $scope.flag.openGallerys = true
+        // }
+
         $scope.tab = 'photos';
         $scope.classa = 'active-list';
         $scope.classb = '';
@@ -232,7 +227,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             }
         };
-
+        if($stateParams){
+          if($stateParams.type){
+              $scope.filter.mediatype = $stateParams.type;
+          }
+        }else{
+          $scope.filter.mediatype ="photo";
+          $scope.tabchange('photos',1);
+        }
         $scope.tabs = 'photos';
         $scope.classp = 'active-list';
         $scope.classv = '';
