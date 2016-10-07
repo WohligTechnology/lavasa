@@ -502,7 +502,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/m1.jpg',
         'img/m2.jpg',
         'img/m3.jpg'
-
     ];
     $scope.video = [{
         icon: "img/m1.jpg",

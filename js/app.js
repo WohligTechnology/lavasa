@@ -210,12 +210,6 @@ firstapp.filter('letterLimit', function() {
 firstapp.filter('ageFilter', function() {
     return function(birthdate) { // birthday is a date
         if (birthdate) {
-            // var date = moment(birthdate).format('YYYY/MM/DD');
-            // var years = moment().diff(date, 'years',false);
-            // console.log("Moment Birthdate : ", date);
-            // console.log("Birthdate : ", birthdate);
-            // console.log("years", years);
-            // return years;
             if (new Date(birthdate) > new Date(2011, 1, 1)) {
                 return 'U-6';
             } else if (new Date(birthdate) > new Date(2010, 1, 1)) {
