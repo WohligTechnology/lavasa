@@ -10,20 +10,20 @@
                 <div class="text-center mt25">
                     <div class="tab-list sf-list text-up">
                         <ul class="padding0 margin0">
-                            <li><a href="" ng-click="tabchange('photo',1)" class="{{classa}}">
+                            <li><a href=""  ui-sref="media-gallery-type({type:'photo'})" class="{{classes.classp}}">
 photos
 </a></li>
-                            <li><a href="" ng-click="tabchange('video',2)" class="{{classb}}">
+                            <li><a href=""  ui-sref="media-gallery-type({type:'video'})" class="{{classes.classv}}">
 videos
 </a></li>
-                            <li><a href="" ng-click="tabchange('press',3)" class="{{classc}}">
+                            <li><a href="" class="{{classc}}">
 press coverage
 </a></li>
-                            <li><a href="" ng-click="tabchange('release',4)" class="{{classd}}">
+                            <li><a href="" class="{{classd}}">
 Press release
 </a></li>
 
-                        </ul>
+                      </ul>
                     </div>
                 </div>
             </div>
@@ -32,20 +32,20 @@ Press release
             <div class="col-md-12">
                 <div class="box-content bx-mob pad-m-main pad-m-main">
                   <div class="pht" ng-if="filter.mediatype=='photo'">
-                    <div class="row" ng-if="flags.openGallery">
-                      <div class="col-md-4 mb15 col-sm-6 col-xs-12" ng-repeat="item in folder track by $index" ui-sref="media-gallery-inside({name:'tennis'})">
+                    <div class="row" ng-if="!flags.openGallery">
+                      <div class="col-md-4 mb15 col-sm-6 col-xs-12" ng-repeat="item in folders track by $index" ui-sref="media-gallery-inside({type:'photo',folder:'tennis'})">
 <a href="" ng-modal="inner" ng-click="inner==!inner">
                           <div class="folder-box sf-relative">
-                             <img src="{{item}}" alt="Sports For All" class="img-responsive width100 hover-min">
+                             <img ng-src="{{item.media | mediapath}}" alt="Sports For All" class="img-responsive width100 hover-min">
                             <div class="over-layer sf-absulate">
-                              <h4 class="banner-set sf-absulate">TENNIS</h4>
+                              <h4 class="banner-set sf-absulate text-uppercase">{{item._id}}</h4>
                             </div>
                           </div>
 </a>
 
                       </div>
                     </div>
-                    <div class="main-view" ng-mouseenter="inner=true" ng-show="flags.openGallery">
+                    <div class="main-view" ng-mouseenter="inner=true" ng-if="flags.openGallery">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="back-btn">
@@ -90,21 +90,21 @@ Press release
                     </div>
                     </div>
                   </div>
-                  <div class="pht" ng-show="tab=='video'">
-                    <div class="row" ng-hide="flag.openGallerys">
-                      <div class="col-md-4 mb15 col-xs-12 col-sm-6" ng-repeat="item in folder track by $index" ui-sref="media-gallery-inside({names:'table tennis'})">
+                  <div class="pht" ng-if="filter.mediatype=='video'">
+                    <div class="row" ng-if="!flag.openGallery">
+                      <div class="col-md-4 mb15 col-xs-12 col-sm-6" ng-repeat="item in folders track by $index" ui-sref="media-gallery-inside({type:'video',folder:'table tennis'})">
 <a href="">
                           <div class="folder-box sf-relative">
-                             <img src="{{item}}" alt="Sports For All" class="img-responsive width100 hover-min">
+                             <img src="{{item.media | videothumbnail}}" alt="Sports For All" class="img-responsive width100 hover-min">
                             <div class="over-layer sf-absulate">
-                              <h4 class="banner-set sf-absulate">TABLE TENNIS</h4>
+                              <h4 class="banner-set sf-absulate text-uppercase">{{item._id }}</h4>
                             </div>
                           </div>
 </a>
 
                       </div>
                     </div>
-                    <div class="main-view" ng-show="flag.openGallerys">
+                    <div class="main-view" ng-show="flag.openGallery">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="back-btn">

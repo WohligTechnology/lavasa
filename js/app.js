@@ -33,6 +33,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'MediaGalleryCtrl'
         })
+
+        .state('media-gallery-type', {
+            url: "/media-gallery/:type",
+            templateUrl: "views/template.html",
+            controller: 'MediaGalleryCtrl'
+        })
         .state('draw', {
             url: "/draw",
             templateUrl: "views/template.html",
@@ -202,6 +208,25 @@ firstapp.filter('letterLimit', function() {
             return value;
         } else {
             return value.slice(0, limit - 2) + "..";
+        }
+    };
+});
+firstapp.filter('mediapath', function() {
+    return function(value) {
+        if (value) {
+          return "https://storage.googleapis.com/sportsforall/media%26gallery/"+value;
+        } else {
+            return "";
+        }
+    };
+});
+
+firstapp.filter('videothumbnail', function() {
+    return function(value) {
+        if (value) {
+          return "http://img.youtube.com/vi/"+value+"/hqdefault.jpg";
+        } else {
+            return "";
         }
     };
 });

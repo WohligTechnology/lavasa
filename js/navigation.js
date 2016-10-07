@@ -9,6 +9,7 @@
 // var adminurl = "http://104.154.89.21:83/api/";
 // var adminurl = "http://localhost:1337/";
 var adminurl = "http://104.155.129.33:83/api/";
+// var adminurl = "http://192.168.0.107:1337/api/";
 var imgpath = adminurl + "upload/readFile";
 var uploadurl = adminurl + "upload/";
 var currentYears = ["2015", "2016"];
@@ -156,6 +157,13 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'school/filterStud',
                 method: 'POST',
                 data: data
+            }).success(callback);
+        },
+        getFolders: function(request, callback) {
+            $http({
+                url: adminurl + 'media/getFolders',
+                method: 'POST',
+                data: request
             }).success(callback);
         }
     };

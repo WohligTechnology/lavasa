@@ -176,6 +176,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.flags = {};
         $scope.flags.openGallery = false;
         $scope.flag = {};
+        $scope.classes = {}
+        $scope.filter={};
+        $scope.folders=[];
         $scope.flag.openGallerys = false;
         // if ($stateParams.name) {
         //     console.log($stateParams);
@@ -194,7 +197,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
         $scope.tabchange = function(tab, a) {
-            //        console.log(tab);
+            //console.log(tab);
             $scope.tab = tab;
             if (a == 1) {
 
@@ -227,33 +230,60 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             }
         };
-        if($stateParams){
-          if($stateParams.type){
-              $scope.filter.mediatype = $stateParams.type;
-          }
-        }else{
+        $scope.tabchanges = function(tabs, a) {
+            //        console.log(tab);
+            $scope.tabs = tabs;
+            console.log(tabs);
+            if (tabs === 'photo') {
+
+                $scope.classes.classp = "active-list";
+                $scope.classes.classv = '';
+
+            } else {
+
+                $scope.classes.classp = '';
+                $scope.classes.classv = "active-list";
+            }
+
+        };
+        $scope.getMediaFolders = function () {
+          // $scope.filter.mediatype = "photo";
+          NavigationService.getFolders($scope.filter,function (response) {
+            if(response){
+              console.log(response);
+              $scope.folders = response.data;
+              console.log($scope.folders);
+            }
+            else {
+              console.log("No data found");
+            }
+          })
+      }
+        console.log($stateParams);
+        if(!$stateParams.type && !$stateParams.folder){
           $scope.filter.mediatype ="photo";
-          $scope.tabchange('photos',1);
+          $scope.flags.openGallery =  false;
+          $scope.tabchanges('photo',1);
+          $scope.getMediaFolders();
+        }else{
+          if($stateParams.type && $stateParams.folder){
+              $scope.filter.mediatype = $stateParams.type;
+              $scope.tabchanges($scope.filter.mediatype,1);
+              $scope.flags.openGallery =  true;
+          }else if($stateParams.type){
+            $scope.filter.mediatype =$stateParams.type;
+            $scope.flags.openGallery =  false;
+            $scope.tabchanges($stateParams.type,1);
+            console.log($scope.filter);
+            $scope.getMediaFolders();
+          }
         }
-        $scope.tabs = 'photos';
+        $scope.tabs = 'photo';
         $scope.classp = 'active-list';
         $scope.classv = '';
 
 
-        $scope.tabchanges = function(tabs, a) {
-            //        console.log(tab);
-            $scope.tabs = tabs;
-            if (a == 1) {
 
-                $scope.classp = "active-list";
-                $scope.classv = '';
-
-            } else {
-
-                $scope.classp = '';
-                $scope.classv = "active-list";
-            }
-        };
 
         $scope.folder = [
             'img/m1.jpg',
