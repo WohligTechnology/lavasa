@@ -2081,6 +2081,9 @@ img.fancybox-image {
 .w630 {
     width: 630px;
 }
+.h226{
+  height: 226px !important;
+}
 .over-layer {
     background: rgba(0, 0, 0, 0.77);
     top: 0;
@@ -2094,6 +2097,8 @@ img.fancybox-image {
 }
 .folder-box {
     overflow: hidden;
+    height: 165px;
+display: block;
     img {
         @include transition(all 300ms ease);
     }
