@@ -815,23 +815,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
     }];
 
-    NavigationService.getSchoolProfile($stateParams.id, function(data) {
-        console.log(data.data);
-        $scope.getSchoolProfile = data.data;
-        if($scope.getSchoolProfile.status){
-            $scope.getSchoolProfile.isVerified = "Verified";
-        }else{
-            $scope.getSchoolProfile.isVerified = "Not Verif ied";
-        }
-        $scope.getSchoolProfile.contingentLeader = _.map($scope.getSchoolProfile.contingentLeader).join(', ');
-        $scope.department = $scope.getSchoolProfile.department;
+    $scope.getSchoolProfile = function() {
+      NavigationService.getSchoolProfile($stateParams.id, function(data) {
+          console.log(data.data);
+          $scope.getSchoolProfile = data.data;
+          if($scope.getSchoolProfile.status){
+              $scope.getSchoolProfile.isVerified = "Verified";
+          }else{
+              $scope.getSchoolProfile.isVerified = "Not Verif ied";
+          }
+          $scope.getSchoolProfile.contingentLeader = _.map($scope.getSchoolProfile.contingentLeader).join(', ');
+          $scope.department = $scope.getSchoolProfile.department;
 
-        _.forEach($scope.department, function(value, key) {
-            value = _.merge(value,{ icon: "img/sf-student-profile.png" });
-        });
+          _.forEach($scope.department, function(value, key) {
+              value = _.merge(value,{ icon: "img/sf-student-profile.png" });
+          });
 
-        console.log($scope.department);
-    });
+          console.log($scope.department);
+      });
+    };
+    $scope.getSchoolProfile();
 })
 
 .controller('SchoolCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -1038,8 +1041,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
    $scope.changeYear = function(){
      $scope.schooldata.Boys = 0
      $scope.schooldata.Girls = 0
+     $scope.filter.sport = '';
        $scope.getSportParticipated();
-       console.log("hrearea");
+       //console.log($scope.getSportParticipated();
    }
     // $scope.showInactive = true;
     // $scope.showActive = false;
@@ -1058,9 +1062,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
        var constraints = {};
        constraints.year = $scope.filter.year;
        constraints._id = $stateParams.id;
+       console.log("constraints : ",constraints);
         NavigationService.getSchoolSportByGender(constraints, function(data) {
         if(data.value){
             $scope.sportsStudentGender = data.data;
+            console.log("sports student data : ",$scope.sportsStudentGender);
             _.each($scope.sportsStudentGender,function(key){
                 _.each(key.gender,function(value){
                     key[value.name]=value.count;
@@ -1068,6 +1074,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 });
             });
             // $scope.$apply();
+        }
+        else {
+          console.log("No School data found");
         }
     });
    };
@@ -1079,6 +1088,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             name: "All"
         });
         $scope.agegroup = data.data;
+        console.log("agegroup : ",$scope.agegroup);
     });
     $scope.callReload();
 })
@@ -1157,6 +1167,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.tabs = 'photos';
     $scope.classp = 'active-list';
     $scope.classv = '';
+    $scope.filter = {};
+    $scope.studentSportList = [];
 
 
     $scope.tabchanges = function(tabs, a) {
@@ -1248,15 +1260,43 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         icon: "img/m3.jpg",
         name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
     }];
-    NavigationService.getStudentProfile($stateParams.id, function(data) {
-        console.log(data);
-        $scope.studentProfile = data.data;
-        if ($scope.studentProfile.gender == "Boys") {
-            $scope.studentProfile.gender = "Male";
-        } else {
-            $scope.studentProfile.gender = "Female";
-        }
-    });
+    $scope.getStudentProfile = function(){
+      NavigationService.getStudentProfile($stateParams.id, function(data) {
+          console.log(data);
+          $scope.studentProfile = data.data;
+          if ($scope.studentProfile.gender == "Boys") {
+              $scope.studentProfile.gender = "Male";
+          } else {
+              $scope.studentProfile.gender = "Female";
+          }
+      });
+    };
+    $scope.getStudentProfile();
+
+    $scope.changeYear = function() {
+      var constraints = {};
+      constraints.year = $scope.filter.year;
+      constraints.student = $stateParams.id;
+      $scope.getStudentSport(constraints);
+    }
+    $scope.getStudentSport = function(constraints) {
+      //console.log("constraints : ",constraints);
+      NavigationService.getStudentSport(constraints, function(data) {
+          console.log("studentSport data = ",data);
+          $scope.studentSport = data.data;
+          var i = 0;
+          _.each($scope.studentSport,function(value) {
+            console.log("valuess : ",value);
+            $scope.studentSportList[0] = value.sportslist;
+            i++;
+          });
+          //$scope.studentSportList = data.data[0].sportslist;
+          console.log("studentSport = ",$scope.studentSportList);
+      });
+    };
+
+    $scope.filter.year = "2015";
+    $scope.changeYear();
 })
 
 .controller('HeatsCtrl', function($scope, TemplateService, NavigationService, $timeout) {

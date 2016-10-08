@@ -105,10 +105,8 @@
                   <h4 class="text-up color-blue display-inline">Year</h4>
                   <div class="display-inline">
                       <div class="sfa-select">
-                          <select class="select">
-                              <option value="2016">2016</option>
-                              <option value="2016">2016</option>
-                              <option value="2016">2016</option>
+                          <select ng-change="changeYear()" class="select" ng-model="filter.year">
+                              <option value="2015">2015</option>
                               <option value="2016">2016</option>
                           </select>
                           <span class="only-border"></span>
@@ -158,12 +156,10 @@ student’s blog
                         <h4 class="text-up color-blue display-inline">Year</h4>
                         <div class="display-inline">
                             <div class="sfa-select">
-                                <select class="select">
-                                    <option value="2016">2016</option>
-                                    <option value="2016">2016</option>
-                                    <option value="2016">2016</option>
-                                    <option value="2016">2016</option>
-                                </select>
+                              <select ng-change="" class="select" ng-model="filter.year">
+                                  <option value="2015">2015</option>
+                                  <option value="2016">2016</option>
+                              </select>
                                 <span class="only-border"></span>
                             </div>
                         </div>

@@ -129,10 +129,19 @@ var navigationservice = angular.module('navigationservice', [])
                 data: request
             }).success(callback);
         },
-         getSchoolSportByGender: function(request, callback) {
+        getSchoolSportByGender: function(request, callback) {
             // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'studentsport/getSchoolSportByGender',
+                method: 'POST',
+                withCredentials: true,
+                data: request
+            }).success(callback);
+        },
+        getStudentSport: function(request, callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'studentsport/getsports',
                 method: 'POST',
                 withCredentials: true,
                 data: request

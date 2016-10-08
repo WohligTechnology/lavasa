@@ -183,15 +183,15 @@
                                   ng-click="showHide(sportDetails._id.name)">
                                   <img ng-if="sportDetails._id.name == filter.sport" ng-src="{{sportDetails._id.image | uploadpath}}" alt="" class="img-responsive image-width"
                                   ng-click="showHide(sportDetails._id.name)"> -->
-                                  <img ng-src="{{ sportDetails._id.name !== filter.sport && (sportDetails._id.inactiveimage | uploadpath)|| (sportDetails._id.image  | uploadpath)}}" alt="" class="img-responsive image-width"
+                                  <img ng-src="{{ sportDetails._id.name !== filter.sport && (sportDetails._id.inactiveimage | uploadpath) || (sportDetails._id.image  | uploadpath)}}" alt="" class="img-responsive image-width"
                                   ng-click="showHide(sportDetails._id.name)">
                                   <span class="color-base text-up f16 mt10">{{sportDetails._id.name}}</span>
                                   <div class="combine mt10">
                                       <div class="boy-sec display-inline color-base icon-right">
-                                          <img src="img/sf-boys-mini.png" alt="">{{ sportDetails.Boys || 0 }}
+                                          <img ng-src="img/sf-boys-mini.png" alt="">{{ sportDetails.Boys || 0 }}
                                       </div>
                                       <div class="boy-sec display-inline color-base icon-left">
-                                          <img src="img/sf-girl-mini.png" alt="">{{ sportDetails.Girls || 0 }}
+                                          <img ng-src="img/sf-girl-mini.png" alt="">{{ sportDetails.Girls || 0 }}
                                       </div>
                                   </div>
                               </div>
