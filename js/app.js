@@ -34,7 +34,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'MediaGalleryCtrl'
         })
 
-        .state('media-gallery-type', {
+    .state('media-gallery-type', {
             url: "/media-gallery/:type",
             templateUrl: "views/template.html",
             controller: 'MediaGalleryCtrl'
@@ -214,7 +214,7 @@ firstapp.filter('letterLimit', function() {
 firstapp.filter('mediapath', function() {
     return function(value) {
         if (value) {
-          return "https://storage.googleapis.com/sportsforall/media%26gallery/"+value;
+            return "https://storage.googleapis.com/sportsforall/media%26gallery/" + value;
         } else {
             return "";
         }
@@ -224,7 +224,7 @@ firstapp.filter('mediapath', function() {
 firstapp.filter('videothumbnail', function() {
     return function(value) {
         if (value) {
-          return "http://img.youtube.com/vi/"+value+"/hqdefault.jpg";
+            return "http://img.youtube.com/vi/" + value + "/hqdefault.jpg";
         } else {
             return "";
         }
@@ -385,31 +385,23 @@ firstapp.directive('hovericon', function($document) {
         },
         link: function(scope, element, attr) {
 
-            scope.$watch('demo', function() {
-                //			   console.log(demo);
+            var ishover;
+            var $element = $(element);
+            if (scope.game.grey) {
+                $element.addClass("grey");
+            } else {
+                var $top = $element.children(".top");
+                var $bottom = $element.children(".bottom");
+                $bottom.width($top.width());
 
-                var ishover;
-                var $element = $(element);
-                $test = $element;
-                $element.ready(function() {
-
-                    if (scope.game.grey) {
-                        $element.addClass("grey");
-                    } else {
-                        var $top = $element.children(".top");
-                        var $bottom = $element.children(".bottom");
-                        $bottom.width($top.width());
-
-                        $element.hover(function() {
-                            $element.addClass("bigger");
-                        }, function() {
-                            $element.removeClass("bigger");
-                            $bottom.width($top.width());
-                        });
-                    }
-
+                $element.hover(function() {
+                    $element.addClass("bigger");
+                }, function() {
+                    $element.removeClass("bigger");
+                    $bottom.width($top.width());
                 });
-            })
+            }
+
 
         }
 
