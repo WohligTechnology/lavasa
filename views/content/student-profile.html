@@ -8,7 +8,7 @@
                         <div class="sf-school-logo sf-relative text-center border-r ">
                             <img src="img/sf-student-big.png" alt="" class="img-border img-responsive">
                             <div class="sigh-second sf-absulate l6">
-                                <img src="img/sf-right-org.png" alt="" class="w30-main">
+                                <!-- <img ng-show="studentProfile.status" ng-src="img/sf-right-org.png"  alt="" class="w30-main"> -->
                             </div>
                         </div>
                     </div>
@@ -114,11 +114,11 @@
                   </div>
 
                 <h4 class="color-blue text-up font-semi mt25">sports participated</h4>
-                <h5 ng-if="studentSport == ''" class="text-up font-semi mt25">No sports participated in {{filter.year}}</h5>
+                <h5 ng-if="studentSport == ''" class="text-up font-semi mt25"><b>No sports participated in {{filter.year}}</b></h5>
                 <div class="sf-relative mt15">
                     <div class="sport-icon-list sf-list blue-cat">
                         <ul>
-                            <hovericon game="game" ng-repeat="game in studentSport" ng-click="makeactive(game);"></hovericon>
+                            <hovericon game="game" ng-repeat="game in studentSport" ng-click="makeActive(game);"></hovericon>
                         </ul>
                     </div>
 

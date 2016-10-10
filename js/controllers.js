@@ -1068,18 +1068,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
     }];
     NavigationService.getSchoolProfile($stateParams.id, function(data) {
-        notRight = {};
-        right = {};
+      if(data.value){
         console.log("school data : ",data.data);
         $scope.getSchoolProfile = data.data;
         $scope.schoolSports = data.data.sports;
-        if($scope.getSchoolProfile.status == true)
+      }
+      else {
         {
-            $scope.getSchoolProfile.right = true;
+          $scope.getSchoolProfile = '';
+          $scope.schoolSports = '';
+          console.log("Error while fetching School Profile.");
         }
-        else {
-            $scope.getSchoolProfile.notRight = true;
-        }
+      }
     });
    $scope.changeYear = function(){
      $scope.schooldata.Boys = 0
@@ -1190,7 +1190,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else {
             $scope.getsearch = true;
             NavigationService.getSearchDataStudent($scope.searchFilter, function(data) {
-                console.log($scope.searchFilter);
+                //console.log($scope.searchFilter);
                 $scope.getSearchData = data.data.data;
             });
         }
@@ -1336,12 +1336,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           if(response.value){
           //   console.log("studentSport data = ",data);
             $scope.studentSport = response.data;
-          //console.log($scope.studentSport);
+          console.log($scope.studentSport);
           }else{
             $scope.studentSport = [];
             console.log("Error while fetching Student Sports.");
           }
       });
+    };
+
+    $scope.makeActive = function (sports) {
+        //console.log("sports : ",sports.sportslist);
     };
 
     $scope.filter.year = "2015";

@@ -9,9 +9,7 @@
                             <img ng-src="{{getSchoolProfile.logo|uploadpath}}" alt="">
                             <!-- <img src="img/sf-school-profile-big.png" alt=""> -->
                             <div class="sigh-second sf-absulate">
-                                <!-- <img ng-show="getSchoolProfile.notRight" src="img/sf-right-org.png" alt="" class="w30-main">
-                                <img ng-show="getSchoolProfile.right" src="img/sf-right-big.png" alt="" class="w30-main"> -->
-                                <img ng-src="getSchoolProfile.status == true && (img/sf-right-big.png) || (img/sf-right-org.png) "  alt="" class="w30-main">
+                                <img ng-show="getSchoolProfile.status" ng-src="img/sf-right-big.png"  alt="" class="w30-main">
                             </div>
                         </div>
                     </div>

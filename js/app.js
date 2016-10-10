@@ -23,16 +23,6 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'SchoolCtrl'
         })
-        .state('blog', {
-            url: "/blog",
-            templateUrl: "views/template.html",
-            controller: 'BlogCtrl'
-        })
-        .state('blog-detail', {
-            url: "/blog-detail",
-            templateUrl: "views/template.html",
-            controller: 'BlogDetailCtrl'
-        })
         .state('media-gallery', {
             url: "/media-gallery",
             templateUrl: "views/template.html",
@@ -44,7 +34,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'MediaGalleryCtrl'
         })
 
-    .state('media-gallery-type', {
+        .state('media-gallery-type', {
             url: "/media-gallery/:type",
             templateUrl: "views/template.html",
             controller: 'MediaGalleryCtrl'
@@ -389,7 +379,7 @@ firstapp.directive('hovericon', function($document) {
     return {
         restrict: 'EA',
         replace: true,
-        templateUrl: './views/directive/hovericon.html',
+        templateUrl: 'views/directive/hovericon.html',
         scope: {
             game: '='
         },
@@ -415,7 +405,7 @@ firstapp.directive('hovericon', function($document) {
 
         }
 
-    }
+    };
 });
 firstapp.directive('scores', function($document) {
     return {
