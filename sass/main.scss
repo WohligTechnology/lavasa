@@ -2239,6 +2239,19 @@ img.fancybox-image {
 .bl-tittle {
     padding: 7px 20px;
 }
+
+.bl-img {
+    border-top: 1px solid;
+    padding-top: 20px;
+}
+.bl-bg {
+    background: #ebebeb;
+    padding: 30px 65px;
+}
+.cp{
+  display: block;
+padding-bottom: 20px;
+}
 @import "fancybox-override";
 @import "mobile";
 .text-center {
