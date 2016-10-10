@@ -1305,6 +1305,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
     $scope.getStudentProfile = function(){
       NavigationService.getStudentProfile($stateParams.id, function(data) {
+        if(data.value)
+        {
           console.log(data);
           $scope.studentProfile = data.data;
           if ($scope.studentProfile.gender == "Boys") {
@@ -1312,6 +1314,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           } else {
               $scope.studentProfile.gender = "Female";
           }
+        }
+        else {
+          $scope.studentProfile = [];
+          console.log("Error while fetching Student Profile.");
+        }
       });
     };
     $scope.getStudentProfile();
@@ -1329,17 +1336,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           if(response.value){
           //   console.log("studentSport data = ",data);
             $scope.studentSport = response.data;
-            console.log($scope.studentSport);
-
-            // _.each($scope.studentSport,function(value) {
-            //   console.log("valuess : ",value);
-            //   $scope.studentSportList[i] = value.sportslist;
-            //   i++;
-            // });
-            // //$scope.studentSportList = data.data[0].sportslist;
-            // console.log("studentSport = ",$scope.studentSportList);
+          //console.log($scope.studentSport);
           }else{
             $scope.studentSport = [];
+            console.log("Error while fetching Student Sports.");
           }
       });
     };
