@@ -1724,6 +1724,9 @@ img.fancybox-image {
 .mb50 {
     margin-bottom: 50%;
 }
+.pb60{
+  padding-bottom:60px;
+}
 .mb15 {
     margin-bottom: 15px;
 }
@@ -2228,6 +2231,13 @@ img.fancybox-image {
 }
 .top-c {
     top: 0;
+}
+.bl-box {
+    background-color: #ebebeb;
+}
+
+.bl-tittle {
+    padding: 7px 20px;
 }
 @import "fancybox-override";
 @import "mobile";

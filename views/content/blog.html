@@ -1,19 +1,24 @@
 <section>
-  <div class="text-center">
-    <h2 class="color-orange">BLOG</h2>
-    <div class="blog-bn">
+  <div class="text-center mt40">
+    <h2 class="color-orange font-bold">BLOG</h2>
+    <div class="blog-bn mt40">
       <img src="img/blog.jpg" alt="Sports For All" class="img-responsive width100">
+      <!-- <flex-slider flex-slide="banner in banners track by $index" prev-text="" next-text="">
+          <li>
+              <a><img ng-src="{{banner.image | uploadpath}}" class="img-responsive"></a>
+          </li>
+      </flex-slider> -->
     </div>
   </div>
 </section>
-<section>
+<section class="mt25 pb60">
   <div class="container">
     <div class="row">
       <div class="col-md-3" ng-repeat="item in blog track by $index">
         <div class="bl-box">
           <img ng-src="{{item.img}}" alt="Sports For All" class="img-responsive">
           <div class="bl-tittle">
-            <h4 class="color-blue">{{item.title}}</h4>
+            <h4 class="color-blue font-bold">{{item.title}}</h4>
             <p class="color-base">{{item.desc}}</p>
           </div>
         </div>
