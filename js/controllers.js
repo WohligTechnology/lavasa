@@ -153,6 +153,50 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
+    .controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        console.log("Testing Consoles");
+
+        $scope.template = TemplateService.changecontent("blog");
+        $scope.menutitle = NavigationService.makeactive("Blog");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+        $scope.blog=[{
+          img:"img/b1.jpg",
+          title:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          desc:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+
+        },{
+          img:"img/b1.jpg",
+          title:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          desc:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+
+        },{
+          img:"img/b1.jpg",
+          title:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          desc:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+
+        },{
+          img:"img/b1.jpg",
+          title:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          desc:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+
+        }];
+
+    })
+    .controller('BlogDetailCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        console.log("Testing Consoles");
+
+        $scope.template = TemplateService.changecontent("blog-detail");
+        $scope.menutitle = NavigationService.makeactive("Blog Detail");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
     .controller('SwissCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
