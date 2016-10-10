@@ -114,12 +114,14 @@
                   </div>
 
                 <h4 class="color-blue text-up font-semi mt25">sports participated</h4>
+                <h5 ng-if="studentSport == ''" class="text-up font-semi mt25">No sports participated in {{filter.year}}</h5>
                 <div class="sf-relative mt15">
                     <div class="sport-icon-list sf-list blue-cat">
                         <ul>
-                            <hovericon game="game" ng-repeat="game in games" ng-click="makeactive(game);"></hovericon>
+                            <hovericon game="game" ng-repeat="game in studentSport" ng-click="makeactive(game);"></hovericon>
                         </ul>
                     </div>
+
                 </div>
             </div>
         </div>

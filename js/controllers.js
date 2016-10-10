@@ -264,7 +264,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           if(response){
             console.log("get limited media : ",response);
               $scope.mediaArr = response.data;
-            console.log();
             //console.log("folder data : ",$scope.folders);
           }
           else {
@@ -1281,17 +1280,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
     $scope.getStudentSport = function(constraints) {
       //console.log("constraints : ",constraints);
-      NavigationService.getStudentSport(constraints, function(data) {
-          console.log("studentSport data = ",data);
-          $scope.studentSport = data.data;
-          var i = 0;
-          _.each($scope.studentSport,function(value) {
-            console.log("valuess : ",value);
-            $scope.studentSportList[0] = value.sportslist;
-            i++;
-          });
-          //$scope.studentSportList = data.data[0].sportslist;
-          console.log("studentSport = ",$scope.studentSportList);
+      var i = 0;
+      NavigationService.getStudentSport(constraints, function(response) {
+          if(response.value){
+          //   console.log("studentSport data = ",data);
+            $scope.studentSport = response.data;
+            console.log($scope.studentSport);
+
+            // _.each($scope.studentSport,function(value) {
+            //   console.log("valuess : ",value);
+            //   $scope.studentSportList[i] = value.sportslist;
+            //   i++;
+            // });
+            // //$scope.studentSportList = data.data[0].sportslist;
+            // console.log("studentSport = ",$scope.studentSportList);
+          }else{
+            $scope.studentSport = [];
+          }
       });
     };
 

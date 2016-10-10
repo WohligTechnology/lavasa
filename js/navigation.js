@@ -139,9 +139,9 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getStudentSport: function(request, callback) {
-            // console.log('form data: ', formData);
+            console.log('request data: ', request);
             $http({
-                url: adminurl + 'studentsport/getsports',
+                url: adminurl + 'studentsport/getsportspopulated',
                 method: 'POST',
                 withCredentials: true,
                 data: request
