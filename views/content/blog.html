@@ -1,0 +1,23 @@
+<section>
+  <div class="text-center">
+    <h2 class="color-orange">BLOG</h2>
+    <div class="blog-bn">
+      <img src="img/blog.jpg" alt="Sports For All" class="img-responsive width100">
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3" ng-repeat="item in blog track by $index">
+        <div class="bl-box">
+          <img ng-src="{{item.img}}" alt="Sports For All" class="">
+          <div class="bl-tittle">
+            <h4 class="color-blue">{{item.title}}</h4>
+            <p class="color-base">{{item.desc}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
