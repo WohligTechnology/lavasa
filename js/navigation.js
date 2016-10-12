@@ -139,7 +139,7 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getStudentSport: function(request, callback) {
-            console.log('request data: ', request);
+            //console.log('request data: ', request);
             $http({
                 url: adminurl + 'studentsport/getsportspopulated',
                 method: 'POST',
@@ -148,9 +148,9 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getSchoolMedalCount: function(request, callback) {
-            console.log('request data: ', request);
+            //console.log('request data: ', request);
             $http({
-                url: adminurl + 'school/getsportspopulated',
+                url: adminurl + 'medal/countOneSchoolMedal',
                 method: 'POST',
                 withCredentials: true,
                 data: request

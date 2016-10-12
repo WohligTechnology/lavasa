@@ -1,6 +1,6 @@
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -20,7 +20,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
         $scope.removeSlideClass = function(obj, index) {
-            for (var i =  0; i < $scope.game.length; i++) {
+            for (var i = 0; i < $scope.game.length; i++) {
                 $scope.game[i].class = "";
             }
             // $scope.$apply();
@@ -163,40 +163,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
-        $scope.blog=[{
-          img:"img/b1.jpg",
-          title:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-          desc:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        $scope.blog = [{
+            img: "img/b1.jpg",
+            title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 
-        },{
-          img:"img/b1.jpg",
-          title:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-          desc:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        }, {
+            img: "img/b1.jpg",
+            title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 
-        },{
-          img:"img/b1.jpg",
-          title:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-          desc:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        }, {
+            img: "img/b1.jpg",
+            title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 
-        },{
-          img:"img/b1.jpg",
-          title:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-          desc:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        }, {
+            img: "img/b1.jpg",
+            title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 
         }];
 
     })
     .controller('DrawScheduleCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
+        //Used to name the .html file
 
-    console.log("Testing Consoles");
+        console.log("Testing Consoles");
 
-    $scope.template = TemplateService.changecontent("draw-schedule");
-    $scope.menutitle = NavigationService.makeactive("Draw Schedule");
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+        $scope.template = TemplateService.changecontent("draw-schedule");
+        $scope.menutitle = NavigationService.makeactive("Draw Schedule");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
-})
+    })
     .controller('BlogDetailCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
@@ -232,8 +232,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.flags.openGallery = false;
         $scope.flag = {};
         $scope.classes = {}
-        $scope.filter={};
-        $scope.folders=[];
+        $scope.filter = {};
+        $scope.folders = [];
         $scope.flag.openGallerys = false;
         // if ($stateParams.name) {
         //     console.log($stateParams);
@@ -301,55 +301,53 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
 
         };
-        $scope.getMediaFolders = function () {
-          // $scope.filter.mediatype = "photo";
-          NavigationService.getFolders($scope.filter,function (response) {
-            if(response){
-              console.log(response);
-              $scope.folders = response.data;
-              //console.log("folder data : ",$scope.folders);
-            }
-            else {
-              console.log("No data found");
-            }
-          })
-      }
-      $scope.loadMedia = function() {
-        NavigationService.getLimitedMedia($scope.filter,function (response) {
-          if(response){
-            console.log("get limited media : ",response);
-              $scope.mediaArr = response.data;
-            //console.log("folder data : ",$scope.folders);
-          }
-          else {
-            console.log("No data found");
-            $scope.mediaArr = [];
-          }
-        })
-      }
+        $scope.getMediaFolders = function() {
+            // $scope.filter.mediatype = "photo";
+            NavigationService.getFolders($scope.filter, function(response) {
+                if (response) {
+                    console.log(response);
+                    $scope.folders = response.data;
+                    //console.log("folder data : ",$scope.folders);
+                } else {
+                    console.log("No data found");
+                }
+            })
+        }
+        $scope.loadMedia = function() {
+            NavigationService.getLimitedMedia($scope.filter, function(response) {
+                if (response) {
+                    console.log("get limited media : ", response);
+                    $scope.mediaArr = response.data;
+                    //console.log("folder data : ",$scope.folders);
+                } else {
+                    console.log("No data found");
+                    $scope.mediaArr = [];
+                }
+            })
+        }
         console.log($stateParams);
-        if(!$stateParams.type && !$stateParams.folder){
-          $scope.filter.mediatype ="photo";
-          $scope.flags.openGallery =  false;
-          $scope.tabchanges('photo',1);
-          $scope.getMediaFolders();
-        }else{
-          if($stateParams.type && $stateParams.folder){
-              $scope.filter.mediatype = $stateParams.type;
-              $scope.filter.folder = $stateParams.folder;
-              $scope.filter.year = "2015";
-              $scope.filter.pagenumber = 1;
-
-              $scope.loadMedia();
-              $scope.tabchanges($scope.filter.mediatype,1);
-              $scope.flags.openGallery =  true;
-          }else if($stateParams.type){
-            $scope.filter.mediatype =$stateParams.type;
-            $scope.flags.openGallery =  false;
-            $scope.tabchanges($stateParams.type,1);
-            console.log($scope.filter);
+        if (!$stateParams.type && !$stateParams.folder) {
+            $scope.filter.mediatype = "photo";
+            $scope.flags.openGallery = false;
+            $scope.tabchanges('photo', 1);
             $scope.getMediaFolders();
-          }
+        } else {
+            if ($stateParams.type && $stateParams.folder) {
+                $scope.filter.mediatype = $stateParams.type;
+                $scope.filter.folder = $stateParams.folder;
+                $scope.filter.year = "2015";
+                $scope.filter.pagenumber = 1;
+
+                $scope.loadMedia();
+                $scope.tabchanges($scope.filter.mediatype, 1);
+                $scope.flags.openGallery = true;
+            } else if ($stateParams.type) {
+                $scope.filter.mediatype = $stateParams.type;
+                $scope.flags.openGallery = false;
+                $scope.tabchanges($stateParams.type, 1);
+                console.log($scope.filter);
+                $scope.getMediaFolders();
+            }
         }
         $scope.tabs = 'photo';
         $scope.classp = 'active-list';
@@ -656,12 +654,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.classv = '';
 
     NavigationService.getSportRuleByName($stateParams, function(response) {
-            if (response.value) {
-                $scope.sport = response.data;
-            } else {
-                console.log("No sports data found");
-            }
-        });
+        if (response.value) {
+            $scope.sport = response.data;
+        } else {
+            console.log("No sports data found");
+        }
+    });
 
     $scope.tabchanges = function(tabs, a) {
         //        console.log(tab);
@@ -755,7 +753,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     ];
 })
 
-.controller('SchoolBioCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal,$stateParams) {
+.controller('SchoolBioCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $stateParams) {
     //Used to name the .html file
 
 
@@ -870,23 +868,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
 
     $scope.getSchoolProfile = function() {
-      NavigationService.getSchoolProfile($stateParams.id, function(data) {
-          console.log(data.data);
-          $scope.getSchoolProfile = data.data;
-          if($scope.getSchoolProfile.status){
-              $scope.getSchoolProfile.isVerified = "Verified";
-          }else{
-              $scope.getSchoolProfile.isVerified = "Not Verif ied";
-          }
-          $scope.getSchoolProfile.contingentLeader = _.map($scope.getSchoolProfile.contingentLeader).join(', ');
-          $scope.department = $scope.getSchoolProfile.department;
+        NavigationService.getSchoolProfile($stateParams.id, function(data) {
+            console.log(data.data);
+            $scope.getSchoolProfile = data.data;
+            if ($scope.getSchoolProfile.status) {
+                $scope.getSchoolProfile.isVerified = "Verified";
+            } else {
+                $scope.getSchoolProfile.isVerified = "Not Verif ied";
+            }
+            $scope.getSchoolProfile.contingentLeader = _.map($scope.getSchoolProfile.contingentLeader).join(', ');
+            $scope.department = $scope.getSchoolProfile.department;
 
-          _.forEach($scope.department, function(value, key) {
-              value = _.merge(value,{ icon: "img/sf-student-profile.png" });
-          });
+            _.forEach($scope.department, function(value, key) {
+                value = _.merge(value, {
+                    icon: "img/sf-student-profile.png"
+                });
+            });
 
-          console.log($scope.department);
-      });
+            console.log($scope.department);
+        });
     };
     $scope.getSchoolProfile();
 })
@@ -1079,75 +1079,84 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
     }];
     NavigationService.getSchoolProfile($stateParams.id, function(data) {
-      if(data.value){
-        console.log("school data : ",data.data);
-        $scope.getSchoolProfile = data.data;
-        $scope.schoolSports = data.data.sports;
-      }
-      else {
-        {
-          $scope.getSchoolProfile = '';
-          $scope.schoolSports = '';
-          console.log("Error while fetching School Profile.");
+        if (data.value) {
+            console.log("school data : ", data.data);
+            $scope.getSchoolProfile = data.data;
+            $scope.schoolSports = data.data.sports;
+        } else {
+            {
+                $scope.getSchoolProfile = '';
+                $scope.schoolSports = '';
+                console.log("Error while fetching School Profile.");
+            }
         }
-      }
     });
-   $scope.changeYear = function(){
-     $scope.schooldata.Boys = 0
-     $scope.schooldata.Girls = 0
-     $scope.filter.sport = '';
-     var constraints = {};
-     constraints.year = $scope.filter.year;
-     constraints._id = $stateParams.id;
-     $scope.getSportParticipated(constraints);
-       //console.log($scope.getSportParticipated();
-   }
-    // $scope.showInactive = true;
-    // $scope.showActive = false;
-    $scope.showHide = function (selected) {
-      $scope.sportContingent.showContingent = true;
-      console.log("value");
-        _.each($scope.clickstatuses,function (value,property) {
-          $scope.clickstatuses[property] = false;
+    $scope.changeYear = function() {
+        $scope.schooldata.Boys = 0
+        $scope.schooldata.Girls = 0
+        $scope.filter.sport = '';
+        var constraints = {};
+        constraints.year = $scope.filter.year;
+        constraints._id = $stateParams.id;
+        constraints.school = $stateParams.id;
+        // constraints._id = $stateParams.id;
+        $scope.getSportParticipated(constraints);
+        $scope.schoolMedalCount(constraints);
+    };
+
+    $scope.showHide = function(selected) {
+        $scope.sportContingent.showContingent = true;
+        console.log("value");
+        _.each($scope.clickstatuses, function(value, property) {
+            $scope.clickstatuses[property] = false;
         })
-        $scope.clickstatuses[selected]=true;
+        $scope.clickstatuses[selected] = true;
         console.log($scope.clickstatuses);
         $scope.filter.sport = selected
     };
 
-    $scope.schoolMedalCount = function() {
+    $scope.schoolMedalCount = function(constraints) {
+        NavigationService.getSchoolMedalCount(constraints, function(data) {
+            //console.log("Medal : ", data);
+            if (data.value) {
+                $scope.schoolMedal = data.data;
+                console.log("school Medal : ", $scope.schoolMedal);
+            } else {
+                $scope.schoolMedal = '';
+                console.log("No School Medal data found");
+            }
+        });
+    };
 
-    }
-
-   $scope.getSportParticipated = function(){
-
-       console.log("constraints : ",constraints);
+    $scope.getSportParticipated = function(constraints) {
+      console.log("constraints : ", constraints);
         NavigationService.getSchoolSportByGender(constraints, function(data) {
-        if(data.value){
-            $scope.sportsStudentGender = data.data;
-            console.log("sports student data : ",$scope.sportsStudentGender);
-            _.each($scope.sportsStudentGender,function(key){
-                _.each(key.gender,function(value){
-                    key[value.name]=value.count;
-                    $scope.schooldata[value.name] = $scope.schooldata[value.name] + value.count;
+            if (data.value) {
+                $scope.sportsStudentGender = data.data;
+                console.log("sports student data : ", $scope.sportsStudentGender);
+                _.each($scope.sportsStudentGender, function(key) {
+                    _.each(key.gender, function(value) {
+                        key[value.name] = value.count;
+                        $scope.schooldata[value.name] = $scope.schooldata[value.name] + value.count;
+                    });
                 });
-            });
-            // $scope.$apply();
-        }
-        else {
-          console.log("No School data found");
-        }
-    });
-   };
-   $scope.filter.year = "2016";
-   $scope.changeYear();
+                // $scope.$apply();
+            } else {
+                $scope.sportsStudentGender = '';
+                schooldata = '';
+                console.log("No School data found");
+            }
+        });
+    };
+    $scope.filter.year = "2016";
+    $scope.changeYear();
     NavigationService.getAgegroup(function(data) {
         data.data.unshift({
             _id: "All",
             name: "All"
         });
         $scope.agegroup = data.data;
-        console.log("agegroup : ",$scope.agegroup);
+        console.log("agegroup : ", $scope.agegroup);
     });
     $scope.callReload();
 })
@@ -1319,48 +1328,46 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         icon: "img/m3.jpg",
         name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
     }];
-    $scope.getStudentProfile = function(){
-      NavigationService.getStudentProfile($stateParams.id, function(data) {
-        if(data.value)
-        {
-          console.log(data);
-          $scope.studentProfile = data.data;
-          if ($scope.studentProfile.gender == "Boys") {
-              $scope.studentProfile.gender = "Male";
-          } else {
-              $scope.studentProfile.gender = "Female";
-          }
-        }
-        else {
-          $scope.studentProfile = [];
-          console.log("Error while fetching Student Profile.");
-        }
-      });
+    $scope.getStudentProfile = function() {
+        NavigationService.getStudentProfile($stateParams.id, function(data) {
+            if (data.value) {
+                console.log(data);
+                $scope.studentProfile = data.data;
+                if ($scope.studentProfile.gender == "Boys") {
+                    $scope.studentProfile.gender = "Male";
+                } else {
+                    $scope.studentProfile.gender = "Female";
+                }
+            } else {
+                $scope.studentProfile = [];
+                console.log("Error while fetching Student Profile.");
+            }
+        });
     };
     $scope.getStudentProfile();
 
     $scope.changeYear = function() {
-      var constraints = {};
-      constraints.year = $scope.filter.year;
-      constraints.student = $stateParams.id;
-      $scope.getStudentSport(constraints);
+        var constraints = {};
+        constraints.year = $scope.filter.year;
+        constraints.student = $stateParams.id;
+        $scope.getStudentSport(constraints);
     }
     $scope.getStudentSport = function(constraints) {
-      //console.log("constraints : ",constraints);
-      var i = 0;
-      NavigationService.getStudentSport(constraints, function(response) {
-          if(response.value){
-          //   console.log("studentSport data = ",data);
-            $scope.studentSport = response.data;
-          console.log($scope.studentSport);
-          }else{
-            $scope.studentSport = [];
-            console.log("Error while fetching Student Sports.");
-          }
-      });
+        //console.log("constraints : ",constraints);
+        var i = 0;
+        NavigationService.getStudentSport(constraints, function(response) {
+            if (response.value) {
+                //   console.log("studentSport data = ",data);
+                $scope.studentSport = response.data;
+                console.log($scope.studentSport);
+            } else {
+                $scope.studentSport = [];
+                console.log("Error while fetching Student Sports.");
+            }
+        });
     };
 
-    $scope.makeActive = function (sports) {
+    $scope.makeActive = function(sports) {
         //console.log("sports : ",sports.sportslist);
     };
 
