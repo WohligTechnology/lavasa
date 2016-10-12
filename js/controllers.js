@@ -163,6 +163,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
+        $scope.mySlides = [
+           'img/blog.jpg',
+           'img/blog.jpg',
+           'img/blog.jpg',
+           'img/blog.jpg'
+       ];
+
         $scope.blog = [{
             img: "img/b1.jpg",
             title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
