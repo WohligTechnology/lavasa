@@ -64,6 +64,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'ContactCtrl'
         })
+        .state('draw-schedule', {
+    url: "/draw-schedule",
+    templateUrl: "views/template.html",
+    controller: 'DrawScheduleCtrl'
+})
         .state('faq', {
             url: "/faq",
             templateUrl: "views/template.html",
