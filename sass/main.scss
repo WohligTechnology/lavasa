@@ -764,6 +764,9 @@ hr {
 .ver-base {
     vertical-align: baseline;
 }
+.ver-bottom {
+    vertical-align: bottom;
+}
 .w25 {
     width: 25px;
     margin-right: 6px;
@@ -1728,8 +1731,8 @@ img.fancybox-image {
 .mb50 {
     margin-bottom: 50%;
 }
-.pb60{
-  padding-bottom:60px;
+.pb60 {
+    padding-bottom: 60px;
 }
 .mb15 {
     margin-bottom: 15px;
@@ -2239,11 +2242,9 @@ img.fancybox-image {
 .bl-box {
     background-color: #ebebeb;
 }
-
 .bl-tittle {
     padding: 7px 20px;
 }
-
 .bl-img {
     border-top: 1px solid;
     padding-top: 20px;
@@ -2252,19 +2253,35 @@ img.fancybox-image {
     background: #ebebeb;
     padding: 30px 65px;
 }
-.cp{
-  display: block;
-padding-bottom: 20px;
+.cp {
+    display: block;
+    padding-bottom: 20px;
 }
-.w35{
-  width: 35px;
+.w35 {
+    width: 35px;
 }
-.dr-acc{
-  .panel-default > .panel-heading {
-
-    background-color: #ebebeb;
-
+.dr-acc {
+    .panel-default > .panel-heading {
+        background-color: #ebebeb;
+    }
 }
+.dr-table {
+    .table {
+        thead {
+            tr {
+                th {
+                    background: #e1e1e1;
+                    text-align: center;
+                }
+            }
+        }
+        tbody {
+            tr {
+                background-color: rgba(225, 225, 225, 0);
+                border-bottom: 1px solid #ececec;
+            }
+        }
+    }
 }
 @import "fancybox-override";
 @import "mobile";
