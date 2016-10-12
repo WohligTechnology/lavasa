@@ -424,8 +424,14 @@ margin-top: 40px;
 
     }
 }
+.bl-bg {
+  padding: 30px 30px;
+}
 }
 @media (max-width:480px) {
+  .bl-bg {
+    padding: 30px 30px;
+}
   .sport-slider {
 
       .flex-direction-nav .flex-prev {
