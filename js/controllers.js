@@ -153,17 +153,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('DrawScheduleCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-        //Used to name the .html file
-
-        console.log("Testing Consoles");
-
-        $scope.template = TemplateService.changecontent("draw-schedule");
-        $scope.menutitle = NavigationService.makeactive("Draw Schedule");
-        TemplateService.title = $scope.menutitle;
-        $scope.navigation = NavigationService.getnav();
-
-    })
     .controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
@@ -1096,7 +1085,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
      $scope.schooldata.Boys = 0
      $scope.schooldata.Girls = 0
      $scope.filter.sport = '';
-       $scope.getSportParticipated();
+     var constraints = {};
+     constraints.year = $scope.filter.year;
+     constraints._id = $stateParams.id;
+     $scope.getSportParticipated(constraints);
        //console.log($scope.getSportParticipated();
    }
     // $scope.showInactive = true;
@@ -1110,12 +1102,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.clickstatuses[selected]=true;
         console.log($scope.clickstatuses);
         $scope.filter.sport = selected
+    };
+
+    $scope.schoolMedalCount = function() {
+
     }
 
    $scope.getSportParticipated = function(){
-       var constraints = {};
-       constraints.year = $scope.filter.year;
-       constraints._id = $stateParams.id;
+
        console.log("constraints : ",constraints);
         NavigationService.getSchoolSportByGender(constraints, function(data) {
         if(data.value){
@@ -1486,7 +1480,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             name: "Harshit Shah",
             dep: "45211"
         }, {
-            icon: "img/sf-student-profile.png",
+            icon: "img/sf-student-profile.png ",
             name: "Harshit Shah",
             dep: "45211"
         }, {

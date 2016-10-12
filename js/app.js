@@ -18,6 +18,16 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'HomeCtrl'
         })
+        .state('blog', {
+           url: "/blog",
+           templateUrl: "views/template.html",
+           controller: 'BlogCtrl'
+       })
+       .state('blog-detail', {
+           url: "/blog-detail",
+           templateUrl: "views/template.html",
+           controller: 'BlogDetailCtrl'
+       })
         .state('school', {
             url: "/school",
             templateUrl: "views/template.html",
@@ -27,11 +37,6 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             url: "/media-gallery",
             templateUrl: "views/template.html",
             controller: 'MediaGalleryCtrl'
-        })
-        .state('draw-schedule', {
-            url: "/draw-schedule",
-            templateUrl: "views/template.html",
-            controller: 'DrawScheduleCtrl'
         })
         .state('media-gallery-inside', {
             url: "/media-gallery/:type/:folder",
