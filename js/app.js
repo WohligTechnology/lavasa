@@ -19,20 +19,20 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'HomeCtrl'
         })
         .state('blog', {
-           url: "/blog",
-           templateUrl: "views/template.html",
-           controller: 'BlogCtrl'
-       })
-       .state('blog-detail', {
-           url: "/blog-detail",
-           templateUrl: "views/template.html",
-           controller: 'BlogDetailCtrl'
-       })
-       .state('champions', {
-          url: "/champions",
-          templateUrl: "views/template.html",
-          controller: 'ChampionsCtrl'
-      })
+            url: "/blog",
+            templateUrl: "views/template.html",
+            controller: 'BlogCtrl'
+        })
+        .state('blog-detail', {
+            url: "/blog-detail",
+            templateUrl: "views/template.html",
+            controller: 'BlogDetailCtrl'
+        })
+        .state('champions', {
+            url: "/champions",
+            templateUrl: "views/template.html",
+            controller: 'ChampionsCtrl'
+        })
         .state('school', {
             url: "/school",
             templateUrl: "views/template.html",
@@ -49,7 +49,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'MediaGalleryCtrl'
         })
 
-        .state('media-gallery-type', {
+    .state('media-gallery-type', {
             url: "/media-gallery/:type",
             templateUrl: "views/template.html",
             controller: 'MediaGalleryCtrl'
@@ -70,10 +70,10 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'ContactCtrl'
         })
         .state('draw-schedule', {
-    url: "/draw-schedule",
-    templateUrl: "views/template.html",
-    controller: 'DrawScheduleCtrl'
-})
+            url: "/draw-schedule",
+            templateUrl: "views/template.html",
+            controller: 'DrawScheduleCtrl'
+        })
         .state('faq', {
             url: "/faq",
             templateUrl: "views/template.html",

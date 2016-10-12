@@ -1358,6 +1358,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         constraints.year = $scope.filter.year;
         constraints.student = $stateParams.id;
         $scope.getStudentSport(constraints);
+        $scope.studentMedalCount(constraints);
     }
     $scope.getStudentSport = function(constraints) {
         //console.log("constraints : ",constraints);
@@ -1370,6 +1371,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             } else {
                 $scope.studentSport = [];
                 console.log("Error while fetching Student Sports.");
+            }
+        });
+    };
+
+    $scope.studentMedalCount = function(constraints) {
+        NavigationService.getStudentMedalCount(constraints, function(data) {
+            if (data.value) {
+                $scope.studentMedal = data.data;
+            } else {
+                $scope.studentMedal = '';
+                console.log("No Student Medal found");
             }
         });
     };
