@@ -684,7 +684,7 @@ hr {
 }
 .sfa-select {
     position: relative;
-    z-index: 99;
+    z-index: 9;
     margin-left: 10px;
     .select {
         @include appearance(none);
