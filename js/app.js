@@ -401,10 +401,7 @@ firstapp.directive('hovericon', function($document) {
                     $bottom.width($top.width());
                 });
             }
-
-
         }
-
     };
 });
 firstapp.directive('scores', function($document) {
