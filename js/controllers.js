@@ -186,6 +186,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }];
 
     })
+    .controller('DrawScheduleCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+
+    console.log("Testing Consoles");
+
+    $scope.template = TemplateService.changecontent("draw-schedule");
+    $scope.menutitle = NavigationService.makeactive("Draw Schedule");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+})
     .controller('BlogDetailCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
