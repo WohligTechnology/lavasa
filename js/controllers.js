@@ -891,6 +891,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.getSchoolProfile();
 })
 
+.controller('ChampionsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+    console.log("Testing Consoles");
+    $scope.template = TemplateService.changecontent("champions");
+    $scope.menutitle = NavigationService.makeactive("Champions");
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+})
+
 .controller('SchoolCtrl', function($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("school");
@@ -1117,10 +1127,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.schoolMedalCount = function(constraints) {
         NavigationService.getSchoolMedalCount(constraints, function(data) {
-            //console.log("Medal : ", data);
             if (data.value) {
                 $scope.schoolMedal = data.data;
-                console.log("school Medal : ", $scope.schoolMedal);
             } else {
                 $scope.schoolMedal = '';
                 console.log("No School Medal data found");
@@ -1129,7 +1137,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.getSportParticipated = function(constraints) {
-      console.log("constraints : ", constraints);
+        console.log("constraints : ", constraints);
         NavigationService.getSchoolSportByGender(constraints, function(data) {
             if (data.value) {
                 $scope.sportsStudentGender = data.data;
@@ -1140,7 +1148,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $scope.schooldata[value.name] = $scope.schooldata[value.name] + value.count;
                     });
                 });
-                // $scope.$apply();
             } else {
                 $scope.sportsStudentGender = '';
                 schooldata = '';
@@ -1156,7 +1163,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             name: "All"
         });
         $scope.agegroup = data.data;
-        console.log("agegroup : ", $scope.agegroup);
+        //console.log("agegroup : ", $scope.agegroup);
     });
     $scope.callReload();
 })
