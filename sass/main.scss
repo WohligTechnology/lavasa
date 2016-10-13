@@ -2090,7 +2090,7 @@ img.fancybox-image {
     height: 226px !important;
 }
 .over-layer {
-    background: rgba(0, 0, 0, 0.77);
+    background: rgba(0, 0, 0, 0.55);
     top: 0;
     height: 100%;
     width: 100%;
@@ -2282,6 +2282,11 @@ img.fancybox-image {
             }
         }
     }
+}
+.oth-pos{
+  bottom: 0;
+left: 50%;
+@include transform(translatex(-50%));
 }
 @import "fancybox-override";
 @import "mobile";

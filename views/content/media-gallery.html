@@ -63,8 +63,8 @@ Press release
                                                 <div class="display-inline">
                                                     <div class="sfa-select">
                                                         <select ng-change="loadMedia()" class="select" ng-model="filter.year">
-                                                          <option value="2015">SFA MUMBAI 2015</option>
-                                                          <option value="2016">SFA MUMBAI 2016</option>
+                                                            <option value="2015">SFA MUMBAI 2015</option>
+                                                            <option value="2016">SFA MUMBAI 2016</option>
                                                         </select>
                                                         <span class="only-border"></span>
                                                     </div>
@@ -81,7 +81,7 @@ Press release
                                         <div class="folder-box sf-relative">
                                             <img ng-src="{{item.medialink | mediapath}}" alt="Sports For All" class="img-responsive width100 hover-min">
                                             <div class="over-layer sf-absulate">
-                                                <h4 class="banner-set sf-absulate">{{item.mediatitle}}</h4>
+                                                <h4 class="oth-pos sf-absulate">{{item.mediatitle}}</h4>
                                             </div>
                                         </div>
                                     </a>
@@ -90,7 +90,7 @@ Press release
                             <div class="row text-center" ng-if="mediaArr.data.length === 0">
                                 <h4><b>No Photos Found</b></h4>
                             </div>
-                            <uib-pagination  ng-if="mediaArr.data.length > 0" ng-change="loadMedia();" total-items="mediaArr.total" ng-model="filter.pagenumber" items-per-page="12">
+                            <uib-pagination ng-if="mediaArr.data.length > 0" ng-change="loadMedia();" total-items="mediaArr.total" ng-model="filter.pagenumber" items-per-page="12">
                             </uib-pagination>
                         </div>
                     </div>
@@ -128,9 +128,9 @@ Press release
                                                 <div class="display-inline">
                                                     <div class="sfa-select">
                                                         <select ng-change="loadMedia()" class="select" ng-model="filter.year">
-                                                          <option value="2015">SFA MUMBAI 2015</option>
-                                                          <option value="2016">SFA MUMBAI 2016</option>
-                                                      </select>
+                                                            <option value="2015">SFA MUMBAI 2015</option>
+                                                            <option value="2016">SFA MUMBAI 2016</option>
+                                                        </select>
                                                         <span class="only-border"></span>
                                                     </div>
                                                 </div>
@@ -155,7 +155,7 @@ Press release
                             <div class="row text-center" ng-if="mediaArr.data.length === 0">
                                 <h4><b>No Videos Found</b></h4>
                             </div>
-                            <uib-pagination  ng-if="mediaArr.data.length > 0" ng-change="loadMedia();" total-items="mediaArr.total" ng-model="filter.pagenumber" items-per-page="12">
+                            <uib-pagination ng-if="mediaArr.data.length > 0" ng-change="loadMedia();" total-items="mediaArr.total" ng-model="filter.pagenumber" items-per-page="12">
                             </uib-pagination>
                         </div>
                     </div>
@@ -167,9 +167,9 @@ Press release
                                     <div class="display-inline">
                                         <div class="sfa-select">
                                             <select ng-change="loadMedia();" class="select" ng-model="filter.year">
-                                              <option value="2015">SFA MUMBAI 2015</option>
-                                              <option value="2016">SFA MUMBAI 2016</option>
-                                    </select>
+                                                <option value="2015">SFA MUMBAI 2015</option>
+                                                <option value="2016">SFA MUMBAI 2016</option>
+                                            </select>
                                             <span class="only-border"></span>
                                         </div>
                                     </div>
