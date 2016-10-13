@@ -1026,9 +1026,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           if (data.value != false) {
             $scope.allSchools = data.data.data;
             console.log("ALL school",$scope.allSchools);
-            var schoolSplit = Math.round($scope.allSchools.length/2);
-            console.log("split",schoolSplit);
-            $scope.schoolsData = _.chunk($scope.allSchools,schoolSplit);
+            $scope.schoolSplit = Math.round($scope.allSchools.length/2);
+            console.log("split",$scope.schoolSplit);
+            $scope.schoolsData = _.chunk($scope.allSchools,$scope.schoolSplit);
             // $scope.schoolsData1 = $scope.schoolChunkData[0]
             // $scope.schoolsData2 =
             console.log("school chunk data",$scope.schoolsData);

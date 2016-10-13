@@ -99,12 +99,13 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-6">
                     <div class="mt15">
                         <div class="sc-name">
                             <ul>
                                 <li ng-repeat="schools2 in schoolsData[1]">
-                                    <span>{{$index}}</span>
+                                    <span>{{$index + schoolSplit + 1}}</span>
                                     <p>{{schools2.school.name | letterLimit : 50}}</p>
                                 </li>
                             </ul>
