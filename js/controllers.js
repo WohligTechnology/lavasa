@@ -164,11 +164,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
         $scope.mySlides = [
-           'img/blog.jpg',
-           'img/blog.jpg',
-           'img/blog.jpg',
-           'img/blog.jpg'
-       ];
+            'img/blog.jpg',
+            'img/blog.jpg',
+            'img/blog.jpg',
+            'img/blog.jpg'
+        ];
 
         $scope.blog = [{
             img: "img/b1.jpg",
@@ -917,6 +917,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.search = {};
     $scope.search.active = false;
     $scope.filter = {};
+    $scope.school = {};
+    $scope.constraints = {};
 
     // $scope.school = [{
     //     img: "img/sf-school.png",
@@ -938,10 +940,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     img: "img/sf-school.png",
     //     name: "Dhirubhai Ambani Intertional School",
     //     rank: "19"
-    // }, {
-    //     img: "img/sf-school.png",
-    //     name: "Dhirubhai Ambani Intertional School",
-    //     rank: "20"
     // }];
     $scope.pagination = {};
     $scope.pagination.pagesize = 20;
@@ -992,6 +990,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.getFirstListSchool(function(data) {
                 if (data.value != false) {
                     $scope.topschools = data.data.data;
+                    //console.log("top school",$scope.topschools);
                     $scope.count = data.data.count;
                 } else {
                     $scope.getFirstList = [];
@@ -999,7 +998,48 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         }
     };
-    $scope.submitSearch();
+
+    $scope.changeYear = function() {
+      console.log("Year = ", $scope.filter.year);
+      if($scope.filter.year == "top20"){
+        $scope.school.showAll = false;
+        $scope.school.showTop20 = false;
+        $scope.submitSearch();
+      }
+      else{
+        if($scope.filter.year == 'all'){
+          $scope.filter.year = '';
+        }
+        console.log("Year check = ", $scope.filter.year);
+        $scope.constraints.year = $scope.filter.year;
+        $scope.allSchoolByYear();
+        if($scope.filter.year == ''){
+          $scope.filter.year = 'all';
+        }
+        $scope.school.showAll = true;
+        $scope.school.showTop20 = true;
+      }
+    };
+
+    $scope.allSchoolByYear = function(constraints) {
+      NavigationService.getFirstListSchool(function(data) {
+          if (data.value != false) {
+            $scope.allSchools = data.data.data;
+            console.log("ALL school",$scope.allSchools);
+            var schoolSplit = Math.round($scope.allSchools.length/2);
+            console.log("split",schoolSplit);
+            $scope.schoolsData = _.chunk($scope.allSchools,schoolSplit);
+            // $scope.schoolsData1 = $scope.schoolChunkData[0]
+            // $scope.schoolsData2 =
+            console.log("school chunk data",$scope.schoolsData);
+          } else {
+              $scope.allSchools = [];
+              $scope.schoolsData = [];
+          }
+      });
+    };
+    $scope.filter.year = "top20";
+    $scope.changeYear();
 })
 
 .controller('SchoolProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {

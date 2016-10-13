@@ -18,21 +18,6 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             templateUrl: "views/template.html",
             controller: 'HomeCtrl'
         })
-        .state('blog', {
-            url: "/blog",
-            templateUrl: "views/template.html",
-            controller: 'BlogCtrl'
-        })
-        .state('blog-detail', {
-            url: "/blog-detail",
-            templateUrl: "views/template.html",
-            controller: 'BlogDetailCtrl'
-        })
-        .state('champions', {
-            url: "/champions",
-            templateUrl: "views/template.html",
-            controller: 'ChampionsCtrl'
-        })
         .state('school', {
             url: "/school",
             templateUrl: "views/template.html",
@@ -49,7 +34,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'MediaGalleryCtrl'
         })
 
-    .state('media-gallery-type', {
+        .state('media-gallery-type', {
             url: "/media-gallery/:type",
             templateUrl: "views/template.html",
             controller: 'MediaGalleryCtrl'
@@ -68,11 +53,6 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             url: "/contact",
             templateUrl: "views/template.html",
             controller: 'ContactCtrl'
-        })
-        .state('draw-schedule', {
-            url: "/draw-schedule",
-            templateUrl: "views/template.html",
-            controller: 'DrawScheduleCtrl'
         })
         .state('faq', {
             url: "/faq",
@@ -422,6 +402,7 @@ firstapp.directive('hovericon', function($document) {
                 });
             }
         }
+
     };
 });
 firstapp.directive('scores', function($document) {

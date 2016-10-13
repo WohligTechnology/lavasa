@@ -12,7 +12,7 @@
                 </div>
                 <div class="mt15 text-center border-bottom">
                     <form class="">
-                        <input type="text" class="search-input" name="q"  value="Type school name" placeholder="Type school name or ID" ng-change="parseSearch(search.text);" ng-model="search.text">
+                        <input type="text" class="search-input" name="q" value="Type school name" placeholder="Type school name or ID" ng-change="parseSearch(search.text);" ng-model="search.text">
                         <input type="image" value="Search" src="img/sfa-search.png" class="search-btn" ng-click="submitSearch();">
                     </form>
                 </div>
@@ -27,44 +27,44 @@
                     <h4 class="text-up color-blue display-inline">schools</h4>
                     <div class="display-inline">
                         <div class="sfa-select">
-                            <select class="select" ng-model="filter.sport">
-                                <option value="top20" selected="selected">Top 20 Schools</option>
+                            <select class="select" ng-model="filter.year" ng-change="changeYear()">
+                                <option value="top20">Top 20 Schools</option>
                                 <option value="2015">SFA MUMBAI 2015</option>
                                 <option value="2016">SFA MUMBAI 2016</option>
-                                <option value="allSchools">All schools</option>
+                                <option value="all">All schools</option>
                             </select>
                             <span class="only-border"></span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-offset-2 col-md-8 col-xs-12">
+            <div class="col-md-offset-2 col-md-8 col-xs-12" ng-hide="school.showTop20">
                 <div class="">
-                    <div class="col-md-4 top-school col-sm-4 col-xs-12" ng-repeat="data in topschools" >
-                        <a ui-sref="school-profile({id:data._id})">
+                    <div class="col-md-4 top-school col-sm-4 col-xs-12" ng-repeat="data in topschools">
+                        <a ui-sref="school-profile({id:data.school._id})">
                             <div class="school-box">
                                 <div class="box-header">
                                     <div class="school-img border-r w130">
                                         <img ng-src="{{data.logo | uploadpath}}" alt="" class="margin-auto">
                                         <div class="sigh-img">
-                                            <img ng-show="data.status" ng-src="img/sf-right-big.png" alt="">
+                                            <img ng-show="data.school.status" ng-src="img/sf-right-big.png" alt="">
                                         </div>
 
                                         <div class="school-name text-center">
-                                            <h4 class="color-orange font-semi font16">{{data.name | letterLimit : 30}}</h4>
+                                            <h4 class="color-orange font-semi font16">{{data.school.name | letterLimit : 30}}</h4>
                                         </div>
                                         <div class="medal text-center">
                                             <span class="text-up color-white text-center">Medals Won</span>
                                             <div class="medal-count sf-list color-orange font-semi">
                                                 <ul class="padding0">
                                                     <li>
-                                                        <img src="img/sf-gold.png" alt="">{{data.medal.gold || '0'}}
+                                                        <img src="img/sf-gold.png" alt="">{{data.gold || '0'}}
                                                     </li>
                                                     <li>
-                                                        <img src="img/sf-silver.png" alt="">{{data.medal.silver || '0'}}
+                                                        <img src="img/sf-silver.png" alt="">{{data.silver || '0'}}
                                                     </li>
                                                     <li>
-                                                        <img src="img/sf-bronze.png" alt="">{{data.medal.bronze || '0'}}
+                                                        <img src="img/sf-bronze.png" alt="">{{data.bronze || '0'}}
                                                     </li>
                                                 </ul>
                                             </div>
@@ -75,7 +75,7 @@
                                     </div>
                                 </div>
                                 <div class="box-footer text-center">
-                                    <span class="text-up color-white font-semi">total point 26</span>
+                                    <span class="text-up color-white font-semi">total point {{data.school.totalPoints2015 || '0'}}</span>
                                 </div>
                             </div>
                         </a>
@@ -86,46 +86,32 @@
                 </div>
             </div>
             <!-- .alag ui school page -->
-            <!-- <div class="col-md-6">
-              <div class="mt15">
-                <div class="sc-name">
-                  <ul>
-                    <li>
-                      <span>1</span>
-                      <p>JPP</p>
-                    </li>
-                    <li>
-                      <span>2</span>
-                      <p>JPP</p>
-                    </li>
-                    <li>
-                      <span>3</span>
-                      <p>JPP</p>
-                    </li>
-                  </ul>
+            <div ng-show="school.showAll">
+                <div class="col-md-6">
+                    <div class="mt15">
+                        <div class="sc-name">
+                            <ul>
+                                <li ng-repeat="schools1 in schoolsData[0]">
+                                    <span>{{$index + 1}}</span>
+                                    <p>{{schools1.school.name | letterLimit : 50}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-              </div>
+                <div class="col-md-6">
+                    <div class="mt15">
+                        <div class="sc-name">
+                            <ul>
+                                <li ng-repeat="schools2 in schoolsData[1]">
+                                    <span>{{$index}}</span>
+                                    <p>{{schools2.school.name | letterLimit : 50}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-              <div class="mt15">
-                <div class="sc-name">
-                  <ul>
-                    <li>
-                      <span>1</span>
-                      <p>JPP</p>
-                    </li>
-                    <li>
-                      <span>2</span>
-                      <p>JPP</p>
-                    </li>
-                    <li>
-                      <span>3</span>
-                      <p>JPP</p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div> -->
         </div>
         <div class="row" ng-if="search.active">
             <div class="text-center mt40">
@@ -161,7 +147,7 @@
             <div class="col-md-12">
                 <div class="float-right sf-list">
                     <nav aria-label="Page navigation" ng-if="search.active && pagination.totalpages > 1">
-                      <uib-pagination ng-change="submitSearch()" total-items="pagination.total" ng-model="filter.pagenumber" items-per-page="pagination.pagesize" ></uib-pagination>
+                        <uib-pagination ng-change="submitSearch()" total-items="pagination.total" ng-model="filter.pagenumber" items-per-page="pagination.pagesize"></uib-pagination>
 
                     </nav>
 
