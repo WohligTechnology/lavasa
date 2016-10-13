@@ -89,15 +89,22 @@ var navigationservice = angular.module('navigationservice', [])
                 }
             }).success(callback);
         },
-        getSportRuleByName: function(name, callback) {
+        getSchoolByYear: function(request, callback) {
+            console.log('form data: ', request);
+            $http({
+                url: adminurl + 'school/getSchoolByYear',
+                method: 'POST',
+                withCredentials: true,
+                data: request
+            }).success(callback);
+        },
+        getSportRuleByName: function(request, callback) {
             // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'sportrule/getOneByName',
                 method: 'POST',
                 withCredentials: true,
-                data: {
-                    "name": name
-                }
+                data: request
             }).success(callback);
         },
         getAllSportList: function(request, callback) {

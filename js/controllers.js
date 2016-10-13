@@ -238,7 +238,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.flags = {};
         $scope.flags.openGallery = false;
         $scope.flag = {};
-        $scope.classes = {}
+        $scope.classes = {};
         $scope.filter = {};
         $scope.folders = [];
         $scope.flag.openGallerys = false;
@@ -293,7 +293,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         };
         $scope.tabchanges = function(tabs, a) {
-            //        console.log(tab);
             $scope.tabs = tabs;
             console.log(tabs);
             if (tabs === 'photo') {
@@ -321,18 +320,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
         }
         $scope.loadMedia = function() {
-            NavigationService.getLimitedMedia($scope.filter, function(response) {
-                if (response) {
-                    console.log("get limited media : ", response);
-                    $scope.mediaArr = response.data;
-                    //console.log("folder data : ",$scope.folders);
-                } else {
-                    console.log("No data found");
-                    $scope.mediaArr = [];
-                }
-            })
-        }
-        console.log($stateParams);
+                NavigationService.getLimitedMedia($scope.filter, function(response) {
+                    if (response) {
+                        console.log("get limited media : ", response);
+                        $scope.mediaArr = response.data;
+                        //console.log("folder data : ",$scope.folders);
+                    } else {
+                        console.log("No data found");
+                        $scope.mediaArr = [];
+                    }
+                })
+            };
+            //console.log($stateParams);
         if (!$stateParams.type && !$stateParams.folder) {
             $scope.filter.mediatype = "photo";
             $scope.flags.openGallery = false;
@@ -632,12 +631,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
 })
 
-.controller('SportCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('SportCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
     console.log("FUCK THIS SHIT");
     $scope.template = TemplateService.changecontent("sport");
     $scope.menutitle = NavigationService.makeactive("Sports");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.gallery = {};
+    $scope.filter = {};
+    $scope.classes = {};
+    $scope.sportFolder = {};
+    if ($stateParams.name == '') {
+        $state.go('home');
+    }
+    $scope.sportFolder.sportName = $stateParams.name;
     $scope.student = [{
         icon: "img/sf-student-profile.png",
         name: "Harshit Shah",
@@ -656,10 +663,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         dep: "45211"
     }];
 
-    $scope.tabs = 'photos';
-    $scope.classp = 'active-list';
-    $scope.classv = '';
-
     NavigationService.getSportRuleByName($stateParams, function(response) {
         if (response.value) {
             $scope.sport = response.data;
@@ -671,15 +674,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.tabchanges = function(tabs, a) {
         //        console.log(tab);
         $scope.tabs = tabs;
-        if (a == 1) {
+        if (tabs === 'photo') {
 
-            $scope.classp = "active-list";
-            $scope.classv = '';
+            $scope.classes.classp = "active-list";
+            $scope.classes.classv = '';
 
         } else {
 
-            $scope.classp = '';
-            $scope.classv = "active-list";
+            $scope.classes.classp = '';
+            $scope.classes.classv = "active-list";
         }
     };
     $scope.getSport = function() {
@@ -701,6 +704,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.tabchange = function(tab, a) {
         //        console.log(tab);
         $scope.tab = tab;
+        console.log("Tab :  ", $scope.tab);
         if (a == 1) {
 
             $scope.classa = "active-list";
@@ -720,6 +724,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.classc = "active-list";
             $scope.classb = "";
             $scope.classd = "";
+            $scope.filter.mediatype = "photo";
+            $scope.filter.folder = $stateParams.name;
+            $scope.filter.year = "2015";
+            $scope.filter.pagenumber = 1;
+            console.log("filter", $scope.filter);
+            $scope.loadMedia();
+
         } else {
 
             $scope.classa = '';
@@ -728,7 +739,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.classc = "";
         }
     };
-
     $scope.video = [{
         icon: "img/m1.jpg",
         name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
@@ -749,15 +759,44 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         icon: "img/m3.jpg",
         name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
     }];
-    $scope.photos = [
-        'img/m1.jpg',
-        'img/m2.jpg',
-        'img/m3.jpg',
-        'img/m1.jpg',
-        'img/m2.jpg',
-        'img/m3.jpg'
+    // $scope.photos = [
+    //     'img/m1.jpg',
+    //     'img/m2.jpg',
+    //     'img/m3.jpg',
+    //     'img/m1.jpg',
+    //     'img/m2.jpg',
+    //     'img/m3.jpg'
+    //
+    // ];
+    console.log($scope.sportFolder.sportName);
+    $scope.tabs = 'photo';
+    $scope.classes.classp = 'active-list';
+    $scope.classes.classv = '';
+    //$scope.filter.year = "2015";
+    $scope.media = function(type, id) {
+        console.log("tabs = ",$scope.tabs);
+        $scope.filter.mediatype = type;
+        $scope.filter.folder = $stateParams.name;
+        //$scope.filter.year = "2015";
+        $scope.filter.pagenumber = 1;
+        console.log("filter", $scope.filter);
+        $scope.loadMedia();
+        $scope.tabchanges($scope.filter.mediatype, 1);
+    };
 
-    ];
+    $scope.loadMedia = function() {
+        NavigationService.getLimitedMedia($scope.filter, function(response) {
+            if (response) {
+                console.log("get limited media : ", response);
+                $scope.mediaArr = response.data;
+                //console.log("folder data : ",$scope.folders);
+            } else {
+                console.log("No data found");
+                $scope.mediaArr = [];
+            }
+        })
+    };
+
 })
 
 .controller('SchoolBioCtrl', function($scope, TemplateService, NavigationService, $timeout, $uibModal, $stateParams) {
@@ -917,8 +956,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.search = {};
     $scope.search.active = false;
     $scope.filter = {};
+    $scope.filterselected = {};
     $scope.school = {};
-    $scope.constraints = {};
 
     // $scope.school = [{
     //     img: "img/sf-school.png",
@@ -1000,43 +1039,38 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.changeYear = function() {
-      console.log("Year = ", $scope.filter.year);
-      if($scope.filter.year == "top20"){
-        $scope.school.showAll = false;
-        $scope.school.showTop20 = false;
-        $scope.submitSearch();
-      }
-      else{
-        if($scope.filter.year == 'all'){
-          $scope.filter.year = '';
+        $scope.filterselected.title = "";
+        console.log("Year = ", $scope.filter.year);
+        if ($scope.filter.year == "top20") {
+            $scope.school.showAll = false;
+            $scope.school.showTop20 = false;
+            $scope.submitSearch();
+            $scope.filterselected.title = "Top 20 Schools";
+        } else {
+            if ($scope.filter.year == '') {
+                $scope.filterselected.title = "All Schools";
+            } else {
+                $scope.filterselected.title = "SFA MUMBAI " + $scope.filter.year;
+            }
+            var constraints = {};
+            constraints.year = $scope.filter.year;
+            $scope.allSchoolByYear(constraints);
+            $scope.school.showAll = true;
+            $scope.school.showTop20 = true;
         }
-        console.log("Year check = ", $scope.filter.year);
-        $scope.constraints.year = $scope.filter.year;
-        $scope.allSchoolByYear();
-        if($scope.filter.year == ''){
-          $scope.filter.year = 'all';
-        }
-        $scope.school.showAll = true;
-        $scope.school.showTop20 = true;
-      }
     };
 
     $scope.allSchoolByYear = function(constraints) {
-      NavigationService.getFirstListSchool(function(data) {
-          if (data.value != false) {
-            $scope.allSchools = data.data.data;
-            console.log("ALL school",$scope.allSchools);
-            $scope.schoolSplit = Math.round($scope.allSchools.length/2);
-            console.log("split",$scope.schoolSplit);
-            $scope.schoolsData = _.chunk($scope.allSchools,$scope.schoolSplit);
-            // $scope.schoolsData1 = $scope.schoolChunkData[0]
-            // $scope.schoolsData2 =
-            console.log("school chunk data",$scope.schoolsData);
-          } else {
-              $scope.allSchools = [];
-              $scope.schoolsData = [];
-          }
-      });
+        NavigationService.getSchoolByYear(constraints, function(data) {
+            if (data.value != false) {
+                $scope.allSchools = data.data.data;
+                $scope.schoolSplit = Math.round($scope.allSchools.length / 2);
+                $scope.schoolsData = _.chunk($scope.allSchools, $scope.schoolSplit);
+            } else {
+                $scope.allSchools = [];
+                $scope.schoolsData = [];
+            }
+        });
     };
     $scope.filter.year = "top20";
     $scope.changeYear();

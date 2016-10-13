@@ -218,31 +218,31 @@ sport’s bio
                         </div> -->
                         <hr class="mt40">
                         <div class="row">
-                        <div class="text-center">
-                            <h3 class="color-blue text-up font-semi f18-m">featured athletes</h3>
-                        </div>
-                        <div class="row mt25">
-                            <div class="col-md-3 mt15 col-sm-4 col-xs-12" ng-repeat="data in student track by $index">
-                                <a href="">
-                                    <div class="school-sec">
-                                        <!-- <img src="img/sf-cl.png" alt="" class="mt-min-18"> -->
-                                        <div class="stu-img text-center sf-relative">
-                                            <img ng-src="{{data.icon}}" alt="">
-                                            <!-- <div class="sigh-pro sf-absulate">
+                            <div class="text-center">
+                                <h3 class="color-blue text-up font-semi f18-m">featured athletes</h3>
+                            </div>
+                            <div class="row mt25">
+                                <div class="col-md-3 mt15 col-sm-4 col-xs-12" ng-repeat="data in student track by $index">
+                                    <a href="">
+                                        <div class="school-sec">
+                                            <!-- <img src="img/sf-cl.png" alt="" class="mt-min-18"> -->
+                                            <div class="stu-img text-center sf-relative">
+                                                <img ng-src="{{data.icon}}" alt="">
+                                                <!-- <div class="sigh-pro sf-absulate">
                             <img src="img/sf-right.png" alt="">
                         </div> -->
+                                            </div>
+                                            <div class="stu-name text-center">
+                                                <h4 class="color-orange text-up font-semi">{{data.name}}</h4>
+                                            </div>
+                                            <div class="stu-id text-center">
+                                                <h4 class="color-blue">SFA ID: {{data.dep}}</h4>
+                                            </div>
                                         </div>
-                                        <div class="stu-name text-center">
-                                            <h4 class="color-orange text-up font-semi">{{data.name}}</h4>
-                                        </div>
-                                        <div class="stu-id text-center">
-                                            <h4 class="color-blue">SFA ID: {{data.dep}}</h4>
-                                        </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                      </div>
                         <hr class="mt40">
                         <!-- this should be come after some time -->
                         <!-- <div class="row">
@@ -298,7 +298,7 @@ sport’s bio
                         </div>
                     </div>
                     <div class="2015" ng-show="tab=='2015'">
-                      <!-- this should be come after some -->
+                        <!-- this should be come after some -->
                         <!-- <div class="mt40">
                             <div class="sport-content color-base">
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
@@ -467,10 +467,9 @@ sport’s bio
                                 <h4 class="text-up color-blue display-inline">Year</h4>
                                 <div class="display-inline">
                                     <div class="sfa-select">
-                                        <select class="select">
-                                            <option value="All">All</option>
-                                            <option value="2016">2016</option>
-                                            <option value="2016">2016</option>
+                                        <select class="select" ng-change="media()" ng-model="filter.year">
+                                            <!-- <option value="All">All</option> -->
+                                            <option value="2015">2015</option>
                                             <option value="2016">2016</option>
                                         </select>
                                         <span class="only-border"></span>
@@ -482,42 +481,53 @@ sport’s bio
                             <div class="text-center mt25">
                                 <div class="tab-list sf-list text-up">
                                     <ul class="padding0 margin0">
-                                        <li><a href="" ng-click="tabchanges('photos',1)" class="{{classp}}">
-photos
-</a></li>
-                                        <li><a href="" ng-click="tabchanges('videos',2)" class="{{classv}}">
-match videos
-</a></li>
-
+                                        <li><a href="" ng-click="media('photo',1)" class="{{classes.classp}}">
+          photos
+          </a></li>
+                                        <li><a href="" ng-click="media('video',1)" class="{{classes.classv}}">
+          match videos
+          </a></li>
                                     </ul>
                                 </div>
                                 <hr class="hr-padding">
                             </div>
                         </div>
-                        <div class="row" ng-show="tabs=='photos'">
-                            <div class="col-md-3 mt15 col-sm-4 col-xs-6" ng-repeat="data in photos track by $index">
-                                <a fancybox-box rel="gallery1" href="{{data}}">
+                        <div ng-if="tabs=='photo'">
+                        <div class="row">
+                            <div class="col-md-3 mt15 col-sm-4 col-xs-6" ng-repeat="item in mediaArr.data track by $index">
+                                <a fancybox-box rel="gallery1" href="{{item.medialink | mediapath}}">
                                     <div class="folder-box sf-relative videow-box">
-                                        <img ng-src="{{data}}" alt="Sports For All" class="img-responsive width100 hover-min">
-                                        <div class="over-layer sf-absulate">
-
-                                        </div>
+                                        <img ng-src="{{item.medialink | mediapath}}" alt="Sports For All" class="img-responsive width100 hover-min">
+                                        <!-- <div class="over-layer sf-absulate"></div> -->
                                     </div>
                                 </a>
                             </div>
                         </div>
+                        <div class="row text-center" ng-if="mediaArr.data.length === 0">
+                            <h4><b>No Photos Found</b></h4>
+                        </div>
+                        <uib-pagination ng-if="mediaArr.data.length > 0" ng-change="loadMedia();" total-items="mediaArr.total" ng-model="filter.pagenumber" items-per-page="12">
+                        </uib-pagination>
+                      </div>
 
-                        <div class="row mt25" ng-show="tabs=='videos'">
-                            <div class="col-md-4 mt25" ng-repeat="data in video track by $index">
-                                <a class="various fancybox.iframe" rel="gallery1" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
-                                    <div class="folder-box sf-relative videow-box">
-                                        <img ng-src="{{data.icon}}" alt="Sports For All" class="img-responsive width100 hover-min">
-                                        <div class="over-layer sf-absulate">
-                                            <h5 class="banner-set sf-absulate text-up color-white font-semi">{{data.name}}</h5>
+                        <div ng-if="tabs=='video'">
+                            <div class="row">
+                                <div class="col-md-4 mt25" ng-repeat="item in mediaArr.data track by $index">
+                                    <a class="various fancybox.iframe" rel="gallery1" fancybox href="http://www.youtube.com/embed/{{item.medialink}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
+                                        <div class="folder-box sf-relative videow-box">
+                                            <img ng-src="{{item.medialink | videothumbnail}}" alt="Sports For All" class="img-responsive width100 hover-min">
+                                            <div class="over-layer sf-absulate">
+                                                <!-- <h5 class="banner-set sf-absulate text-up color-white font-semi"></h5> -->
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
                             </div>
+                            <div class="row text-center" ng-if="mediaArr.data.length === 0">
+                                <h4><b>No Videos Found</b></h4>
+                            </div>
+                            <uib-pagination ng-if="mediaArr.data.length > 0" ng-change="loadMedia();" total-items="mediaArr.total" ng-model="filter.pagenumber" items-per-page="12">
+                            </uib-pagination>
                         </div>
                     </div>
                     <div class="bio" ng-show="tab=='bio'">
