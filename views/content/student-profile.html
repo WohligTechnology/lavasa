@@ -166,16 +166,17 @@ student’s blog
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 text-c-m">
+                    <div class="col-md-3 col-sm-6 col-xs-12 text-c-m" ng-if="dropdowns.category.length > 0">
                         <h4 class="text-up color-blue display-inline">Category</h4>
                         <div class="display-inline">
                             <div class="sfa-select">
-                                <select class="select">
+                              <select class="select" ng-model="filterStatistics.category" ng-options="item.name as item.name for item in dropdowns.category"></select>
+                                <!-- <select class="select">
                                     <option value="ALL">ALL</option>
                                     <option value="U-16">U-16</option>
                                     <option value="U-19">U-19</option>
                                     <option value="U-21">U-21</option>
-                                </select>
+                                </select> -->
                                 <span class="only-border"></span>
                             </div>
                         </div>

@@ -169,6 +169,15 @@ var navigationservice = angular.module('navigationservice', [])
                 data: request
             }).success(callback);
         },
+        getStatsForStudent: function(request, callback) {
+            //console.log('request data: ', request);
+            $http({
+                url: adminurl + 'studentstats/getStudentStatByFilters',
+                method: 'POST',
+                withCredentials: true,
+                data: request
+            }).success(callback);
+        },
         getAgegroup: function(callback) {
             // console.log('form data: ', formData);
             $http({
@@ -192,7 +201,7 @@ var navigationservice = angular.module('navigationservice', [])
         },
         filterCategoryBySport: function(request, callback) {
             $http({
-                url: adminurl + 'sport/filterCategory',
+                url: adminurl + 'sport/filterCategoryForFrontend',
                 method: 'POST',
                 data: request
             }).success(callback);

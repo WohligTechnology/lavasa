@@ -320,18 +320,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             })
         }
         $scope.loadMedia = function() {
-                NavigationService.getLimitedMedia($scope.filter, function(response) {
-                    if (response) {
-                        console.log("get limited media : ", response);
-                        $scope.mediaArr = response.data;
-                        //console.log("folder data : ",$scope.folders);
-                    } else {
-                        console.log("No data found");
-                        $scope.mediaArr = [];
-                    }
-                })
-            };
-            //console.log($stateParams);
+            NavigationService.getLimitedMedia($scope.filter, function(response) {
+                if (response) {
+                    console.log("get limited media : ", response);
+                    $scope.mediaArr = response.data;
+                    //console.log("folder data : ",$scope.folders);
+                } else {
+                    console.log("No data found");
+                    $scope.mediaArr = [];
+                }
+            })
+        };
+        //console.log($stateParams);
         if (!$stateParams.type && !$stateParams.folder) {
             $scope.filter.mediatype = "photo";
             $scope.flags.openGallery = false;
@@ -773,7 +773,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.classes.classv = '';
     //$scope.filter.year = "2015";
     $scope.media = function(type, id) {
-        console.log("tabs = ",type);
+        console.log("tabs = ", type);
         $scope.filter.mediatype = type;
         $scope.filter.folder = $stateParams.name;
         //$scope.filter.year = "2015";
@@ -1325,6 +1325,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.filter = {};
     $scope.filterStatistics = {};
     $scope.studentSportList = [];
+    $scope.dropdowns = {};
+    $scope.table = {};
+    $scope.dropdowns.category = [];
 
 
     $scope.tabchanges = function(tabs, a) {
@@ -1449,6 +1452,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 //   console.log("studentSport data = ",data);
                 $scope.studentSport = response.data;
                 console.log($scope.studentSport);
+                _.each($scope.studentSport, function(key) {
+                    key.active = false;
+                });
             } else {
                 $scope.studentSport = [];
                 console.log("Error while fetching Student Sports.");
@@ -1466,21 +1472,45 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         });
     };
-    $scope.sportsSelected = function (sportid) {
-      console.log(sportid);
-      $scope.filterStatistics.sport = sportid;
-      NavigationService.filterCategoryBySport({
-        sportList:sportid
-      },function (response) {
-        if (response.value) {
-          console.log(response);
-        }else{
-
-        }
+    $scope.activateSports = function (sportid) {
+      _.each($scope.studentSport, function(key) {
+          if (key._id == sportid) {
+              key.active = true;
+          } else {
+              key.active = false;
+          }
       });
     };
-    $scope.getStats = function (filter) {
+    $scope.sportsSelected = function(sport) {
+        $scope.activateSports(sport._id);
+        $scope.filterStatistics.category = undefined;
+        $scope.filterStatistics.year = sport.year;
+        $scope.filterStatistics.sport = sport._id;
+        $scope.table.layout = sport.drawFormat;
+        NavigationService.filterCategoryBySport({
+            sportList: sport._id
+        }, function(response) {
+            if (response.value) {
+                console.log(response);
+                $scope.dropdowns.category = response.data;
+                $scope.filterStatistics.category = $scope.dropdowns.category[0].name;
+            } else {
+                $scope.dropdowns.category = [];
+            }
+            $scope.getStats();
+        });
+    };
+    $scope.getStats = function(filter) {
+        // if()
+        $scope.filterStatistics.student=$stateParams.id;
+        NavigationService.getStatsForStudent($scope.filterStatistics, function(response) {
+            if (response.value) {
+                $scope.studentStats = response.data;
+                console.log($scope.studentStats);
+            } else {
 
+            }
+        });
     };
     // $scope.makeActive = function(sports) {
     //     //console.log("sports : ",sports.sportslist);
