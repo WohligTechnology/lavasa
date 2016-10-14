@@ -8,8 +8,8 @@
 
 // var adminurl = "http://104.154.89.21:83/api/";
 // var adminurl = "http://localhost:1337/";
-var adminurl = "http://104.155.129.33:83/api/";
-// var adminurl = "http://192.168.0.107:1337/api/";
+// var adminurl = "http://104.155.129.33:83/api/";
+var adminurl = "http://192.168.0.106:1337/api/";
 var imgpath = adminurl + "upload/readFile";
 var uploadurl = adminurl + "upload/";
 var currentYears = ["2015", "2016"];
@@ -137,7 +137,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getSchoolSportByGender: function(request, callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'studentsport/getSchoolSportByGender',
                 method: 'POST',
@@ -146,7 +145,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getStudentSport: function(request, callback) {
-            //console.log('request data: ', request);
             $http({
                 url: adminurl + 'studentsport/getsportspopulated',
                 method: 'POST',
@@ -155,7 +153,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getSchoolMedalCount: function(request, callback) {
-            //console.log('request data: ', request);
             $http({
                 url: adminurl + 'medal/countOneSchoolMedal',
                 method: 'POST',
@@ -191,6 +188,13 @@ var navigationservice = angular.module('navigationservice', [])
                 url: adminurl + 'school/filterStud',
                 method: 'POST',
                 data: data
+            }).success(callback);
+        },
+        filterCategoryBySport: function(request, callback) {
+            $http({
+                url: adminurl + 'sport/filterCategory',
+                method: 'POST',
+                data: request
             }).success(callback);
         },
         getFolders: function(request, callback) {

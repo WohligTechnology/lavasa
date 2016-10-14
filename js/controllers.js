@@ -1323,6 +1323,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.classp = 'active-list';
     $scope.classv = '';
     $scope.filter = {};
+    $scope.filterStatistics = {};
     $scope.studentSportList = [];
 
 
@@ -1465,10 +1466,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         });
     };
+    $scope.sportsSelected = function (sportid) {
+      console.log(sportid);
+      $scope.filterStatistics.sport = sportid;
+      NavigationService.filterCategoryBySport({
+        sportList:sportid
+      },function (response) {
+        if (response.value) {
+          console.log(response);
+        }else{
 
-    $scope.makeActive = function(sports) {
-        //console.log("sports : ",sports.sportslist);
+        }
+      });
     };
+    $scope.getStats = function (filter) {
+
+    };
+    // $scope.makeActive = function(sports) {
+    //     //console.log("sports : ",sports.sportslist);
+    //     console.log(sports);
+    // };
 
     $scope.filter.year = "2015";
     $scope.changeYear();
