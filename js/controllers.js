@@ -644,7 +644,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     if ($stateParams.name == '') {
         $state.go('home');
     }
-    $scope.sportFolder.sportName = $stateParams.name;
     $scope.student = [{
         icon: "img/sf-student-profile.png",
         name: "Harshit Shah",
@@ -774,12 +773,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.classes.classv = '';
     //$scope.filter.year = "2015";
     $scope.media = function(type, id) {
-        console.log("tabs = ",$scope.tabs);
+        console.log("tabs = ",type);
         $scope.filter.mediatype = type;
         $scope.filter.folder = $stateParams.name;
         //$scope.filter.year = "2015";
         $scope.filter.pagenumber = 1;
-        console.log("filter", $scope.filter);
+        // console.log("filter", $scope.filter);
         $scope.loadMedia();
         $scope.tabchanges($scope.filter.mediatype, 1);
     };
