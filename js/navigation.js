@@ -78,6 +78,15 @@ var navigationservice = angular.module('navigationservice', [])
                 data: input
             }).success(callback);
         },
+        getSearchDataTeam: function(input, callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'team/searchTeam',
+                method: 'POST',
+                withCredentials: true,
+                data: input
+            }).success(callback);
+        },
         getSchoolProfile: function(id, callback) {
             // console.log('form data: ', formData);
             $http({
@@ -120,6 +129,17 @@ var navigationservice = angular.module('navigationservice', [])
             // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'student/getOne',
+                method: 'POST',
+                withCredentials: true,
+                data: {
+                    "_id": id
+                }
+            }).success(callback);
+        },
+        getTeamDetail: function(id, callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'team/getOne',
                 method: 'POST',
                 withCredentials: true,
                 data: {
@@ -189,6 +209,13 @@ var navigationservice = angular.module('navigationservice', [])
             // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'student/countStudent',
+                method: 'POST'
+            }).success(callback);
+        },
+        countTeam: function(callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'team/countTeam',
                 method: 'POST'
             }).success(callback);
         },

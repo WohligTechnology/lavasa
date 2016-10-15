@@ -52,8 +52,7 @@
             <div class="col-md-12">
                 <div class="float-right sf-list">
                     <nav aria-label="Page navigation" ng-if="inputs.search && getSearchData.totalpages > 1">
-                        <uib-pagination ng-change="doSearch()" total-items="getSearchData.total" ng-model="searchFilter.pagenumber" items-per-page="searchFilter.pagesize"></uib-pagination>
-
+                        <uib-pagination force-elipses="true" ng-change="doSearch()" total-items="getSearchData.total" ng-model="searchFilter.pagenumber" items-per-page="searchFilter.pagesize" class="pagination-sm" boundary-link-numbers="true" rotate="true"></uib-pagination>
                     </nav>
 
                 </div>

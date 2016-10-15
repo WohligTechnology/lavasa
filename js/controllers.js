@@ -787,6 +787,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     NavigationService.getLimitedMedia($scope.filter, function(response) {
       if (response) {
         console.log("get limited media : ", response);
+        $scope.mediaArr = [];
         $scope.mediaArr = response.data;
         //console.log("folder data : ",$scope.folders);
       } else {
@@ -1021,6 +1022,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         console.log(data);
         if (data.value) {
           $scope.schools = data.data.data;
+          console.log("Schools data",$scope.schools);
           $scope.pagination.totalpages = data.data.totalpages;
           $scope.pagination.total = data.data.total;
         }
@@ -1630,6 +1632,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.oneAtATime = true;
+    $scope.inputs = {};
     $scope.status = {
       isCustomHeaderOpen: false,
       isFirstOpen: true,
@@ -1677,6 +1680,41 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       school: "dhirubhai ambani intertional school",
       id: "586"
     }];
+
+    NavigationService.countTeam(function(data) {
+      $scope.count = data.data;
+    });
+    $scope.getsearch = false;
+    $scope.searchFilter = {};
+    $scope.searchFilter.pagenumber = 1;
+    $scope.searchFilter.pagesize = 12;
+    $scope.searchFilter.search = "";
+    $scope.parseSearch = function(input){
+      $scope.searchFilter.pagenumber = 1;
+
+      if (input === '' || input === null) {
+        $scope.searchFilter.search = undefined;
+        $scope.searchFilter.sfaid = undefined;
+        $scope.getsearch = false;
+      } else {
+        $scope.getsearch = true;
+
+        if (isNaN(input)) {
+          $scope.searchFilter.search = input;
+          $scope.searchFilter.sfaid = undefined;
+        } else {
+          $scope.searchFilter.search = undefined;
+          $scope.searchFilter.sfaid = parseInt(input);
+        }
+
+      }
+      $scope.doSearch();
+    };
+    $scope.doSearch = function() {
+      NavigationService.getSearchDataTeam($scope.searchFilter, function(data) {
+        $scope.getSearchData = data.data;
+      });
+    };
 
   })
 
@@ -1693,42 +1731,42 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       isFirstDisabled: false
     };
 
-    $scope.student = [{
-      icon: "img/sf-student-profile.png",
-      name: "Harshit Shah",
-      dep: "45211"
-    }, {
-      icon: "img/sf-student-profile.png ",
-      name: "Harshit Shah",
-      dep: "45211"
-    }, {
-      icon: "img/sf-student-profile.png",
-      name: "Harshit Shah",
-      dep: "45211"
-    }, {
-      icon: "img/sf-student-profile.png",
-      name: "Harshit Shah",
-      dep: "45211"
-    }, {
-      icon: "img/sf-student-profile.png",
-      name: "Harshit Shah",
-      dep: "45211"
-    }, {
-      icon: "img/sf-student-profile.png",
-      name: "Harshit Shah",
-      dep: "45211"
-    }, {
-      icon: "img/sf-student-profile.png",
-      name: "Harshit Shah",
-      dep: "45211"
-    }, {
-      icon: "img/sf-student-profile.png",
-      name: "Harshit Shah",
-      dep: "45211"
-    }];
+    // $scope.student = [{
+    //   icon: "img/sf-student-profile.png",
+    //   name: "Harshit Shah",
+    //   dep: "45211"
+    // }, {
+    //   icon: "img/sf-student-profile.png ",
+    //   name: "Harshit Shah",
+    //   dep: "45211"
+    // }, {
+    //   icon: "img/sf-student-profile.png",
+    //   name: "Harshit Shah",
+    //   dep: "45211"
+    // }, {
+    //   icon: "img/sf-student-profile.png",
+    //   name: "Harshit Shah",
+    //   dep: "45211"
+    // }, {
+    //   icon: "img/sf-student-profile.png",
+    //   name: "Harshit Shah",
+    //   dep: "45211"
+    // }, {
+    //   icon: "img/sf-student-profile.png",
+    //   name: "Harshit Shah",
+    //   dep: "45211"
+    // }, {
+    //   icon: "img/sf-student-profile.png",
+    //   name: "Harshit Shah",
+    //   dep: "45211"
+    // }, {
+    //   icon: "img/sf-student-profile.png",
+    //   name: "Harshit Shah",
+    //   dep: "45211"
+    // }];
 
   })
-  .controller('TeamDetailCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+  .controller('TeamDetailCtrl', function($scope, TemplateService, NavigationService,$stateParams,$timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("team-detail");
     $scope.menutitle = NavigationService.makeactive("Team Detail");
@@ -1845,6 +1883,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
     }];
 
+    $scope.teamDetail = function() {
+      NavigationService.getTeamDetail($stateParams.id, function(data) {
+        console.log(data.data);
+        if(data.value){
+          $scope.teamDetails = data.data;
+          console.log($scope.teamDetails);
+        }
+        else{
+          $scope.teamDetails = {};
+          console.log("Error while fetching team details");
+        }
+      });
+    };
+    $scope.teamDetail();
   })
 
 .controller('RoundRobinCtrl', function($scope, TemplateService, NavigationService, $timeout) {

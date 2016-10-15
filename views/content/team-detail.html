@@ -6,17 +6,17 @@
             <div class="row">
         <div class="col-md-3 col-sm-3 col-xs-3">
           <div class="sf-school-logo2 sf-relative text-center border-r">
-              <img src="img/bg-big.png" alt="" class="img-border2 img-responsive">
+              <img src="{{teamDetails.school.logo | uploadpath }}" alt="" class="img-border2 img-responsive">
               <div class="sigh-seconds sf-absulate">
-                  <img src="img/sf-right-big.png" alt="" class="img-responsive">
+                  <!-- <img src="img/sf-right-big.png" alt="" class="img-responsive"> -->
               </div>
           </div>
         </div>
         <div class="col-md-9 col-sm-9 col-xs-9">
           <div class="team-dt">
-            <h1 class="color-orange text-up font-semi f26 m-top-zero">team: basketball girls u-17 ‘A’</h1>
-            <h2 class="color-white text-up margin0 f20 m-top-zero">dhirubhai ambani international school</h2>
-            <h2 class="color-white text-up f20 m-top-zero"><span class="color-orange">SFA ID:</span>45215</h2>
+            <h1 class="color-orange text-up font-semi f26 m-top-zero">team: {{ teamDetails.name}}</h1>
+            <h2 class="color-white text-up margin0 f20 m-top-zero">{{ teamDetails.school.name }}</h2>
+            <h2 class="color-white text-up f20 m-top-zero"><span class="color-orange">SFA ID:</span>{{teamDetails.sfaid}}</h2>
           </div>
         </div>
             </div>
@@ -65,7 +65,7 @@ squad
                             <h4 class="color-orange text-up font-semi">{{data.name}}</h4>
                         </div>
                         <div class="stu-id text-center">
-                            <h4 class="color-blue">SFA ID: {{data.dep}}</h4>
+                            <h4 class="color-blue">SFA ID : {{data.dep}}</h4>
                         </div>
                     </div>
                 </a>
