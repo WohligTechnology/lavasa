@@ -1096,6 +1096,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.schooldata['Boys'] = 0;
   $scope.schooldata['Girls'] = 0;
   $scope.clickstatuses = {};
+  $scope.filterStatistics = {};
+  $scope.filterStatistics.pagenumber = 1;
+  $scope.filterStatistics.pagesize = 8;
+  $scope.filterStatistics.school= $stateParams.id;
+
   $scope.allYears = NavigationService.getAllYears();
   $scope.gender = [{
     value: "All",
@@ -1116,7 +1121,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.callReload = function() {
     NavigationService.filterStud($scope.callObject, function(data) {
       console.log(data.data);
-      if (data.value != false) {
+      if (data.value !== false) {
         $scope.students = data.data;
         if ($scope.students.student && $scope.students.student.length > 0 && $scope.students.school.contingentLeader && $scope.students.school.contingentLeader.length > 0) {
           _.each($scope.students.student, function(z) {
@@ -1150,6 +1155,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.classb = '';
       $scope.classc = "active-list";
     }
+  };
+  $scope.contingent = [];
+  $scope.contingentStrengthByYear = function () {
+    NavigationService.contingentStrengthByYear($scope.filterStatistics,function (response) {
+      if(response.value){
+        $scope.contingent = response.data;
+      }else{
+        $scope.contingent= [];
+      }
+    });
   };
   $scope.video = [{
     icon: "img/m1.jpg",
@@ -1185,8 +1200,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
   });
   $scope.changeYear = function() {
-    $scope.schooldata.Boys = 0
-    $scope.schooldata.Girls = 0
+    $scope.schooldata.Boys = 0;
+    $scope.schooldata.Girls = 0;
     $scope.filter.sport = '';
     var constraints = {};
     constraints.year = $scope.filter.year;
@@ -1195,6 +1210,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // constraints._id = $stateParams.id;
     $scope.getSportParticipated(constraints);
     $scope.schoolMedalCount(constraints);
+    if($scope.filter.year ==='2016'){
+      $scope.filterStatistics.year = $scope.filter.year;
+    }
+    $scope.filterStatistics.pagenumber = 1;
+    $scope.contingentStrengthByYear();
   };
 
   $scope.showHide = function(selected) {
@@ -1202,10 +1222,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     console.log("value");
     _.each($scope.clickstatuses, function(value, property) {
       $scope.clickstatuses[property] = false;
-    })
+    });
     $scope.clickstatuses[selected] = true;
     console.log($scope.clickstatuses);
-    $scope.filter.sport = selected
+    $scope.filter.sport = selected;
   };
 
   $scope.schoolMedalCount = function(constraints) {

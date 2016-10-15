@@ -177,7 +177,7 @@
                   <flex-slider class="carousel" flex-slide="sportDetails in sportsStudentGender track by $index" animation="slide" item-width="140" item-margin="60">
                       <li>
                           <a href="">
-                              <div class="sports-participate text-center"> 
+                              <div class="sports-participate text-center">
                                   <img ng-src="{{ sportDetails._id.name !== filter.sport && (sportDetails._id.inactiveimage | uploadpath) || (sportDetails._id.image  | uploadpath)}}" alt="" class="img-responsive image-width"
                                   ng-click="showHide(sportDetails._id.name)">
                                   <span class="color-base text-up f16 mt10">{{sportDetails._id.name}}</span>
@@ -200,22 +200,22 @@
         <div class="row mt40">
             <div class="col-md-12 ">
                 <div class=" text-center">
-                    <h3 class="font-semi color-blue margin0">CONTINGENT STRENGTH {{filter.year}}</h3>
+                    <h3 class="font-semi color-blue margin0">CONTINGENT STRENGTH {{filterStatistics.year}}</h3>
                     <div class="sf-list">
                     <ul class="padding0 pad-line mt15 ">
                         <li>
                             <div class="sto-pro-list">
-                                <img src="img/sf-boys-mini.png" alt="">80
+                                <img src="img/sf-boys-mini.png" alt="">{{contingent.gender.Boys}}
                             </div>
                         </li>
                         <li>
                             <div class="sto-pro-list display-inline">
-                                <img src="img/sf-girl-mini.png" alt="">50
+                                <img src="img/sf-girl-mini.png" alt="">{{contingent.gender.Girls}}
                             </div>
                         </li>
                         <li>
                             <div class="sto-pro-list total display-inline" style="border: 1px solid #bbb;">
-                                50
+                                {{contingent.gender.Boys + contingent.gender.Girls}}
                             </div>
                         </li>
                     </ul>
@@ -226,8 +226,8 @@
                         <h4 class="text-up color-blue display-inline">Year</h4>
                         <div class="display-inline">
                             <div class="sfa-select">
-                                <select class="select" ng-model="filter.year" ng-change = "changeYear()">
-                                <option value="2015">2015</option>
+                                <select ng-change="contingentStrengthByYear()" class="select" ng-model="filterStatistics.year" ng-change = "changeYear()">
+                                <option value="">All</option>
                                 <option value="2016">2016</option>
                                 </select>
                                 <span class="only-border"></span>
@@ -238,24 +238,34 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 mt15" ng-repeat="data in student track by $index">
+            <div class="col-md-3 mt15" ng-repeat="data in contingent.data track by $index">
                 <a href="">
                     <div class="school-sec">
-                      <img src="img/sf-cl.png" alt="" class="mt-min-18">
+                      <!-- <img src="img/sf-cl.png" alt="" class="mt-min-18"> -->
                         <div class="stu-img text-center sf-relative">
-                            <img ng-src="{{data.icon}}" alt="">
-                            <div class="sigh-pro sf-absulate">
+                            <img ng-src="{{data.profilePic | uploadpath}}" alt="">
+                            <!-- <div class="sigh-pro sf-absulate">
                                 <img src="img/sf-right.png" alt="">
-                            </div>
+                            </div> -->
                         </div>
                         <div class="stu-name text-center">
                             <h4 class="color-orange text-up font-semi">{{data.name}}</h4>
                         </div>
                         <div class="stu-id text-center">
-                            <h4 class="color-blue">SFA ID: {{data.id}}</h4>
+                            <h4 class="color-blue">SFA ID: {{data.sfaid}}</h4>
                         </div>
                     </div>
                 </a>
+            </div>
+        </div>
+        <!-- </ui> -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="float-right sf-list">
+                    <nav aria-label="Page navigation" ng-if="contingent.totalpages > 1">
+                        <uib-pagination ng-change="contingentStrengthByYear()" total-items="contingent.total" ng-model="filterStatistics.pagenumber" items-per-page="filterStatistics.pagesize"></uib-pagination>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>

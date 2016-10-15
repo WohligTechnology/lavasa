@@ -7,8 +7,8 @@ var adminURL = "";
 
 
 // var adminurl = "http://localhost:1337/";
-var adminurl = "http://146.148.42.15:83/api/";
-// var adminurl = "http://192.168.0.103:1337/api/";
+// var adminurl = "http://146.148.42.15:83/api/";
+var adminurl = "http://192.168.0.103:1337/api/";
 var imgpath = adminurl + "upload/readFile";
 var uploadurl = adminurl + "upload/";
 var currentYears = ["2015", "2016"];
@@ -95,6 +95,15 @@ var navigationservice = angular.module('navigationservice', [])
                 data: {
                     "_id": id
                 }
+            }).success(callback);
+        },
+        contingentStrengthByYear: function(request, callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'school/contingentStrengthByYear',
+                method: 'POST',
+                withCredentials: true,
+                data: request
             }).success(callback);
         },
         getSchoolByYear: function(request, callback) {
