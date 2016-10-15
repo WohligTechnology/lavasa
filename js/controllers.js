@@ -406,7 +406,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     console.log("Testing Consoles");
 
-    $scope.template = TemplateService.changecontent("Registration");
+    $scope.template = TemplateService.changecontent("registration");
     $scope.menutitle = NavigationService.makeactive("Registration");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
@@ -1258,6 +1258,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
   $scope.inputs = {};
+  $scope.setPage = function (pageNo) {
+   $scope.currentPage = pageNo;
+ };
+
+ $scope.maxSize = 20;
   // $scope.student = [{
   //     icon: "img/sf-student-profile.png",
   //     name: "Harshit Shah",
@@ -1525,8 +1530,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
   };
   $scope.getStats = function() {
-    // if()
-    console.log("called");
     $scope.filterStatistics.student = $stateParams.id;
     NavigationService.getStatsForStudent($scope.filterStatistics, function(response) {
       if (response.value) {

@@ -208,7 +208,7 @@ student’s blog
                                         <td><span class="text-up">{{stat.sport.agegroup.name}} <br> {{stat.sport.gender}}  <br>{{stat.sport.firstcategory.name}}</span></td>
                                         <td class="text-up" ng-if="table.layout == 'Knockout'">{{stat.knockout.round}}</td>
                                         <td class="text-up" ng-if="table.layout == 'Heats'">Soheb Shaikh</td>
-                                        <td class="text-up" ng-if="table.layout == 'Knockout'"><img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.opponent.result == 'Won' || stat.opponent.result == 'Bye' || stat.opponent.result == 'Walkover'">{{stat.opponent.detail.name || 'No Show'}}
+                                        <td class="text-up" ng-if="table.layout == 'Knockout'"><img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.opponent.result == 'Won' || stat.opponent.result == 'Bye' || stat.opponent.result == 'Walkover'">{{stat.opponent.detail.name || 'No Show' | removeSchool:stat.opponent.detail.school.name }}
                                             <p>{{stat.opponent.detail.school.name}}</p>
                                         </td>
                                         <td  ng-if="table.layout == 'Knockout'">
@@ -297,7 +297,7 @@ student’s blog
 
                             </table>
                             <div ng-if="studentStats.length ===0 " class="text-center">
-                              No {{table.layout}} found.
+                              No {{table.layout || 'Data'}} found.
                             </div>
                         </div>
                     </div>
