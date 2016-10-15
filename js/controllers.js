@@ -1544,7 +1544,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           }
         }
       } else {
-
+        $scope.studentStats = [];
       }
     });
   };

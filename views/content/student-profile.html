@@ -144,7 +144,7 @@ student’s blog
                 </div>
             </div>
         </div> -->
-        <div class="box-content bx-mob">
+        <div class="box-content bx-mob" ng-if="filterStatistics.sport">
             <div class="">
                 <div class="row">
                     <div class="col-md-12">
@@ -176,7 +176,7 @@ student’s blog
                         </div>
                     </div>
                 </div>
-                <div class="row mt25">
+                <div class="row mt25" ng-if="filterStatistics.sport">
                     <div class="col-md-12 mt25 main-over">
                         <div class="table-statistics w700">
                             <table class="table">
@@ -234,6 +234,7 @@ student’s blog
                                             </div>
                                         </td>
                                     </tr>
+
                                     <!-- <tr class="other-bg">
                                         <td><span>2016</span></td>
                                         <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
@@ -293,7 +294,11 @@ student’s blog
                                         </td>
                                     </tr> -->
                                 </tbody>
+
                             </table>
+                            <div ng-if="studentStats.length ===0 " class="text-center">
+                              No {{table.layout}} found.
+                            </div>
                         </div>
                     </div>
                 </div>
