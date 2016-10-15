@@ -411,7 +411,7 @@
                                     <h4 class="text-up color-blue display-inline">Year</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
-                                            <select ng-model="filterStatistics.year" class="select">
+                                            <select ng-change="getStats()" ng-model="filterStatistics.year" class="select">
                                                 <option value="">All</option>
                                                 <option value="2015">2015</option>
                                                 <option value="2016">2016</option>
@@ -424,7 +424,7 @@
                                     <h4 class="text-up color-blue display-inline">gender</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
-                                          <select ng-model="filterStatistics.gender" class="select">
+                                          <select ng-change="getStats()" ng-model="filterStatistics.gender" class="select">
                                               <option value="">ALL</option>
                                               <option value="Boys">Boys</option>
                                               <option value="Girls">Girls</option>
@@ -438,7 +438,7 @@
                                     <h4 class="text-up color-blue display-inline">age group</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
-                                          <select class="select" ng-model="filterStatistics.agegroup" ng-options="item.name as item.name for item in dropdowns.agegroup"></select>
+                                          <select ng-change="getStats()" class="select" ng-model="filterStatistics.agegroup" ng-options="item.name as item.name for item in dropdowns.agegroup"></select>
                                             <span class="only-border"></span>
                                         </div>
                                     </div>
@@ -453,46 +453,50 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt25 main-over">
+                            <div class="row mt25 main-over" ng-if="filterStatistics.sport">
                                 <div class="col-md-12 mt25">
                                     <div class="table-statistics w700">
                                         <table class="table">
                                             <thead>
                                                 <tr class="text-up color-white bg-table">
-                                                    <th>
-                                                        <span>year</span>
-                                                    </th>
-                                                    <th>
-                                                        <span>CATEGORY</span>
-                                                    </th>
-                                                    <th>
-                                                        <span>ROUND</span>
-                                                    </th>
-                                                    <th>
-                                                        <span>STUDENT NAME</span>
-                                                    </th>
-                                                    <th>
-                                                        <span>OPPONENT NAME</span>
-                                                    </th>
-                                                    <th>
-                                                        <span>score</span>
-                                                    </th>
-                                                    <th>
-                                                        <span>match videos</span>
-                                                    </th>
+                                                  <th ng-if="table.layout == 'Knockout'">
+                                                      <span>year</span>
+                                                  </th>
+                                                  <th ng-if="table.layout == 'Knockout'">
+                                                      <span>CATEGORY</span>
+                                                  </th>
+                                                  <th ng-if="table.layout == 'Knockout'">
+                                                      <span>ROUND</span>
+                                                  </th>
+                                                  <th ng-if="table.layout == 'Knockout'">
+                                                      <span>STUDENT NAME</span>
+                                                  </th>
+                                                  <th ng-if="table.layout == 'Knockout'">
+                                                      <span>OPPONENT NAME</span>
+                                                  </th>
+                                                  <th ng-if="table.layout == 'Knockout'">
+                                                      <span>score</span>
+                                                  </th>
+                                                  <th ng-if="table.layout == 'Knockout'">
+                                                      <span>match videos</span>
+                                                  </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td><span>2016</span></td>
-                                                    <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
-                                                    <td><span class="text-up">ROUND-ROBIN</span></td>
-                                                    <td class="text-up">Soheb Shaikh</td>
-                                                    <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
-                                                        <p>Don Bosco School</p>
+                                              <!-- DO NOT DELETE -->
+                                                <!-- <tr  ng-repeat="stat in schoolStats"> -->
+                                                <!-- DO NOT DELETE -->
+                                                <tr class="other-bg" ng-repeat="stat in schoolStats">
+                                                  <td><span>{{stat.year}}</span></td>
+                                                    <td><span class="text-up">{{stat.sport.agegroup.name}} <br> {{stat.sport.gender}}  <br> {{stat.sport.firstcategory.name}}</span></td>
+                                                    <td><span class="text-up"  ng-if="table.layout == 'Knockout'">{{stat.knockout.round}}</span></td>
+                                                    <td class="text-up" ng-if="table.layout == 'Knockout'"><img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.self.result == 'Won' || stat.self.result == 'Bye' || stat.self.result == 'Walkover'">{{stat.student.name}}</td>
+                                                    <td class="text-up" ng-if="table.layout == 'Knockout'"><img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.opponent.result == 'Won' || stat.opponent.result == 'Bye' || stat.opponent.result == 'Walkover'">{{stat.opponent.detail.name || 'No Show' | removeSchool:stat.opponent.detail.school.name }}
+                                                        <p>{{stat.opponent.detail.school.name}}</p>
                                                     </td>
-                                                    <td>
-                                                        <div class="table-data display-inline text-center text-up score-1st">
+                                                    <td ng-if="table.layout == 'Knockout'">
+                                                    {{stat.knockout.score}}
+                                                        <!-- <div class="table-data display-inline text-center text-up score-1st">
 
                                                             <ul class="padding0 list-style">
                                                                 <li>5</li>
@@ -515,7 +519,7 @@
                                                                 <li>&ndash;</li>
                                                                 <li>11</li>
                                                             </ul>
-                                                        </div>
+                                                        </div> -->
                                                     </td>
                                                     <td class="sf-relative">
                                                         <div class="text-center display-inline ver-mid main-pos sf-absulate">
@@ -526,105 +530,20 @@
                                                                 <span>Replay</span>
                                                             </div>
                                                         </div>
-                                                        <div class="display-inline stu-data  right-pos sf-absulate">
+
+                                                        <!--  DO NOT DELETE -->
+                                                        <!-- <div class="display-inline stu-data  right-pos sf-absulate">
                                                             <a href=""><img src="img/sf-play-btn.png" alt=""></a>
-                                                        </div>
+                                                        </div> -->
+                                                        <!-- DO NOT DELETE -->
                                                     </td>
                                                 </tr>
-                                                <tr class="other-bg">
-                                                    <td><span>2016</span></td>
-                                                    <td><span class="text-up">U-10 <br> GIRLS  <br>SINGLES</span></td>
-                                                    <td><span class="text-up">ROUND-ROBIN</span></td>
-                                                    <td class="text-up">Soheb Shaikh</td>
-                                                    <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
-                                                        <p>Don Bosco School</p>
-                                                    </td>
-                                                    <td>
-                                                        <div class="table-data display-inline text-center text-up score-1st">
 
-                                                            <ul class="padding0 list-style">
-                                                                <li>5</li>
-                                                                <li>&ndash;</li>
-                                                                <li>11</li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="table-data display-inline text-center text-up score-1st">
-
-                                                            <ul class="padding0 list-style">
-                                                                <li>5</li>
-                                                                <li>&ndash;</li>
-                                                                <li>11</li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="table-data display-inline text-center text-up score-1st">
-
-                                                            <ul class="padding0 list-style">
-                                                                <li>5</li>
-                                                                <li>&ndash;</li>
-                                                                <li>11</li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                    <td class="center-cl">
-                                                        <div class="text-center display-inline ver-mid ">
-                                                            <div class="replay-img ">
-                                                                <a href=""><img src="img/sf-play.png" alt=""></a>
-                                                            </div>
-                                                            <div class="sf-play">
-                                                                <span>Replay</span>
-                                                            </div>
-                                                        </div>
-
-                                                    </td>
-                                                </tr>
-                                                <tr class="other-bg">
-                                                    <td><span>2016</span></td>
-                                                    <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
-                                                    <td><span class="text-up">ROUND-ROBIN</span></td>
-                                                    <td class="text-up">Soheb Shaikh</td>
-                                                    <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
-                                                        <p>Don Bosco School</p>
-                                                    </td>
-                                                    <td>
-                                                        <div class="table-data display-inline text-center text-up score-1st">
-
-                                                            <ul class="padding0 list-style">
-                                                                <li>5</li>
-                                                                <li>&ndash;</li>
-                                                                <li>11</li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="table-data display-inline text-center text-up score-1st">
-
-                                                            <ul class="padding0 list-style">
-                                                                <li>5</li>
-                                                                <li>&ndash;</li>
-                                                                <li>11</li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="table-data display-inline text-center text-up score-1st">
-
-                                                            <ul class="padding0 list-style">
-                                                                <li>5</li>
-                                                                <li>&ndash;</li>
-                                                                <li>11</li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                    <td class="center-cl">
-                                                        <div class="text-center display-inline ver-mid ">
-                                                            <div class="replay-img ">
-                                                                <a href=""><img src="img/sf-play.png" alt=""></a>
-                                                            </div>
-                                                            <div class="sf-play">
-                                                                <span>Replay</span>
-                                                            </div>
-                                                        </div>
-
-                                                    </td>
-                                                </tr>
                                             </tbody>
                                         </table>
+                                        <div ng-if="schoolStats.length ===0 " class="text-center">
+                                          No {{table.layout || 'Data'}} found.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
