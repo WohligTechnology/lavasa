@@ -20,7 +20,7 @@
         </div>
         <div class="row" ng-if="!search.active">
             <div class="text-center mt40">
-                <h3 class="font-semi color-orange text-up f162">Top 20 schools</h3>
+                <h3 class="font-semi color-orange text-up f162">{{filterselected.title}}</h3>
             </div>
             <div class="mt-min-30 mt-min-40">
                 <div class="float-right">
@@ -31,7 +31,7 @@
                                 <option value="top20">Top 20 Schools</option>
                                 <option value="2015">SFA MUMBAI 2015</option>
                                 <option value="2016">SFA MUMBAI 2016</option>
-                                <option value="all">All schools</option>
+                                <option value="">All schools</option>
                             </select>
                             <span class="only-border"></span>
                         </div>
@@ -87,13 +87,17 @@
             </div>
             <!-- .alag ui school page -->
             <div ng-show="school.showAll">
+
                 <div class="col-md-6">
                     <div class="mt15">
                         <div class="sc-name">
                             <ul>
                                 <li ng-repeat="schools1 in schoolsData[0]">
-                                    <span>{{$index + 1}}</span>
-                                    <p>{{schools1.school.name | letterLimit : 50}}</p>
+                                    <a ui-sref="school-profile({id:schools1._id})">
+                                        <!-- <span>{{$index + 1}}</span> -->
+                                        <span>{{ schools1.sfaid }}</span>
+                                        <p>{{schools1.name | letterLimit : 53}}</p>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -105,8 +109,11 @@
                         <div class="sc-name">
                             <ul>
                                 <li ng-repeat="schools2 in schoolsData[1]">
-                                    <span>{{$index + schoolSplit + 1}}</span>
-                                    <p>{{schools2.school.name | letterLimit : 50}}</p>
+                                    <a ui-sref="school-profile({id:schools2._id})">
+                                        <!-- <span>{{$index + schoolSplit + 1}}</span> -->
+                                        <span>{{ schools2.sfaid }}</span>
+                                        <p>{{schools2.name | letterLimit : 53}}</p>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -128,7 +135,7 @@
                                         <!-- <img src="img/sf-school-grey.png" alt=""> -->
                                         <img ng-src="{{data.logo|uploadpath}}" alt="">
                                         <div class="sigh-imgs sf-absulate">
-                                            <img src="img/sf-right.png" alt="">
+                                            <img ng-show="data.status" ng-src="img/sf-right.png" alt="">
                                         </div>
                                     </div>
                                     <div class="school-names text-center">

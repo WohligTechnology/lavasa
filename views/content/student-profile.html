@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-4 col-xs-12">
                         <div class="sf-school-logo sf-relative text-center border-r ">
-                            <img src="img/sf-student-big.png" alt="" class="img-border img-responsive">
+                            <img src="{{ studentProfile.profilePic | uploadpath }}" alt="" class="img-border img-responsive">
                             <div class="sigh-second sf-absulate l6">
                                 <!-- <img ng-show="studentProfile.status" ng-src="img/sf-right-org.png"  alt="" class="w30-main"> -->
                             </div>
@@ -118,7 +118,7 @@
                 <div class="sf-relative mt15">
                     <div class="sport-icon-list sf-list blue-cat">
                         <ul>
-                            <hovericon game="game" ng-repeat="game in studentSport" ng-click="makeActive(game);"></hovericon>
+                            <hovericon game="game" ng-repeat="game in studentSport" ng-click="sportsSelected(game);"></hovericon>
                         </ul>
                     </div>
 
@@ -144,7 +144,7 @@ student’s blog
                 </div>
             </div>
         </div> -->
-        <div class="box-content bx-mob">
+        <div class="box-content bx-mob" ng-if="filterStatistics.sport">
             <div class="">
                 <div class="row">
                     <div class="col-md-12">
@@ -158,7 +158,7 @@ student’s blog
                         <h4 class="text-up color-blue display-inline">Year</h4>
                         <div class="display-inline">
                             <div class="sfa-select">
-                              <select ng-change="" class="select" ng-model="filter.year">
+                              <select class="select" ng-change="getStats()" ng-model="filterStatistics.year">
                                   <option value="2015">2015</option>
                                   <option value="2016">2016</option>
                               </select>
@@ -166,51 +166,78 @@ student’s blog
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 text-c-m">
+                    <div class="col-md-3 col-sm-6 col-xs-12 text-c-m" ng-if="dropdowns.category.length > 0">
                         <h4 class="text-up color-blue display-inline">Category</h4>
                         <div class="display-inline">
                             <div class="sfa-select">
-                                <select class="select">
-                                    <option value="ALL">ALL</option>
-                                    <option value="U-16">U-16</option>
-                                    <option value="U-19">U-19</option>
-                                    <option value="U-21">U-21</option>
-                                </select>
+                              <select class="select" ng-change="getStats()" ng-model="filterStatistics.category" ng-options="item.name as item.name for item in dropdowns.category"></select>
                                 <span class="only-border"></span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row mt25">
+                <div class="row mt25" ng-if="filterStatistics.sport">
                     <div class="col-md-12 mt25 main-over">
                         <div class="table-statistics w700">
                             <table class="table">
                                 <thead>
                                     <tr class="text-up color-white bg-table">
-                                        <th>
+                                        <th ng-if="table.layout == 'Knockout'">
                                             <span>year</span>
                                         </th>
-                                        <th>
+                                        <th ng-if="table.layout == 'Knockout'">
                                             <span>CATEGORY</span>
                                         </th>
-                                        <th>
+                                        <th ng-if="table.layout == 'Knockout'">
                                             <span>ROUND</span>
                                         </th>
-                                        <th>
+                                        <th ng-if="table.layout == 'Knockout'">
                                             <span>OPPONENT NAME</span>
                                         </th>
-                                        <th>
+                                        <th ng-if="table.layout == 'Knockout'">
                                             <span>score</span>
                                         </th>
-                                        <th>
+                                        <th ng-if="table.layout == 'Knockout'">
                                             <span>result</span>
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr style="background:transparent;">
+                                    <tr style="background:transparent;" ng-repeat="stat in studentStats">
+                                        <td><span>{{stat.year}}</span></td>
+                                        <td><span class="text-up">{{stat.sport.agegroup.name}} <br> {{stat.sport.gender}}  <br>{{stat.sport.firstcategory.name}}</span></td>
+                                        <td class="text-up" ng-if="table.layout == 'Knockout'">{{stat.knockout.round}}</td>
+                                        <td class="text-up" ng-if="table.layout == 'Heats'">Soheb Shaikh</td>
+                                        <td class="text-up" ng-if="table.layout == 'Knockout'"><img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.opponent.result == 'Won' || stat.opponent.result == 'Bye' || stat.opponent.result == 'Walkover'">{{stat.opponent.detail.name || 'No Show'}}
+                                            <p>{{stat.opponent.detail.school.name}}</p>
+                                        </td>
+                                        <td  ng-if="table.layout == 'Knockout'">
+                                            <!-- <div class="table-data display-inline text-center text-up">
+                                                <p>5/11</p>
+                                            </div>
+                                            <div class="table-data display-inline text-center text-up">
+                                                <p>5/11</p>
+                                            </div>
+                                            <div class="table-data display-inline text-center text-up">
+                                                <p>5/11</p>
+                                            </div> -->
+                                            {{stat.knockout.score}}
+                                        </td>
+                                        <td ng-if="table.layout == 'Knockout'">
+                                            <div class="text-center display-inline ver-mid ">
+                                                <div class="sf-play">
+                                                    <span>{{stat.self.result}}</span>
+                                                </div>
+                                                <div class="replay-img ">
+                                                    <a href=""><img src="img/sf-play.png" alt=""></a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- <tr class="other-bg">
                                         <td><span>2016</span></td>
-                                        <td><span class="text-up">U-10 <br> GIRLS  <br>SINGLES</span></td>
+                                        <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
                                         <td class="text-up">Soheb Shaikh</td>
                                         <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
                                             <p>Don Bosco School</p>
@@ -265,38 +292,13 @@ student’s blog
                                                 </div>
                                             </div>
                                         </td>
-                                    </tr>
-                                    <tr class="other-bg">
-                                        <td><span>2016</span></td>
-                                        <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
-                                        <td class="text-up">Soheb Shaikh</td>
-                                        <td class="text-up"><img src="img/sf-cup-mini.png" alt="" class="table-img">Rahul Patil
-                                            <p>Don Bosco School</p>
-                                        </td>
-                                        <td>
-                                            <div class="table-data display-inline text-center text-up">
-                                                <p>5/11</p>
-                                            </div>
-                                            <div class="table-data display-inline text-center text-up">
-                                                <p>5/11</p>
-                                            </div>
-                                            <div class="table-data display-inline text-center text-up">
-                                                <p>5/11</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="text-center display-inline ver-mid ">
-                                                <div class="sf-play">
-                                                    <span>Won</span>
-                                                </div>
-                                                <div class="replay-img ">
-                                                    <a href=""><img src="img/sf-play.png" alt=""></a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
+
                             </table>
+                            <div ng-if="studentStats.length ===0 " class="text-center">
+                              No {{table.layout}} found.
+                            </div>
                         </div>
                     </div>
                 </div>

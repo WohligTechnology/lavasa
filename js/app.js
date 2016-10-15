@@ -115,7 +115,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'RoundRobinCtrl'
         })
         .state('team-detail', {
-            url: "/team-detail",
+            url: "/team-detail/:id",
             templateUrl: "views/template.html",
             controller: 'TeamDetailCtrl'
         })
@@ -229,6 +229,11 @@ firstapp.filter('letterLimit', function() {
         } else {
             return value.slice(0, limit - 2) + "..";
         }
+    };
+});
+firstapp.filter('removeSchool', function() {
+    return function(value,school) {
+        return value.replace(school+" ", "");
     };
 });
 firstapp.filter('mediapath', function() {

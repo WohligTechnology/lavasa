@@ -8,8 +8,8 @@
 
 // var adminurl = "http://104.154.89.21:83/api/";
 // var adminurl = "http://localhost:1337/";
-var adminurl = "http://104.155.129.33:83/api/";
-// var adminurl = "http://192.168.0.107:1337/api/";
+var adminurl = "http://146.148.42.15:83/api/";
+// var adminurl = "http://192.168.1.101:1337/api/";
 var imgpath = adminurl + "upload/readFile";
 var uploadurl = adminurl + "upload/";
 var currentYears = ["2015", "2016"];
@@ -78,6 +78,15 @@ var navigationservice = angular.module('navigationservice', [])
                 data: input
             }).success(callback);
         },
+        getSearchDataTeam: function(input, callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'team/searchTeam',
+                method: 'POST',
+                withCredentials: true,
+                data: input
+            }).success(callback);
+        },
         getSchoolProfile: function(id, callback) {
             // console.log('form data: ', formData);
             $http({
@@ -89,15 +98,22 @@ var navigationservice = angular.module('navigationservice', [])
                 }
             }).success(callback);
         },
-        getSportRuleByName: function(name, callback) {
+        getSchoolByYear: function(request, callback) {
+            console.log('form data: ', request);
+            $http({
+                url: adminurl + 'school/getSchoolByYear',
+                method: 'POST',
+                withCredentials: true,
+                data: request
+            }).success(callback);
+        },
+        getSportRuleByName: function(request, callback) {
             // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'sportrule/getOneByName',
                 method: 'POST',
                 withCredentials: true,
-                data: {
-                    "name": name
-                }
+                data: request
             }).success(callback);
         },
         getAllSportList: function(request, callback) {
@@ -120,6 +136,17 @@ var navigationservice = angular.module('navigationservice', [])
                 }
             }).success(callback);
         },
+        getTeamDetail: function(id, callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'team/getOne',
+                method: 'POST',
+                withCredentials: true,
+                data: {
+                    "_id": id
+                }
+            }).success(callback);
+        },
         schoolSearch: function(request, callback) {
             // console.log('form data: ', formData);
             $http({
@@ -130,7 +157,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getSchoolSportByGender: function(request, callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'studentsport/getSchoolSportByGender',
                 method: 'POST',
@@ -139,7 +165,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getStudentSport: function(request, callback) {
-            //console.log('request data: ', request);
             $http({
                 url: adminurl + 'studentsport/getsportspopulated',
                 method: 'POST',
@@ -148,7 +173,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getSchoolMedalCount: function(request, callback) {
-            //console.log('request data: ', request);
             $http({
                 url: adminurl + 'medal/countOneSchoolMedal',
                 method: 'POST',
@@ -160,6 +184,15 @@ var navigationservice = angular.module('navigationservice', [])
             //console.log('request data: ', request);
             $http({
                 url: adminurl + 'medal/countOneStudentMedal',
+                method: 'POST',
+                withCredentials: true,
+                data: request
+            }).success(callback);
+        },
+        getStatsForStudent: function(request, callback) {
+            //console.log('request data: ', request);
+            $http({
+                url: adminurl + 'studentstats/getStudentStatByFilters',
                 method: 'POST',
                 withCredentials: true,
                 data: request
@@ -179,11 +212,25 @@ var navigationservice = angular.module('navigationservice', [])
                 method: 'POST'
             }).success(callback);
         },
+        countTeam: function(callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'team/countTeam',
+                method: 'POST'
+            }).success(callback);
+        },
         filterStud: function(data, callback) {
             $http({
                 url: adminurl + 'school/filterStud',
                 method: 'POST',
                 data: data
+            }).success(callback);
+        },
+        filterCategoryBySport: function(request, callback) {
+            $http({
+                url: adminurl + 'sport/filterCategoryForFrontend',
+                method: 'POST',
+                data: request
             }).success(callback);
         },
         getFolders: function(request, callback) {
