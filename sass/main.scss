@@ -313,7 +313,7 @@ a {
 }
 .school-sec {
     @extend .school-boxs;
-    min-height: 260px;
+    min-height: 280px;
     position: relative;
     margin: 10px 3px;
 }
@@ -2282,6 +2282,12 @@ img.fancybox-image {
             }
         }
     }
+}
+.ovr-fl{
+  overflow: hidden;
+}
+.mx-width{
+  max-width: 100%;
 }
 .oth-pos{
   bottom: 0;
