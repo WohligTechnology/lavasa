@@ -8,8 +8,8 @@
 
 // var adminurl = "http://104.154.89.21:83/api/";
 // var adminurl = "http://localhost:1337/";
-// var adminurl = "http://146.148.42.15:83/api/";
-var adminurl = "http://192.168.1.104:1337/api/";
+var adminurl = "http://146.148.42.15:83/api/";
+// var adminurl = "http://192.168.1.101:1337/api/";
 var imgpath = adminurl + "upload/readFile";
 var uploadurl = adminurl + "upload/";
 var currentYears = ["2015", "2016"];

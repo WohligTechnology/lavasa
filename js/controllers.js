@@ -1012,6 +1012,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.pagination.totalpages = 0;
       $scope.search.active = true;
     }
+    $scope.submitSearch();
   };
   $scope.submitSearch = function() {
     if ($scope.search.active) {
@@ -1254,7 +1255,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.menutitle = NavigationService.makeactive("Students");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-
+  $scope.inputs = {};
   // $scope.student = [{
   //     icon: "img/sf-student-profile.png",
   //     name: "Harshit Shah",
@@ -1294,19 +1295,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   $scope.getsearch = false;
   $scope.searchFilter = {};
   $scope.searchFilter.pagenumber = 1;
-  $scope.searchFilter.pagesize = 9;
+  $scope.searchFilter.pagesize = 12;
   $scope.searchFilter.search = "";
-  $scope.doSearch = function() {
-    if ($scope.searchFilter.search == '') {
+  $scope.parseSearch = function(input){
+    $scope.searchFilter.pagenumber = 1;
+
+    if (input === '' || input === null) {
+      $scope.searchFilter.search = undefined;
+      $scope.searchFilter.sfaid = undefined;
       $scope.getsearch = false;
     } else {
       $scope.getsearch = true;
-      NavigationService.getSearchDataStudent($scope.searchFilter, function(data) {
-        //console.log($scope.searchFilter);
-        $scope.getSearchData = data.data.data;
-      });
+
+      if (isNaN(input)) {
+        $scope.searchFilter.search = input;
+        $scope.searchFilter.sfaid = undefined;
+      } else {
+        $scope.searchFilter.search = undefined;
+        $scope.searchFilter.sfaid = parseInt(input);
+      }
+
     }
-  }
+    $scope.doSearch();
+  };
+  $scope.doSearch = function() {
+    NavigationService.getSearchDataStudent($scope.searchFilter, function(data) {
+      $scope.getSearchData = data.data;
+    });
+  };
 })
 
 .controller('StudentProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
@@ -1441,9 +1457,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var constraints = {};
     constraints.year = $scope.filter.year;
     constraints.student = $stateParams.id;
+    $scope.filterStatistics.sport = undefined;
+    $scope.studentStats = [];
     $scope.getStudentSport(constraints);
     $scope.studentMedalCount(constraints);
-  }
+  };
   $scope.getStudentSport = function(constraints) {
     //console.log("constraints : ",constraints);
     var i = 0;
