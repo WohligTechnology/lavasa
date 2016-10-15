@@ -49,7 +49,7 @@
                                 <li class="border-right-1">
                                     <div class="display-inline text-up text-center">
                                         <p>{{filter.year}} rank</p>
-                                        <p class="total display-inline mt5">15</p>
+                                        <p class="total display-inline mt5"> - </p>
                                     </div>
                                     <!-- <div class="stu-data display-inline text-up text-center">
                                         <p>2016 rank</p>
@@ -176,10 +176,10 @@
                 <div class="sport-slider mt40">
                   <flex-slider class="carousel" flex-slide="sportDetails in sportsStudentGender track by $index" animation="slide" item-width="140" item-margin="60">
                       <li>
-                          <a href="">
+                          <a >
                               <div class="sports-participate text-center">
                                   <img ng-src="{{ sportDetails._id.name !== filter.sport && (sportDetails._id.inactiveimage | uploadpath) || (sportDetails._id.image  | uploadpath)}}" alt="" class="img-responsive image-width"
-                                  ng-click="showHide(sportDetails._id.name)">
+                                  ng-click="selectSport(sportDetails._id)">
                                   <span class="color-base text-up f16 mt10">{{sportDetails._id.name}}</span>
                                   <div class="combine mt10">
                                       <div class="boy-sec display-inline color-base icon-right">
@@ -197,7 +197,7 @@
             </div>
         </div>
         <hr>
-        <div class="row mt40">
+        <div class="row mt40" ng-if="!filterStatistics.sport">
             <div class="col-md-12 ">
                 <div class=" text-center">
                     <h3 class="font-semi color-blue margin0">CONTINGENT STRENGTH {{filterStatistics.year}}</h3>
@@ -226,7 +226,7 @@
                         <h4 class="text-up color-blue display-inline">Year</h4>
                         <div class="display-inline">
                             <div class="sfa-select">
-                                <select ng-change="contingentStrengthByYear()" class="select" ng-model="filterStatistics.year" ng-change = "changeYear()">
+                                <select ng-change="contingentStrengthByYear()" class="select" ng-model="filterStatistics.year">
                                 <option value="">All</option>
                                 <option value="2016">2016</option>
                                 </select>
@@ -237,10 +237,10 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" ng-if="!filterStatistics.sport">
             <div class="col-md-3 mt15" ng-repeat="data in contingent.data track by $index">
                 <a href="">
-                    <div class="school-sec">
+                    <div class="school-sec" ui-sref="student-profile({id:data._id})">
                       <!-- <img src="img/sf-cl.png" alt="" class="mt-min-18"> -->
                         <div class="stu-img text-center sf-relative">
                             <img ng-src="{{data.profilePic | uploadpath}}" alt="">
@@ -259,7 +259,7 @@
             </div>
         </div>
         <!-- </ui> -->
-        <div class="row">
+        <div class="row" ng-if="!filterStatistics.sport">
             <div class="col-md-12">
                 <div class="float-right sf-list">
                     <nav aria-label="Page navigation" ng-if="contingent.totalpages > 1">
@@ -270,7 +270,7 @@
         </div>
     </div>
     <!-- when user select any sports -->
-    <section ng-show="sportContingent.showContingent">
+    <section ng-if="filterStatistics.sport">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -352,10 +352,9 @@
                                     <h4 class="text-up color-blue display-inline">Year</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
-                                            <select class="select">
-                                                <option value="2016">2016</option>
-                                                <option value="2016">2016</option>
-                                                <option value="2016">2016</option>
+                                            <select  class="select">
+                                                <option value="">All</option>
+                                                <option value="2015">2015</option>
                                                 <option value="2016">2016</option>
                                             </select>
                                             <span class="only-border"></span>
@@ -367,9 +366,9 @@
                                     <div class="display-inline">
                                         <div class="sfa-select">
                                             <select class="select">
-                                                <option value="ALL">ALL</option>
-                                                <option value="Male">Male</option>
-                                                <option value="female">female</option>
+                                                <option value="">ALL</option>
+                                                <option value="Boys">Boys</option>
+                                                <option value="Girls">Girls</option>
 
                                             </select>
                                             <span class="only-border"></span>
@@ -381,7 +380,7 @@
                                     <div class="display-inline">
                                         <div class="sfa-select">
                                             <select class="select">
-                                                <option value="ALL">ALL</option>
+                                                <option value="">ALL</option>
                                                 <option value="U-16">U-16</option>
                                                 <option value="U-19">U-19</option>
                                                 <option value="U-21">U-21</option>
@@ -412,10 +411,9 @@
                                     <h4 class="text-up color-blue display-inline">Year</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
-                                            <select class="select">
-                                                <option value="2016">2016</option>
-                                                <option value="2016">2016</option>
-                                                <option value="2016">2016</option>
+                                            <select ng-model="filterStatistics.year" class="select">
+                                                <option value="">All</option>
+                                                <option value="2015">2015</option>
                                                 <option value="2016">2016</option>
                                             </select>
                                             <span class="only-border"></span>
@@ -426,40 +424,30 @@
                                     <h4 class="text-up color-blue display-inline">gender</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
-                                            <select class="select">
-                                                <option value="ALL">ALL</option>
-                                                <option value="Male">Male</option>
-                                                <option value="Male">Male</option>
+                                          <select ng-model="filterStatistics.gender" class="select">
+                                              <option value="">ALL</option>
+                                              <option value="Boys">Boys</option>
+                                              <option value="Girls">Girls</option>
 
-                                            </select>
+                                          </select>
                                             <span class="only-border"></span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-4 col-xs-12 text-c-m">
+                                <div class="col-md-3 col-sm-4 col-xs-12 text-c-m" ng-if="dropdowns.agegroup.length > 0">
                                     <h4 class="text-up color-blue display-inline">age group</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
-                                            <select class="select">
-                                                <option value="ALL">ALL</option>
-                                                <option value="U-16">U-16</option>
-                                                <option value="U-19">U-19</option>
-                                                <option value="U-21">U-21</option>
-                                            </select>
+                                          <select class="select" ng-model="filterStatistics.agegroup" ng-options="item.name as item.name for item in dropdowns.agegroup"></select>
                                             <span class="only-border"></span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-4 col-xs-12 text-c-m">
+                                <div class="col-md-3 col-sm-4 col-xs-12 text-c-m" ng-if="dropdowns.category.length > 0">
                                     <h4 class="text-up color-blue display-inline">category</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
-                                            <select class="select">
-                                                <option value="ALL">ALL</option>
-                                                <option value="U-16">U-16</option>
-                                                <option value="U-19">U-19</option>
-                                                <option value="U-21">U-21</option>
-                                            </select>
+                                          <select class="select" ng-change="getStats()" ng-model="filterStatistics.category" ng-options="item.name as item.name for item in dropdowns.category"></select>
                                             <span class="only-border"></span>
                                         </div>
                                     </div>

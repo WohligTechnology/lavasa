@@ -241,6 +241,13 @@ var navigationservice = angular.module('navigationservice', [])
                 data: request
             }).success(callback);
         },
+        filterAgegroupBySport: function(request, callback) {
+            $http({
+                url: adminurl + 'sport/filterAgegroupForFrontend',
+                method: 'POST',
+                data: request
+            }).success(callback);
+        },
         getFolders: function(request, callback) {
             $http({
                 url: adminurl + 'media/getFolders',
