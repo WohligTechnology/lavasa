@@ -1,4 +1,4 @@
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider','angular-loading-bar'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
         //Used to name the .html file
@@ -641,7 +641,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.filter = {};
     $scope.classes = {};
     $scope.sportFolder = {};
-    if ($stateParams.name == '') {
+    $scope.mediaArr = {};
+    if ($stateParams.name === '') {
         $state.go('home');
     }
     $scope.student = [{
@@ -784,15 +785,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.loadMedia = function() {
+      if($scope.mediaArr.data){
+        $scope.mediaArr.data = [];
+      }else{
+        $scope.mediaArr = {};
+      }
+
         NavigationService.getLimitedMedia($scope.filter, function(response) {
             if (response) {
                 console.log("get limited media : ", response);
-                $scope.mediaArr = [];
                 $scope.mediaArr = response.data;
+                console.log($scope.mediaArr);
                 //console.log("folder data : ",$scope.folders);
             } else {
                 console.log("No data found");
-                $scope.mediaArr = [];
+                $scope.mediaArr = {};
             }
         })
     };
@@ -1049,7 +1056,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.submitSearch();
             $scope.filterselected.title = "Top 20 Schools";
         } else {
-            if ($scope.filter.year == '') {
+            if ($scope.filter.year === '') {
                 $scope.filterselected.title = "All Schools";
             } else {
                 $scope.filterselected.title = "SFA MUMBAI " + $scope.filter.year;
@@ -1064,7 +1071,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.allSchoolByYear = function(constraints) {
         NavigationService.getSchoolByYear(constraints, function(data) {
-            if (data.value != false) {
+            if (data.value !== false) {
                 $scope.allSchools = data.data.data;
                 $scope.schoolSplit = Math.round($scope.allSchools.length / 2);
                 $scope.schoolsData = _.chunk($scope.allSchools, $scope.schoolSplit);
@@ -1227,7 +1234,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //   $scope.clickstatuses[property] = false;
         // });
         // $scope.clickstatuses[selected] = true;
+        $scope.filter.sport=selected;
         $scope.filterStatistics.sport = selected._id;
+
         $scope.table.layout = selected.drawFormat;
 
         NavigationService.filterCategoryBySport({

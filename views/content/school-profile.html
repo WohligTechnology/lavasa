@@ -178,7 +178,7 @@
                       <li>
                           <a >
                               <div class="sports-participate text-center">
-                                  <img ng-src="{{ sportDetails._id.name !== filter.sport && (sportDetails._id.inactiveimage | uploadpath) || (sportDetails._id.image  | uploadpath)}}" alt="" class="img-responsive image-width"
+                                  <img ng-src="{{ sportDetails._id.name !== filter.sport.name && (sportDetails._id.inactiveimage | uploadpath) || (sportDetails._id.image  | uploadpath)}}" alt="" class="img-responsive image-width"
                                   ng-click="selectSport(sportDetails._id)">
                                   <span class="color-base text-up f16 mt10">{{sportDetails._id.name}}</span>
                                   <div class="combine mt10">

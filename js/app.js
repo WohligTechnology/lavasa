@@ -9,9 +9,13 @@ var firstapp = angular.module('firstapp', [
     'angulartics.google.analytics'
 ]);
 
-firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
+firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider,cfpLoadingBarProvider) {
     // for http request with session
     $httpProvider.defaults.withCredentials = true;
+    // cfpLoadingBarProvider.latencyThreshold = 2000;
+    cfpLoadingBarProvider.includeBar = true;
+    cfpLoadingBarProvider.includeSpinner = false;
+    // cfpLoadingBarProvider.spinnerTemplate = '<div class="loading-bar"><img src="img/load.gif" style="width:125px"></div>';
     $stateProvider
         .state('home', {
             url: "/",
