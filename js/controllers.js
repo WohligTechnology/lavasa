@@ -1657,7 +1657,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                 } else {
                                     key.opponent.detail = key.knockout[key.knockout.participantType + '1'];
                                     key.opponent.result = key.knockout["result" + key.knockout.participantType + '1'];
-                                    key.self.result = key["result" + key.knockout.participantType + '2'];
+                                    key.self.result = key.knockout["result" + key.knockout.participantType + '2'];
                                 }
                             } else {
                                 if (key.knockout[key.knockout.participantType + '1']._id == key.team._id) {
