@@ -1287,10 +1287,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     key.opponent.result = key.knockout["result" + key.knockout.participantType + '2'];
                                     key.self.result = key.knockout["result" + key.knockout.participantType + '1'];
                                 } else {
-                                    key.opponent.detail = key[key.knockout.participantType + '1'];
-                                    key.self.detail = key[key.knockout.participantType + '2'];
-                                    key.opponent.result = key["result" + key.knockout.participantType + '1'];
-                                    key.self.result = key["result" + key.knockout.participantType + '2'];
+                                    key.opponent.detail = key.knockout[key.knockout.participantType + '1'];
+                                    key.self.detail = key.knockout[key.knockout.participantType + '2'];
+                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '1'];
+                                    key.self.result = key.knockout["result" + key.knockout.participantType + '2'];
                                 }
                             } else {
                                 if (key.knockout[key.knockout.participantType + '1'].school._id == key.team.school._id) {
@@ -1648,13 +1648,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             key.opponent = {};
                             key.self = {};
                             if (key.knockout.participantType == 'player') {
+                              console.log("");
                                 if (key.knockout[key.knockout.participantType + '1']._id == $stateParams.id) {
+                                  console.log("here");
                                     key.opponent.detail = key.knockout[key.knockout.participantType + '2'];
                                     key.opponent.result = key.knockout["result" + key.knockout.participantType + '2'];
                                     key.self.result = key.knockout["result" + key.knockout.participantType + '1'];
                                 } else {
-                                    key.opponent.detail = key[key.knockout.participantType + '1'];
-                                    key.opponent.result = key["result" + key.knockout.participantType + '1'];
+                                    key.opponent.detail = key.knockout[key.knockout.participantType + '1'];
+                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '1'];
                                     key.self.result = key["result" + key.knockout.participantType + '2'];
                                 }
                             } else {
