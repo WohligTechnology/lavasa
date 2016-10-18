@@ -1913,7 +1913,11 @@ img.fancybox-image {
 }
 .border-r {
     img {
-        border-radius: 100%;
+      border-radius: 100%;
+max-width: 100%;
+margin: 0 auto;
+max-height: 100%;
+overflow: hidden;
     }
 }
 .faq-table {
@@ -2003,8 +2007,9 @@ img.fancybox-image {
     margin: 0 auto;
 }
 .w130 {
-    width: 130px;
-    margin: 0 auto;
+  width: 130px;
+  margin: 0 auto;
+  height: 130px;
 }
 .sigh-pro {
     left: 15px;
