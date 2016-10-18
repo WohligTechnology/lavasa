@@ -1956,7 +1956,13 @@ overflow: hidden;
 }
 .stu-img {
     img {
-        border-radius: 100%;
+      border-radius: 100%;
+max-width: 100%;
+margin: 0 auto;
+max-height: 100%;
+overflow: hidden;
+height: 130px;
+width: 130px;
     }
 }
 .statement {
