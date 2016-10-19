@@ -13,9 +13,10 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     // for http request with session
     $httpProvider.defaults.withCredentials = true;
     // cfpLoadingBarProvider.latencyThreshold = 2000;
-    cfpLoadingBarProvider.includeBar = true;
-    cfpLoadingBarProvider.includeSpinner = false;
-    // cfpLoadingBarProvider.spinnerTemplate = '<div class="loading-bar"><img src="img/load.gif" style="width:125px"></div>';
+    // cfpLoadingBarProvider.includeBar = true;
+    cfpLoadingBarProvider.includeSpinner = true;
+    cfpLoadingBarProvider.includeBar = false;
+    cfpLoadingBarProvider.spinnerTemplate = '<div class="loaderHeader"><img src="img/load.gif" alt="" /></div>';
     $stateProvider
         .state('home', {
             url: "/",
