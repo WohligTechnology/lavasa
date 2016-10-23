@@ -1054,7 +1054,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.school.showAll = false;
             $scope.school.showTop20 = false;
             $scope.submitSearch();
-            $scope.filterselected.title = "Top 20 Schools";
+            $scope.filterselected.title = "SFA MUM 2015 - Top 20 Schools";
         } else {
             if ($scope.filter.year === '') {
                 $scope.filterselected.title = "All Schools";
@@ -1085,7 +1085,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.changeYear();
 })
 
-.controller('SchoolProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('SchoolProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("school-profile");
     $scope.menutitle = NavigationService.makeactive("School Profile");
@@ -1109,6 +1109,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.filterStatistics.pagesize = 8;
     $scope.filterStatistics.school = $stateParams.id;
     $scope.table = {};
+    $scope.state = $state;
     $scope.allYears = NavigationService.getAllYears();
     $scope.gender = [{
         value: "All",

@@ -218,7 +218,7 @@ firstapp.filter('uploadpath', function() {
             }
         } else {
             if (defaultFlag === false) {
-                return "img/sf-handball.png";
+                return "img/new-banner.png";
 
             } else {
                 return "img/noimage.png";
