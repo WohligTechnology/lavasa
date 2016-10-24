@@ -20,6 +20,7 @@
                             </a>
                         </li>
 
+                        <li><a ui-sref="media-gallery">media & gallery</a></li>
                         <li><a ui-sref="training-development">TRAINING & DEVELOPMENT</a></li>
                         <li class="sf-relative hide-op"><a ui-sref="students">SFA MUMBAI 2016</a>
                             <ul class="dropdown-menu sf-absulate show-op">
@@ -55,7 +56,7 @@
                     <li><a ui-sref="about-us">ABOUT US</a></li>
                     <li><a ui-sref="school">Schools</a></li>
                     <li><a ui-sref="students">STUDENTS</a></li>
-
+                    <li><a ui-sref="media-gallery">media & gallery</a></li>
                     <li><a ui-sref="training-development">TRAINING & DEVELOPMENT</a></li>
                     <li><a ui-sref="registration">Registration Form</a></li>
                     <li><a ui-sref="faq">FAQs</a></li>
@@ -66,7 +67,7 @@
                 </ul>
             </div>
         </div>
-        <div class="on-mouse-hover" ng-mouseenter="options=true" ng-mouseleave="options=false"  >
+        <div class="on-mouse-hover" ng-mouseenter="options=true" ng-mouseleave="options=false">
 
             <div class="bg-head curve-head" ng-show="options || checkbox">
                 <div class="container">
@@ -77,33 +78,23 @@
                                     <h5 class="text-up " style="color:#f67012">team sports</h5>
                                     <ul class="padding0">
                                         <li>
-                                            <a ui-sref="sport({name:'handball'})">
-handball
-                        </a>
-                                        </li>
-                                        <li>
                                             <a ui-sref="sport({name:'basketball'})">
 basketball
                         </a>
                                         </li>
                                         <li>
-                                            <a ui-sref="sport({name:'volleyball'})">
-volleyball
+                                            <a ui-sref="sport({name:'football'})">
+football
                         </a>
                                         </li>
                                         <li>
-                                            <a ui-sref="sport({name:'throwball'})">
-throwball
+                                            <a ui-sref="sport({name:'handball'})">
+handball
                         </a>
                                         </li>
                                         <li>
                                             <a ui-sref="sport({name:'hockey'})">
-                          hockey
-                        </a>
-                                        </li>
-                                        <li>
-                                            <a ui-sref="sport({name:'kho-kho'})">
-                          kho-kho
+hockey
                         </a>
                                         </li>
                                         <li>
@@ -112,8 +103,18 @@ throwball
                         </a>
                                         </li>
                                         <li>
-                                            <a ui-sref="sport({name:'football'})">
-                          football
+                                            <a ui-sref="sport({name:'kho-kho'})">
+                          kho-kho
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a ui-sref="sport({name:'throwball'})">
+                          throwball
+                        </a>
+                                        </li>
+                                        <li>
+                                            <a ui-sref="sport({name:'volleyball'})">
+                          volleyball
                         </a>
                                         </li>
                                     </ul>
@@ -129,13 +130,13 @@ badminton
                         </a>
                                         </li>
                                         <li>
-                                            <a ui-sref="sport({name:'tennis'})">
-tennis
+                                            <a ui-sref="sport({name:'table tennis'})">
+table tennis
                         </a>
                                         </li>
                                         <li>
-                                            <a ui-sref="sport({name:'table tennis'})">
-table tennis
+                                            <a ui-sref="sport({name:'tennis'})">
+tennis
                         </a>
                                         </li>
                                         <li>
@@ -152,16 +153,6 @@ squash
                                     <h5 class="text-up" style="color:#aa33ff">combat sports</h5>
                                     <ul class="padding0">
                                         <li>
-                                            <a ui-sref="sport({name:'judo'})">
-judo
-                        </a>
-                                        </li>
-                                        <li>
-                                            <a ui-sref="sport({name:'taekwondo'})">
-taekwondo
-                        </a>
-                                        </li>
-                                        <li>
                                             <a ui-sref="sport({name:'boxing'})">
 boxing
                         </a>
@@ -172,14 +163,24 @@ fencing
                         </a>
                                         </li>
                                         <li>
-
+                                            <a ui-sref="sport({name:'judo'})">
+judo
+                        </a>
+                                        </li>
+                                        <li>
                                             <a ui-sref="sport({name:'karate'})">
-                                            karate
+karate
+                        </a>
+                                        </li>
+                                        <li>
+
+                                            <a ui-sref="sport({name:'  sport mma'})">
+                                              sport mma
                                           </a>
                                         </li>
                                         <li>
-                                            <a ui-sref="sport({name:'sport mma'})">
-                                          sport mma
+                                            <a ui-sref="sport({name:'taekwondo'})">
+                                        taekwondo
                                         </a>
                                         </li>
                                     </ul>
@@ -190,13 +191,13 @@ fencing
                                     <h5 class="text-up" style="color:#d8485a">target sports</h5>
                                     <ul class="padding0">
                                         <li>
-                                            <a ui-sref="sport({name:'shooting'})">
-shooting
+                                            <a ui-sref="sport({name:'archery'})">
+archery
                         </a>
                                         </li>
                                         <li>
-                                            <a ui-sref="sport({name:'archery'})">
-archery
+                                            <a ui-sref="sport({name:'shooting'})">
+shooting
                         </a>
                                         </li>
 
@@ -226,18 +227,18 @@ water polo
                                     <h5 class="text-up" style="color:#0edb87">individual sports</h5>
                                     <ul class="padding0">
                                         <li>
+                                            <a ui-sref="sport({name:'athletics'})">
+athletics
+                        </a>
+                                        </li>
+                                        <li>
                                             <a ui-sref="sport({name:'carrom'})">
 carrom
                         </a>
                                         </li>
                                         <li>
                                             <a ui-sref="sport({name:'chess'})">
-chess
-                        </a>
-                                        </li>
-                                        <li>
-                                            <a ui-sref="sport({name:'athletics'})">
-    athletics
+    chess
   </a>
                                         </li>
                                     </ul>
@@ -254,5 +255,5 @@ chess
 
 </header>
 <div class="loaderHeader" ng-show="template.isLoader">
-  <img src="img/load.gif" alt="" />
+    <img src="img/load.gif" alt="" />
 </div>
