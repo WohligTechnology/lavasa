@@ -94,8 +94,8 @@
                             <ul>
                                 <li ng-repeat="schools1 in schoolsData[0]">
                                     <a ui-sref="school-profile({id:schools1._id})">
-                                        <!-- <span>{{$index + 1}}</span> -->
-                                        <span>{{ schools1.sfaid }}</span>
+                                        <span>{{$index + 1}}</span>
+                                        <!-- <span>{{ schools1.sfaid }}</span> -->
                                         <p>{{schools1.name | letterLimit : 53}}</p>
                                     </a>
                                 </li>
@@ -110,8 +110,8 @@
                             <ul>
                                 <li ng-repeat="schools2 in schoolsData[1]">
                                     <a ui-sref="school-profile({id:schools2._id})">
-                                        <!-- <span>{{$index + schoolSplit + 1}}</span> -->
-                                        <span>{{ schools2.sfaid }}</span>
+                                        <span>{{$index + schoolSplit + 1}}</span>
+                                        <!-- <span>{{ schools2.sfaid }}</span> -->
                                         <p>{{schools2.name | letterLimit : 53}}</p>
                                     </a>
                                 </li>

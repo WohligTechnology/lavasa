@@ -14,9 +14,9 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     $httpProvider.defaults.withCredentials = true;
     // cfpLoadingBarProvider.latencyThreshold = 2000;
     // cfpLoadingBarProvider.includeBar = true;
-    cfpLoadingBarProvider.includeSpinner = true;
-    cfpLoadingBarProvider.includeBar = false;
-    cfpLoadingBarProvider.spinnerTemplate = '<div class="loaderHeader"><img src="img/load.gif" alt="" /></div>';
+    cfpLoadingBarProvider.includeSpinner = false;
+    cfpLoadingBarProvider.includeBar = true;
+    // cfpLoadingBarProvider.spinnerTemplate = '<div class="loaderHeader"><img src="img/load.gif" alt="" /></div>';
     $stateProvider
         .state('home', {
             url: "/",
@@ -218,6 +218,7 @@ firstapp.filter('uploadpath', function() {
             }
         } else {
             if (defaultFlag === false) {
+              console.log("new-banner");
                 return "img/new-banner.png";
 
             } else {
@@ -466,7 +467,8 @@ firstapp.filter('englishNumeralDate', function() {
     return function(value) {
         if (value) {
             console.log(angular.isDate(value));
-            return moment(new Date(value)).format("Mo MMMM YYYY");
+            console.log(value);
+            return moment(new Date(value)).format("Do MMMM YYYY");
         }
     };
 });

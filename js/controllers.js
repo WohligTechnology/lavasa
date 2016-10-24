@@ -1036,7 +1036,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         } else {
             NavigationService.getFirstListSchool(function(data) {
-                if (data.value != false) {
+                if (data.value !== false) {
                     $scope.topschools = data.data.data;
                     //console.log("top school",$scope.topschools);
                     $scope.count = data.data.count;
@@ -1056,13 +1056,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.submitSearch();
             $scope.filterselected.title = "SFA MUM 2015 - Top 20 Schools";
         } else {
-            if ($scope.filter.year === '') {
+          var constraints = {};
+
+            if ($scope.filter.year === '' || $scope.filter.year === null || $scope.filter.year ===  undefined) {
                 $scope.filterselected.title = "All Schools";
+                constraints.year = null;
+
             } else {
                 $scope.filterselected.title = "SFA MUMBAI " + $scope.filter.year;
+                constraints.year = $scope.filter.year;
+
             }
-            var constraints = {};
-            constraints.year = $scope.filter.year;
             $scope.allSchoolByYear(constraints);
             $scope.school.showAll = true;
             $scope.school.showTop20 = true;
