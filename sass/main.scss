@@ -2369,3 +2369,16 @@ left: 50%;
     position: absolute;
     @include transform(translateX(-50%));
 }
+.bg-n{
+    background: transparent !important;
+        color: #0a1a72;
+        a{
+              color: #0a1a72;
+        }
+  &:before{
+    background: transparent !important;
+  }
+  &:after{
+    background: transparent !important;
+  }
+}

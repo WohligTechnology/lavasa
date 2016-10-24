@@ -9,10 +9,19 @@
                         <li><a ui-sref="#" ng-click="options=!options" ng-model="checkbox">sports <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 
                         </li>
-                        <li><a ui-sref="school">Schools</a></li>
+                        <li class="sf-relative hide-op bg-n"><a ui-sref="">profile<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                            <ul class="dropdown-menu sf-absulate show-op">
+                              <li><a ui-sref="school">Schools</a></li>
 
 
-                        <li><a ui-sref="students">STUDENTS</a></li>
+                              <li><a ui-sref="students">STUDENTS</a></li>
+                              <li><a ui-sref="team">teams</a></li>
+                            </ul>
+                        </li>
+                        <!-- <li><a ui-sref="school">Schools</a></li>
+
+
+                        <li><a ui-sref="students">STUDENTS</a></li> -->
 
                         <li class="logoli">
                             <a class="" ui-sref="home">
@@ -56,6 +65,7 @@
                     <li><a ui-sref="about-us">ABOUT US</a></li>
                     <li><a ui-sref="school">Schools</a></li>
                     <li><a ui-sref="students">STUDENTS</a></li>
+                    <li><a ui-sref="teams">teams</a></li>
                     <li><a ui-sref="media-gallery">media & gallery</a></li>
                     <li><a ui-sref="training-development">TRAINING & DEVELOPMENT</a></li>
                     <li><a ui-sref="registration">Registration Form</a></li>
