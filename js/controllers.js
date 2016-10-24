@@ -641,6 +641,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.filter = {};
     $scope.classes = {};
     $scope.sportFolder = {};
+    $scope.sport = {};
+
     $scope.mediaArr = {};
     if ($stateParams.name === '') {
         $state.go('home');
@@ -685,10 +687,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.classes.classv = "active-list";
         }
     };
+    $scope.winners = [];
+    $scope.statuses = {};
+    $scope.statuses.doubleBronze = false;
+    $scope.getWinners = function () {
+      var constraints = {};
+      constraints.sport =$scope.sport.sportid._id;
+      constraints.year = "2015";
+      $scope.statuses.doubleBronze = false;
+
+      NavigationService.getWinners(constraints,function (response) {
+        if(response.value){
+          $scope.winners = response.data;
+          _.each($scope.winners,function (key) {
+            if(key.Bronze.length > 1){
+              $scope.statuses.doubleBronze = true;
+            }
+          });
+        }else{
+          $scope.winners = [];
+        }
+      });
+    };
     $scope.getSport = function() {
         NavigationService.getSportRuleByName($stateParams, function(response) {
             if (response.value) {
                 $scope.sport = response.data;
+                console.log($scope.sport);
+                $scope.getWinners();
             } else {
                 console.log("No sports data found");
             }

@@ -1,4 +1,4 @@
-var adminURL = "";
+// var adminURL = "";
 // if (isproduction) {
 //     adminURL = "http://www.wohlig.co.in/demo/index.php";
 // } else {
@@ -7,8 +7,8 @@ var adminURL = "";
 
 
 // var adminurl = "http://localhost:1337/";
-var adminurl = "http://146.148.42.15:83/api/";
-// var adminurl = "http://192.168.0.103:1337/api/";
+// var adminurl = "http://146.148.42.15:83/api/";
+var adminurl = "http://192.168.1.105:1337/api/";
 var imgpath = adminurl + "upload/readFile";
 var uploadurl = adminurl + "upload/";
 var currentYears = ["2015", "2016"];
@@ -192,6 +192,15 @@ var navigationservice = angular.module('navigationservice', [])
             //console.log('request data: ', request);
             $http({
                 url: adminurl + 'medal/countOneStudentMedal',
+                method: 'POST',
+                withCredentials: true,
+                data: request
+            }).success(callback);
+        },
+        getWinners: function(request, callback) {
+            //console.log('request data: ', request);
+            $http({
+                url: adminurl + 'medal/getMedalsBySport',
                 method: 'POST',
                 withCredentials: true,
                 data: request

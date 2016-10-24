@@ -355,10 +355,11 @@ sport’s bio
                                 <uib-accordion-group heading="winners of sfa mumbai 2015" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
                                     <div class="row">
                                         <div class="col-md-12">
-                                          <div class="text-center">
-                                            <h4 class="color-blue text-up">Handball</h4>
+                                          <div class="text-center" ng-if="winners.length == 0">
+                                            <!-- <h4></h4> -->
+                                            No Winners Yet
                                           </div>
-                                            <div class=" mt25">
+                                            <div class=" mt25" ng-if="winners.length > 0">
                                               <div class="dr-table">
                                                   <table class="table">
                                                       <thead>
@@ -388,22 +389,30 @@ sport’s bio
                                                                       Bronze
                                                                   </div>
                                                               </th>
+                                                              <th ng-if="statuses.doubleBronze">
+                                                                  <div class="display-inline ver-bottom">
+                                                                      <img src="img/sf-bronze-sec.png" alt="">
+                                                                  </div>
+                                                                  <div class="display-inline">
+                                                                      Bronze
+                                                                  </div>
+                                                              </th>
                                                           </tr>
                                                       </thead>
                                                       <tbody>
-                                                          <tr>
-                                                              <td>U-10 Boys</td>
+                                                          <tr ng-repeat="win in winners">
+                                                              <td>{{win._id.agegroup.name}} {{win._id.gender}} {{win._id.firstcategory.name}}</td>
                                                               <td>
                                                                   <a href="">
                                                                       <div class="display-inline ver-base">
-                                                                          <img src="img/sf-school.png" alt="" class="w25">
+                                                                          <img ng-src="{{win.Gold.student.profilePic | uploadpath}}" alt="" class="w25">
                                                                       </div>
                                                                       <div class="display-inline ver-mid">
                                                                           <h4 class="margin0 color-blue font-semi">
-                                                                      Harshit Shah
+                                                                      {{win.Gold.student.name ||'-' | letterLimit : 15}}
                                                                     </h4>
 
-                                                                          <div class="color-grey">Dhirubhai Ambani.</div>
+                                                                          <div class="color-grey">{{win.Gold.school.name ||'-' | letterLimit : 10}}</div>
                                                                       </div>
 
 
@@ -412,49 +421,31 @@ sport’s bio
                                                               <td>
                                                                   <a href="">
                                                                       <div class="display-inline ver-base">
-                                                                          <img src="img/sf-school.png" alt="" class="w25">
+                                                                          <img ng-src="{{win.Silver.student.profilePic | uploadpath}}" alt="" class="w25">
                                                                       </div>
                                                                       <div class="display-inline ver-mid">
                                                                           <h4 class="margin0 color-blue font-semi">
-                                                                    Harshit Shah
+                                                                    {{win.Silver.student.name ||'-' | letterLimit : 15}}
                                                                   </h4>
 
-                                                                          <div class="color-grey">Dhirubhai Ambani.</div>
+                                                                          <div class="color-grey">{{win.Silver.school.name ||'-' | letterLimit : 10}}</div>
                                                                       </div>
 
 
                                                                   </a>
+                                                                  <div class="text-center">-</div>
                                                               </td>
                                                               <td>
                                                                   <a href="">
                                                                       <div class="display-inline ver-base">
-                                                                          <img src="img/sf-school.png" alt="" class="w25">
+                                                                          <img ng-src="{{win.Bronze[0].student.profilePic | uploadpath}}" alt="" class="w25">
                                                                       </div>
                                                                       <div class="display-inline ver-mid">
                                                                           <h4 class="margin0 color-blue font-semi">
-                                                                    Harshit Shah
+                                                                    {{win.Bronze[0].student.name ||'-' | letterLimit : 15}}
                                                                   </h4>
 
-                                                                          <div class="color-grey">Dhirubhai Ambani.</div>
-                                                                      </div>
-
-
-                                                                  </a>
-                                                              </td>
-                                                          </tr>
-                                                          <tr>
-                                                              <td>U-10 Boys</td>
-                                                              <td>
-                                                                  <a href="">
-                                                                      <div class="display-inline ver-base">
-                                                                          <img src="img/sf-school.png" alt="" class="w25">
-                                                                      </div>
-                                                                      <div class="display-inline ver-mid">
-                                                                          <h4 class="margin0 color-blue font-semi">
-                                                                      Harshit Shah
-                                                                    </h4>
-
-                                                                          <div class="color-grey">Dhirubhai Ambani.</div>
+                                                                          <div class="color-grey">{{win.Bronze[0].school.name ||'-' | letterLimit : 10}}</div>
                                                                       </div>
 
 
@@ -463,81 +454,14 @@ sport’s bio
                                                               <td>
                                                                   <a href="">
                                                                       <div class="display-inline ver-base">
-                                                                          <img src="img/sf-school.png" alt="" class="w25">
+                                                                          <img ng-src="{{win.Bronze[1].student.profilePic | uploadpath}}" alt="" class="w25">
                                                                       </div>
                                                                       <div class="display-inline ver-mid">
                                                                           <h4 class="margin0 color-blue font-semi">
-                                                                    Harshit Shah
+                                                                    {{win.Bronze[1].student.name ||'-' | letterLimit : 15}}
                                                                   </h4>
 
-                                                                          <div class="color-grey">Dhirubhai Ambani.</div>
-                                                                      </div>
-
-
-                                                                  </a>
-                                                              </td>
-                                                              <td>
-                                                                  <a href="">
-                                                                      <div class="display-inline ver-base">
-                                                                          <img src="img/sf-school.png" alt="" class="w25">
-                                                                      </div>
-                                                                      <div class="display-inline ver-mid">
-                                                                          <h4 class="margin0 color-blue font-semi">
-                                                                    Harshit Shah
-                                                                  </h4>
-
-                                                                          <div class="color-grey">Dhirubhai Ambani.</div>
-                                                                      </div>
-
-
-                                                                  </a>
-                                                              </td>
-                                                          </tr>
-                                                          <tr>
-                                                              <td>U-10 Boys</td>
-                                                              <td>
-                                                                  <a href="">
-                                                                      <div class="display-inline ver-base">
-                                                                          <img src="img/sf-school.png" alt="" class="w25">
-                                                                      </div>
-                                                                      <div class="display-inline ver-mid">
-                                                                          <h4 class="margin0 color-blue font-semi">
-                                                                      Harshit Shah
-                                                                    </h4>
-
-                                                                          <div class="color-grey">Dhirubhai Ambani.</div>
-                                                                      </div>
-
-
-                                                                  </a>
-                                                              </td>
-                                                              <td>
-                                                                  <a href="">
-                                                                      <div class="display-inline ver-base">
-                                                                          <img src="img/sf-school.png" alt="" class="w25">
-                                                                      </div>
-                                                                      <div class="display-inline ver-mid">
-                                                                          <h4 class="margin0 color-blue font-semi">
-                                                                    Harshit Shah
-                                                                  </h4>
-
-                                                                          <div class="color-grey">Dhirubhai Ambani.</div>
-                                                                      </div>
-
-
-                                                                  </a>
-                                                              </td>
-                                                              <td>
-                                                                  <a href="">
-                                                                      <div class="display-inline ver-base">
-                                                                          <img src="img/sf-school.png" alt="" class="w25">
-                                                                      </div>
-                                                                      <div class="display-inline ver-mid">
-                                                                          <h4 class="margin0 color-blue font-semi">
-                                                                    Harshit Shah
-                                                                  </h4>
-
-                                                                          <div class="color-grey">Dhirubhai Ambani.</div>
+                                                                          <div class="color-grey">{{win.Bronze[1].school.name ||'-' | letterLimit : 10}}</div>
                                                                       </div>
 
 
