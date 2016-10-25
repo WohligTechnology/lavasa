@@ -174,7 +174,27 @@
             </div>
             <div class="col-md-offset-1 col-md-10">
                 <div class="sport-slider mt40">
-                  <flex-slider class="carousel" flex-slide="sportDetails in sportsStudentGender track by $index" animation="slide" item-width="140" item-margin="60">
+                <!-- SOLUTION to FLex slider not updating, 2 flex sliders NOT THE BEST SOLUTION-->
+                  <flex-slider ng-if="filter.year == '2015'" class="carousel" flex-slide="sportDetails in sportsStudentGender track by $index" animation="slide" item-width="140" item-margin="60">
+                      <li>
+                          <a >
+                              <div class="sports-participate text-center">
+                                  <img ng-src="{{ sportDetails._id.name !== filter.sport.name && (sportDetails._id.inactiveimage | uploadpath) || (sportDetails._id.image  | uploadpath)}}" alt="" class="img-responsive image-width"
+                                  ng-click="selectSport(sportDetails._id)">
+                                  <span class="color-base text-up f16 mt10">{{sportDetails._id.name}}</span>
+                                  <div class="combine mt10">
+                                      <div class="boy-sec display-inline color-base icon-right">
+                                          <img ng-src="img/sf-boys-mini.png" alt="">{{ sportDetails.Boys || 0 }}
+                                      </div>
+                                      <div class="boy-sec display-inline color-base icon-left">
+                                          <img ng-src="img/sf-girl-mini.png" alt="">{{ sportDetails.Girls || 0 }}
+                                      </div>
+                                  </div>
+                              </div>
+                          </a>
+                      </li>
+                  </flex-slider>
+                  <flex-slider ng-if="filter.year == '2016'" class="carousel" flex-slide="sportDetails in sportsStudentGender track by $index" animation="slide" item-width="140" item-margin="60">
                       <li>
                           <a >
                               <div class="sports-participate text-center">
