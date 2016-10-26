@@ -642,6 +642,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.classes = {};
     $scope.sportFolder = {};
     $scope.sport = {};
+    $scope.is2015Sport = false;
+
 
     $scope.mediaArr = {};
     if ($stateParams.name === '') {
@@ -720,6 +722,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         });
     };
+    if($stateParams.name){
+      var sports2015 =["basketball","volleyball","handball","table tennis","tennis","squash","badminton","swimming","judo"];
+      $scope.is2015Sport = false;
+      _.each(sports2015,function (key) {
+        if(key.toUpperCase() ==  $stateParams.name.toUpperCase()){
+          $scope.is2015Sport = true;
+        }
+      });
+    }
     $scope.getSport();
     $scope.oneAtATime = true;
     $scope.tab = '2016';
