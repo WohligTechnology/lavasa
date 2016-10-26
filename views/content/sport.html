@@ -70,65 +70,20 @@ sport’s bio
                                     </div>
                                 </uib-accordion-group>
                                 <uib-accordion-group heading="age groups, events and entries">
-                                    <div class="data-box">
-                                        <p>The SFA Inter-school Handball tournament will be conducted in the categories mentioned in the table below. </p>
-                                        <p>We have a maximum draw capacity as mentioned in the below table. Entries will be accommodated basis the eligibility criteria set out in Point 3.</p>
+                                    <div class="data-box" ng-bind-html="sport.ageGroupContent || 'Not Available' | rawHtml">
+                                        <!-- <p>The SFA Inter-school Handball tournament will be conducted in the categories mentioned in the table below. </p>
+                                        <p>We have a maximum draw capacity as mentioned in the below table. Entries will be accommodated basis the eligibility criteria set out in Point 3.</p> -->
                                     </div>
                                     <div class="box-table mt25 bx-mob">
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>Sr. No.</th>
-                                                    <th>Age </th>
-                                                    <th>Players Per Team</th>
-                                                    <th>Boys</th>
-                                                    <th>Girls</th>
+                                                    <th ng-repeat=" column in sport.sportid.tableContent">{{column}}</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-
-                                                    <td>U-10</td>
-
-                                                    <td>10</td>
-
-                                                    <td>16 Teams</td>
-
-                                                    <td>16 Teams</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-
-                                                    <td>U-10</td>
-
-                                                    <td>10</td>
-
-                                                    <td>16 Teams</td>
-
-                                                    <td>16 Teams</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-
-                                                    <td>U-10</td>
-
-                                                    <td>10</td>
-
-                                                    <td>16 Teams</td>
-
-                                                    <td>16 Teams</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-
-                                                    <td>U-10</td>
-
-                                                    <td>10</td>
-
-                                                    <td>16 Teams</td>
-
-                                                    <td>16 Teams</td>
+                                                <tr ng-repeat="row in sport.ageGroupTable">
+                                                    <td ng-repeat="column in sport.sportid.tableContent">{{row[column]}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -140,7 +95,7 @@ sport’s bio
                                         <div class="data-box text-center" ng-if="!sport.eligibilityContent">
                                             Not Available
                                         </div>
-                                        <div ng-bind-html="sport.eligibilityContent | rawHtml">
+                                        <div ng-bind-html="sport.eligibilityContent | rawHtml ">
                                             <!-- <ul class="paddin0">
                                           <li>
                                               <p>Only teams from Sports For All member schools will be eligible to participate.</p>
