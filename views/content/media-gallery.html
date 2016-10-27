@@ -226,7 +226,7 @@ match videos
                             </div>
                         </div>
                         <div class="row text-center" ng-if="filter.mediatype=='press-video' && mediaArr.data.length === 0">
-                            <h4><b>No Photos Found</b></h4>
+                            <h4><b>No Videos Found</b></h4>
                         </div>
                         <uib-pagination ng-if="mediaArr.data.length > 0" ng-change="loadMedia();" total-items="mediaArr.total" ng-model="filter.pagenumber" items-per-page="12">
                         </uib-pagination>

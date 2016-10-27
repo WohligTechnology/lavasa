@@ -864,7 +864,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("School Bio");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-
+    $scope.school ={};
 
 
     $scope.photos = [
@@ -876,18 +876,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         'img/m3.jpg'
     ];
 
-    $scope.open = function(size) {
-
+    $scope.open = function(sports,size) {
+      $scope.modalSports = sports;
+      console.log($scope.modalSports);
         var modalInstance = $uibModal.open({
             animation: $scope.animationsEnabled,
             templateUrl: 'views/modal/sports.html',
-            controller: 'SchoolBioCtrl',
             size: size,
-            resolve: {
-                items: function() {
-                    return $scope.items;
-                }
-            }
+            scope:$scope
         });
     };
     $scope.tabs = 'photos';
@@ -971,24 +967,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }];
 
     $scope.getSchoolProfile = function() {
-        NavigationService.getSchoolProfile($stateParams.id, function(data) {
+        NavigationService.getOnePopulated($stateParams.id, function(data) {
             console.log(data.data);
-            $scope.getSchoolProfile = data.data;
-            if ($scope.getSchoolProfile.status) {
-                $scope.getSchoolProfile.isVerified = "Verified";
+            $scope.school = data.data;
+            if ($scope.school.status) {
+                $scope.school.isVerified = "Verified";
             } else {
-                $scope.getSchoolProfile.isVerified = "Not Verif ied";
+                $scope.school.isVerified = "Not Verif ied";
             }
-            $scope.getSchoolProfile.contingentLeader = _.map($scope.getSchoolProfile.contingentLeader).join(', ');
-            $scope.department = $scope.getSchoolProfile.department;
+            $scope.school.contingentLeader = _.map($scope.school.contingentLeader).join(', ');
+            $scope.department = $scope.school.department;
 
             _.forEach($scope.department, function(value, key) {
                 value = _.merge(value, {
                     icon: "img/sf-student-profile.png"
                 });
             });
-
-            console.log($scope.department);
+            $scope.school.sports = _.groupBy($scope.school.sports, function (key) {
+              return key.year;
+            });
+            console.log($scope.school);
         });
     };
     $scope.getSchoolProfile();

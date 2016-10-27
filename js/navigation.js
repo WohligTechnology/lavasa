@@ -7,8 +7,8 @@
 
 
 // var adminurl = "http://localhost:1337/";
-var adminurl = "http://146.148.42.15:83/api/";
-// var adminurl = "http://192.168.1.105:1337/api/";
+// var adminurl = "http://146.148.42.15:83/api/";
+var adminurl = "http://192.168.1.101:1337/api/";
 var imgpath = adminurl + "upload/readFile";
 var uploadurl = adminurl + "upload/";
 var currentYears = ["2015", "2016"];
@@ -90,6 +90,17 @@ var navigationservice = angular.module('navigationservice', [])
             // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'school/getOne',
+                method: 'POST',
+                withCredentials: true,
+                data: {
+                    "_id": id
+                }
+            }).success(callback);
+        },
+        getOnePopulated: function(id, callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'school/getOnePopulated',
                 method: 'POST',
                 withCredentials: true,
                 data: {
