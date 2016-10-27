@@ -299,11 +299,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
                 $scope.classes.classp = "active-list";
                 $scope.classes.classv = '';
+                $scope.classes.classpc = '';
 
-            } else {
+            } else if(tabs == 'video') {
 
                 $scope.classes.classp = '';
                 $scope.classes.classv = "active-list";
+                $scope.classes.classpc = '';
+            } else if(tabs == 'press-photo'){
+              $scope.classes.classp = "";
+              $scope.classes.classv = '';
+              $scope.classes.classpc = 'active-list';
+              $scope.classes.classpcp = 'active-list';
+
+            }else if( tabs == 'press-video'){
+              $scope.classes.classp = "";
+              $scope.classes.classv = '';
+              $scope.classes.classpc = 'active-list';
+              $scope.classes.classpcv = 'active-list';
             }
 
         };
