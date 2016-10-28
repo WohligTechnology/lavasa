@@ -1289,16 +1289,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
       $scope.schoolStats = [];
         console.log(selected);
         $scope.sportContingent.showContingent = true;
-        console.log("value");
-        // _.each($scope.clickstatuses, function(value, property) {
-        //   $scope.clickstatuses[property] = false;
-        // });
-        // $scope.clickstatuses[selected] = true;
         $scope.filter.sport=selected;
         $scope.filterStatistics.sport = selected._id;
-
         $scope.table.layout = selected.drawFormat;
-
         NavigationService.filterCategoryBySport({
             sportList: selected._id
         }, function(response) {
@@ -1390,11 +1383,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.sportsStudentGender[constraints.year] = undefined;
         NavigationService.getSchoolSportByGender(constraints, function(data) {
             if (data.value) {
-                $scope.sportsStudentGender[constraints.year] = data.data;
+                $scope.sportsStudentGender[constraints.year] = data.data.sports;
+                $scope.schooldata = data.data.gender;
                 _.each($scope.sportsStudentGender[constraints.year], function(key) {
                     _.each(key.gender, function(value) {
                         key[value.name] = value.count;
-                        $scope.schooldata[value.name] = $scope.schooldata[value.name] + value.count;
                     });
                 });
             } else {
