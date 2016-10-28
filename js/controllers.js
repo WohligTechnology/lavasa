@@ -1032,28 +1032,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.filter = {};
     $scope.filterselected = {};
     $scope.school = {};
-
-    // $scope.school = [{
-    //     img: "img/sf-school.png",
-    //     name: "Dhirubhai Ambani Intertional School",
-    //     rank: "1"
-    // }, {
-    //     img: "img/sf-school.png",
-    //     name: "Dhirubhai Ambani Intertional School",
-    //     rank: "2"
-    // }, {
-    //     img: "img/sf-school.png",
-    //     name: "Dhirubhai Ambani Intertional School",
-    //     rank: "3"
-    // }, {
-    //     img: "img/sf-school.png",
-    //     name: "Dhirubhai Ambani Intertional School",
-    //     rank: "4"
-    // }, {
-    //     img: "img/sf-school.png",
-    //     name: "Dhirubhai Ambani Intertional School",
-    //     rank: "19"
-    // }];
     $scope.pagination = {};
     $scope.pagination.pagesize = 20;
     $scope.getMoreSchools = function() {
@@ -1116,7 +1094,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.changeYear = function() {
         $scope.filterselected.title = "";
-        console.log("Year = ", $scope.filter.year);
+
         if ($scope.filter.year == "top20") {
             $scope.school.showAll = false;
             $scope.school.showTop20 = false;
@@ -1124,12 +1102,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.filterselected.title = "SFA MUMBAI 2015 - Top 20 Schools";
         } else {
           var constraints = {};
-
-            if ($scope.filter.year === '' || $scope.filter.year === null || $scope.filter.year ===  undefined) {
-                $scope.filterselected.title = "All Schools";
-                constraints.year = null;
-
-            } else {
+          constraints.year = null;
+          $scope.filterselected.title = "All Schools";
+             if($scope.filter.year == '2015' || $scope.filter.year == '2016')  {
                 $scope.filterselected.title = "SFA MUMBAI " + $scope.filter.year;
                 constraints.year = $scope.filter.year;
 
@@ -1173,6 +1148,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.schooldata = {};
     $scope.schooldata['Boys'] = 0;
     $scope.schooldata['Girls'] = 0;
+    $scope.sportsStudentGender ={};
     $scope.dropdowns = {};
     $scope.dropdowns.category = [];
     $scope.filterStatistics = {};
@@ -1236,13 +1212,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.classc = "active-list";
         }
     };
-    $scope.contingent = [];
+    $scope.contingent = {};
     $scope.contingentStrengthByYear = function() {
-        NavigationService.contingentStrengthByYear($scope.filterStatistics, function(response) {
+      $scope.contingent.data = undefined;
+
+      //This was to fix the All being sent in year, if you dont understand this fix I am sorry.
+      var constraints = {};
+      constraints = _.cloneDeep($scope.filterStatistics);
+      constraints.year = null;
+      if($scope.filterStatistics.year == '2015' || $scope.filterStatistics.year == '2016'){
+        constraints.year = $scope.filterStatistics.year;
+      }
+      //end
+        NavigationService.contingentStrengthByYear(constraints, function(response) {
             if (response.value) {
                 $scope.contingent = response.data;
             } else {
-                $scope.contingent = [];
+                $scope.contingent.data ={};
             }
         });
     };
@@ -1292,9 +1278,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.schoolMedalCount(constraints);
         if ($scope.filter.year === '2016') {
             $scope.filterStatistics.year = $scope.filter.year;
+            $scope.contingentStrengthByYear();
+
         }
         $scope.filterStatistics.pagenumber = 1;
-        $scope.contingentStrengthByYear();
+
     };
 
     $scope.selectSport = function(selected) {
@@ -1399,21 +1387,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.getSportParticipated = function(constraints) {
-        console.log("constraints : ", constraints);
+        $scope.sportsStudentGender[constraints.year] = undefined;
         NavigationService.getSchoolSportByGender(constraints, function(data) {
             if (data.value) {
-                $scope.sportsStudentGender = data.data;
-                console.log("sports student data : ", $scope.sportsStudentGender);
-                _.each($scope.sportsStudentGender, function(key) {
+                $scope.sportsStudentGender[constraints.year] = data.data;
+                _.each($scope.sportsStudentGender[constraints.year], function(key) {
                     _.each(key.gender, function(value) {
                         key[value.name] = value.count;
                         $scope.schooldata[value.name] = $scope.schooldata[value.name] + value.count;
                     });
                 });
             } else {
-                $scope.sportsStudentGender = '';
-                schooldata = '';
-                console.log("No School data found");
+                $scope.sportsStudentGender[constraints.year] = [];
             }
         });
     };

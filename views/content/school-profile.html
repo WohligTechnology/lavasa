@@ -31,12 +31,12 @@
                                     <ul class="padding0 pad-line mt15">
                                         <li>
                                             <div class="sto-pro-list">
-                                                <img src="img/sf-boys.png" alt="">{{schooldata.Boys || 0}}
+                                                <img src="img/sf-boys.png" alt="">{{schooldata.Boys || '0'}}
                                             </div>
                                         </li>
                                         <li>
                                             <div class="sto-pro-list display-inline">
-                                                <img src="img/sf-girl.png" alt="">{{schooldata.Girls || 0}}
+                                                <img src="img/sf-girl.png" alt="">{{schooldata.Girls || '0'}}
                                             </div>
                                         </li>
                                         <li>
@@ -137,7 +137,7 @@
                             </ul>
                         </div>
                         <div class="btn-common m40-main">
-                            <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="school-bio({id:getSchoolProfile._id})">school bio</button>
+                            <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="school-bio({id:callObject._id})">school bio</button>
                         </div>
                     </div>
                 </div>
@@ -175,7 +175,26 @@
             <div class="col-md-offset-1 col-md-10">
                 <div class="sport-slider mt40">
                 <!-- SOLUTION to FLex slider not updating, 2 flex sliders NOT THE BEST SOLUTION-->
-                  <flex-slider ng-if="filter.year == '2015'" class="carousel" flex-slide="sportDetails in sportsStudentGender track by $index" animation="slide" item-width="140" item-margin="60">
+                  <flex-slider ng-if="filter.year == '2015'" class="carousel" flex-slide="sportDetails in sportsStudentGender[filter.year] track by $index" animation="slide" item-width="140" item-margin="60">
+                      <li>
+                          <a >
+                              <div class="sports-participate text-center">
+                                  <img ng-src="{{ sportDetails._id.name !== filter.sport.name && (sportDetails._id.inactiveimage | uploadpath) || (sportDetails._id.image  | uploadpath)}}" alt="" class="img-responsive image-width"
+                                  ng-click="selectSport(sportDetails._id)">
+                                  <span class="color-base text-up f16 mt10">{{sportDetails._id.name}}</span>
+                                  <div class="combine mt10">
+                                      <div class="boy-sec display-inline color-base icon-right">
+                                          <img ng-src="img/sf-boys-mini.png" alt="">{{ sportDetails.Boys || '0' }}
+                                      </div>
+                                      <div class="boy-sec display-inline color-base icon-left">
+                                          <img ng-src="img/sf-girl-mini.png" alt="">{{ sportDetails.Girls || '0' }}
+                                      </div>
+                                  </div>
+                              </div>
+                          </a>
+                      </li>
+                  </flex-slider>
+                  <flex-slider ng-if="filter.year == '2016'" class="carousel" flex-slide="sportDetails in sportsStudentGender[filter.year] track by $index" animation="slide" item-width="140" item-margin="60">
                       <li>
                           <a >
                               <div class="sports-participate text-center">
@@ -194,25 +213,9 @@
                           </a>
                       </li>
                   </flex-slider>
-                  <flex-slider ng-if="filter.year == '2016'" class="carousel" flex-slide="sportDetails in sportsStudentGender track by $index" animation="slide" item-width="140" item-margin="60">
-                      <li>
-                          <a >
-                              <div class="sports-participate text-center">
-                                  <img ng-src="{{ sportDetails._id.name !== filter.sport.name && (sportDetails._id.inactiveimage | uploadpath) || (sportDetails._id.image  | uploadpath)}}" alt="" class="img-responsive image-width"
-                                  ng-click="selectSport(sportDetails._id)">
-                                  <span class="color-base text-up f16 mt10">{{sportDetails._id.name}}</span>
-                                  <div class="combine mt10">
-                                      <div class="boy-sec display-inline color-base icon-right">
-                                          <img ng-src="img/sf-boys-mini.png" alt="">{{ sportDetails.Boys || 0 }}
-                                      </div>
-                                      <div class="boy-sec display-inline color-base icon-left">
-                                          <img ng-src="img/sf-girl-mini.png" alt="">{{ sportDetails.Girls || 0 }}
-                                      </div>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                  </flex-slider>
+                  <div class="text-center" ng-if="!(sportsStudentGender[filter.year].length > 0)">
+                    {{sportsStudentGender[filter.year] == undefined && 'Loading .. ' || 'No Sports Participated in '+filter.year}}
+                  </div>
                 </div>
             </div>
         </div>
@@ -225,17 +228,17 @@
                     <ul class="padding0 pad-line mt15 ">
                         <li>
                             <div class="sto-pro-list">
-                                <img src="img/sf-boys-mini.png" alt="">{{contingent.gender.Boys}}
+                                <img src="img/sf-boys-mini.png" alt="">{{contingent.gender.Boys || '0'}}
                             </div>
                         </li>
                         <li>
                             <div class="sto-pro-list display-inline">
-                                <img src="img/sf-girl-mini.png" alt="">{{contingent.gender.Girls}}
+                                <img src="img/sf-girl-mini.png" alt="">{{contingent.gender.Girls || '0'}}
                             </div>
                         </li>
                         <li>
                             <div class="sto-pro-list total display-inline" style="border: 1px solid #bbb;">
-                                {{contingent.gender.Boys + contingent.gender.Girls}}
+                                {{contingent.gender.Boys + contingent.gender.Girls || '0'}}
                             </div>
                         </li>
                     </ul>
@@ -276,6 +279,10 @@
                         </div>
                     </div>
                 </a>
+            </div>
+            <div class="text-center" ng-if="!(contingent.data.length > 0)">
+              {{contingent.data == undefined && 'Loading .. ' || 'No Contingent Found'}}
+
             </div>
         </div>
         <!-- </ui> -->

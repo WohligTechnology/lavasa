@@ -358,7 +358,7 @@ sport’s bio
                                                           <tr ng-repeat="win in winners">
                                                               <td>{{win._id.agegroup.name}} {{win._id.gender}} {{win._id.firstcategory.name}}</td>
                                                               <td>
-                                                                  <a href="">
+                                                                  <a ui-sref="student-profile({id:win.Gold.student._id})">
                                                                       <div class="display-inline ver-base">
                                                                           <img ng-src="{{win.Gold.student.profilePic | uploadpath}}" alt="" class="w25">
                                                                       </div>
@@ -374,7 +374,7 @@ sport’s bio
                                                                   </a>
                                                               </td>
                                                               <td>
-                                                                  <a href="">
+                                                                  <a ui-sref="student-profile({id:win.Silver.student._id})">
                                                                       <div class="display-inline ver-base">
                                                                           <img ng-src="{{win.Silver.student.profilePic | uploadpath}}" alt="" class="w25">
                                                                       </div>
@@ -391,7 +391,7 @@ sport’s bio
 
                                                               </td>
                                                               <td>
-                                                                  <a href="">
+                                                                  <a ui-sref="student-profile({id:win.Bronze[0].student._id})">
                                                                       <div class="display-inline ver-base">
                                                                           <img ng-src="{{win.Bronze[0].student.profilePic | uploadpath}}" alt="" class="w25">
                                                                       </div>
@@ -407,7 +407,7 @@ sport’s bio
                                                                   </a>
                                                               </td>
                                                               <td>
-                                                                  <a href="">
+                                                                  <a ui-sref="student-profile({id:win.Bronze[1].student._id})">
                                                                       <div class="display-inline ver-base">
                                                                           <img ng-src="{{win.Bronze[1].student.profilePic | uploadpath}}" alt="" class="w25">
                                                                       </div>
