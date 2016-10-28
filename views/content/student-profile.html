@@ -89,7 +89,7 @@
                             </ul>
                         </div>
                         <div class="btn-common mt25">
-                            <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="student-bio">student bio</button>
+                            <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="student-bio({'id':studentid})">student bio</button>
                         </div>
                     </div>
                 </div>
@@ -242,8 +242,8 @@ student’s blog
                                                 <div class="sf-play">
                                                     <span>{{stat.self.result}}</span>
                                                 </div>
-                                                <div class="replay-img ">
-                                                      <a class="various fancybox.iframe" href="http://www.youtube.com/embed/{{stat.knockout.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="gallery1" fancybox><img src="img/sf-play.png" alt=""></a>
+                                                <div class="replay-img " ng-if="stat.knockout.video || stat.heat.video || stat.league.video">
+                                                      <a class="various fancybox.iframe" href="http://www.youtube.com/embed/{{stat.knockout.video || stat.heat.video || stat.league.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="gallery1" fancybox><img src="img/sf-play.png" alt=""></a>
                                                 </div>
                                             </div>
                                         </td>

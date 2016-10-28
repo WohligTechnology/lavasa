@@ -539,7 +539,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('StudentBioCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('StudentBioCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
     //Used to name the .html file
 
     console.log("Testing Consoles");
@@ -548,6 +548,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Student Bio");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.studentProfile = {};
 
     $scope.tabs = 'photos';
     $scope.classp = 'active-list';
@@ -642,6 +643,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         icon: "img/m3.jpg",
         name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
     }];
+    $scope.getStudentProfile = function() {
+        NavigationService.getStudentProfile($stateParams.id, function(data) {
+            if (data.value) {
+                console.log(data);
+                $scope.studentProfile = data.data;
+                if ($scope.studentProfile.gender == "Boys") {
+                    $scope.studentProfile.gender = "Male";
+                } else {
+                    $scope.studentProfile.gender = "Female";
+                }
+            } else {
+                $scope.studentProfile = [];
+                console.log("Error while fetching Student Profile.");
+            }
+        });
+    };
+    $scope.getStudentProfile();
+
 })
 
 .controller('SportCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
@@ -1102,7 +1121,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.school.showAll = false;
             $scope.school.showTop20 = false;
             $scope.submitSearch();
-            $scope.filterselected.title = "SFA MUM 2015 - Top 20 Schools";
+            $scope.filterselected.title = "SFA MUMBAI 2015 - Top 20 Schools";
         } else {
           var constraints = {};
 
@@ -1511,7 +1530,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.dropdowns = {};
     $scope.table = {};
     $scope.dropdowns.category = [];
-
+    $scope.studentid = $stateParams.id;
 
     $scope.tabchanges = function(tabs, a) {
         //        console.log(tab);
