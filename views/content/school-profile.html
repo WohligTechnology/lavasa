@@ -9,7 +9,7 @@
                             <img ng-src="{{getSchoolProfile.logo|uploadpath}}" alt="">
                             <!-- <img src="img/sf-school-profile-big.png" alt=""> -->
                             <div class="sigh-second sf-absulate">
-                                <img ng-show="getSchoolProfile.status" ng-src="img/sf-right-big.png"  alt="" class="w30-main">
+                                <img ng-if="getSchoolProfile.status" ng-src="img/sf-right-big.png"  alt="" class="w30-main">
                             </div>
                         </div>
                     </div>

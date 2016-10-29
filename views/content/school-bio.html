@@ -6,9 +6,9 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-12">
                         <div class="sf-school-logo sf-relative text-center border-r">
-                            <a ui-sref="school-profile"><img src="img/sf-school-profile-big.png" alt=""></a>
+                            <a ui-sref="school-profile"><img ng-src="{{school.logo|uploadpath}}" alt=""></a>
                             <div class="sigh-second sf-absulate">
-                                <img src="img/sf-right-big.png" alt="" class="w30-main">
+                                <img ng-if="school.status" src="img/sf-right-big.png" alt="" class="w30-main">
                             </div>
                         </div>
                     </div>
@@ -262,7 +262,7 @@ school’s blog
                                                 </td>
                                                 <td ng-repeat="year in school.year">
                                                    <span ng-repeat="dept in school.departmentSorted[year]">
-                                                     {{dept.name || '-'}}
+                                                     &nbsp;{{dept.name || '-'}}<span ng-if="$index !== school.departmentSorted[year].length-1">,</span>
                                                    </span>
                                                 </td>
 
