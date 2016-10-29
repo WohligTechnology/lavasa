@@ -988,7 +988,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.getSchoolProfile = function() {
         NavigationService.getOnePopulated($stateParams.id, function(data) {
             console.log(data.data);
-            $scope.school = data.data;
+            $scope.school = data.data.school;
+            $scope.school.medal = data.data.medal;
+            $scope.school.contingent = data.data.contingent;
             if ($scope.school.status) {
                 $scope.school.isVerified = "Verified";
             } else {
@@ -1003,6 +1005,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 });
             });
             $scope.school.sports = _.groupBy($scope.school.sports, function (key) {
+              return key.year;
+            });
+            $scope.school.departmentSorted = _.groupBy($scope.school.department, function (key) {
               return key.year;
             });
             console.log($scope.school);
