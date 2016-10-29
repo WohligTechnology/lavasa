@@ -310,8 +310,10 @@ student’s blog
                                 </tbody>
 
                             </table>
-                            <div ng-if="studentStats.length ===0 " class="text-center">
-                              No {{table.layout || 'Data'}} found.
+                            <div ng-if="!(studentStats.length > 0) " class="text-center">
+                               <span ng-if="studentStats === undefined">Loading ..</span>
+
+                               <div ng-if="studentStats.length === 0"> {{participatedSports[filterStatistics.year].length>0 && 'Participated in' || 'No Data found.'}} <span ng-repeat="sport in participatedSports[filterStatistics.year]">{{sport.sportslist.name}}&nbsp;{{sport.firstcategory.name}}&nbsp;{{sport.agegroup.name}}{{$index !== participatedSports[filterStatistics.year].length-1 && ',' || '.'}}&nbsp;</span></div>
                             </div>
                         </div>
                     </div>

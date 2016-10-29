@@ -128,10 +128,8 @@ Achievements
                         <h4 class="text-up color-blue display-inline">Year</h4>
                         <div class="display-inline">
                             <div class="sfa-select">
-                                <select class="select">
-                                    <option value="2016">2016</option>
-                                    <option value="2016">2016</option>
-                                    <option value="2016">2016</option>
+                                <select class="select" ng-model="filter.year" ng-change="changeYear();">
+                                    <option value="2015">2015</option>
                                     <option value="2016">2016</option>
                                 </select>
                                 <span class="only-border"></span>
@@ -147,7 +145,7 @@ Achievements
                 <div class="row w700">
                     <div class="col-md-offset-1 col-md-10 ">
                         <div class="sport-slider mt40 bg-none ">
-                            <flex-slider class="carousel" flex-slide="slide in games track by $index" animation="slide">
+                            <flex-slider class="carousel" flex-slide="sport in studentSport track by $index" animation="slide">
                                 <li>
                                     <div class="record-table mb-min-fn">
                                         <table class="tables text-up margin-auto">
@@ -157,15 +155,15 @@ Achievements
                                                         sports
                                                     </th>
                                                     <th class="color-orange">
-                                                        table tennis
+                                                        {{sport.name}}
                                                     </th>
-                                                    <th class="color-orange">
+                                                    <!-- <th class="color-orange">
                                                         aquatics
                                                     </th>
 
                                                     <th class="color-orange">
                                                         basketball
-                                                    </th>
+                                                    </th> -->
                                                 </tr>
                                             </thead>
                                             <tbody class="text-set-cap">
@@ -176,41 +174,26 @@ Achievements
                                                         school
                                                     </td>
                                                     <td class="short">
-                                                      <a href="">  Dhirubhai Ambani Intertional School</a>
-                                                    </td>
-                                                    <td class="short">
-                                                      <a href="">  Jamnabai Narsee School</a>
-                                                    </td>
-                                                    <td class="short">
-                                                      <a href="">  Shishuranjan School</a>
+                                                      <a href="">  {{sport.sports[0].school.name}}</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
                                                         age group
                                                     </td>
-                                                    <td>
-                                                        U- 12
+                                                    <td >
+  <span ng-repeat="single in sport.sports">{{single.agegroup.name}} <br></span>
+
                                                     </td>
-                                                    <td>
-                                                        U- 12
-                                                    </td>
-                                                    <td>
-                                                        U- 12
-                                                    </td>
+
                                                 </tr>
                                                 <tr>
                                                     <td>
                                                         category
                                                     </td>
-                                                    <td>
-                                                        Doubles
-                                                    </td>
-                                                    <td>
-                                                        <span>50 m Butterfly<br>200 m Individual Medley<br>100 m Breaststroke</span>
-                                                    </td>
-                                                    <td>
-                                                        Doubles
+                                                    <td >
+  <span ng-repeat="single in sport.sports">{{single.firstcategory.name}} {{single.secondcategory.name}}<br></span>
+
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -220,10 +203,7 @@ Achievements
                                                     <td>
                                                         2<sup>nd</sup>
                                                     </td>
-                                                    <td>
-                                                        <span>1 <sup>st</sup> - in 50 m Butterfly<br>5 <sup>th</sup> - 200 m Individual Medley<br> 2 <sup>nd</sup> - 100 m Breaststroke</span>
-                                                    </td>
-                                                    <td>No show</td>
+
                                                 </tr>
 
                                             </tbody>

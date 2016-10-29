@@ -549,7 +549,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.studentProfile = {};
-
+    $scope.filter = {};
     $scope.tabs = 'photos';
     $scope.classp = 'active-list';
     $scope.classv = '';
@@ -660,6 +660,31 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
     $scope.getStudentProfile();
+    $scope.changeYear = function() {
+        var constraints = {};
+        constraints.year = $scope.filter.year;
+        constraints.student = $stateParams.id;
+        // $scope.filterStatistics.sport = undefined;
+        // $scope.studentStats = [];
+        $scope.getStudentSport(constraints);
+        // $scope.studentMedalCount(constraints);
+    };
+    $scope.getStudentSport = function(constraints) {
+        //console.log("constraints : ",constraints);
+        var i = 0;
+        NavigationService.getStudentSport(constraints, function(response) {
+            if (response.value) {
+                //   console.log("studentSport data = ",data);
+                $scope.studentSport = response.data;
+                console.log($scope.studentSport);
+                _.each($scope.studentSport, function(key) {
+                    key.active = false;
+                });
+            } else {
+                $scope.studentSport = [];
+            }
+        });
+    };
 
 })
 
@@ -1218,6 +1243,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
     $scope.contingent = {};
+    $scope.onChangeContingentYear = function () {
+      $scope.filterStatistics.pagenumber = 1;
+      $scope.contingent = {};
+      $scope.contingentStrengthByYear();
+    };
     $scope.contingentStrengthByYear = function() {
       $scope.contingent.data = undefined;
 
@@ -1233,7 +1263,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (response.value) {
                 $scope.contingent = response.data;
             } else {
-                $scope.contingent.data ={};
+                $scope.contingent.data =[];
             }
         });
     };
@@ -1607,7 +1637,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.getStudentProfile = function() {
         NavigationService.getStudentProfile($stateParams.id, function(data) {
             if (data.value) {
-                console.log(data);
                 $scope.studentProfile = data.data;
                 if ($scope.studentProfile.gender == "Boys") {
                     $scope.studentProfile.gender = "Male";
@@ -1669,8 +1698,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
     $scope.sportsSelected = function(sport) {
-        console.log(sport);
         $scope.activateSports(sport._id);
+        $scope.participatedSports = _.groupBy(sport.sports,function (key) {
+          return key.year;
+        });
         $scope.filterStatistics.category = undefined;
         $scope.filterStatistics.year = $scope.filter.year;
         $scope.filterStatistics.sport = sport._id;
@@ -1693,6 +1724,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.getStats = function() {
         $scope.filterStatistics.student = $stateParams.id;
+        $scope.studentStats = undefined;
+
         NavigationService.getStatsForStudent($scope.filterStatistics, function(response) {
             if (response.value) {
                 $scope.studentStats = response.data;
