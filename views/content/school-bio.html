@@ -25,30 +25,30 @@
                             <ul class="padding0 sf-list-padding">
                                 <li class="border-right-1">
                                     <div class="">
-                                        <span class="">CONTINGENT STRENGTH</span>
+                                        <span class="">CONTINGENT STRENGTH 2016</span>
                                     </div>
                                     <ul class="padding0 pad-line mt15">
                                         <li>
                                             <div class="sto-pro-list">
-                                                <img src="img/sf-boys.png" alt="">80
+                                                <img src="img/sf-boys.png" alt="">{{school.contingent['2016'].Boys || '0'}}
                                             </div>
                                         </li>
                                         <li>
                                             <div class="sto-pro-list display-inline">
-                                                <img src="img/sf-girl.png" alt="">50
+                                                <img src="img/sf-girl.png" alt="">{{school.contingent['2016'].Girls || '0'}}
                                             </div>
                                         </li>
                                         <li>
                                             <div class="sto-pro-list total display-inline">
-                                                50
+                                              {{school.contingent['2016'].Boys + school.contingent['2016'].Girls || '0'}}
                                             </div>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="border-right-1">
                                     <div class="display-inline text-up text-center">
-                                        <p>2015 rank</p>
-                                        <p class="total display-inline mt5">15</p>
+                                        <p>2016 rank</p>
+                                        <p class="total display-inline mt5">=</p>
                                     </div>
                                     <!-- <div class="stu-data display-inline text-up text-center">
                                         <p>2016 rank</p>
@@ -67,7 +67,7 @@
                                                         <img src="img/sf-gold-big.png" alt="">
                                                     </div>
                                                     <div class="display-inline">
-                                                        <p class="margin0 color-orange text-center">2</p>
+                                                        <p class="margin0 color-orange text-center">{{school.medal['2016'].gold || '0'}}</p>
                                                         <p class="margin0">Gold</p>
                                                     </div>
                                                 </div>
@@ -78,7 +78,7 @@
                                                         <img src="img/sf-silver-big.png" alt="">
                                                     </div>
                                                     <div class="display-inline">
-                                                        <p class="margin0 color-orange text-center">2</p>
+                                                        <p class="margin0 color-orange text-center">{{school.medal['2016'].silver || '0'}}</p>
                                                         <p class="margin0">Silver</p>
                                                     </div>
                                                 </div>
@@ -89,7 +89,7 @@
                                                         <img src="img/sf-bronze-big.png" alt="">
                                                     </div>
                                                     <div class="display-inline">
-                                                        <p class="margin0 color-orange text-center">2</p>
+                                                        <p class="margin0 color-orange text-center">{{school.medal['2016'].bronze || '0'}}</p>
                                                         <p class="margin0">Bronze</p>
                                                     </div>
                                                 </div>
@@ -205,13 +205,13 @@ school’s blog
                             <div class="box-margin2">
 
 
-                                <div class="col-md-6 col-sm-6 col-xs-12" ng-repeat="data in department track by $index">
+                                <div class="col-md-6 col-sm-6 col-xs-12" ng-repeat="data in school.department track by $index" ng-if="school.department.length > 0">
                                     <div class="row mt15 school-boxs margin152">
                                         <a href="">
                                             <div class="">
                                                 <div class="col-md-6 col-xs-12">
                                                     <div class="student-pro-img border-r w130 text-center">
-                                                        <img ng-src="{{data.a | uploadpath}}" alt="" class="img-responsive margin-auto">
+                                                        <img ng-src="{{data.icon | uploadpath}}" alt="" class="img-responsive margin-auto">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 text-center col-xs-12">
@@ -223,6 +223,9 @@ school’s blog
                                             </div>
                                         </a>
                                     </div>
+                                </div>
+                                <div class="text-center" ng-if="!(school.department.length > 0)">
+                                 No Sports Department Details Found.
                                 </div>
                             </div>
                         </div>

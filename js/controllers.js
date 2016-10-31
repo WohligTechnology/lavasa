@@ -1024,11 +1024,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.school.contingentLeader = _.map($scope.school.contingentLeader).join(', ');
             $scope.department = $scope.school.department;
 
-            _.forEach($scope.department, function(value, key) {
-                value = _.merge(value, {
-                    icon: "img/sf-student-profile.png"
-                });
-            });
+            // _.forEach($scope.department, function(value, key) {
+            //     value = _.merge(value, {
+            //         icon: "img/sf-student-profile.png"
+            //     });
+            // });
             $scope.school.sports = _.groupBy($scope.school.sports, function (key) {
               return key.year;
             });
