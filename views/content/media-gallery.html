@@ -205,7 +205,7 @@ match videos
                                 </a>
                             </div>
                         </div>
-                        <div class="row text-center" ng-if="filter.mediatype=='press-photo' && mediaArr.data.length === 0">
+                        <div class="row text-center" ng-if="filter.mediatype=='press-photo' && !(mediaArr.data.length > 0)">
                             {{mediaArr.data === undefined && 'Loading ..' || 'No Photos Found.'}}
                         </div>
 
@@ -225,7 +225,7 @@ match videos
 
                             </div>
                         </div>
-                        <div class="row text-center" ng-if="filter.mediatype=='press-video' && mediaArr.data.length === 0">
+                        <div class="row text-center" ng-if="filter.mediatype=='press-video' && !(mediaArr.data.length > 0)">
                             {{mediaArr.data === undefined && 'Loading ..' || 'No Videos Found.'}}
                         </div>
                         <uib-pagination ng-if="mediaArr.data.length > 0" ng-change="loadMedia();" total-items="mediaArr.total" ng-model="filter.pagenumber" items-per-page="12">
