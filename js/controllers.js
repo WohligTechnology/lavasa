@@ -321,26 +321,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         };
         $scope.getMediaFolders = function() {
-            // $scope.filter.mediatype = "photo";
+          $scope.folders = undefined;
             NavigationService.getFolders($scope.filter, function(response) {
                 if (response) {
                     console.log(response);
                     $scope.folders = response.data;
-                    //console.log("folder data : ",$scope.folders);
                 } else {
-                    console.log("No data found");
+                    // console.log("No data found");
+                    $scope.folders = [];
                 }
             })
         }
         $scope.loadMedia = function() {
+          $scope.mediaArr = undefined;
             NavigationService.getLimitedMedia($scope.filter, function(response) {
                 if (response) {
                     console.log("get limited media : ", response);
                     $scope.mediaArr = response.data;
-                    //console.log("folder data : ",$scope.folders);
                 } else {
                     console.log("No data found");
-                    $scope.mediaArr = [];
+                    $scope.mediaArr.data = [];
                 }
             })
         };

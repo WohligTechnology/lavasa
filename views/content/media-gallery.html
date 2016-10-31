@@ -33,8 +33,8 @@ Press release
                 <div class="box-content bx-mob pad-m-main pad-m-main">
                     <div class="pht" ng-if="filter.mediatype=='photo'">
                         <div class="row" ng-if="!flags.openGallery">
-                            <div class="row text-center" ng-if="folders == '' ">
-                                <h4><b>No Photos Found</b></h4>
+                            <div class="row text-center" ng-if="!(folders.length > 0)">
+                                {{folders === undefined && 'Loading ..' || 'No Photos Found.'}}
                             </div>
                             <div class="col-md-4 mb15 col-sm-6 col-xs-12" ng-repeat="item in folders track by $index" ui-sref="media-gallery-inside({type:'photo',folder:item._id})">
                                 <a href="" ng-modal="inner" ng-click="inner==!inner">
@@ -87,8 +87,8 @@ Press release
                                     </a>
                                 </div>
                             </div>
-                            <div class="row text-center" ng-if="mediaArr.data.length === 0">
-                                <h4><b>No Photos Found</b></h4>
+                            <div class="row text-center" ng-if="!(mediaArr.data.length > 0)">
+                                {{mediaArr.data === undefined && 'Loading ..' || 'No Photos Found.'}}
                             </div>
                             <uib-pagination ng-if="mediaArr.data.length > 0" ng-change="loadMedia();" total-items="mediaArr.total" ng-model="filter.pagenumber" items-per-page="12">
                             </uib-pagination>
@@ -96,9 +96,9 @@ Press release
                     </div>
                     <div class="pht" ng-if="filter.mediatype=='video'">
                         <div class="row" ng-if="!flags.openGallery">
-                            <div class="row text-center" ng-if="folders == '' ">
-                                <h4><b>No Videos Found</b></h4>
-                            </div>
+                          <div class="row text-center" ng-if="!(folders.length > 0)">
+                              {{folders === undefined && 'Loading ..' || 'No Videos Found.'}}
+                          </div>
                             <div class="col-md-4 mb15 col-xs-12 col-sm-6" ng-repeat="item in folders track by $index" ui-sref="media-gallery-inside({type:'video',folder:item._id})">
                                 <a href="">
                                     <div class="folder-box sf-relative">
@@ -152,8 +152,8 @@ Press release
                                     </a>
                                 </div>
                             </div>
-                            <div class="row text-center" ng-if="mediaArr.data.length === 0">
-                                <h4><b>No Videos Found</b></h4>
+                            <div class="row text-center" ng-if="!(mediaArr.data.length > 0)">
+                                {{mediaArr.data === undefined && 'Loading ..' || 'No Videos Found.'}}
                             </div>
                             <uib-pagination ng-if="mediaArr.data.length > 0" ng-change="loadMedia();" total-items="mediaArr.total" ng-model="filter.pagenumber" items-per-page="12">
                             </uib-pagination>
@@ -206,7 +206,7 @@ match videos
                             </div>
                         </div>
                         <div class="row text-center" ng-if="filter.mediatype=='press-photo' && mediaArr.data.length === 0">
-                            <h4><b>No Photos Found</b></h4>
+                            {{mediaArr.data === undefined && 'Loading ..' || 'No Photos Found.'}}
                         </div>
 
 
@@ -226,7 +226,7 @@ match videos
                             </div>
                         </div>
                         <div class="row text-center" ng-if="filter.mediatype=='press-video' && mediaArr.data.length === 0">
-                            <h4><b>No Videos Found</b></h4>
+                            {{mediaArr.data === undefined && 'Loading ..' || 'No Videos Found.'}}
                         </div>
                         <uib-pagination ng-if="mediaArr.data.length > 0" ng-change="loadMedia();" total-items="mediaArr.total" ng-model="filter.pagenumber" items-per-page="12">
                         </uib-pagination>
