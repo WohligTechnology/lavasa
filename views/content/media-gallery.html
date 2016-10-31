@@ -112,7 +112,7 @@ Press release
                             </div>
                         </div>
 
-                        <div class="main-view" ng-show="flags.openGallery">
+                        <div class="main-view" ng-if="flags.openGallery">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="back-btn">
@@ -159,7 +159,7 @@ Press release
                             </uib-pagination>
                         </div>
                     </div>
-                    <div class="pht" ng-show="filter.mediatype=='press-photo' || filter.mediatype=='press-video'">
+                    <div class="pht" ng-if="filter.mediatype=='press-photo' || filter.mediatype=='press-video'">
                         <div class="row">
                             <div class="text-center">
                                 <div class="col-md-12 col-xs-12 col-sm-6 text-c-m">
@@ -192,7 +192,7 @@ match videos
                                 <hr class="hr-padding" ng-if="mediaArr.data.length > 0">
                             </div>
                         </div>
-                        <div class="row" ng-show="filter.mediatype=='press-photo'">
+                        <div class="row" ng-if="filter.mediatype=='press-photo'">
                             <div class="col-md-3 mt15 col-sm-6 col-xs-12" ng-repeat="item in mediaArr.data track by $index">
                                 <a href="{{item.medialink | mediapath}}" fancybox-box rel="gallery">
                                     <div class="folder-box sf-relative">
@@ -210,7 +210,7 @@ match videos
                         </div>
 
 
-                        <div class="row" ng-show="filter.mediatype=='press-video'">
+                        <div class="row" ng-if="filter.mediatype=='press-video'">
 
                             <div class="col-md-3 mt15 col-sm-6 col-xs-12" ng-repeat="item in mediaArr.data track by $index">
                                 <a class="various fancybox.iframe" rel="gallery1" fancybox href="http://www.youtube.com/embed/{{item.medialink}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">
@@ -232,7 +232,7 @@ match videos
                         </uib-pagination>
 
                     </div>
-                    <div class="row" ng-show="tab=='release'">
+                    <div class="row" ng-if="tab=='release'">
                         <div class="col-md-8">
                             <div class="white-bg">
                                 <h4 class="color-blue">Lorem Ipsum is simply dummy text of the printing and typesetting
