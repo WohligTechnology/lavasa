@@ -235,6 +235,15 @@ var navigationservice = angular.module('navigationservice', [])
                 data: request
             }).success(callback);
         },
+        getStatsForTeam: function(request, callback) {
+            //console.log('request data: ', request);
+            $http({
+                url: adminurl + 'studentstats/getTeamStatByFilters',
+                method: 'POST',
+                withCredentials: true,
+                data: request
+            }).success(callback);
+        },
         getAgegroup: function(callback) {
             // console.log('form data: ', formData);
             $http({

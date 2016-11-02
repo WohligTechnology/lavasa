@@ -305,7 +305,7 @@
                         <div class="tab-list sf-list text-up">
                             <ul class="padding0 margin0">
                                 <li><a href="" ng-click="tabchange('player',1)" class="{{classa}}">player</a></li>
-                                <li><a href="" ng-click="tabchange('match',2)" class="{{classb}}">match-videos</a></li>
+                                <!-- <li><a href="" ng-click="tabchange('match',2)" class="{{classb}}">match-videos</a></li> -->
                                 <li><a href="" ng-click="tabchange('statistics',3)" class="{{classc}}">statistics</a></li>
                             </ul>
                         </div>
@@ -568,8 +568,8 @@
 
                                             </tbody>
                                         </table>
-                                        <div ng-if="schoolStats.length ===0 " class="text-center">
-                                          No {{table.layout || 'Data'}} found.
+                                        <div ng-if="!(schoolStats.length > 0) " class="text-center">
+                                          {{schoolStats == undefined && 'Loading ..' || teamDetails.layout && 'No'+table.layout+'found.' || 'No Data Found.'}}
                                         </div>
                                     </div>
                                 </div>

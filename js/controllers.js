@@ -1366,6 +1366,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.getStats = function() {
         $scope.filterStatistics.school = $stateParams.id;
+        $scope.schoolStats = undefined;
         NavigationService.getStatsForSchool($scope.filterStatistics, function(response) {
             if (response.value) {
                 $scope.schoolStats = response.data;
@@ -1401,8 +1402,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                 }
                             }
                         });
-                        console.log("opponent", $scope.schoolStats);
-
                     }
                 }
             } else {
@@ -1887,6 +1886,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Team Detail");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+        $scope.filterStatistics = {};
 
         $scope.tabs = 'photos';
         $scope.classp = 'active-list';
@@ -1926,6 +1926,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.classa = '';
                 $scope.classb = "active-list";
                 $scope.classc = "";
+                $scope.getStats();
             } else {
 
                 $scope.classa = '';
@@ -2011,6 +2012,52 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
         $scope.teamDetail();
+        $scope.getStats = function() {
+            $scope.filterStatistics.team = $stateParams.id;
+            $scope.teamStats = undefined;
+            NavigationService.getStatsForTeam($scope.filterStatistics, function(response) {
+                if (response.value) {
+                    $scope.teamStats = response.data;
+                    // console.log($scope.teamStats);
+                    if ($scope.teamStats) {
+                        if ($scope.teamStats[0].drawFormat == 'Knockout') {
+                            _.each($scope.teamStats, function(key) {
+                                key.opponent = {};
+                                key.self = {};
+                                if (key.knockout.participantType == 'player') {
+                                    if (key.knockout[key.knockout.participantType + '1']._id == $stateParams.id) {
+                                        key.opponent.detail = key.knockout[key.knockout.participantType + '2'];
+                                        key.self.detail = key.knockout[key.knockout.participantType + '1'];
+                                        key.opponent.result = key.knockout["result" + key.knockout.participantType + '2'];
+                                        key.self.result = key.knockout["result" + key.knockout.participantType + '1'];
+                                    } else {
+                                        key.opponent.detail = key.knockout[key.knockout.participantType + '1'];
+                                        key.self.detail = key.knockout[key.knockout.participantType + '2'];
+                                        key.opponent.result = key.knockout["result" + key.knockout.participantType + '1'];
+                                        key.self.result = key.knockout["result" + key.knockout.participantType + '2'];
+                                    }
+                                } else {
+                                  console.log(key.knockout[key.knockout.participantType + '1']._id ,$stateParams.id);
+                                    if (key.knockout[key.knockout.participantType + '1']._id == $stateParams.id) {
+                                        key.opponent.detail = key.knockout[key.knockout.participantType + '2'];
+                                        key.self.detail = key.knockout[key.knockout.participantType + '1'];
+                                        key.opponent.result = key.knockout["result" + key.knockout.participantType + '2'];
+                                        key.self.result = key.knockout["result" + key.knockout.participantType + '1'];
+                                    } else {
+                                        key.opponent.detail = key.knockout[key.knockout.participantType + '1'];
+                                        key.self.detail = key.knockout[key.knockout.participantType + '2'];
+                                        key.opponent.result = key.knockout["result" + key.knockout.participantType + '1'];
+                                        key.self.result = key.knockout["result" + key.knockout.participantType + '2'];
+                                    }
+                                }
+                            });
+                        }
+                    }
+                } else {
+                    $scope.teamStats = [];
+                }
+            });
+          };
     })
 
 .controller('RoundRobinCtrl', function($scope, TemplateService, NavigationService, $timeout) {
