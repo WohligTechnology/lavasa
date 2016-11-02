@@ -1303,12 +1303,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.changeYear = function() {
         $scope.schooldata.Boys = 0;
         $scope.schooldata.Girls = 0;
-        $scope.filter.sport = '';
+        $scope.filter.sport = undefined;
+        $scope.filterStatistics.sport = undefined;
         var constraints = {};
         constraints.year = $scope.filter.year;
         constraints._id = $stateParams.id;
         constraints.school = $stateParams.id;
-        // constraints._id = $stateParams.id;
         $scope.getSportParticipated(constraints);
         $scope.schoolMedalCount(constraints);
         if ($scope.filter.year === '2016') {
@@ -1586,54 +1586,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     };
 
-    $scope.games = // JavaScript Document
-        [{
-            "icon": "img/sf-icon.png",
-            "icon2": "img/sf-icon-big.png",
-            "url": "tabletennis",
-            "game": "table tennis"
-        }, {
-            "icon": "img/sf-icon.png",
-            "icon2": "img/sf-icon-big.png",
-            "url": "tennis",
-            "game": "tennis"
-        }, {
-            "icon": "img/sf-icon.png",
-            "icon2": "img/sf-icon-big.png",
-            "url": "badminton",
-            "game": "badminton"
-        }];
-
-
-    $scope.photos = [
-        'img/m1.jpg',
-        'img/m2.jpg',
-        'img/m3.jpg',
-        'img/m1.jpg',
-        'img/m2.jpg',
-        'img/m3.jpg'
-
-    ];
-    $scope.video = [{
-        icon: "img/m1.jpg",
-        name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
-
-    }, {
-        icon: "img/m2.jpg",
-        name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
-    }, {
-        icon: "img/m3.jpg",
-        name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
-    }, {
-        icon: "img/m2.jpg",
-        name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
-    }, {
-        icon: "img/m1.jpg",
-        name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
-    }, {
-        icon: "img/m3.jpg",
-        name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
-    }];
     $scope.getStudentProfile = function() {
         NavigationService.getStudentProfile($stateParams.id, function(data) {
             if (data.value) {
@@ -1838,48 +1790,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             isFirstOpen: true,
             isFirstDisabled: false
         };
-
-        $scope.student = [{
-            icon: "img/sf-icon-big.png",
-            sport: "basketball | girls u-17 ‘A’",
-            school: "dhirubhai ambani intertional school",
-            id: "586"
-        }, {
-            icon: "img/sf-icon-big.png",
-            sport: "basketball | girls u-17 ‘A’",
-            school: "dhirubhai ambani intertional school",
-            id: "586"
-        }, {
-            icon: "img/sf-icon-big.png",
-            sport: "basketball | girls u-17 ‘A’",
-            school: "dhirubhai ambani intertional school",
-            id: "586"
-        }, {
-            icon: "img/sf-icon-big.png",
-            sport: "basketball | girls u-17 ‘A’",
-            school: "dhirubhai ambani intertional school",
-            id: "586"
-        }, {
-            icon: "img/sf-icon-big.png",
-            sport: "basketball | girls u-17 ‘A’",
-            school: "dhirubhai ambani intertional school",
-            id: "586"
-        }, {
-            icon: "img/sf-icon-big.png",
-            sport: "basketball | girls u-17 ‘A’",
-            school: "dhirubhai ambani intertional school",
-            id: "586"
-        }, {
-            icon: "img/sf-icon-big.png",
-            sport: "basketball | girls u-17 ‘A’",
-            school: "dhirubhai ambani intertional school",
-            id: "586"
-        }, {
-            icon: "img/sf-icon-big.png",
-            sport: "basketball | girls u-17 ‘A’",
-            school: "dhirubhai ambani intertional school",
-            id: "586"
-        }];
 
         NavigationService.countTeam(function(data) {
             $scope.count = data.data;

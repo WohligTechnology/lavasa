@@ -48,7 +48,7 @@
                                 <li class="border-right-1">
                                     <div class="display-inline text-up text-center">
                                         <p>2016 rank</p>
-                                        <p class="total display-inline mt5">=</p>
+                                        <p class="total display-inline mt5">-</p>
                                     </div>
                                     <!-- <div class="stu-data display-inline text-up text-center">
                                         <p>2016 rank</p>
@@ -252,10 +252,7 @@ school’s blog
                                                 <td>
                                                     rank
                                                 </td>
-                                                <td>
-                                                    -
-                                                </td>
-                                                <td>
+                                                <td ng-repeat="year in school.year">
                                                     -
                                                 </td>
                                             </tr>
@@ -274,16 +271,13 @@ school’s blog
                                                 <td>
                                                     contingent leader
                                                 </td>
-                                                <td>
-                                                    -
-                                                </td>
-                                                <td>
+                                                <td ng-repeat="year in school.year">
                                                     -
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    contingent strenght
+                                                    contingent strength
                                                 </td>
                                                 <td ng-repeat="year in school.year">
                                                     <div class="sf-list">
