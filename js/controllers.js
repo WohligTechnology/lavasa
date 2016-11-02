@@ -1190,14 +1190,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.students = {};
     $scope.allYears = NavigationService.getAllYears();
     $scope.gender = [{
-        value: "All",
+        value: "",
         name: "All"
     }, {
         value: "Boys",
-        name: "Male"
+        name: "Boys"
     }, {
         value: "Girls",
-        name: "Female"
+        name: "Girls"
     }];
     $scope.sportContingent = {};
     // $scope.schooldata.boys
@@ -1238,10 +1238,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.classa = '';
             $scope.classb = "active-list";
             $scope.classc = "";
+
         } else {
             $scope.classa = '';
             $scope.classb = '';
             $scope.classc = "active-list";
+            NavigationService.filterCategoryBySport({
+                sportList: $scope.filterStatistics.sport
+            }, function(response) {
+                if (response.value) {
+                  $scope.dropdowns.category = response.data;
+                  $scope.dropdowns.category.unshift({
+                      name: ""
+                  });
+                  $scope.filterStatistics.category = $scope.dropdowns.category[0].name;
+
+                } else {
+                    $scope.dropdowns.category = [];
+                }
+                NavigationService.filterAgegroupBySport({
+                    sportList: $scope.filterStatistics.sport
+                }, function(response) {
+                   if(response.value){
+                     console.log(response);
+                     $scope.dropdowns.agegroup = response.data;
+                     $scope.dropdowns.agegroup.unshift({
+                         name: ""
+                     });
+                     $scope.filterStatistics.agegroup = $scope.dropdowns.agegroup[0].name;
+                   }else{
+                     $scope.dropdowns.agegroup=[];
+                   }
+                   $scope.getStats();
+                });
+            });
         }
     };
     $scope.contingent = {};
@@ -1323,41 +1353,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.selectSport = function(selected) {
-      $scope.schoolStats = [];
+        $scope.filterStatistics = {};
+        $scope.schoolStats = [];
         $scope.sportContingent.showContingent = true;
         $scope.filter.sport=selected;
         $scope.filterStatistics.sport = selected._id;
         $scope.table.layout = selected.drawFormat;
         $scope.tabchange('player',1);
-        NavigationService.filterCategoryBySport({
-            sportList: selected._id
-        }, function(response) {
-            if (response.value) {
-              $scope.dropdowns.category = response.data;
-              $scope.dropdowns.category.unshift({
-                  name: ""
-              });
-              $scope.filterStatistics.category = $scope.dropdowns.category[0].name;
+        $scope.filterStatistics.year = _.clone($scope.filter.year);
+        $scope.callObject.year = _.clone($scope.filter.year);
 
-            } else {
-                $scope.dropdowns.category = [];
-            }
-            NavigationService.filterAgegroupBySport({
-                sportList: selected._id
-            }, function(response) {
-               if(response.value){
-                 console.log(response);
-                 $scope.dropdowns.agegroup = response.data;
-                 $scope.dropdowns.agegroup.unshift({
-                     name: ""
-                 });
-                 $scope.filterStatistics.agegroup = $scope.dropdowns.agegroup[0].name;
-               }else{
-                 $scope.dropdowns.agegroup=[];
-               }
-               $scope.getStats();
-            });
-        });
     };
     $scope.getStats = function() {
         $scope.filterStatistics.school = $stateParams.id;
