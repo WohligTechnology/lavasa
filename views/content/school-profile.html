@@ -393,7 +393,7 @@
                                     <div class="display-inline">
                                         <div class="sfa-select">
                                             <select class="select">
-                                                <option value="">ALL</option>
+                                                <option value=""></option>
                                                 <option value="Boys">Boys</option>
                                                 <option value="Girls">Girls</option>
 
@@ -407,7 +407,7 @@
                                     <div class="display-inline">
                                         <div class="sfa-select">
                                             <select class="select">
-                                                <option value="">ALL</option>
+                                                <option value=""></option>
                                                 <option value="U-16">U-16</option>
                                                 <option value="U-19">U-19</option>
                                                 <option value="U-21">U-21</option>
@@ -439,7 +439,7 @@
                                     <div class="display-inline">
                                         <div class="sfa-select">
                                             <select ng-change="getStats()" ng-model="filterStatistics.year" class="select">
-                                                <option value="">All</option>
+                                                <option value=""></option>
                                                 <option value="2015">2015</option>
                                                 <option value="2016">2016</option>
                                             </select>
@@ -452,7 +452,7 @@
                                     <div class="display-inline">
                                         <div class="sfa-select">
                                           <select ng-change="getStats()" ng-model="filterStatistics.gender" class="select">
-                                              <option value="">ALL</option>
+                                              <option value=""></option>
                                               <option value="Boys">Boys</option>
                                               <option value="Girls">Girls</option>
 
@@ -495,9 +495,9 @@
                                                   <th ng-if="table.layout == 'Knockout'">
                                                       <span>ROUND</span>
                                                   </th>
-                                                  <th ng-if="table.layout == 'Knockout'">
-                                                      <span>STUDENT NAME</span>
-                                                  </th>
+                                                  <!-- <th ng-if="table.layout == 'Knockout'"> -->
+                                                      <!-- <span>STUDENT NAME</span> -->
+                                                  <!-- </th> -->
                                                   <th ng-if="table.layout == 'Knockout'">
                                                       <span>OPPONENT NAME</span>
                                                   </th>
@@ -517,7 +517,7 @@
                                                   <td><span>{{stat.year}}</span></td>
                                                     <td><span class="text-up">{{stat.sport.agegroup.name}} <br> {{stat.sport.gender}}  <br> {{stat.sport.firstcategory.name}}</span></td>
                                                     <td><span class="text-up"  ng-if="table.layout == 'Knockout'">{{stat.knockout.round}}</span></td>
-                                                    <td class="text-up" ng-if="table.layout == 'Knockout'"><img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.self.result == 'Won' || stat.self.result == 'Bye' || stat.self.result == 'Walkover'">{{stat.student.name}}</td>
+                                                    <!-- <td class="text-up" ng-if="table.layout == 'Knockout'"><img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.self.result == 'Won' || stat.self.result == 'Bye' || stat.self.result == 'Walkover'">{{stat.student.name}}</td> -->
                                                     <td class="text-up" ng-if="table.layout == 'Knockout'"><img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.opponent.result == 'Won' || stat.opponent.result == 'Bye' || stat.opponent.result == 'Walkover'">{{stat.opponent.detail.name || '-' | removeSchool:stat.opponent.detail.school.name }}
                                                         <p>{{stat.opponent.detail.school.name}}</p>
                                                     </td>
@@ -551,10 +551,10 @@
                                                     <td class="sf-relative">
                                                         <div class="text-center display-inline ver-mid main-pos sf-absulate">
                                                             <div class="replay-img  ">
-                                                                <a class="various fancybox.iframe" href="http://www.youtube.com/embed/{{stat.knockout.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="gallery1" fancybox><img src="img/sf-play.png" alt=""></a>
+                                                                <a class="various fancybox.iframe" href="http://www.youtube.com/embed/{{stat.drawFormat == 'Knockout' && stat.knockout.video }}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="gallery1" fancybox><img src="img/sf-play.png" alt=""></a>
                                                             </div>
-                                                            <div class="sf-play ">
-                                                                <span>Replay</span>
+                                                            <div class="sf-play " >
+                                                                <span>{{stat.drawFormat == 'Knockout' && stat.self.result}}</span>
                                                             </div>
                                                         </div>
 
