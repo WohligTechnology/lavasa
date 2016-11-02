@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-12">
                         <div class="sf-school-logo sf-relative text-center border-r">
-                            <a ui-sref="school-profile"><img ng-src="{{school.logo|uploadpath}}" alt=""></a>
+                            <a ui-sref="school-profile({id:school._id})"><img ng-src="{{school.logo|uploadpath}}" alt=""></a>
                             <div class="sigh-second sf-absulate">
                                 <img ng-if="school.status" src="img/sf-right-big.png" alt="" class="w30-main">
                             </div>
@@ -48,7 +48,7 @@
                                 <li class="border-right-1">
                                     <div class="display-inline text-up text-center">
                                         <p>2016 rank</p>
-                                        <p class="total display-inline mt5">-</p>
+                                        <p class="total display-inline mt5">{{school.rank || 'N.A.'}}</p>
                                     </div>
                                     <!-- <div class="stu-data display-inline text-up text-center">
                                         <p>2016 rank</p>
@@ -205,7 +205,7 @@ school’s blog
                             <div class="box-margin2">
 
 
-                                <div class="col-md-6 col-sm-6 col-xs-12" ng-repeat="data in school.department track by $index" ng-if="school.department.length > 0">
+                                <div class="col-md-6 col-sm-6 col-xs-12" ng-repeat="data in school.departmentSorted['2016'] track by $index" ng-if="school.departmentSorted['2016'].length > 0">
                                     <div class="row mt15 school-boxs margin152">
                                         <a href="">
                                             <div class="">
@@ -224,7 +224,7 @@ school’s blog
                                         </a>
                                     </div>
                                 </div>
-                                <div class="text-center" ng-if="!(school.department.length > 0)">
+                                <div class="text-center" ng-if="!(school.departmentSorted['2016'].length > 0)">
                                  No Sports Department Details Found.
                                 </div>
                             </div>

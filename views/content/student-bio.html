@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-4 col-xs-12">
-                        <div class="sf-school-logo sf-relative text-center border-r">
+                        <div class="sf-school-logo sf-relative text-center border-r pointer" ui-sref="student-profile({id:studentProfile._id})">
                             <img ng-src="{{ studentProfile.profilePic | uploadpath:200:200:'cover' }}" alt="" class="img-border img-responsive">
                             <div class="sigh-second sf-absulate l6">
                                 <!-- <img src="img/sf-right-org.png" alt="" class="w30-main"> -->
@@ -15,8 +15,8 @@
                     <div class="col-md-9 col-xs-12 col-sm-8 text-c-m">
                         <div class="sf-school-data text-c-m">
                             <div class="scl-title display-inline ">
-                                <h3 class="color-orange font-semi text-up f18-main">{{studentProfile.name}}</h3>
-                                <h4 class="color-white text-up f16-main">{{studentProfile.school.name}}</h4>
+                                <h3 class="color-orange font-semi text-up f18-main pointer"  ui-sref="student-profile({id:studentProfile._id})">{{studentProfile.name}}</h3>
+                                <h4 class="color-white text-up f16-main pointer"  ui-sref="school-profile({id:studentProfile.school._id})">{{studentProfile.school.name}}</h4>
                             </div>
                             <!-- <div class="display-inline cup">
                                 <img src="img/sf-cup.png" alt="">
@@ -51,7 +51,7 @@
                             </ul>
                         </div>
                         <div class="sf-list ptop-per">
-                            <span class="text-center text-up color-orange">Medals Won</span>
+                            <span class="text-center text-up color-orange">Medals Won 2016</span>
                             <ul class="padd-left padding0 mt5 second-border">
                                 <li>
                                     <div class="medal-num">
@@ -59,7 +59,7 @@
                                             <img src="img/sf-gold-big.png" alt="">
                                         </div>
                                         <div class="display-inline">
-                                            <p class="margin0 color-orange text-center">2</p>
+                                            <p class="margin0 color-orange text-center">{{studentMedal['2016'].gold || '0'}}</p>
                                             <p class="margin0 color-white">Gold</p>
                                         </div>
                                     </div>
@@ -70,7 +70,7 @@
                                             <img src="img/sf-silver-big.png" alt="">
                                         </div>
                                         <div class="display-inline">
-                                            <p class="margin0 color-orange text-center">2</p>
+                                            <p class="margin0 color-orange text-center">{{studentMedal['2016'].silver || '0'}}</p>
                                             <p class="margin0 color-white">Silver</p>
                                         </div>
                                     </div>
@@ -81,7 +81,7 @@
                                             <img src="img/sf-bronze-big.png" alt="">
                                         </div>
                                         <div class="display-inline">
-                                            <p class="margin0 color-orange text-center">2</p>
+                                            <p class="margin0 color-orange text-center">{{studentMedal['2016'].bronze || '0'}}</p>
                                             <p class="margin0 color-white">Bronze</p>
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@
                             </ul>
                         </div>
                         <div class="btn-common mt25">
-                            <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="student-bio">student bio</button>
+                            <!-- <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="student-bio">student bio</button> -->
                         </div>
                     </div>
                 </div>
@@ -145,7 +145,7 @@ Achievements
                 <div class="row w700">
                     <div class="col-md-offset-1 col-md-10 ">
                         <div class="sport-slider mt40 bg-none ">
-                            <flex-slider class="carousel" flex-slide="sport in studentSport track by $index" animation="slide">
+                            <flex-slider class="carousel" ng-if="filter.year == '2015'" flex-slide="sport in studentSport['2015'] track by $index" animation="slide">
                                 <li>
                                     <div class="record-table mb-min-fn">
                                         <table class="tables text-up margin-auto">
@@ -201,7 +201,7 @@ Achievements
                                                         result
                                                     </td>
                                                     <td>
-                                                        2<sup>nd</sup>
+                                                        -
                                                     </td>
 
                                                 </tr>
@@ -211,6 +211,76 @@ Achievements
                                     </div>
                                 </li>
                             </flex-slider>
+                            <flex-slider class="carousel" ng-if="filter.year == '2016'" flex-slide="sport in studentSport['2016'] track by $index" animation="slide">
+                                <li>
+                                    <div class="record-table mb-min-fn">
+                                        <table class="tables text-up margin-auto">
+                                            <thead class="text-set-cap">
+                                                <tr>
+                                                    <th>
+                                                        sports
+                                                    </th>
+                                                    <th class="color-orange">
+                                                        {{sport.name}}
+                                                    </th>
+                                                    <!-- <th class="color-orange">
+                                                        aquatics
+                                                    </th>
+
+                                                    <th class="color-orange">
+                                                        basketball
+                                                    </th> -->
+                                                </tr>
+                                            </thead>
+                                            <tbody class="text-set-cap">
+
+
+                                                <tr>
+                                                    <td>
+                                                        school
+                                                    </td>
+                                                    <td class="short">
+                                                      <a href="">  {{sport.sports[0].school.name}}</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        age group
+                                                    </td>
+                                                    <td >
+  <span ng-repeat="single in sport.sports">{{single.agegroup.name}} <br></span>
+
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        category
+                                                    </td>
+                                                    <td >
+  <span ng-repeat="single in sport.sports">{{single.firstcategory.name}} {{single.secondcategory.name}}<br></span>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        result
+                                                    </td>
+                                                    <td>
+                                                        -
+                                                    </td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                            </flex-slider>
+                            <div class="text-center"  ng-if="!(studentSport[filter.year].length > 0)">
+
+  <h5>{{studentSport[filter.year] == undefined && 'Loading .. '|| 'No Sport Found.'}}</h5>
+                              </div>
                         </div>
                         <div class="text-center">
                             <div class="total-medals-count">
@@ -225,7 +295,7 @@ Achievements
                                                     <img src="img/sf-gold-sec.png" alt="">
                                                 </div>
                                                 <div class="display-inline">
-                                                    <p class="margin0 color-blue text-center f16">2</p>
+                                                    <p class="margin0 color-blue text-center f16">{{studentMedal[filter.year].gold || '0'}}</p>
 
                                                 </div>
                                             </div>
@@ -236,7 +306,7 @@ Achievements
                                                     <img src="img/sf-silver-sec.png" alt="">
                                                 </div>
                                                 <div class="display-inline">
-                                                    <p class="margin0 color-blue text-center f16">2</p>
+                                                    <p class="margin0 color-blue text-center f16">{{studentMedal[filter.year].silver || '0'}}</p>
 
                                                 </div>
                                             </div>
@@ -247,7 +317,7 @@ Achievements
                                                     <img src="img/sf-bronze-sec.png" alt="">
                                                 </div>
                                                 <div class="display-inline">
-                                                    <p class="margin0 color-blue text-center f16">2</p>
+                                                    <p class="margin0 color-blue text-center f16">{{studentMedal[filter.year].bronze || '0'}}</p>
 
                                                 </div>
                                             </div>

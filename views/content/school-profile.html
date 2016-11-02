@@ -31,17 +31,17 @@
                                     <ul class="padding0 pad-line mt15">
                                         <li>
                                             <div class="sto-pro-list">
-                                                <img src="img/sf-boys.png" alt="">{{schooldata.Boys || '0'}}
+                                                <img src="img/sf-boys.png" alt="">{{schooldata.gender.Boys || '0'}}
                                             </div>
                                         </li>
                                         <li>
                                             <div class="sto-pro-list display-inline">
-                                                <img src="img/sf-girl.png" alt="">{{schooldata.Girls || '0'}}
+                                                <img src="img/sf-girl.png" alt="">{{schooldata.gender.Girls || '0'}}
                                             </div>
                                         </li>
                                         <li>
                                             <div class="sto-pro-list total display-inline">
-                                                {{ schooldata.Boys + schooldata.Girls }}
+                                                {{ schooldata.gender.Boys + schooldata.gender.Girls }}
                                             </div>
                                         </li>
                                     </ul>
@@ -49,7 +49,7 @@
                                 <li class="border-right-1">
                                     <div class="display-inline text-up text-center">
                                         <p>{{filter.year}} rank</p>
-                                        <p class="total display-inline mt5"> - </p>
+                                        <p class="total display-inline mt5"> {{schooldata.rank || 'N.A'}} </p>
                                     </div>
                                     <!-- <div class="stu-data display-inline text-up text-center">
                                         <p>2016 rank</p>
