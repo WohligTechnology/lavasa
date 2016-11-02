@@ -368,8 +368,8 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div ng-if="students.student.length <= 0 ">
-                                    <h1 class="text-center">No Data Found.</h1>
+                                <div class="text-center" ng-if="!(students.student.length > 0)">
+                                    <h5>{{students.student === undefined && 'Loading ..' || 'No Students Found.'}}</h5>
                                 </div>
                             </div>
                         </div>

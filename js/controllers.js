@@ -1187,6 +1187,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.filterStatistics.school = $stateParams.id;
     $scope.table = {};
     $scope.state = $state;
+    $scope.students = {};
     $scope.allYears = NavigationService.getAllYears();
     $scope.gender = [{
         value: "All",
@@ -1198,13 +1199,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         value: "Girls",
         name: "Female"
     }];
-    $scope.tab = 'player';
-    $scope.classa = 'active-list';
-    $scope.classb = '';
-    $scope.classc = '';
     $scope.sportContingent = {};
     // $scope.schooldata.boys
     $scope.callReload = function() {
+      if($scope.filterStatistics.sport){
+        $scope.callObject.sport = $scope.filterStatistics.sport;
+      }
+      $scope.students.student = undefined;
         NavigationService.filterStud($scope.callObject, function(data) {
             console.log(data.data);
             if (data.value !== false) {
@@ -1226,12 +1227,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
     $scope.tabchange = function(tab, a) {
-        //        console.log(tab);
         $scope.tab = tab;
         if (a == 1) {
             $scope.classa = "active-list";
             $scope.classb = '';
             $scope.classc = '';
+            $scope.callReload();
+
         } else if (a == 2) {
             $scope.classa = '';
             $scope.classb = "active-list";
@@ -1322,11 +1324,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.selectSport = function(selected) {
       $scope.schoolStats = [];
-        console.log(selected);
         $scope.sportContingent.showContingent = true;
         $scope.filter.sport=selected;
         $scope.filterStatistics.sport = selected._id;
         $scope.table.layout = selected.drawFormat;
+        $scope.tabchange('player',1);
         NavigationService.filterCategoryBySport({
             sportList: selected._id
         }, function(response) {
@@ -1440,7 +1442,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.agegroup = data.data;
         //console.log("agegroup : ", $scope.agegroup);
     });
-    $scope.callReload();
 })
 
 .controller('StudentsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -1585,7 +1586,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.classc = "active-list";
         }
     };
-
     $scope.getStudentProfile = function() {
         NavigationService.getStudentProfile($stateParams.id, function(data) {
             if (data.value) {
