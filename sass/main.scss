@@ -2402,3 +2402,59 @@ left: 50%;
 .h186{
   height: 186px;
 }
+.em-ps{
+  background: #1531c2;
+color: #fff;
+text-transform: uppercase;
+tr{
+  th{
+    text-align: center;
+    font-weight: 400;
+        vertical-align: sub !important;
+  }
+}
+}
+.pn-tp{
+  tr{
+    background-color: transparent !important;
+
+    td{
+p{
+  font-size: 12px;
+}
+    }
+  }
+}
+.med-c {
+    display: block;
+    margin: 0px 10px;
+        min-width: 60px;
+}
+.tb-pn{
+  tr{
+          background-color: #d0d0d0 !important;
+        &:nth-child(even){
+            background-color: #e2e2e2 !important;
+        }
+    td{
+
+    border-top: 2px solid #ffffff !important;
+    }
+  }
+}
+.sc-op{
+  tr{
+    background-color: transparent !important;
+    td{
+      min-width: 80px;
+      border-top: 0px solid !important;
+    }
+  }
+}
+.cl-box{
+  background: #dedede;
+  padding: 66px 80px;
+}
+.pd-450{
+      padding: 8px 46px;
+}

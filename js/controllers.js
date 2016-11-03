@@ -153,6 +153,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
+    .controller('ResultCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+
+        $scope.template = TemplateService.changecontent("result");
+        $scope.menutitle = NavigationService.makeactive("Result");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
+    .controller('SchoolRankingCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        console.log("Testing Consoles");
+
+        $scope.template = TemplateService.changecontent("school-ranking");
+        $scope.menutitle = NavigationService.makeactive("School Ranking");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
     .controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
