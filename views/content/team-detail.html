@@ -1,6 +1,6 @@
 <section>
     <div class="banner sf-relative">
-        <img src="img/new-banner.png" alt="Sports For All" class="img-responsive width100">
+        <img src="img/sfa-teamsbg.png" alt="Sports For All" class="img-responsive width100">
         <div class="sf-absulate banner-set">
           <div class="container">
             <div class="row">
@@ -16,7 +16,7 @@
           <div class="team-dt">
             <h1 class="color-orange text-up font-semi f26 m-top-zero">team: {{ teamDetails.name | removeSchool:teamDetails.school.name }}</h1>
             <h2 class="color-white text-up margin0 f20 m-top-zero">{{ teamDetails.school.name }}</h2>
-            <h2 class="color-white text-up f20 m-top-zero"><span class="color-orange">SFA ID:</span>{{teamDetails.sfaid}}</h2>
+            <h2 class="color-white text-up f20 m-top-zero"><span class="color-orange">SFA ID:</span> {{teamDetails.sfaid}}</h2>
           </div>
         </div>
             </div>
@@ -125,7 +125,7 @@ squad
                                         </div>
                                     </td>
                                 </tr>
-                                
+
                             </tbody>
                         </table>
                         <div ng-if="!(teamStats.length > 0) " class="text-center">
