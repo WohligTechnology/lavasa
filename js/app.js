@@ -252,6 +252,16 @@ firstapp.filter('removeSchool', function() {
         return value.replace(school+" ", "");
     };
 });
+firstapp.filter('knockoutRoundName', function() {
+    return function(value) {
+      console.log(value);
+        if(value){
+          return value.substring(value.indexOf(' '));
+        }else{
+          return "";
+        }
+    };
+});
 firstapp.filter('mediapath', function() {
     return function(value) {
         if (value) {

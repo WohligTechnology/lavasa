@@ -576,7 +576,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         sport:$stateParams.id
       },function (response) {
         if(response.value){
-          $scope.knockout = response.data;
+          $scope.knockout.sport = response.data.sport;
+          $scope.knockout.medals = response.data.medals;
+
+          $scope.knockout.knockouts = _.groupBy(response.data.knockouts, function (key) {
+            return key.roundno + " "+key.round;
+          });
+          console.log($scope.knockout);
         }else{
           $scope.knockout ={};
         }
