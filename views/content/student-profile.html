@@ -114,7 +114,7 @@
                   </div>
 
                 <h4 class="color-blue text-up font-semi mt25">sports participated</h4>
-                <h5 ng-if="studentSport == ''" class="text-up font-semi mt25"><b>No sports participated in {{filter.year}}</b></h5>
+                <h5 ng-if="!(studentSport.length > 0)" class="mt25">{{studentSport === undefined && 'Loading ..' || 'No Sports Participated in '+filter.year}}</h5>
                 <div class="sf-relative mt15">
                     <div class="sport-icon-list sf-list blue-cat">
                         <ul>

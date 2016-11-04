@@ -9,15 +9,14 @@
       <div class="col-md-12">
         <div class="box-content">
           <div class="text-center mt40">
-              <h3 class="font-semi color-blue text-up f162">SFA mumbai 2016</h3>
+              <h3 class="font-semi color-blue text-up f162">SFA mumbai {{filter.year}}</h3>
           </div>
           <div class="mt-min-30 mt-min-40">
               <div class="float-right">
                   <h4 class="text-up color-blue display-inline">Year</h4>
                   <div class="display-inline">
                       <div class="sfa-select">
-                          <select class="select" ng-model="filter.year" ng-change="changeYear()">
-                              <option value="top20">2015</option>
+                          <select class="select" ng-model="filter.year" ng-change="rankingByYear()">
                               <option value="2015">2015</option>
                               <option value="2016">2016</option>
 
@@ -57,13 +56,13 @@
                           <td>
                             <div class="med-c">
                               <img src="img/sf-silver.png" alt="">
-                              <p>5 Points</p>
+                              <p>3 Points</p>
                             </div>
                           </td>
                           <td>
                             <div class="med-c">
                               <img src="img/sf-bronze.png" alt="">
-                              <p>5 Points</p>
+                              <p>2 Points</p>
                             </div>
                           </td>
                         </tr>
@@ -76,25 +75,25 @@
                 </tr>
               </thead>
               <tbody class="tb-pn">
-                  <tr>
+                  <tr ng-repeat="school in schools">
                     <td>
-                      01.
+                      {{$index + 1}}
                     </td>
                     <td>
-                      Fr. Agnel Multipurpose High School
+                      {{school.school.name}}
                     </td>
                     <td>
                     <table class="">
                       <thead class="sc-op">
                         <tr>
                           <td>
-                            04
+                            {{school.gold}}
                           </td>
                           <td>
-                            04
+                            {{school.silver}}
                           </td>
                           <td>
-                            05
+                            {{school.bronze}}
                           </td>
                         </tr>
                       </thead>
@@ -102,69 +101,14 @@
                     </td>
 
                     <td>
-                      05
+                  {{school.school['totalPoints'+filter.year]}}
                     </td>
                   </tr>
-                  <tr>
-                    <td>
-                      01.
-                    </td>
-                    <td>
-                      Fr. Agnel Multipurpose High School
-                    </td>
-                    <td>
-                    <table>
-                      <thead class="sc-op">
-                        <tr>
-                          <td>
-                            04
-                          </td>
-                          <td>
-                            04
-                          </td>
-                          <td>
-                            05
-                          </td>
-                        </tr>
-                      </thead>
-                    </table>
-                    </td>
-
-                    <td>
-                      05
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      01.
-                    </td>
-                    <td>
-                      Fr. Agnel Multipurpose High School
-                    </td>
-                    <td>
-                    <table>
-                      <thead class="sc-op">
-                        <tr>
-                          <td>
-                            04
-                          </td>
-                          <td>
-                            04
-                          </td>
-                          <td>
-                            05
-                          </td>
-                        </tr>
-                      </thead>
-                    </table>
-                    </td>
-
-                    <td>
-                      05
-                    </td>
-                  </tr>
-              </tbody>
+                </tbody>
             </table>
+            <div class="text-center" ng-if="!(schools.length >0)">
+      {{schools === undefined && 'Loading ..' || 'No Ranking Data'}}
+            </div>
           </div>
         </div>
 

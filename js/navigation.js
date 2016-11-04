@@ -8,7 +8,7 @@
 
 // var adminurl = "http://localhost:1337/";
 var adminurl = "http://146.148.42.15:83/api/";
-// var adminurl = "http://192.168.1.110:1337/api/";
+// var adminurl = "http://192.168.1.103:1337/api/";
 var imgpath = adminurl + "upload/readFile";
 var uploadurl = adminurl + "upload/";
 var currentYears = ["2015", "2016"];
@@ -51,12 +51,20 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true
             }).success(callback);
         },
-        getFirstListSchool: function(callback) {
-            // console.log('form data: ', formData);
+        getFirstListSchool: function(request,callback) {
             $http({
                 url: adminurl + 'school/getFirstList',
                 method: 'POST',
-                withCredentials: true
+                withCredentials: true,
+                data: request
+            }).success(callback);
+        },
+        getAllSchoolRank: function(request,callback) {
+            $http({
+                url: adminurl + 'school/getAllSchoolRank',
+                method: 'POST',
+                withCredentials: true,
+                data: request
             }).success(callback);
         },
         getSearchDataSchool: function(input, callback) {

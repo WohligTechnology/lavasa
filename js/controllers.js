@@ -170,6 +170,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("School Ranking");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+        $scope.filter = {};
+        $scope.schools = [];
+        $scope.filter.year ="2015";
+        $scope.rankingByYear = function () {
+          $scope.schools = undefined;
+          NavigationService.getAllSchoolRank($scope.filter,function (response) {
+            if(response.value){
+              $scope.schools = response.data;
+            }else{
+              $scope.schools = [];
+            }
+          });
+        };
+        $scope.rankingByYear();
 
     })
     .controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -1099,17 +1113,17 @@ $scope.studentMedalCount = function(constraints) {
     $scope.school = {};
     $scope.pagination = {};
     $scope.pagination.pagesize = 20;
-    $scope.getMoreSchools = function() {
-        NavigationService.getFirstListSchool(function(data) {
-            if (data.value !== false) {
-                $scope.getFirstList = data.data.data;
-                console.log('$scope.getFirstList', $scope.getFirstList);
-                $scope.count = data.data.count;
-            } else {
-                $scope.getFirstList = [];
-            }
-        });
-    };
+    // $scope.getMoreSchools = function() {
+    //     NavigationService.getFirstListSchool(function(data) {
+    //         if (data.value !== false) {
+    //             $scope.getFirstList = data.data.data;
+    //             console.log('$scope.getFirstList', $scope.getFirstList);
+    //             $scope.count = data.data.count;
+    //         } else {
+    //             $scope.getFirstList = [];
+    //         }
+    //     });
+    // };
     $scope.filter.pagenumber = 1;
     $scope.parseSearch = function(input) {
         $scope.search.active = false;
@@ -1145,7 +1159,9 @@ $scope.studentMedalCount = function(constraints) {
                 }
             });
         } else {
-            NavigationService.getFirstListSchool(function(data) {
+            NavigationService.getFirstListSchool({
+              year:"2015"
+            },function(data) {
                 if (data.value !== false) {
                     $scope.topschools = data.data.data;
                     //console.log("top school",$scope.topschools);
@@ -1655,6 +1671,7 @@ $scope.studentMedalCount = function(constraints) {
     $scope.getStudentSport = function(constraints) {
         //console.log("constraints : ",constraints);
         var i = 0;
+        $scope.studentSport = undefined;
         NavigationService.getStudentSport(constraints, function(response) {
             if (response.value) {
                 //   console.log("studentSport data = ",data);
