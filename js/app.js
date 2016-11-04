@@ -75,7 +75,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'MediaGalleryCtrl'
         })
         .state('draw', {
-            url: "/draw",
+            url: "/draw/:id",
             templateUrl: "views/template.html",
             controller: 'DrawCtrl'
         })

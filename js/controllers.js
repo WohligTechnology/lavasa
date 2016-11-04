@@ -226,7 +226,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }];
 
     })
-    .controller('DrawScheduleCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    .controller('DrawScheduleCtrl', function($scope, TemplateService, NavigationService, $timeout,$state,$stateParams) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
@@ -482,7 +482,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-.controller('DrawCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('DrawCtrl', function($scope, TemplateService, NavigationService, $timeout,$state,$stateParams) {
 
     $scope.template = TemplateService.changecontent("draw");
     $scope.menutitle = NavigationService.makeactive("Draw");
@@ -495,6 +495,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.classc = '';
     $scope.classd = '';
     $scope.classf = '';
+    $scope.knockout = {};
     $scope.tabchanges = function(tabs, a) {
         //        console.log(tab);
         $scope.tabs = tabs;
@@ -570,6 +571,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         id: "6"
     }];
 
+    $scope.getSportRoundKnockout = function () {
+      NavigationService.getSportRoundKnockout({
+        sport:$stateParams.id
+      },function (response) {
+        if(response.value){
+          $scope.knockout = response.data;
+        }else{
+          $scope.knockout ={};
+        }
+      });
+    };
+    if($stateParams.id){
+      $scope.getSportRoundKnockout();
+    }
 })
 
 .controller('StudentBioCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
