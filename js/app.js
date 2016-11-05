@@ -466,7 +466,7 @@ firstapp.directive('scores', function($document) {
         }
     };
 });
-firstapp.directive('draw', function($document) {
+firstapp.directive('draw', function($document,$state) {
     return {
         restrict: 'EA',
         replace: true,
@@ -474,8 +474,20 @@ firstapp.directive('draw', function($document) {
         scope: {
             knockout: '='
         },
-        link: function(scope, element, attr) {
+        link: function($scope, element, attr) {
             // console.info(scope.person);
+            var sfastate = "";
+            $scope.profiles = function (participantType,id) {
+              console.log(participantType,id);
+              if(participantType == 'player'){
+                sfastate = 'student-profile';
+              }else{
+                sfastate = 'team-detail';
+              }
+              $state.go(sfastate,{
+                id:id
+              });
+            };
         }
     };
 });

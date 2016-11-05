@@ -1,31 +1,39 @@
 <div class="min-height-150 box-level mt30 ">
-<div class="one-sec border-bottom2">
-  <div class="comp-img display-inline">
-    <img style="width:35px" ng-src="{{knockout.participantType == 'player' && (knockout['player1'].profilePic | uploadpath) || (knockout['team1'].school.logo | uploadpath) }}" alt="">
-  </div>
-  <div class="display-inline">
-      <span class="float-right color-orange">{{knockout['result'+knockout.participantType + '1'] == 'Won' && 'W' || knockout['result'+knockout.participantType + '1'] == 'Loss' && 'L' || knockout['result'+knockout.participantType + '1'] == 'Bye' && 'BYE' || knockout['result'+knockout.participantType + '1'] == 'Walkover' && 'W.O.' || knockout['result'+knockout.participantType + '1'] == 'No Show' && 'NS' || ' '}}</span>
-    <h4 class="margin0 color-blue text-up">{{knockout[knockout.participantType + '1'].name | removeSchool:knockout[knockout.participantType+'1'].school.name | letterLimit:12}}</h4>
-    <span ng-if="knockout[knockout.participantType + '1'].school">{{knockout[knockout.participantType + '1'].school.name | letterLimit:25}}</span>
+    <div class="one-sec border-bottom2">
+        <div class="comp-img display-inline">
+            <img style="width:35px" ng-src="{{knockout.participantType == 'player' && (knockout['player1'].profilePic | uploadpath) || (knockout['team1'].school.logo | uploadpath) }}" alt="">
+        </div>
+        <div class="display-inline">
+            <span class="float-right color-orange">{{knockout['result'+knockout.participantType + '1'] == 'Won' && 'W' || knockout['result'+knockout.participantType + '1'] == 'Loss' && 'L' || knockout['result'+knockout.participantType + '1'] == 'Bye' && 'BYE' || knockout['result'+knockout.participantType + '1'] == 'Walkover' && 'W.O.' || knockout['result'+knockout.participantType + '1'] == 'No Show' && 'NS' || ' '}}</span>
+            <h4 class="margin0 color-blue text-up">{{knockout[knockout.participantType + '1'].name | removeSchool:knockout[knockout.participantType+'1'].school.name | letterLimit:12}}</h4>
+            <span ng-if="knockout[knockout.participantType + '1'].school">{{knockout[knockout.participantType + '1'].school.name | letterLimit:25}}</span>
 
-  </div>
-</div>
-<div class="one-sec">
-  <div class="comp-img display-inline">
-    <img style="width:35px" ng-src="{{knockout.participantType == 'player' && (knockout['player2'].profilePic | uploadpath) || (knockout['team2'].school.logo | uploadpath) }}" alt="">
-  </div>
-  <div class=" display-inline">
-    <span class="float-right color-orange">{{knockout['result'+knockout.participantType + '2'] == 'Won' && 'W' || knockout['result'+knockout.participantType + '2'] == 'Loss' && 'L' || knockout['result'+knockout.participantType + '2'] == 'Bye' && 'BYE' || knockout['result'+knockout.participantType + '2'] == 'Walkover' && 'W.O.' || knockout['result'+knockout.participantType + '2'] == 'No Show' && 'NS' || ' '}}</span>
-    <h4 class="margin0 color-blue text-up">{{knockout[knockout.participantType + '2'].name | removeSchool:knockout[knockout.participantType+'2'].school.name | letterLimit:12}}</h4>
-    <span ng-if="knockout[knockout.participantType + '2'].school">{{knockout[knockout.participantType + '2'].school.name | letterLimit:25}}</span>
-  </div>
-</div>
-  <div class="footer-level sf-list pad-ul">
-    <ul class="padding0 margin0 text-right">
-      <li>11/5</li>
-      <li>11/5</li>
-      <li>11/5</li>
-      <li><a href=""><img src="img/sf-play.png" alt="" class="widht25"></a></li>
-    </ul>
-  </div>
+        </div>
+    </div>
+    <div class="one-sec pointer" ng-click="profiles(knockout.participantType,knockout[knockout.participantType+'2']._id)">
+        <div class="comp-img display-inline">
+            <img style="width:35px" ng-src="{{knockout.participantType == 'player' && (knockout['player2'].profilePic | uploadpath) || (knockout['team2'].school.logo | uploadpath) }}" alt="">
+        </div>
+        <div class=" display-inline " >
+            <span class="float-right color-orange">{{knockout['result'+knockout.participantType + '2'] == 'Won' && 'W' || knockout['result'+knockout.participantType + '2'] == 'Loss' && 'L' || knockout['result'+knockout.participantType + '2'] == 'Bye' && 'BYE' || knockout['result'+knockout.participantType + '2'] == 'Walkover' && 'W.O.' || knockout['result'+knockout.participantType + '2'] == 'No Show' && 'NS' || ' '}}</span>
+            <h4 class="margin0 color-blue text-up">{{knockout[knockout.participantType + '2'].name | removeSchool:knockout[knockout.participantType+'2'].school.name | letterLimit:12}}</h4>
+            <span ng-if="knockout[knockout.participantType + '2'].school">{{knockout[knockout.participantType + '2'].school.name | letterLimit:25}}</span>
+        </div>
+    </div>
+    <div class="footer-level sf-list pad-ul">
+        <ul class="padding0 margin0 text-right" ng-if="knockout.score">
+            <li>{{knockout.score || '-'}}</li>
+            <li ng-if="knockout.video">
+                <a class="various fancybox.iframe" href="http://www.youtube.com/embed/{{knockout.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="gallery1" fancybox><img src="img/sf-play.png" alt="" class="widht25"></a>
+            </li>
+            <li nf-if="!knockout.video"></li>
+        </ul>
+        <ul class="padding0 margin0 text-right" ng-if="!knockout.score">
+            <li>{{knockout.startTime | date:'mediumDate'}}</li>
+            <li>{{knockout.endTime | date:'mediumDate'}}</li>
+            <li>
+                <a href=""><img src="img/sf-play.png" alt="" class="widht25"></a>
+            </li>
+        </ul>
+    </div>
 </div>

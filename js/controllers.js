@@ -757,6 +757,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
     $scope.statuses.emptyobject = {};
+    $scope.profiles = function (participantType,id) {
+      if(participantType == 'player'){
+        sfastate = 'student-profile';
+      }else{
+        sfastate = 'team-detail';
+      }
+      $state.go(sfastate,{
+        _id:id
+      });
+    };
     $scope.getStudentSport = function(constraints) {
         //console.log("constraints : ",constraints);
         var i = 0;
