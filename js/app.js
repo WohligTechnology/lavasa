@@ -256,7 +256,7 @@ firstapp.filter('knockoutRoundName', function() {
     return function(value) {
       console.log(value);
         if(value){
-          return value.substring(value.indexOf(' '));
+          return value.substring(value.indexOf(' ')+1);
         }else{
           return "";
         }
@@ -471,6 +471,9 @@ firstapp.directive('draw', function($document) {
         restrict: 'EA',
         replace: true,
         templateUrl: "views/directive/draw-list.html",
+        scope: {
+            knockout: '='
+        },
         link: function(scope, element, attr) {
             // console.info(scope.person);
         }

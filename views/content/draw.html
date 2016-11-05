@@ -1,6 +1,6 @@
 <section class="bottom-padding">
     <div class="sport-name-bg text-center">
-        <h1 class="color-orange text-up font-semi margin0">{{knockout.sport.sportslist.name}} <span ng-if="knockout.sport.firstcategory"> | {{knockout.sport.firstcategory.name}}</span><span ng-if="knockout.sport.secondcategory"> | {{knockout.sport.secondcategory.name}}</span> | {{knockout.sport.gender}} | {{knockout.sport.agegroup.name}}</h1>
+        <h1 class="color-orange text-up font-semi margin0" ng-if="knockout.sport">{{knockout.sport.sportslist.name}} <span ng-if="knockout.sport.firstcategory"> | {{knockout.sport.firstcategory.name}}</span><span ng-if="knockout.sport.secondcategory"> | {{knockout.sport.secondcategory.name}}</span> | {{knockout.sport.gender}} | {{knockout.sport.agegroup.name}}</h1>
     </div>
     <section>
         <div class="container">
@@ -10,13 +10,15 @@
                 </div>
                 <div class="col-md-6 col-md-offset-3 col-sm-6 col-xs-8 col-xs-offset-2">
                     <div class="round-slider sport-slider mt15">
-                        <flex-slider flex-slide="item in round track by $index" animation="slide" item-width="180" item-margin="10" animationloop="true" move="2">
+                        <div ng-repeat="(rindex,key) in knockout.rounds">
+                          <flex-slider start-at="rindex -1" flex-slide="key in knockout.rounds" slideshow="false" animation="slide" item-width="180" item-margin="10" move="2" ng-if="statuses.slider.startAt == rindex">
 
-                            <li class="text-center">
-                                <button type="button" class="btn {{item.class}}" ng-click="tabchanges(item.tab,item.id)">{{item.name}} </button>
-                            </li>
+                              <li class="text-center">
+                                  <button type="button" class="btn "  ng-click="selectRound($index)">{{key | knockoutRoundName}} </button>
+                              </li>
 
-                        </flex-slider>
+                          </flex-slider>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -52,21 +54,21 @@
                             <div class="round-heat">
 
                                 <div class="comp-width w-mob-100">
-                                    <h4 class="text-up color-white font-semi text-center"> round 1</h4>
+                                    <h4 class="text-up color-white font-semi text-center">{{statuses.board.left | knockoutRoundName}}</h4>
 
-                                    <div class="first-sec text-c-m m-auto">
+                                    <div class="first-sec text-c-m m-auto" ng-repeat="knock in knockout.knockouts[statuses.board.left]">
                                         <div class="mt15">
+
+                                            <draw knockout="knock" ></draw>
+
+                                        </div>
+                                        <!-- <div class="mt15">
 
                                             <draw></draw>
 
-                                        </div>
-                                        <div class="mt15">
-
-                                            <draw></draw>
-
-                                        </div>
+                                        </div> -->
                                     </div>
-                                    <div class="first-sec text-c-m m-auto">
+                                    <!-- <div class="first-sec text-c-m m-auto">
                                         <div class="mt15">
 
                                             <draw></draw>
@@ -77,7 +79,7 @@
                                             <draw></draw>
 
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                 </div>
                             </div>
@@ -90,25 +92,25 @@
                             <div class="round-heat">
 
                                 <div class="comp-width w-mob-100">
-                                    <h4 class="text-up color-white font-semi text-center"> round 2</h4>
+                                    <h4 class="text-up color-white font-semi text-center"> {{statuses.board.center | knockoutRoundName}}</h4>
 
-                                    <div class="first-sec min-height-set text-c-m m-auto min-height-set-m " >
+                                    <div class="first-sec min-height-set text-c-m m-auto min-height-set-m " ng-repeat="knock in knockout.knockouts[statuses.board.center]">
+                                        <div class="mt15">
+
+                                            <draw knockout="knock" ></draw>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!-- <div class="first-sec min-height-set text-c-m m-auto min-height-set-m ">
                                         <div class="mt15">
 
                                             <draw></draw>
 
                                         </div>
 
-                                    </div>
-
-                                    <div class="first-sec min-height-set text-c-m m-auto min-height-set-m ">
-                                        <div class="mt15">
-
-                                            <draw></draw>
-
-                                        </div>
-
-                                    </div>
+                                    </div> -->
 
 
                                 </div>
@@ -121,12 +123,12 @@
                             <div class="round-heat">
 
                                 <div class="comp-width w-mob-100">
-                                    <h4 class="text-up color-white font-semi text-center"> round 3</h4>
+                                    <h4 class="text-up color-white font-semi text-center"> {{statuses.board.right | knockoutRoundName}}</h4>
 
-                                    <div class="first-sec min-height-set2 text-c-m m-auto min-height-set2-m">
+                                    <div class="first-sec min-height-set2 text-c-m m-auto min-height-set2-m" ng-repeat="knock in knockout.knockouts[statuses.board.right]">
                                         <div class="mt15">
 
-                                            <draw></draw>
+                                            <draw knockout="knock"></draw>
 
                                         </div>
 
