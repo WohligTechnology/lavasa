@@ -823,7 +823,7 @@ $scope.studentMedalCount = function(constraints) {
       constraints.sport =$scope.sport.sportid._id;
       constraints.year = "2015";
       $scope.statuses.doubleBronze = false;
-
+      $scope.winners = undefined;
       NavigationService.getWinners(constraints,function (response) {
         if(response.value){
           $scope.winners = response.data;

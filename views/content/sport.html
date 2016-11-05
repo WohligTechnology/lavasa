@@ -313,9 +313,9 @@ sport’s bio
                                 <uib-accordion-group heading="winners of sfa mumbai 2015" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
                                     <div class="row">
                                         <div class="col-md-12">
-                                          <div class="text-center" ng-if="winners.length == 0">
+                                          <div class="text-center" ng-if="!(winners.length > 0)">
                                             <!-- <h4></h4> -->
-                                            No Winners Yet
+                                          {{winners === undefined && 'Loading ..' || 'No Winners Yet'}}
                                           </div>
                                             <div class=" mt25" ng-if="winners.length > 0">
                                               <div class="dr-table">
@@ -409,7 +409,7 @@ sport’s bio
 
                                                                   </a>
                                                               </td>
-                                                              <td>
+                                                              <td  ng-if="statuses.doubleBronze">
                                                                   <a ui-sref="student-profile({id:win.Bronze[1].student._id})">
                                                                       <div class="display-inline ver-base">
                                                                           <img ng-src="{{win.Bronze[1].student.profilePic | uploadpath}}" alt="" class="w25">
