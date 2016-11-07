@@ -62,9 +62,9 @@
                                     <h4 class="text-up color-white font-semi text-center">{{statuses.board.left | knockoutRoundName}}</h4>
 
                                     <div class="first-sec text-c-m m-auto" ng-repeat="knock in knockout.knockouts[statuses.board.left]">
-                                        <div class="mt15 min-h150">
+                                        <div class="mt15 min-h150" >
 
-                                            <draw knockout="knock"></draw>
+                                            <draw knockout="knock" ng-if="knock.order !== -999"></draw>
 
                                         </div>
 
@@ -96,7 +96,7 @@
                                     <h4 class="text-up color-white font-semi text-center"> {{statuses.board.center | knockoutRoundName}}</h4>
 
                                     <div class="first-sec min-height-set text-c-m m-auto min-height-set-m " ng-repeat="knock in knockout.knockouts[statuses.board.center]">
-                                        <div class="mt15 pos-ab">
+                                        <div class="mt15 pos-ab" ng-if="knock.order !== -999">
 
                                             <draw knockout="knock"></draw>
 
@@ -127,7 +127,7 @@
                                     <h4 class="text-up color-white font-semi text-center"> {{statuses.board.right | knockoutRoundName}}</h4>
 
                                     <div class="first-sec min-height-set2 text-c-m m-auto min-height-set2-m" ng-repeat="knock in knockout.knockouts[statuses.board.right]">
-                                        <div class="mt15 min-pos-mid">
+                                        <div class="mt15 min-pos-mid" ng-if="knock.order !== -999">
 
                                             <draw knockout="knock"></draw>
 

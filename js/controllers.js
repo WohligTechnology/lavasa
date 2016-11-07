@@ -1,4 +1,4 @@
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar','ui.select'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
         //Used to name the .html file
@@ -595,16 +595,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         id: "6"
     }];
     $scope.selectRound = function(index) {
-      if(index !== 0 && index !== $scope.knockout.rounds.length - 1){
-        $scope.statuses.slider.startAt = index;
-        $scope.statuses.board.left = $scope.knockout.rounds[index-1];
-        $scope.statuses.board.center = $scope.knockout.rounds[index];
-        $scope.statuses.board.right = $scope.knockout.rounds[index+1];
-      }
+        if (index !== 0 && index !== $scope.knockout.rounds.length - 1) {
+            $scope.statuses.slider.startAt = index;
+            $scope.statuses.board.left = $scope.knockout.rounds[index - 1];
+            $scope.statuses.board.center = $scope.knockout.rounds[index];
+            $scope.statuses.board.right = $scope.knockout.rounds[index + 1];
+        }
     };
-    $scope.getLeftRightDraw = function() {
-
-    }
+    // $scope.getLeftRightDraw = function() {
+    //
+    // }
 
     $scope.getSportRoundKnockout = function() {
         NavigationService.getSportRoundKnockout({
@@ -617,17 +617,40 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     return key.roundno + " " + key.round;
                 });
                 $scope.knockout.rounds = [];
+                var maxOrder = 0,
+                    i = 0;
+                var pseudoRound = [];
                 _.each($scope.knockout.knockouts, function(value, key) {
-                        $scope.knockout.rounds.push(key);
+                    $scope.knockout.rounds.push(key);
+                    maxOrder = _.maxBy(value, function(kno) {
+                        return kno.order;
+                    }).order;
+                    console.log(value, maxOrder);
+                    pseudoRound = [];
+                    for (i = 0; i < maxOrder; i++) {
+                        if (_.findIndex(value, function(single) {
+                                return single.order == i
+                            }) === -1) {
+                            pseudoRound.push({
+                              order : -999
+                            });
+                        } else {
+                            pseudoRound.push(_.find(value, function(knock) {
+                                return knock.order == i
+                            }));
+                        }
+                    }
+                    $scope.knockout.knockouts[key] = pseudoRound;
                 });
-                if(_.findIndex($scope.knockout.rounds,function (key) {
-                 return key === '-1 Third Place';
-               }) !== -1){
-                 _.remove($scope.knockout.rounds,function (key) {
-                   return key === '-1 Third Place';
-                 });
-                 $scope.knockout.rounds.push('-1 Third Place');
-               }
+                if (_.findIndex($scope.knockout.rounds, function(key) {
+                        return key === '-1 Third Place';
+                    }) !== -1) {
+                    _.remove($scope.knockout.rounds, function(key) {
+                        return key === '-1 Third Place';
+                    });
+
+                    $scope.knockout.rounds.push('-1 Third Place');
+                }
                 $scope.selectRound(1);
             } else {
                 $scope.knockout = {};
@@ -784,15 +807,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
     // $scope.statuses.emptyobject = {};
-    $scope.profiles = function (participantType,id) {
-      if(participantType == 'player'){
-        sfastate = 'student-profile';
-      }else{
-        sfastate = 'team-detail';
-      }
-      $state.go(sfastate,{
-        _id:id
-      });
+    $scope.profiles = function(participantType, id) {
+        if (participantType == 'player') {
+            sfastate = 'student-profile';
+        } else {
+            sfastate = 'team-detail';
+        }
+        $state.go(sfastate, {
+            _id: id
+        });
     };
     $scope.getStudentSport = function(constraints) {
         //console.log("constraints : ",constraints);
