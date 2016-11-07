@@ -11,13 +11,13 @@
                 <div class="col-md-6 col-md-offset-3 col-sm-6 col-xs-8 col-xs-offset-2">
                     <div class="round-slider sport-slider mt15">
                         <div ng-repeat="(rindex,key) in knockout.rounds">
-                          <flex-slider start-at="rindex -1" flex-slide="key in knockout.rounds" slideshow="false" animation="slide" item-width="180" item-margin="10" move="1" ng-if="statuses.slider.startAt == rindex">
+                            <flex-slider start-at="rindex -1" flex-slide="key in knockout.rounds" slideshow="false" animation="slide" item-width="180" item-margin="10" move="1" ng-if="statuses.slider.startAt == rindex">
 
-                              <li class="text-center">
-                                  <button type="button" class="btn "  ng-click="selectRound($index)">{{key | knockoutRoundName}} </button>
-                              </li>
+                                <li class="text-center">
+                                    <button type="button" class="btn " ng-click="selectRound($index)">{{key | knockoutRoundName}} </button>
+                                </li>
 
-                          </flex-slider>
+                            </flex-slider>
                         </div>
                     </div>
                 </div>
@@ -29,19 +29,24 @@
                     <div class="mt15 pos-right float-right">
                         <div class="result-list display-inline">
                             <div class="reslt-box" ng-repeat="winner in knockout.medals" ng-if="!winner.isAddedFromTeam">
-                                <div class="display-inline rslt-img cm-pad">
-                                    <img ng-src="{{winner.participantType == 'player' && (winner.player.profilePic | uploadpath:130:130:'cover') || (winner.team.logo | uploadpath:130:130:'cover')}}" alt="">
-                                </div>
+                                <div class="pull-left">
+                                    <div class="display-inline rslt-img cm-pad">
+                                        <img ng-src="{{winner.participantType == 'player' && (winner.player.profilePic | uploadpath:130:130:'cover') || (winner.team.logo | uploadpath:130:130:'cover')}}" alt="">
+                                    </div>
 
-                                <div class="display-inline rslt-name cm-pad" >
-                                    <h4 class="color-blue margin0 text-up pointer" ng-if="winner.participantType == 'player'" ui-sref="student-profile({id:winner.player._id})">{{winner.player.name | letterLimit:20}}</h4>
-                                    <h4 class="color-blue margin0 text-up pointer" ng-if="winner.participantType == 'team'" ui-sref="team-detail({id:winner.team._id})">{{winner.team.name | removeSchool:winner.school.name}}</h4>
-                                    <span class="text-cap ">{{winner.school.name | letterLimit:20}}.</span>
+                                    <div class="display-inline rslt-name cm-pad">
+                                        <h4 class="color-blue margin0 text-up pointer" ng-if="winner.participantType == 'player'" ui-sref="student-profile({id:winner.player._id})">{{winner.player.name | letterLimit:20}}</h4>
+                                        <h4 class="color-blue margin0 text-up pointer" ng-if="winner.participantType == 'team'" ui-sref="team-detail({id:winner.team._id})">{{winner.team.name | removeSchool:winner.school.name}}</h4>
+                                        <span class="text-cap ">{{winner.school.name | letterLimit:20}}.</span>
+                                    </div>
                                 </div>
-
-                                <div class="display-inline cm-pad">
-                                    <img ng-src="{{winner.medal === 1 && 'img/sf-gold-sec-big.png' || winner.medal === 2 && 'img/sf-silver-sec-big.png' || winner.medal === 3 && 'img/sf-bronze-sec-big.png'}}" alt="">
+                            
+                                <div class="pull-right">
+                                    <div class="display-inline cm-pad">
+                                        <img ng-src="{{winner.medal === 1 && 'img/sf-gold-sec-big.png' || winner.medal === 2 && 'img/sf-silver-sec-big.png' || winner.medal === 3 && 'img/sf-bronze-sec-big.png'}}" alt="">
+                                    </div>
                                 </div>
+                                <div class="clearfix"></div>
                             </div>
 
                         </div>
@@ -49,7 +54,7 @@
                 </div>
                 <div class="row">
 
-                    <div class="col-md-3 col-sm-4 col-xs-12" >
+                    <div class="col-md-3 col-sm-4 col-xs-12">
                         <div class="round1">
                             <div class="round-heat">
 
@@ -59,7 +64,7 @@
                                     <div class="first-sec text-c-m m-auto" ng-repeat="knock in knockout.knockouts[statuses.board.left]">
                                         <div class="mt15">
 
-                                            <draw knockout="knock" ></draw>
+                                            <draw knockout="knock"></draw>
 
                                         </div>
                                         <!-- <div class="mt15">
@@ -88,7 +93,7 @@
 
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-12">
-                        <div class="round1 " >
+                        <div class="round1 ">
                             <div class="round-heat">
 
                                 <div class="comp-width w-mob-100">
@@ -97,7 +102,7 @@
                                     <div class="first-sec min-height-set text-c-m m-auto min-height-set-m " ng-repeat="knock in knockout.knockouts[statuses.board.center]">
                                         <div class="mt15">
 
-                                            <draw knockout="knock" ></draw>
+                                            <draw knockout="knock"></draw>
 
                                         </div>
 
@@ -119,7 +124,7 @@
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-12">
 
-                        <div class="round1" >
+                        <div class="round1">
                             <div class="round-heat">
 
                                 <div class="comp-width w-mob-100">
