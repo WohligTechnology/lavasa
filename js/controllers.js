@@ -1529,7 +1529,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             key.opponent = {};
                             key.self = {};
                             if (key.knockout.participantType == 'player') {
-                                if (key.knockout[key.knockout.participantType + '1'].school._id == $stateParams.id) {
+                                if (key.knockout[key.knockout.participantType + '1'] && key.knockout[key.knockout.participantType + '1'].school._id == $stateParams.id) {
                                     key.opponent.detail = key.knockout[key.knockout.participantType + '2'];
                                     key.self.detail = key.knockout[key.knockout.participantType + '1'];
                                     key.opponent.result = key.knockout["result" + key.knockout.participantType + '2'];
@@ -1541,7 +1541,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     key.self.result = key.knockout["result" + key.knockout.participantType + '2'];
                                 }
                             } else {
-                                if (key.knockout[key.knockout.participantType + '1'].school._id == key.team.school._id) {
+                                if (key.knockout[key.knockout.participantType + '1'] && key.knockout[key.knockout.participantType + '1'].school._id == key.team.school._id) {
                                     key.opponent.detail = key.knockout[key.knockout.participantType + '2'];
                                     key.self.detail = key.knockout[key.knockout.participantType + '1'];
                                     key.opponent.result = key.knockout["result" + key.knockout.participantType + '2'];
@@ -1553,8 +1553,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                     key.self.result = key.knockout["result" + key.knockout.participantType + '2'];
                                 }
                             }
+
                         });
+
                     }
+                    console.log($scope.schoolStats);
                 }
             } else {
                 $scope.schoolStats = [];
