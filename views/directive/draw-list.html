@@ -3,7 +3,7 @@
         <div class="comp-img display-inline">
             <img style="width:35px" ng-src="{{knockout.participantType == 'player' && (knockout['player1'].profilePic | uploadpath) || (knockout['team1'].school.logo | uploadpath) }}" alt="">
         </div>
-        <div class="display-inline">
+        <div class="display-inline min-w160">
             <span class="float-right color-orange">{{knockout['result'+knockout.participantType + '1'] == 'Won' && 'W' || knockout['result'+knockout.participantType + '1'] == 'Loss' && 'L' || knockout['result'+knockout.participantType + '1'] == 'Bye' && 'BYE' || knockout['result'+knockout.participantType + '1'] == 'Walkover' && 'W.O.' || knockout['result'+knockout.participantType + '1'] == 'No Show' && 'NS' || ' '}}</span>
             <h4 class="margin0 color-blue text-up">{{knockout[knockout.participantType + '1'].name | removeSchool:knockout[knockout.participantType+'1'].school.name | letterLimit:12}}</h4>
             <span ng-if="knockout[knockout.participantType + '1'].school">{{knockout[knockout.participantType + '1'].school.name | letterLimit:25}}</span>
@@ -14,7 +14,7 @@
         <div class="comp-img display-inline">
             <img style="width:35px" ng-src="{{knockout.participantType == 'player' && (knockout['player2'].profilePic | uploadpath) || (knockout['team2'].school.logo | uploadpath) }}" alt="">
         </div>
-        <div class=" display-inline " >
+        <div class=" display-inline min-w160">
             <span class="float-right color-orange">{{knockout['result'+knockout.participantType + '2'] == 'Won' && 'W' || knockout['result'+knockout.participantType + '2'] == 'Loss' && 'L' || knockout['result'+knockout.participantType + '2'] == 'Bye' && 'BYE' || knockout['result'+knockout.participantType + '2'] == 'Walkover' && 'W.O.' || knockout['result'+knockout.participantType + '2'] == 'No Show' && 'NS' || ' '}}</span>
             <h4 class="margin0 color-blue text-up">{{knockout[knockout.participantType + '2'].name | removeSchool:knockout[knockout.participantType+'2'].school.name | letterLimit:12}}</h4>
             <span ng-if="knockout[knockout.participantType + '2'].school">{{knockout[knockout.participantType + '2'].school.name | letterLimit:25}}</span>

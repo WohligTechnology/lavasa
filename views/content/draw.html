@@ -40,7 +40,7 @@
                                         <span class="text-cap ">{{winner.school.name | letterLimit:20}}.</span>
                                     </div>
                                 </div>
-                            
+
                                 <div class="pull-right">
                                     <div class="display-inline cm-pad">
                                         <img ng-src="{{winner.medal === 1 && 'img/sf-gold-sec-big.png' || winner.medal === 2 && 'img/sf-silver-sec-big.png' || winner.medal === 3 && 'img/sf-bronze-sec-big.png'}}" alt="">
@@ -100,7 +100,7 @@
                                     <h4 class="text-up color-white font-semi text-center"> {{statuses.board.center | knockoutRoundName}}</h4>
 
                                     <div class="first-sec min-height-set text-c-m m-auto min-height-set-m " ng-repeat="knock in knockout.knockouts[statuses.board.center]">
-                                        <div class="mt15">
+                                        <div class="mt15 pos-ab">
 
                                             <draw knockout="knock"></draw>
 
