@@ -156,11 +156,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     .controller('FormSubmitCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
+        $scope.template = TemplateService.changecontent("form-submit");
+        $scope.template.header = "";
+        $scope.template.footer = "";
+        $scope.menutitle = NavigationService.makeactive("Form Submit");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
+    .controller('AfterFormCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
         console.log("Testing Consoles");
         TemplateService.header = "";
         TemplateService.footer = "";
-        $scope.template = TemplateService.changecontent("form-submit");
-        $scope.menutitle = NavigationService.makeactive("Form Submit");
+        $scope.template = TemplateService.changecontent("after-form");
+        $scope.menutitle = NavigationService.makeactive("After Form");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -609,10 +620,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 });
                 $scope.knockout.rounds = [];
                 _.each($scope.knockout.knockouts, function(value, key) {
-                    if (key !== 'Third Place') {
                         $scope.knockout.rounds.push(key);
-                    }
                 });
+                if(_.findIndex($scope.knockout.rounds,function (key) {
+                 return key === '-1 Third Place';
+               }) !== -1){
+                 _.remove($scope.knockout.rounds,function (key) {
+                   return key === '-1 Third Place';
+                 });
+                 $scope.knockout.rounds.push('-1 Third Place');
+               }
                 $scope.selectRound(1);
             } else {
                 $scope.knockout = {};

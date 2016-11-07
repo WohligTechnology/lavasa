@@ -38,6 +38,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     templateUrl: "views/template.html",
     controller: 'FormSubmitCtrl'
 })
+.state('after-form', {
+    url: "/after-form",
+    templateUrl: "views/template.html",
+    controller: 'AfterFormCtrl'
+})
 .state('blog-detail', {
     url: "/blog-detail",
     templateUrl: "views/template.html",
