@@ -134,7 +134,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }(document, "script", "twitter-wjs");
         })
 
-        NavigationService.getAllSportList($stateParams, function(response) {
+        NavigationService.getAllSportList( function(response) {
             if (response.value) {
                 $scope.game = response.data;
             } else {
@@ -174,12 +174,63 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('ResultCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    .controller('ResultCtrl', function($scope, TemplateService, NavigationService, $timeout,$state) {
 
         $scope.template = TemplateService.changecontent("result");
         $scope.menutitle = NavigationService.makeactive("Result");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+        $scope.dropdowns = {};
+        $scope.filter = {};
+        $scope.filter.year = "";
+        $scope.filter.agegroup = "";
+        $scope.filter.gender = "";
+        $scope.filter.sport = "";
+        $scope.filter.category = "";
+        $scope.doesNotHaveSport = true;
+        NavigationService.getAllSportList(function (response) {
+          if(response.value){
+            $scope.dropdowns.sport = response.data;
+          }
+        });
+        $scope.getSportAgeGroup = function () {
+          $scope.doesNotHaveSport = true;
+          NavigationService.filterAgegroupBySport({
+            sportList:$scope.filter.sport
+          },function (response) {
+            if(response.value){
+              $scope.dropdowns.agegroup = response.data;
+            }else{
+              $scope.dropdowns.agegroup = [];
+            }
+          });
+        };
+        $scope.getSportCategory = function () {
+          $scope.doesNotHaveSport = true;
+          NavigationService.filterCategoryBySport({
+            sportList:$scope.filter.sport
+          },function (response) {
+            if(response.value){
+              $scope.dropdowns.category = response.data;
+            }else{
+              $scope.dropdowns.category = [];
+            }
+          });
+        };
+        $scope.getSport = function () {
+          $scope.sport = undefined;
+          console.log($scope.filter);
+          NavigationService.getOneSportForResult($scope.filter,function (response) {
+            $scope.doesNotHaveSport = response.value;
+            if(response.value){
+              if(response.data.drawFormat == 'Knockout'){
+                $state.go('draw',{
+                  id:response.data._id
+                });
+              }
+            }
+          });
+        };
 
     })
     .controller('SchoolRankingCtrl', function($scope, TemplateService, NavigationService, $timeout) {

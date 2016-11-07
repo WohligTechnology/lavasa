@@ -8,7 +8,7 @@
 
 // var adminurl = "http://localhost:1337/";
 var adminurl = "http://146.148.42.15:83/api/";
-// var adminurl = "http://192.168.1.103:1337/api/";
+// var adminurl = "http://192.168.1.102:1337/api/";
 var imgpath = adminurl + "upload/readFile";
 var uploadurl = adminurl + "upload/";
 var currentYears = ["2015", "2016"];
@@ -105,6 +105,15 @@ var navigationservice = angular.module('navigationservice', [])
                 }
             }).success(callback);
         },
+        getOneSportForResult: function(request, callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'sport/getOneSportForResult',
+                method: 'POST',
+                withCredentials: true,
+                data: request
+            }).success(callback);
+        },
         getOnePopulated: function(id, callback) {
             // console.log('form data: ', formData);
             $http({
@@ -143,13 +152,12 @@ var navigationservice = angular.module('navigationservice', [])
                 data: request
             }).success(callback);
         },
-        getAllSportList: function(request, callback) {
+        getAllSportList: function(callback) {
             // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'sportsList/getAll',
                 method: 'POST',
-                withCredentials: true,
-                data: request
+                withCredentials: true
             }).success(callback);
         },
         getStudentProfile: function(id, callback) {

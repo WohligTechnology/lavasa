@@ -259,7 +259,11 @@ firstapp.filter('letterLimit', function() {
 });
 firstapp.filter('removeSchool', function() {
     return function(value,school) {
-        return value.replace(school+" ", "");
+        if(value){
+          return value.replace(school+" ", "");
+        }else{
+          return "";
+        }
     };
 });
 firstapp.filter('knockoutRoundName', function() {

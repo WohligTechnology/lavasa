@@ -8,12 +8,13 @@
     <div class="row">
       <div class="col-md-12">
           <div class="box-content">
+            <form name="resultForm" ng-submit="getSport()">
             <div class="row">
               <div class="col-md-offset-4 col-md-4 cl-box">
                 <div class="">
                     <div class="sfa-select">
-                        <select class="select" ng-model="filter.year" ng-change="changeYear()">
-                            <option value="top20">2015</option>
+                        <select class="select" name="year" required ng-model="filter.year">
+                            <option value="">YEAR</option>
                             <option value="2015">2015</option>
                             <option value="2016">2016</option>
 
@@ -23,10 +24,9 @@
                 </div>
                 <div class="mt15">
                     <div class="sfa-select">
-                        <select class="select" ng-model="filter.year" ng-change="changeYear()">
-                            <option value="top20">2015</option>
-                            <option value="2015">2015</option>
-                            <option value="2016">2016</option>
+                        <select class="select" ng-model="filter.sport" name="sport" required  ng-change="getSportAgeGroup();getSportCategory();">
+                            <option value="">SPORT</option>
+                            <option ng-repeat="sport in dropdowns.sport" ng-value="sport._id">{{sport.name}}</option>
 
                         </select>
                         <span class="only-border"></span>
@@ -34,10 +34,9 @@
                 </div>
                 <div class="mt15">
                     <div class="sfa-select">
-                        <select class="select" ng-model="filter.year" ng-change="changeYear()">
-                            <option value="top20">2015</option>
-                            <option value="2015">2015</option>
-                            <option value="2016">2016</option>
+                        <select class="select" name="agegroup" required ng-model="filter.agegroup" >
+                            <option value="">AGE GROUP</option>
+                            <option ng-repeat="agegroup in dropdowns.agegroup"   ng-value="agegroup.name">{{agegroup.name}}</option>
 
                         </select>
                         <span class="only-border"></span>
@@ -45,31 +44,35 @@
                 </div>
                 <div class="mt15">
                     <div class="sfa-select">
-                        <select class="select" ng-model="filter.year" ng-change="changeYear()">
-                            <option value="top20">2015</option>
-                            <option value="2015">2015</option>
-                            <option value="2016">2016</option>
+                        <select class="select" ng-model="filter.gender" name="gender" required  ng-change="changeYear()">
+                            <option value="">GENDER</option>
+                            <option value="Boys">Boys</option>
+                            <option value="Girls">Girls</option>
 
                         </select>
                         <span class="only-border"></span>
                     </div>
                 </div>
-                <div class="mt15">
+                <div class="mt15" ng-if="dropdowns.category.length > 0">
                     <div class="sfa-select">
-                        <select class="select" ng-model="filter.year" ng-change="changeYear()">
-                            <option value="top20">2015</option>
-                            <option value="2015">2015</option>
-                            <option value="2016">2016</option>
+                        <select class="select" name="category" required ng-model="filter.category" >
+                            <option value="">EVENT</option>
+                              <option ng-repeat="category in dropdowns.category" ng-value="category.name">{{category.name}}</option>
 
                         </select>
                         <span class="only-border"></span>
                     </div>
                 </div>
+
                 <div class="text-center mt15">
-  <button type="button" name="button" class="text-up btn-orange padd-btn pd-450">GET RESULT</button>
+  <button type="submit" name="button" class="text-up btn-orange padd-btn pd-450">GET RESULT</button>
+                </div>
+                <div class="text-center" ng-if="!doesNotHaveSport">
+                  No Sport Found.
                 </div>
               </div>
             </div>
+          </form>
           </div>
       </div>
     </div>
