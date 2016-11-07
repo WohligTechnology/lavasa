@@ -1868,7 +1868,7 @@ img.fancybox-image {
 .min-height-set2 {
     min-height: 660px;
     position: relative;
-    top: 247px;
+    top: 0px;
 }
 
 .school-names {
@@ -3022,4 +3022,9 @@ img.fancybox-image {
 }
 .min-h150{
   min-height: 150px;
+}
+.min-pos-mid{
+  position: absolute;
+    top: 46%;
+    transform: translatey(-50%);
 }
