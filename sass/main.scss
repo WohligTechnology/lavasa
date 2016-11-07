@@ -2489,3 +2489,12 @@ height: 100px;
 background-size: contain;
 background-repeat: no-repeat;
 }
+.text-l{
+  tbody{
+    tr{
+      td{
+        text-align: left;
+      }
+    }
+  }
+}

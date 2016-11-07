@@ -783,7 +783,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         });
     };
-    $scope.statuses.emptyobject = {};
+    // $scope.statuses.emptyobject = {};
     $scope.profiles = function (participantType,id) {
       if(participantType == 'player'){
         sfastate = 'student-profile';
