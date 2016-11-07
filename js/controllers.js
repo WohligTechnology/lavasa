@@ -165,12 +165,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
     .controller('AfterFormCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-        //Used to name the .html file
 
-        console.log("Testing Consoles");
-        TemplateService.header = "";
-        TemplateService.footer = "";
         $scope.template = TemplateService.changecontent("after-form");
+        $scope.template.header = "";
+        $scope.template.footer = "";
         $scope.menutitle = NavigationService.makeactive("After Form");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
