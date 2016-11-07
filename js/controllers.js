@@ -627,7 +627,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     }).order;
                     console.log(value, maxOrder);
                     pseudoRound = [];
-                    for (i = 0; i < maxOrder; i++) {
+                    for (i = 0; i <= maxOrder; i++) {
                         if (_.findIndex(value, function(single) {
                                 return single.order == i
                             }) === -1) {
