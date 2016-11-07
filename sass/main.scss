@@ -2458,3 +2458,26 @@ p{
 .pd-450{
       padding: 8px 46px;
 }
+.form-box {
+    background: whitesmoke;
+    padding: 40px 40px;
+    border-radius: 4px;
+}
+.mi-logo{
+  width: 60px;
+padding-bottom: 25px;
+}
+.stu-new-result {
+    background: #f3f3f3;
+    padding: 30px;
+    table{
+      tr{
+        td{
+          text-align: center;
+        }
+        th{
+          text-align: center;
+        }
+      }
+    }
+}

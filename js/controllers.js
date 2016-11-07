@@ -153,6 +153,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
+    .controller('FormSubmitCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        console.log("Testing Consoles");
+        TemplateService.header = "";
+        TemplateService.footer = "";
+        $scope.template = TemplateService.changecontent("form-submit");
+        $scope.menutitle = NavigationService.makeactive("Form Submit");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
     .controller('ResultCtrl', function($scope, TemplateService, NavigationService, $timeout) {
 
         $scope.template = TemplateService.changecontent("result");

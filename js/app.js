@@ -33,6 +33,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     templateUrl: "views/template.html",
     controller: 'DrawScheduleCtrl'
 })
+.state('form-submit', {
+    url: "/form-submit",
+    templateUrl: "views/template.html",
+    controller: 'FormSubmitCtrl'
+})
 .state('blog-detail', {
     url: "/blog-detail",
     templateUrl: "views/template.html",
