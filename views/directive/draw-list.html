@@ -1,5 +1,5 @@
 <div class="min-height-150 box-level mt30 ">
-    <div class="one-sec border-bottom2">
+    <div class="one-sec border-bottom2 pointer" ng-click="profiles(knockout.participantType,knockout[knockout.participantType+'1']._id)">
         <div class="comp-img display-inline">
             <img style="width:35px" ng-src="{{knockout.participantType == 'player' && (knockout['player1'].profilePic | uploadpath) || (knockout['team1'].school.logo | uploadpath) }}" alt="">
         </div>
