@@ -947,6 +947,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.classes.classv = "active-list";
         }
     };
+    $scope.profiles = function (participantType,studentid,teamid) {
+      if(participantType == 'player'){
+        $state.go('student-profile',{
+          id:studentid
+        });
+      }else{
+        sfastate = 'team-detail';
+        $state.go(sfastate,{
+          id:teamid
+        });
+      }
+
+    };
     $scope.winners = [];
     $scope.statuses = {};
     $scope.statuses.doubleBronze = false;
@@ -1243,7 +1256,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.getSchoolProfile();
 })
 
-.controller('ChampionsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('ChampionsCtrl', function($scope, TemplateService, NavigationService, $timeout,$state) {
     //Used to name the .html file
     console.log("Testing Consoles");
     $scope.template = TemplateService.changecontent("champions");
@@ -1251,21 +1264,58 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.navigation = NavigationService.getnav();
-    $scope.sportName = ['Badminton','Tennis'];
+    $scope.oneAtATime = true;
+    $scope.sportName = ['Badminton','Tennis','Table Tennis','Volleyball','Handball','Squash','Basketball','Swimming','Judo'];
     $scope.filter= {};
+    $scope.filter.year="2015";
+    $scope.winners = [];
+    $scope.statuses = {};
+    $scope.statuses.open = {};
+    $scope.statuses.doubleBronze = false;
+    $scope.profiles = function (participantType,studentid,teamid) {
+      if(participantType == 'player'){
+        $state.go('student-profile',{
+          id:studentid
+        });
+      }else{
+        sfastate = 'team-detail';
+        $state.go(sfastate,{
+          id:teamid
+        });
+      }
 
+    };
+    $scope.getWinners = function(sportid) {
+        var constraints = {};
+        constraints.sport = sportid;
+        _.each($scope.statuses.open,function (value,key) {
+          $scope.statuses.open[key]= false;
+        });
+        $scope.statuses.open[sportid]=true;
+        console.log($scope.statuses.open);
+        constraints.year = $scope.filter.year;
+        $scope.statuses.doubleBronze = false;
+        $scope.winners = undefined;
+        NavigationService.getWinners(constraints, function(response) {
+            if (response.value) {
+                $scope.winners = response.data;
+                _.each($scope.winners, function(key) {
+                    if (key.Bronze.length > 1) {
+                        $scope.statuses.doubleBronze = true;
+                    }
+                });
+            } else {
+                $scope.winners = [];
+            }
+        });
+    };
     $scope.getSportList = function() {
         NavigationService.getAllSportList(function(response) {
             if (response.value) {
                 if($scope.filter.year == '2015'){
-                  var tempArray = _.remove(response.data,function (key) {
-                    console.log(key.name);
-                    return _.includes($scope.sportName,function (sport) {
-                      console.log(sport);
-                      return key.name == sport;
-                    });
+                   _.remove(response.data,function (key) {
+                    return !_.includes($scope.sportName,key.name);
                   });
-                  console.log(tempArray);
                 }
                 $scope.sports = _.chain(response.data)
                     .groupBy("sporttype")
