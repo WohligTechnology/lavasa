@@ -272,7 +272,6 @@ firstapp.filter('removeSchool', function() {
 });
 firstapp.filter('knockoutRoundName', function() {
     return function(value) {
-      console.log(value);
         if(value){
           return value.substring(value.indexOf(' ')+1);
         }else{

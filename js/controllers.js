@@ -204,6 +204,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.getSportAgeGroup = function() {
             $scope.doesNotHaveSport = true;
+            $scope.dropdowns.agegroup = undefined;
+            $scope.filter.agegroup = undefined;
             NavigationService.filterAgegroupBySport({
                 sportList: $scope.filter.sport
             }, function(response) {
@@ -216,6 +218,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.getSportCategory = function() {
             $scope.doesNotHaveSport = true;
+            $scope.dropdowns.category = undefined;
+            $scope.filter.category = undefined;
             NavigationService.filterCategoryBySport({
                 sportList: $scope.filter.sport
             }, function(response) {
@@ -1300,8 +1304,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         _.each($scope.statuses.open, function(value, key) {
             $scope.statuses.open[key] = false;
         });
-        $scope.statuses.open[sportid] = true;
-        console.log($scope.statuses.open);
         constraints.year = $scope.filter.year;
         $scope.statuses.doubleBronze = false;
         $scope.winners = undefined;
@@ -1319,6 +1321,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
     $scope.getSportList = function() {
+      $scope.sports = undefined;
         NavigationService.getAllSportList(function(response) {
             if (response.value) {
                 if ($scope.filter.year == '2015') {
