@@ -1,4 +1,23 @@
 @media (max-width:1200px) {
+   .min-w-auto {
+
+    margin-left: 0px !important;
+}
+  .clip2 {
+  display: none !important;
+  }
+  .clip1 {
+  display: none !important;
+  }
+
+  .clip3 {
+  display: none !important;
+  }
+  .count {
+
+  padding: 50px 90px !important;
+
+}
   .font16{
     font-size: 16px !important;
   }
@@ -13,8 +32,33 @@
     font-size: 15px;
   }
 }
+
 }
 @media (max-width:$screen-sm-max) {
+  .hex-gon {
+  display: none;
+  }
+
+  .clip {
+  display: none;
+  }
+  .min-w-auto {
+
+    margin-left: 0px;
+}
+  .count {
+
+    padding: 50px 90px !important;
+
+}
+  .clip2 {
+  display: none;
+  }
+
+  .clip3 {
+display: none;
+  }
+
   .sf-school-logo, .sf-school-logo2 {
     width: 150px;
     height: 150px;
@@ -90,6 +134,20 @@
 }
 }
 @media (max-width:$screen-xs-max) {
+  .min-w-auto {
+
+    margin-left: 0px;
+}
+  .clip2 {
+  display: none !important;
+  }
+  .clip1 {
+  display: none !important;
+  }
+
+  .clip3 {
+  display: none !important;
+  }
   .main-hide{
     display: none;
   }
@@ -458,6 +516,17 @@ margin-top: 40px;
 }
 }
 @media (max-width:480px) {
+  .bg-rg h1 {
+    font-size: 20px !important;
+}
+  .bg-rg {
+
+    border-radius: 0px !important;
+
+}
+  .count {
+    padding: 10px 10px !important;
+}
   .cl-box {
     background: #dedede;
     padding: 66px 30px;
