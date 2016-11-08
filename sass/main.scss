@@ -196,6 +196,9 @@ a {
 .color-grey {
     color: #838383;
 }
+.color-grey2 {
+    color: #5a5a5a;
+}
 
 .font-sansation {
     font-family: 'Sansation';
@@ -529,6 +532,10 @@ a {
 }
 
 .footer-slider {
+    background: #f7f7f7;
+    padding: 15px 0;
+}
+.second-slider {
     background: #0a1a72;
     padding: 15px 0;
 }
@@ -3074,6 +3081,11 @@ img.fancybox-image {
     li {
         padding: 0 15px;
         text-transform: uppercase;
+        a{
+          &:hover{
+            color: $brand-success;
+          }
+        }
     }
 }
 
@@ -3081,4 +3093,108 @@ img.fancybox-image {
     img {
         margin-top: -33px;
     }
+}
+.home-side {
+  background: #fff;
+  padding: 15px;
+  z-index: 9;
+  position: relative;
+  box-shadow: 4px 4px 22px rgba(136, 136, 136, 0.45);
+}
+.counter{
+  ul{
+    li{
+      padding: 0px 7px;
+    }
+  }
+}
+.bg-rg{
+  background: url(../img/org.png) no-repeat;
+  border-radius: 15px;
+  text-align: center;
+  background-size: 100% auto;
+  h1{
+    padding: 26px 14px 26px 14px;
+color: #fff;
+font-size: 36px;
+  }
+}
+.count{
+  background: white;
+    border-radius: 50px;
+    padding: 50px 200px 50px 200px;
+    box-shadow: 4px 4px 22px rgba(136, 136, 136, 0.45);
+    // margin: 100px 0px 0px 0px;
+
+
+}
+.ps-anj{
+  padding: 0px 100px;
+text-align: center;
+    margin-top: -145px;
+}
+.un-hm{
+  display: inline-block;
+vertical-align: top;
+}
+.min-w-auto{
+  display: inline-block;
+padding-top: 37px;
+margin-left: -78px;
+}
+.stupnames{
+  top: 50%;
+transform: translateY(-50%);
+right: 80px;
+text-align: center;
+
+}
+.b-bttom-1{
+  border-bottom: 1px solid #fff;
+    padding-bottom: 10px;
+}
+.hex-gon{
+  position: absolute;
+  left: -92px;
+  z-index: 999;
+  top: 226px;
+}
+.clip {
+    position: absolute;
+    right: -7%;
+    top: 230px;
+}
+.clip1{
+  right: -84px;
+z-index: 99;
+bottom: 60px;
+}
+.clip2{
+  z-index: 99;
+right: -138px;
+top: 40px
+}
+.clip3{
+  bottom: 0;
+z-index: 999;
+left: -140px;
+}
+.f-list{
+  ul{
+    list-style: none;
+    li{
+      text-transform: uppercase;
+          line-height: 200%;
+      a{
+        color:#fff;
+    text-transform: uppercase;
+        &:hover{
+          color:#fff;
+        }
+      }
+    }
+  }
+}
+.cl-nt{
+  -webkit-column-count: 3;
 }
