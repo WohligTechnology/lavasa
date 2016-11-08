@@ -13,7 +13,7 @@
               <div class="col-md-offset-4 col-md-4 cl-box">
                 <div class="">
                     <div class="sfa-select">
-                        <select class="select" name="year" required ng-model="filter.year">
+                        <select class="select" name="year" ng-change="getSportList()" required ng-model="filter.year">
                             <option value="">YEAR</option>
                             <option value="2015">2015</option>
                             <option value="2016">2016</option>
@@ -22,21 +22,11 @@
                         <span class="only-border"></span>
                     </div>
                 </div>
-                <div class="mt15">
+                <div class="mt15" ng-if="dropdowns.sport.length > 0">
                     <div class="sfa-select">
                         <select class="select" ng-model="filter.sport" name="sport" required  ng-change="getSportAgeGroup();getSportCategory();">
                             <option value="">SPORT</option>
                             <option ng-repeat="sport in dropdowns.sport" ng-value="sport._id">{{sport.name}}</option>
-
-                        </select>
-                        <span class="only-border"></span>
-                    </div>
-                </div>
-                <div class="mt15">
-                    <div class="sfa-select">
-                        <select class="select" name="agegroup" required ng-model="filter.agegroup" >
-                            <option value="">AGE GROUP</option>
-                            <option ng-repeat="agegroup in dropdowns.agegroup"   ng-value="agegroup.name">{{agegroup.name}}</option>
 
                         </select>
                         <span class="only-border"></span>
@@ -53,6 +43,18 @@
                         <span class="only-border"></span>
                     </div>
                 </div>
+
+                <div class="mt15" ng-if="dropdowns.agegroup.length > 0">
+                    <div class="sfa-select">
+                        <select class="select" name="agegroup" required ng-model="filter.agegroup" >
+                            <option value="">AGE GROUP</option>
+                            <option ng-repeat="agegroup in dropdowns.agegroup"   ng-value="agegroup.name">{{agegroup.name}}</option>
+
+                        </select>
+                        <span class="only-border"></span>
+                    </div>
+                </div>
+
                 <div class="mt15" ng-if="dropdowns.category.length > 0">
                     <div class="sfa-select">
                         <select class="select" name="category" required ng-model="filter.category" >
