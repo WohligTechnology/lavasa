@@ -204,6 +204,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.getSportAgeGroup = function() {
             $scope.doesNotHaveSport = true;
+            $scope.dropdowns.agegroup = undefined;
+            $scope.filter.agegroup = undefined;
             NavigationService.filterAgegroupBySport({
                 sportList: $scope.filter.sport
             }, function(response) {
@@ -216,6 +218,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.getSportCategory = function() {
             $scope.doesNotHaveSport = true;
+            $scope.dropdowns.category = undefined;
+            $scope.filter.category = undefined;
             NavigationService.filterCategoryBySport({
                 sportList: $scope.filter.sport
             }, function(response) {
