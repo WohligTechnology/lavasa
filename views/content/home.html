@@ -1,6 +1,3 @@
-<div class="curve">
-
-</div>
 <section class="home-slider">
     <flex-slider flex-slide="banner in banners track by $index" prev-text="" next-text="">
         <li>
@@ -8,226 +5,177 @@
         </li>
     </flex-slider>
 </section>
-<div class="curve2" ng-if="banners.length > 0"></div>
-<section>
-    <div class="container">
-      <div class="row">
-          <div class="text-center">
-<div class="slider-mini sport-slider" ng-mouseleave="removeSlideClass()">
-  <flex-slider class="carousel" flex-slide="s in game track by $index" prev-text="" next-text="" startAt="0" item-width="100" item-margin="60"  animation="slide" move="1" slideshow="false" >
-      <li class="sf-relative" ng-class="s.class " ng-mouseover="changeSlideClass(s,$index)"  >
-        <a ui-sref="sport({name:s.name})" class=" isHover">
-            <img ng-src="{{s.image | uploadpath}}"  class="img-responsive onlyHover absolute0">
-            <img ng-src="{{s.inactiveimage | uploadpath}}" class="img-responsive notHover">
-            {{s.name}}
-        </a>
-      </li>
-  </flex-slider>
-</div>
-          </div>
-      </div>
+<section class="sf-relative">
+    <div class="hex-gon">
+        <img src="img/hex-green.png" alt="">
+    </div>
+    <div class="clip">
+        <img src="img/c1.png" alt="">
+    </div>
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 col-xs-12 col-sm-6 text-center">
-                <div class="btn-group btn-group-justified home-btn mt40 text-c" role="group" aria-label="...">
-                    <div class="btn-group" role="group">
-                        <a href="img/pdf/allcombine.pdf" target="_blank"><button type="button" class="btn btn-orange btn-home">CHAMPIONS OF SFA 2015: WINNERS</button></a>
-                    </div>
-
-
+            <div class="col-md-6">
+                <div class="home-side">
+                    <img src="img/home-side.jpg" alt="" class="img-responsive">
                 </div>
-              </div>
-                <div class="col-xs-12 col-md-6 col-sm-6 text-center">
-                  <div class="btn-group btn-group-justified home-btn mt40 text-c" role="group" aria-label="...">
-                  <div class="btn-group" role="group">
-                        <a href="img/pdf/leaderborad.pdf" target="_blank"><button type="button" class="btn btn-orange btn-home">SCHOOL RANKING LEADER BOARD</button></a>
-                  </div>
-                </div>
-                </div>
-
             </div>
-            <div class="row">
-              <div class="text-center home-main mt25">
-                  <!-- <p>Videos of individual matches will soon be hosted on the respective participant and school profile page. If you would like for us to notify you on the same, kindly leave your email address here:</p> -->
-                  <div class="input-sb mt25">
-                    <!-- <span class="newslettershow" >
-                      <p class="thank">Thank you for subscribing to our newsletter.</p>
-                    </span> -->
-                      <!-- <form ng-submit="savenewsletter(newsletter.email);" >
-                          <div class="mdl">
-                              <div class="input-text">
-                                  <input class="form-control" ng-model="newsletter.email" placeholder="Email Address" required type="email">
-                              </div>
-                              <div class="button-text">
-                                  <button type="submit" class=" btn-orange newslettersubmit">GO!</button>
-                              </div>
-                          </div>
-                      </form> -->
-                  </div>
-              </div>
+            <div class="col-md-6">
+                <div class="count">
+                    <h4 class="color-orange text-up font-semi">SFA MUMBAI 2016 <span class="color-blue">starts in</span></h4>
+                    <div class="counter sf-list">
+                        <ul>
+                            <li>
+                                <div class="num">
+                                    <h4>04</h4>
+                                    <span class="color-bluet text-up">days</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="num">
+                                    <h4>04</h4>
+                                    <span class="color-bluet text-up">hour</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="num">
+                                    <h4>04</h4>
+                                    <span class="color-bluet text-up">minutes</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="num">
+                                    <h4>04</h4>
+                                    <span class="color-bluet text-up">seconds</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 <section class="mt80">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-8 padding0">
-        <div class="first-top">
-          <div class="sf-absulate text-center banner-set">
-              <a class="various fancybox.iframe" fancybox href="http://www.youtube.com/embed/pIPashZ8S2Q?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"><img src="img/play.png" alt="Sports For All"></a>
-            <div class="top-title">
-              <h1 class="font-sansation font-bold f4v color-white">THE BEGINNING</h1>
-            </div>
-            <div class="img-hr">
-              <img src="img/hr.png" alt="Sports For All">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 padding0">
-        <div class="v_ul ">
-          <ul class="padding0 list-style margin0">
-            <li>
-              <div class="first-top-img">
-                <div class="sf-absulate text-center banner-set width100">
-                 <a class="various fancybox.iframe" fancybox href="http://www.youtube.com/embed/yMTveHlyZqA?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">  <img src="img/play-mini.png" alt="Sports For All"></a>
-                  <div class="top-title">
-                    <h1 class=" color-white text-up ">Founder’s Message</h1>
-                  </div>
-                  <div class="img-hr">
-                    <img src="img/hr-mini.png" alt="Sports For All">
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="second-top-img">
-                <div class="sf-absulate text-center banner-set">
-                   <a class="various fancybox.iframe" fancybox href="http://www.youtube.com/embed/daIvWD7U_D8?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"><img src="img/play-mini.png" alt="Sports For All"></a>
-                  <div class="top-title">
-                    <h1 class=" color-white text-up">A Sneak Peek</h1>
-                  </div>
-                  <div class="img-hr">
-                    <img src="img/hr-mini.png" alt="Sports For All">
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 padding0">
+      <div class="first-box">
+        <img src="img/st1.jpg" alt="" class="img-responsive width100">
+        <div class="stupname">
+          <h4 class="text-up">student</h4>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-4 padding0">
-        <div class="first-left">
-          <div class="sf-absulate text-center banner-set">
-              <a class="various fancybox.iframe" fancybox href="http://www.youtube.com/embed/Tuw5hBP500c?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"><img src="img/play-mini.png" alt="Sports For All"></a>
-            <div class="top-title">
-              <h1 class="color-white font-sansation f2">DAY - 02</h1>
-            </div>
-            <div class="img-hr">
-              <img src="img/hr-mini.png" alt="Sports For All">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 padding0">
-        <div class="middle-left">
-          <div class="sf-absulate text-center banner-set">
-          <a class="various fancybox.iframe" fancybox href="http://www.youtube.com/embed/Yl2ujehIjb4?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">  <img src="img/play-mini.png" alt="Sports For All"></a>
-            <div class="top-title">
-              <h1 class="color-white font-sansation f2">DAY - 03</h1>
-            </div>
-            <div class="img-hr">
-              <img src="img/hr-mini.png" alt="Sports For All">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 padding0">
-        <div class="last-left">
-          <div class="sf-absulate text-center banner-set">
-            <a class="various fancybox.iframe" fancybox href="http://www.youtube.com/embed/zISIvzjK04o?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"><img src="img/play-mini.png" alt="Sports For All"></a>
-            <div class="top-title">
-              <h1 class="color-white font-sansation f2">DAY - 04</h1>
-            </div>
-            <div class="img-hr">
-              <img src="img/hr-mini.png" alt="Sports For All">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4 padding0">
-        <div class="second-bottom">
-          <div class="sf-absulate text-center banner-set">
-          <a class="various fancybox.iframe" fancybox href="http://www.youtube.com/embed/O2FTKgcTuts?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1">  <img src="img/play-mini.png" alt="Sports For All"></a>
-            <div class="top-title">
-              <h1 class="color-white font-sansation f2">Bird’s eye View</h1>
-            </div>
-            <div class="img-hr">
-              <img src="img/hr-mini.png" alt="Sports For All">
-            </div>
-            <div class="below-line">
-              <h4 class="color-white">OF SFA MUMBAI 2015</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 padding0">
-        <div class="middle-bottom">
-          <div class="sf-absulate text-center banner-set">
-              <a class="various fancybox.iframe" fancybox href="http://www.youtube.com/embed/pOxHiYXvgs0?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"><img src="img/play-mini.png" alt="Sports For All"></a>
-            <div class="top-title">
-              <h1 class="color-white font-sansation f2">Farah Khan</h1>
-            </div>
-            <div class="img-hr">
-              <img src="img/hr-mini.png" alt="Sports For All">
-            </div>
-            <div class="below-line">
-              <h4 class="color-white">OF SFA MUMBAI 2015</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 padding0">
-        <div class="last-bottom">
-          <div class="sf-absulate text-center banner-set">
-              <a class="various fancybox.iframe" fancybox href="http://www.youtube.com/embed/k-hFdgV0xw4?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"><img src="img/play-mini.png" alt="Sports For All"></a>
-            <div class="top-title">
-              <h1 class="color-white font-sansation f2">Purav Raja</h1>
-            </div>
-            <div class="img-hr">
-              <img src="img/hr-mini.png" alt="Sports For All">
-            </div>
-            <div class="below-line">
-              <h4 class="color-white">OF SFA MUMBAI 2015</h4>
-            </div>
-          </div>
-        </div>
+    <div class="col-md-4 padding0">
+        <div class="first-box">
+        <img src="img/st2.jpg" alt="" class="img-responsive width100">
+      <div class="stupname">
+        <h4 class="text-up">school</h4>
       </div>
     </div>
   </div>
+    <div class="col-md-4 padding0">
+        <div class="first-box">
+      <img src="img/st3.jpg" alt="" class="img-responsive width100">
+    <div class="stupname">
+      <h4 class="text-up">team</h4>
+    </div>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 padding0">
+<div class="first-box">
+  <img src="img/sf-big.jpg" alt="" class="img-responsive width100">
+<div class="stupname">
+  <h4 class="text-up">draws & schedule</h4>
+  <h5 class="text-up">of sfa mumbai 2016</h5>
+</div>
+</div>
+    </div>
+  </div>
+  <div class="mt15">
+    <div class="row">
+      <div class="col-md-6 padding0">
+        <div class="first-box">
+          <img src="img/sf-half.jpg" alt="" class="img-responsive width100">
+        <div class="stupname">
+        <img src="img/new-play.png" alt="" class="img-responsive width100">
+        </div>
+        </div>
+      </div>
+      <div class="col-md-6 padding0">
+        <div class="first-box">
+          <img src="img/sf-half2.jpg" alt="" class="img-responsive width100">
+        <div class="stupname">
+        <img src="img/new-play.png" alt="" class="img-responsive width100">
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-md-4 padding0">
+          <div class="first-box">
+        <img src="img/sf1.jpg" alt="" class="img-responsive width100">
+      <div class="stupname">
+        <div class="stupname">
+          <h4 class="text-up">girls day</h4>
+          <h5 class="text-up">at sfa mumbai 2016</h5>
+        </div>
+      </div>
+      </div>
+    </div>
+      <div class="col-md-4 padding0">
+          <div class="first-box">
+        <img src="img/sf2.jpg" alt="" class="img-responsive width100">
+      <div class="stupname">
+        <div class="stupname">
+          <h4 class="text-up">special awards</h4>
+          <h5 class="text-up">at sfa mumbai 2016</h5>
+        </div>
+      </div>
+      </div>
+    </div>
+      <div class="col-md-4 padding0">
+          <div class="first-box">
+        <img src="img/sf3.jpg" alt="" class="img-responsive width100">
+      <div class="stupname">
+        <div class="stupname">
+          <h4 class="text-up">download
+program schedule</h4>
+          <h5 class="text-up">at sfa mumbai 2016</h5>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="text-center mt15">
+<button type="submit" name="button" class="text-up btn-orange padd-btn pd-450">VIEW MORE</button>
+    </div>
+    </div>
+  </div>
+</div>
+
 </section>
 <section class="mt80">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 col-sm-4 col-xs-12">
-        <div class="text-center mb50">
-          <div class="social-logo">
-            <img src="img/fb-logo.png" alt="Sports For All">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="text-center mb50">
+                    <div class="social-logo">
+                        <img src="img/fb-logo.png" alt="Sports For All">
 
-          </div>
-          <div class="box-social">
-            <div class="fb-page" data-href="https://www.facebook.com/sportsforallnow" data-width="360" data-height="355" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true">
-                       <div class="fb-xfbml-parse-ignore">
-                          <blockquote cite="https://www.facebook.com/sportsforallnow"><a href="https://www.facebook.com/sportsforallnow">SFA Now</a></blockquote>
-                       </div>
                     </div>
+                    <div class="box-social">
+                        <div class="fb-page" data-href="https://www.facebook.com/sportsforallnow" data-width="360" data-height="355" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true">
+                            <div class="fb-xfbml-parse-ignore">
+                                <blockquote cite="https://www.facebook.com/sportsforallnow"><a href="https://www.facebook.com/sportsforallnow">SFA Now</a></blockquote>
+                            </div>
+                        </div>
 
-                    <div id="fb-root"></div>
-                    <!-- <script>
+                        <div id="fb-root"></div>
+                        <!-- <script>
                        (function(d, s, id) {
                           var js, fjs = d.getElementsByTagName(s)[0];
                           if (d.getElementById(id)) return;
@@ -237,18 +185,18 @@
                           fjs.parentNode.insertBefore(js, fjs);
                        }(document, 'script', 'facebook-jssdk'));
                     </script> -->
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-4 col-xs-12">
-        <div class="text-center mb50">
-          <div class="social-logo">
-            <img src="img/tw-logo.png" alt="Sports For All">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="text-center mb50">
+                    <div class="social-logo">
+                        <img src="img/tw-logo.png" alt="Sports For All">
 
-          </div>
-          <div class="box-social">
-            <a class="twitter-timeline" href="https://twitter.com/sfanow" data-widget-id="641859487024869376">Tweets by @sfanow</a>
-                  <!-- <script>
+                    </div>
+                    <div class="box-social">
+                        <a class="twitter-timeline" href="https://twitter.com/sfanow" data-widget-id="641859487024869376">Tweets by @sfanow</a>
+                        <!-- <script>
                      ! function(d, s, id) {
                         var js, fjs = d.getElementsByTagName(s)[0],
                            p = /^http:/.test(d.location) ? 'http' : 'https';
@@ -260,23 +208,23 @@
                         }
                      }(document, "script", "twitter-wjs");
                   </script> -->
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-4 col-xs-12">
-        <div class="text-center mb50">
-          <div class="social-logo">
-            <img src="img/inst-logo.png" alt="Sports For All">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="text-center mb50">
+                    <div class="social-logo">
+                        <img src="img/inst-logo.png" alt="Sports For All">
 
-          </div>
-          <div class="box-social">
-            <div class="fb-set" style="height: 365px;overflow-y: scroll;">
+                    </div>
+                    <div class="box-social">
+                        <div class="fb-set" style="height: 365px;overflow-y: scroll;">
 
-                         <iframe src="//instansive.com/widgets/554a6dce8ad5309ecff0f538b9995e1429320d57.html" id="instansive_554a6dce8a" name="instansive_554a6dce8a" scrolling="no" allowtransparency="true" class="instansive-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
-                      </div>
-          </div>
+                            <iframe src="//instansive.com/widgets/554a6dce8ad5309ecff0f538b9995e1429320d57.html" id="instansive_554a6dce8a" name="instansive_554a6dce8a" scrolling="no" allowtransparency="true" class="instansive-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>

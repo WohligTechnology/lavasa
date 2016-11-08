@@ -3028,3 +3028,44 @@ img.fancybox-image {
     top: 46%;
     transform: translatey(-50%);
 }
+.new-h{
+  background: url(../img/bg-h.png) #FFF no-repeat;
+  border-radius: 30px;
+      margin-top: 60px;
+      background-position: center bottom;
+      background-size: cover;
+      background-position-y: 23px;
+      position: relative;
+      padding: 13px 0px 12px 0px;
+}
+.mr-min{
+  z-index: 999;
+  position: absolute;
+  top: -43px;
+}
+.color-green1{
+  color:#0edb87;
+}
+.color-red1{
+  color:#d8485a;
+}
+.color-purple1{
+color:#aa33ff;
+}
+.color-yellow1{
+color:#c9e000;
+}
+.color-blue1{
+color:#00aaff
+}
+.prs{
+  li{
+        padding: 0px 15px;
+            text-transform: uppercase;
+  }
+}
+.sfa-mum{
+  img{
+        margin-top: -33px;
+  }
+}
