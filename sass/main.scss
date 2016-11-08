@@ -1862,13 +1862,13 @@ img.fancybox-image {
 .min-height-set {
     min-height: 330px;
     position: relative;
-    top: 0px;
+    top: 0;
 }
 
 .min-height-set2 {
     min-height: 660px;
     position: relative;
-    top: 0px;
+    top: 0;
 }
 
 .school-names {
@@ -3012,60 +3012,73 @@ img.fancybox-image {
 .first-sec.text-c-m.m-auto {
     width: 252px;
 }
+
 .mt15.pos-ab {
     position: absolute;
     top: 43%;
     transform: translatey(-50%);
 }
-.min-w160{
-  min-width: 160px;
+
+.min-w160 {
+    min-width: 160px;
 }
-.min-h150{
-  min-height: 150px;
+
+.min-h150 {
+    min-height: 150px;
 }
-.min-pos-mid{
-  position: absolute;
+
+.min-pos-mid {
+    position: absolute;
     top: 46%;
     transform: translatey(-50%);
 }
-.new-h{
-  background: url(../img/bg-h.png) #FFF no-repeat;
-  border-radius: 30px;
-      margin-top: 60px;
-      background-position: center bottom;
-      background-size: cover;
-      background-position-y: 23px;
-      position: relative;
-      padding: 13px 0px 12px 0px;
+
+.new-h {
+    background: url("../img/bg-h.png") #FFF no-repeat;
+    border-radius: 30px;
+    margin-top: 60px;
+    background-position: center bottom;
+    background-size: cover;
+    background-position-y: 23px;
+    position: relative;
+    padding: 13px 0 12px;
 }
-.mr-min{
-  z-index: 999;
-  position: absolute;
-  top: -43px;
+
+.mr-min {
+    z-index: 999;
+    position: absolute;
+    top: -43px;
 }
-.color-green1{
-  color:#0edb87;
+
+.color-green1 {
+    color: #0edb87;
 }
-.color-red1{
-  color:#d8485a;
+
+.color-red1 {
+    color: #d8485a;
 }
-.color-purple1{
-color:#aa33ff;
+
+.color-purple1 {
+    color: #aa33ff;
 }
-.color-yellow1{
-color:#c9e000;
+
+.color-yellow1 {
+    color: #c9e000;
 }
-.color-blue1{
-color:#00aaff
+
+.color-blue1 {
+    color: #00aaff;
 }
-.prs{
-  li{
-        padding: 0px 15px;
-            text-transform: uppercase;
-  }
+
+.prs {
+    li {
+        padding: 0 15px;
+        text-transform: uppercase;
+    }
 }
-.sfa-mum{
-  img{
+
+.sfa-mum {
+    img {
         margin-top: -33px;
-  }
+    }
 }
