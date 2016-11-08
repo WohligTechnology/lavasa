@@ -3198,3 +3198,22 @@ left: -140px;
 .cl-nt{
   -webkit-column-count: 3;
 }
+.all-l{
+  ul{
+    li{
+          border-right: 1px solid #fff;
+      a{
+        color:#fff;
+        border-right: 1px solid #fff;
+padding: 0px 8px;
+line-height: 50%;
+&:last-child{
+  border: none;
+}
+        &:hover{
+        color:#fff;
+        }
+      }
+    }
+  }
+}
