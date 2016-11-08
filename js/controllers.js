@@ -1317,6 +1317,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
     $scope.getSportList = function() {
+      $scope.sports = undefined;
         NavigationService.getAllSportList(function(response) {
             if (response.value) {
                 if ($scope.filter.year == '2015') {
