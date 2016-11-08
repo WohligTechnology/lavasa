@@ -1300,8 +1300,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         _.each($scope.statuses.open, function(value, key) {
             $scope.statuses.open[key] = false;
         });
-        $scope.statuses.open[sportid] = true;
-        console.log($scope.statuses.open);
         constraints.year = $scope.filter.year;
         $scope.statuses.doubleBronze = false;
         $scope.winners = undefined;
