@@ -7,6 +7,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("home");
         $scope.menutitle = NavigationService.makeactive("Home");
+        TemplateService.header= "./views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.changeSlideClass = function(obj, index) {
@@ -105,7 +106,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //     'img/banner1.jpg',
         //     'img/banner2.jpg'
         // ];
-        NavigationService.getAllBanner(function(response) {
+        NavigationService.getAllEnabledBanner(function(response) {
             if (response.value) {
                 $scope.banners = response.data;
             } else {
@@ -1249,6 +1250,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.menutitle = NavigationService.makeactive("Champions");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.navigation = NavigationService.getnav();
+    $scope.sportName = ['Badminton','Tennis'];
+    $scope.filter= {};
+
+    $scope.getSportList = function() {
+        NavigationService.getAllSportList(function(response) {
+            if (response.value) {
+                if($scope.filter.year == '2015'){
+                  var tempArray = _.remove(response.data,function (key) {
+                    console.log(key.name);
+                    return _.includes($scope.sportName,function (sport) {
+                      console.log(sport);
+                      return key.name == sport;
+                    });
+                  });
+                  console.log(tempArray);
+                }
+                $scope.sports = _.chain(response.data)
+                    .groupBy("sporttype")
+                    .toPairs()
+                    .map(function(currentItem) {
+                        return _.zipObject(["sporttype", "name"], currentItem);
+                    })
+                    .value();
+                    console.log($scope.sports);
+            }
+        });
+    };
+    $scope.getSportList();
 
 })
 

@@ -5,7 +5,7 @@
         </div>
         <div class="display-inline min-w160">
             <span class="float-right color-orange">{{knockout['result'+knockout.participantType + '1'] == 'Won' && 'W' || knockout['result'+knockout.participantType + '1'] == 'Loss' && 'L' || knockout['result'+knockout.participantType + '1'] == 'Bye' && 'BYE' || knockout['result'+knockout.participantType + '1'] == 'Walkover' && 'W.O.' || knockout['result'+knockout.participantType + '1'] == 'No Show' && 'N.S.' || ' '}}</span>
-            <h4 class="margin0 color-blue text-up">{{knockout[knockout.participantType + '1'].name | removeSchool:knockout[knockout.participantType+'1'].school.name | letterLimit:12}}</h4>
+            <h4 class="margin0 color-blue text-up">{{knockout[knockout.participantType + '1'].name | letterLimit:12}}</h4>
             <span ng-if="knockout[knockout.participantType + '1'].school">{{knockout[knockout.participantType + '1'].school.name | letterLimit:25}}</span>
 
         </div>
@@ -16,19 +16,22 @@
         </div>
         <div class=" display-inline min-w160">
             <span class="float-right color-orange">{{knockout['result'+knockout.participantType + '2'] == 'Won' && 'W' || knockout['result'+knockout.participantType + '2'] == 'Loss' && 'L' || knockout['result'+knockout.participantType + '2'] == 'Bye' && 'BYE' || knockout['result'+knockout.participantType + '2'] == 'Walkover' && 'W.O.' || knockout['result'+knockout.participantType + '2'] == 'No Show' && 'N.S.' || ' '}}</span>
-            <h4 class="margin0 color-blue text-up">{{knockout[knockout.participantType + '2'].name | removeSchool:knockout[knockout.participantType+'2'].school.name | letterLimit:12}}</h4>
+            <h4 class="margin0 color-blue text-up">{{knockout[knockout.participantType + '2'].name | letterLimit:12}}</h4>
             <span ng-if="knockout[knockout.participantType + '2'].school">{{knockout[knockout.participantType + '2'].school.name | letterLimit:25}}</span>
         </div>
     </div>
     <div class="footer-level sf-list pad-ul">
-        <ul class="padding0 margin0 text-right" ng-if="knockout.score">
+      <div class="text-up pull-left">
+        {{knockout.round}}
+      </div>
+        <ul class="padding0 margin0 text-right pull-right" ng-if="knockout.score">
             <li>{{knockout.score || '-'}}</li>
             <li ng-if="knockout.video">
                 <a class="various fancybox.iframe" href="http://www.youtube.com/embed/{{knockout.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="gallery1" fancybox><img src="img/sf-play.png" alt="" class="widht25"></a>
             </li>
             <li nf-if="!knockout.video"></li>
         </ul>
-        <ul class="padding0 margin0 text-right" ng-if="!knockout.score">
+        <ul class="padding0 margin0 text-right pull-right" ng-if="!knockout.score">
             <li>{{knockout.startTime | date:'hh:mm a'}} -</li>
             <li>{{knockout.endTime | date:'hh:mm a'}}</li>
             <li>{{knockout.total | date:'mediumDate'}}</li>
@@ -36,5 +39,6 @@
                 <a href=""><img src="img/sf-play.png" alt="" class="widht25"></a>
             </li>
         </ul>
+        <div class="clearfix"></div>
     </div>
 </div>

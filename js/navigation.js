@@ -51,6 +51,14 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true
             }).success(callback);
         },
+        getAllEnabledBanner : function(callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'banner/getAllEnabledBanner',
+                method: 'POST',
+                withCredentials: true
+            }).success(callback);
+        },
         getFirstListSchool: function(request,callback) {
             $http({
                 url: adminurl + 'school/getFirstList',

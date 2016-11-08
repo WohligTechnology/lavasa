@@ -37,7 +37,7 @@
 
                                     <div class="display-inline rslt-name cm-pad">
                                         <h4 class="color-blue margin0 text-up pointer" ng-if="winner.participantType == 'player'" ui-sref="student-profile({id:winner.player._id})">{{winner.player.name | letterLimit:20}}</h4>
-                                        <h4 class="color-blue margin0 text-up pointer" ng-if="winner.participantType == 'team'" ui-sref="team-detail({id:winner.team._id})">{{winner.team.name | removeSchool:winner.school.name}}</h4>
+                                        <h4 class="color-blue margin0 text-up pointer" ng-if="winner.participantType == 'team'" ui-sref="team-detail({id:winner.team._id})">{{winner.team.name | letterLimit:20}}</h4>
                                         <span class="text-cap ">{{winner.school.name | letterLimit:20}}.</span>
                                     </div>
                                 </div>

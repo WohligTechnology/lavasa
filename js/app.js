@@ -250,10 +250,14 @@ firstapp.filter('uploadpath', function() {
 });
 firstapp.filter('letterLimit', function() {
     return function(value, limit) {
-        if (value.length < limit) {
-            return value;
-        } else {
-            return value.slice(0, limit - 2) + "..";
+        if(value){
+          if (value.length < limit) {
+              return value;
+          } else {
+              return value.slice(0, limit - 2) + "..";
+          }
+        }else{
+          return "";
         }
     };
 });
@@ -515,8 +519,6 @@ firstapp.filter('rawHtml', ['$sce',
 firstapp.filter('englishNumeralDate', function() {
     return function(value) {
         if (value) {
-            console.log(angular.isDate(value));
-            console.log(value);
             return moment(new Date(value)).format("Do MMMM YYYY");
         }
     };
