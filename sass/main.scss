@@ -1698,7 +1698,7 @@ img.fancybox-image {
 
 .all-sets {
     display: inline-block;
-    width: 215px;
+    width: 300px;
     padding-left: 15px;
     padding-right: 15px;
     float: left;
@@ -3164,6 +3164,9 @@ border-top-right-radius: 0px;
             padding: 0 7px;
         }
     }
+    h2{
+      font-size: 24px;
+    }
 }
 
 .bg-rg {
@@ -3390,6 +3393,12 @@ margin-bottom: 10px;
     height: 25px;
     border-radius: 50%;
   }
+}
+.bg-ro{
+  background: #f47321;
+}
+.bg-green{
+  background: #148708;
 }
 @import "fancybox-override";
 @import "mobile";
