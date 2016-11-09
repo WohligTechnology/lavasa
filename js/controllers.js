@@ -240,6 +240,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $state.go('draw', {
                             id: response.data._id
                         });
+                    }else if(response.data.drawFormat == 'Heats'){
+                      $state.go('heats',{
+                        id: response.data._id
+                      });
                     }
                 }
             });
@@ -2093,7 +2097,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             name: "Harshit Shah",
             dep: "45211"
         }];
-
+        $scope.profiles = function (participantType,id) {
+          console.log(participantType,id);
+          if(participantType == 'player'){
+            sfastate = 'student-profile';
+          }else{
+            sfastate = 'team-detail';
+          }
+          $state.go(sfastate,{
+            id:id
+          });
+        };
         $scope.getSportRoundHeat = function() {
             NavigationService.getSportRoundHeat({
                 sport: $stateParams.id
@@ -2108,6 +2122,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                           return _.zipObject(["round", "heats", "order"], currentItem);
                       })
                       .value();
+                  if(_.findIndex($scope.heat.heats, function (key) {
+                  return key.round == 'Final';
+                }) !== -1){
+                  $scope.heat.final = _.find($scope.heat.heats, function (key) {
+                  return key.round == 'Final';
+                }).heats;
+                  }
                   console.log($scope.heat);
                 } else {
                       $scope.heat = {};

@@ -120,25 +120,25 @@
                     </div>
                 </div>
                 <hr>
-                <div class="row over-fl" ng-repeat="key in heat.heats | orderBy:'-order'">
+                <div class="row over-fl" ng-repeat="key in heat.heats | orderBy:'-order'" ng-if="key.round !== 'Final'">
                     <div class="col-md-12">
                         <div class="text-center">
                             <h3 class="font-semi color-orange text-up">{{key.round}}</h3>
                         </div>
                         <div class="accrordian mt25 sf-acc over-fl">
                             <uib-accordion close-others="oneAtATime" class="text-up ">
-                                <uib-accordion-group ng-repeat="heat in key.heats">
+                                <uib-accordion-group ng-repeat="hts in key.heats">
                                     <uib-accordion-heading>
                                         <div class="acc-title float-left">
-                                            {{heat.name}}
+                                            {{hts.name}}
                                         </div>
-                                        <div class="acc-img float-right" ng-if="heat.video">
-                                            <a class="various fancybox.iframe" href="http://www.youtube.com/embed/{{heat.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="gallery1" fancybox><img src="img/sf-play.png" alt=""></a>
+                                        <div class="acc-img float-right" ng-if="hts.video">
+                                            <a class="various fancybox.iframe" href="http://www.youtube.com/embed/{{hts.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="gallery1" fancybox><img src="img/sf-play.png" alt=""></a>
                                         </div>
                                         <div class="clearfix"></div>
                                     </uib-accordion-heading>
 
-                                    <div class="inner-table over-fl text-l">
+                                    <div class="inner-table over-fl text-l" ng-if="hts.heats.length > 0">
                                         <table class="table">
                                             <thead>
                                                 <tr class="bg-dark">
@@ -160,90 +160,44 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr ng-repeat="participant in heat.heats | orderBy:'standing'">
+                                                <tr ng-repeat="participant in hts.heats | orderBy:'standing'">
                                                     <td>{{participant.standing}}</td>
                                                     <td>
-                                                        <a href="">
+                                                        <a ng-click="profiles(hts.participantType,participant[hts.participantType]._id)">
                                                             <div class="display-inline ver-base round-img">
-                                                                <img ng-src="{{heat.participantType == 'player' && (participant.player.profilePic| uploadpath) || (participant[heat.participantType].school.logo | uploadpath)}}" alt="" class="w25">
+                                                                <img ng-src="{{hts.participantType == 'player' && (participant.player.profilePic| uploadpath) || (participant[hts.participantType].school.logo | uploadpath)}}" alt="" class="w25">
                                                             </div>
-                                                            <div class="display-inline ver-mid">{{participant[heat.participantType].name || '-'}}</div>
+                                                            <div class="display-inline ver-mid">{{participant[hts.participantType].name || '-'}}</div>
                                                         </a>
                                                     </td>
                                                     <td>
-                                                        <a ui-sref="school-profile({id:participant[heat.participantType].school._id})">
+                                                        <a ui-sref="school-profile({id:participant[hts.participantType].school._id})">
                                                             <div class="display-inline ver-base round-img">
-                                                                <img src="img/sf-school.png" alt="" class="w25">
+                                                                <img ng-src="{{participant[hts.participantType].school.logo | uploadpath}}" alt="" class="w25">
                                                             </div>
-                                                            <div class="display-inline ver-mid">{{participant[heat.participantType].school.name || '-'}}</div>
+                                                            <div class="display-inline ver-mid">{{participant[hts.participantType].school.name || '-'}}</div>
                                                         </a>
                                                     </td>
                                                     <td>
-                                                        qf
+                                                        {{participant.result && participant.result || (hts.date | date:'mediumDate') || '-'}}
                                                     </td>
                                                     <td>
-                                                        14.3
+                                                        {{participant.timing  || '-'}}
                                                     </td>
                                                 </tr>
 
                                             </tbody>
                                         </table>
                                     </div>
-
+                                  <div class="text-center" ng-if="!(hts.heats.length > 0)">
+                                    NOT DECLARED
+                                  </div>
                                 </uib-accordion-group>
                             </uib-accordion>
                         </div>
 
                     </div>
                     <hr>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="text-center">
-                            <h3 class="color-orange text-up font-semi">qualifying round</h3>
-                        </div>
-                        <div class="accrordian mt25 sf-acc">
-                            <uib-accordion close-others="oneAtATime" class="text-up ">
-
-                                <uib-accordion-group>
-                                    <uib-accordion-heading>
-                                        <div class="acc-title float-left">
-                                            Heat-1
-                                        </div>
-                                        <div class="acc-img float-right">
-                                            <img src="img/sf-play.png" alt="">
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </uib-accordion-heading>
-                                </uib-accordion-group>
-                                <uib-accordion-group>
-                                    <uib-accordion-heading>
-                                        <div class="acc-title float-left">
-                                            Heat-2
-                                        </div>
-                                        <div class="acc-img float-right">
-                                            <img src="img/sf-play.png" alt="">
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </uib-accordion-heading>
-                                </uib-accordion-group>
-
-                                <uib-accordion-group>
-                                    <uib-accordion-heading>
-                                        <div class="acc-title float-left">
-                                            Heat-2
-                                        </div>
-                                        <div class="acc-img float-right">
-                                            <img src="img/sf-play.png" alt="">
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </uib-accordion-heading>
-                                </uib-accordion-group>
-
-                            </uib-accordion>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
