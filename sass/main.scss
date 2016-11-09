@@ -3371,5 +3371,12 @@ margin-bottom: 10px;
 .w95{
       width: 95px;
 }
+.round-img{
+  img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+  }
+}
 @import "fancybox-override";
 @import "mobile";
