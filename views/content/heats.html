@@ -11,12 +11,12 @@
             </div>
 
             <div class="box-content bx-mob">
-                <div class="row over-fl">
+                <div class="row over-fl" ng-if="heat.final">
                     <div class="col-md-12">
                         <div class="text-center">
                             <h3 class="color-orange font-semi text-up">final</h3>
                         </div>
-                        <div class="final-table">
+                        <div class="final-table text-l">
                             <table class="table">
                                 <thead>
                                     <tr class="bg-table color-orange font-semi text-up f16">
@@ -24,97 +24,41 @@
                                         <th>name</th>
                                         <th>school</th>
                                         <th>timing</th>
-                                        <th>
-                                            <a href=""><img src="img/sf-play.png" alt=""></a>
+                                        <th ng-if="heat.final.video">
+                                            <a class="various fancybox.iframe" href="http://www.youtube.com/embed/{{heat.final.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="gallery1" fancybox><img src="img/sf-play.png" alt=""></a>
+                                        </th>
+                                        <th ng-if="!heat.final.video">
+
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-up">
-                                    <tr>
-                                        <td><img src="img/sf-gold-sec-big.png" alt=""></td>
-                                        <td>
-                                            <a href="">
-                                                <div class="display-inline ver-base round-img">
-                                                    <img src="img/mini-clip.png" alt="" class="w25">
-                                                </div>
-                                                <div class="display-inline ver-mid">manav mehta</div>
-                                            </a>
+                                    <tr ng-repeat="participant in heat.final.heats | orderBy:'standing'">
+                                        <td><img ng-if="participant.standing === 1 || participant.standing === 2 || participant.standing === 3" ng-src="{{participant.standing === 1 && 'img/sf-gold-sec-big.png' || participant.standing === 2 && 'img/sf-silver-sec-big.png' || participant.standing === 3 && 'img/sf-bronze-sec-big.png' || participant.standing || '-'}}" alt="">
+                                          <div class="text-center" ng-if="participant.standing !== 1 && participant.standing !== 2 && participant.standing !== 3">
+                                            {{ participant.standing || '-' | ordinal}}
+                                          </div>
                                         </td>
-                                        <td>
-                                            <a href="">
-                                                <div class="display-inline ver-base round-img">
-                                                    <img src="img/sf-school.png" alt="" class="w25">
-                                                </div>
-                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                            </a>
-                                        </td>
+                                            <td>
+                                                <a ng-click="profiles(heat.final.participantType,participant[heat.final.participantType]._id)">
+                                                    <div class="display-inline ver-base round-img">
+                                                        <img ng-src="{{heat.final.participantType == 'player' && (participant.player.profilePic| uploadpath) || (participant[heat.final.participantType].school.logo | uploadpath)}}" alt="" class="w25">
+                                                    </div>
+                                                    <div class="display-inline ver-mid">{{participant[heat.final.participantType].name || '-'}}</div>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a ui-sref="school-profile({id:participant[heat.final.participantType].school._id})">
+                                                    <div class="display-inline ver-base round-img">
+                                                        <img ng-src="{{participant[heat.final.participantType].school.logo | uploadpath}}" alt="" class="w25">
+                                                    </div>
+                                                    <div class="display-inline ver-mid">{{participant[heat.final.participantType].school.name || '-'}}</div>
+                                                </a>
+                                            </td>
                                         <td>3</td>
                                         <td></td>
                                     </tr>
-                                    <tr>
-                                        <td><img src="img/sf-bronze-sec-big.png" alt=""></td>
-                                        <td>
-                                            <a href="">
-                                                <div class="display-inline ver-base round-img">
-                                                    <img src="img/mini-clip.png" alt="" class="w25">
-                                                </div>
-                                                <div class="display-inline ver-mid">manav mehta</div>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="">
-                                                <div class="display-inline ver-base round-img">
-                                                    <img src="img/sf-school.png" alt="" class="w25">
-                                                </div>
-                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                            </a>
-                                        </td>
-                                        <td>3</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="img/sf-silver-sec-big.png" alt=""></td>
-                                        <td>
-                                            <a href="">
-                                                <div class="display-inline ver-base round-img">
-                                                    <img src="img/mini-clip.png" alt="" class="w25">
-                                                </div>
-                                                <div class="display-inline ver-mid">manav mehta</div>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="">
-                                                <div class="display-inline ver-base round-img">
-                                                    <img src="img/sf-school.png" alt="" class="w25">
-                                                </div>
-                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                            </a>
-                                        </td>
-                                        <td>3</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>
-                                            <a href="">
-                                                <div class="display-inline ver-base round-img">
-                                                    <img src="img/mini-clip.png" alt="" class="w25">
-                                                </div>
-                                                <div class="display-inline ver-mid">manav mehta</div>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="">
-                                                <div class="display-inline ver-base round-img">
-                                                    <img src="img/sf-school.png" alt="" class="w25">
-                                                </div>
-                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                            </a>
-                                        </td>
-                                        <td>3</td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
+                                    </tbody>
                             </table>
                         </div>
                     </div>
@@ -161,7 +105,7 @@
                                             </thead>
                                             <tbody>
                                                 <tr ng-repeat="participant in hts.heats | orderBy:'standing'">
-                                                    <td>{{participant.standing}}</td>
+                                                    <td>{{participant.standing | ordinal }}</td>
                                                     <td>
                                                         <a ng-click="profiles(hts.participantType,participant[hts.participantType]._id)">
                                                             <div class="display-inline ver-base round-img">

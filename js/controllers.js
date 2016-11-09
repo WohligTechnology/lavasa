@@ -1,4 +1,4 @@
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select','ordinal'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
         //Used to name the .html file
@@ -2127,7 +2127,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }) !== -1){
                   $scope.heat.final = _.find($scope.heat.heats, function (key) {
                   return key.round == 'Final';
-                }).heats;
+                }).heats[0];
                   }
                   console.log($scope.heat);
                 } else {

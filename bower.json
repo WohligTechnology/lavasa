@@ -34,7 +34,8 @@
     "ng-dialog": "^0.6.2",
     "moment": "^2.15.1",
     "angular-loading-bar": "^0.9.0",
-    "angular-ui-select": "^0.19.6"
+    "angular-ui-select": "^0.19.6",
+    "angularjs-ordinal-filter": "^2.1.3"
   },
   "devDependencies": {
     "angular-translate": "^2.11.0"
