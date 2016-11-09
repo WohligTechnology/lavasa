@@ -2549,7 +2549,7 @@ border-top-right-radius: 0px;
 &:after{
   position: absolute;
       top: 0;
-      right: 50%;
+        left: 25.4%;
       margin-top: -3px;
       width: 0;
       height: 0;
@@ -3128,7 +3128,8 @@ border-top-right-radius: 0px;
 
 .sfa-mum {
     img {
-        margin-top: -33px;
+          margin-top: -14px;
+          cursor: pointer;
     }
 }
 
@@ -3332,6 +3333,21 @@ ul.dropdown-menu.sf-absulate.blue-menus li a {
       background: transparent;
     color:$brand-success !important;
     }
+}
+.head-table a {
+    color: #fff;
+    text-transform: uppercase;
+}
+.dn{
+  border-bottom: 1px solid #324ac5;
+padding-bottom: 10px;
+margin-bottom: 10px;
+}
+.after{
+  &:after{
+        right: 8%;
+        left:inherit;
+  }
 }
 @import "fancybox-override";
 @import "mobile";

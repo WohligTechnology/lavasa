@@ -24,16 +24,16 @@
                             </li>
                             <li class="sf-relative hide-op2">
 
-    PROFILE
+                                PROFILE
 
-    <ul class="dropdown-menu sf-absulate blue-menus" >
-      <li >
-        <a ui-serf="{{submenu.anchor}}">student</a>
-        <a ui-serf="{{submenu.anchor}}">school</a>
-        <a ui-serf="{{submenu.anchor}}">teams</a>
+                                <ul class="dropdown-menu sf-absulate blue-menus">
+                                    <li>
+                                        <a ui-serf="{{submenu.anchor}}">student</a>
+                                        <a ui-serf="{{submenu.anchor}}">school</a>
+                                        <a ui-serf="{{submenu.anchor}}">teams</a>
 
-      </li>
-    </ul>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a ng-click="options=!options" ng-model="checkbox">
@@ -42,16 +42,16 @@
                             </li>
                             <li class="sf-relative hide-op2">
 
-      RESULT
+                                RESULT
 
-    <ul class="dropdown-menu sf-absulate blue-menus" >
-      <li >
-        <a ui-serf="{{submenu.anchor}}">school ranking</a>
-        <a ui-serf="{{submenu.anchor}}">champions of SFA</a>
-        <a ui-serf="{{submenu.anchor}}">sport result</a>
+                                <ul class="dropdown-menu sf-absulate blue-menus">
+                                    <li>
+                                        <a ui-serf="{{submenu.anchor}}">school ranking</a>
+                                        <a ui-serf="{{submenu.anchor}}">champions of SFA</a>
+                                        <a ui-serf="{{submenu.anchor}}">sport result</a>
 
-      </li>
-    </ul>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="">
@@ -64,7 +64,7 @@
     </a>
                             </li>
                             <li class="hidden-md hidden-lg">
-                                <a href="">
+                                <a ng-click="optionss=!optionss" ng-model="checkboxs">
   sfa mumbai 2016
     </a>
                             </li>
@@ -82,7 +82,7 @@
               </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a>
                 SPORTS
               </a>
                             </li>
@@ -102,7 +102,7 @@
               </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a>
             sfa mumbai 2016
               </a>
                             </li>
@@ -113,13 +113,13 @@
                 </div>
                 <div class="col-md-2 hidden-xs hidden-sm">
                     <div class="sfa-mum">
-                        <img src="img/top-pin.png" alt="">
+                        <img src="img/top-pin.png" alt="" ng-click="optionss=!optionss" ng-model="checkboxs">
                     </div>
                 </div>
                 <div class="on-mouse-hover" ng-mouseenter="options=true" ng-mouseleave="options=false">
-                <!-- <div class="on-mouse-hover"> -->
+                    <!-- <div class="on-mouse-hover"> -->
 
-                    <div class="bg-head curve-head1" ng-show="options || checkbox">
+                    <div class="bg-head curve-head1 " ng-show="options || checkbox">
                         <div class="container">
                             <div class="row">
                                 <div class="head-table">
@@ -129,7 +129,7 @@
                                             <ul class="padding0">
                                                 <li>
                                                     <a ui-sref="sport({name:'basketball'})">
-        basketball
+ basketball
                                 </a>
                                                 </li>
                                                 <li>
@@ -294,6 +294,69 @@
                                             </ul>
                                         </div>
                                     </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="on-mouse-hover" ng-mouseenter="optionss=true" ng-mouseleave="optionss=false">
+                    <!-- <div class="on-mouse-hover"> -->
+
+                    <div class="bg-head curve-head1 after" ng-show="optionss || checkboxs">
+                        <div class="container">
+                            <div class="row dn">
+                                <div class="head-table">
+                                    <div class="col-md-3">
+                                        <a href="">special days</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="">merchandise & apparels</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="">draws & schedule</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="">sponsors & partners</a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="row dn">
+                                <div class="head-table">
+                                    <div class="col-md-3">
+                                        <a href="">special awards</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="">food & entertainment</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="">venue</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="">sfa management team</a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="head-table">
+                                    <div class="col-md-3">
+                                        <a href="">workshop & clinics</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="">medical aid</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="">download schedule program</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="">faq’s</a>
+                                    </div>
+
                                 </div>
 
                             </div>
