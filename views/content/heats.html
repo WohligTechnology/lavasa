@@ -34,8 +34,8 @@
                                 </thead>
                                 <tbody class="text-up">
                                     <tr ng-repeat="participant in heat.final.heats | orderBy:'standing'">
-                                        <td><img ng-if="participant.standing === 1 || participant.standing === 2 || participant.standing === 3" ng-src="{{participant.standing === 1 && 'img/sf-gold-sec-big.png' || participant.standing === 2 && 'img/sf-silver-sec-big.png' || participant.standing === 3 && 'img/sf-bronze-sec-big.png' || participant.standing || '-'}}" alt="">
-                                          <div class="text-center" ng-if="participant.standing !== 1 && participant.standing !== 2 && participant.standing !== 3">
+                                        <td class="text-center"><img ng-if="participant.standing === 1 || participant.standing === 2 || participant.standing === 3" ng-src="{{participant.standing === 1 && 'img/sf-gold-sec-big.png' || participant.standing === 2 && 'img/sf-silver-sec-big.png' || participant.standing === 3 && 'img/sf-bronze-sec-big.png' || participant.standing || '-'}}" alt="">
+                                          <div class="text-center text-cap" ng-if="participant.standing !== 1 && participant.standing !== 2 && participant.standing !== 3">
                                             {{ participant.standing || '-' | ordinal}}
                                           </div>
                                         </td>
@@ -105,7 +105,7 @@
                                             </thead>
                                             <tbody>
                                                 <tr ng-repeat="participant in hts.heats | orderBy:'standing'">
-                                                    <td>{{participant.standing | ordinal }}</td>
+                                                    <td class="text-cap text-center">{{participant.standing | ordinal }}</td>
                                                     <td>
                                                         <a ng-click="profiles(hts.participantType,participant[hts.participantType]._id)">
                                                             <div class="display-inline ver-base round-img">
