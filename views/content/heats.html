@@ -55,7 +55,7 @@
                                                     <div class="display-inline ver-mid">{{participant[heat.final.participantType].school.name || '-'}}</div>
                                                 </a>
                                             </td>
-                                        <td>3</td>
+                                        <td>{{participant.timing || '-'}}</td>
                                         <td></td>
                                     </tr>
                                     </tbody>
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                 </div>
-                <hr>
+                <hr ng-if="heat.final">
                 <div class="row over-fl" ng-repeat="key in heat.heats | orderBy:'-order'" ng-if="key.round !== 'Final'">
                     <div class="col-md-12">
                         <div class="text-center">
