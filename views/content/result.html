@@ -10,8 +10,9 @@
           <div class="box-content">
             <form name="resultForm" ng-submit="getSport()">
             <div class="row">
-              <div class="col-md-offset-4 col-md-4 cl-box">
-                <div class="">
+              <div class="col-md-offset-3 col-md-6 cl-box">
+                  <h4 class="text-up color-blue display-inline w95">Year</h4>
+                <div class="display-inline">
                     <div class="sfa-select">
                         <select class="select" name="year" ng-change="getSportList()" required ng-model="filter.year">
                             <option value="">YEAR</option>
@@ -23,6 +24,8 @@
                     </div>
                 </div>
                 <div class="mt15" ng-if="dropdowns.sport.length > 0">
+                    <h4 class="text-up color-blue display-inline w95">Sports</h4>
+                      <div class="display-inline">
                     <div class="sfa-select">
                         <select class="select" ng-model="filter.sport" name="sport" required  ng-change="getSportAgeGroup();getSportCategory();">
                             <option value="">SPORT</option>
@@ -31,8 +34,11 @@
                         </select>
                         <span class="only-border"></span>
                     </div>
+                  </div>
                 </div>
                 <div class="mt15">
+                  <h4 class="text-up color-blue display-inline w95">Gender</h4>
+                    <div class="display-inline">
                     <div class="sfa-select">
                         <select class="select" ng-model="filter.gender" name="gender" required  ng-change="changeYear()">
                             <option value="">GENDER</option>
@@ -42,9 +48,12 @@
                         </select>
                         <span class="only-border"></span>
                     </div>
+                  </div>
                 </div>
 
                 <div class="mt15" ng-if="dropdowns.agegroup.length > 0">
+                  <h4 class="text-up color-blue display-inline w95">Age group</h4>
+                    <div class="display-inline">
                     <div class="sfa-select">
                         <select class="select" name="agegroup" required ng-model="filter.agegroup" >
                             <option value="">AGE GROUP</option>
@@ -53,9 +62,12 @@
                         </select>
                         <span class="only-border"></span>
                     </div>
+                  </div>
                 </div>
 
                 <div class="mt15" ng-if="dropdowns.category.length > 0">
+                  <h4 class="text-up color-blue display-inline w95">Event</h4>
+                    <div class="display-inline">
                     <div class="sfa-select">
                         <select class="select" name="category" required ng-model="filter.category" >
                             <option value="">EVENT</option>
@@ -64,9 +76,10 @@
                         </select>
                         <span class="only-border"></span>
                     </div>
+                  </div>
                 </div>
 
-                <div class="text-center mt15">
+                <div class="text-center mt25">
   <button type="submit" name="button" class="text-up btn-orange padd-btn pd-450">GET RESULT</button>
                 </div>
                 <div class="text-center" ng-if="!doesNotHaveSport">
