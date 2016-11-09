@@ -2053,6 +2053,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.oneAtATime = true;
+        $scope.heat ={};
         $scope.status = {
             isCustomHeaderOpen: false,
             isFirstOpen: true,
@@ -2093,6 +2094,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             dep: "45211"
         }];
 
+        $scope.getSportRoundHeat = function() {
+            NavigationService.getSportRoundHeat({
+                sport: $stateParams.id
+            }, function(response) {
+                if (response.value) {
+                  $scope.heat.sport = response.data.sport;
+                  $scope.heat.heats = _.chain(response.data.heats)
+                      .groupBy("round")
+                      .toPairs()
+                      .map(function(currentItem) {
+                          currentItem[2] = currentItem[1][0].order;
+                          return _.zipObject(["round", "heats", "order"], currentItem);
+                      })
+                      .value();
+                  console.log($scope.heat);
+                } else {
+                      $scope.heat = {};
+                }
+            });
+          };
+          $scope.getSportRoundHeat();
     })
     .controller('TeamCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
