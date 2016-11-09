@@ -120,7 +120,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'SportCtrl'
         })
         .state('heats', {
-            url: "/heats",
+            url: "/heats/:id",
             templateUrl: "views/template.html",
             controller: 'HeatsCtrl'
         })

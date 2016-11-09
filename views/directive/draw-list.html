@@ -32,12 +32,13 @@
             <li nf-if="!knockout.video"></li>
         </ul>
         <ul class="padding0 margin0 text-right pull-right" ng-if="!knockout.score">
-            <li>{{knockout.startTime | date:'hh:mm a'}} -</li>
-            <li>{{knockout.endTime | date:'hh:mm a'}}</li>
+            <li>{{knockout.date | date:'mediumDate'}}</li>
+            <li>{{knockout.startTime | date:'hh:mm a'}} </li>
+            <!-- <li>{{knockout.endTime | date:'hh:mm a'}}</li> -->
             <li>{{knockout.total | date:'mediumDate'}}</li>
-            <li>
+            <!-- <li>
                 <a href=""><img src="img/sf-play.png" alt="" class="widht25"></a>
-            </li>
+            </li> -->
         </ul>
         <div class="clearfix"></div>
     </div>
