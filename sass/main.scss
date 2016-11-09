@@ -2661,7 +2661,7 @@ border-top-right-radius: 0px;
   &:hover {
       img {
           @include transition(all 300ms ease);
-          transform: scale(1.1);
+          transform: scale(1.2);
       }
   }
 }
