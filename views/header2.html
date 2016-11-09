@@ -1,63 +1,311 @@
-<header>
-   <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="row new-h">
-        <div class="col-md-2">
-          <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
+<header ng-controller="headerctrl">
+    <nav class="navbar navbar-default navbar-fixed-top pos-mobile pos-desktop">
+        <div class="container-fluid">
+            <div class="row new-h">
+                <div class="col-md-2 col-sm-2">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
                   <span class="sr-only">Toggle navigation</span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="" ui-sref="home"><img src="img/cl-logo.png" alt="logo" class="mr-min"> </a>
-          </div>
-        </div>
-        <div class="col-md-8">
-          <div class="collapse navbar-collapse sf-list" id="nav-collapse">
-<ul class="margin0 padding0 prs">
-  <li>
-    <a href="">
+                        <a class="" ui-sref="home"><img src="img/cl-logo.png" alt="logo" class="mr-min hidden-xs hidden-sm"> </a>
+                        <a class="" ui-sref="home"><img src="img/cl-logo2.png" alt="logo" class="mr-min hidden-lg hidden-md w800"> </a>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-10">
+                    <div class="collapse navbar-collapse" id="nav-collapse">
+                        <ul class="margin0 padding0 prs hidden-xs ls">
+                            <li>
+                                <a href="">
       ABOUT US
     </a>
-  </li>
-  <li>
-    <a href="">
+                            </li>
+                            <li class="sf-relative hide-op2">
+
     PROFILE
-    </a>
-  </li>
-  <li>
-    <a href="">
+
+    <ul class="dropdown-menu sf-absulate blue-menus" >
+      <li >
+        <a ui-serf="{{submenu.anchor}}">student</a>
+        <a ui-serf="{{submenu.anchor}}">school</a>
+        <a ui-serf="{{submenu.anchor}}">teams</a>
+
+      </li>
+    </ul>
+                            </li>
+                            <li>
+                                <a ng-click="options=!options" ng-model="checkbox">
       SPORTS
     </a>
-  </li>
-  <li>
-    <a href="">
+                            </li>
+                            <li class="sf-relative hide-op2">
+
       RESULT
-    </a>
-  </li>
-  <li>
-    <a href="">
+
+    <ul class="dropdown-menu sf-absulate blue-menus" >
+      <li >
+        <a ui-serf="{{submenu.anchor}}">school ranking</a>
+        <a ui-serf="{{submenu.anchor}}">champions of SFA</a>
+        <a ui-serf="{{submenu.anchor}}">sport result</a>
+
+      </li>
+    </ul>
+                            </li>
+                            <li>
+                                <a href="">
       MEDIA & GALLERY
     </a>
-  </li>
-  <li>
-    <a href="">
+                            </li>
+                            <li>
+                                <a href="">
     Training & Development
     </a>
-  </li>
-</ul>
-          </div>
+                            </li>
+                            <li class="hidden-md hidden-lg">
+                                <a href="">
+  sfa mumbai 2016
+    </a>
+                            </li>
+                        </ul>
+
+                        <ul class="margin0 padding0 prs hidden-lg hidden-md hidden-sm mn-list">
+                            <li>
+                                <a href="">
+                ABOUT US
+              </a>
+                            </li>
+                            <li>
+                                <a href="">
+              PROFILE
+              </a>
+                            </li>
+                            <li>
+                                <a href="">
+                SPORTS
+              </a>
+                            </li>
+                            <li>
+                                <a href="">
+                RESULT
+              </a>
+                            </li>
+                            <li>
+                                <a href="">
+                MEDIA & GALLERY
+              </a>
+                            </li>
+                            <li>
+                                <a href="">
+              Training & Development
+              </a>
+                            </li>
+                            <li>
+                                <a href="">
+            sfa mumbai 2016
+              </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+                <div class="col-md-2 hidden-xs hidden-sm">
+                    <div class="sfa-mum">
+                        <img src="img/top-pin.png" alt="">
+                    </div>
+                </div>
+                <div class="on-mouse-hover" ng-mouseenter="options=true" ng-mouseleave="options=false">
+                <!-- <div class="on-mouse-hover"> -->
+
+                    <div class="bg-head curve-head1" ng-show="options || checkbox">
+                        <div class="container">
+                            <div class="row">
+                                <div class="head-table">
+                                    <div class="col-md-2 padding0">
+                                        <div class="menu-list-hover">
+                                            <h5 class="text-up " style="color:#f67012">team sports</h5>
+                                            <ul class="padding0">
+                                                <li>
+                                                    <a ui-sref="sport({name:'basketball'})">
+        basketball
+                                </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'football'})">
+        football
+                                </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'handball'})">
+        handball
+                                </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'hockey'})">
+        hockey
+                                </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'kabaddi'})">
+                                  kabaddi
+                                </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'kho-kho'})">
+                                  kho-kho
+                                </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'throwball'})">
+                                  throwball
+                                </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'volleyball'})">
+                                  volleyball
+                                </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 padding0">
+                                        <div class="menu-list-hover">
+                                            <h5 class="text-up" style="color:#c9e000">racquet sports</h5>
+                                            <ul class="padding0">
+                                                <li>
+                                                    <a ui-sref="sport({name:'badminton'})">
+        badminton
+                                </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'table tennis'})">
+        table tennis
+                                </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'tennis'})">
+        tennis
+                                </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'squash'})">
+        squash
+                                </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 padding0">
+                                        <div class="menu-list-hover">
+                                            <h5 class="text-up" style="color:#aa33ff">combat sports</h5>
+                                            <ul class="padding0">
+                                                <li>
+                                                    <a ui-sref="sport({name:'boxing'})">
+        boxing
+                                </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'fencing'})">
+        fencing
+                                </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'judo'})">
+        judo
+                                </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'karate'})">
+        karate
+                                </a>
+                                                </li>
+                                                <li>
+
+                                                    <a ui-sref="sport({name:'  sport mma'})">
+                                                      sport mma
+                                                  </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'taekwondo'})">
+                                                taekwondo
+                                                </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 padding0">
+                                        <div class="menu-list-hover">
+                                            <h5 class="text-up" style="color:#d8485a">target sports</h5>
+                                            <ul class="padding0">
+                                                <li>
+                                                    <a ui-sref="sport({name:'archery'})">
+        archery
+                                </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'shooting'})">
+        shooting
+                                </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 padding0">
+                                        <div class="menu-list-hover">
+                                            <h5 class="text-up" style="color:#00aaff">aquatics</h5>
+                                            <ul class="padding0">
+                                                <li>
+                                                    <a ui-sref="sport({name:'swimming'})">
+        swimming
+                                </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'water polo'})">
+        water polo
+                                </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 padding0">
+                                        <div class="menu-list-hover">
+                                            <h5 class="text-up" style="color:#0edb87">individual sports</h5>
+                                            <ul class="padding0">
+                                                <li>
+                                                    <a ui-sref="sport({name:'athletics'})">
+        athletics
+                                </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'carrom'})">
+        carrom
+                                </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="sport({name:'chess'})">
+            chess
+          </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
         </div>
-        <div class="col-md-2">
-<div class="sfa-mum">
-  <img src="img/top-pin.png" alt="">
-</div>
-        </div>
-      </div>
 
-
-
-    </div>
-</nav>
+    </nav>
 </header>

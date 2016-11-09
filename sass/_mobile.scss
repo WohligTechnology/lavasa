@@ -1,4 +1,16 @@
 @media (max-width:1200px) {
+  .prs {
+      li {
+          padding: 0 10px !important;
+font-size: 12px;
+
+      }
+  }
+  .new-h {
+
+        margin: 60px 20px 0px 20px !important;
+
+  }
    .min-w-auto {
 
     margin-left: 0px !important;
@@ -35,6 +47,29 @@
 
 }
 @media (max-width:$screen-sm-max) {
+  .w800{
+    width: 80px;
+        top: -13px !important;
+  }
+  .mn-list{
+    list-style: none;
+text-align: center;
+font-size: 14px;
+li{
+      font-size: 14px;
+}
+  }
+  .pos-mobile{
+    position: absolute !important;
+  }
+  .new-h {
+    background: #FFF !important;
+    padding: 0 !important;
+    border-radius: 10px !important;
+
+    margin: 10px 20px 0px 20px !important;
+
+}
   .hex-gon {
   display: none;
   }

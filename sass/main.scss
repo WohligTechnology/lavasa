@@ -2148,7 +2148,15 @@ img.fancybox-image {
     margin: -2px 0;
     left: -17px;
 }
+.hide-op2{
 
+  &:hover {
+      .dropdown-menu {
+          display: block !important;
+      }
+  }
+
+}
 .hide-op {
     padding: 8px 14px !important;
     background: $brand-success;
@@ -2525,7 +2533,33 @@ img.fancybox-image {
         content: "";
     }
 }
-
+.curve-head1{
+  background: rgba(24, 31, 187, 0.78);
+background-repeat: no-repeat;
+background-size: cover;
+background-position: top center;
+position: relative;
+padding: 70px 0 25px;
+margin-top: 47px;
+border-radius: 10px;
+margin-left: 60px;
+margin-right: 60px;
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+&:after{
+  position: absolute;
+      top: 0;
+      right: 50%;
+      margin-top: -3px;
+      width: 0;
+      height: 0;
+      border-top: 10px solid;
+      border-right: 8px solid transparent;
+      border-left: 8px solid transparent;
+      color: #fff;
+      content: "";
+}
+}
 .short {
     //   width: 180px;
     // white-space: nowrap;
@@ -2830,8 +2864,6 @@ img.fancybox-image {
     left: 50%;
     @include transform(translatex(-50%));
 }
-@import "fancybox-override";
-@import "mobile";
 
 .text-center {
     text-align: center;
@@ -3045,18 +3077,20 @@ img.fancybox-image {
 .new-h {
     background: url("../img/bg-h.png") #FFF no-repeat;
     border-radius: 30px;
-    margin-top: 60px;
+
+      margin: 60px 80px 0px 80px;
     background-position: center bottom;
     background-size: cover;
     background-position-y: 23px;
     position: relative;
-    padding: 13px 0 12px;
+      padding: 0
 }
 
 .mr-min {
     z-index: 999;
     position: absolute;
-    top: -43px;
+    top: -34px;
+
 }
 
 .color-green1 {
@@ -3081,7 +3115,7 @@ img.fancybox-image {
 
 .prs {
     li {
-        padding: 0 15px;
+          padding: 13px 15px 13px 0px;
         text-transform: uppercase;
 
         a {
@@ -3209,7 +3243,7 @@ img.fancybox-image {
 
                 &:hover {
                     color: #fff;
-                } 
+                }
             }
         }
     }
@@ -3252,3 +3286,52 @@ line-height: 155%;
 .di-inline{
   display: inline;
 }
+.ls{
+  display: block;
+  li{
+    display: inline-block;
+    color:$brand-primary;
+    cursor: pointer;
+    &:hover{
+      color:$brand-success;
+    }
+  }
+}
+.pos-desktop{
+  position: absolute;
+}
+ul.dropdown-menu.sf-absulate.blue-menus {
+    background: rgba(12, 18, 177, 0.85);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0px;
+    padding: 30px 0px 36px 30px;
+    top: 47px;
+    left: -67px;
+    min-width: 180px;
+
+    &:after{
+      position: absolute;
+          top: 0;
+          right: 50%;
+          margin-top: -3px;
+          width: 0;
+          height: 0;
+          border-top: 10px solid;
+          border-right: 8px solid transparent;
+          border-left: 8px solid transparent;
+          color: #fff;
+          content: "";
+    }
+}
+
+ul.dropdown-menu.sf-absulate.blue-menus li a {
+    color: #fff !important;
+    border-bottom: 1px solid #686875;
+    padding: 15px 40px 15px 4px;
+    &:hover{
+      background: transparent;
+    color:$brand-success !important;
+    }
+}
+@import "fancybox-override";
+@import "mobile";
