@@ -2034,8 +2034,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         });
                         console.log("opponent", $scope.studentStats);
 
+                    }else if($scope.studentStats[0].drawFormat == 'Heats'){
+                      _.each($scope.studentStats,function (key) {
+                        key.self = {};
+                        _.each(key.heat.heats,function (single) {
+                          if(single.player._id == $stateParams.id){
+                            key.self = single;
+                          }
+                        });
+                      });
                     }
                 }
+                console.log($scope.studentStats);
             } else {
                 $scope.studentStats = [];
             }
@@ -2566,7 +2576,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             score2: "5"
         }, ]
     }];
-
 })
 
 .controller('KnockoutCtrl', function($scope, TemplateService, NavigationService, $timeout) {

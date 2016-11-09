@@ -200,22 +200,22 @@ student’s blog
                             <table class="table">
                                 <thead>
                                     <tr class="text-up color-white bg-table">
-                                        <th ng-if="table.layout == 'Knockout'">
+                                        <th>
                                             <span>year</span>
                                         </th>
-                                        <th ng-if="table.layout == 'Knockout'">
+                                        <th>
                                             <span>CATEGORY</span>
                                         </th>
-                                        <th ng-if="table.layout == 'Knockout'">
+                                        <th>
                                             <span>ROUND</span>
                                         </th>
                                         <th ng-if="table.layout == 'Knockout'">
                                             <span>OPPONENT NAME</span>
                                         </th>
-                                        <th ng-if="table.layout == 'Knockout'">
+                                        <th>
                                             <span>score</span>
                                         </th>
-                                        <th ng-if="table.layout == 'Knockout'">
+                                        <th >
                                             <span>result</span>
                                         </th>
                                     </tr>
@@ -224,32 +224,26 @@ student’s blog
                                     <tr style="background:transparent;" ng-repeat="stat in studentStats">
                                         <td><span>{{stat.year}}</span></td>
                                         <td><span class="text-up">{{stat.sport.agegroup.name}} <br> {{stat.sport.gender}}  <br>{{stat.sport.firstcategory.name}}</span></td>
-                                        <td class="text-up" ng-if="table.layout == 'Knockout'">{{stat.knockout.round}}</td>
-                                        <td class="text-up" ng-if="table.layout == 'Heats'">Soheb Shaikh</td>
+                                        <td class="text-up" >{{table.layout == 'Knockout' && stat.knockout.round || table.layout == 'Heats' && stat.heat.round || '-'}}</td>
                                         <td class="text-up" ng-if="table.layout == 'Knockout'"><img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.opponent.result == 'Won' || stat.opponent.result == 'Bye' || stat.opponent.result == 'Walkover'">{{stat.opponent.detail.name || '-' | removeSchool:stat.opponent.detail.school.name }}
                                             <p>{{stat.opponent.detail.school.name}}</p>
                                         </td>
-                                        <td  ng-if="table.layout == 'Knockout'">
-                                            <!-- <div class="table-data display-inline text-center text-up">
-                                                <p>5/11</p>
-                                            </div>
-                                            <div class="table-data display-inline text-center text-up">
-                                                <p>5/11</p>
-                                            </div>
-                                            <div class="table-data display-inline text-center text-up">
-                                                <p>5/11</p>
-                                            </div> -->
-                                            {{stat.knockout.score}}
+                                        <td>
+                                          <!-- score -->
+                                          <div ng-if="table.layout == 'Knockout'">{{stat.knockout.score || '-'}}</div>
+                                          <div ng-if="table.layout == 'Heats'">{{stat.self.timing || '-'}}</div>
+
                                         </td>
-                                        <td ng-if="table.layout == 'Knockout'">
-                                            <div class="text-center display-inline ver-mid ">
+                                        <td >
+                                            <div class="text-center display-inline ver-mid " >
                                                 <div class="sf-play">
-                                                    <span>{{stat.self.result}}</span>
+                                                    <span>{{table.layout == 'Knockout'&& stat.self.result || table.layout == 'Heats' && stat.self.standing}}</span>
                                                 </div>
                                                 <div class="replay-img " ng-if="stat.knockout.video || stat.heat.video || stat.league.video">
                                                       <a class="various fancybox.iframe" href="http://www.youtube.com/embed/{{stat.knockout.video || stat.heat.video || stat.league.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="gallery1" fancybox><img src="img/sf-play.png" alt=""></a>
                                                 </div>
                                             </div>
+
                                         </td>
                                     </tr>
 
