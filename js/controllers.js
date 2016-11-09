@@ -659,11 +659,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         id: "6"
     }];
     $scope.selectRound = function(index) {
+        console.log("round index", index);
         if (index !== 0 && index !== $scope.knockout.rounds.length - 1) {
             $scope.statuses.slider.startAt = index;
             $scope.statuses.board.left = $scope.knockout.rounds[index - 1];
-            $scope.statuses.board.center = $scope.knockout.rounds[index];
-            $scope.statuses.board.right = $scope.knockout.rounds[index + 1];
+            if ($scope.knockout.rounds[index])
+                $scope.statuses.board.center = $scope.knockout.rounds[index];
+            if ($scope.knockout.rounds[index + 1])
+                $scope.statuses.board.right = $scope.knockout.rounds[index + 1];
+            console.log($scope.statuses.board);
         }
     };
     // $scope.getLeftRightDraw = function() {
@@ -680,6 +684,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 $scope.knockout.knockouts = _.groupBy(response.data.knockouts, function(key) {
                     return key.roundno + " " + key.round;
                 });
+
                 $scope.knockout.rounds = [];
                 var maxOrder = 0,
                     i = 0;
@@ -705,6 +710,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         }
                     }
                     $scope.knockout.knockouts[key] = pseudoRound;
+                    console.log($scope.knockout.rounds);
                 });
                 if (_.findIndex($scope.knockout.rounds, function(key) {
                         return key === '-1 Third Place';
@@ -716,7 +722,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.knockout.rounds.push('-1 Third Place');
                 }
                 console.log($scope.knockout);
-                $scope.selectRound(1);
+                if ($scope.knockout.rounds.length > 2) {
+                    $scope.selectRound(1);
+
+                } else {
+                    $scope.statuses.slider.startAt = $scope.knockout.rounds.length - 1;
+                    $scope.statuses.board.left = $scope.knockout.rounds[0];
+                    $scope.statuses.board.center = $scope.knockout.rounds[1];
+                }
             } else {
                 $scope.knockout = {};
             }
@@ -1321,7 +1334,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     };
     $scope.getSportList = function() {
-      $scope.sports = undefined;
+        $scope.sports = undefined;
         NavigationService.getAllSportList(function(response) {
             if (response.value) {
                 if ($scope.filter.year == '2015') {
@@ -2033,7 +2046,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.changeYear();
 })
 
-.controller('HeatsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('HeatsCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("heats");
         $scope.menutitle = NavigationService.makeactive("Heats");
