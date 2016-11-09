@@ -2651,7 +2651,20 @@ border-top-right-radius: 0px;
         }
     }
 }
-
+.first-box{
+  overflow: hidden;
+  display: block;
+  cursor: pointer;
+  img {
+      @include transition(all 300ms ease);
+  }
+  &:hover {
+      img {
+          @include transition(all 300ms ease);
+          transform: scale(1.1);
+      }
+  }
+}
 .back-btn {
     a {
         i {
@@ -3162,14 +3175,14 @@ border-top-right-radius: 0px;
     h1 {
         padding: 26px 14px;
         color: #fff;
-        font-size: 36px;
+        font-size: 30px;
     }
 }
 
 .count {
     background: white;
     border-radius: 50px;
-    padding: 50px 200px;
+    padding: 50px 100px;
     box-shadow: 4px 4px 22px rgba(136, 136, 136, 0.45);
     // margin: 100px 0px 0px 0px;
 }
@@ -3217,14 +3230,14 @@ border-top-right-radius: 0px;
 }
 
 .clip1 {
-    right: -84px;
+    right: -60px;
     z-index: 99;
     bottom: 60px;
 }
 
 .clip2 {
     z-index: 99;
-    right: -138px;
+    right: -70px;
     top: 40px;
 }
 
