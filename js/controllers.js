@@ -289,15 +289,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.doesNotHaveSport = true;
             $scope.dropdowns.category = undefined;
             $scope.filter.category = undefined;
-            NavigationService.filterCategoryBySport({
-                sportList: $scope.filter.sport
-            }, function(response) {
-                if (response.value) {
-                    $scope.dropdowns.category = response.data;
-                } else {
-                    $scope.dropdowns.category = [];
-                }
-            });
+            if($scope.filter.sport && $scope.filter.gender){
+              NavigationService.filterCategoryForFrontendGender({
+                  sportList: $scope.filter.sport,
+                  gender:$scope.filter.gender
+              }, function(response) {
+                  if (response.value) {
+                      $scope.dropdowns.category = response.data;
+                  } else {
+                      $scope.dropdowns.category = [];
+                  }
+              });
+            }
         };
         $scope.getSport = function() {
             $scope.sport = undefined;

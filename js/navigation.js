@@ -311,6 +311,13 @@ var navigationservice = angular.module('navigationservice', [])
                 data: request
             }).success(callback);
         },
+        filterCategoryForFrontendGender: function(request, callback) {
+            $http({
+                url: adminurl + 'sport/filterCategoryForFrontendGender',
+                method: 'POST',
+                data: request
+            }).success(callback);
+        },
         filterAgegroupBySport: function(request, callback) {
             $http({
                 url: adminurl + 'sport/filterAgegroupForFrontend',
