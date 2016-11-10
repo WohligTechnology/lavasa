@@ -145,7 +145,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'KnockoutCtrl'
         })
         .state('round-robin', {
-            url: "/round-robin",
+            url: "/round-robin/:id",
             templateUrl: "views/template.html",
             controller: 'RoundRobinCtrl'
         })
