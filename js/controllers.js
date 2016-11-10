@@ -214,17 +214,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('SpecialCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-        //Used to name the .html file
-
-        console.log("Testing Consoles");
-
-        $scope.template = TemplateService.changecontent("special");
-        $scope.menutitle = NavigationService.makeactive("Special Day");
-        TemplateService.title = $scope.menutitle;
-        $scope.navigation = NavigationService.getnav();
-
-    })
     .controller('FormSubmitCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
@@ -317,7 +306,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.getOneSportForResult($scope.filter, function(response) {
                 $scope.doesNotHaveSport = response.value;
                 if (response.value) {
-                    if (response.data.drawFormat == 'Knockout1') {
+                    if (response.data.drawFormat == 'Knockout') {
                         $state.go('draw', {
                             id: response.data._id
                         });
@@ -325,7 +314,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                       $state.go('heats',{
                         id: response.data._id
                       });
-                    }else {
+                    }else if(response.data.drawFormat == 'League'){
                       $state.go('round-robin',{
                         id: response.data._id
                       });
@@ -644,6 +633,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     })
+    .controller('SpecialCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+       //Used to name the .html file
+
+       console.log("Testing Consoles");
+
+       $scope.template = TemplateService.changecontent("special");
+       $scope.menutitle = NavigationService.makeactive("Special Day");
+       TemplateService.title = $scope.menutitle;
+       $scope.navigation = NavigationService.getnav();
+
+   })
     .controller('TraininDevelopmentCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
