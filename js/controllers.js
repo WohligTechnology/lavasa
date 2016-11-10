@@ -313,15 +313,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.getSport = function() {
             $scope.sport = undefined;
             console.log($scope.filter);
+
             NavigationService.getOneSportForResult($scope.filter, function(response) {
                 $scope.doesNotHaveSport = response.value;
                 if (response.value) {
-                    if (response.data.drawFormat == 'Knockout') {
+                    if (response.data.drawFormat == 'Knockout1') {
                         $state.go('draw', {
                             id: response.data._id
                         });
                     }else if(response.data.drawFormat == 'Heats'){
                       $state.go('heats',{
+                        id: response.data._id
+                      });
+                    }else {
+                      $state.go('round-robin',{
                         id: response.data._id
                       });
                     }
@@ -2506,19 +2511,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
     })
 
-.controller('RoundRobinCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('RoundRobinCtrl', function($scope, TemplateService, NavigationService, $timeout,$state,$stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("round-robin");
     $scope.menutitle = NavigationService.makeactive("Round Robin");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.oneAtATime = true;
+    $scope.league = {};
     $scope.status = {
         isCustomHeaderOpen: false,
         isFirstOpen: true,
         isFirstDisabled: false
     };
-    $scope.feedLimit = 5;
+    $scope.feedLimit = 2;
+    $scope.loadMore = function () {
+      $scope.feedLimit += 1;
+    };
     $scope.matchs = [{
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -2656,6 +2665,70 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             score2: "5"
         }, ]
     }];
+    $scope.profiles = function (participantType,id) {
+      if(participantType == 'player'){
+        sfastate = 'student-profile';
+      }else{
+        sfastate = 'team-detail';
+      }
+      $state.go(sfastate,{
+        id:id
+      });
+    };
+    var participants = [];
+    var stats = {};
+    $scope.getSportRoundLeague = function() {
+        NavigationService.getSportRoundLeague({
+            sport: $stateParams.id
+        }, function(response) {
+            if (response.value) {
+              $scope.league.sport = response.data.sport;
+              $scope.league.leagues = _.clone(response.data.leagues);
+              participants = [];
+              _.each(response.data.leagues,function(key) {
+                if(key[key.participantType+'1']){
+                  participants.push({
+                    participant : key[key.participantType+'1'],
+                    point : key.point1,
+                    result : key.result1,
+                    participantType: key.participantType
+                  });
+                }
+                if(key[key.participantType+'2']){
+                  participants.push({
+                    participant : key[key.participantType+'2'],
+                    point : key.point2,
+                    result : key.result2,
+                    participantType: key.participantType
+                  });
+                }
+              });
+              $scope.league.standings = _.groupBy(participants,function (key) {
+                return key.participant._id;
+              });
+              $scope.league.standings=_.map($scope.league.standings,function (value,property) {
+                stats = {};
+                stats.point = 0.0;
+                _.each(value,function (single) {
+                  if(!stats[single.result]){
+                    stats[single.result] =0;
+                  }
+                  stats[single.result] += 1;
+                  stats.point += single.point;
+
+                  stats.participantType = single.participantType;
+                });
+                stats.participant = value[0].participant;
+                stats.matches = value.length;
+                return stats;
+              });
+              console.log($scope.league);
+            } else {
+                  $scope.league = {};
+            }
+        });
+      };
+      $scope.getSportRoundLeague();
 })
 
 .controller('KnockoutCtrl', function($scope, TemplateService, NavigationService, $timeout) {

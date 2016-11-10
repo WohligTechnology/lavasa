@@ -8,7 +8,7 @@
 
 // var adminurl = "http://localhost:1337/";
 var adminurl = "http://146.148.42.15:83/api/";
-// var adminurl = "http://192.168.1.103:1337/api/";
+// var adminurl = "http://192.168.1.106:1337/api/";
 var imgpath = adminurl + "upload/readFile";
 var uploadurl = adminurl + "upload/";
 var currentYears = ["2015", "2016"];
@@ -335,6 +335,13 @@ var navigationservice = angular.module('navigationservice', [])
         getSportRoundHeat: function(request, callback) {
             $http({
                 url: adminurl + 'heat/getSportRoundHeat',
+                method: 'POST',
+                data: request
+            }).success(callback);
+        },
+        getSportRoundLeague: function(request, callback) {
+            $http({
+                url: adminurl + 'league/getSportRoundLeague',
                 method: 'POST',
                 data: request
             }).success(callback);

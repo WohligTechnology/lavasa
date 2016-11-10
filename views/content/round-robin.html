@@ -1,6 +1,6 @@
 <section class="bottom-padding">
     <div class="sport-name-bg text-center">
-        <h1 class="color-orange text-up font-semi margin0">handball | girls | U-14</h1>
+        <h1 class="color-orange text-up font-semi margin0" ng-if="league.sport">{{league.sport.sportslist.name}} <span ng-if="league.sport.firstcategory"> | {{league.sport.firstcategory.name}}</span><span ng-if="league.sport.secondcategory"> | {{league.sport.secondcategory.name}}</span> | {{league.sport.gender}} | {{league.sport.agegroup.name}}</h1>
     </div>
     <section>
         <div class="container">
@@ -12,16 +12,19 @@
 
             <div class="box-content bx-mob">
                 <div class="row main-over">
-                    <div class="col-md-12">
+                  <div class="text-center mt25 " ng-if="!(league.leagues.length > 0)">
+                    <h3>{{league.leagues === undefined && 'Loading ..' || 'No League Found.'}}</h3>
+                  </div>
+                    <div class="col-md-12"  ng-if="league.standings.length > 0">
                         <div class="text-center">
                             <h3 class="color-orange font-semi text-up">standings</h3>
                         </div>
-                        <div class="final-table w700">
+                        <div class="final-table w700 text-l">
                             <table class="table">
                                 <thead>
                                     <tr class="bg-table color-orange font-semi text-up f16">
                                         <th>position</th>
-                                        <th>team</th>
+                                        <th>participant</th>
                                         <th>matches</th>
                                         <th>won</th>
                                         <th>lost</th>
@@ -29,167 +32,71 @@
 
                                     </tr>
                                 </thead>
-                                <tbody class="text-up">
-                                    <tr>
-                                        <td>1</td>
+                                <tbody class="text-up" >
+                                    <tr ng-repeat="winner in league.standings | orderBy:'-point'">
+                                        <td class="text-center">{{$index + 1}}</td>
                                         <td>
-                                            <a href="">
-                                                <div class="display-inline ver-base">
-                                                    <img src="img/sf-school.png" alt="" class="w25">
-                                                </div>
-                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                            </a>
+                                          <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                              <div class="display-inline ver-base round-img">
+                                                  <img ng-src="{{winner.participantType == 'player' && (winner.participant.profilePic| uploadpath) || (winner.participant.school.logo | uploadpath)}}" alt="" class="w25">
+                                              </div>
+                                              <div class="display-inline ver-mid">{{winner.participant.name || '-'}}</div>
+                                          </a>
                                         </td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>1</td>
-                                        <td>4</td>
+                                        <td class="text-center">{{winner.matches || '0'}}</td>
+                                        <td class="text-center">{{winner.Won || '0'}}</td>
+                                        <td class="text-center">{{winner.Loss || '0'}}</td>
+                                        <td class="text-center">{{winner.point || '0'}}</td>
                                     </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
-                                            <a href="">
-                                                <div class="display-inline ver-base">
-                                                    <img src="img/sf-school.png" alt="" class="w25">
-                                                </div>
-                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                            </a>
-                                        </td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>1</td>
-                                        <td>4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
-                                            <a href="">
-                                                <div class="display-inline ver-base">
-                                                    <img src="img/sf-school.png" alt="" class="w25">
-                                                </div>
-                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                            </a>
-                                        </td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>1</td>
-                                        <td>4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
-                                            <a href="">
-                                                <div class="display-inline ver-base">
-                                                    <img src="img/sf-school.png" alt="" class="w25">
-                                                </div>
-                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                            </a>
-                                        </td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>1</td>
-                                        <td>4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
-                                            <a href="">
-                                                <div class="display-inline ver-base">
-                                                    <img src="img/sf-school.png" alt="" class="w25">
-                                                </div>
-                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                            </a>
-                                        </td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>1</td>
-                                        <td>4</td>
-                                    </tr>
-
-                                </tbody>
+                                  </tbody>
                             </table>
-                        </div>
-                        <div class="mt30 text-center">
-                            <button type="button" name="button" class="btn-outline text-up padding15">view more</button>
                         </div>
                     </div>
                 </div>
-                <hr>
-                <div class="row main-over">
+                <hr ng-if="league.leagues.length > 0">
+                <div class="row main-over" ng-if="league.leagues.length > 0">
                     <div class="col-md-12">
                         <div class="text-center">
                             <h3 class="font-semi color-orange text-up">match details</h3>
                         </div>
-                        <div class="final-table w700">
+                        <div class="final-table w700 text-l">
                             <table class="table">
                                 <thead>
                                     <tr class="bg-table color-orange font-semi text-up f16">
                                         <th>match no.</th>
-                                        <th>team A</th>
+                                        <th>Participant A</th>
                                         <th>|</th>
-                                        <th>team B</th>
+                                        <th>participant B</th>
                                         <th>score</th>
                                         <th></th>
 
                                     </tr>
                                 </thead>
                                 <tbody class="text-up">
-                                    <tr ng-repeat="item in (feedLoader = (matchs | limitTo:feedLimit)) track by $index">
-                                        <td>{{item.match}}</td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/sf-school.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">{{item.team1}}</div>
-                                          </a></td>
-                                        <td></td>
-                                        <td><a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/sf-school.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">{{item.team2}}</div>
-                                          </a></td>
+                                    <tr ng-repeat="item in (feedLoader = (league.leagues | limitTo:feedLimit)) track by $index">
+                                        <td class="text-center">{{$index+1}}</td>
                                         <td>
-                                            <div class="score-list">
-                                                <div class="score-1st display-inline" ng-repeat="scores in item.score track by $index">
-                                                    <ul class="padding0 list-style">
-                                                        <li>{{scores.score1}}</li>
-                                                        <li>&ndash;</li>
-                                                        <li>{{scores.score2}}</li>
-                                                    </ul>
-                                                </div>
-                                                <!-- <div class="score-1st display-inline">
-                                              <ul class="padding0 list-style">
-                                                <li>11</li>
-                                                <li>&ndash;</li>
-                                                <li>5</li>
-                                              </ul>
-                                            </div>
-                                            <div class="score-1st display-inline">
-                                              <ul class="padding0 list-style">
-                                                <li>11</li>
-                                                <li>&ndash;</li>
-                                                <li>5</li>
-                                              </ul>
-                                            </div>
-                                            <div class="score-1st display-inline">
-                                              <ul class="padding0 list-style">
-                                                <li>11</li>
-                                                <li>&ndash;</li>
-                                                <li>5</li>
-                                              </ul>
-                                            </div>
-                                            <div class="score-1st display-inline">
-                                              <ul class="padding0 list-style">
-                                                <li>11</li>
-                                                <li>&ndash;</li>
-                                                <li>5</li>
-                                              </ul>
-                                            </div> -->
-                                            </div>
+                                          <a ng-click="profiles(item.participantType,item[item.participantType+'1']._id)">
+                                              <div class="display-inline ver-base round-img">
+                                                  <img ng-src="{{item.participantType == 'player' && (participant.player1.profilePic| uploadpath) || (item[item.participantType+'1'].school.logo | uploadpath)}}" alt="" class="w25">
+                                              </div>
+                                              <div class="display-inline ver-mid">{{item[item.participantType+'1'].name || '-'}}</div>
+                                          </a>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                          <a ng-click="profiles(item.participantType,item[item.participantType+'2']._id)">
+                                              <div class="display-inline ver-base round-img">
+                                                  <img ng-src="{{item.participantType == 'player' && (item.player2.profilePic| uploadpath) || (item[item.participantType+'2'].school.logo | uploadpath)}}" alt="" class="w25">
+                                              </div>
+                                              <div class="display-inline ver-mid">{{item[item.participantType+'2'].name || '-'}}</div>
+                                          </a>
                                         </td>
                                         <td>
-                                            <a href=""><img src="img/sf-play.png" alt=""></a>
+                                          {{item.score}}
+                                        </td>
+                                        <td>
+                                            <a ng-if="item.video" class="various fancybox.iframe" href="http://www.youtube.com/embed/{{item.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="gallery1" fancybox><img src="img/sf-play.png" alt=""></a>
                                         </td>
                                     </tr>
 
@@ -197,8 +104,8 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="mt30 text-center">
-                            <button type="button" name="button" class="btn-outline text-up padding15" ng-click="feedLimit = feedLimit + 1">view more</button>
+                        <div class="mt30 text-center" ng-if="!(feedLoader.length >= league.leagues.length)">
+                            <button type="button" name="button" class="btn-outline text-up padding15" ng-click="loadMore()">view more</button>
                         </div>
                     </div>
                 </div>
