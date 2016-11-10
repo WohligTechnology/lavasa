@@ -165,6 +165,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
+    .controller('KnockoutQualifyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        $scope.template = TemplateService.changecontent("knockout-qualify");
+        $scope.menutitle = NavigationService.makeactive("Knockout Qualify");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
     .controller('AfterFormCtrl', function($scope, TemplateService, NavigationService, $timeout) {
 
         $scope.template = TemplateService.changecontent("after-form");
