@@ -1,4 +1,20 @@
 @media (max-width:1200px) {
+  .curve-head1 {
+
+    margin-left: 40px;
+    margin-right: 40px;
+
+    overflow: hidden;
+    overflow-x: auto;
+}
+  .curve-head1 {
+
+    margin-left: 40px;
+    margin-right: 40px;
+
+    overflow: hidden;
+    overflow-x: auto;
+}
   .prs {
       li {
           padding: 14px 10px !important;
@@ -47,6 +63,7 @@ font-size: 12px;
 
 }
 @media (max-width:$screen-sm-max) {
+
   .w800{
     width: 70px;
         top: -20px !important;

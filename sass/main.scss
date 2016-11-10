@@ -2520,8 +2520,10 @@ img.fancybox-image {
     background-size: cover;
     background-position: top center;
     position: relative;
-    padding: 70px 0 25px;
+  padding: 70px 25px 25px 25px;
     margin-top: -12px;
+    overflow: hidden;
+    overflow-x: auto;
 
     &:before {
         position: absolute;
@@ -2543,17 +2545,19 @@ background-repeat: no-repeat;
 background-size: cover;
 background-position: top center;
 position: relative;
-padding: 70px 0 25px;
+padding: 70px 25px 25px 25px;
 margin-top: 47px;
 border-radius: 10px;
-margin-left: 60px;
-margin-right: 60px;
+margin-left: 40px;
+margin-right: 40px;
 border-top-left-radius: 0px;
 border-top-right-radius: 0px;
+overflow: hidden;
+overflow-x: auto;
 &:after{
   position: absolute;
       top: 0;
-        left: 25.4%;
+          left: 423px;
       margin-top: -3px;
       width: 0;
       height: 0;
