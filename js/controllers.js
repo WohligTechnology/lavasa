@@ -2117,8 +2117,34 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                                 }
                             }
                         });
-                        console.log("opponent", $scope.studentStats);
+                        // console.log("opponent", $scope.studentStats);
 
+                    }else if($studentStats[0].drawFormat == 'League'){
+                      _.each($scope.studentStats, function(key) {
+                          key.opponent = {};
+                          key.self = {};
+                          if (key.league.participantType == 'player') {
+                              if (key.league[key.league.participantType + '1']._id == $stateParams.id) {
+                                  key.opponent.detail = key.league[key.league.participantType + '2'];
+                                  key.opponent.result = key.league.result2;
+                                  key.self.result = key.league.result1;
+                              } else {
+                                  key.opponent.detail = key.league[key.league.participantType + '1'];
+                                  key.opponent.result = key.league.result1;
+                                  key.self.result = key.league.result2;
+                              }
+                          } else {
+                              if (key.league[key.league.participantType + '1']._id == key.team._id) {
+                                  key.opponent.detail = key.league[key.league.participantType + '2'];
+                                  key.opponent.result = key.league.result2;
+                                  key.self.result = key.league.result1;
+                              } else {
+                                  key.opponent.detail = key.league[key.league.participantType + '1'];
+                                  key.opponent.result = key.league.result1;
+                                  key.self.result = key.league.result2;
+                              }
+                          }
+                      });
                     }else if($scope.studentStats[0].drawFormat == 'Heats'){
                       _.each($scope.studentStats,function (key) {
                         key.self = {};
