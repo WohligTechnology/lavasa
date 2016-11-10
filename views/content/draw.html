@@ -31,7 +31,7 @@
                         <div class="result-list display-inline">
                             <div class="reslt-box" ng-repeat="winner in knockout.medals" ng-if="!winner.isAddedFromTeam">
                                 <div class="pull-left">
-                                    <div class="display-inline rslt-img cm-pad">
+                                    <div class="display-inline rslt-img cm-pad round-img">
                                         <img ng-src="{{winner.participantType == 'player' && (winner.player.profilePic | uploadpath:130:130:'cover') || (winner.team.logo | uploadpath:130:130:'cover')}}" alt="">
                                     </div>
 

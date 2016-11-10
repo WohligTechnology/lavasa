@@ -362,7 +362,7 @@ sport’s bio
                                                             <td>{{win._id.agegroup.name}} {{win._id.gender}} {{win._id.firstcategory.name}}</td>
                                                             <td>
                                                                 <a ng-click="profiles(win.Gold.participantType,win.Gold.student._id,win.Gold.team._id);">
-                                                                    <div class="display-inline ver-base">
+                                                                    <div class="display-inline ver-base round-img">
                                                                         <img ng-src="{{win.Gold.participantType == 'player' && (win.Gold.student.profilePic | uploadpath) || (win.Gold.school.logo | uploadpath)}}" alt="" class="w25">
                                                                     </div>
                                                                     <div class="display-inline ver-mid">
@@ -381,7 +381,7 @@ sport’s bio
                                                             </td>
                                                             <td>
                                                               <a ng-click="profiles(win.Silver.participantType,win.Silver.student._id,win.Silver.team._id);">
-                                                                  <div class="display-inline ver-base">
+                                                                  <div class="display-inline ver-base round-img">
                                                                       <img ng-src="{{win.Silver.participantType == 'player' && (win.Silver.student.profilePic | uploadpath) || (win.Silver.school.logo | uploadpath)}}" alt="" class="w25">
                                                                   </div>
                                                                   <div class="display-inline ver-mid">
@@ -401,7 +401,7 @@ sport’s bio
                                                             </td>
                                                             <td>
                                                               <a ng-click="profiles(win.Bronze[0].participantType,win.Bronze[0].student._id,win.Bronze[0].team._id);">
-                                                                  <div class="display-inline ver-base">
+                                                                  <div class="display-inline ver-base round-img">
                                                                       <img ng-src="{{win.Bronze[0].participantType == 'player' && (win.Bronze[0].student.profilePic | uploadpath) || (win.Bronze[0].school.logo | uploadpath)}}" alt="" class="w25">
                                                                   </div>
                                                                   <div class="display-inline ver-mid">
@@ -420,7 +420,7 @@ sport’s bio
                                                             </td>
                                                             <td ng-if="statuses.doubleBronze">
                                                               <a ng-click="profiles(win.Bronze[1].participantType,win.Bronze[1].student._id,win.Bronze[1].team._id);">
-                                                                  <div class="display-inline ver-base">
+                                                                  <div class="display-inline ver-base round-img">
                                                                       <img ng-src="{{win.Bronze[1].participantType == 'player' && (win.Bronze[1].student.profilePic | uploadpath) || (win.Bronze[1].school.logo | uploadpath)}}" alt="" class="w25">
                                                                   </div>
                                                                   <div class="display-inline ver-mid">
