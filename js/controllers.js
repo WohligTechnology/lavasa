@@ -26,78 +26,138 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
             // $scope.$apply();
         };
-
+        // 
         // $scope.games = // JavaScript Document
         //     [{
-        //         "icon": "img/icon/blue/Table-tennis.png",
-        //         "icon2": "img/icon/11_Table-Tennis.png",
-        //         "url": "tabletennis",
-        //         "game": "table tennis"
+        //
+        //         "icon2": "img/icon/1_Handball.png",
+        //         "url": "handball",
+        //         "game": "Handball"
         //     }, {
-        //         "icon": "img/icon/blue/Tennis.png",
-        //         "icon2": "img/icon/10_Tennis.png",
-        //         "url": "tennis",
-        //         "game": "tennis"
+        //
+        //         "icon2": "img/icon/2_Basketball.png",
+        //         "url": "basketball",
+        //         "game": "basketball"
         //     }, {
-        //         "icon": "img/icon/blue/Badminton.png",
+        //
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
+        //         "game": "volleyball"
+        //     }, {
+        //
+        //         "icon2": "img/icon/4_Throwball.png",
+        //         "url": "throwball",
+        //         "game": "throwball"
+        //     }, {
+        //
+        //         "icon2": "img/icon/5_Hockey.png",
+        //         "url": "hockey",
+        //         "game": "hockey"
+        //     }, {
+        //
+        //         "icon2": "img/icon/6_Kho Kho.png",
+        //         "url": "kho-kho",
+        //         "game": "kho-kho"
+        //     }, {
+        //
+        //         "icon2": "img/icon/7_Kabaddi.png",
+        //         "url": "kabaddi",
+        //         "game": "kabaddi"
+        //     }, {
+        //
+        //         "icon2": "img/icon/8_Football.png",
+        //         "url": "football",
+        //         "game": "football"
+        //     }, {
+        //
         //         "icon2": "img/icon/9_Badminton.png",
         //         "url": "badminton",
         //         "game": "badminton"
         //     }, {
-        //         "icon": "img/icon/blue/Handball.png",
-        //         "icon2": "img/icon/1_Handball.png",
-        //         "url": "handball",
-        //         "game": "handball"
+        //         "icon": "img/icon/blue/Volleyball.png",
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
+        //         "game": "tennis"
         //     }, {
-        //         "icon": "img/icon/blue/Judo.png",
-        //         "icon2": "img/icon/13_Judo.png",
-        //         "url": "judo",
-        //         "game": "judo"
+        //         "icon": "img/icon/blue/Volleyball.png",
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
+        //         "game": "table tennis"
         //     }, {
-        //         "icon": "img/icon/blue/Squash.png",
-        //         "icon2": "img/icon/12_Squash.png",
-        //         "url": "squash",
+        //         "icon": "img/icon/blue/Volleyball.png",
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
         //         "game": "squash"
         //     }, {
         //         "icon": "img/icon/blue/Volleyball.png",
         //         "icon2": "img/icon/3_Volleyball.png",
         //         "url": "volleyball",
-        //         "game": "volleyball"
+        //         "game": "judo"
         //     }, {
         //         "icon": "img/icon/blue/Volleyball.png",
         //         "icon2": "img/icon/3_Volleyball.png",
         //         "url": "volleyball",
-        //         "game": "volleyball"
-        //     }, {
+        //         "game": "taekwondo"
+        //     },{
         //         "icon": "img/icon/blue/Volleyball.png",
         //         "icon2": "img/icon/3_Volleyball.png",
         //         "url": "volleyball",
-        //         "game": "volleyball"
-        //     }, {
+        //         "game": "boxing"
+        //     },{
         //         "icon": "img/icon/blue/Volleyball.png",
         //         "icon2": "img/icon/3_Volleyball.png",
         //         "url": "volleyball",
-        //         "game": "volleyball"
-        //     }, {
+        //         "game": "fencing"
+        //     },{
         //         "icon": "img/icon/blue/Volleyball.png",
         //         "icon2": "img/icon/3_Volleyball.png",
         //         "url": "volleyball",
-        //         "game": "volleyball"
-        //     }, {
+        //         "game": "karate"
+        //     },{
         //         "icon": "img/icon/blue/Volleyball.png",
         //         "icon2": "img/icon/3_Volleyball.png",
         //         "url": "volleyball",
-        //         "game": "volleyball"
-        //     }, {
+        //         "game": "sport mma"
+        //     },{
         //         "icon": "img/icon/blue/Volleyball.png",
         //         "icon2": "img/icon/3_Volleyball.png",
         //         "url": "volleyball",
-        //         "game": "volleyball"
-        //     }, {
+        //         "game": "shooting"
+        //     },{
         //         "icon": "img/icon/blue/Volleyball.png",
         //         "icon2": "img/icon/3_Volleyball.png",
         //         "url": "volleyball",
-        //         "game": "volleyball"
+        //         "game": "archery"
+        //     },{
+        //         "icon": "img/icon/blue/Volleyball.png",
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
+        //         "game": "swimming"
+        //     },{
+        //         "icon": "img/icon/blue/Volleyball.png",
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
+        //         "game": "water polo"
+        //     },{
+        //         "icon": "img/icon/blue/Volleyball.png",
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
+        //         "game": "carrom"
+        //     },{
+        //         "icon": "img/icon/blue/Volleyball.png",
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
+        //         "game": "chess"
+        //     },{
+        //         "icon": "img/icon/blue/Volleyball.png",
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
+        //         "game": "chess"
+        //     },{
+        //         "icon": "img/icon/blue/Volleyball.png",
+        //         "icon2": "img/icon/3_Volleyball.png",
+        //         "url": "volleyball",
+        //         "game": "athletics"
         //     }];
 
         // $scope.mySlides = [

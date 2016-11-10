@@ -5,10 +5,26 @@
         </li>
     </flex-slider>
 </section>
+<section class="hidden-lg hidden-md">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mobile-sports-slider sport-slider">
+          <flex-slider flex-slide="banner in game track by $index"  prev-text="" next-text="" startAt="0" item-width="100" item-margin="60"  animation="slide" move="1" slideshow="false">
+              <li class="text-center">
+                <figure class="">
+                   <img ng-src="{{banner.image | uploadpath }}" class="img-responsive iconBlue">
+                </figure>
+                <figcaption class="color-blue text-up">{{banner.name}}</figcaption>
+              </li>
+          </flex-slider>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="sf-relative">
-
-
-    <div class="main-d">
+  <div class="main-d">
     <div class="container-fluid">
         <div class="row hidden-xs hidden-sm">
           <div class="col-md-12">
