@@ -26,7 +26,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
             // $scope.$apply();
         };
-        // 
+        //
         // $scope.games = // JavaScript Document
         //     [{
         //
@@ -210,6 +210,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("about-us");
         $scope.menutitle = NavigationService.makeactive("About-Us");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
+    .controller('SpecialCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        console.log("Testing Consoles");
+
+        $scope.template = TemplateService.changecontent("special");
+        $scope.menutitle = NavigationService.makeactive("Special Day");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 

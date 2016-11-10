@@ -33,6 +33,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     templateUrl: "views/template.html",
     controller: 'DrawScheduleCtrl'
 })
+.state('special', {
+    url: "/special",
+    templateUrl: "views/template.html",
+    controller: 'SpecialCtrl'
+})
 .state('knockout-qualify', {
     url: "/knockout-qualify",
     templateUrl: "views/template.html",
