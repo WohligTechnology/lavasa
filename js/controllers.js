@@ -1,9 +1,7 @@
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select','ordinal'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select', 'ordinal'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$interval) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval) {
         //Used to name the .html file
-
-        console.log("Testing Consoles");
 
         $scope.template = TemplateService.changecontent("home");
         $scope.menutitle = NavigationService.makeactive("Home");
@@ -28,31 +26,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // $scope.$apply();
         };
         $scope.refreshTimer = function(eventTime) {
-        eventTime = new Date(eventTime);
-        console.log(eventTime);
-        $scope.rightNow = new Date();
-        $scope.diffTime = eventTime - $scope.rightNow;
-        var duration = moment.duration($scope.diffTime, 'milliseconds');
+            eventTime = new Date(eventTime);
+            $scope.rightNow = new Date();
+            $scope.diffTime = eventTime - $scope.rightNow;
+            var duration = moment.duration($scope.diffTime, 'milliseconds');
 
-        $interval(function() {
-
-            duration = moment.duration(duration - 1000, 'milliseconds');
-            if (duration._milliseconds > 0) {
-
-                $scope.latestMatchOn = false;
-            } else {
-
-                $scope.latestMatchOn = true;
-            }
-            $scope.countdown.months = duration.months();
-            $scope.countdown.days = duration.days();
-            $scope.countdown.hours = duration.hours();
-            $scope.countdown.minutes = duration.minutes();
-            $scope.countdown.seconds = duration.seconds();
-            console.log($scope.countdown);
-        }, 1000);
-    };
-    $scope.refreshTimer(moment().set({'year': 2016, 'month': 10,'date':28,'hour':0,'minute':0,'seconds':0}));
+            $interval(function() {
+                duration = moment.duration(duration - 1000, 'milliseconds');
+                $scope.countdown.months = duration.months();
+                $scope.countdown.days = duration.days();
+                $scope.countdown.hours = duration.hours();
+                $scope.countdown.minutes = duration.minutes();
+                $scope.countdown.seconds = duration.seconds();
+            }, 1000);
+        };
+        $scope.refreshTimer(moment().set({
+            'year': 2016,
+            'month': 10,
+            'date': 28,
+            'hour': 8,
+            'minute': 0,
+            'seconds': 0
+        }));
         //
         // $scope.games = // JavaScript Document
         //     [{
@@ -233,8 +228,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     .controller('AboutUsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
-        console.log("Testing Consoles");
-
         $scope.template = TemplateService.changecontent("about-us");
         $scope.menutitle = NavigationService.makeactive("About-Us");
         TemplateService.title = $scope.menutitle;
@@ -316,17 +309,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.doesNotHaveSport = true;
             $scope.dropdowns.category = undefined;
             $scope.filter.category = undefined;
-            if($scope.filter.sport && $scope.filter.gender){
-              NavigationService.filterCategoryForFrontendGender({
-                  sportList: $scope.filter.sport,
-                  gender:$scope.filter.gender
-              }, function(response) {
-                  if (response.value) {
-                      $scope.dropdowns.category = response.data;
-                  } else {
-                      $scope.dropdowns.category = [];
-                  }
-              });
+            if ($scope.filter.sport && $scope.filter.gender) {
+                NavigationService.filterCategoryForFrontendGender({
+                    sportList: $scope.filter.sport,
+                    gender: $scope.filter.gender
+                }, function(response) {
+                    if (response.value) {
+                        $scope.dropdowns.category = response.data;
+                    } else {
+                        $scope.dropdowns.category = [];
+                    }
+                });
             }
         };
         $scope.getSport = function() {
@@ -340,14 +333,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         $state.go('draw', {
                             id: response.data._id
                         });
-                    }else if(response.data.drawFormat == 'Heats'){
-                      $state.go('heats',{
-                        id: response.data._id
-                      });
-                    }else if(response.data.drawFormat == 'League'){
-                      $state.go('round-robin',{
-                        id: response.data._id
-                      });
+                    } else if (response.data.drawFormat == 'Heats') {
+                        $state.go('heats', {
+                            id: response.data._id
+                        });
+                    } else if (response.data.drawFormat == 'League') {
+                        $state.go('round-robin', {
+                            id: response.data._id
+                        });
                     }
                 }
             });
@@ -356,8 +349,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
     .controller('SchoolRankingCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
-
-        console.log("Testing Consoles");
 
         $scope.template = TemplateService.changecontent("school-ranking");
         $scope.menutitle = NavigationService.makeactive("School Ranking");
@@ -381,8 +372,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
     .controller('BlogCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
-
-        console.log("Testing Consoles");
 
         $scope.template = TemplateService.changecontent("blog");
         $scope.menutitle = NavigationService.makeactive("Blog");
@@ -422,8 +411,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     .controller('DrawScheduleCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
         //Used to name the .html file
 
-        console.log("Testing Consoles");
-
         $scope.template = TemplateService.changecontent("draw-schedule");
         $scope.menutitle = NavigationService.makeactive("Draw Schedule");
         TemplateService.title = $scope.menutitle;
@@ -432,8 +419,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
     .controller('BlogDetailCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
-
-        console.log("Testing Consoles");
 
         $scope.template = TemplateService.changecontent("blog-detail");
         $scope.menutitle = NavigationService.makeactive("Blog Detail");
@@ -444,8 +429,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     .controller('SwissCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
-        console.log("Testing Consoles");
-
         $scope.template = TemplateService.changecontent("swiss");
         $scope.menutitle = NavigationService.makeactive("Swiss");
         TemplateService.title = $scope.menutitle;
@@ -454,8 +437,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
     .controller('MediaGalleryCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
         //Used to name the .html file
-
-        console.log("Testing Consoles");
 
         $scope.template = TemplateService.changecontent("media-gallery");
         $scope.menutitle = NavigationService.makeactive("Media Gallery");
@@ -614,8 +595,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('FaqCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
-        console.log("Testing Consoles");
-
         $scope.template = TemplateService.changecontent("faq");
         $scope.menutitle = NavigationService.makeactive("Faq");
         TemplateService.title = $scope.menutitle;
@@ -632,8 +611,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     .controller('ContactCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
-        console.log("Testing Consoles");
-
         $scope.template = TemplateService.changecontent("contact");
         $scope.menutitle = NavigationService.makeactive("Contact");
         TemplateService.title = $scope.menutitle;
@@ -642,8 +619,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     })
     .controller('RegistrationCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
-
-        console.log("Testing Consoles");
 
         $scope.template = TemplateService.changecontent("registration");
         $scope.menutitle = NavigationService.makeactive("Registration");
@@ -654,8 +629,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     .controller('TermsConditionCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
-        console.log("Testing Consoles");
-
         $scope.template = TemplateService.changecontent("terms-condition");
         $scope.menutitle = NavigationService.makeactive("Terms Condition");
         TemplateService.title = $scope.menutitle;
@@ -663,21 +636,44 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 
     })
-    .controller('SpecialCtrl', function($scope, TemplateService, NavigationService, $timeout) {
-       //Used to name the .html file
-
-       console.log("Testing Consoles");
-
-       $scope.template = TemplateService.changecontent("special");
-       $scope.menutitle = NavigationService.makeactive("Special Day");
-       TemplateService.title = $scope.menutitle;
-       $scope.navigation = NavigationService.getnav();
-
-   })
-    .controller('TraininDevelopmentCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    .controller('SpecialAwardsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
-        console.log("Testing Consoles");
+        $scope.template = TemplateService.changecontent("special");
+        $scope.menutitle = NavigationService.makeactive("Special Awards");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
+    .controller('medicalAidCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        $scope.template = TemplateService.changecontent("medical-aid");
+        $scope.menutitle = NavigationService.makeactive("Medical Care");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
+    .controller('foodAndEntertainmentCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        $scope.template = TemplateService.changecontent("food-and-entertainment");
+        $scope.menutitle = NavigationService.makeactive("Food & Entertainment");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
+    .controller('specialDaysCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        $scope.template = TemplateService.changecontent("special-days");
+        $scope.menutitle = NavigationService.makeactive("Special Days");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
+    .controller('TraininDevelopmentCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("training-development");
         $scope.menutitle = NavigationService.makeactive("Training Development");
@@ -2149,41 +2145,41 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         });
                         // console.log("opponent", $scope.studentStats);
 
-                    }else if($studentStats[0].drawFormat == 'League'){
-                      _.each($scope.studentStats, function(key) {
-                          key.opponent = {};
-                          key.self = {};
-                          if (key.league.participantType == 'player') {
-                              if (key.league[key.league.participantType + '1']._id == $stateParams.id) {
-                                  key.opponent.detail = key.league[key.league.participantType + '2'];
-                                  key.opponent.result = key.league.result2;
-                                  key.self.result = key.league.result1;
-                              } else {
-                                  key.opponent.detail = key.league[key.league.participantType + '1'];
-                                  key.opponent.result = key.league.result1;
-                                  key.self.result = key.league.result2;
-                              }
-                          } else {
-                              if (key.league[key.league.participantType + '1']._id == key.team._id) {
-                                  key.opponent.detail = key.league[key.league.participantType + '2'];
-                                  key.opponent.result = key.league.result2;
-                                  key.self.result = key.league.result1;
-                              } else {
-                                  key.opponent.detail = key.league[key.league.participantType + '1'];
-                                  key.opponent.result = key.league.result1;
-                                  key.self.result = key.league.result2;
-                              }
-                          }
-                      });
-                    }else if($scope.studentStats[0].drawFormat == 'Heats'){
-                      _.each($scope.studentStats,function (key) {
-                        key.self = {};
-                        _.each(key.heat.heats,function (single) {
-                          if(single.player._id == $stateParams.id){
-                            key.self = single;
-                          }
+                    } else if ($studentStats[0].drawFormat == 'League') {
+                        _.each($scope.studentStats, function(key) {
+                            key.opponent = {};
+                            key.self = {};
+                            if (key.league.participantType == 'player') {
+                                if (key.league[key.league.participantType + '1']._id == $stateParams.id) {
+                                    key.opponent.detail = key.league[key.league.participantType + '2'];
+                                    key.opponent.result = key.league.result2;
+                                    key.self.result = key.league.result1;
+                                } else {
+                                    key.opponent.detail = key.league[key.league.participantType + '1'];
+                                    key.opponent.result = key.league.result1;
+                                    key.self.result = key.league.result2;
+                                }
+                            } else {
+                                if (key.league[key.league.participantType + '1']._id == key.team._id) {
+                                    key.opponent.detail = key.league[key.league.participantType + '2'];
+                                    key.opponent.result = key.league.result2;
+                                    key.self.result = key.league.result1;
+                                } else {
+                                    key.opponent.detail = key.league[key.league.participantType + '1'];
+                                    key.opponent.result = key.league.result1;
+                                    key.self.result = key.league.result2;
+                                }
+                            }
                         });
-                      });
+                    } else if ($scope.studentStats[0].drawFormat == 'Heats') {
+                        _.each($scope.studentStats, function(key) {
+                            key.self = {};
+                            _.each(key.heat.heats, function(single) {
+                                if (single.player._id == $stateParams.id) {
+                                    key.self = single;
+                                }
+                            });
+                        });
                     }
                 }
                 console.log($scope.studentStats);
@@ -2208,7 +2204,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.oneAtATime = true;
-        $scope.heat ={};
+        $scope.heat = {};
         $scope.status = {
             isCustomHeaderOpen: false,
             isFirstOpen: true,
@@ -2248,45 +2244,45 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             name: "Harshit Shah",
             dep: "45211"
         }];
-        $scope.profiles = function (participantType,id) {
-          console.log(participantType,id);
-          if(participantType == 'player'){
-            sfastate = 'student-profile';
-          }else{
-            sfastate = 'team-detail';
-          }
-          $state.go(sfastate,{
-            id:id
-          });
+        $scope.profiles = function(participantType, id) {
+            console.log(participantType, id);
+            if (participantType == 'player') {
+                sfastate = 'student-profile';
+            } else {
+                sfastate = 'team-detail';
+            }
+            $state.go(sfastate, {
+                id: id
+            });
         };
         $scope.getSportRoundHeat = function() {
             NavigationService.getSportRoundHeat({
                 sport: $stateParams.id
             }, function(response) {
                 if (response.value) {
-                  $scope.heat.sport = response.data.sport;
-                  $scope.heat.heats = _.chain(response.data.heats)
-                      .groupBy("round")
-                      .toPairs()
-                      .map(function(currentItem) {
-                          currentItem[2] = currentItem[1][0].order;
-                          return _.zipObject(["round", "heats", "order"], currentItem);
-                      })
-                      .value();
-                  if(_.findIndex($scope.heat.heats, function (key) {
-                  return key.round == 'Final';
-                }) !== -1){
-                  $scope.heat.final = _.find($scope.heat.heats, function (key) {
-                  return key.round == 'Final';
-                }).heats[0];
-                  }
-                  console.log($scope.heat);
+                    $scope.heat.sport = response.data.sport;
+                    $scope.heat.heats = _.chain(response.data.heats)
+                        .groupBy("round")
+                        .toPairs()
+                        .map(function(currentItem) {
+                            currentItem[2] = currentItem[1][0].order;
+                            return _.zipObject(["round", "heats", "order"], currentItem);
+                        })
+                        .value();
+                    if (_.findIndex($scope.heat.heats, function(key) {
+                            return key.round == 'Final';
+                        }) !== -1) {
+                        $scope.heat.final = _.find($scope.heat.heats, function(key) {
+                            return key.round == 'Final';
+                        }).heats[0];
+                    }
+                    console.log($scope.heat);
                 } else {
-                      $scope.heat = {};
+                    $scope.heat = {};
                 }
             });
-          };
-          $scope.getSportRoundHeat();
+        };
+        $scope.getSportRoundHeat();
     })
     .controller('TeamCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
@@ -2567,7 +2563,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
     })
 
-.controller('RoundRobinCtrl', function($scope, TemplateService, NavigationService, $timeout,$state,$stateParams) {
+.controller('RoundRobinCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("round-robin");
     $scope.menutitle = NavigationService.makeactive("Round Robin");
@@ -2581,8 +2577,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         isFirstDisabled: false
     };
     $scope.feedLimit = 2;
-    $scope.loadMore = function () {
-      $scope.feedLimit += 1;
+    $scope.loadMore = function() {
+        $scope.feedLimit += 1;
     };
     $scope.matchs = [{
         match: "1",
@@ -2721,15 +2717,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             score2: "5"
         }, ]
     }];
-    $scope.profiles = function (participantType,id) {
-      if(participantType == 'player'){
-        sfastate = 'student-profile';
-      }else{
-        sfastate = 'team-detail';
-      }
-      $state.go(sfastate,{
-        id:id
-      });
+    $scope.profiles = function(participantType, id) {
+        if (participantType == 'player') {
+            sfastate = 'student-profile';
+        } else {
+            sfastate = 'team-detail';
+        }
+        $state.go(sfastate, {
+            id: id
+        });
     };
     var participants = [];
     var stats = {};
@@ -2738,53 +2734,53 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             sport: $stateParams.id
         }, function(response) {
             if (response.value) {
-              $scope.league.sport = response.data.sport;
-              $scope.league.leagues = _.clone(response.data.leagues);
-              participants = [];
-              _.each(response.data.leagues,function(key) {
-                if(key[key.participantType+'1']){
-                  participants.push({
-                    participant : key[key.participantType+'1'],
-                    point : key.point1,
-                    result : key.result1,
-                    participantType: key.participantType
-                  });
-                }
-                if(key[key.participantType+'2']){
-                  participants.push({
-                    participant : key[key.participantType+'2'],
-                    point : key.point2,
-                    result : key.result2,
-                    participantType: key.participantType
-                  });
-                }
-              });
-              $scope.league.standings = _.groupBy(participants,function (key) {
-                return key.participant._id;
-              });
-              $scope.league.standings=_.map($scope.league.standings,function (value,property) {
-                stats = {};
-                stats.point = 0.0;
-                _.each(value,function (single) {
-                  if(!stats[single.result]){
-                    stats[single.result] =0;
-                  }
-                  stats[single.result] += 1;
-                  stats.point += single.point;
-
-                  stats.participantType = single.participantType;
+                $scope.league.sport = response.data.sport;
+                $scope.league.leagues = _.clone(response.data.leagues);
+                participants = [];
+                _.each(response.data.leagues, function(key) {
+                    if (key[key.participantType + '1']) {
+                        participants.push({
+                            participant: key[key.participantType + '1'],
+                            point: key.point1,
+                            result: key.result1,
+                            participantType: key.participantType
+                        });
+                    }
+                    if (key[key.participantType + '2']) {
+                        participants.push({
+                            participant: key[key.participantType + '2'],
+                            point: key.point2,
+                            result: key.result2,
+                            participantType: key.participantType
+                        });
+                    }
                 });
-                stats.participant = value[0].participant;
-                stats.matches = value.length;
-                return stats;
-              });
-              console.log($scope.league);
+                $scope.league.standings = _.groupBy(participants, function(key) {
+                    return key.participant._id;
+                });
+                $scope.league.standings = _.map($scope.league.standings, function(value, property) {
+                    stats = {};
+                    stats.point = 0.0;
+                    _.each(value, function(single) {
+                        if (!stats[single.result]) {
+                            stats[single.result] = 0;
+                        }
+                        stats[single.result] += 1;
+                        stats.point += single.point;
+
+                        stats.participantType = single.participantType;
+                    });
+                    stats.participant = value[0].participant;
+                    stats.matches = value.length;
+                    return stats;
+                });
+                console.log($scope.league);
             } else {
-                  $scope.league = {};
+                $scope.league = {};
             }
         });
-      };
-      $scope.getSportRoundLeague();
+    };
+    $scope.getSportRoundLeague();
 })
 
 .controller('KnockoutCtrl', function($scope, TemplateService, NavigationService, $timeout) {

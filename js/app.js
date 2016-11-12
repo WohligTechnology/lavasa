@@ -33,10 +33,25 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     templateUrl: "views/template.html",
     controller: 'DrawScheduleCtrl'
 })
-.state('special', {
-    url: "/special",
+.state('special-awards', {
+    url: "/special-awards",
     templateUrl: "views/template.html",
-    controller: 'SpecialCtrl'
+    controller: 'SpecialAwardsCtrl'
+})
+.state('medical-aid', {
+    url: "/medical-aid",
+    templateUrl: "views/template.html",
+    controller: 'medicalAidCtrl'
+})
+.state('food-and-entertainment', {
+    url: "/food-and-entertainment",
+    templateUrl: "views/template.html",
+    controller: 'foodAndEntertainmentCtrl'
+})
+.state('special-days', {
+    url: "/special-days",
+    templateUrl: "views/template.html",
+    controller: 'specialDaysCtrl'
 })
 .state('knockout-qualify', {
     url: "/knockout-qualify",
