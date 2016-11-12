@@ -1,15 +1,16 @@
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select','ordinal'])
 
-.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$interval) {
         //Used to name the .html file
 
         console.log("Testing Consoles");
 
         $scope.template = TemplateService.changecontent("home");
         $scope.menutitle = NavigationService.makeactive("Home");
-        TemplateService.header = "./views/header2.html";
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+        $scope.countdown = {};
         $scope.changeSlideClass = function(obj, index) {
             obj.class = "active";
             // console.log("active = ", index);
@@ -26,6 +27,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
             // $scope.$apply();
         };
+        $scope.refreshTimer = function(eventTime) {
+        eventTime = new Date(eventTime);
+        console.log(eventTime);
+        $scope.rightNow = new Date();
+        $scope.diffTime = eventTime - $scope.rightNow;
+        var duration = moment.duration($scope.diffTime, 'milliseconds');
+
+        $interval(function() {
+
+            duration = moment.duration(duration - 1000, 'milliseconds');
+            if (duration._milliseconds > 0) {
+
+                $scope.latestMatchOn = false;
+            } else {
+
+                $scope.latestMatchOn = true;
+            }
+            $scope.countdown.months = duration.months();
+            $scope.countdown.days = duration.days();
+            $scope.countdown.hours = duration.hours();
+            $scope.countdown.minutes = duration.minutes();
+            $scope.countdown.seconds = duration.seconds();
+            console.log($scope.countdown);
+        }, 1000);
+    };
+    $scope.refreshTimer(moment().set({'year': 2016, 'month': 10,'date':28,'hour':0,'minute':0,'seconds':0}));
         //
         // $scope.games = // JavaScript Document
         //     [{

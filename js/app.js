@@ -309,6 +309,19 @@ firstapp.filter('videothumbnail', function() {
     };
 });
 
+firstapp.filter('lessthan10',function () {
+  return function (value) {
+    if(value){
+      if(value<10){
+        return "0"+value;
+      }else{
+        return value;
+      }
+    }else{
+      return "00";
+    }
+  };
+});
 
 firstapp.filter('ageFilter', function() {
     return function(birthdate) { // birthday is a date
