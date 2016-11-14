@@ -35,10 +35,14 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li>
-                                <a ng-click="options=!options" ng-model="checkbox">
+                            <li class="sports-hover">
+                                <!-- <a ng-click="options=!options" ng-model="checkbox">
+      SPORTS
+    </a> -->
+                                <a ng-mouseenter="options=!options" ng-model="checkbox">
       SPORTS
     </a>
+                                <div class="caret-custom" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-show="options || checkbox"></div>
                             </li>
                             <li class="sf-relative hide-op2">
 
@@ -55,16 +59,16 @@
                             </li>
                             <li>
                                 <a ui-sref="media-gallery">
-      MEDIA & GALLERY
+      MEDIA &amp; GALLERY
     </a>
                             </li>
                             <li>
                                 <a ui-sre="training-development">
-    Training & Development
+    Training &amp; Development
     </a>
                             </li>
                             <li class="hidden-md hidden-lg">
-                                <a ng-click="optionss=!optionss" ng-model="checkboxs">
+                                <a ng-mouseenter="optionss=!optionss" ng-model="checkboxs">
   sfa mumbai 2016
     </a>
                             </li>
@@ -112,12 +116,12 @@
                             </li>
                             <li>
                                 <a ui-sref="media-gallery">
-                MEDIA & GALLERY
+                MEDIA &amp; GALLERY
               </a>
                             </li>
                             <li>
                                 <a ui-sref="training-development">
-              Training & Development
+              Training &amp; Development
               </a>
                             </li>
                             <li class="dropdown">
@@ -170,7 +174,7 @@
                 </div>
                 <div class="col-md-2 hidden-xs hidden-sm">
                     <div class="sfa-mum">
-                        <img src="img/top-pin.png" alt="" ng-click="optionss=!optionss" ng-model="checkboxs">
+                        <img src="img/top-pin.png" alt="" ng-mouseenter="optionss=!optionss" ng-model="checkboxs">
                     </div>
                 </div>
 
@@ -240,7 +244,7 @@
             </div>
 
             <div class="on-mouse-hover" ng-mouseenter="options=true" ng-mouseleave="options=false">
-                  <div class="bg-head curve-head1 " ng-show="options || checkbox">
+                <div class="bg-head curve-head1 no-after mt-0" ng-show="options || checkbox">
                     <div class="container">
                         <div class="row">
                             <div class="head-table">

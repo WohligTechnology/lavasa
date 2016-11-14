@@ -6,23 +6,24 @@
                     <ul class="menu-list hidden-xs text-up padding0">
 
                         <li><a ui-sref="about-us">ABOUT US</a></li>
-                        <li><a  ng-click="options=!options" ng-model="checkbox">sports <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-
+                        <li class="sports-hover-before"><a ng-mouseenter="options=!options" ng-model="checkbox">sports <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                          <div class="caret-custom-before" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-show="options || checkbox"></div>
                         </li>
                         <li class="sf-relative hide-op bg-n"><a>profile<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                            <ul class="dropdown-menu sf-absulate show-op">
-                              <li><a ui-sref="school">Schools</a></li>
+                            <!-- <ul class="dropdown-menu sf-absulate show-op"> -->
+                            <ul class="dropdown-menu sf-absulate blue-menus menu-top-header">
+                                <li><a ui-sref="school">Schools</a></li>
 
 
-                              <li><a ui-sref="students">STUDENTS</a></li>
-                              <li><a ui-sref="team">teams</a></li>
+                                <li><a ui-sref="students">STUDENTS</a></li>
+                                <li><a ui-sref="team">teams</a></li>
                             </ul>
                         </li>
                         <!-- <li><a ui-sref="school">Schools</a></li>
 
 
                         <li><a ui-sref="students">STUDENTS</a></li> -->
-    <li><a ui-sref="media-gallery">media & gallery</a></li>
+                        <li><a ui-sref="media-gallery">media &amp; gallery</a></li>
                         <li class="logoli">
                             <a class="" ui-sref="home">
                                 <img src="img/logo.png" alt="logo" class="img-responsive onlylogo">
@@ -79,7 +80,7 @@
         </div>
         <div class="on-mouse-hover" ng-mouseenter="options=true" ng-mouseleave="options=false">
 
-            <div class="bg-head curve-head" ng-show="options || checkbox">
+            <div class="bg-head curve-head no-before" ng-show="options || checkbox">
                 <div class="container">
                     <div class="row">
                         <div class="head-table">
