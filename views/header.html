@@ -9,13 +9,14 @@
                         <li class="sports-hover-before"><a ng-mouseenter="options=!options" ng-model="checkbox">sports <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                           <div class="caret-custom-before" ng-mouseenter="options=true" ng-mouseleave="options=false" ng-show="options || checkbox"></div>
                         </li>
-                        <li class="sf-relative hide-op bg-n"><a>profile<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <li class="sf-relative hide-op bg-n"><a>profiles<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                             <!-- <ul class="dropdown-menu sf-absulate show-op"> -->
                             <ul class="dropdown-menu sf-absulate blue-menus menu-top-header">
+                              <li><a ui-sref="students">athletes</a></li>
+
                                 <li><a ui-sref="school">Schools</a></li>
 
 
-                                <li><a ui-sref="students">STUDENTS</a></li>
                                 <li><a ui-sref="team">teams</a></li>
                             </ul>
                         </li>
@@ -64,8 +65,9 @@
                 <ul class="nav navbar-nav visible-xs text-up text-center color-blue">
 
                     <li><a ui-sref="about-us">ABOUT US</a></li>
+                    <li><a ui-sref="students">athletes</a></li>
+
                     <li><a ui-sref="school">Schools</a></li>
-                    <li><a ui-sref="students">STUDENTS</a></li>
                     <li><a ui-sref="teams">teams</a></li>
                     <li><a ui-sref="media-gallery">media & gallery</a></li>
                     <li><a ui-sref="training-development">TRAINING & DEVELOPMENT</a></li>

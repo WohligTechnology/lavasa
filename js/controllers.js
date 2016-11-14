@@ -1432,6 +1432,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         _.each($scope.statuses.open, function(value, key) {
             $scope.statuses.open[key] = false;
         });
+        // $scope.statuses.open[sportid] = $scope.statuses.open[sportid]?false:true;
         constraints.year = $scope.filter.year;
         $scope.statuses.doubleBronze = false;
         $scope.winners = undefined;
@@ -2145,7 +2146,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         });
                         // console.log("opponent", $scope.studentStats);
 
-                    } else if ($studentStats[0].drawFormat == 'League') {
+                    } else if ($scope.studentStats[0].drawFormat == 'League') {
                         _.each($scope.studentStats, function(key) {
                             key.opponent = {};
                             key.self = {};

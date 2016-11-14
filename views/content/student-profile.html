@@ -89,7 +89,7 @@
                             </ul>
                         </div>
                         <div class="btn-common mt25">
-                            <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="student-bio({'id':studentid})">student bio</button>
+                            <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="student-bio({'id':studentid})">athlete bio</button>
                         </div>
                     </div>
                 </div>
@@ -157,7 +157,7 @@ student’s blog
                         </div>
                     </div>
                 </div>
-                <div class="row mt25 text-center"  ng-if="dropdowns.category.length === 0">
+                <div class="row mt25 text-center"  >
                     <div class="col-md-12 col-sm-12 col-xs-12 text-c-m">
                         <h4 class="text-up color-blue display-inline">Year</h4>
                         <div class="display-inline">
@@ -171,7 +171,7 @@ student’s blog
                         </div>
                     </div>
                 </div>
-                <div class="row mt25"  ng-if="dropdowns.category.length > 0">
+                <!-- <div class="row mt25"  ng-if="dropdowns.category.length > 0">
                     <div class="col-md-offset-2 col-md-3 col-sm-6 col-xs-12 text-c-m">
                         <h4 class="text-up color-blue display-inline">Year</h4>
                         <div class="display-inline">
@@ -193,7 +193,7 @@ student’s blog
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="row mt25" ng-if="filterStatistics.sport">
                     <div class="col-md-12 mt25 main-over">
                         <div class="table-statistics w700">
@@ -237,7 +237,7 @@ student’s blog
                                         <td >
                                             <div class="text-center display-inline ver-mid " >
                                                 <div class="sf-play">
-                                                    <span>{{table.layout == 'Knockout'&& stat.self.result || table.layout == 'Heats' && stat.self.standing}}</span>
+                                                    <span>{{table.layout == 'Knockout'&& stat.self.result || table.layout == 'Heats' && (stat.self.standing | ordinal)+' / '+stat.self.timing}}</span>
                                                 </div>
                                                 <div class="replay-img " ng-if="stat.knockout.video || stat.heat.video || stat.league.video">
                                                       <a class="various fancybox.iframe" href="http://www.youtube.com/embed/{{stat.knockout.video || stat.heat.video || stat.league.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="gallery1" fancybox><img src="img/sf-play.png" alt=""></a>
