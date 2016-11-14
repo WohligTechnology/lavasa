@@ -3199,6 +3199,10 @@ img.fancybox-image {
     color: #c9e000;
 }
 
+a.color-yellow1:hover {
+    color: darken(#c9e000, 10%);
+}
+
 .color-blue1 {
     color: #00aaff;
 }
@@ -3337,7 +3341,7 @@ img.fancybox-image {
                 text-transform: uppercase;
 
                 &:hover {
-                    color: #fff;
+                    color: darken(#fff, 20%);
                 }
             }
         }
@@ -3413,7 +3417,7 @@ ul.dropdown-menu.sf-absulate.blue-menus {
 
     &.menu-top-header {
         top: 100%;
-        left:-30px;
+        left: -30px;
     }
 
     &:after {
@@ -3502,6 +3506,13 @@ ul.dropdown-menu.sf-absulate.blue-menus li a {
 
 .text-center {
     text-align: center !important;
+}
+
+.custom-sfa-mumbai {
+    margin-top: 45px;
+}
+.icn-sp {
+    margin-right: 5px;
 }
 @import "fancybox-override";
 @import "mobile";
