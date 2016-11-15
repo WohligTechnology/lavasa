@@ -63,7 +63,9 @@ font-size: 12px;
 
 }
 @media (max-width:$screen-sm-max) {
-
+.sports-hover-before .caret-custom-before:before {
+      bottom: -78px;
+    }
   .w800{
     width: 70px;
         top: -20px !important;
