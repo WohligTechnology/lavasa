@@ -3516,5 +3516,10 @@ ul.dropdown-menu.sf-absulate.blue-menus li a {
 .icn-sp {
     margin-right: 5px;
 }
+.custom-arrow-hover{
+ul.dropdown-menu.sf-absulate.blue-menus:after {
+    right: 65%;
+  }
+}
 @import "fancybox-override";
 @import "mobile";
