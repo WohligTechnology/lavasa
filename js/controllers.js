@@ -245,6 +245,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
+    .controller('LeagueKnockoutCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        $scope.template = TemplateService.changecontent("league-knockout");
+        $scope.template.header = "";
+        $scope.template.footer = "";
+        $scope.menutitle = NavigationService.makeactive("League Cum Knockout");
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+ $scope.oneAtATime = true;
+        $scope.status = {
+   isCustomHeaderOpen: false,
+   isFirstOpen: true,
+   isFirstDisabled: false
+ };
+
+    })
     .controller('KnockoutQualifyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 

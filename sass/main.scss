@@ -1548,11 +1548,27 @@ img.fancybox-image {
         }
     }
 }
+.sf-acc2{
+  @extend .sf-acc;
+  .panel {
 
+    background-color: #f4f4f4;
+  }
+  .panel-heading {
+
+      background-color: #fff !important;
+
+  }
+}
 .bg-dark {
     background-color: #a8a7a7;
 }
-
+.bg-table1{
+  background-color: #cecccc;
+  th{
+    text-align: center;
+  }
+}
 .inner-table {
     table {
         thead {

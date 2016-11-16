@@ -1,0 +1,487 @@
+<section class="bottom-padding">
+    <div class="sport-name-bg text-center">
+        <h1 class="color-orange text-up font-semi margin0">handball | girls | U-14</h1>
+    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="text-center mt40">
+                    <h2 class="color-blue font-semi text-up">league cum knockout</h2>
+                </div>
+            </div>
+
+            <div class="box-content bx-mob">
+                <div class="row main-over">
+                    <!-- <div class="text-center mt25 " >
+                    <h3>knockout</h3>
+                  </div> -->
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <h3 class="color-orange font-semi text-up">knockout</h3>
+                        </div>
+                        <div class="final-table w700 text-l">
+                            <table class="table">
+                                <thead>
+                                    <tr class="bg-table color-orange font-semi text-up f16">
+                                        <th>Round</th>
+                                        <th>team 1</th>
+                                        <th>team 2</th>
+                                        <th>score</th>
+                                        <th>result</th>
+                                        <th></th>
+
+                                    </tr>
+                                </thead>
+                                <tbody class="text-up">
+                                    <tr>
+                                        <td class="text-center">final</td>
+                                        <td>
+                                            <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                                <div class="display-inline ver-base round-img">
+                                                    <img ng-src="img/sf-school-grey.png" alt="" class="w25">
+                                                </div>
+                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                                <div class="display-inline ver-base round-img">
+                                                    <img ng-src="img/sf-school-grey.png" alt="" class="w25">
+                                                </div>
+                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                            </a>
+                                        </td>
+                                        <td class="text-center">1</td>
+                                        <td class="text-center">won</td>
+                                        <td class="text-center"><img src="img/sf-play.png" alt=""></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">final</td>
+                                        <td>
+                                            <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                                <div class="display-inline ver-base round-img">
+                                                    <img ng-src="img/sf-school-grey.png" alt="" class="w25">
+                                                </div>
+                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                                <div class="display-inline ver-base round-img">
+                                                    <img ng-src="img/sf-school-grey.png" alt="" class="w25">
+                                                </div>
+                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                            </a>
+                                        </td>
+                                        <td class="text-center">1</td>
+                                        <td class="text-center">won</td>
+                                        <td class="text-center"><img src="img/sf-play.png" alt=""></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">final</td>
+                                        <td>
+                                            <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                                <div class="display-inline ver-base round-img">
+                                                    <img ng-src="img/sf-school-grey.png" alt="" class="w25">
+                                                </div>
+                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                                <div class="display-inline ver-base round-img">
+                                                    <img ng-src="img/sf-school-grey.png" alt="" class="w25">
+                                                </div>
+                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                            </a>
+                                        </td>
+                                        <td class="text-center">1</td>
+                                        <td class="text-center">won</td>
+                                        <td class="text-center"><img src="img/sf-play.png" alt=""></td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="mt30 text-center" ng-if="!(feedLoader.length >= league.leagues.length)">
+                                <button type="button" name="button" class="btn-outline text-up padding15" ng-click="loadMore()">view more</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row main-over">
+                    <!-- <div class="text-center mt25 " >
+                    <h3>knockout</h3>
+                  </div> -->
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <h3 class="color-orange font-semi text-up">standings</h3>
+                        </div>
+                        <div class="accrordian mt25 sf-acc2 over-fl">
+                            <uib-accordion close-others="oneAtATime" class="text-up ">
+                                <uib-accordion-group>
+                                    <uib-accordion-heading>
+                                        <div class="acc-title text-center">
+                                            pool-a
+                                        </div>
+
+                                    </uib-accordion-heading>
+                                    <div class="final-table w700 text-l">
+                                        <table class="table">
+                                            <thead>
+                                                <tr class="bg-table1 color-blue font-semi text-up f16 text-center">
+                                                    <th>position</th>
+                                                    <th>team</th>
+                                                    <th>matches</th>
+                                                    <th>won</th>
+                                                    <th>lost</th>
+                                                    <th>draw</th>
+                                                    <th>points</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody class="text-up">
+                                                <tr>
+                                                    <td class="text-center">1</td>
+                                                    <td>
+                                                        <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                                            <div class="display-inline ver-base round-img">
+                                                                <img ng-src="img/sf-school-grey.png" alt="" class="w25">
+                                                            </div>
+                                                            <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        4
+                                                    </td>
+                                                    <td class="text-center">1</td>
+                                                    <td class="text-center">1</td>
+                                                    <td class="text-center">1</td>
+                                                    <td class="text-center">1</td>
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">1</td>
+                                                    <td>
+                                                        <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                                            <div class="display-inline ver-base round-img">
+                                                                <img ng-src="img/sf-school-grey.png" alt="" class="w25">
+                                                            </div>
+                                                            <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        4
+                                                    </td>
+                                                    <td class="text-center">1</td>
+                                                    <td class="text-center">1</td>
+                                                    <td class="text-center">1</td>
+                                                    <td class="text-center">1</td>
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">1</td>
+                                                    <td>
+                                                        <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                                            <div class="display-inline ver-base round-img">
+                                                                <img ng-src="img/sf-school-grey.png" alt="" class="w25">
+                                                            </div>
+                                                            <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        4
+                                                    </td>
+                                                    <td class="text-center">1</td>
+                                                    <td class="text-center">1</td>
+                                                    <td class="text-center">1</td>
+                                                    <td class="text-center">1</td>
+
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </uib-accordion-group>
+                            </uib-accordion>
+                            <div class="mt30 text-center" ng-if="!(feedLoader.length >= league.leagues.length)">
+                                <button type="button" name="button" class="btn-outline text-up padding15" ng-click="loadMore()">view more</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
+                <div class="row main-over">
+                    <!-- <div class="text-center mt25 " >
+                    <h3>knockout</h3>
+                  </div> -->
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <h3 class="color-orange font-semi text-up">match details</h3>
+                        </div>
+                        <div class="accrordian mt25 sf-acc2 over-fl">
+                            <uib-accordion close-others="oneAtATime" class="text-up ">
+                                <uib-accordion-group>
+                                    <uib-accordion-heading>
+                                        <div class="acc-title text-center">
+                                            pool-a
+                                        </div>
+
+                                    </uib-accordion-heading>
+                                    <div class="final-table w700 text-l">
+                                        <table class="table">
+                                            <thead>
+                                                <tr class="bg-table1 color-blue font-semi text-up f16 text-center">
+                                                    <th>match no.</th>
+                                                    <th>team A</th>
+                                                    <th>|</th>
+                                                    <th>team B</th>
+                                                    <th>score</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody class="text-up">
+                                                <tr>
+                                                    <td class="text-center">1</td>
+                                                    <td>
+                                                        <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                                            <div class="display-inline ver-base round-img">
+                                                                <img ng-src="img/sf-school-grey.png" alt="" class="w25">
+                                                            </div>
+                                                            <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                                        </a>
+                                                    </td>
+                                                    <td></td>
+                                                    <td>
+                                                        <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                                            <div class="display-inline ver-base round-img">
+                                                                <img ng-src="img/sf-school-grey.png" alt="" class="w25">
+                                                            </div>
+                                                            <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="score-list">
+
+                                                            <div class="score-1st display-inline">
+
+                                                                <ul class="padding0 list-style">
+
+                                                                    <li>11</li>
+
+                                                                    <li>&ndash;</li>
+
+                                                                    <li>5</li>
+                                                                     </ul>
+                                                                 </div>
+
+                                                            <div class="score-1st display-inline">
+
+                                                                <ul class="padding0 list-style">
+
+                                                                    <li>11</li>
+
+                                                                    <li>&ndash;</li>
+
+                                                                    <li>5</li>
+                                                                     </ul>
+                                                                 </div>
+
+                                                            <div class="score-1st display-inline">
+
+                                                                <ul class="padding0 list-style">
+
+                                                                    <li>11</li>
+
+                                                                    <li>&ndash;</li>
+
+                                                                    <li>5</li>
+                                                                     </ul>
+                                                                 </div>
+
+                                                            <div class="score-1st display-inline">
+
+                                                                <ul class="padding0 list-style">
+
+                                                                    <li>11</li>
+
+                                                                    <li>&ndash;</li>
+
+                                                                    <li>5</li>
+                                                                     </ul>
+                                                                 </div>
+                                                             </div>
+                                                    </td>
+
+                                                </tr>
+                                                    <td class="text-center">1</td>
+                                                    <td>
+                                                        <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                                            <div class="display-inline ver-base round-img">
+                                                                <img ng-src="img/sf-school-grey.png" alt="" class="w25">
+                                                            </div>
+                                                            <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                                        </a>
+                                                    </td>
+                                                    <td></td>
+                                                    <td>
+                                                        <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                                            <div class="display-inline ver-base round-img">
+                                                                <img ng-src="img/sf-school-grey.png" alt="" class="w25">
+                                                            </div>
+                                                            <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="score-list">
+
+                                                            <div class="score-1st display-inline">
+
+                                                                <ul class="padding0 list-style">
+
+                                                                    <li>11</li>
+
+                                                                    <li>&ndash;</li>
+
+                                                                    <li>5</li>
+                                                                     </ul>
+                                                                 </div>
+
+                                                            <div class="score-1st display-inline">
+
+                                                                <ul class="padding0 list-style">
+
+                                                                    <li>11</li>
+
+                                                                    <li>&ndash;</li>
+
+                                                                    <li>5</li>
+                                                                     </ul>
+                                                                 </div>
+
+                                                            <div class="score-1st display-inline">
+
+                                                                <ul class="padding0 list-style">
+
+                                                                    <li>11</li>
+
+                                                                    <li>&ndash;</li>
+
+                                                                    <li>5</li>
+                                                                     </ul>
+                                                                 </div>
+
+                                                            <div class="score-1st display-inline">
+
+                                                                <ul class="padding0 list-style">
+
+                                                                    <li>11</li>
+
+                                                                    <li>&ndash;</li>
+
+                                                                    <li>5</li>
+                                                                     </ul>
+                                                                 </div>
+                                                             </div>
+                                                    </td>
+
+                                                </tr>
+                                                    <td class="text-center">1</td>
+                                                    <td>
+                                                        <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                                            <div class="display-inline ver-base round-img">
+                                                                <img ng-src="img/sf-school-grey.png" alt="" class="w25">
+                                                            </div>
+                                                            <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                                        </a>
+                                                    </td>
+                                                    <td></td>
+                                                    <td>
+                                                        <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                                            <div class="display-inline ver-base round-img">
+                                                                <img ng-src="img/sf-school-grey.png" alt="" class="w25">
+                                                            </div>
+                                                            <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="score-list">
+
+                                                            <div class="score-1st display-inline">
+
+                                                                <ul class="padding0 list-style">
+
+                                                                    <li>11</li>
+
+                                                                    <li>&ndash;</li>
+
+                                                                    <li>5</li>
+                                                                     </ul>
+                                                                 </div>
+
+                                                            <div class="score-1st display-inline">
+
+                                                                <ul class="padding0 list-style">
+
+                                                                    <li>11</li>
+
+                                                                    <li>&ndash;</li>
+
+                                                                    <li>5</li>
+                                                                     </ul>
+                                                                 </div>
+
+                                                            <div class="score-1st display-inline">
+
+                                                                <ul class="padding0 list-style">
+
+                                                                    <li>11</li>
+
+                                                                    <li>&ndash;</li>
+
+                                                                    <li>5</li>
+                                                                     </ul>
+                                                                 </div>
+
+                                                            <div class="score-1st display-inline">
+
+                                                                <ul class="padding0 list-style">
+
+                                                                    <li>11</li>
+
+                                                                    <li>&ndash;</li>
+
+                                                                    <li>5</li>
+                                                                     </ul>
+                                                                 </div>
+                                                             </div>
+                                                    </td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </uib-accordion-group>
+                            </uib-accordion>
+                            <div class="mt30 text-center" ng-if="!(feedLoader.length >= league.leagues.length)">
+                                <button type="button" name="button" class="btn-outline text-up padding15" ng-click="loadMore()">view more</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
+
+
+            </div>
+        </div>
+    </section>
+</section>
