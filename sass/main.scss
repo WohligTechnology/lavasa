@@ -3186,11 +3186,10 @@ img.fancybox-image {
 
 .new-h {
     background: url("../img/bg-h.png") #FFF no-repeat;
-    border-radius: 30px;
-    margin: 60px 80px 0;
+    box-shadow: 10px -5px 26px #888888;
     background-position: center bottom;
     background-size: cover;
-    background-position-y: 23px;
+    background-position-y: 36px;
     position: relative;
     padding: 0;
 }
@@ -3198,7 +3197,7 @@ img.fancybox-image {
 .mr-min {
     z-index: 999;
     position: absolute;
-    top: -34px;
+        top: 8px;
 }
 
 .color-green1 {
@@ -3227,7 +3226,7 @@ a.color-yellow1:hover {
 
 .prs {
     li {
-        padding: 13px 15px 13px 0;
+            padding: 26px 15px 26px 0;
         text-transform: uppercase;
 
         a {
@@ -3240,7 +3239,7 @@ a.color-yellow1:hover {
 
 .sfa-mum {
     img {
-        margin-top: -14px;
+          margin-top: 13px;
         cursor: pointer;
     }
 }
@@ -3429,7 +3428,7 @@ ul.dropdown-menu.sf-absulate.blue-menus {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     padding: 30px 0 36px 30px;
-    top: 47px;
+  top: 73px;
     left: -67px;
     min-width: 180px;
 
@@ -3527,7 +3526,7 @@ ul.dropdown-menu.sf-absulate.blue-menus li a {
 }
 
 .custom-sfa-mumbai {
-    margin-top: 45px;
+    margin-top: 70px;
 }
 .icn-sp {
     margin-right: 5px;

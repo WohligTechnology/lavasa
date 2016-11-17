@@ -11,10 +11,10 @@
       <div class="col-md-12">
         <div class="mobile-sports-slider sport-slider">
           <flex-slider flex-slide="banner in game track by $index"  prev-text="" next-text="" startAt="0" item-width="100" item-margin="60"  animation="slide" move="1" slideshow="false">
-              <li class="text-center">
-                <figure class="">
+            <li class="text-center">
+                  <a ui-sref="sport({name:banner.name})"><figure class="">
                    <img ng-src="{{banner.image | uploadpath }}" class="img-responsive iconBlue">
-                </figure>
+                </figure></a>
                 <figcaption class="color-blue text-up">{{banner.name}}</figcaption>
               </li>
           </flex-slider>

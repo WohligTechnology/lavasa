@@ -614,6 +614,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("faq");
         $scope.menutitle = NavigationService.makeactive("Faq");
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -879,6 +880,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.template = TemplateService.changecontent("student-bio");
     $scope.menutitle = NavigationService.makeactive("Student Bio");
+      TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.studentProfile = {};
@@ -1051,6 +1053,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     console.log("FUCK THIS SHIT");
     $scope.template = TemplateService.changecontent("sport");
     $scope.menutitle = NavigationService.makeactive("Sports");
+    TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.gallery = {};
