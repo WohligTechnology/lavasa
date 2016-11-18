@@ -1900,6 +1900,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("students");
     $scope.menutitle = NavigationService.makeactive("Students");
+      TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.inputs = {};
