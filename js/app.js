@@ -33,6 +33,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     templateUrl: "views/template.html",
     controller: 'DrawScheduleCtrl'
 })
+
 .state('special-awards', {
     url: "/special-awards",
     templateUrl: "views/template.html",
@@ -87,6 +88,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     url: "/result",
     templateUrl: "views/template.html",
     controller: 'ResultCtrl'
+})
+.state('sponser-partner', {
+    url: "/sponser-partner",
+    templateUrl: "views/template.html",
+    controller: 'SponserCtrl'
 })
 .state('champions', {
     url: "/champions",

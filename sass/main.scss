@@ -1225,6 +1225,7 @@ img.fancybox-image {
 
     li {
         font-size: 15px;
+            text-transform: lowercase;
     }
 
     p {
@@ -2557,7 +2558,7 @@ img.fancybox-image {
 }
 
 .my-banner-school {
-    background: url(../img/sfa-schoolbg.png)center;
+    background: url(../img/sf-default.png)center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
@@ -2565,7 +2566,7 @@ img.fancybox-image {
 }
 
 .my-banner-student {
-    background: url(../img/sfa-studentbg.png)center;
+    background: url(../img/sf-default.png)center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
@@ -2660,7 +2661,7 @@ img.fancybox-image {
 .on-mouse-hover {
     position: absolute;
     z-index: 99;
-    width: 100%;
+    width: 98%;
 }
 
 .menu-list-hover {
@@ -3189,7 +3190,7 @@ img.fancybox-image {
     box-shadow: 10px -5px 26px #888888;
     background-position: center bottom;
     background-size: cover;
-    background-position-y: 36px;
+      background-position-y: 28px;
     position: relative;
     padding: 0;
 }
@@ -3227,7 +3228,7 @@ a.color-yellow1:hover {
 
 .prs {
     li {
-            padding: 26px 15px 26px 0;
+              padding: 36px 15px 12px 0;
         text-transform: uppercase;
 
         a {
@@ -3240,7 +3241,8 @@ a.color-yellow1:hover {
 
 .sfa-mum {
     img {
-          margin-top: 13px;
+      margin-top: 25px;
+
         cursor: pointer;
     }
 }
@@ -3541,6 +3543,23 @@ ul.dropdown-menu.sf-absulate.blue-menus:after {
 
     margin-bottom:0;
 
+}
+.contain-boxx{
+  h4{
+    display: inline-flex;
+  }
+}
+.t-align{
+  text-align: left !important;
+position: relative;
+left: 93%;
+transform: translateX(-50%);
+}
+.media-t{
+h4{
+  font-size: 14px !important;
+  font-weight: 300;
+}
 }
 @import "fancybox-override";
 @import "mobile";

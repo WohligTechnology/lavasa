@@ -43,6 +43,7 @@ sport’s bio
                           <div class="row mt25">
                             <div class="col-md-offset-2 col-md-8 text-center">
                               <h4 class="color-blue">Every competition has a few athletes with extraordinary talent, showcasing an outstanding performance and shining brighter than the rest. Discover some of those; Mumbai’s best {{sport.sportid.name}} players at the inter-school level.</h4>
+                              <h4 class="color-orange text-up">coming soon</h4>
                             </div>
                               <!-- <div class="col-md-3 mt15 col-sm-4 col-xs-12" ng-repeat="data in student track by $index">
                                   <a href="">
@@ -71,14 +72,14 @@ sport’s bio
                                 </div>
                             </div>
                             <div class="col-md-8 col-xs-12">
-                                <div class="contain-box f15">
+                                <div class="contain-boxx f15">
 
                                     <!-- <p>Having a strong presence at the grass roots level in the city, Mumbai Handball Academy has made significant efforts to take the Olympic sport of Handball to the next level. While abundant talent exists at the inter-school level, Handball requires the right platform for the young athletes to showcase their talent at national and international sporting events. The Mumbai Handball Academy hopes to bridge the gap in the years to come.</p> -->
                                     <div ng-bind-html="sport.dateContent | rawHtml"></div>
                                     <div class="mt15">
-                                        <h4><span class="color-blue font-semi">Tournament Dates: </span><span ng-show="!sport.fromDate && !sport.toDate">Not Available</span>{{sport.fromDate  | englishNumeralDate}} <span ng-show="sport.fromDate && sport.toDate"> to </span> {{sport.toDate  | englishNumeralDate}}</h4>
-                                        <h4><span class="color-blue font-semi">Venue : </span><span ng-show="!sport.venue">Not Available</span> {{sport.venue}}</h4>
-                                        <h4><span class="color-blue font-semi">Last day for student registration: </span><span ng-show="!sport.lastDate">Not Available</span>{{sport.lastDate  | englishNumeralDate}}</h4>
+                                        <h4><span class="color-blue font-semi">Tournament Dates: &nbsp;</span><span ng-show="!sport.fromDate && !sport.toDate"> Not Available</span>{{sport.fromDate  | englishNumeralDate}} <span ng-show="sport.fromDate && sport.toDate"> to </span> {{sport.toDate  | englishNumeralDate}}</h4>
+                                        <h4><span class="color-blue font-semi">Venue : &nbsp;</span><span ng-show="!sport.venue">Not Available</span> {{sport.venue}}</h4>
+                                        <h4><span class="color-blue font-semi">Last day for student registration: &nbsp;</span><span ng-show="!sport.lastDate">Not Available</span>{{sport.lastDate  | englishNumeralDate}}</h4>
                                     </div>
                                     <div class="float-right mt25">
 

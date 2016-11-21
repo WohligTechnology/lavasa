@@ -230,8 +230,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("about-us");
         $scope.menutitle = NavigationService.makeactive("About-Us");
+          TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+
+    })
+    .controller('SponserCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        $scope.template = TemplateService.changecontent("sponser-partner");
+        $scope.menutitle = NavigationService.makeactive("Sponser");
+          TemplateService.header = "views/header2.html";
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+        $scope.image=[
+          'img/sp1.jpg',
+          'img/sp2.jpg',
+          'img/sp3.jpg',
+          'img/sp4.jpg'
+        ]
 
     })
     .controller('FormSubmitCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -249,9 +267,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("league-knockout");
-        $scope.template.header = "";
-        $scope.template.footer = "";
         $scope.menutitle = NavigationService.makeactive("League Cum Knockout");
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
  $scope.oneAtATime = true;
@@ -267,6 +284,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("knockout-qualify");
         $scope.menutitle = NavigationService.makeactive("Knockout Qualify");
+          TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -285,6 +303,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("result");
         $scope.menutitle = NavigationService.makeactive("Result");
+          TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.dropdowns = {};
@@ -369,6 +388,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("school-ranking");
         $scope.menutitle = NavigationService.makeactive("School Ranking");
+          TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.filter = {};
@@ -392,6 +412,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("blog");
         $scope.menutitle = NavigationService.makeactive("Blog");
+          TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -430,6 +451,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("draw-schedule");
         $scope.menutitle = NavigationService.makeactive("Draw Schedule");
+          TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -439,6 +461,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("blog-detail");
         $scope.menutitle = NavigationService.makeactive("Blog Detail");
+          TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -448,6 +471,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("swiss");
         $scope.menutitle = NavigationService.makeactive("Swiss");
+          TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -457,6 +481,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("media-gallery");
         $scope.menutitle = NavigationService.makeactive("Media Gallery");
+          TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.flags = {};
@@ -631,6 +656,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("contact");
         $scope.menutitle = NavigationService.makeactive("Contact");
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -640,6 +666,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("registration");
         $scope.menutitle = NavigationService.makeactive("Registration");
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -649,6 +676,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("terms-condition");
         $scope.menutitle = NavigationService.makeactive("Terms Condition");
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -659,6 +687,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("special");
         $scope.menutitle = NavigationService.makeactive("Special Awards");
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -668,6 +697,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("medical-aid");
         $scope.menutitle = NavigationService.makeactive("Medical Care");
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -677,6 +707,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("food-and-entertainment");
         $scope.menutitle = NavigationService.makeactive("Food & Entertainment");
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -686,6 +717,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("special-days");
         $scope.menutitle = NavigationService.makeactive("Special Days");
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -695,6 +727,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("training-development");
         $scope.menutitle = NavigationService.makeactive("Training Development");
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -704,6 +737,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.template = TemplateService.changecontent("draw");
     $scope.menutitle = NavigationService.makeactive("Draw");
+    TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -1281,6 +1315,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.template = TemplateService.changecontent("school-bio");
     $scope.menutitle = NavigationService.makeactive("School Bio");
+      TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.school = {};
@@ -1422,6 +1457,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     console.log("Testing Consoles");
     $scope.template = TemplateService.changecontent("champions");
     $scope.menutitle = NavigationService.makeactive("Champions");
+    TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.navigation = NavigationService.getnav();
@@ -1497,6 +1533,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("school");
     $scope.menutitle = NavigationService.makeactive("School");
+    TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.search = {};
@@ -1609,6 +1646,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("school-profile");
     $scope.menutitle = NavigationService.makeactive("School Profile");
+      TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.callObject = {};
@@ -1985,6 +2023,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.template = TemplateService.changecontent("student-profile");
     $scope.menutitle = NavigationService.makeactive("Student Profile");
+      TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.studentProfile = {};
@@ -2223,6 +2262,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("heats");
         $scope.menutitle = NavigationService.makeactive("Heats");
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.oneAtATime = true;
@@ -2310,6 +2350,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("team");
         $scope.menutitle = NavigationService.makeactive("Team");
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.oneAtATime = true;
@@ -2361,6 +2402,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("qualify");
         $scope.menutitle = NavigationService.makeactive("Qualify");
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.oneAtATime = true;
@@ -2409,6 +2451,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("team-detail");
         $scope.menutitle = NavigationService.makeactive("Team Detail");
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.filterStatistics = {};
@@ -2589,6 +2632,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("round-robin");
     $scope.menutitle = NavigationService.makeactive("Round Robin");
+    TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.oneAtATime = true;
@@ -2809,6 +2853,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("knockout");
     $scope.menutitle = NavigationService.makeactive("Knockout");
+    TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.oneAtATime = true;
