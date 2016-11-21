@@ -365,19 +365,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.getOneSportForResult($scope.filter, function(response) {
                 $scope.doesNotHaveSport = response.value;
                 if (response.value) {
-                    if (response.data.drawFormat == 'Knockout') {
-                        $state.go('draw', {
-                            id: response.data._id
-                        });
-                    } else if (response.data.drawFormat == 'Heats') {
-                        $state.go('heats', {
-                            id: response.data._id
-                        });
-                    } else if (response.data.drawFormat == 'League') {
-                        $state.go('round-robin', {
-                            id: response.data._id
-                        });
-                    }
+                  $state.go(NavigationService.resultDispatcher(response.data.drawFormat), {
+                      id: response.data._id
+                  });
                 }
             });
         };
@@ -937,19 +927,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         NavigationService.getOneSportForResult(constraints, function(response) {
             $scope.doesNotHaveSport = response.value;
             if (response.value) {
-                if (response.data.drawFormat == 'Knockout') {
-                    $state.go('draw', {
+                    $state.go(NavigationService.resultDispatcher(response.data.drawFormat), {
                         id: response.data._id
                     });
-                } else if (response.data.drawFormat == 'Heats') {
-                    $state.go('heats', {
-                        id: response.data._id
-                    });
-                } else if (response.data.drawFormat == 'League') {
-                    $state.go('round-robin', {
-                        id: response.data._id
-                    });
-                }
             }
         });
     };

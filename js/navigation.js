@@ -101,6 +101,22 @@ var navigationservice = angular.module('navigationservice', [])
                 data: input
             }).success(callback);
         },
+        resultDispatcher : function (drawFormat) {
+          switch(drawFormat){
+            case 'Knockout':
+            return 'draw';
+            case 'League':
+            return 'round-robin';
+            case 'League cum Knockout':
+            return 'draw';
+            case 'Heats':
+            return 'heats';
+            case 'Qualifying Round':
+            return 'draw';
+            case 'Swiss League':
+            return 'draw';
+          }
+        },
         getSearchDataTeam: function(input, callback) {
             // console.log('form data: ', formData);
             $http({
