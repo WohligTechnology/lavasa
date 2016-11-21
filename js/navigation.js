@@ -119,14 +119,15 @@ var navigationservice = angular.module('navigationservice', [])
             return 'draw';
           }
         },
-        getSearchDataTeam: function(input, callback) {
-            // console.log('form data: ', formData);
+        getSearchDataTeam: function(input, i,callback) {
             $http({
                 url: adminurl + 'team/searchTeam',
                 method: 'POST',
                 withCredentials: true,
                 data: input
-            }).success(callback);
+            }).success(function (data) {
+              callback(data,i);
+            });
         },
         getSchoolProfile: function(id, callback) {
             // console.log('form data: ', formData);
@@ -216,14 +217,16 @@ var navigationservice = angular.module('navigationservice', [])
                 }
             }).success(callback);
         },
-        schoolSearch: function(request, callback) {
+        schoolSearch: function(request,i, callback) {
             // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'school/getLimited',
                 method: 'POST',
                 withCredentials: true,
                 data: request
-            }).success(callback);
+            }).success(function (data) {
+              callback(data,i);
+            });
         },
         getSchoolSportByGender: function(request, callback) {
             $http({

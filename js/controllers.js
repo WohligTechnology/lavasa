@@ -1551,17 +1551,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.school = {};
     $scope.pagination = {};
     $scope.pagination.pagesize = 20;
-    // $scope.getMoreSchools = function() {
-    //     NavigationService.getFirstListSchool(function(data) {
-    //         if (data.value !== false) {
-    //             $scope.getFirstList = data.data.data;
-    //             console.log('$scope.getFirstList', $scope.getFirstList);
-    //             $scope.count = data.data.count;
-    //         } else {
-    //             $scope.getFirstList = [];
-    //         }
-    //     });
-    // };
     $scope.filter.pagenumber = 1;
     $scope.parseSearch = function(input) {
         $scope.search.active = false;
@@ -1584,16 +1573,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.submitSearch();
     };
+    var i=0;
     $scope.submitSearch = function() {
         if ($scope.search.active) {
-            console.log("its searching");
-            NavigationService.schoolSearch($scope.filter, function(data) {
+            NavigationService.schoolSearch($scope.filter,++i, function(data,ini) {
                 console.log(data);
-                if (data.value) {
-                    $scope.schools = data.data.data;
-                    console.log("Schools data", $scope.schools);
-                    $scope.pagination.totalpages = data.data.totalpages;
-                    $scope.pagination.total = data.data.total;
+                if(i==ini){
+                  if (data.value) {
+                      $scope.schools = data.data.data;
+                      console.log("Schools data", $scope.schools);
+                      $scope.pagination.totalpages = data.data.totalpages;
+                      $scope.pagination.total = data.data.total;
+                  }
                 }
             });
         } else {
@@ -2369,9 +2360,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
             $scope.doSearch();
         };
+        var i = 0;
         $scope.doSearch = function() {
-            NavigationService.getSearchDataTeam($scope.searchFilter, function(data) {
+            NavigationService.getSearchDataTeam($scope.searchFilter,++i, function(data,ini) {
+              if(i==ini){
                 $scope.getSearchData = data.data;
+
+              }
             });
         };
 
