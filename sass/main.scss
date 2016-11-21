@@ -2709,7 +2709,7 @@ img.fancybox-image {
 }
 
 .over-layer {
-    background: rgba(0, 0, 0, 0.55);
+      background: rgba(0, 0, 0, 0.43);
     top: 0;
     height: 100%;
     width: 100%;
@@ -3558,8 +3558,12 @@ transform: translateX(-50%);
 .media-t{
 h4{
   font-size: 15px !important;
-  font-weight: 300;
+  font-weight: 600;
 }
+}
+.btm-0{
+  bottom: 0;
+      padding: 0px 6px;
 }
 @import "fancybox-override";
 @import "mobile";
