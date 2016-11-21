@@ -200,8 +200,8 @@ Achievements
                                                     <td>
                                                         result
                                                     </td>
-                                                    <td>
-                                                        -
+                                                    <td >
+                                                      <a ng-repeat="single in sport.sports" ng-click="getSport(single)">{{single.sportslist.name}} <span ng-if="single.firstcategory"> | {{single.firstcategory.name}}</span><span ng-if="single.secondcategory"> | {{single.secondcategory.name}}</span> | {{single.agegroup.name}}<br></a>
                                                     </td>
 
                                                 </tr>
@@ -267,7 +267,7 @@ Achievements
                                                         result
                                                     </td>
                                                     <td>
-                                                        -
+                                                      <a ng-repeat="single in sport.sports" ng-click="getSport(single)">{{single.sportslist.name}} <span ng-if="single.firstcategory"> | {{single.firstcategory.name}}</span><span ng-if="single.secondcategory"> | {{single.secondcategory.name}}</span> | {{single.agegroup.name}}<br></a>
                                                     </td>
 
                                                 </tr>

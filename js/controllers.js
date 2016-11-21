@@ -907,7 +907,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 })
 
-.controller('StudentBioCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('StudentBioCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$state) {
     //Used to name the .html file
 
     console.log("Testing Consoles");
@@ -924,8 +924,35 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.classp = 'active-list';
     $scope.classv = '';
     $scope.studentMedal = {};
+    var constraints = {};
+    $scope.getSport = function(sport) {
+      console.log(sport);
 
-
+      constraints.agegroup = sport.agegroup.name;
+      if(sport.firstcategory){
+        constraints.category = sport.firstcategory.name;
+      }
+      constraints.sport = sport.sportslist._id;
+      constraints.year = sport.year;
+        NavigationService.getOneSportForResult(constraints, function(response) {
+            $scope.doesNotHaveSport = response.value;
+            if (response.value) {
+                if (response.data.drawFormat == 'Knockout') {
+                    $state.go('draw', {
+                        id: response.data._id
+                    });
+                } else if (response.data.drawFormat == 'Heats') {
+                    $state.go('heats', {
+                        id: response.data._id
+                    });
+                } else if (response.data.drawFormat == 'League') {
+                    $state.go('round-robin', {
+                        id: response.data._id
+                    });
+                }
+            }
+        });
+    };
     $scope.tabchanges = function(tabs, a) {
         //        console.log(tab);
         $scope.tabs = tabs;
@@ -1019,6 +1046,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (data.value) {
                 console.log(data);
                 $scope.studentProfile = data.data;
+                constraints.gender = data.data.gender;
                 if ($scope.studentProfile.gender == "Boys") {
                     $scope.studentProfile.gender = "Male";
                 } else {
