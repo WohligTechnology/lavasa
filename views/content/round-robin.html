@@ -78,7 +78,7 @@
                                         <td>
                                           <a ng-click="profiles(item.participantType,item[item.participantType+'1']._id)">
                                               <div class="display-inline ver-base round-img">
-                                                  <img ng-src="{{item.participantType == 'player' && (participant.player1.profilePic| uploadpath) || (item[item.participantType+'1'].school.logo | uploadpath)}}" alt="" class="w25">
+                                                  <img ng-src="{{item.participantType == 'player' && (item.player1.profilePic| uploadpath) || (item[item.participantType+'1'].school.logo | uploadpath)}}" alt="" class="w25">
                                               </div>
                                               <div class="display-inline ver-mid">{{item[item.participantType+'1'].name || '-'}}</div>
                                           </a>
