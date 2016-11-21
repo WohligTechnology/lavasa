@@ -92,14 +92,16 @@ var navigationservice = angular.module('navigationservice', [])
                 data: input
             }).success(callback);
         },
-        getSearchDataStudent: function(input, callback) {
+        getSearchDataStudent: function(input,i, callback) {
             // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'student/searchStudent',
                 method: 'POST',
                 withCredentials: true,
                 data: input
-            }).success(callback);
+            }).success(function (data) {
+              callback(data,i);
+            });
         },
         resultDispatcher : function (drawFormat) {
           switch(drawFormat){

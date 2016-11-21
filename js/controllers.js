@@ -1955,39 +1955,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.maxSize = 20;
-    // $scope.student = [{
-    //     icon: "img/sf-student-profile.png",
-    //     name: "Harshit Shah",
-    //     dep: "45211"
-    // }, {
-    //     icon: "img/sf-student-profile.png",
-    //     name: "Harshit Shah",
-    //     dep: "45211"
-    // }, {
-    //     icon: "img/sf-student-profile.png",
-    //     name: "Harshit Shah",
-    //     dep: "45211"
-    // }, {
-    //     icon: "img/sf-student-profile.png",
-    //     name: "Harshit Shah",
-    //     dep: "45211"
-    // }, {
-    //     icon: "img/sf-student-profile.png",
-    //     name: "Harshit Shah",
-    //     dep: "45211"
-    // }, {
-    //     icon: "img/sf-student-profile.png",
-    //     name: "Harshit Shah",
-    //     dep: "45211"
-    // }, {
-    //     icon: "img/sf-student-profile.png",
-    //     name: "Harshit Shah",
-    //     dep: "45211"
-    // }, {
-    //     icon: "img/sf-student-profile.png",
-    //     name: "Harshit Shah",
-    //     dep: "45211"
-    // }];
+
     NavigationService.countStudent(function(data) {
         $scope.count = data.data;
     });
@@ -2017,9 +1985,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.doSearch();
     };
+    var i=0;
     $scope.doSearch = function() {
-        NavigationService.getSearchDataStudent($scope.searchFilter, function(data) {
-            $scope.getSearchData = data.data;
+        NavigationService.getSearchDataStudent($scope.searchFilter,++i, function(data,ini) {
+            if(i==ini){
+              $scope.getSearchData = data.data;
+            }
         });
     };
 })
