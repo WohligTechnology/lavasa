@@ -6,296 +6,49 @@
 <section class="mt25 pb60">
     <div class="container">
         <div class=" bl-bg">
-            <h4 class="text-center">Due to delay in receiving registration forms from school, the draw will be uploaded by 23rd Nov, 2016</h4>
-            <div class="mt25 hide-it">
+            <h4 class="text-center hide-it">Due to delay in receiving registration forms from school, the draw will be uploaded by 23rd Nov, 2016</h4>
+            <h4 class="text-center" ng-if="!(sports.length > 0)">
+              {{sports === undefined && 'Loading ..' || 'No Sports Found'}}
+            </h4>
+
+            <div class="mt25 " ng-repeat="item in sports" ng-if="sports.length > 0">
                 <div class="text-center">
-                    <h4 class="color-orange font-bold text-up">Team Sports</h4>
+                    <h4 class=" font-bold text-up" ng-class="{'color-orange':item.sporttype == 'Team','color-purple1':item.sporttype == 'Combat','color-blue1':item.sporttype == 'Aquatics','color-yellow1':item.sporttype == 'Racquet','color-green1':item.sporttype == 'Individual','color-red1':item.sporttype == 'Target'}">{{item.sporttype}} Sports</h4>
                 </div>
                 <div class="row ">
-                    <div class="col-md-6">
+                    <div class="col-md-6" ng-repeat="sport in item.name">
                         <div class="dr-acc ">
                             <uib-accordion close-others="oneAtATime">
-                                <div uib-accordion-group class="panel-default" is-open="status.open">
+                                <div uib-accordion-group class="panel-default"  is-open="statuses.open[sport._id]" >
                                     <uib-accordion-heading>
-                                        <div class="text-center">
+                                        <div class="t-align" ng-click="getDraws(sport._id);">
                                             <div class="icn-sp display-inline">
-                                                <img src="img/icon/1_Handball.png" alt="SPort For All" class="w35">
+                                                <img ng-src="{{sport.image | uploadpath:null:130}}" alt="SPort For All" class="w35">
                                             </div>
                                             <div class="display-inline">
-                                                <h4 class="text-up font-bold color-blue">handball</h4>
+                                                <h4 class="text-up font-bold color-blue">{{sport.name}}</h4>
                                             </div>
                                         </div>
                                     </uib-accordion-heading>
-                                    <div class="text-center">
-                                        <ul class="padding0 sp-list list-style">
-                                            <li>
-                                                <a href="">U-10 Boys</a>
+                                    <div class="text-center" ng-if="draws.sports.length > 0">
+                                        <ul class="padding0 sp-list list-style" >
+                                            <li ng-repeat='item in draws.sports'>
+                                                <a ng-click="teleport(item.sport.drawFormat,item.sport._id)"><span ng-if="item.sport.firstcategory"> {{item.sport.firstcategory.name}}  |</span><span ng-if="item.sport.secondcategory"> {{item.sport.secondcategory.name}} |</span>  {{item.sport.gender}} | {{item.sport.agegroup.name}}</a>
                                             </li>
-                                            <li>
-                                                <a href="">U- 10 Girls</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U-12 Boys</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U-12 Girls</a>
-                                            </li>
+
                                         </ul>
+                                    </div>
+                                    <div class="text-center" ng-if="!(draws.sports.length > 0)">
+                                      <span ng-if="draws.sports.length == 0" ng-bind-html="draws.message"></span>
+                                      <span ng-if="draws.sports === undefined">Loading ..</span>
                                     </div>
                                 </div>
                             </uib-accordion>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="dr-acc">
-                            <uib-accordion close-others="oneAtATime">
-                                <div uib-accordion-group class="panel-default" is-open="status.open">
-                                    <uib-accordion-heading>
-                                        <div class="text-center">
-                                            <div class="icn-sp display-inline">
-                                                <img src="img/icon/1_Handball.png" alt="SPort For All" class="w35">
-                                            </div>
-                                            <div class="display-inline">
-                                                <h4 class="text-up font-bold color-blue">handball</h4>
-                                            </div>
-                                        </div>
-                                    </uib-accordion-heading>
-                                    <div class="text-center">
-                                        <ul class="padding0 sp-list list-style">
-                                            <li>
-                                                <a href="">U-10 Boys</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U- 10 Girls</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U-12 Boys</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U-12 Girls</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </uib-accordion>
-                        </div>
-                    </div>
+
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="dr-acc">
-                            <uib-accordion close-others="oneAtATime">
-                                <div uib-accordion-group class="panel-default" is-open="status.open">
-                                    <uib-accordion-heading>
-                                        <div class="text-center">
-                                            <div class="icn-sp display-inline">
-                                                <img src="img/icon/1_Handball.png" alt="SPort For All" class="w35">
-                                            </div>
-                                            <div class="display-inline">
-                                                <h4 class="text-up font-bold color-blue">handball</h4>
-                                            </div>
-                                        </div>
-                                    </uib-accordion-heading>
-                                    <div class="text-center">
-                                        <ul class="padding0 sp-list list-style">
-                                            <li>
-                                                <a href="">U-10 Boys</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U- 10 Girls</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U-12 Boys</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U-12 Girls</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </uib-accordion>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="dr-acc">
-                            <uib-accordion close-others="oneAtATime">
-                                <div uib-accordion-group class="panel-default" is-open="status.open">
-                                    <uib-accordion-heading>
-                                        <div class="text-center">
-                                            <div class="icn-sp display-inline">
-                                                <img src="img/icon/1_Handball.png" alt="SPort For All" class="w35">
-                                            </div>
-                                            <div class="display-inline">
-                                                <h4 class="text-up font-bold color-blue">handball</h4>
-                                            </div>
-                                        </div>
-                                    </uib-accordion-heading>
-                                    <div class="text-center">
-                                        <ul class="padding0 sp-list list-style">
-                                            <li>
-                                                <a href="">U-10 Boys</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U- 10 Girls</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U-12 Boys</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U-12 Girls</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </uib-accordion>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class=" mt25 hide-it">
-                <div class="text-center">
-                    <h4 class="color-green font-bold text-up">racquet Sports</h4>
-                </div>
-                <div class="row ">
-                    <div class="col-md-6">
-                        <div class="dr-acc ">
-                            <uib-accordion close-others="oneAtATime">
-                                <div uib-accordion-group class="panel-default" is-open="status.open">
-                                    <uib-accordion-heading>
-                                        <div class="text-center">
-                                            <div class="icn-sp display-inline">
-                                                <img src="img/icon/1_Handball.png" alt="SPort For All" class="w35">
-                                            </div>
-                                            <div class="display-inline">
-                                                <h4 class="text-up font-bold color-blue">handball</h4>
-                                            </div>
-                                        </div>
-                                    </uib-accordion-heading>
-                                    <div class="text-center">
-                                        <ul class="padding0 sp-list list-style">
-                                            <li>
-                                                <a href="">U-10 Boys</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U- 10 Girls</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U-12 Boys</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U-12 Girls</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </uib-accordion>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="dr-acc">
-                            <uib-accordion close-others="oneAtATime">
-                                <div uib-accordion-group class="panel-default" is-open="status.open">
-                                    <uib-accordion-heading>
-                                        <div class="text-center">
-                                            <div class="icn-sp display-inline">
-                                                <img src="img/icon/1_Handball.png" alt="SPort For All" class="w35">
-                                            </div>
-                                            <div class="display-inline">
-                                                <h4 class="text-up font-bold color-blue">handball</h4>
-                                            </div>
-                                        </div>
-                                    </uib-accordion-heading>
-                                    <div class="text-center">
-                                        <ul class="padding0 sp-list list-style">
-                                            <li>
-                                                <a href="">U-10 Boys</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U- 10 Girls</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U-12 Boys</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U-12 Girls</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </uib-accordion>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="dr-acc">
-                            <uib-accordion close-others="oneAtATime">
-                                <div uib-accordion-group class="panel-default" is-open="status.open">
-                                    <uib-accordion-heading>
-                                        <div class="text-center">
-                                            <div class="icn-sp display-inline">
-                                                <img src="img/icon/1_Handball.png" alt="SPort For All" class="w35">
-                                            </div>
-                                            <div class="display-inline">
-                                                <h4 class="text-up font-bold color-blue">handball</h4>
-                                            </div>
-                                        </div>
-                                    </uib-accordion-heading>
-                                    <div class="text-center">
-                                        <ul class="padding0 sp-list list-style">
-                                            <li>
-                                                <a href="">U-10 Boys</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U- 10 Girls</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U-12 Boys</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U-12 Girls</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </uib-accordion>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="dr-acc">
-                            <uib-accordion close-others="oneAtATime">
-                                <div uib-accordion-group class="panel-default" is-open="status.open">
-                                    <uib-accordion-heading>
-                                        <div class="text-center">
-                                            <div class="icn-sp display-inline">
-                                                <img src="img/icon/1_Handball.png" alt="SPort For All" class="w35">
-                                            </div>
-                                            <div class="display-inline">
-                                                <h4 class="text-up font-bold color-blue">handball</h4>
-                                            </div>
-                                        </div>
-                                    </uib-accordion-heading>
-                                    <div class="text-center">
-                                        <ul class="padding0 sp-list list-style">
-                                            <li>
-                                                <a href="">U-10 Boys</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U- 10 Girls</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U-12 Boys</a>
-                                            </li>
-                                            <li>
-                                                <a href="">U-12 Girls</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </uib-accordion>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>

@@ -230,7 +230,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("about-us");
         $scope.menutitle = NavigationService.makeactive("About-Us");
-          TemplateService.header = "views/header2.html";
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -240,15 +240,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("sponser-partner");
         $scope.menutitle = NavigationService.makeactive("Sponser");
-          TemplateService.header = "views/header2.html";
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
-        $scope.image=[
-          'img/sp1.jpg',
-          'img/sp2.jpg',
-          'img/sp3.jpg',
-          'img/sp4.jpg'
+        $scope.image = [
+            'img/sp1.jpg',
+            'img/sp2.jpg',
+            'img/sp3.jpg',
+            'img/sp4.jpg'
         ]
 
     })
@@ -271,12 +271,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
- $scope.oneAtATime = true;
+        $scope.oneAtATime = true;
         $scope.status = {
-   isCustomHeaderOpen: false,
-   isFirstOpen: true,
-   isFirstDisabled: false
- };
+            isCustomHeaderOpen: false,
+            isFirstOpen: true,
+            isFirstDisabled: false
+        };
 
     })
     .controller('KnockoutQualifyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -284,7 +284,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("knockout-qualify");
         $scope.menutitle = NavigationService.makeactive("Knockout Qualify");
-          TemplateService.header = "views/header2.html";
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -303,7 +303,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("result");
         $scope.menutitle = NavigationService.makeactive("Result");
-          TemplateService.header = "views/header2.html";
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.dropdowns = {};
@@ -365,9 +365,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.getOneSportForResult($scope.filter, function(response) {
                 $scope.doesNotHaveSport = response.value;
                 if (response.value) {
-                  $state.go(NavigationService.resultDispatcher(response.data.drawFormat), {
-                      id: response.data._id
-                  });
+                    $state.go(NavigationService.resultDispatcher(response.data.drawFormat), {
+                        id: response.data._id
+                    });
                 }
             });
         };
@@ -378,7 +378,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("school-ranking");
         $scope.menutitle = NavigationService.makeactive("School Ranking");
-          TemplateService.header = "views/header2.html";
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.filter = {};
@@ -402,7 +402,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("blog");
         $scope.menutitle = NavigationService.makeactive("Blog");
-          TemplateService.header = "views/header2.html";
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -441,9 +441,59 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("draw-schedule");
         $scope.menutitle = NavigationService.makeactive("Draw Schedule");
-          TemplateService.header = "views/header2.html";
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+        $scope.statuses = {};
+        $scope.statuses.open = {};
+        $scope.draws = {};
+        $scope.teleport = function (drawFormat,sportid) {
+          $state.go(NavigationService.resultDispatcher(drawFormat),{
+            id:sportid
+          });
+        };
+        $scope.getDraws = function(sportid) {
+            $scope.draws = undefined;
+            _.each($scope.statuses.open, function(value, key) {
+                $scope.statuses.open[key] = false;
+            });
+            NavigationService.getDrawUpdatedSports({
+                sport: sportid
+            }, function(response) {
+              $scope.draws = {};
+                if (response.value) {
+
+                    $scope.draws.sports = response.data;
+                    console.log($scope.draws.sports);
+                } else {
+                    $scope.draws.sports = [];
+                    $scope.draws.message = response.data.yearBeforeContent;
+                }
+            });
+        };
+        $scope.getSportList = function() {
+            $scope.sports = undefined;
+            NavigationService.getAllSportList(function(response) {
+                if (response.value) {
+                    // if ($scope.filter.year == '2015') {
+                    //     _.remove(response.data, function(key) {
+                    //         return !_.includes($scope.sportName, key.name);
+                    //     });
+                    // }
+                    $scope.sports = _.chain(response.data)
+                        .groupBy("sporttype")
+                        .toPairs()
+                        .map(function(currentItem) {
+                            return _.zipObject(["sporttype", "name"], currentItem);
+                        })
+                        .value();
+                    console.log($scope.sports);
+                }else{
+                  $scope.sports = [];
+                }
+            });
+        };
+        $scope.getSportList();
 
     })
     .controller('BlogDetailCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -451,7 +501,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("blog-detail");
         $scope.menutitle = NavigationService.makeactive("Blog Detail");
-          TemplateService.header = "views/header2.html";
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -461,7 +511,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("swiss");
         $scope.menutitle = NavigationService.makeactive("Swiss");
-          TemplateService.header = "views/header2.html";
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -471,7 +521,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("media-gallery");
         $scope.menutitle = NavigationService.makeactive("Media Gallery");
-          TemplateService.header = "views/header2.html";
+        TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.flags = {};
@@ -897,14 +947,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     }
 })
 
-.controller('StudentBioCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$state) {
+.controller('StudentBioCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
     //Used to name the .html file
 
     console.log("Testing Consoles");
 
     $scope.template = TemplateService.changecontent("student-bio");
     $scope.menutitle = NavigationService.makeactive("Student Bio");
-      TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.studentProfile = {};
@@ -916,20 +966,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.studentMedal = {};
     var constraints = {};
     $scope.getSport = function(sport) {
-      console.log(sport);
+        console.log(sport);
 
-      constraints.agegroup = sport.agegroup.name;
-      if(sport.firstcategory){
-        constraints.category = sport.firstcategory.name;
-      }
-      constraints.sport = sport.sportslist._id;
-      constraints.year = sport.year;
+        constraints.agegroup = sport.agegroup.name;
+        if (sport.firstcategory) {
+            constraints.category = sport.firstcategory.name;
+        }
+        constraints.sport = sport.sportslist._id;
+        constraints.year = sport.year;
         NavigationService.getOneSportForResult(constraints, function(response) {
             $scope.doesNotHaveSport = response.value;
             if (response.value) {
-                    $state.go(NavigationService.resultDispatcher(response.data.drawFormat), {
-                        id: response.data._id
-                    });
+                $state.go(NavigationService.resultDispatcher(response.data.drawFormat), {
+                    id: response.data._id
+                });
             }
         });
     };
@@ -1323,7 +1373,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.template = TemplateService.changecontent("school-bio");
     $scope.menutitle = NavigationService.makeactive("School Bio");
-      TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.school = {};
@@ -1496,7 +1546,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         _.each($scope.statuses.open, function(value, key) {
             $scope.statuses.open[key] = false;
         });
-        // $scope.statuses.open[sportid] = $scope.statuses.open[sportid]?false:true;
         constraints.year = $scope.filter.year;
         $scope.statuses.doubleBronze = false;
         $scope.winners = undefined;
@@ -1573,18 +1622,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.submitSearch();
     };
-    var i=0;
+    var i = 0;
     $scope.submitSearch = function() {
         if ($scope.search.active) {
-            NavigationService.schoolSearch($scope.filter,++i, function(data,ini) {
+            NavigationService.schoolSearch($scope.filter, ++i, function(data, ini) {
                 console.log(data);
-                if(i==ini){
-                  if (data.value) {
-                      $scope.schools = data.data.data;
-                      console.log("Schools data", $scope.schools);
-                      $scope.pagination.totalpages = data.data.totalpages;
-                      $scope.pagination.total = data.data.total;
-                  }
+                if (i == ini) {
+                    if (data.value) {
+                        $scope.schools = data.data.data;
+                        console.log("Schools data", $scope.schools);
+                        $scope.pagination.totalpages = data.data.totalpages;
+                        $scope.pagination.total = data.data.total;
+                    }
                 }
             });
         } else {
@@ -1645,7 +1694,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("school-profile");
     $scope.menutitle = NavigationService.makeactive("School Profile");
-      TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.callObject = {};
@@ -1937,7 +1986,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("students");
     $scope.menutitle = NavigationService.makeactive("Students");
-      TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.inputs = {};
@@ -1976,11 +2025,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
         $scope.doSearch();
     };
-    var i=0;
+    var i = 0;
     $scope.doSearch = function() {
-        NavigationService.getSearchDataStudent($scope.searchFilter,++i, function(data,ini) {
-            if(i==ini){
-              $scope.getSearchData = data.data;
+        NavigationService.getSearchDataStudent($scope.searchFilter, ++i, function(data, ini) {
+            if (i == ini) {
+                $scope.getSearchData = data.data;
             }
         });
     };
@@ -1993,7 +2042,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     $scope.template = TemplateService.changecontent("student-profile");
     $scope.menutitle = NavigationService.makeactive("Student Profile");
-      TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.studentProfile = {};
@@ -2362,11 +2411,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         var i = 0;
         $scope.doSearch = function() {
-            NavigationService.getSearchDataTeam($scope.searchFilter,++i, function(data,ini) {
-              if(i==ini){
-                $scope.getSearchData = data.data;
+            NavigationService.getSearchDataTeam($scope.searchFilter, ++i, function(data, ini) {
+                if (i == ini) {
+                    $scope.getSearchData = data.data;
 
-              }
+                }
             });
         };
 

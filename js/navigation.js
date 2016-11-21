@@ -92,6 +92,15 @@ var navigationservice = angular.module('navigationservice', [])
                 data: input
             }).success(callback);
         },
+        getDrawUpdatedSports: function(request, callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'StudentStats/getDrawUpdatedSports',
+                method: 'POST',
+                withCredentials: true,
+                data: request
+            }).success(callback);
+        },
         getSearchDataStudent: function(input,i, callback) {
             // console.log('form data: ', formData);
             $http({
