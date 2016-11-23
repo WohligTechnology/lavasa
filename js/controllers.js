@@ -414,7 +414,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('AfterFormCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
+    .controller('AfterFormCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter,$state) {
 
         $scope.template = TemplateService.changecontent("after-form");
         $scope.template.header = "";
@@ -423,19 +423,59 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.student = {};
+        $scope.variables = {};
+        $scope.variables.verified = false;
         if ($stateParams.id) {
+            var constraints = {};
+            constraints.year = "2016";
+            constraints.student = $stateParams.id;
             NavigationService.getStudentProfile($stateParams.id, function(response) {
                 if (response.value) {
                     $scope.student = response.data;
                     $scope.student.dob = new Date(response.data.dob);
                     if ($scope.student.profilePic) {
-                        $scope.student.profilePic = $filter('uploadpath')($scope.student.profilePic);
+                        $scope.student.dp = $filter('uploadpath')($scope.student.profilePic);
                     }
+                    $scope.student.sport = "";
+                    $scope.getStudentSport(constraints);
+
                 } else {
                     $scope.student = {};
                 }
             });
         }
+
+        $scope.getStudentSport = function(constraints) {
+            var i = 0;
+            $scope.studentSport = undefined;
+            NavigationService.getStudentSport(constraints, function(response) {
+                if (response.value) {
+                    _.each(response.data, function(key) {
+                        $scope.student.sport += key.name + ", ";
+                    });
+                } else {
+                    $scope.studentSport = [];
+                    console.log("Error while fetching Student Sports.");
+                }
+            });
+        };
+        $scope.editStudent = function () {
+          NavigationService.editStudent($scope.student,function (response) {
+            if(response.value){
+              _.assignIn($scope.student,response.data);
+              $scope.student.dob = new Date(response.data.dob);
+              if ($scope.student.profilePic) {
+                  $scope.student.dp = $filter('uploadpath')($scope.student.profilePic);
+              }
+              $timeout(function () {
+                $state.go('form-submit');
+              },2000);
+            }else{
+
+            }
+          });
+        };
+
     })
     .controller('ResultCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
 
@@ -3198,7 +3238,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "img": "img/footer/p4.jpg",
             "href": "",
             "game": "Energy Drinks Partner"
-        },{
+        }, {
             "img": "img/footer/n3.jpg",
             "href": "",
             "game": "Support Partner"

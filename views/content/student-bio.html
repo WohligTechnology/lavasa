@@ -8,7 +8,7 @@
                         <div class="sf-school-logo sf-relative text-center border-r pointer" ui-sref="student-profile({id:studentProfile._id})">
                             <img ng-src="{{ studentProfile.profilePic | uploadpath:200:200:'cover' }}" alt="" class="img-border img-responsive">
                             <div class="sigh-second sf-absulate l6">
-                                <!-- <img src="img/sf-right-org.png" alt="" class="w30-main"> -->
+                                <img ng-if="studentProfile.status" src="img/sf-right-org.png" alt="" class="w30-main">
                             </div>
                         </div>
                     </div>
