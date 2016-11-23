@@ -4,20 +4,20 @@
             <div class="row">
                 <div class="col-md-12">
                     <p class="color-grey2 text-up font-semi text-c">sponsors</p>
-                    <div class="sponser-list sf-list">
-                        <ul class="padding0 text-c">
-                            <li class="text-center">
-                                <a href="http://www.dypatil.edu/sportsacademy/" target="_blank">
-                                    <img src="img/footer/p1.jpg" alt="">
+                    <div class="sponser-list sf-list" style="width:100%;overflow:hidden;">
+                        <ul class="padding0 text-c" mycircle style="width:12000px;">
+                            <li class="text-center" ng-repeat="slid in games track by $index">
+                                <a href="{{slid.href}}" target="_blank">
+                                    <img ng-src="{{slid.img}}" alt="">
                                 </a>
-                                <p class="color-grey2 f12 font-bold mt10">VENUE PARTNER</p>
+                                <p class="color-grey2 f12 font-bold mt10 text-center">{{slid.game}}</p>
                             </li>
                             <!-- <li>
       <a href="">
         <img src="img/s2.png" alt="">
       </a>
             </li> -->
-                            <li class="text-center">
+                            <!-- <li class="text-center">
                                 <a href="http://greymind.in/website/" target="_blank">
                                     <img src="img/footer/p2.jpg" alt="">
                                 </a>
@@ -40,7 +40,7 @@
                                     <img src="img/footer/p4.jpg" alt="">
                                 </a>
                                 <p class="color-grey2 f12 font-bold mt10">ENERGY DRINK PARTNER</p>
-                            </li>
+                            </li> -->
                             <!-- <li>
       <a href="">
         <img src="img/s7.png" alt="">
@@ -59,53 +59,15 @@
             <div class="row">
                 <div class="col-md-12">
                     <p class="color-grey2 text-up font-semi text-c">partners</p>
-                    <div class="sponser-list sf-list">
-                        <ul class="padding0 text-c">
-                            <li class="text-center">
-                                <a href="http://www.dypatil.edu/sportsacademy/" target="_blank">
-                                    <img src="img/footer/p1.jpg" alt="">
-                                </a>
-                                <p class="color-grey2 f12 font-bold mt10">VENUE PARTNER</p>
+                    <div class="sponser-list sf-list" style="width:100%;overflow:hidden;">
+                        <ul class="padding0 text-c"  mycircle style="width:12000px;">
+                            <li class="text-center" ng-repeat="slid in games track by $index">
+                              <a href="{{slid.href}}" target="_blank">
+                                  <img ng-src="{{slid.img}}" alt="">
+                              </a>
+                              <p class="color-grey2 f12 font-bold mt10 text-center">{{slid.game}}</p>
                             </li>
-                            <!-- <li>
-      <a href="">
-        <img src="img/s2.png" alt="">
-      </a>
-            </li> -->
-                            <li class="text-center">
-                                <a href="http://greymind.in/website/" target="_blank">
-                                    <img src="img/footer/p2.jpg" alt="">
-                                </a>
-                                <p class="color-grey2 f12 font-bold mt10">EVENT PARTNER</p>
-                            </li>
-                            <li class="text-center">
-                                <a href="">
-                                    <img src="img/footer/p3.jpg" alt="">
-                                </a>
-                                <p class="color-grey2 f12 font-bold mt10">VIDEOGRAPHY PARTNER</p>
-                            </li>
-                            <li class="text-center">
-                                <a href="http://www.ssbm.co.in/" target="_blank">
-                                    <img src="img/footer/p5.jpg" alt="">
-                                </a>
-                                <p class="color-grey2 f12 font-bold mt10">HOSPITAL PARTER</p>
-                            </li>
-                            <li class="text-center">
-                                <a href="http://www.enerzal.com/" target="_blank">
-                                    <img src="img/footer/p4.jpg" alt="">
-                                </a>
-                                <p class="color-grey2 f12 font-bold mt10">ENERGY DRINK PARTNER</p>
-                            </li>
-                            <!-- <li>
-      <a href="">
-        <img src="img/s7.png" alt="">
-      </a>
-            </li>
-            <li>
-      <a href="">
-        <img src="img/s8.png" alt="">
-      </a>
-            </li> -->
+
                         </ul>
                     </div>
 

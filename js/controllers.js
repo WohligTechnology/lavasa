@@ -3052,7 +3052,30 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
-
+    $scope.games = // JavaScript Document
+        [{
+                "img": "img/footer/p1.jpg",
+                "href": "http://www.dypatil.edu/sportsacademy/",
+                "game": "VENUE PARTNER"
+            }, {
+                "img": "img/footer/p2.jpg",
+                "href": "http://greymind.in/website/",
+                "game": "EVENT PARTNER"
+            }, {
+                "img": "img/footer/p3.jpg",
+                "href": "",
+                "game": "VIDEOGRAPHY PARTNER"
+            }, {
+                "img": "img/footer/p5.jpg",
+                "href": "http://www.ssbm.co.in/",
+                "game": "HOSPITAL PARTER"
+            },
+            {
+                "img": "img/footer/p4.jpg",
+                "href": "http://www.enerzal.com/",
+                "game": "ENERGY DRINK PARTNER"
+            }
+        ];
 
 })
 

@@ -23,7 +23,7 @@
                                 <div class="form-group" ng-class="{'form-invalid': formName.school.$invalid && formName.school.$touched}">
                                     <label for="inputPassword3" class="col-sm-2 control-label color-blue">SCHOOL:</label>
                                     <div class="col-sm-10">
-                                        <ui-select ng-model="ctrl.person.selected" >
+                                        <ui-select ng-model="ctrl.person.selected" class="last-ui">
                                             <ui-select-match placeholder="School">{{$select.selected.name}}</ui-select-match>
                                             <ui-select-choices repeat="item in students | filter: $select.search" refresh="getPlayers($select.search)">
                                                 <div ng-bind-html="item.name | highlight: $select.search"></div>
@@ -40,14 +40,14 @@
                                 <div class="form-group" ng-class="{'form-invalid': formName.name.$invalid && formName.name.$touched}">
                                     <label for="inputPassword3" class="col-sm-2 control-label color-blue">NAME/SFAID:</label>
                                     <div class="col-sm-10">
-                                        <ui-select ng-model="verify.student" title="Select Student" >
+                                        <ui-select ng-model="verify.student" title="Select Student" class="last-ui">
                                             <ui-select-match placeholder="Name"><img class="pull-left" style="width:35px;" ng-src="{{$select.selected.profilePic | uploadpath}}" alt="">
                                     <div ng-bind-html="$select.selected.name"></div>
                                   <small>
                                       SFA-ID:<span ng-bind-html="$select.selected.sfaid"></span>
                                   </small></ui-select-match>
                                             <ui-select-choices refresh-delay="0" refresh="getPlayer($select.search)" repeat="item in students | filter: $select.search">
-                                                          <img class="pull-left" style="width:50px;" ng-src="{{item.profilePic | uploadpath}}" alt="">
+                                                          <img class="pull-left img-round" style="width:50px;" ng-src="{{item.profilePic | uploadpath}}" alt="">
 
                                                   <div ng-bind-html="item.name | highlight: $select.search"></div>
                                                 <small>
