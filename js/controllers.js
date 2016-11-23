@@ -251,6 +251,75 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             'img/sp4.jpg'
         ]
 
+        $scope.teams=[{
+          "img":"img/sports/football.jpg",
+          "name":"football"
+        },{
+          "img":"img/sports/Handball.jpg",
+          "name":"HANDBALL"
+        },{
+          "img":"img/sports/Basketball.jpg",
+          "name":"BASKETBALL"
+        },{
+          "img":"img/sports/Volleyball.jpg",
+          "name":"VOLLEYBALL"
+        },{
+          "img":"img/sports/Throwball.jpg",
+          "name":"THROWBALL"
+        },{
+          "img":"img/sports/Hockey.jpg",
+          "name":"HOCKEY"
+        },{
+          "img":"img/sports/Khokho.jpg",
+          "name":"KHO-KHO"
+        },{
+          "img":"img/sports/Kabaddi.jpg",
+          "name":"KABADDI"
+        }]
+
+        $scope.racquet=[{
+          "img":"img/sports/Badminton.jpg",
+          "name":"BADMINTON"
+        },{
+          "img":"img/sports/Tennis.jpg",
+          "name":"TENNIS"
+        },{
+          "img":"img/sports/Table-tennis.jpg",
+          "name":"TABLE TENNIS"
+        },{
+          "img":"img/sports/Squash.jpg",
+          "name":"SQUASH"
+        }]
+        $scope.combat=[{
+          "img":"img/sports/Judo.jpg",
+          "name":"JUDO"
+        },{
+          "img":"img/sports/Tavkwondo.jpg",
+          "name":"TAEKWONDO"
+        },{
+          "img":"img/sports/Boxing.jpg",
+          "name":"BOXING"
+        },{
+          "img":"img/sports/Fencing.jpg",
+          "name":"FENCING"
+        },{
+          "img":"img/sports/Karate.jpg",
+          "name":"KARATE"
+        },{
+          "img":"img/sports/MMA.jpg",
+          "name":"SPORT MIXED MARTIAL ARTS"
+        }]
+        $scope.indi=[{
+          "img":"img/sports/Carrom.jpg",
+          "name":"CARROM"
+        },{
+          "img":"img/sports/Chess.jpg",
+          "name":"CHESS"
+        },{
+          "img":"img/sports/Athletics.jpg",
+          "name":"ATHLETICS"
+        }]
+
     })
     .controller('FormSubmitCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
         //Used to name the .html file
@@ -3103,11 +3172,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.games = // JavaScript Document
         [{
             "img": "img/footer/n1.jpg",
-            "href": "http://www.dypatil.edu/sportsacademy/",
+            "href": "",
             "game": "Fantastico Partner"
         }, {
             "img": "img/footer/n2.jpg",
-            "href": "http://greymind.in/website/",
+            "href": "",
             "game": "Smartphone Partner"
         }, {
             "img": "img/footer/p4.jpg",
@@ -3115,15 +3184,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "game": "Energy Drinks Partner"
         }, {
             "img": "img/footer/n3.jpg",
-            "href": "http://www.ssbm.co.in/",
+            "href": "",
             "game": "Support Partner"
         }, {
             "img": "img/footer/n1.jpg",
-            "href": "http://www.dypatil.edu/sportsacademy/",
+            "href": "",
             "game": "Fantastico Partner"
         }, {
             "img": "img/footer/n2.jpg",
-            "href": "http://greymind.in/website/",
+            "href": "",
             "game": "Smartphone Partner"
         }, {
             "img": "img/footer/p4.jpg",
@@ -3131,17 +3200,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "game": "Energy Drinks Partner"
         },{
             "img": "img/footer/n3.jpg",
-            "href": "http://www.ssbm.co.in/",
+            "href": "",
             "game": "Support Partner"
         }];
     $scope.partner = // JavaScript Document
         [{
             "img": "img/footer/p1.jpg",
-            "href": "http://www.dypatil.edu/sportsacademy/",
+            "href": "",
             "game": "Venue Partner"
         }, {
             "img": "img/footer/p6.jpg",
-            "href": "http://greymind.in/website/",
+            "href": "",
             "game": "Hospital Partner"
         }, {
             "img": "img/footer/na1.jpg",
@@ -3149,15 +3218,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "game": "Sports Equipment Partner"
         }, {
             "img": "img/footer/na2.jpg",
-            "href": "http://www.ssbm.co.in/",
+            "href": "",
             "game": "Apparel Partner"
         }, {
             "img": "img/footer/na3.jpg",
-            "href": "http://www.dypatil.edu/sportsacademy/",
+            "href": "",
             "game": "Sports Surface Partner"
         }, {
-            "img": "img/footer/n2.jpg",
-            "href": "http://greymind.in/website/",
+            "img": "img/footer/na6.jpg",
+            "href": "",
             "game": "Sports Mentorship Partner"
         }, {
             "img": "img/footer/na4.jpg",
