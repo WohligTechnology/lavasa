@@ -345,7 +345,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('AfterFormCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
+    .controller('AfterFormCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams,$filter) {
 
         $scope.template = TemplateService.changecontent("after-form");
         $scope.template.header = "";
@@ -360,7 +360,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
               $scope.student = response.data;
               $scope.student.dob = new Date(response.data.dob);
               if($scope.student.profilePic){
-                $scope.student.profilePic = $filter('uploadpath')($scope.profilePic)
+                $scope.student.profilePic = $filter('uploadpath')($scope.student.profilePic);
               }
             }else{
               $scope.student = {};
