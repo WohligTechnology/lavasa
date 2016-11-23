@@ -252,7 +252,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         ]
 
     })
-    .controller('FormSubmitCtrl', function($scope, TemplateService, NavigationService, $timeout,$state) {
+    .controller('FormSubmitCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("form-submit");
@@ -262,7 +262,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.verify = {};
-        var i =0;
+        var i = 0;
 
         $scope.getPlayer = function(search) {
             $scope.students = [];
@@ -275,16 +275,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 constraints.search = undefined;
                 constraints.sfaid = parseInt(search);
             }
-            if($scope.verify.school){
-              constraints.school = $scope.verify.school._id;
+            if ($scope.verify.school) {
+                constraints.school = $scope.verify.school._id;
             }
-            NavigationService.forFormSearch(constraints,++i, function(data,ini) {
-                if(i== ini){
-                  if (data && data.value !== false) {
-                      $scope.students = data.data;
-                  } else {
-                      $scope.students = [];
-                  }
+            NavigationService.forFormSearch(constraints, ++i, function(data, ini) {
+                if (i == ini) {
+                    if (data && data.value !== false) {
+                        $scope.students = data.data;
+                    } else {
+                        $scope.students = [];
+                    }
                 }
             });
         };
@@ -299,23 +299,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 constraints.search = undefined;
                 constraints.sfaid = parseInt(search);
             }
-            NavigationService.forFormSearchSchool(constraints,++i, function(data,ini) {
-                if(i== ini){
-                  if (data && data.value !== false) {
-                      $scope.schools = data.data;
-                      $scope.getPlayer("");
-                  } else {
-                      $scope.schools = [];
-                  }
+            NavigationService.forFormSearchSchool(constraints, ++i, function(data, ini) {
+                if (i == ini) {
+                    if (data && data.value !== false) {
+                        $scope.schools = data.data;
+                        $scope.getPlayer("");
+                    } else {
+                        $scope.schools = [];
+                    }
                 }
             });
         };
-        $scope.toVerify = function () {
-          // NavigationService.
-          console.log($scope.verify);
-          $state.go("after-form",{
-            id:$scope.verify.student._id
-          });
+        $scope.toVerify = function() {
+            // NavigationService.
+            console.log($scope.verify);
+            $state.go("after-form", {
+                id: $scope.verify.student._id
+            });
         };
 
     })
@@ -345,7 +345,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('AfterFormCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams,$filter) {
+    .controller('AfterFormCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter) {
 
         $scope.template = TemplateService.changecontent("after-form");
         $scope.template.header = "";
@@ -354,18 +354,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.student = {};
-        if($stateParams.id){
-          NavigationService.getStudentProfile($stateParams.id,function (response) {
-            if(response.value){
-              $scope.student = response.data;
-              $scope.student.dob = new Date(response.data.dob);
-              if($scope.student.profilePic){
-                $scope.student.profilePic = $filter('uploadpath')($scope.student.profilePic);
-              }
-            }else{
-              $scope.student = {};
-            }
-          });
+        if ($stateParams.id) {
+            NavigationService.getStudentProfile($stateParams.id, function(response) {
+                if (response.value) {
+                    $scope.student = response.data;
+                    $scope.student.dob = new Date(response.data.dob);
+                    if ($scope.student.profilePic) {
+                        $scope.student.profilePic = $filter('uploadpath')($scope.student.profilePic);
+                    }
+                } else {
+                    $scope.student = {};
+                }
+            });
         }
     })
     .controller('ResultCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
@@ -516,10 +516,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.statuses = {};
         $scope.statuses.open = {};
         $scope.draws = {};
-        $scope.teleport = function (drawFormat,sportid) {
-          $state.go(NavigationService.resultDispatcher(drawFormat),{
-            id:sportid
-          });
+        $scope.teleport = function(drawFormat, sportid) {
+            $state.go(NavigationService.resultDispatcher(drawFormat), {
+                id: sportid
+            });
         };
         $scope.getDraws = function(sportid) {
             $scope.draws = undefined;
@@ -529,7 +529,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             NavigationService.getDrawUpdatedSports({
                 sport: sportid
             }, function(response) {
-              $scope.draws = {};
+                $scope.draws = {};
                 if (response.value) {
 
                     $scope.draws.sports = response.data;
@@ -557,8 +557,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         })
                         .value();
                     console.log($scope.sports);
-                }else{
-                  $scope.sports = [];
+                } else {
+                    $scope.sports = [];
                 }
             });
         };
@@ -3102,28 +3102,76 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     });
     $scope.games = // JavaScript Document
         [{
-                "img": "img/footer/p1.jpg",
-                "href": "http://www.dypatil.edu/sportsacademy/",
-                "game": "VENUE PARTNER"
-            }, {
-                "img": "img/footer/p2.jpg",
-                "href": "http://greymind.in/website/",
-                "game": "EVENT PARTNER"
-            }, {
-                "img": "img/footer/p3.jpg",
-                "href": "",
-                "game": "VIDEOGRAPHY PARTNER"
-            }, {
-                "img": "img/footer/p5.jpg",
-                "href": "http://www.ssbm.co.in/",
-                "game": "HOSPITAL PARTER"
-            },
-            {
-                "img": "img/footer/p4.jpg",
-                "href": "http://www.enerzal.com/",
-                "game": "ENERGY DRINK PARTNER"
-            }
-        ];
+            "img": "img/footer/n1.jpg",
+            "href": "http://www.dypatil.edu/sportsacademy/",
+            "game": "Fantastico Partner"
+        }, {
+            "img": "img/footer/n2.jpg",
+            "href": "http://greymind.in/website/",
+            "game": "Smartphone Partner"
+        }, {
+            "img": "img/footer/p4.jpg",
+            "href": "",
+            "game": "Energy Drinks Partner"
+        }, {
+            "img": "img/footer/n3.jpg",
+            "href": "http://www.ssbm.co.in/",
+            "game": "Support Partner"
+        }, {
+            "img": "img/footer/n1.jpg",
+            "href": "http://www.dypatil.edu/sportsacademy/",
+            "game": "Fantastico Partner"
+        }, {
+            "img": "img/footer/n2.jpg",
+            "href": "http://greymind.in/website/",
+            "game": "Smartphone Partner"
+        }, {
+            "img": "img/footer/p4.jpg",
+            "href": "",
+            "game": "Energy Drinks Partner"
+        },{
+            "img": "img/footer/n3.jpg",
+            "href": "http://www.ssbm.co.in/",
+            "game": "Support Partner"
+        }];
+    $scope.partner = // JavaScript Document
+        [{
+            "img": "img/footer/p1.jpg",
+            "href": "http://www.dypatil.edu/sportsacademy/",
+            "game": "Venue Partner"
+        }, {
+            "img": "img/footer/p6.jpg",
+            "href": "http://greymind.in/website/",
+            "game": "Hospital Partner"
+        }, {
+            "img": "img/footer/na1.jpg",
+            "href": "",
+            "game": "Sports Equipment Partner"
+        }, {
+            "img": "img/footer/na2.jpg",
+            "href": "http://www.ssbm.co.in/",
+            "game": "Apparel Partner"
+        }, {
+            "img": "img/footer/na3.jpg",
+            "href": "http://www.dypatil.edu/sportsacademy/",
+            "game": "Sports Surface Partner"
+        }, {
+            "img": "img/footer/n2.jpg",
+            "href": "http://greymind.in/website/",
+            "game": "Sports Mentorship Partner"
+        }, {
+            "img": "img/footer/na4.jpg",
+            "href": "",
+            "game": "Shooting Range Partner"
+        }, {
+            "img": "img/footer/p5.jpg",
+            "href": "",
+            "game": "Medical Partner"
+        }, {
+            "img": "img/footer/na5.jpg",
+            "href": "",
+            "game": "Event Partner "
+        }];
 
 })
 
