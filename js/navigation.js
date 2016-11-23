@@ -253,13 +253,25 @@ var navigationservice = angular.module('navigationservice', [])
                 data: request
             }).success(callback);
         },
-        forFormSearch: function(request, callback) {
+        forFormSearch: function(request,i, callback) {
             $http({
                 url: adminurl + 'student/forFormSearch',
                 method: 'POST',
                 withCredentials: true,
                 data: request
-            }).success(callback);
+            }).success(function (data) {
+              callback(data,i);
+            });
+        },
+        forFormSearchSchool: function(request,i, callback) {
+            $http({
+                url: adminurl + 'school/getLimitedSchool',
+                method: 'POST',
+                withCredentials: true,
+                data: request
+            }).success(function (data) {
+              callback(data,i);
+            });
         },
         getSchoolMedalCount: function(request, callback) {
             $http({

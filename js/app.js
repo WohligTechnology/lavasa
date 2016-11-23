@@ -70,7 +70,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     controller: 'FormSubmitCtrl'
 })
 .state('after-form', {
-    url: "/after-form",
+    url: "/after-form/:id",
     templateUrl: "views/template.html",
     controller: 'AfterFormCtrl'
 })

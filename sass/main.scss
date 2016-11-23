@@ -162,7 +162,9 @@ a {
         }
     }
 }
-
+.not-allowed{
+  cursor: not-allowed !important;
+}
 .sf-relative {
     position: relative;
 }

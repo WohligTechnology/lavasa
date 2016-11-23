@@ -252,7 +252,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         ]
 
     })
-    .controller('FormSubmitCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    .controller('FormSubmitCtrl', function($scope, TemplateService, NavigationService, $timeout,$state) {
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("form-submit");
@@ -262,6 +262,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.verify = {};
+        var i =0;
+
         $scope.getPlayer = function(search) {
             $scope.students = [];
             var constraints = {};
@@ -273,14 +275,47 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 constraints.search = undefined;
                 constraints.sfaid = parseInt(search);
             }
-
-            NavigationService.forFormSearch(constraints, function(data) {
-                if (data && data.value !== false) {
-                    $scope.students = data.data;
-                } else {
-                    $scope.students = [];
+            if($scope.verify.school){
+              constraints.school = $scope.verify.school._id;
+            }
+            NavigationService.forFormSearch(constraints,++i, function(data,ini) {
+                if(i== ini){
+                  if (data && data.value !== false) {
+                      $scope.students = data.data;
+                  } else {
+                      $scope.students = [];
+                  }
                 }
             });
+        };
+        $scope.getSchool = function(search) {
+            $scope.schools = [];
+            var constraints = {};
+            constraints.search = search;
+            if (isNaN(search) || search === null || search === undefined || search === "") {
+                constraints.search = search;
+                constraints.sfaid = undefined;
+            } else {
+                constraints.search = undefined;
+                constraints.sfaid = parseInt(search);
+            }
+            NavigationService.forFormSearchSchool(constraints,++i, function(data,ini) {
+                if(i== ini){
+                  if (data && data.value !== false) {
+                      $scope.schools = data.data;
+                      $scope.getPlayer("");
+                  } else {
+                      $scope.schools = [];
+                  }
+                }
+            });
+        };
+        $scope.toVerify = function () {
+          // NavigationService.
+          console.log($scope.verify);
+          $state.go("after-form",{
+            id:$scope.verify.student._id
+          });
         };
 
     })
@@ -310,7 +345,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('AfterFormCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    .controller('AfterFormCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
 
         $scope.template = TemplateService.changecontent("after-form");
         $scope.template.header = "";
@@ -318,7 +353,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("After Form");
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
-
+        $scope.student = {};
+        if($stateParams.id){
+          NavigationService.getStudentProfile($stateParams.id,function (response) {
+            if(response.value){
+              $scope.student = response.data;
+              $scope.student.dob = new Date(response.data.dob);
+              if($scope.student.profilePic){
+                $scope.student.profilePic = $filter('uploadpath')($scope.profilePic)
+              }
+            }else{
+              $scope.student = {};
+            }
+          });
+        }
     })
     .controller('ResultCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
 

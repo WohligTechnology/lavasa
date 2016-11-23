@@ -12,7 +12,7 @@
                                 <div class="form-group" ng-class="{'form-invalid': formName.sfaid.$invalid && formName.sfaid.$touched}">
                                     <label for="inputEmail3" class="col-sm-2 control-label color-blue">SFA ID:</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputEmail3" placeholder="SFA ID" name="sfaid">
+                                        <input type="text" ng-model="student.sfaid" class="form-control" id="inputEmail3" placeholder="SFA ID" name="sfaid" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -21,7 +21,7 @@
                                 <div class="form-group" ng-class="{'form-invalid': formName.school.$invalid && formName.school.$touched}">
                                     <label for="inputPassword3" class="col-sm-2 control-label color-blue">SCHOOL:</label>
                                     <div class="col-sm-10">
-                                  <input type="text" class="form-control" id="inputEmail3" placeholder="School" name="school">
+                                  <input type="text" ng-model="student.school.name" class="form-control" id="inputEmail3" placeholder="School" name="school" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -29,7 +29,7 @@
                                 <div class="form-group" ng-class="{'form-invalid': formName.name.$invalid && formName.name.$touched}">
                                     <label for="inputPassword3" class="col-sm-2 control-label color-blue">NAME:</label>
                                     <div class="col-sm-10">
-  <input type="text" class="form-control" id="inputEmail3" placeholder="Name" name="Name">
+  <input type="text" ng-model="student.name" class="form-control" id="inputEmail3" placeholder="Name" name="Name">
                                     </div>
                                 </div>
                             </div>
@@ -37,7 +37,7 @@
                                 <div class="form-group" ng-class="{'form-invalid': formName.name.$invalid && formName.name.$touched}">
                                     <label for="inputPassword3" class="col-sm-2 control-label color-blue">DOB:</label>
                                     <div class="col-sm-10">
-  <input type="date" class="form-control" id="inputEmail3" placeholder="DOB" name="DOB">
+  <input type="date" ng-model="student.dob" class="form-control" id="inputEmail3" placeholder="DOB" name="DOB">
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                                 <div class="form-group" ng-class="{'form-invalid': formName.name.$invalid && formName.name.$touched}">
                                     <label for="inputPassword3" class="col-sm-2 control-label color-blue">AGE GROUP:</label>
                                     <div class="col-sm-10">
-  <input type="text" class="form-control" id="inputEmail3" placeholder="Age Group" name="agegroup">
+  <input type="text" ng-model="student.sfaid" class="form-control" id="inputEmail3" placeholder="Age Group" name="agegroup">
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                                 <div class="form-group" ng-class="{'form-invalid': formName.name.$invalid && formName.name.$touched}">
                                     <label for="inputPassword3" class="col-sm-2 control-label color-blue">SPORT:</label>
                                     <div class="col-sm-10">
-  <input type="text" class="form-control" id="inputEmail3" placeholder="Sport" name="sport">
+  <input type="text" ng-model="student.sfaid" class="form-control" id="inputEmail3" placeholder="Sport" name="sport">
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                                 <div class="form-group" ng-class="{'form-invalid': formName.name.$invalid && formName.name.$touched}">
                                     <label for="inputPassword3" class="col-sm-2 control-label color-blue">PROFILE PHOTO:</label>
                                     <div class="col-sm-10">
-<div class="bg-p" ng-style="{'background-image':'url(img/v1.jpg)'}"></div>
+<div class="bg-p" ng-style="{'background-image':'url('{{student.profilePic}}')'}"></div>
                                     </div>
                                 </div>
                             </div>
