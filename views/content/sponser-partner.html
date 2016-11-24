@@ -10,9 +10,10 @@
     <div class="row">
       <div class="text-center mt40">
         <h4 class="color-blue text-up font-bold">principal sponsors</h4>
-        <div class="col-md-3 col-xs-12 col-sm-3 text-center" ng-repeat="data in image track by $index">
+        <div class="col-md-3 col-xs-12 col-sm-3 text-center" ng-repeat="data in games track by $index">
           <div class="sp-img-box text-center mt20">
-            <a href=""><img ng-src="{{data}}" alt="Sport For All" class="img-responsive text-center margin-auto"></a>
+            <a href=""><img ng-src="{{data.img}}" alt="Sport For All" class="img-responsive text-center margin-auto"></a>
+            <p class="text-up">{{data.game}}</p>
           </div>
         </div>
       </div>
@@ -21,24 +22,16 @@
     <div class="row">
       <div class="text-center mt40">
         <h4 class="color-blue text-up font-bold">official partners</h4>
-        <div class="col-md-3 col-xs-12 col-sm-3 text-center" ng-repeat="data in image track by $index">
+        <div class="col-md-3 col-xs-12 col-sm-3 text-center" ng-repeat="data in partner track by $index">
           <div class="sp-img-box text-center mt20"></a>
-            <a href=""><img ng-src="{{data}}" alt="Sport For All" class="img-responsive text-center margin-auto"></a>
+            <a href=""><img ng-src="{{data.img}}" alt="Sport For All" class="img-responsive text-center margin-auto"></a>
+                <p class="text-up">{{data.game}}</p>
           </div>
         </div>
       </div>
 
     </div>
-    <div class="row">
-      <div class="text-center mt40">
-        <!-- <h4 class="color-blue text-up font-bold">principal sponsors</h4> -->
-        <div class="col-md-3 col-xs-12 col-sm-3 text-center" ng-repeat="data in image track by $index">
-          <div class="sp-img-box text-center mt20">
-            <a href=""><img ng-src="{{data}}" alt="Sport For All" class="img-responsive text-center margin-auto"></a>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <hr>
     <div class="row">
       <div class="text-center mt40">
@@ -46,9 +39,10 @@
         <div class="mt20">
           <h4  class="color-orange text-up">Team sports</h4>
         </div>
-        <div class="col-md-3 col-xs-12 col-sm-3 text-center" ng-repeat="data in image track by $index">
-          <div class="sp-img-box text-center mt20">
-          <a href="">  <img ng-src="{{data}}" alt="Sport For All" class="img-responsive text-center margin-auto"></a>
+        <div class="col-md-3 col-xs-12 col-sm-3 text-center" ng-repeat="data in teams track by $index">
+          <div class="sp-img-box text-center mt20 im-200">
+          <a href="">  <img ng-src="{{data.img}}" alt="Sport For All" class="img-responsive text-center margin-auto"></a>
+            <p class="text-up">{{data.name}}</p>
           </div>
         </div>
       </div>
@@ -57,9 +51,43 @@
     <div class="row">
       <div class="text-center mt40">
         <h4  class="color-orange text-up">racquet sports</h4>
-        <div class="col-md-3 col-xs-12 col-sm-3 text-center" ng-repeat="data in image track by $index">
-          <div class="sp-img-box text-center mt20">
-            <a href=""><img ng-src="{{data}}" alt="Sport For All" class="img-responsive text-center margin-auto"></a>
+        <div class="col-md-3 col-xs-12 col-sm-3 text-center" ng-repeat="data in racquet track by $index">
+          <div class="sp-img-box text-center mt20 im-200">
+            <a href=""><img ng-src="{{data.img}}" alt="Sport For All" class="img-responsive text-center margin-auto"></a>
+              <p class="text-up">{{data.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-center mt40">
+        <h4  class="color-orange text-up">combat sports</h4>
+        <div class="col-md-3 col-xs-12 col-sm-3 text-center" ng-repeat="data in combat track by $index">
+          <div class="sp-img-box text-center mt20 im-200">
+            <a href=""><img ng-src="{{data.img}}" alt="Sport For All" class="img-responsive text-center margin-auto"></a>
+              <p class="text-up">{{data.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-center mt40">
+        <h4  class="color-orange text-up">TARGET sports</h4>
+        <div class="col-md-3 col-xs-12 col-sm-3 text-center" ng-repeat="data in target track by $index">
+          <div class="sp-img-box text-center mt20 im-200">
+            <a href=""><img ng-src="{{data.img}}" alt="Sport For All" class="img-responsive text-center margin-auto"></a>
+              <p class="text-up">{{data.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-center mt40">
+        <h4  class="color-orange text-up">INDIVIDUAL sports</h4>
+        <div class="col-md-3 col-xs-12 col-sm-3 text-center" ng-repeat="data in indi track by $index">
+          <div class="sp-img-box text-center mt20 im-200">
+            <a href=""><img ng-src="{{data.img}}" alt="Sport For All" class="img-responsive text-center margin-auto"></a>
+              <p class="text-up">{{data.name}}</p>
           </div>
         </div>
       </div>

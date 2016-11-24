@@ -251,6 +251,66 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             'img/sp4.jpg'
         ]
 
+        $scope.games = // JavaScript Document
+            [{
+                "img": "img/footer/n1.jpg",
+                "href": "",
+                "game": "Fantastico Partner"
+            }, {
+                "img": "img/footer/n2.jpg",
+                "href": "",
+                "game": "Smartphone Partner"
+            }, {
+                "img": "img/footer/p4.jpg",
+                "href": "",
+                "game": "Energy Drinks Partner"
+            }, {
+                "img": "img/footer/n3.jpg",
+                "href": "",
+                "game": "Support Partner"
+            }, {
+                "img": "img/footer/n4.jpg",
+                "href": "",
+                "game": "Fantastico Partner"
+            }];
+        $scope.partner = // JavaScript Document
+            [{
+                "img": "img/footer/p1.jpg",
+                "href": "",
+                "game": "Venue Partner"
+            }, {
+                "img": "img/footer/p6.jpg",
+                "href": "",
+                "game": "Hospital Partner"
+            }, {
+                "img": "img/footer/na1.jpg",
+                "href": "",
+                "game": "Sports Equipment Partner"
+            }, {
+                "img": "img/footer/na2.jpg",
+                "href": "",
+                "game": "Apparel Partner"
+            }, {
+                "img": "img/footer/na3.jpg",
+                "href": "",
+                "game": "Sports Surface Partner"
+            }, {
+                "img": "img/footer/na6.jpg",
+                "href": "",
+                "game": "Sports Mentorship Partner"
+            }, {
+                "img": "img/footer/na4.jpg",
+                "href": "",
+                "game": "Shooting Range Partner"
+            }, {
+                "img": "img/footer/p5.jpg",
+                "href": "",
+                "game": "Medical Partner"
+            }, {
+                "img": "img/footer/na5.jpg",
+                "href": "",
+                "game": "Event Partner "
+            }];
         $scope.teams=[{
           "img":"img/sports/football.jpg",
           "name":"football"
@@ -318,6 +378,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         },{
           "img":"img/sports/Athletics.jpg",
           "name":"ATHLETICS"
+        }]
+        $scope.target=[{
+          "img":"img/sports/Shooting.jpg",
+          "name":"SHOOTING"
+        },{
+          "img":"img/sports/Archery.jpg",
+          "name":"ARCHERY"
+        }]
+        $scope.aqua=[{
+          "img":"img/sports/SWIMMING.jpg",
+          "name":"SHOOTING"
+        },{
+          "img":"img/sports/WATER POLO.jpg",
+          "name":"ARCHERY"
         }]
 
     })

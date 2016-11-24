@@ -3742,5 +3742,10 @@ input {
           outline: 0;
     }
 }
+.im-200{
+  img{
+    width: 160px;
+  }
+}
 @import "fancybox-override";
 @import "mobile";
