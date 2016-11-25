@@ -13,7 +13,7 @@
 
             <div class="mt25 " ng-repeat="item in sports" ng-if="sports.length > 0">
                 <div class="text-center">
-                    <h4 class=" font-bold text-up" ng-class="{'color-orange':item.sporttype == 'Team','color-purple1':item.sporttype == 'Combat','color-blue1':item.sporttype == 'Aquatics','color-yellow1':item.sporttype == 'Racquet','color-green1':item.sporttype == 'Individual','color-red1':item.sporttype == 'Target'}">{{item.sporttype}} Sports</h4>
+                    <h4 class=" font-bold text-up" ng-class="{'color-orange':item.sporttype == 'Team','color-purple1':item.sporttype == 'Combat','color-blue1':item.sporttype == 'Aquatics','color-yellow1':item.sporttype == 'Racquet','color-green1':item.sporttype == 'Individual','color-red1':item.sporttype == 'Target'}">{{item.sporttype}} <span  ng-if="item.sporttype !== 'Aquatics'">Sports</span></h4>
                 </div>
                 <div class="row ">
                     <div class="col-md-6" ng-repeat="sport in item.name">
