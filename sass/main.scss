@@ -3752,5 +3752,12 @@ input {
 .w1200{
   width:12000px;
 }
+.no-float{
+  ul{
+    li{
+      padding: 0px 3px;
+    }
+  }
+}
 @import "fancybox-override";
 @import "mobile";
