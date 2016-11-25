@@ -44,6 +44,26 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     templateUrl: "views/template.html",
     controller: 'LeagueKnockoutCtrl'
 })
+.state('venue', {
+    url: "/venue",
+    templateUrl: "views/template.html",
+    controller: 'VenueCtrl'
+})
+.state('workshop-clinic', {
+    url: "/workshop-clinic",
+    templateUrl: "views/template.html",
+    controller: 'WorkshopClinicCtrl'
+})
+.state('download-schedule', {
+    url: "/download-schedule",
+    templateUrl: "views/template.html",
+    controller: 'DownloadScheduleCtrl'
+})
+.state('merchandise-apparels', {
+    url: "/merchandise-apparels",
+    templateUrl: "views/template.html",
+    controller: 'MerchandiseApparelsCtrl'
+})
 .state('medical-aid', {
     url: "/medical-aid",
     templateUrl: "views/template.html",
@@ -625,6 +645,20 @@ firstapp.filter('englishNumeralDate', function() {
     return function(value) {
         if (value) {
             return moment(new Date(value)).format("Do MMMM YYYY");
+        }
+    };
+});
+firstapp.directive('autoHeight', function($compile, $parse) {
+    return {
+        restrict: 'EA',
+        replace: false,
+        link: function($scope, element, attrs) {
+            var $element = $(element);
+            var windowHeight = $(window).height();
+            var addHeight = function() {
+                $element.css("min-height", windowHeight);
+            };
+            addHeight();
         }
     };
 });

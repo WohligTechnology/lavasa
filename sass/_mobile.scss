@@ -53,7 +53,7 @@ font-size: 12px;
     display: none;
   }
 .w1200{
-  width: 1200px;
+  width: 1450px;
 }
 .stu-name {
   h4{
@@ -320,7 +320,7 @@ overflow-x: auto;
         margin-bottom: 15%;
     }
     .navbar-default .navbar-nav > li > a {
-        color: #0b1c72;
+        color: #0b1c72 !important;
         font-weight: 600;
     }
     .navbar-collapse {
@@ -460,6 +460,7 @@ background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
 background-repeat: no-repeat;
+margin-top: -14px;
 }
 
 .my-banner-student {
@@ -604,8 +605,43 @@ padding: 0;
 
   right: inherit;
 }
+.sport-name-bg{
+  background: none;
+}
 }
 @media (max-width:480px) {
+  .mt-min-38 {
+    margin-top: 0px;
+    float: none;
+    text-align: center;
+display: block;
+}
+  .mt-min-30 {
+    margin-top: 0px;
+    float: none;
+    text-align: center;
+display: block;
+}
+  .template.content {
+    padding-top: 36px;
+}
+  .sport-name-bg{
+    background: none;
+  }
+  .no-float{
+    float: none !important;
+    text-align: center;
+    ul{
+      padding: 0;
+      li{
+        padding: 0px 3px;
+      }
+    }
+  }
+  .adj-h2{
+    font-size: 13px;
+margin-top: 3px;
+  }
   .mr-min {
 
     right: inherit;
@@ -622,7 +658,7 @@ padding: 0;
     right: inherit;
 }
   .fr-h1{
-    font-size: 24px;
+    font-size: 16px;
 margin: 0px;
 padding-bottom: 4px;
   }
@@ -941,7 +977,7 @@ img{
         margin-top: -70px;
     }
     .home-slider {
-      margin-top: 33px;
+      // margin-top: 33px;
   }
     .home-btn .btn-group {
         padding: 0 10px;
