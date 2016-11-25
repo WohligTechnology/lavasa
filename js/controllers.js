@@ -2182,9 +2182,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.filterStatistics.sport = selected._id;
         $scope.table.layout = selected.drawFormat;
         $scope.tabchange('player', 1);
+        $scope.agegroup = [];
         $scope.filterStatistics.year = _.clone($scope.filter.year);
         $scope.callObject.year = _.clone($scope.filter.year);
-
+        $scope.getSportAgeGroup();
     };
     $scope.getStats = function() {
         $scope.filterStatistics.school = $stateParams.id;
@@ -2264,14 +2265,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
     $scope.filter.year = "2016";
     $scope.changeYear();
-    NavigationService.getAgegroup(function(data) {
-        data.data.unshift({
-            _id: "All",
-            name: "All"
+    $scope.getSportAgeGroup = function() {
+        NavigationService.filterAgegroupBySport({
+            sportList: $scope.filter.sport._id
+        }, function(response) {
+            if (response.value) {
+                $scope.agegroup = response.data;
+            } else {
+                $scope.agegroup = [];
+            }
         });
-        $scope.agegroup = data.data;
-        //console.log("agegroup : ", $scope.agegroup);
-    });
+    };
 })
 
 .controller('StudentsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
