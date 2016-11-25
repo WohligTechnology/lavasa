@@ -271,7 +271,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }, {
                 "img": "img/footer/n4.jpg",
                 "href": "",
-                "game": "Fantastico Partner"
+                "game": "Magazine Partner"
             }];
         $scope.partner = // JavaScript Document
             [{
@@ -3301,6 +3301,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "href": "",
             "game": "Support Partner"
         }, {
+            "img": "img/footer/n4.jpg",
+            "href": "",
+            "game": "Magazine Partner"
+        },{
             "img": "img/footer/n1.jpg",
             "href": "",
             "game": "Fantastico Partner"
