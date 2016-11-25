@@ -332,7 +332,7 @@ firstapp.filter('uploadpath', function() {
         } else {
             if (defaultFlag === false) {
               console.log("new-banner");
-                return "img/new-banner.png";
+                return "img/sf-default.png";
 
             } else {
                 return "img/noimage.png";

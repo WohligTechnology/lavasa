@@ -79,7 +79,7 @@ sport’s bio
                                     <div class="mt15">
                                         <h4><span class="color-blue font-semi">Tournament Dates: &nbsp;</span><span ng-show="!sport.fromDate && !sport.toDate"> Not Available</span>{{sport.fromDate  | englishNumeralDate}} <span ng-show="sport.fromDate && sport.toDate"> to </span> {{sport.toDate  | englishNumeralDate}}</h4>
                                         <h4><span class="color-blue font-semi">Venue : &nbsp;</span><span ng-show="!sport.venue">Not Available</span> {{sport.venue}}</h4>
-                                        <h4><span class="color-blue font-semi">Last day for student registration: &nbsp;</span><span ng-show="!sport.lastDate">Not Available</span>{{sport.lastDate  | englishNumeralDate}}</h4>
+                                        <h4><span class="color-blue font-semi">Last day for student registration: &nbsp;</span><span>{{sport.lastDate  | englishNumeralDate}}</span> <span ng-if="sport.lastDate !== undefined && sport.lastDate == null">Registration Closed</span></h4>
                                     </div>
                                     <div class="float-right mt25">
 
