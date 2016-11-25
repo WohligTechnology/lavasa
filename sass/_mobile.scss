@@ -608,8 +608,24 @@ padding: 0;
 .sport-name-bg{
   background: none;
 }
+.box-content, .box-content-white {
+  padding: 25px 6px;
+}
 }
 @media (max-width:480px) {
+  .box-content, .box-content-white {
+    padding: 25px 6px;
+}
+  .sp-cl-fnt{
+    font-size: 22px;
+  }
+  .sp-img-box{
+    p{
+      font-size: 10px;
+  min-height: 32px;
+  margin: 0;
+    }
+  }
   .mt-min-38 {
     margin-top: 0px;
     float: none;
@@ -716,7 +732,7 @@ margin-bottom: 5px;
       }
   }
   .mt-min-30 {
-    margin-top: 28px;
+    margin-top: 28px !important;
     float: none;
     text-align: center;
 }
@@ -833,6 +849,7 @@ background: url(../img/sfa-bg.png);
       background-size: cover;
       background-position: center center;
 background-repeat: no-repeat;
+margin-top: -14px;
 
   }
   .my-banner-school {
@@ -840,6 +857,7 @@ background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
 background-repeat: no-repeat;
+margin-top: -14px;
   }
 
   .my-banner-student {
@@ -847,6 +865,7 @@ background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
 background-repeat: no-repeat;
+margin-top: -14px;
   }
   .f18-m{
     font-size: 18px;
