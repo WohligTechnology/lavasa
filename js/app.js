@@ -269,7 +269,7 @@ firstapp.directive('mycircle', function($compile, $parse) {
                             $elementli.eq(i).css("-o-transform", "translateX(" + (-1 * amount) + "px)");
                         }
 
-                    }, 10);
+                    }, 20);
 
                 });
 
