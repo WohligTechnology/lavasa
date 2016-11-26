@@ -3244,6 +3244,8 @@ a.color-yellow1:hover {
 }
 
 .sfa-mum {
+  position: absolute;
+    top: 20px;
     img {
       margin-top: 25px;
 
@@ -3758,6 +3760,32 @@ input {
       padding: 0px 2px;
     }
   }
+}
+.btn-sfatop{
+  color: #fff !important;
+  border-radius: 0px 0px 10px 10px;
+  animation: colorchange 3s infinite;
+   -webkit-animation: colorchange 3s infinite;
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes colorchange {
+    0% {
+        background: orange;
+    }
+    100% {
+        background: green;
+    }
+    // transition: all 0.3s ease;
+}
+/* Standard syntax */
+@keyframes colorchange {
+    0% {
+        background: $brand-success;
+    }
+    100% {
+        background: green;
+    }
+    // transition: all 0.3s ease;
 }
 @import "fancybox-override";
 @import "mobile";

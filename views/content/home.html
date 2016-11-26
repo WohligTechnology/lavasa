@@ -5,7 +5,7 @@
         </li>
     </flex-slider>
 </section>
-<section class="hidden-lg hidden-md">
+<!-- <section class="hidden-lg hidden-md">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
@@ -22,7 +22,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <section class="sf-relative">
   <div class="main-d">
     <div class="container-fluid">
@@ -136,7 +136,25 @@
     </div>
     </div>
 </section>
-<section class="mt80">
+<section class="hidden-lg hidden-md mt80">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mobile-sports-slider sport-slider">
+          <flex-slider flex-slide="banner in game track by $index"  prev-text="" next-text="" startAt="0" item-width="70" item-margin="40"  animation="slide" move="1" slideshow="false">
+            <li class="text-center">
+                  <a ui-sref="sport({name:banner.name})"><figure class="">
+                   <img ng-src="{{banner.image | uploadpath }}" class="img-responsive iconBlue">
+                </figure></a>
+                <figcaption class="color-blue text-up">{{banner.name}}</figcaption>
+              </li>
+          </flex-slider>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="mt80 m-zeromob">
 <div class="container">
   <div class="row sf-relative">
     <div class="">
