@@ -310,7 +310,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "game": "Support Partner"
             }, {
                 "img": "img/footer/n4.jpg",
-                "href": "",
+                "href": "https://www.facebook.com/sportsillustratedindia/",
                 "game": "Magazine Partner"
             }];
         $scope.partner = // JavaScript Document
@@ -3427,7 +3427,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "game": "Support Partner"
         }, {
             "img": "img/footer/n4.jpg",
-            "href": "",
+            "href": "https://www.facebook.com/sportsillustratedindia/",
             "game": "Magazine Partner"
         },{
             "img": "img/footer/n1.jpg",

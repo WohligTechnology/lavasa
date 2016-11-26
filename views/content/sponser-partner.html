@@ -12,7 +12,7 @@
         <h4 class="color-blue text-up font-bold">sponsors</h4>
         <div class="col-md-3 col-xs-6 col-sm-6 text-center" ng-repeat="data in games track by $index">
           <div class="sp-img-box text-center mt20">
-            <a href=""><img ng-src="{{data.img}}" alt="Sport For All" class="img-responsive text-center margin-auto"></a>
+            <a href="{{data.href}}" target="_blank"><img ng-src="{{data.img}}" alt="Sport For All" class="img-responsive text-center margin-auto"></a>
             <p class="text-up">{{data.game}}</p>
           </div>
         </div>
