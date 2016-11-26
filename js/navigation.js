@@ -167,6 +167,13 @@ var navigationservice = angular.module('navigationservice', [])
                 data: request
             }).success(callback);
         },
+        getOneSport: function(request, callback) {
+            $http({
+                url: adminurl + 'sport/getOne',
+                method: 'POST',
+                data: request
+            }).success(callback);
+        },
         getOnePopulated: function(id, callback) {
             // console.log('form data: ', formData);
             $http({

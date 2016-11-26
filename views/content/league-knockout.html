@@ -1,6 +1,6 @@
 <section class="bottom-padding">
     <div class="sport-name-bg text-center">
-        <h1 class="color-orange text-up font-semi margin0">handball | girls | U-14</h1>
+        <h1 class="color-orange text-up font-semi margin0">{{sport.sportslist.name}} <span ng-if="sport.firstcategory"> | {{sport.firstcategory.name}}</span><span ng-if="sport.secondcategory"> | {{sport.secondcategory.name}}</span> | {{sport.gender}} | {{sport.agegroup.name}}</h1>
     </div>
     <section>
         <div class="container">
@@ -9,9 +9,11 @@
                     <h2 class="color-blue font-semi text-up">league cum knockout</h2>
                 </div>
             </div>
-
+              <h4 class="text-center" ng-if="!(leagueknockouts.length > 0)">
+                {{leagueknockouts == undefined && 'Loading ..' || 'No League cum Knockouts'}}
+              </h4>
             <div class="box-content bx-mob">
-                <div class="row main-over">
+                <div class="row main-over" ng-if="knockouts">
                     <!-- <div class="text-center mt25 " >
                     <h3>knockout</h3>
                   </div> -->
@@ -33,27 +35,27 @@
                                     </tr>
                                 </thead>
                                 <tbody class="text-up">
-                                    <tr>
+                                    <tr ng-repeat="knockout in knockouts.leagueknockouts">
                                         <td class="text-center">final</td>
                                         <td>
-                                            <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                            <a ng-click="profiles(knockout.participantType,knockout[knockout.participantType+'1']._id)">
                                                 <div class="display-inline ver-base round-img">
-                                                    <img ng-src="img/sf-school-grey.png" alt="" class="w25">
+                                                    <img ng-src="{{knockout.participantType == 'player' && (knockout.player1.profilePic| uploadpath) || (knockout[knockout.participantType+'1'].school.logo | uploadpath)}}" alt="" class="w25">
                                                 </div>
-                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                                <div class="display-inline ver-mid">{{knockout[knockout.participantType+'1'].name | letterLimit:30 || '-'}}</div>
                                             </a>
                                         </td>
                                         <td>
-                                            <a ng-click="profiles(winner.participantType,winner.participant._id)">
+                                            <a ng-click="profiles(knockout.participantType,knockout[knockout.participantType+'1']._id)">
                                                 <div class="display-inline ver-base round-img">
-                                                    <img ng-src="img/sf-school-grey.png" alt="" class="w25">
+                                                    <img ng-src="{{knockout.participantType == 'player' && (knockout.player1.profilePic| uploadpath) || (knockout[knockout.participantType+'1'].school.logo | uploadpath)}}" alt="" class="w25">
                                                 </div>
-                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
+                                                <div class="display-inline ver-mid">{{knockout[knockout.participantType+'1'].name | letterLimit:30 || '-'}}</div>
                                             </a>
                                         </td>
-                                        <td class="text-center">1</td>
-                                        <td class="text-center">won</td>
-                                        <td class="text-center"><img src="img/sf-play.png" alt=""></td>
+                                        <td class="text-center">{{knockout.score}}</td>
+                                        <td class="text-center">{{knockout.result1+" "+knockout.result2}}</td>
+                                        <td class="text-center"></td>
 
                                     </tr>
                                     <tr>
@@ -110,7 +112,7 @@
                         </div>
                     </div>
                 </div>
-                <hr>
+                <hr ng-if="leagueknockouts.length > 0">
                 <div ng-repeat="lk in leagueknockouts">
                   <div class="row main-over" >
                       <!-- <div class="text-center mt25 " >
@@ -223,7 +225,7 @@
                                                           </a>
                                                       </td>
                                                       <td class="text-center">
-                                                          {{match.score}}
+                                                          {{match.score || (match.date | date:'mediumDate')}}
                                                       </td>
 
                                                   </tr>

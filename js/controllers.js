@@ -543,7 +543,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         if (_.findIndex($scope.leagueknockouts, function(key) {
                                 return key.leagueknockoutround == 'Final';
                             }) !== -1) {
-                            $scope.knockout = _.remove($scope.leagueknockouts, function(key) {
+                            $scope.knockouts = _.remove($scope.leagueknockouts, function(key) {
                                 return key.leagueknockoutround == 'Final';
                             })[0];
                         }
@@ -590,12 +590,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                       });
                     });
 
-                    console.log($scope.leagueknockouts,$scope.knockout);
+                    console.log($scope.leagueknockouts,$scope.knockouts);
                 }
             });
         };
         if($stateParams.id){
-          $scope.getLeagueKnockout();
+          NavigationService.getOneSport({
+            _id:$stateParams.id
+          },function (response) {
+            if(response.value){
+              $scope.sport = response.data;
+              $scope.getLeagueKnockout();
+            }
+          });
         }
 
     })
