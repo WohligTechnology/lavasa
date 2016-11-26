@@ -101,6 +101,15 @@ var navigationservice = angular.module('navigationservice', [])
                 data: request
             }).success(callback);
         },
+        getLeagueKnockout: function(request, callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'leagueknockout/getAll',
+                method: 'POST',
+                withCredentials: true,
+                data: request
+            }).success(callback);
+        },
         getSearchDataStudent: function(input,i, callback) {
             // console.log('form data: ', formData);
             $http({

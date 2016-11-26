@@ -502,7 +502,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
     })
-    .controller('LeagueKnockoutCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+    .controller('LeagueKnockoutCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams,$state) {
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("league-knockout");
@@ -516,6 +516,87 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             isFirstOpen: true,
             isFirstDisabled: false
         };
+        $scope.profiles = function(participantType, id) {
+          console.log(participantType,id);
+            if (participantType == 'player') {
+                sfastate = 'student-profile';
+            } else {
+                sfastate = 'team-detail';
+            }
+            $state.go(sfastate, {
+                id: id
+            });
+        };
+        $scope.getLeagueKnockout = function() {
+            NavigationService.getLeagueKnockout({
+                sport: $stateParams.id
+            }, function(response) {
+                if (response.value) {
+                    $scope.leagueknockouts = _.chain(response.data)
+                        .groupBy("leagueknockoutround")
+                        .toPairs()
+                        .map(function(currentItem) {
+                            currentItem[2] = currentItem[1][0].leagueknockoutorder;
+                            return _.zipObject(["leagueknockoutround", "leagueknockouts", "leagueknockoutorder"], currentItem);
+                        })
+                        .value();
+                        if (_.findIndex($scope.leagueknockouts, function(key) {
+                                return key.leagueknockoutround == 'Final';
+                            }) !== -1) {
+                            $scope.knockout = _.remove($scope.leagueknockouts, function(key) {
+                                return key.leagueknockoutround == 'Final';
+                            })[0];
+                        }
+                    //Standing code real Smart
+                    var participants = [];
+                    _.each($scope.leagueknockouts,function (lk) {
+                      participants = [];
+                      _.each(lk.leagueknockouts, function(key) {
+                          if (key[key.participantType + '1']) {
+                              participants.push({
+                                  participant: key[key.participantType + '1'],
+                                  point: key.point1,
+                                  result: key.result1,
+                                  participantType: key.participantType
+                              });
+                          }
+                          if (key[key.participantType + '2']) {
+                              participants.push({
+                                  participant: key[key.participantType + '2'],
+                                  point: key.point2,
+                                  result: key.result2,
+                                  participantType: key.participantType
+                              });
+                          }
+                      });
+                      lk.standings = _.groupBy(participants, function(key) {
+                          return key.participant._id;
+                      });
+                      lk.standings = _.map(lk.standings, function(value, property) {
+                          stats = {};
+                          stats.point = 0.0;
+                          _.each(value, function(single) {
+                              if (!stats[single.result]) {
+                                  stats[single.result] = 0;
+                              }
+                              stats[single.result] += 1;
+                              stats.point += single.point;
+
+                              stats.participantType = single.participantType;
+                          });
+                          stats.participant = value[0].participant;
+                          stats.matches = value.length;
+                          return stats;
+                      });
+                    });
+
+                    console.log($scope.leagueknockouts,$scope.knockout);
+                }
+            });
+        };
+        if($stateParams.id){
+          $scope.getLeagueKnockout();
+        }
 
     })
     .controller('KnockoutQualifyCtrl', function($scope, TemplateService, NavigationService, $timeout) {

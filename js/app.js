@@ -40,7 +40,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     controller: 'SpecialAwardsCtrl'
 })
 .state('league-knockout', {
-    url: "/league-knockout",
+    url: "/league-knockout/:id",
     templateUrl: "views/template.html",
     controller: 'LeagueKnockoutCtrl'
 })
@@ -428,34 +428,35 @@ firstapp.filter('lessthan10',function () {
 
 firstapp.filter('ageFilter', function() {
     return function(birthdate) { // birthday is a date
-        if (birthdate) {
-            if (new Date(birthdate) > new Date(2011, 1, 1)) {
+      var birth = _.clone(birthdate);
+        if (birth) {
+            if (new Date(birth) > new Date(2011, 1, 1)) {
                 return 'U-6';
-            } else if (new Date(birthdate) > new Date(2010, 1, 1)) {
+            } else if (new Date(birth) > new Date(2010, 1, 1)) {
                 return 'U-7';
-            } else if (new Date(birthdate) > new Date(2009, 1, 1)) {
+            } else if (new Date(birth) > new Date(2009, 1, 1)) {
                 return 'U-8';
-            } else if (new Date(birthdate) > new Date(2008, 1, 1)) {
+            } else if (new Date(birth) > new Date(2008, 1, 1)) {
                 return 'U-9';
-            } else if (new Date(birthdate) > new Date(2007, 1, 1)) {
+            } else if (new Date(birth) > new Date(2007, 1, 1)) {
                 return 'U-10';
-            } else if (new Date(birthdate) > new Date(2006, 1, 1)) {
+            } else if (new Date(birth) > new Date(2006, 1, 1)) {
                 return 'U-11';
-            } else if (new Date(birthdate) > new Date(2005, 1, 1)) {
+            } else if (new Date(birth) > new Date(2005, 1, 1)) {
                 return 'U-12';
-            } else if (new Date(birthdate) > new Date(2004, 1, 1)) {
+            } else if (new Date(birth) > new Date(2004, 1, 1)) {
                 return 'U-13';
-            } else if (new Date(birthdate) > new Date(2003, 1, 1)) {
+            } else if (new Date(birth) > new Date(2003, 1, 1)) {
                 return 'U-14';
-            } else if (new Date(birthdate) > new Date(2002, 1, 1)) {
+            } else if (new Date(birth) > new Date(2002, 1, 1)) {
                 return 'U-15';
-            } else if (new Date(birthdate) > new Date(2001, 1, 1)) {
+            } else if (new Date(birth) > new Date(2001, 1, 1)) {
                 return 'U-16';
-            } else if (new Date(birthdate) > new Date(2000, 1, 1)) {
+            } else if (new Date(birth) > new Date(2000, 1, 1)) {
                 return 'U-17';
-            } else if (new Date(birthdate) > new Date(1999, 1, 1)) {
+            } else if (new Date(birth) > new Date(1999, 1, 1)) {
                 return 'U-18';
-            } else if (new Date(birthdate) > new Date(1998, 1, 1)) {
+            } else if (new Date(birth) > new Date(1998, 1, 1)) {
                 return 'U-19';
             } else {
                 return "";
