@@ -11,7 +11,7 @@
             <div class="col-md-12">
                 <div class="top-school">
                     <div class="text-center mt25">
-                        <div class="tab-list sf-list text-up">
+                        <div class="tab-list sf-list text-up mob-tb">
                             <ul class="padding0 margin0">
                                 <li><a href="" ng-click="tabchange('2016',1)" class="{{classa}} font16">
 sfa mumbai 2016
@@ -42,7 +42,7 @@ sport’s bio
                           </div>
                           <div class="row mt25">
                             <div class="col-md-offset-2 col-md-8 text-center">
-                              <h4 class="color-blue">Every competition has a few athletes with extraordinary talent, showcasing an outstanding performance and shining brighter than the rest. Discover some of those; Mumbai’s best {{sport.sportid.name}} players at the inter-school level.</h4>
+                              <h4 class="color-blue f-mn">Every competition has a few athletes with extraordinary talent, showcasing an outstanding performance and shining brighter than the rest. Discover some of those; Mumbai’s best {{sport.sportid.name}} players at the inter-school level.</h4>
                               <h4 class="color-orange text-up">coming soon</h4>
                             </div>
                               <!-- <div class="col-md-3 mt15 col-sm-4 col-xs-12" ng-repeat="data in student track by $index">
@@ -313,14 +313,14 @@ sport’s bio
                         <div class="accrordian mt25 accrodian-sec">
                             <uib-accordion close-others="oneAtATime" class="text-up text-center ">
                                 <uib-accordion-group heading="winners of sfa mumbai 2015" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-                                    <div class="row">
+                                    <div class="row over-fl">
                                         <div class="col-md-12">
                                           <div class="text-center" ng-if="!(winners.length > 0)">
                                             <!-- <h4></h4> -->
                                           {{winners === undefined && 'Loading ..' || 'No Winners Yet'}}
                                           </div>
                                             <div class=" mt25" ng-if="winners.length > 0">
-                                              <div class="dr-table text-l">
+                                              <div class="dr-table text-l w6650">
                                                   <table class="table">
                                                       <thead>
                                                           <tr>
@@ -364,10 +364,10 @@ sport’s bio
                                                             <td>{{win._id.agegroup.name}} {{win._id.gender}} {{win._id.firstcategory.name}}</td>
                                                             <td>
                                                                 <a ng-click="profiles(win.Gold.participantType,win.Gold.student._id,win.Gold.team._id);">
-                                                                    <div class="display-inline ver-base round-img">
+                                                                    <div class="display-inline ver-base round-img round-img-m">
                                                                         <img ng-src="{{win.Gold.participantType == 'player' && (win.Gold.student.profilePic | uploadpath) || (win.Gold.school.logo | uploadpath)}}" alt="" class="w25">
                                                                     </div>
-                                                                    <div class="display-inline ver-mid">
+                                                                    <div class="display-inline ver-mid m-fc">
                                                                         <h4 class="margin0 color-blue font-semi" ng-if="win.Gold.participantType == 'player'">
                                                                     {{win.Gold.student.name ||'-' | letterLimit : 13}}
                                                                   </h4>
@@ -383,10 +383,10 @@ sport’s bio
                                                             </td>
                                                             <td>
                                                               <a ng-click="profiles(win.Silver.participantType,win.Silver.student._id,win.Silver.team._id);">
-                                                                  <div class="display-inline ver-base round-img">
+                                                                  <div class="display-inline ver-base round-img round-img-m">
                                                                       <img ng-src="{{win.Silver.participantType == 'player' && (win.Silver.student.profilePic | uploadpath) || (win.Silver.school.logo | uploadpath)}}" alt="" class="w25">
                                                                   </div>
-                                                                  <div class="display-inline ver-mid">
+                                                                  <div class="display-inline ver-mid m-fc">
                                                                       <h4 class="margin0 color-blue font-semi" ng-if="win.Silver.participantType == 'player'">
                                                                   {{win.Silver.student.name ||'-' | letterLimit : 13}}
                                                                 </h4>
@@ -403,10 +403,10 @@ sport’s bio
                                                             </td>
                                                             <td>
                                                               <a ng-click="profiles(win.Bronze[0].participantType,win.Bronze[0].student._id,win.Bronze[0].team._id);">
-                                                                  <div class="display-inline ver-base round-img">
+                                                                  <div class="display-inline ver-base round-img round-img-m">
                                                                       <img ng-src="{{win.Bronze[0].participantType == 'player' && (win.Bronze[0].student.profilePic | uploadpath) || (win.Bronze[0].school.logo | uploadpath)}}" alt="" class="w25">
                                                                   </div>
-                                                                  <div class="display-inline ver-mid">
+                                                                  <div class="display-inline ver-mid m-fc">
                                                                       <h4 class="margin0 color-blue font-semi" ng-if="win.Bronze[0].participantType == 'player'">
                                                                   {{win.Bronze[0].student.name ||'-' | letterLimit : 13}}
                                                                 </h4>
@@ -422,10 +422,10 @@ sport’s bio
                                                             </td>
                                                             <td ng-if="statuses.doubleBronze">
                                                               <a ng-click="profiles(win.Bronze[1].participantType,win.Bronze[1].student._id,win.Bronze[1].team._id);">
-                                                                  <div class="display-inline ver-base round-img">
+                                                                  <div class="display-inline ver-base round-img round-img-m">
                                                                       <img ng-src="{{win.Bronze[1].participantType == 'player' && (win.Bronze[1].student.profilePic | uploadpath) || (win.Bronze[1].school.logo | uploadpath)}}" alt="" class="w25">
                                                                   </div>
-                                                                  <div class="display-inline ver-mid">
+                                                                  <div class="display-inline ver-mid m-fc">
                                                                       <h4 class="margin0 color-blue font-semi" ng-if="win.Bronze[1].participantType == 'player'">
                                                                   {{win.Bronze[1].student.name ||'-' | letterLimit : 13}}
                                                                 </h4>
@@ -541,7 +541,7 @@ sport’s bio
                         </div>
                         <div class="row">
                             <div class="text-center mt25">
-                                <div class="tab-list sf-list text-up">
+                                <div class="tab-list sf-list text-up oth-m">
                                     <ul class="padding0 margin0">
                                         <li><a href="" ng-click="media('photo',1)" class="{{classes.classp}}">
           photos
