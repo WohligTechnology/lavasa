@@ -128,7 +128,7 @@ var navigationservice = angular.module('navigationservice', [])
             case 'League':
             return 'round-robin';
             case 'League cum Knockout':
-            return 'draw';
+            return 'league-knockout';
             case 'Heats':
             return 'heats';
             case 'Qualifying Round':
