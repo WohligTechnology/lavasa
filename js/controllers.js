@@ -2248,9 +2248,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.schoolMedalCount(constraints);
         if ($scope.filter.year === '2016') {
             $scope.filterStatistics.year = $scope.filter.year;
-            $scope.contingentStrengthByYear();
+
 
         }
+        $scope.contingentStrengthByYear();
         $scope.filterStatistics.pagenumber = 1;
 
     };
@@ -2344,7 +2345,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         });
     };
-    $scope.filter.year = "2016";
+    $scope.filter.year = "2015";
     $scope.changeYear();
     $scope.getSportAgeGroup = function() {
         NavigationService.filterAgegroupBySport({
