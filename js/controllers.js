@@ -2420,7 +2420,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('StudentProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+.controller('StudentProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$state) {
     //Used to name the .html file
 
     console.log("Testing Consoles");
@@ -2441,7 +2441,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.table = {};
     $scope.dropdowns.category = [];
     $scope.studentid = $stateParams.id;
-
+    $scope.drawDispatcher = function (drawFormat,id) {
+      $state.go(NavigationService.resultDispatcher(drawFormat),{
+        id:id
+      });
+    };
     $scope.tabchanges = function(tabs, a) {
         //        console.log(tab);
         $scope.tabs = tabs;
