@@ -3787,6 +3787,67 @@ input {
     }
     // transition: all 0.3s ease;
 }
+.dt-venu{
+  p{
+    color:#6f6f6f;
+    font-size: 18px;
+  }
+}
+.sc-table{
+  table{
+    tr{
+      background-color: transparent;
 
+      th{
+        text-align: left;
+        color: $brand-success;
+          border-bottom: 0px solid #ddd;
+          font-size: 16px
+      }
+      td{
+        text-align: left;
+        border-top:0px solid;
+        padding: 2px 8px;
+        color:#6f6f6f;
+          font-weight: 600;
+      }
+    }
+  }
+}
+.venue-date {
+    background: #ededed;
+    padding: 20px 0px 20px 0px;
+        margin-top: 30px;
+}
+.plall-15{
+  padding-left: 7px;
+padding-right: 7px;
+}
+.mt14{
+  margin-top: 14px;
+
+}
+.vn-tbl{
+  background: #eaeaea;
+   padding: 15px 0px 1px 0px;
+  .table{
+    tr{
+      background-color: transparent;
+
+      th{
+        text-align: center;
+      color: $brand-success;
+      font-size: 20px;
+        border-bottom: 0px solid #ddd;
+      }
+      td{
+        text-align: center;
+          color:#6f6f6f;
+          font-size: 20px;
+            border-top:0px solid;
+      }
+    }
+  }
+}
 @import "fancybox-override";
 @import "mobile";
