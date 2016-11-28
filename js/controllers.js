@@ -195,27 +195,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log("Banner not found");
             }
         });
-
-        setTimeout(function() {
-            (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1452795161694777";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-            ! function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0],
-                    p = /^http:/.test(d.location) ? 'http' : 'https';
-                if (!d.getElementById(id)) {
+        $scope.$on('$viewContentLoaded', function() {
+            setTimeout(function() {
+                (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
                     js = d.createElement(s);
                     js.id = id;
-                    js.src = p + "://platform.twitter.com/widgets.js";
+                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1452795161694777";
                     fjs.parentNode.insertBefore(js, fjs);
-                }
-            }(document, "script", "twitter-wjs");
-        })
+                }(document, 'script', 'facebook-jssdk'));
+                ! function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0],
+                        p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + "://platform.twitter.com/widgets.js";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, "script", "twitter-wjs");
+            }, 500);
+        });
+
 
         NavigationService.getAllSportList(function(response) {
             if (response.value) {
@@ -351,87 +353,87 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "href": "",
                 "game": "Event Partner "
             }];
-        $scope.teams=[{
-          "img":"img/sports/football.jpg",
-          "name":"football"
-        },{
-          "img":"img/sports/Handball.jpg",
-          "name":"HANDBALL"
-        },{
-          "img":"img/sports/Basketball.jpg",
-          "name":"BASKETBALL"
-        },{
-          "img":"img/sports/Volleyball.jpg",
-          "name":"VOLLEYBALL"
-        },{
-          "img":"img/sports/Throwball.jpg",
-          "name":"THROWBALL"
-        },{
-          "img":"img/sports/Hockey.jpg",
-          "name":"HOCKEY"
-        },{
-          "img":"img/sports/Khokho.jpg",
-          "name":"KHO-KHO"
-        },{
-          "img":"img/sports/Kabaddi.jpg",
-          "name":"KABADDI"
+        $scope.teams = [{
+            "img": "img/sports/football.jpg",
+            "name": "football"
+        }, {
+            "img": "img/sports/Handball.jpg",
+            "name": "HANDBALL"
+        }, {
+            "img": "img/sports/Basketball.jpg",
+            "name": "BASKETBALL"
+        }, {
+            "img": "img/sports/Volleyball.jpg",
+            "name": "VOLLEYBALL"
+        }, {
+            "img": "img/sports/Throwball.jpg",
+            "name": "THROWBALL"
+        }, {
+            "img": "img/sports/Hockey.jpg",
+            "name": "HOCKEY"
+        }, {
+            "img": "img/sports/Khokho.jpg",
+            "name": "KHO-KHO"
+        }, {
+            "img": "img/sports/Kabaddi.jpg",
+            "name": "KABADDI"
         }]
 
-        $scope.racquet=[{
-          "img":"img/sports/Badminton.jpg",
-          "name":"BADMINTON"
-        },{
-          "img":"img/sports/Tennis.jpg",
-          "name":"TENNIS"
-        },{
-          "img":"img/sports/Table-tennis.jpg",
-          "name":"TABLE TENNIS"
-        },{
-          "img":"img/sports/Squash.jpg",
-          "name":"SQUASH"
+        $scope.racquet = [{
+            "img": "img/sports/Badminton.jpg",
+            "name": "BADMINTON"
+        }, {
+            "img": "img/sports/Tennis.jpg",
+            "name": "TENNIS"
+        }, {
+            "img": "img/sports/Table-tennis.jpg",
+            "name": "TABLE TENNIS"
+        }, {
+            "img": "img/sports/Squash.jpg",
+            "name": "SQUASH"
         }]
-        $scope.combat=[{
-          "img":"img/sports/Judo.jpg",
-          "name":"JUDO"
-        },{
-          "img":"img/sports/Tavkwondo.jpg",
-          "name":"TAEKWONDO"
-        },{
-          "img":"img/sports/Boxing.jpg",
-          "name":"BOXING"
-        },{
-          "img":"img/sports/Fencing.jpg",
-          "name":"FENCING"
-        },{
-          "img":"img/sports/Karate.jpg",
-          "name":"KARATE"
-        },{
-          "img":"img/sports/MMA.jpg",
-          "name":"SPORT MIXED MARTIAL ARTS"
+        $scope.combat = [{
+            "img": "img/sports/Judo.jpg",
+            "name": "JUDO"
+        }, {
+            "img": "img/sports/Tavkwondo.jpg",
+            "name": "TAEKWONDO"
+        }, {
+            "img": "img/sports/Boxing.jpg",
+            "name": "BOXING"
+        }, {
+            "img": "img/sports/Fencing.jpg",
+            "name": "FENCING"
+        }, {
+            "img": "img/sports/Karate.jpg",
+            "name": "KARATE"
+        }, {
+            "img": "img/sports/MMA.jpg",
+            "name": "SPORT MIXED MARTIAL ARTS"
         }]
-        $scope.indi=[{
-          "img":"img/sports/Carrom.jpg",
-          "name":"CARROM"
-        },{
-          "img":"img/sports/Chess.jpg",
-          "name":"CHESS"
-        },{
-          "img":"img/sports/Athletics.jpg",
-          "name":"ATHLETICS"
+        $scope.indi = [{
+            "img": "img/sports/Carrom.jpg",
+            "name": "CARROM"
+        }, {
+            "img": "img/sports/Chess.jpg",
+            "name": "CHESS"
+        }, {
+            "img": "img/sports/Athletics.jpg",
+            "name": "ATHLETICS"
         }]
-        $scope.target=[{
-          "img":"img/sports/Shooting.jpg",
-          "name":"SHOOTING"
-        },{
-          "img":"img/sports/Archery.jpg",
-          "name":"ARCHERY"
+        $scope.target = [{
+            "img": "img/sports/Shooting.jpg",
+            "name": "SHOOTING"
+        }, {
+            "img": "img/sports/Archery.jpg",
+            "name": "ARCHERY"
         }]
-        $scope.aqua=[{
-          "img":"img/sports/SWIMMING.jpg",
-          "name":"SHOOTING"
-        },{
-          "img":"img/sports/WATER POLO.jpg",
-          "name":"ARCHERY"
+        $scope.aqua = [{
+            "img": "img/sports/SWIMMING.jpg",
+            "name": "SHOOTING"
+        }, {
+            "img": "img/sports/WATER POLO.jpg",
+            "name": "ARCHERY"
         }]
 
     })
@@ -502,7 +504,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
 
     })
-    .controller('LeagueKnockoutCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams,$state) {
+    .controller('LeagueKnockoutCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("league-knockout");
@@ -517,7 +519,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             isFirstDisabled: false
         };
         $scope.profiles = function(participantType, id) {
-          console.log(participantType,id);
+            console.log(participantType, id);
             if (participantType == 'player') {
                 sfastate = 'student-profile';
             } else {
@@ -540,69 +542,69 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             return _.zipObject(["leagueknockoutround", "leagueknockouts", "leagueknockoutorder"], currentItem);
                         })
                         .value();
-                        if (_.findIndex($scope.leagueknockouts, function(key) {
-                                return key.leagueknockoutround == 'Final';
-                            }) !== -1) {
-                            $scope.knockouts = _.remove($scope.leagueknockouts, function(key) {
-                                return key.leagueknockoutround == 'Final';
-                            })[0];
-                        }
+                    if (_.findIndex($scope.leagueknockouts, function(key) {
+                            return key.leagueknockoutround == 'Final';
+                        }) !== -1) {
+                        $scope.knockouts = _.remove($scope.leagueknockouts, function(key) {
+                            return key.leagueknockoutround == 'Final';
+                        })[0];
+                    }
                     //Standing code real Smart
                     var participants = [];
-                    _.each($scope.leagueknockouts,function (lk) {
-                      participants = [];
-                      _.each(lk.leagueknockouts, function(key) {
-                          if (key[key.participantType + '1']) {
-                              participants.push({
-                                  participant: key[key.participantType + '1'],
-                                  point: key.point1,
-                                  result: key.result1,
-                                  participantType: key.participantType
-                              });
-                          }
-                          if (key[key.participantType + '2']) {
-                              participants.push({
-                                  participant: key[key.participantType + '2'],
-                                  point: key.point2,
-                                  result: key.result2,
-                                  participantType: key.participantType
-                              });
-                          }
-                      });
-                      lk.standings = _.groupBy(participants, function(key) {
-                          return key.participant._id;
-                      });
-                      lk.standings = _.map(lk.standings, function(value, property) {
-                          stats = {};
-                          stats.point = 0.0;
-                          _.each(value, function(single) {
-                              if (!stats[single.result]) {
-                                  stats[single.result] = 0;
-                              }
-                              stats[single.result] += 1;
-                              stats.point += single.point;
+                    _.each($scope.leagueknockouts, function(lk) {
+                        participants = [];
+                        _.each(lk.leagueknockouts, function(key) {
+                            if (key[key.participantType + '1']) {
+                                participants.push({
+                                    participant: key[key.participantType + '1'],
+                                    point: key.point1,
+                                    result: key.result1,
+                                    participantType: key.participantType
+                                });
+                            }
+                            if (key[key.participantType + '2']) {
+                                participants.push({
+                                    participant: key[key.participantType + '2'],
+                                    point: key.point2,
+                                    result: key.result2,
+                                    participantType: key.participantType
+                                });
+                            }
+                        });
+                        lk.standings = _.groupBy(participants, function(key) {
+                            return key.participant._id;
+                        });
+                        lk.standings = _.map(lk.standings, function(value, property) {
+                            stats = {};
+                            stats.point = 0.0;
+                            _.each(value, function(single) {
+                                if (!stats[single.result]) {
+                                    stats[single.result] = 0;
+                                }
+                                stats[single.result] += 1;
+                                stats.point += single.point;
 
-                              stats.participantType = single.participantType;
-                          });
-                          stats.participant = value[0].participant;
-                          stats.matches = value.length;
-                          return stats;
-                      });
+                                stats.participantType = single.participantType;
+                            });
+                            stats.participant = value[0].participant;
+                            stats.matches = value.length;
+                            return stats;
+                        });
                     });
 
-                    console.log($scope.leagueknockouts,$scope.knockouts);
+                    console.log($scope.leagueknockouts, $scope.knockouts);
                 }
             });
         };
-        if($stateParams.id){
-          NavigationService.getOneSport({
-            _id:$stateParams.id
-          },function (response) {
-            if(response.value){
-              $scope.sport = response.data;
-              $scope.getLeagueKnockout();
-            }
-          });
+        if ($stateParams.id) {
+            NavigationService.getOneSport({
+                _id: $stateParams.id
+            }, function(response) {
+                if (response.value) {
+                    $scope.sport = response.data;
+                    $scope.getLeagueKnockout();
+                }
+            });
         }
 
     })
@@ -616,7 +618,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('AfterFormCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter,$state) {
+    .controller('AfterFormCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state) {
 
         $scope.template = TemplateService.changecontent("after-form");
         $scope.template.header = "";
@@ -661,21 +663,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             });
         };
-        $scope.editStudent = function () {
-          NavigationService.editStudent($scope.student,function (response) {
-            if(response.value){
-              _.assignIn($scope.student,response.data);
-              $scope.student.dob = new Date(response.data.dob);
-              if ($scope.student.profilePic) {
-                  $scope.student.dp = $filter('uploadpath')($scope.student.profilePic);
-              }
-              $timeout(function () {
-                $state.go('form-submit');
-              },2000);
-            }else{
+        $scope.editStudent = function() {
+            NavigationService.editStudent($scope.student, function(response) {
+                if (response.value) {
+                    _.assignIn($scope.student, response.data);
+                    $scope.student.dob = new Date(response.data.dob);
+                    if ($scope.student.profilePic) {
+                        $scope.student.dp = $filter('uploadpath')($scope.student.profilePic);
+                    }
+                    $timeout(function() {
+                        $state.go('form-submit');
+                    }, 2000);
+                } else {
 
-            }
-          });
+                }
+            });
         };
 
     })
@@ -2420,7 +2422,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('StudentProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams,$state) {
+.controller('StudentProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
     //Used to name the .html file
 
     console.log("Testing Consoles");
@@ -2441,10 +2443,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.table = {};
     $scope.dropdowns.category = [];
     $scope.studentid = $stateParams.id;
-    $scope.drawDispatcher = function (drawFormat,id) {
-      $state.go(NavigationService.resultDispatcher(drawFormat),{
-        id:id
-      });
+    $scope.drawDispatcher = function(drawFormat, id) {
+        $state.go(NavigationService.resultDispatcher(drawFormat), {
+            id: id
+        });
     };
     $scope.tabchanges = function(tabs, a) {
         //        console.log(tab);
@@ -3441,7 +3443,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "img": "img/footer/n4.jpg",
             "href": "https://www.facebook.com/sportsillustratedindia/",
             "game": "Magazine Partner"
-        },{
+        }, {
             "img": "img/footer/n1.jpg",
             "href": "http://madeofgreat.tatamotors.com/tiago/",
             "game": "Fantastico Partner"
