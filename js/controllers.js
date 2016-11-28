@@ -294,7 +294,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.games = // JavaScript Document
             [{
                 "img": "img/footer/n1.jpg",
-                "href": "",
+                "href": "http://madeofgreat.tatamotors.com/tiago/",
                 "game": "Fantastico Partner"
             }, {
                 "img": "img/footer/n2.jpg",
@@ -3423,7 +3423,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.games = // JavaScript Document
         [{
             "img": "img/footer/n1.jpg",
-            "href": "",
+            "href": "http://madeofgreat.tatamotors.com/tiago/",
             "game": "Fantastico Partner"
         }, {
             "img": "img/footer/n2.jpg",
@@ -3443,7 +3443,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "game": "Magazine Partner"
         },{
             "img": "img/footer/n1.jpg",
-            "href": "",
+            "href": "http://madeofgreat.tatamotors.com/tiago/",
             "game": "Fantastico Partner"
         }, {
             "img": "img/footer/n2.jpg",
