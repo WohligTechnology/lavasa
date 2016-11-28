@@ -7,7 +7,7 @@
 
 
 // var adminurl = "http://localhost:1337/";
-var adminurl = "http://146.148.42.15:83/api/";
+var adminurl = "https://api.sfanow.in/api/";
 // var adminurl = "http://192.168.2.83:1337/api/";
 var imgpath = adminurl + "upload/readFile";
 var uploadurl = adminurl + "upload/";
