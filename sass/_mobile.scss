@@ -70,8 +70,14 @@ font-size: 12px;
     margin-top: 4px;
     cursor: pointer;
 }
+.f50 {
+  font-size: 30px;
+}
 }
 @media (max-width:$screen-sm-max) {
+  .f50 {
+    font-size: 30px;
+}
   .mr-min {
     z-index: 999;
     position: absolute;
@@ -613,6 +619,9 @@ padding: 0;
 }
 }
 @media (max-width:480px) {
+  .f50 {
+    font-size: 30px;
+}
   .count {
 
     border-radius: 20px;
@@ -621,7 +630,7 @@ h3{
 }
 h4
 {
-  font-size:13px; 
+  font-size:13px;
 }
 }
   .dt-venu p {

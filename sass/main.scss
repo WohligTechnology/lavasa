@@ -19,7 +19,7 @@ $dark-grey: #e1e1e1 !default;
 $light-grey: #ebebeb !default;
 $other-blue: #2a45d4 !default;
 $green: #bcd200 !default;
-$font-family-sans-serif: "Titillium Web", "Sansation", Arial, sans-serif !default;
+$font-family-sans-serif: "Titillium Web", "Sansation", "Built Titling", Arial, sans-serif !default;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @font-face {
     font-family: 'Sansation';
@@ -31,6 +31,12 @@ $font-family-sans-serif: "Titillium Web", "Sansation", Arial, sans-serif !defaul
     src: url("../fonts/Sansation_Bold.ttf");
     font-weight: 700;
 }
+@font-face {
+    font-family: 'Built Titling';
+    src: url("../fonts/builttitlingsb.ttf");
+    font-weight: 500;
+}
+
 /* mixing*/
 @mixin placeholder {
     $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
@@ -60,7 +66,10 @@ $font-family-sans-serif: "Titillium Web", "Sansation", Arial, sans-serif !defaul
 body {
     font-family: $font-family-sans-serif;
 }
-
+.font-titling{
+  font-family: 'built titling';
+  font-weight: 500;
+}
 img.loading {
     text-align: center;
     opacity: 1;
@@ -329,6 +338,9 @@ a {
 
 .mt40 {
     margin-top: 40px;
+}
+.mt50 {
+    margin-top: 50px;
 }
 
 .search-btn {
@@ -3855,6 +3867,21 @@ padding-right: 7px;
 .sf-2015{
   text-align: left;
 margin: 20px 0px;
+}
+.pt22{
+  padding-top: 10px;
+}
+.cl-yel{
+  color:#b8c72b;
+}
+.f50{
+  font-size: 50px;
+}
+.bnt-0{
+  bottom: 10px;
+}
+.pd-lr{
+  padding: 0px 20px;
 }
 @import "fancybox-override";
 @import "mobile";
