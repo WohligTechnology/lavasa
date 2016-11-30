@@ -765,7 +765,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
         $scope.filter = {};
         $scope.schools = [];
-        $scope.filter.year = "2015";
+        $scope.filter.year = "2016";
         $scope.rankingByYear = function() {
             $scope.schools = undefined;
             NavigationService.getAllSchoolRank($scope.filter, function(response) {
@@ -1904,7 +1904,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.oneAtATime = true;
     $scope.sportName = ['Badminton', 'Tennis', 'Table Tennis', 'Volleyball', 'Handball', 'Squash', 'Basketball', 'Swimming', 'Judo'];
     $scope.filter = {};
-    $scope.filter.year = "2015";
+    $scope.filter.year = "2016";
     $scope.winners = [];
     $scope.statuses = {};
     $scope.statuses.open = {};
