@@ -617,6 +617,9 @@ padding: 0;
 .box-content, .box-content-white {
   padding: 25px 6px;
 }
+.template.content {
+    padding-top: 45px !important;
+}
 }
 @media (max-width:480px) {
   .f50 {
