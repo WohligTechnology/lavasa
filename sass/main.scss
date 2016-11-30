@@ -2061,20 +2061,20 @@ img.fancybox-image {
     .flex-direction-nav a.flex-next:before {
         content: '';
         background: url("../img/arrow-right.png") no-repeat center;
-        width: 42px;
-        height: 62px;
+        width: 68px;
+        height: 70px;
     }
 
     .flex-direction-nav a.flex-prev:before {
         content: '';
         background: url("../img/arrow-left.png") no-repeat center;
-        width: 42px;
-        height: 62px;
+        width: 68px;
+        height: 70px;
     }
 
     .flex-direction-nav a {
-        width: 54px;
-        height: 66px;
+        width: 68px;
+        height: 70px;
         opacity: 1;
     }
 
@@ -3875,13 +3875,23 @@ margin: 20px 0px;
   color:#b8c72b;
 }
 .f50{
-  font-size: 50px;
+    font-size: 36px;
 }
 .bnt-0{
-  bottom: 10px;
+  bottom: 0;
+min-height: 90px;
+h4{
+  margin: 0;
+}
 }
 .pd-lr{
   padding: 0px 20px;
+}
+.p35{
+      padding: 35px 0px;
+}
+.color-dark{
+  color:#393939;
 }
 @import "fancybox-override";
 @import "mobile";

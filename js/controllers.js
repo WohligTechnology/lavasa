@@ -226,6 +226,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log("Sports List data not found");
             }
         });
+
+        $scope.bannerss=[{
+          "img":"img/sl1.jpg",
+        "link":"http://sfanow.in/#/registration"
+      },{
+        "img":"img/sl2.jpg",
+      "link":"https://sportsforall.ketto.org/"
+    },{
+      "img":"img/sl3.jpg",
+    "link":"http://sfanow.in/#/training-development"
+  }];
     })
     .controller('AboutUsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
