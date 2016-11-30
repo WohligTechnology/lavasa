@@ -3394,7 +3394,13 @@ a.color-yellow1:hover {
     ul {
         li {
             border-right: 1px solid #fff;
+            color: #fff;
+            padding: 0 8px;
+            line-height: 50%;
 
+            &:hover {
+                color: #fff;
+            }
             &:last-child {
                 border: none;
             }
@@ -3449,7 +3455,7 @@ ul.dropdown-menu.sf-absulate.blue-menus {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     padding: 30px 0 36px 30px;
-  top: 73px;
+  top: 69px;
     left: -67px;
     min-width: 180px;
 
@@ -3547,7 +3553,7 @@ ul.dropdown-menu.sf-absulate.blue-menus li a {
 }
 
 .custom-sfa-mumbai {
-    margin-top: 70px;
+    margin-top: 68px;
 }
 .icn-sp {
     margin-right: 5px;
@@ -3892,6 +3898,14 @@ h4{
 }
 .color-dark{
   color:#393939;
+}
+.fancybox-prev span {
+
+    visibility: inherit;
+}
+.fancybox-next span {
+
+    visibility: inherit;
 }
 @import "fancybox-override";
 @import "mobile";

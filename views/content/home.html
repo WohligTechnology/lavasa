@@ -1,5 +1,5 @@
 <section class="home-slider hidden-xs hidden-sm">
-    <flex-slider flex-slide="banner in banners track by $index" prev-text="" next-text="">
+    <flex-slider flex-slide="banner in banners track by $index" prev-text="" next-text="" slideshow=true>
         <li>
             <a href="{{banner.link}}" target="_blank"><img ng-src="{{banner.image | uploadpath}}" class="img-responsive"></a>
         </li>
@@ -8,7 +8,7 @@
 <section class="home-slider hidden-lg hidden-md">
     <flex-slider flex-slide="banner in bannerss track by $index" prev-text="" next-text="">
         <li auto-height>
-            <a href="{{banner.link}}" target="_blank"><img ng-src="{{banner.img}}" class="img-responsive" auto-height onloading="true"></a>
+            <a href="{{banner.link}}" target="_blank"><img ng-src="{{banner.img}}" class="img-responsive" auto-height onloading="true" slideshow=true></a>
         </li>
     </flex-slider>
 </section>
@@ -91,7 +91,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="mobile-sports-slider sport-slider">
-          <flex-slider flex-slide="banner in game track by $index"  prev-text="" next-text="" startAt="0" item-width="70" item-margin="40"  animation="slide" move="1" slideshow="false">
+          <flex-slider flex-slide="banner in game track by $index"  prev-text="" next-text="" startAt="0" item-width="70" item-margin="40"  animation="slide" move="1" slideshow=true slideshowSpeed="500">
             <li class="text-center">
                   <a ui-sref="sport({name:banner.name})"><figure class="">
                    <img ng-src="{{banner.image | uploadpath }}" class="img-responsive iconBlue">

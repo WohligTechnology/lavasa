@@ -1994,6 +1994,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.pagination = {};
     $scope.pagination.pagesize = 20;
     $scope.filter.pagenumber = 1;
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+
+    $scope.maxSize = 20;
     $scope.parseSearch = function(input) {
         $scope.search.active = false;
         $scope.filter.pagenumber = 1;
