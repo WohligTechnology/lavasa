@@ -231,12 +231,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
           "img":"img/sl1.jpg",
         "link":"http://sfanow.in/#/registration"
       },{
-        "img":"img/sl4.jpg",
-      "link":"https://instagram.com/sfanow/"
-    },{
       "img":"img/sl3.jpg",
     "link":"http://sfanow.in/#/training-development"
-  }];
+  },{
+    "img":"img/sl4.jpg",
+  "link":"https://instagram.com/sfanow/"
+}];
     })
     .controller('AboutUsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
