@@ -25,25 +25,25 @@
                         <div class="data-list custom-li color-white mt15 display-inline text-c-m mar0-main" >
                             <ul class="padding0 sf-list-padding">
                                 <li class="border-right-2">
-                                    <div class="">
+                                    <div class="f16-zero">
                                         <p class="text-up color-orange">age group</p>
                                         <p>{{studentProfile.dob || '-' | ageFilter}}</p>
                                     </div>
                                 </li>
                                 <li class="border-right-2">
-                                    <div class="">
+                                    <div class="f16-zero">
                                         <p class="text-up color-orange">SFA ID</p>
                                         <p>{{studentProfile.sfaid || '-'}}</p>
                                     </div>
                                 </li>
                                 <li class="border-right-2">
-                                    <div class="">
+                                    <div class="f16-zero">
                                         <p class="text-up color-orange">Date of Birth</p>
                                         <p class="text-up">{{studentProfile.dob | date:"MMM dd, yyyy" || '-'}} </p>
                                     </div>
                                 </li>
                                 <li class="border-right-2">
-                                    <div class="">
+                                    <div class="f16-zero">
                                         <p class="text-up color-orange">gender</p>
                                         <p class="text-up">{{studentProfile.gender || '-'}}</p>
                                     </div>
@@ -51,14 +51,14 @@
                             </ul>
                         </div>
                         <div class="sf-list ptop-per">
-                            <span class="text-center text-up color-orange">Medals Won 2016</span>
+                            <span class="text-center text-up color-orange f-mcell-20">Medals Won 2016</span>
                             <ul class="padd-left padding0 mt5 second-border">
                                 <li>
                                     <div class="medal-num">
                                         <div class="img-medal display-inline">
                                             <img src="img/sf-gold-big.png" alt="">
                                         </div>
-                                        <div class="display-inline">
+                                        <div class="display-inline f16-zero">
                                             <p class="margin0 color-orange text-center">{{studentMedal['2016'].gold || '0'}}</p>
                                             <p class="margin0 color-white">Gold</p>
                                         </div>
@@ -69,7 +69,7 @@
                                         <div class="img-medal display-inline ">
                                             <img src="img/sf-silver-big.png" alt="">
                                         </div>
-                                        <div class="display-inline">
+                                        <div class="display-inline f16-zero">
                                             <p class="margin0 color-orange text-center">{{studentMedal['2016'].silver || '0'}}</p>
                                             <p class="margin0 color-white">Silver</p>
                                         </div>
@@ -80,7 +80,7 @@
                                         <div class="img-medal display-inline">
                                             <img src="img/sf-bronze-big.png" alt="">
                                         </div>
-                                        <div class="display-inline">
+                                        <div class="display-inline f16-zero">
                                             <p class="margin0 color-orange text-center">{{studentMedal['2016'].bronze || '0'}}</p>
                                             <p class="margin0 color-white">Bronze</p>
                                         </div>
