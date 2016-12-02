@@ -2808,6 +2808,22 @@ img.fancybox-image {
                 display: inline-block;
                 cursor: pointer;
             }
+            &:focus{
+                  background: #fc7700;
+                  color:#fff;
+
+                  a{
+                    color: #fff;
+                  }
+            }
+            &:active{
+                  background: #fc7700;
+                  color:#fff;
+
+                  a{
+                    color: #fff;
+                  }
+            }
         }
     }
 }
