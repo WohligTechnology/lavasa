@@ -627,6 +627,11 @@ padding: 0;
 }
 }
 @media (max-width:480px) {
+  .responsive>tbody>tr>td {
+        text-transform: uppercase;
+    color: #102983;
+    text-align: left;
+}
   .m-all{
     margin: 0;
     h2{

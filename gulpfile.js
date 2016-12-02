@@ -19,6 +19,7 @@ var jsArray = [
     './bower_components/ng-dialog/js/ngDialog.min.js',
     './bower_components/moment/min/moment.min.js',
     './bower_components/angular-loading-bar/src/loading-bar.js',
+    './bower_components/angular-responsive-tables/release/angular-responsive-tables.min.js',
     './js/app.js',
     './js/language.js',
     './js/controllers.js',
