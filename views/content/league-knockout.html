@@ -58,52 +58,8 @@
                                         <td class="text-center"></td>
 
                                     </tr>
-                                    <tr>
-                                        <td class="text-center">final</td>
-                                        <td>
-                                            <a ng-click="profiles(winner.participantType,winner.participant._id)">
-                                                <div class="display-inline ver-base round-img">
-                                                    <img ng-src="img/sf-school-grey.png" alt="" class="w25">
-                                                </div>
-                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a ng-click="profiles(winner.participantType,winner.participant._id)">
-                                                <div class="display-inline ver-base round-img">
-                                                    <img ng-src="img/sf-school-grey.png" alt="" class="w25">
-                                                </div>
-                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                            </a>
-                                        </td>
-                                        <td class="text-center">1</td>
-                                        <td class="text-center">won</td>
-                                        <td class="text-center"><img src="img/sf-play.png" alt=""></td>
 
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">final</td>
-                                        <td>
-                                            <a ng-click="profiles(winner.participantType,winner.participant._id)">
-                                                <div class="display-inline ver-base round-img">
-                                                    <img ng-src="img/sf-school-grey.png" alt="" class="w25">
-                                                </div>
-                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a ng-click="profiles(winner.participantType,winner.participant._id)">
-                                                <div class="display-inline ver-base round-img">
-                                                    <img ng-src="img/sf-school-grey.png" alt="" class="w25">
-                                                </div>
-                                                <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                            </a>
-                                        </td>
-                                        <td class="text-center">1</td>
-                                        <td class="text-center">won</td>
-                                        <td class="text-center"><img src="img/sf-play.png" alt=""></td>
 
-                                    </tr>
                                 </tbody>
                             </table>
                             <div class="mt30 text-center" ng-if="!(feedLoader.length >= league.leagues.length)">
@@ -200,6 +156,7 @@
                                                       <th>team A</th>
                                                       <th>|</th>
                                                       <th>team B</th>
+                                                      <th>Match time</th>
                                                       <th>score</th>
 
                                                   </tr>
@@ -225,7 +182,10 @@
                                                           </a>
                                                       </td>
                                                       <td class="text-center">
-                                                          {{match.score || (match.date | date:'mediumDate')}}
+                                                          {{(match.date | date:'mediumDate')+' '+(match.startTime |date:'hh:mm a') || '-'}}
+                                                      </td>
+                                                      <td class="text-center">
+                                                          {{match.score || '-'}}
                                                       </td>
 
                                                   </tr>
