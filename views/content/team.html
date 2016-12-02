@@ -34,11 +34,11 @@
                               <!-- <img ng-show="data.status" ng-src="img/sf-right-org.png" alt=""> -->
                           </div>
                       </div>
-                      <div class="stu-name text-center">
-                          <h4 class="color-blue text-up f162">{{data.name | removeSchool:data.school.name}}</h4>
+                      <div class="stu-name text-center tm-pdl">
+                          <h4 class="color-blue text-up f162">{{data.name | removeSchool:data.school.name | letterLimit : 30}}</h4>
                       </div>
-                      <div class="stu-name text-center">
-                          <h4 class="color-d text-up f162">{{data.school.name}}</h4>
+                      <div class="stu-name text-center tm-pdl">
+                          <h4 class="color-d text-up f162">{{data.school.name | letterLimit : 25}}</h4>
                       </div>
                       <div class="stu-id text-center main-f">
                           <h4 class="color-white f162">SFA ID: {{data.sfaid}}</h4>
@@ -50,7 +50,7 @@
                 <div class="col-md-12">
                     <div class="float-right sf-list">
                         <nav aria-label="Page navigation" ng-if="inputs.search && getSearchData.totalpages > 1">
-                            <uib-pagination ng-change="doSearch()" total-items="getSearchData.total" ng-model="searchFilter.pagenumber" items-per-page="searchFilter.pagesize"></uib-pagination>
+                            <uib-pagination ng-change="doSearch()" total-items="getSearchData.total" ng-model="searchFilter.pagenumber" items-per-page="searchFilter.pagesize" force-ellipses="true" max-size="maxSize" class="pagination-sm" boundary-links="true" ></uib-pagination>
                         </nav>
                     </div>
                 </div>

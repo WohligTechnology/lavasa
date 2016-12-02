@@ -479,7 +479,7 @@ background-repeat: no-repeat;
   padding-top: 20%;
 }
 .p100 {
-    padding: 70px 0px;
+    padding: 25px 0px;
 }
 .sf-school-logo, .sf-school-logo2 {
     width:120px;
@@ -618,10 +618,36 @@ padding: 0;
   padding: 25px 6px;
 }
 .template.content {
-    padding-top: 45px !important;
+    padding-top: 45px ;
 }
 }
 @media (max-width:480px) {
+  .pad-fr-mob{
+    padding: 0px 15px;
+    h3{
+      font-size: 14px;
+    }
+  }
+  .sc-name ul li {
+
+    font-size: 10px;
+&:focus{
+      background: #fc7700;
+      color:#fff;
+
+      a{
+        color: #fff;
+      }
+}
+&:active{
+      background: #fc7700;
+      color:#fff;
+
+      a{
+        color: #fff;
+      }
+}
+}
   .f50 {
     font-size: 30px;
 }
@@ -696,10 +722,14 @@ height: 20px;
   .font16 {
     font-size: 15px !important;
 }
-  .tab-list ul li a {
-    padding: 10px 27px;
-width: 180px;
-display: inline-block;
+  .tab-list ul li{
+display: block;
+    a {
+     padding: 10px 27px;
+ width: 180px;
+ display: inline-block;
+ font-size: 12px;
+   }
   }
   .mob-tb{
     ul{
@@ -952,7 +982,7 @@ margin-bottom: 5px;
       }
   }
   .p100 {
-    padding: 70px 0px;
+    padding: 25px 0px;
 }
 .p1002 {
     padding: 40px 0px 100px 0px !important;

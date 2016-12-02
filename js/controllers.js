@@ -2786,6 +2786,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             isFirstOpen: true,
             isFirstDisabled: false
         };
+        $scope.setPage = function(pageNo) {
+            $scope.currentPage = pageNo;
+        };
+
+        $scope.maxSize = 20;
 
         NavigationService.countTeam(function(data) {
             $scope.count = data.data;
