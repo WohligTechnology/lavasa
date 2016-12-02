@@ -16,7 +16,7 @@
                     <div class="col-md-9 col-xs-12 col-sm-9 text-c-m">
                         <div class="sf-school-data">
                             <div class="scl-title display-inline pointer" ng-click= "state.reload()">
-                                <h3 class="color-orange font-semi">{{getSchoolProfile.name}}</h3>
+                                <h3 class="color-orange font-semi f-mcell-20">{{getSchoolProfile.name}}</h3>
                             </div>
                             <!-- <div class="display-inline cup">
                                 <img src="img/sf-cup.png" alt="">
@@ -24,7 +24,7 @@
                         </div>
                         <div class="data-list custom-li color-white display-inline mt15 text-c-m">
                             <ul class="padding0 sf-list-padding">
-                                <li class="border-right-1">
+                                <li class="border-right-1 f14-zero">
                                     <div class="">
                                         <span class="">CONTINGENT STRENGTH {{filter.year !== '2015' && filter.year || ''}}</span>
                                     </div>
@@ -47,7 +47,7 @@
                                     </ul>
                                 </li>
                                 <li class="border-right-1">
-                                    <div class="display-inline text-up text-center">
+                                    <div class="display-inline text-up text-center f14-zero">
                                         <p>{{filter.year}} rank</p>
                                         <p class="total display-inline mt5"> {{schooldata.rank || 'N.A'}} </p>
                                     </div>
@@ -99,14 +99,14 @@
                             </ul>
                         </div>
                         <div class="sf-list ptop-per hidden-md hidden-lg hidden-sm">
-                            <span class="text-center text-up color-orange">Medals Won</span>
+                            <span class="text-center text-up color-orange f-mcell-20">Medals Won</span>
                             <ul class="padd-left padding0 mt5 second-border">
                                 <li>
                                     <div class="medal-num">
                                         <div class="img-medal display-inline">
                                             <img src="img/sf-gold-big.png" alt="">
                                         </div>
-                                        <div class="display-inline">
+                                        <div class="display-inline f16-zero">
                                             <p class="margin0 color-orange text-center">{{schoolMedal.gold && schoolMedal.gold || 0 }}</p>
                                             <p class="margin0 color-white">Gold</p>
                                         </div>
@@ -117,7 +117,7 @@
                                         <div class="img-medal display-inline ">
                                             <img src="img/sf-silver-big.png" alt="">
                                         </div>
-                                        <div class="display-inline">
+                                        <div class="display-inline f16-zero">
                                             <p class="margin0 color-orange text-center">{{schoolMedal.silver && schoolMedal.silver || 0 }}</p>
                                             <p class="margin0 color-white">Silver</p>
                                         </div>
@@ -128,7 +128,7 @@
                                         <div class="img-medal display-inline">
                                             <img src="img/sf-bronze-big.png" alt="">
                                         </div>
-                                        <div class="display-inline">
+                                        <div class="display-inline f16-zero">
                                             <p class="margin0 color-orange text-center">{{schoolMedal.bronze && schoolMedal.bronze || 0 }}</p>
                                             <p class="margin0 color-white">Bronze</p>
                                         </div>

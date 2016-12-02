@@ -627,6 +627,23 @@ padding: 0;
 }
 }
 @media (max-width:480px) {
+  .p12-per{
+    padding-top: 12%;
+  }
+  .f14-zero{
+    font-size: 14px !important;
+  }
+  .f16-zero{
+    p{
+      font-size: 16px !important;
+    }
+  }
+  .mb-36{
+    margin-bottom: 36px;
+  }
+  .f-mcell-20{
+    font-size: 20px;
+  }
   .responsive>tbody>tr>td {
         text-transform: uppercase;
     color: #102983;
