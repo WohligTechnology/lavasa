@@ -81,7 +81,7 @@ sport’s bio
                                         <h4><span class="color-blue font-semi">Venue : &nbsp;</span><span ng-show="!sport.venue">Not Available</span> {{sport.venue}}</h4>
                                         <h4><span class="color-blue font-semi">Last day for student registration: &nbsp;</span><span>{{sport.lastDate  | englishNumeralDate}}</span> <span ng-if="sport.lastDate !== undefined && sport.lastDate == null">Registration Closed</span></h4>
                                     </div>
-                                    <div class="float-right mt25">
+                                    <div class="float-right mt25" ng-if="!(sport.lastDate !== undefined && sport.lastDate == null)">
 
                                         <a ui-sref="registration">
                                             <button type="button" name="button" class="btn btn-outline text-up ml15" ui-sref="registration">download form</button>

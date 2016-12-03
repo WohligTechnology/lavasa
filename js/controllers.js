@@ -1537,7 +1537,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 .controller('SportCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
     console.log("FUCK THIS SHIT");
     $scope.template = TemplateService.changecontent("sport");
-    $scope.menutitle = NavigationService.makeactive("Sports");
+    $scope.menutitle = NavigationService.makeactive($stateParams.name);
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
@@ -1571,13 +1571,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         dep: "45211"
     }];
 
-    NavigationService.getSportRuleByName($stateParams, function(response) {
-        if (response.value) {
-            $scope.sport = response.data;
-        } else {
-            console.log("No sports data found");
-        }
-    });
+  
 
     $scope.tabchanges = function(tabs, a) {
         //        console.log(tab);
