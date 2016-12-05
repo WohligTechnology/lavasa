@@ -13,10 +13,10 @@
                     <div class="text-center mt25">
                         <div class="tab-list sf-list text-up mob-tb">
                             <ul class="padding0 margin0">
-                                <li><a href="" ng-click="tabchange('2016',1)" class="{{classa}} font16">
-sfa mumbai 2016 winners
+                                <li><a href="" ng-click="tabchange('2016',1);getWinners('2016')" class="{{classa}} font16">
+sfa mumbai 2016 <span ng-if="winners['2016'].length > 0">winners</span>
 </a></li>
-                                <li><a href="" ng-click="tabchange('2015',2)" class="{{classb}} font16" ng-if="is2015Sport">
+                                <li><a href="" ng-click="tabchange('2015',2);getWinners('2015')" class="{{classb}} font16" ng-if="is2015Sport">
 sfa mumbai 2015
 </a></li>
                                 <li><a href="" ng-click="tabchange('gallerys',3)" class="{{classc}} font16">
@@ -36,13 +36,14 @@ sport’s bio
                 <div class="box-content-white box-content2">
                     <div class="2016" ng-show="tab=='2016'">
 <!-- //2016 winners UI -->
-<div class="row over-fl">
+<div class="text-center" ng-if="!(winners['2016'].length > 0)">
+  <!-- <h4></h4> -->
+{{winners['2016'] === undefined && 'Loading ..' || ' '}}
+</div>
+<div class="row over-fl" ng-if="winners['2016'].length > 0">
     <div class="col-md-12">
-      <div class="text-center" ng-if="!(winners.length > 0)">
-        <!-- <h4></h4> -->
-      {{winners === undefined && 'Loading ..' || 'No Winners Yet'}}
-      </div>
-        <div class=" mt25" ng-if="winners.length > 0">
+
+        <div class=" mt25" ng-if="winners['2016'].length > 0">
           <div class="dr-table text-l w6650">
               <table class="table">
                   <thead>
@@ -83,7 +84,7 @@ sport’s bio
                       </tr>
                   </thead>
                   <tbody>
-                    <tr ng-repeat="win in winners">
+                    <tr ng-repeat="win in winners['2016']">
                         <td>{{win._id.agegroup.name}} {{win._id.gender}} {{win._id.firstcategory.name}}</td>
                         <td>
                             <a ng-click="profiles(win.Gold.participantType,win.Gold.student._id,win.Gold.team._id);">
@@ -170,222 +171,133 @@ sport’s bio
     </div>
 </div>
 <!-- //end UI -->
-                      <div class="row">
-                          <div class="text-center">
-                              <h3 class="color-blue text-up font-semi f18-m">featured athletes</h3>
-                          </div>
-                          <div class="row mt25">
-                            <div class="col-md-offset-2 col-md-8 text-center">
-                              <h4 class="color-blue f-mn">Every competition has a few athletes with extraordinary talent, showcasing an outstanding performance and shining brighter than the rest. Discover some of those; Mumbai’s best {{sport.sportid.name}} players at the inter-school level.</h4>
-                              <h4 class="color-orange text-up">coming soon</h4>
+                      <div  ng-if="winners !== undefined && winners['2016'].length == 0">
+                        <div class="row">
+                            <div class="text-center">
+                                <h3 class="color-blue text-up font-semi f18-m">featured athletes</h3>
                             </div>
-                              <!-- <div class="col-md-3 mt15 col-sm-4 col-xs-12" ng-repeat="data in student track by $index">
-                                  <a href="">
-                                      <div class="school-sec">
+                            <div class="row mt25">
+                              <div class="col-md-offset-2 col-md-8 text-center">
+                                <h4 class="color-blue f-mn">Every competition has a few athletes with extraordinary talent, showcasing an outstanding performance and shining brighter than the rest. Discover some of those; Mumbai’s best {{sport.sportid.name}} players at the inter-school level.</h4>
+                                <h4 class="color-orange text-up">coming soon</h4>
+                              </div>
+                                <!-- <div class="col-md-3 mt15 col-sm-4 col-xs-12" ng-repeat="data in student track by $index">
+                                    <a href="">
+                                        <div class="school-sec">
 
-                                          <div class="stu-img text-center sf-relative">
-                                              <img ng-src="{{data.icon}}" alt="">
+                                            <div class="stu-img text-center sf-relative">
+                                                <img ng-src="{{data.icon}}" alt="">
 
+                                            </div>
+                                            <div class="stu-name text-center">
+                                                <h4 class="color-orange text-up font-semi">{{data.name}}</h4>
+                                            </div>
+                                            <div class="stu-id text-center">
+                                                <h4 class="color-blue">SFA ID: {{data.dep}}</h4>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div> -->
+                            </div>
+                        </div>
+                          <hr class="mt40">
+                          <div class="row mt25">
+                              <div class="col-md-4 col-sm-4 col-xs-12">
+                                  <div class="image-box2">
+                                      <img ng-src="{{sport.federationLogo | uploadpath }}" alt="Sport For All" class="img-responsive banner-set sf-absulate">
+                                  </div>
+                              </div>
+                              <div class="col-md-8 col-xs-12">
+                                  <div class="contain-boxx f15">
+
+
+                                      <div ng-bind-html="sport.dateContent | rawHtml"></div>
+                                      <div class="mt15">
+                                          <h4><span class="color-blue font-semi">Tournament Dates: &nbsp;</span>&nbsp;<span ng-show="!sport.fromDate && !sport.toDate"> Not Available</span>{{sport.fromDate  | englishNumeralDate}} <span ng-show="sport.fromDate && sport.toDate"> &nbsp; to &nbsp;</span>{{sport.toDate  | englishNumeralDate}}</h4>
+                                          <h4><span class="color-blue font-semi">Venue : &nbsp;</span><span ng-show="!sport.venue">Not Available</span> {{sport.venue}}</h4>
+                                          <h4><span class="color-blue font-semi">Last day for student registration: &nbsp;&nbsp;</span><span>&nbsp;{{sport.lastDate  | englishNumeralDate}}&nbsp;</span> <span ng-if="sport.lastDate !== undefined && sport.lastDate == null">Registration Closed</span></h4>
+                                      </div>
+                                      <div class="float-right mt25" ng-if="!(sport.lastDate !== undefined && sport.lastDate == null)">
+
+                                          <a ui-sref="registration">
+                                              <button type="button" name="button" class="btn btn-outline text-up ml15" ui-sref="registration">download form</button>
+                                          </a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="accrodian-sec mt25">
+                              <uib-accordion close-others="oneAtATime" class="text-up text-center ">
+                                <uib-accordion-group heading="schedules and draws" is-open="status.isFirstOpen" >
+                                    <!-- <p class="color-base f16">best contingent leader : <span class="color-blue font-semi"> Manav mehta</span></p> -->
+                                    <p><a class="color-blue font-semi" ui-sref="draw-schedule">Click here to continue</a></p>
+                                </uib-accordion-group>
+                                  <uib-accordion-group heading="Tournament formats and rules" is-disabled="status.isFirstDisabled">
+                                      <div class="data-box" ng-bind-html="sport.rules | rawHtml">
+                                      </div>
+                                      <div class="data-box text-center" ng-if="!sport.rules">
+                                          Not Available
+                                      </div>
+                                  </uib-accordion-group>
+                                  <uib-accordion-group heading="age groups, events and entries">
+                                      <div class="data-box" ng-bind-html="sport.ageGroupContent | rawHtml">
+                                          <!-- <p>The SFA Inter-school Handball tournament will be conducted in the categories mentioned in the table below. </p>
+                                          <p>We have a maximum draw capacity as mentioned in the below table. Entries will be accommodated basis the eligibility criteria set out in Point 3.</p> -->
+                                      </div>
+                                      <div class="box-table mt25 bx-mob">
+                                          <table class="table">
+                                              <thead>
+                                                  <tr>
+                                                      <th ng-repeat=" column in sport.sportid.tableContent">{{column}}</th>
+                                                  </tr>
+                                              </thead>
+                                              <tbody>
+                                                  <tr ng-repeat="row in sport.ageGroupTable">
+                                                      <td ng-repeat="column in sport.sportid.tableContent">{{row[column]}}</td>
+                                                  </tr>
+                                              </tbody>
+                                          </table>
+                                      </div>
+                                  </uib-accordion-group>
+
+                                  <uib-accordion-group heading="eligibility">
+                                      <div class="data-box ">
+                                          <div class="data-box text-center" ng-if="!sport.eligibilityContent">
+                                              Not Available
                                           </div>
-                                          <div class="stu-name text-center">
-                                              <h4 class="color-orange text-up font-semi">{{data.name}}</h4>
-                                          </div>
-                                          <div class="stu-id text-center">
-                                              <h4 class="color-blue">SFA ID: {{data.dep}}</h4>
+                                          <div ng-bind-html="sport.eligibilityContent | rawHtml ">  </div>
+
+                                          <div class="box-table mt25 bx-mob" ng-hide="!sport.eligibilityTable">
+                                              <table class="table">
+                                                  <thead>
+                                                      <tr>
+                                                          <th>age</th>
+                                                          <th>Cut Off Date</th>
+                                                          <th></th>
+                                                          <th></th>
+                                                      </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                      <tr ng-repeat="eligible in sport.eligibilityTable">
+                                                          <td>{{eligible.agegroup.name}}</td>
+                                                          <td>Born on or After {{eligible.date | englishNumeralDate}}</td>
+                                                          <td></td>
+                                                          <td></td>
+
+                                                      </tr>
+                                                  </tbody>
+                                              </table>
                                           </div>
                                       </div>
-                                  </a>
-                              </div> -->
+                                  </uib-accordion-group>
+
+
+                              </uib-accordion>
                           </div>
+
+                          <hr class="mt40">
+
                       </div>
-                        <hr class="mt40">
-                        <div class="row mt25">
-                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                <div class="image-box2">
-                                    <img ng-src="{{sport.federationLogo | uploadpath }}" alt="Sport For All" class="img-responsive banner-set sf-absulate">
-                                </div>
-                            </div>
-                            <div class="col-md-8 col-xs-12">
-                                <div class="contain-boxx f15">
-
-
-                                    <div ng-bind-html="sport.dateContent | rawHtml"></div>
-                                    <div class="mt15">
-                                        <h4><span class="color-blue font-semi">Tournament Dates: &nbsp;</span>&nbsp;<span ng-show="!sport.fromDate && !sport.toDate"> Not Available</span>{{sport.fromDate  | englishNumeralDate}} <span ng-show="sport.fromDate && sport.toDate"> &nbsp; to &nbsp;</span>{{sport.toDate  | englishNumeralDate}}</h4>
-                                        <h4><span class="color-blue font-semi">Venue : &nbsp;</span><span ng-show="!sport.venue">Not Available</span> {{sport.venue}}</h4>
-                                        <h4><span class="color-blue font-semi">Last day for student registration: &nbsp;&nbsp;</span><span>&nbsp;{{sport.lastDate  | englishNumeralDate}}&nbsp;</span> <span ng-if="sport.lastDate !== undefined && sport.lastDate == null">Registration Closed</span></h4>
-                                    </div>
-                                    <div class="float-right mt25" ng-if="!(sport.lastDate !== undefined && sport.lastDate == null)">
-
-                                        <a ui-sref="registration">
-                                            <button type="button" name="button" class="btn btn-outline text-up ml15" ui-sref="registration">download form</button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accrodian-sec mt25">
-                            <uib-accordion close-others="oneAtATime" class="text-up text-center ">
-                              <uib-accordion-group heading="schedules and draws" is-open="status.isFirstOpen" >
-                                  <!-- <p class="color-base f16">best contingent leader : <span class="color-blue font-semi"> Manav mehta</span></p> -->
-                                  <p><a class="color-blue font-semi" ui-sref="draw-schedule">Click here to continue</a></p>
-                              </uib-accordion-group>
-                                <uib-accordion-group heading="Tournament formats and rules" is-disabled="status.isFirstDisabled">
-                                    <div class="data-box" ng-bind-html="sport.rules | rawHtml">
-                                    </div>
-                                    <div class="data-box text-center" ng-if="!sport.rules">
-                                        Not Available
-                                    </div>
-                                </uib-accordion-group>
-                                <uib-accordion-group heading="age groups, events and entries">
-                                    <div class="data-box" ng-bind-html="sport.ageGroupContent | rawHtml">
-                                        <!-- <p>The SFA Inter-school Handball tournament will be conducted in the categories mentioned in the table below. </p>
-                                        <p>We have a maximum draw capacity as mentioned in the below table. Entries will be accommodated basis the eligibility criteria set out in Point 3.</p> -->
-                                    </div>
-                                    <div class="box-table mt25 bx-mob">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th ng-repeat=" column in sport.sportid.tableContent">{{column}}</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr ng-repeat="row in sport.ageGroupTable">
-                                                    <td ng-repeat="column in sport.sportid.tableContent">{{row[column]}}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </uib-accordion-group>
-
-                                <uib-accordion-group heading="eligibility">
-                                    <div class="data-box ">
-                                        <div class="data-box text-center" ng-if="!sport.eligibilityContent">
-                                            Not Available
-                                        </div>
-                                        <div ng-bind-html="sport.eligibilityContent | rawHtml ">
-                                            <!-- <ul class="paddin0">
-                                          <li>
-                                              <p>Only teams from Sports For All member schools will be eligible to participate.</p>
-                                          </li>
-                                          <li>
-                                              <p>Teams having State and National Players in their squad will be given first preference.</p>
-                                          </li>
-                                          <li>
-                                              <p>All Team entries will be evaluated on the basis of their performance in DSO / MSSA / NMSA / Open tournaments in the period 1st January 2014 to 25th October 2015.</p>
-                                          </li>
-                                          <li>
-                                              <p>Incomplete details in the entry forms or any manipulations in the entries will not be accepted by the organizing committee.</p>
-                                          </li>
-                                          <li>
-                                              <p>The below mentioned age criteria’s will be considered:-</p>
-                                          </li>
-                                      </ul> -->
-                                        </div>
-
-                                        <div class="box-table mt25 bx-mob" ng-hide="!sport.eligibilityTable">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>age</th>
-                                                        <th>Cut Off Date</th>
-                                                        <th></th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr ng-repeat="eligible in sport.eligibilityTable">
-                                                        <td>{{eligible.agegroup.name}}</td>
-                                                        <td>Born on or After {{eligible.date | englishNumeralDate}}</td>
-                                                        <td></td>
-                                                        <td></td>
-
-                                                    </tr>
-                                                    <!-- <tr>
-                                                    <td>U-10</td>
-                                                    <td>Born on or After 1st January 2005</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>U-10</td>
-                                                    <td>Born on or After 1st January 2005</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>U-10</td>
-                                                    <td>Born on or After 1st January 2005</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr> -->
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </uib-accordion-group>
-
-
-                            </uib-accordion>
-                        </div>
-                        <!-- <div class="row">
-                            <div class="col-md-12">
-                                <div class="mt40">
-                                    <div class="download float-right">
-                                        <a href="" class="color-blue text-underline f16">Download Form</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <hr class="mt40">
-                        <!-- this should be come after some time -->
-                        <!-- <div class="row">
-                            <div class="text-center">
-                                <h3 class="text-up color-blue font-semi f18-m">training and development</h3>
-                            </div>
-                            <div class="mt40">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="image-box text-center">
-                                            <img src="img/sf-training.png" alt="" class="img-responsive margin-auto">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="tr-dev-content">
-                                            <div class="title">
-                                                <h3 class="color-orange text-up font-semi margin0 f18-m text-c-m">Kleinetics</h3>
-                                            </div>
-                                            <div class="text-c-m">
-                                                <p>Kleinetics is India's premiere Kids Fitness Program backed by scientific training and technology to improve fitness and well being of kids. Through numerous dynamic and static drills, a variety in workouts
-                                                    and an innovative and scientific curriculum, Kleinetics focuses on cardiovascular endurance, strength, speed, agility, reaction time, power, flexibility, balance and co-ordination of the children.</p>
-                                            </div>
-                                            <div class="float-right mt25">
-                                                <button type="button" name="button" class="btn-outline text-up f18 padding15 btn">Know more</button>
-                                                <button type="button" name="button" class="btn-outline text-up f18 padding15 btn">download form</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div> -->
-
-                        <!-- <div class="row">
-
-                            <div class="row mt15">
-                                <div class="col-md-6">
-                                    <div class="chart">
-                                        <div id="mychart" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="chart">
-                                        <div id="mychart2" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                     <div class="2015" ng-show="tab=='2015'">
                         <!-- this should be come after some -->
@@ -443,11 +355,11 @@ sport’s bio
                         <!-- new UI -->
                         <div class="row over-fl">
                             <div class="col-md-12">
-                              <div class="text-center" ng-if="!(winners.length > 0)">
+                              <div class="text-center" ng-if="!(winners['2015'].length > 0)">
                                 <!-- <h4></h4> -->
-                              {{winners === undefined && 'Loading ..' || 'No Winners Yet'}}
+                              {{winners['2015'] === undefined && 'Loading ..' || 'No Winners Yet'}}
                               </div>
-                                <div class=" mt25" ng-if="winners.length > 0">
+                                <div class=" mt25" ng-if="winners['2015'].length > 0">
                                   <div class="dr-table text-l w6650">
                                       <table class="table">
                                           <thead>
@@ -488,7 +400,7 @@ sport’s bio
                                               </tr>
                                           </thead>
                                           <tbody>
-                                            <tr ng-repeat="win in winners">
+                                            <tr ng-repeat="win in winners['2015']">
                                                 <td>{{win._id.agegroup.name}} {{win._id.gender}} {{win._id.firstcategory.name}}</td>
                                                 <td>
                                                     <a ng-click="profiles(win.Gold.participantType,win.Gold.student._id,win.Gold.team._id);">
@@ -580,11 +492,11 @@ sport’s bio
                                 <uib-accordion-group heading="winners of sfa mumbai 2015" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
                                     <div class="row over-fl">
                                         <div class="col-md-12">
-                                          <div class="text-center" ng-if="!(winners.length > 0)">
+                                          <div class="text-center" ng-if="!(winners['2016'].length > 0)">
 
                                           {{winners === undefined && 'Loading ..' || 'No Winners Yet'}}
                                           </div>
-                                            <div class=" mt25" ng-if="winners.length > 0">
+                                            <div class=" mt25" ng-if="winners['2016'].length > 0">
                                               <div class="dr-table text-l w6650">
                                                   <table class="table">
                                                       <thead>
@@ -625,7 +537,7 @@ sport’s bio
                                                           </tr>
                                                       </thead>
                                                       <tbody>
-                                                        <tr ng-repeat="win in winners">
+                                                        <tr ng-repeat="win in winners['2016']">
                                                             <td>{{win._id.agegroup.name}} {{win._id.gender}} {{win._id.firstcategory.name}}</td>
                                                             <td>
                                                                 <a ng-click="profiles(win.Gold.participantType,win.Gold.student._id,win.Gold.team._id);">
