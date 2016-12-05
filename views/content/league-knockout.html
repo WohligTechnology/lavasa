@@ -1,6 +1,6 @@
 <section class="bottom-padding">
-    <div class="sport-name-bg text-center">
-        <h1 class="color-orange text-up font-semi margin0">{{sport.sportslist.name}} <span ng-if="sport.firstcategory"> | {{sport.firstcategory.name}}</span><span ng-if="sport.secondcategory"> | {{sport.secondcategory.name}}</span> | {{sport.gender}} | {{sport.agegroup.name}}</h1>
+    <div class="sport-name-bg text-center" >
+        <h1 class="color-orange text-up font-semi margin0" ng-if="sport">{{sport.sportslist.name}} <span ng-if="sport.firstcategory"> | {{sport.firstcategory.name}}</span><span ng-if="sport.secondcategory"> | {{sport.secondcategory.name}}</span> | {{sport.gender}} | {{sport.agegroup.name}}</h1>
     </div>
     <section>
         <div class="container">
@@ -69,8 +69,8 @@
                     </div>
                 </div>
                 <hr ng-if="leagueknockouts.length > 0">
-                <div ng-repeat="lk in leagueknockouts">
-                  <div class="row main-over" >
+                <div >
+                  <div class="row main-over" ng-if="leagueknockouts.length > 0">
                       <!-- <div class="text-center mt25 " >
                       <h3>knockout</h3>
                     </div> -->
@@ -80,7 +80,7 @@
                           </div>
                           <div class="accrordian mt25 sf-acc2 over-fl">
                               <uib-accordion close-others="oneAtATime" class="text-up ">
-                                  <uib-accordion-group>
+                                  <uib-accordion-group ng-repeat="lk in leagueknockouts">
                                       <uib-accordion-heading>
                                           <div class="acc-title text-center">
                                               {{lk.leagueknockoutround}}
@@ -130,8 +130,8 @@
 
                       </div>
                   </div>
-                  <hr>
-                  <div class="row main-over">
+                  <hr ng-if="leagueknockouts.length > 0">
+                  <div class="row main-over"ng-if="leagueknockouts.length > 0">
                       <!-- <div class="text-center mt25 " >
                       <h3>knockout</h3>
                     </div> -->
@@ -141,7 +141,7 @@
                           </div>
                           <div class="accrordian mt25 sf-acc2 over-fl">
                               <uib-accordion close-others="oneAtATime" class="text-up ">
-                                  <uib-accordion-group>
+                                  <uib-accordion-group ng-repeat="lk in leagueknockouts">
                                       <uib-accordion-heading>
                                           <div class="acc-title text-center">
                                               {{lk.leagueknockoutround}}
@@ -201,7 +201,7 @@
 
                       </div>
                   </div>
-                  <hr>
+                  <hr ng-if="leagueknockouts.length > 0">
                 </div>
 
 
