@@ -30,17 +30,17 @@
                                             </div>
                                         </div>
                                     </uib-accordion-heading>
-                                    <div class="text-center" ng-if="draws.sports.length > 0">
+                                    <!-- <div class="text-center" ng-if="draws.sports.length > 0">
                                         <ul class="padding0 sp-list list-style" >
                                             <li ng-repeat='item in draws.sports'>
                                                 <a ng-click="teleport(item.sport.drawFormat,item.sport._id)"><span ng-if="item.sport.firstcategory"> {{item.sport.firstcategory.name}}  |</span><span ng-if="item.sport.secondcategory"> {{item.sport.secondcategory.name}} |</span>  {{item.sport.gender}} | {{item.sport.agegroup.name}}</a>
                                             </li>
 
                                         </ul>
-                                    </div>
-                                    <div class="text-center" ng-if="!(draws.sports.length > 0)">
-                                      <span ng-if="draws.sports.length == 0" ng-bind-html="draws.message"></span>
-                                      <span ng-if="draws.sports === undefined">Loading ..</span>
+                                    </div> -->
+                                    <div class="text-center">
+                                      <span ng-if="draws.message" ng-bind-html="draws.message"></span>
+                                      <span ng-if="!draws.message">Loading ..</span>
                                     </div>
                                 </div>
                             </uib-accordion>

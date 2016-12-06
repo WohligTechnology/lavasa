@@ -220,6 +220,15 @@ var navigationservice = angular.module('navigationservice', [])
                 withCredentials: true
             }).success(callback);
         },
+        getOneBySportId: function(request,callback) {
+            // console.log('form data: ', formData);
+            $http({
+                url: adminurl + 'sportrule/getOneBySportId',
+                method: 'POST',
+                withCredentials: true,
+                data:request
+            }).success(callback);
+        },
         getStudentProfile: function(id, callback) {
             // console.log('form data: ', formData);
             $http({

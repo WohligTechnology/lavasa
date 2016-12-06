@@ -846,21 +846,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
         $scope.getDraws = function(sportid) {
-            $scope.draws = undefined;
-            _.each($scope.statuses.open, function(value, key) {
+          $scope.draws = {};
+          _.each($scope.statuses.open, function(value, key) {
                 $scope.statuses.open[key] = false;
             });
-            NavigationService.getDrawUpdatedSports({
+            NavigationService.getOneBySportId({
                 sport: sportid
             }, function(response) {
-                $scope.draws = {};
-                if (response.value) {
 
-                    $scope.draws.sports = response.data;
-                    console.log($scope.draws.sports);
+                if (response.value) {
+                  $scope.draws.sports = [];
+                  $scope.draws.message = response.data.yearBeforeContent;
+                  console.log($scope.draws);
                 } else {
-                    $scope.draws.sports = [];
-                    $scope.draws.message = response.data.yearBeforeContent;
+
                 }
             });
         };
