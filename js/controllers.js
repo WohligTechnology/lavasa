@@ -857,7 +857,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 if (response.value) {
                   $scope.draws.sports = [];
                   $scope.draws.message = response.data.yearBeforeContent;
-                  console.log($scope.draws);
                 } else {
 
                 }

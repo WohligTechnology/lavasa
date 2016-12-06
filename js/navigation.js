@@ -44,7 +44,6 @@ var navigationservice = angular.module('navigationservice', [])
             return currentYears;
         },
         getAllBanner : function(callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'banner/getAll',
                 method: 'POST',
@@ -52,7 +51,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getAllBanner : function(callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'banner/getAll',
                 method: 'POST',
@@ -60,7 +58,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getAllEnabledBanner : function(callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'banner/getAllEnabledBanner',
                 method: 'POST',
@@ -84,7 +81,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getSearchDataSchool: function(input, callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'school/searchSchool',
                 method: 'POST',
@@ -93,7 +89,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getDrawUpdatedSports: function(request, callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'StudentStats/getDrawUpdatedSports',
                 method: 'POST',
@@ -102,7 +97,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getLeagueKnockout: function(request, callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'leagueknockout/getAll',
                 method: 'POST',
@@ -111,7 +105,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getSearchDataStudent: function(input,i, callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'student/searchStudent',
                 method: 'POST',
@@ -148,7 +141,6 @@ var navigationservice = angular.module('navigationservice', [])
             });
         },
         getSchoolProfile: function(id, callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'school/getOne',
                 method: 'POST',
@@ -159,7 +151,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getOneSportForResult: function(request, callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'sport/getOneSportForResult',
                 method: 'POST',
@@ -175,7 +166,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getOnePopulated: function(id, callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'school/getOnePopulated',
                 method: 'POST',
@@ -186,7 +176,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         contingentStrengthByYear: function(request, callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'school/contingentStrengthByYear',
                 method: 'POST',
@@ -204,7 +193,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getSportRuleByName: function(request, callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'sportrule/getOneByName',
                 method: 'POST',
@@ -213,7 +201,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getAllSportList: function(callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'sportsList/getAll',
                 method: 'POST',
@@ -221,7 +208,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getOneBySportId: function(request,callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'sportrule/getOneBySportId',
                 method: 'POST',
@@ -230,7 +216,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getStudentProfile: function(id, callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'student/getOne',
                 method: 'POST',
@@ -241,7 +226,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         editStudent: function(request, callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'student/editStudent',
                 method: 'POST',
@@ -250,7 +234,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getTeamDetail: function(id, callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'team/getOne',
                 method: 'POST',
@@ -261,7 +244,6 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         schoolSearch: function(request,i, callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'school/getLimited',
                 method: 'POST',
@@ -361,21 +343,18 @@ var navigationservice = angular.module('navigationservice', [])
             }).success(callback);
         },
         getAgegroup: function(callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'agegroup/getAll',
                 method: 'POST'
             }).success(callback);
         },
         countStudent: function(callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'student/countStudent',
                 method: 'POST'
             }).success(callback);
         },
         countTeam: function(callback) {
-            // console.log('form data: ', formData);
             $http({
                 url: adminurl + 'team/countTeam',
                 method: 'POST'
