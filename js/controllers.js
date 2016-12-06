@@ -195,29 +195,46 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log("Banner not found");
             }
         });
-        $scope.$on('$viewContentLoaded', function() {
-            setTimeout(function() {
-                (function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) return;
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1452795161694777";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));
-                ! function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0],
-                        p = /^http:/.test(d.location) ? 'http' : 'https';
-                    if (!d.getElementById(id)) {
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = p + "://platform.twitter.com/widgets.js";
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }
-                }(document, "script", "twitter-wjs");
-            }, 500);
-        });
+        function twitterReload(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                p = /^http:/.test(d.location) ? 'http' : 'https';
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = p + "://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }
 
+        function facebookReload(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            //  if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=1452795161694777";
+            fjs.parentNode.insertBefore(js, fjs);
+
+        }
+        $timeout(function() {
+            twitterReload(document, "script", "twitter-wjs");
+            facebookReload(document, 'script', 'facebook-jssdk');
+        }, 1000);
+
+        var f, t;
+        f = $interval(function() {
+            if (typeof FB !== undefined) {
+                FB = null;
+                $interval.cancel(f);
+                facebookReload(document, 'script', 'facebook-jssdk');
+            }
+        }, 100);
+        t = $interval(function() {
+            if (typeof twttr !== undefined) {
+                twttr.widgets.load();
+                $interval.cancel(t);
+
+            }
+        }, 100);
 
         NavigationService.getAllSportList(function(response) {
             if (response.value) {
