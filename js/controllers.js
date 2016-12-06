@@ -1535,7 +1535,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 })
 
 .controller('SportCtrl', function($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
-    console.log("FUCK THIS SHIT");
     $scope.template = TemplateService.changecontent("sport");
     $scope.menutitle = NavigationService.makeactive($stateParams.name);
     TemplateService.header = "views/header2.html";
@@ -1571,7 +1570,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         dep: "45211"
     }];
 
-  
+
 
     $scope.tabchanges = function(tabs, a) {
         //        console.log(tab);
@@ -1603,22 +1602,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.winners = [];
     $scope.statuses = {};
     $scope.statuses.doubleBronze = false;
-    $scope.getWinners = function() {
+    $scope.winners = undefined;
+    $scope.getWinners = function(year) {
         var constraints = {};
         constraints.sport = $scope.sport.sportid._id;
-        constraints.year = "2015";
+        constraints.year = year;
         $scope.statuses.doubleBronze = false;
-        $scope.winners = undefined;
+        if(!$scope.winners){
+          $scope.winners ={};
+        }
         NavigationService.getWinners(constraints, function(response) {
             if (response.value) {
-                $scope.winners = response.data;
-                _.each($scope.winners, function(key) {
+                $scope.winners[year] = response.data;
+                _.each($scope.winners[year], function(key) {
                     if (key.Bronze.length > 1) {
                         $scope.statuses.doubleBronze = true;
                     }
                 });
             } else {
-                $scope.winners = [];
+                $scope.winners[year] = [];
             }
         });
     };
@@ -1627,7 +1629,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if (response.value) {
                 $scope.sport = response.data;
                 console.log($scope.sport);
-                $scope.getWinners();
+                $scope.getWinners("2016");
             } else {
                 console.log("No sports data found");
             }
