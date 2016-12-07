@@ -341,7 +341,7 @@ firstapp.filter('ageYearFilter', function() {
            if(birthdate){
              return calculateAge(birthdate);
            }else{
-             return '-'
+             return '-';
            }
      };
 });

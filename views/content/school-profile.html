@@ -26,7 +26,7 @@
                             <ul class="padding0 sf-list-padding">
                                 <li class="border-right-1 f14-zero">
                                     <div class="">
-                                        <span class="">CONTINGENT STRENGTH {{filter.year !== '2015' && filter.year || ''}}</span>
+                                        <span class="">CONTINGENT STRENGTH {{filter.year}}</span>
                                     </div>
                                     <ul class="padding0 pad-line mt15">
                                         <li>
@@ -250,7 +250,7 @@
                         <div class="display-inline">
                             <div class="sfa-select">
                                 <select ng-change="onChangeContingentYear()" class="select" ng-model="filterStatistics.year">
-                                <option value="">All</option>
+                                <option value="2015">2015</option>
                                 <option value="2016">2016</option>
                                 </select>
                                 <span class="only-border"></span>

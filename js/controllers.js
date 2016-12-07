@@ -2282,11 +2282,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         constraints.school = $stateParams.id;
         $scope.getSportParticipated(constraints);
         $scope.schoolMedalCount(constraints);
-        if ($scope.filter.year === '2016') {
-            $scope.filterStatistics.year = $scope.filter.year;
-
-
-        }
+        $scope.filterStatistics.year = $scope.filter.year;
         $scope.contingentStrengthByYear();
         $scope.filterStatistics.pagenumber = 1;
 
