@@ -330,6 +330,21 @@ firstapp.directive('giveitmargin', function($compile, $parse) {
         }
     };
 });
+firstapp.filter('ageYearFilter', function() {
+     function calculateAge(birthday) { // birthday is a date
+         var ageDifMs = Date.now() - new Date(birthday).getTime();
+         var ageDate = new Date(ageDifMs); // miliseconds from epoch
+         return Math.abs(ageDate.getUTCFullYear() - 1970);
+     }
+
+     return function(birthdate) {
+           if(birthdate){
+             return calculateAge(birthdate);
+           }else{
+             return '-'
+           }
+     };
+});
 firstapp.filter('uploadpath', function() {
     return function(input, width, height, style, defaultFlag) {
         //console.log(width, height, style, defaultFlag)

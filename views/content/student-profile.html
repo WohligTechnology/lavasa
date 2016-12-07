@@ -27,25 +27,25 @@
                                 <li class="border-right-2">
                                     <div class="f16-zero">
                                         <p class="text-up color-orange">age group</p>
-                                        <p>{{studentProfile.dob | ageFilter}}</p>
+                                        <p>{{(studentProfile.dob | ageFilter) || '-'}}</p>
                                     </div>
                                 </li>
                                 <li class="border-right-2">
                                     <div class="f16-zero">
                                         <p class="text-up color-orange">SFA ID</p>
-                                        <p>{{studentProfile.sfaid}}</p>
+                                        <p>{{studentProfile.sfaid || '-'}}</p>
                                     </div>
                                 </li>
                                 <li class="border-right-2">
                                     <div class="f16-zero">
-                                        <p class="text-up color-orange">Date of Birth</p>
-                                        <p class="text-up">{{studentProfile.dob | date:"MMM dd, yyyy"}} </p>
+                                        <p class="text-up color-orange">Age</p>
+                                        <p class="text-up">{{studentProfile.dob | ageYearFilter }} <span ng-if="studentProfile.dob">years</span></p>
                                     </div>
                                 </li>
                                 <li class="border-right-2">
                                     <div class="f16-zero">
                                         <p class="text-up color-orange">gender</p>
-                                        <p class="text-up">{{studentProfile.gender}}</p>
+                                        <p class="text-up">{{studentProfile.gender || '-'}}</p>
                                     </div>
                                 </li>
                             </ul>

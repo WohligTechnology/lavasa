@@ -38,8 +38,8 @@
                                 </li>
                                 <li class="border-right-2">
                                     <div class="f16-zero">
-                                        <p class="text-up color-orange">Date of Birth</p>
-                                        <p class="text-up">{{studentProfile.dob | date:"MMM dd, yyyy" || '-'}} </p>
+                                        <p class="text-up color-orange">Age</p>
+                                        <p class="text-up">{{studentProfile.dob | ageYearFilter }} <span ng-if="studentProfile.dob">years</span> </p>
                                     </div>
                                 </li>
                                 <li class="border-right-2">
