@@ -2047,7 +2047,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         } else {
             NavigationService.getFirstListSchool({
-                year: "2015"
+                year: "2016"
             }, function(data) {
                 if (data.value !== false) {
                     $scope.topschools = data.data.data;
@@ -2067,7 +2067,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.school.showAll = false;
             $scope.school.showTop20 = false;
             $scope.submitSearch();
-            $scope.filterselected.title = "SFA MUMBAI 2015 - Top 20 Schools";
+            $scope.filterselected.title = "SFA MUMBAI 2016 - Top 20 Schools";
         } else {
             var constraints = {};
             constraints.year = null;
@@ -2383,7 +2383,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         });
     };
-    $scope.filter.year = "2015";
+    $scope.filter.year = "2016";
     $scope.changeYear();
     $scope.getSportAgeGroup = function() {
         NavigationService.filterAgegroupBySport({
@@ -2693,7 +2693,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //     console.log(sports);
     // };
 
-    $scope.filter.year = "2015";
+    $scope.filter.year = "2016";
     $scope.changeYear();
 })
 
