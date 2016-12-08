@@ -2128,6 +2128,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.state = $state;
     $scope.students = {};
     $scope.allYears = NavigationService.getAllYears();
+
+    $scope.setPage = function(pageNo) {
+        $scope.currentPage = pageNo;
+    };
+
+    $scope.maxSize = 20;
     $scope.gender = [{
         value: "",
         name: "All"

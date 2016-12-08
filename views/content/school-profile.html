@@ -290,7 +290,7 @@
             <div class="col-md-12">
                 <div class="float-right sf-list">
                     <nav aria-label="Page navigation" ng-if="contingent.totalpages > 1">
-                        <uib-pagination ng-change="contingentStrengthByYear()" total-items="contingent.total" ng-model="filterStatistics.pagenumber" items-per-page="filterStatistics.pagesize"></uib-pagination>
+                        <uib-pagination ng-change="contingentStrengthByYear()" total-items="contingent.total" ng-model="filterStatistics.pagenumber" items-per-page="filterStatistics.pagesize" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination>
                     </nav>
                 </div>
             </div>
