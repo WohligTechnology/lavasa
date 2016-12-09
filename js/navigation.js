@@ -6,8 +6,8 @@
 // }
 
 
-// var adminurl = "http://localhost:1337/";
-var adminurl = "https://api.sfanow.in/api/";
+var adminurl = "http://localhost:1337/api/";
+// var adminurl = "https://api.sfanow.in/api/";
 // var adminurl = "http://192.168.2.83:1337/api/";
 var imgpath = adminurl + "upload/readFile";
 var uploadurl = adminurl + "upload/";
@@ -99,6 +99,14 @@ var navigationservice = angular.module('navigationservice', [])
         getLeagueKnockout: function(request, callback) {
             $http({
                 url: adminurl + 'leagueknockout/getAll',
+                method: 'POST',
+                withCredentials: true,
+                data: request
+            }).success(callback);
+        },
+        getQualifyingRound: function(request, callback) {
+            $http({
+                url: adminurl + 'qualifyinground/getAll',
                 method: 'POST',
                 withCredentials: true,
                 data: request

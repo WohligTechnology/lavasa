@@ -181,7 +181,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'HeatsCtrl'
         })
         .state('qualify', {
-            url: "/qualify",
+            url: "/qualify/:id",
             templateUrl: "views/template.html",
             controller: 'QualifyCtrl'
         })

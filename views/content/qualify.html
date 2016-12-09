@@ -1,6 +1,9 @@
 <section class="bottom-padding">
-    <div class="sport-name-bg text-center">
+    <!-- <div class="sport-name-bg text-center">
         <h1 class="color-orange text-up font-semi margin0 pad0">athletics | girls | U-14</h1>
+    </div> -->
+    <div class="sport-name-bg text-center">
+        <h1 class="color-orange text-up font-semi margin0 m-all pad0" ng-if="sport">{{sport.sportslist.name}} <span ng-if="sport.firstcategory"> | {{sport.firstcategory.name}}</span><span ng-if="sport.secondcategory"> | {{sport.secondcategory.name}}</span> | {{sport.gender}} | {{sport.agegroup.name}}</h1>
     </div>
     <section>
         <div class="container">

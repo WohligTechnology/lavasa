@@ -2846,7 +2846,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-.controller('QualifyCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('QualifyCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("qualify");
         $scope.menutitle = NavigationService.makeactive("Qualify");
@@ -2893,7 +2893,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //   name: "Harshit Shah",
         //   dep: "45211"
         // }];
-
+        $scope.getQualifyingRound = function() {
+            NavigationService.getQualifyingRound({
+                sport: $stateParams.id
+            }, function(response) {
+                if (response.value) {
+                    $scope.qualifyingrounds = _.chain(response.data)
+                        .groupBy("round")
+                        .toPairs()
+                        .map(function(currentItem) {
+                            currentItem[2] = currentItem[1][0].order;
+                            return _.zipObject(["round", "qualifyingrounds", "order"], currentItem);
+                        })
+                        .value();
+                    console.log($scope.qualifyingrounds);
+                }
+            });
+        };
+        if ($stateParams.id) {
+            NavigationService.getOneSport({
+                _id: $stateParams.id
+            }, function(response) {
+                if (response.value) {
+                    $scope.sport = response.data;
+                    $scope.getQualifyingRound();
+                }
+            });
+        }
     })
     .controller('TeamDetailCtrl', function($scope, TemplateService, NavigationService, $stateParams, $timeout) {
         //Used to name the .html file
