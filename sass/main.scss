@@ -3327,7 +3327,7 @@ a.color-yellow1:hover {
 .ps-anj {
     padding: 0;
     text-align: center;
-    margin-top: -145px;
+        margin-top: 40px;
 }
 
 .un-hm {
@@ -3803,6 +3803,31 @@ input {
   animation: colorchange 3s infinite;
    -webkit-animation: colorchange 3s infinite;
 }
+.cl-ch{
+  animation: colorchanges 3s infinite;
+   -webkit-animation: colorchanges 3s infinite;
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes colorchanges {
+    0% {
+        color: $brand-primary;
+    }
+
+    100% {
+        color: green;
+    }
+    // transition: all 0.3s ease;
+}
+/* Standard syntax */
+@keyframes colorchanges {
+    0% {
+        color: $brand-primary;
+    }
+    50% {
+        color: green;
+    }
+    // transition: all 0.3s ease;
+}
 /* Chrome, Safari, Opera */
 @-webkit-keyframes colorchange {
     0% {
@@ -3940,6 +3965,21 @@ transform: translate(-50%);
 }
 .mb25{
   margin-bottom: 25px;
+}
+.live-stream {
+    background: #fff;
+    padding: 15px;
+    z-index: 9;
+    position: relative;
+    box-shadow: 4px 4px 22px rgba(136, 136, 136, 0.45);
+    text-align: center;
+}
+.ch-mod{
+
+    margin: 5px 0px 16px 0px;
+}
+.mt-110{
+  margin-top: -110px;
 }
 @import "fancybox-override";
 @import "mobile";
