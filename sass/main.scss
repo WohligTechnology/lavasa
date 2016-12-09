@@ -3981,5 +3981,16 @@ transform: translate(-50%);
 .mt-110{
   margin-top: -110px;
 }
+.bg-rgs.text-center {
+    background: $brand-success;
+    padding: 70px 40px 40px 40px;
+    margin-top: -50px;
+    z-index: -9999;
+    position: relative;
+    p{
+      color: #fff;
+      font-size: 16px;
+    }
+}
 @import "fancybox-override";
 @import "mobile";
