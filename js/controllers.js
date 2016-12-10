@@ -2861,41 +2861,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             isFirstOpen: true,
             isFirstDisabled: false
         };
-
-        // $scope.student = [{
-        //   icon: "img/sf-student-profile.png",
-        //   name: "Harshit Shah",
-        //   dep: "45211"
-        // }, {
-        //   icon: "img/sf-student-profile.png ",
-        //   name: "Harshit Shah",
-        //   dep: "45211"
-        // }, {
-        //   icon: "img/sf-student-profile.png",
-        //   name: "Harshit Shah",
-        //   dep: "45211"
-        // }, {
-        //   icon: "img/sf-student-profile.png",
-        //   name: "Harshit Shah",
-        //   dep: "45211"
-        // }, {
-        //   icon: "img/sf-student-profile.png",
-        //   name: "Harshit Shah",
-        //   dep: "45211"
-        // }, {
-        //   icon: "img/sf-student-profile.png",
-        //   name: "Harshit Shah",
-        //   dep: "45211"
-        // }, {
-        //   icon: "img/sf-student-profile.png",
-        //   name: "Harshit Shah",
-        //   dep: "45211"
-        // }, {
-        //   icon: "img/sf-student-profile.png",
-        //   name: "Harshit Shah",
-        //   dep: "45211"
-        // }];
+        $scope.feedLimit = 2;
+        $scope.loadMore = function() {
+            $scope.feedLimit += 1;
+        };
         $scope.getQualifyingRound = function() {
+          $scope.qualifyingrounds = undefined;
             NavigationService.getQualifyingRound({
                 sport: $stateParams.id
             }, function(response) {
@@ -2908,7 +2879,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             return _.zipObject(["round", "qualifyingrounds", "order"], currentItem);
                         })
                         .value();
+                  _.each($scope.qualifyingrounds,function (key) {
+                    key.feedLimit = 3;
+                  });
                     console.log($scope.qualifyingrounds);
+                }else{
+                  $scope.qualifyingrounds = [];
                 }
             });
         };
@@ -3118,7 +3094,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         isFirstOpen: true,
         isFirstDisabled: false
     };
-    $scope.feedLimit = 2;
+    $scope.feedLimit = 4;
     $scope.loadMore = function() {
         $scope.feedLimit += 1;
     };

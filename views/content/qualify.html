@@ -14,7 +14,10 @@
             </div>
 
             <div class="box-content bx-mob">
-                <div class="row over-fl">
+              <h3 class="text-center" ng-if="!(qualifyingrounds.length > 0)">
+              {{qualifyingrounds == undefined && 'Loading ..' || 'No Qualifying Rounds found.'}}
+            </h3>
+                <!-- <div class="row over-fl">
                     <div class="col-md-12">
                         <div class="text-center">
                             <h3 class="color-orange font-semi text-up">top 3</h3>
@@ -89,362 +92,57 @@
                         </div>
                     </div>
                 </div>
-                <hr>
-                <div class="row over-fl">
-                    <div class="col-md-12">
-                        <div class="text-center">
-                            <h3 class="font-semi color-orange text-up">top 8</h3>
-                        </div>
-                        <div class="final-table">
-                            <table class="table">
-                                <thead>
-                                    <tr class="bg-table color-orange font-semi text-up f16">
-                                        <th>position</th>
-                                        <th>name</th>
-                                        <th>school</th>
-                                        <th>result</th>
-                                        <th>points</th>
-                                        <th></th>
+                <hr> -->
+                <div ng-repeat= "qualify in qualifyingrounds | orderBy : '-order'">
+                  <div class="row over-fl"  >
+                      <div class="col-md-12">
+                          <div class="text-center">
+                              <h3 class="font-semi color-orange text-up">{{qualify.round}}</h3>
+                          </div>
+                          <div class="final-table">
+                              <table class="table">
+                                  <thead>
+                                      <tr class="bg-table color-orange font-semi text-up f16">
+                                          <th>position</th>
+                                          <th>name</th>
+                                          <th>school</th>
+                                          <th>result</th>
+                                          <th>points</th>
+                                          <th></th>
 
-                                    </tr>
-                                </thead>
-                                <tbody class="text-up">
-                                    <tr>
-                                        <td>1</td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/mini-clip.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">manav mehta</div>
-                                          </a></td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/sf-school.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                          </a></td>
-                                        <td>qf</td>
-                                        <td>3</td>
-                                        <td>  <a href=""><img src="img/sf-play.png" alt=""></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/mini-clip.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">manav mehta</div>
-                                          </a></td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/sf-school.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                          </a></td>
-                                        <td>qf</td>
-                                        <td>3</td>
-                                        <td>  <a href=""><img src="img/sf-play.png" alt=""></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/mini-clip.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">manav mehta</div>
-                                          </a></td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/sf-school.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                          </a></td>
-                                        <td>qf</td>
-                                        <td>3</td>
-                                        <td>  <a href=""><img src="img/sf-play.png" alt=""></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/mini-clip.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">manav mehta</div>
-                                          </a></td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/sf-school.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                          </a></td>
-                                        <td>not-qf</td>
-                                        <td>3</td>
-                                        <td>  <a href=""><img src="img/sf-play.png" alt=""></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/mini-clip.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">manav mehta</div>
-                                          </a></td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/sf-school.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                          </a></td>
-                                        <td>not-qf</td>
-                                        <td>3</td>
-                                        <td>  <a href=""><img src="img/sf-play.png" alt=""></a></td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
+                                      </tr>
+                                  </thead>
+                                  <tbody class="text-up">
+                                      <tr ng-repeat="qual in (feedLoader = ( qualify.qualifyingrounds | limitTo:qualify.feedLimit))">
+                                          <td>{{qual.position || '-'  |ordinal}}</td>
+                                          <td>  <a ui-sref="student-profile({id:qual.player._id})">
+                                                <div class="display-inline ver-base">
+                                                    <img ng-src="{{qual.player.profilePic | uploadpath}}" alt="" class="w25">
+                                                </div>
+                                                <div class="display-inline ver-mid">{{qual.player.name}}</div>
+                                            </a></td>
+                                          <td>  <a href="">
+                                                <div class="display-inline ver-base">
+                                                    <img ng-src="{{qual.player.school.logo | uploadpath}}" alt="" class="w25">
+                                                </div>
+                                                <div class="display-inline ver-mid">{{qual.player.school.name}}</div>
+                                            </a></td>
+                                          <td>{{qual.result || '-'}}</td>
+                                          <td>{{qual.score || '-'}}</td>
+                                          <td>  <a ng-if="qual.video" class="various fancybox.iframe
+                          " href="https://www.youtube.com/embed/{{qual.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="gallery1"
+                          fancybox><img src="img/sf-play.png" alt=""></a></td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                        <div class="mt30 text-center" ng-if="!( feedLoader.length >= qualify.qualifyingrounds.length)">
+                            <button type="button" name="button" class="btn-outline text-up padding15" ng-click="qualify.feedLimit = qualify.feedLimit+1;">view more</button>
                         </div>
-                      <div class="mt30 text-center">
-                          <button type="button" name="button" class="btn-outline text-up padding15">view more</button>
                       </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row over-fl">
-                    <div class="col-md-12">
-                        <div class="text-center">
-                            <h3 class="font-semi color-orange text-up">top 24</h3>
-                        </div>
-                        <div class="final-table">
-                            <table class="table">
-                                <thead>
-                                    <tr class="bg-table color-orange font-semi text-up f16">
-                                        <th>position</th>
-                                        <th>name</th>
-                                        <th>school</th>
-                                        <th>result</th>
-                                        <th>points</th>
-                                        <th></th>
 
-                                    </tr>
-                                </thead>
-                                <tbody class="text-up">
-                                    <tr>
-                                        <td>1</td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/mini-clip.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">manav mehta</div>
-                                          </a></td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/sf-school.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                          </a></td>
-                                        <td>qf</td>
-                                        <td>3</td>
-                                        <td>  <a href=""><img src="img/sf-play.png" alt=""></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/mini-clip.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">manav mehta</div>
-                                          </a></td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/sf-school.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                          </a></td>
-                                        <td>qf</td>
-                                        <td>3</td>
-                                        <td>  <a href=""><img src="img/sf-play.png" alt=""></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/mini-clip.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">manav mehta</div>
-                                          </a></td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/sf-school.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                          </a></td>
-                                        <td>qf</td>
-                                        <td>3</td>
-                                        <td>  <a href=""><img src="img/sf-play.png" alt=""></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/mini-clip.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">manav mehta</div>
-                                          </a></td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/sf-school.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                          </a></td>
-                                        <td>not-qf</td>
-                                        <td>3</td>
-                                        <td>  <a href=""><img src="img/sf-play.png" alt=""></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/mini-clip.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">manav mehta</div>
-                                          </a></td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/sf-school.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                          </a></td>
-                                        <td>not-qf</td>
-                                        <td>3</td>
-                                        <td>  <a href=""><img src="img/sf-play.png" alt=""></a></td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                      <div class="mt30 text-center">
-                          <button type="button" name="button" class="btn-outline text-up padding15">view more</button>
-                      </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row over-fl">
-                    <div class="col-md-12">
-                        <div class="text-center">
-                            <h3 class="font-semi color-orange text-up">qualifying round</h3>
-                        </div>
-                        <div class="final-table">
-                            <table class="table">
-                                <thead>
-                                    <tr class="bg-table color-orange font-semi text-up f16">
-                                        <th>position</th>
-                                        <th>name</th>
-                                        <th>school</th>
-                                        <th>result</th>
-                                        <th>points</th>
-                                        <th></th>
-
-                                    </tr>
-                                </thead>
-                                <tbody class="text-up">
-                                    <tr>
-                                        <td>1</td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/mini-clip.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">manav mehta</div>
-                                          </a></td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/sf-school.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                          </a></td>
-                                        <td>qf</td>
-                                        <td>3</td>
-                                        <td>  <a href=""><img src="img/sf-play.png" alt=""></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/mini-clip.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">manav mehta</div>
-                                          </a></td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/sf-school.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                          </a></td>
-                                        <td>qf</td>
-                                        <td>3</td>
-                                        <td>  <a href=""><img src="img/sf-play.png" alt=""></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/mini-clip.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">manav mehta</div>
-                                          </a></td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/sf-school.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                          </a></td>
-                                        <td>qf</td>
-                                        <td>3</td>
-                                        <td>  <a href=""><img src="img/sf-play.png" alt=""></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/mini-clip.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">manav mehta</div>
-                                          </a></td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/sf-school.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                          </a></td>
-                                        <td>not-qf</td>
-                                        <td>3</td>
-                                        <td>  <a href=""><img src="img/sf-play.png" alt=""></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/mini-clip.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">manav mehta</div>
-                                          </a></td>
-                                        <td>  <a href="">
-                                              <div class="display-inline ver-base">
-                                                  <img src="img/sf-school.png" alt="" class="w25">
-                                              </div>
-                                              <div class="display-inline ver-mid">dhirubhai ambani intertional school</div>
-                                          </a></td>
-                                        <td>not-qf</td>
-                                        <td>3</td>
-                                        <td>  <a href=""><img src="img/sf-play.png" alt=""></a></td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                      <div class="mt30 text-center">
-                          <button type="button" name="button" class="btn-outline text-up padding15">view more</button>
-                      </div>
-                    </div>
+                  </div>
+                  <hr>
                 </div>
             </div>
         </div>
