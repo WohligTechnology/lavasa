@@ -254,6 +254,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     "img":"img/sl4.jpg",
   "link":"https://instagram.com/sfanow/"
 }];
+
+
     })
     .controller('AboutUsCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
@@ -3481,6 +3483,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.template = TemplateService;
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
+    });
+    $scope.$watch('online', function(newStatus) {
+
     });
     $scope.games = // JavaScript Document
         [{

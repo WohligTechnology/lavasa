@@ -301,7 +301,20 @@ firstapp.directive('mycircle', function($compile, $parse) {
         }
     };
 });
+firstapp.run(function($window, $rootScope) {
+      $rootScope.online = navigator.onLine;
+      $window.addEventListener("offline", function() {
+        $rootScope.$apply(function() {
+          $rootScope.online = false;
+        });
+      }, false);
 
+      $window.addEventListener("online", function() {
+        $rootScope.$apply(function() {
+          $rootScope.online = true;
+        });
+      }, false);
+});
 firstapp.directive('giveitmargin', function($compile, $parse) {
     return {
         restrict: 'EA',
@@ -420,7 +433,7 @@ firstapp.filter('mediapath', function() {
 firstapp.filter('videothumbnail', function() {
     return function(value) {
         if (value) {
-            return "https://img.youtube.com/vi/" + value + "/hqdefault.jpg";
+            return "http://img.youtube.com/vi/" + value + "/hqdefault.jpg";
         } else {
             return "";
         }
