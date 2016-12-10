@@ -133,7 +133,7 @@ var navigationservice = angular.module('navigationservice', [])
             case 'Heats':
             return 'heats';
             case 'Qualifying Round':
-            return 'draw';
+            return 'qualify';
             case 'Swiss League':
             return 'draw';
           }
