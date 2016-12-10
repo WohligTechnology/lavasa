@@ -75,11 +75,13 @@
                 </tr>
               </thead>
               <tbody class="tb-pn">
-                  <tr ng-repeat="school in schools">
+                  <tr ng-repeat="school in schools ">
                     <td>
                       {{$index + 1}}
                     </td>
-                    <td class="txt-left">
+                    <td class="txt-left pointer" ui-sref="school-profile({
+                      id:school.school._id
+                    })">
                       {{school.school.name}}
                     </td>
                     <td>

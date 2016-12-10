@@ -8,8 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title ng-bind="'SFA | '+template.title">SFA</title>
-    <link rel="shortcut icon" ng-show="online" href="img/favicon.ico" />
-    <link rel="shortcut icon"  ng-hide="online" href="img/favicon2.ico" />
+    <link rel="shortcut icon" ng-if="variables.online" href="img/favicon.ico" />
+    <link rel="shortcut icon"  ng-if="!variables.online" href="img/favicon2.ico" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link rel="stylesheet" type="text/css" href="bower_components/angular-loading-bar/src/loading-bar.css" />
     <script>

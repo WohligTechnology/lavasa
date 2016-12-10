@@ -3479,13 +3479,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('headerctrl', function($scope, TemplateService) {
+.controller('headerctrl', function($scope, TemplateService,$rootScope) {
     $scope.template = TemplateService;
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
+    $scope.variables = {};
     $scope.$watch('online', function(newStatus) {
-
+        $scope.variables.online = $rootScope.online;
     });
     $scope.games = // JavaScript Document
         [{
