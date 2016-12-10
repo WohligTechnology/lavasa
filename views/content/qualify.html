@@ -99,7 +99,7 @@
                           <div class="text-center">
                               <h3 class="font-semi color-orange text-up">{{qualify.round}}</h3>
                           </div>
-                          <div class="final-table">
+                          <div class="final-table text-l">
                               <table class="table">
                                   <thead>
                                       <tr class="bg-table color-orange font-semi text-up f16">
@@ -114,7 +114,7 @@
                                   </thead>
                                   <tbody class="text-up">
                                       <tr ng-repeat="qual in (feedLoader = ( qualify.qualifyingrounds | limitTo:qualify.feedLimit))">
-                                          <td>{{qual.position || '-'  |ordinal}}</td>
+                                          <td class="text-center">{{qual.position || '-'  |ordinal}}</td>
                                           <td>  <a ui-sref="student-profile({id:qual.player._id})">
                                                 <div class="display-inline ver-base">
                                                     <img ng-src="{{qual.player.profilePic | uploadpath}}" alt="" class="w25">
@@ -127,8 +127,8 @@
                                                 </div>
                                                 <div class="display-inline ver-mid">{{qual.player.school.name}}</div>
                                             </a></td>
-                                          <td>{{qual.result || '-'}}</td>
-                                          <td>{{qual.score || '-'}}</td>
+                                          <td class="text-center">{{qual.result || '-'}}</td>
+                                          <td class="text-center">{{qual.score || '-'}}</td>
                                           <td>  <a ng-if="qual.video" class="various fancybox.iframe
                           " href="https://www.youtube.com/embed/{{qual.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="gallery1"
                           fancybox><img src="img/sf-play.png" alt=""></a></td>
