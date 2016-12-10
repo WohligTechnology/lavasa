@@ -420,7 +420,7 @@ firstapp.filter('mediapath', function() {
 firstapp.filter('videothumbnail', function() {
     return function(value) {
         if (value) {
-            return "http://img.youtube.com/vi/" + value + "/hqdefault.jpg";
+            return "https://img.youtube.com/vi/" + value + "/hqdefault.jpg";
         } else {
             return "";
         }
