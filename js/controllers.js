@@ -382,6 +382,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "img": "img/footer/na5.jpg",
                 "href": "",
                 "game": "Event Partner "
+            },{
+                "img": "img/footer/p7.jpg",
+                "href": "",
+                "game": "Media Partner "
             }];
         $scope.teams = [{
             "img": "img/sports/football.jpg",
@@ -3539,6 +3543,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "img": "img/footer/na5.jpg",
             "href": "",
             "game": "Event Partner "
+        }, {
+            "img": "img/footer/p7.jpg",
+            "href": "",
+            "game": "Media Partner "
         }];
 
 })
