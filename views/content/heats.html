@@ -20,7 +20,7 @@
                             <table class="table">
                                 <thead>
                                     <tr class="bg-table color-orange font-semi text-up f16">
-                                        <!-- <th>standings</th> -->
+                                        <th>standings</th>
                                         <th>name</th>
                                         <th>school</th>
                                         <th>timing</th>
@@ -34,11 +34,11 @@
                                 </thead>
                                 <tbody class="text-up">
                                     <tr ng-repeat="participant in heat.final.heats | orderBy:'standing'">
-                                        <!-- <td class="text-center"><img ng-if="participant.standing === 1 || participant.standing === 2 || participant.standing === 3" ng-src="{{participant.standing === 1 && 'img/sf-gold-sec-big.png' || participant.standing === 2 && 'img/sf-silver-sec-big.png' || participant.standing === 3 && 'img/sf-bronze-sec-big.png' || participant.standing || '-'}}" alt="">
+                                        <td class="text-center"><img ng-if="participant.standing === 1 || participant.standing === 2 || participant.standing === 3" ng-src="{{participant.standing === 1 && 'img/sf-gold-sec-big.png' || participant.standing === 2 && 'img/sf-silver-sec-big.png' || participant.standing === 3 && 'img/sf-bronze-sec-big.png' || participant.standing || '-'}}" alt="">
                                           <div class="text-center text-cap" ng-if="participant.standing !== 1 && participant.standing !== 2 && participant.standing !== 3">
                                             {{ participant.standing || '-' | ordinal}}
                                           </div>
-                                        </td> -->
+                                        </td>
                                             <td>
                                                 <a ng-click="profiles(heat.final.participantType,participant[heat.final.participantType]._id)">
                                                     <div class="display-inline ver-base round-img">
