@@ -338,6 +338,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "href": "",
                 "game": "Support Partner"
             }, {
+                "img": "img/footer/p7.jpg",
+                "href": "",
+                "game": "Media Partner "
+            },{
                 "img": "img/footer/n4.jpg",
                 "href": "https://www.facebook.com/sportsillustratedindia/",
                 "game": "Magazine Partner"
@@ -379,10 +383,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "img": "img/footer/na5.jpg",
                 "href": "",
                 "game": "Event Partner "
-            },{
-                "img": "img/footer/p7.jpg",
-                "href": "",
-                "game": "Media Partner "
             }];
         $scope.teams = [{
             "img": "img/sports/football.jpg",
@@ -3482,6 +3482,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "img": "img/footer/n3.jpg",
             "href": "",
             "game": "Support Partner"
+        },{
+            "img": "img/footer/p7.jpg",
+            "href": "",
+            "game": "Media Partner "
         }, {
             "img": "img/footer/n4.jpg",
             "href": "https://www.facebook.com/sportsillustratedindia/",
@@ -3540,10 +3544,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "img": "img/footer/na5.jpg",
             "href": "",
             "game": "Event Partner "
-        }, {
-            "img": "img/footer/p7.jpg",
-            "href": "",
-            "game": "Media Partner "
         }];
 
 })
