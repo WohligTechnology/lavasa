@@ -1,5 +1,5 @@
 <section class="home-slider hidden-xs hidden-sm">
-    <flex-slider flex-slide="banner in banners track by $index" prev-text="" next-text="" slideshow=true>
+    <flex-slider flex-slide="banner in banners | orderBy : 'order'  track by banner._id" prev-text="" next-text="" slideshow=true>
         <li>
             <a href="{{banner.link}}" target="_blank"><img ng-src="{{banner.image | uploadpath}}" class="img-responsive"></a>
         </li>
