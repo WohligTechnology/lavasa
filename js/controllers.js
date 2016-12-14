@@ -245,8 +245,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
 
         $scope.bannerss=[{
-      "img":"img/sl3.jpg",
-    "link":"http://sfanow.in/#/training-development"
+      "img":"img/sm1.jpg",
+    "link":"https://sfanow.in/school-ranking"
+  },{
+      "img":"img/sm2.jpg",
+    "link":"https://sfanow.in/students"
   },{
     "img":"img/sl4.jpg",
   "link":"https://instagram.com/sfanow/"
