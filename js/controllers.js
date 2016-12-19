@@ -1,11 +1,12 @@
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select', 'ordinal','wt.responsive'])
+angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select', 'ordinal', 'wt.responsive'])
 
 .controller('HomeCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval) {
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("home");
-        $scope.menutitle = NavigationService.makeactive("Home");
+        $scope.menutitle = NavigationService.makeactive("Sport Events | School activities for Kids | SFA");
         TemplateService.header = "views/header2.html";
+        TemplateService.description = "Looking for your child to hone their sporting talents? Choose SFA, join world class sport events & watch your child shine in their favourite sport activities! ";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.countdown = {};
@@ -195,6 +196,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log("Banner not found");
             }
         });
+
         function twitterReload(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0],
                 p = /^http:/.test(d.location) ? 'http' : 'https';
@@ -244,16 +246,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
         });
 
-        $scope.bannerss=[{
-      "img":"img/sm1.jpg",
-    "link":"https://sfanow.in/school-ranking"
-  },{
-      "img":"img/sm2.jpg",
-    "link":"https://sfanow.in/students"
-  },{
-    "img":"img/sl4.jpg",
-  "link":"https://instagram.com/sfanow/"
-}];
+        $scope.bannerss = [{
+            "img": "img/sm1.jpg",
+            "link": "https://sfanow.in/school-ranking"
+        }, {
+            "img": "img/sm2.jpg",
+            "link": "https://sfanow.in/students"
+        }, {
+            "img": "img/sl4.jpg",
+            "link": "https://instagram.com/sfanow/"
+        }];
 
 
     })
@@ -262,6 +264,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.template = TemplateService.changecontent("about-us");
         $scope.menutitle = NavigationService.makeactive("About-Us");
+        TemplateService.description = "SFA brings you excellence in sports activities. Let your child participate in the best interschool competition events, get access to quality resources & excel! ";
         TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
@@ -344,7 +347,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 "img": "img/footer/p7.jpg",
                 "href": "",
                 "game": "Media Partner "
-            },{
+            }, {
                 "img": "img/footer/n4.jpg",
                 "href": "https://www.facebook.com/sportsillustratedindia/",
                 "game": "Magazine Partner"
@@ -869,8 +872,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
         $scope.getDraws = function(sportid) {
-          $scope.draws = {};
-          _.each($scope.statuses.open, function(value, key) {
+            $scope.draws = {};
+            _.each($scope.statuses.open, function(value, key) {
                 $scope.statuses.open[key] = false;
             });
             NavigationService.getOneBySportId({
@@ -878,8 +881,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }, function(response) {
 
                 if (response.value) {
-                  $scope.draws.sports = [];
-                  $scope.draws.message = response.data.yearBeforeContent;
+                    $scope.draws.sports = [];
+                    $scope.draws.message = response.data.yearBeforeContent;
                 } else {
 
                 }
@@ -1180,8 +1183,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("training-development");
-        $scope.menutitle = NavigationService.makeactive("Training Development");
+        $scope.menutitle = NavigationService.makeactive("Sport Training | Training Academy | SFA");
         TemplateService.header = "views/header2.html";
+        TemplateService.description = "Get the best kids fitness programs & sport training and let your child excel in everything from swimming competitions to table tennis with Sports For All!";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
@@ -1629,8 +1633,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         constraints.sport = $scope.sport.sportid._id;
         constraints.year = year;
         $scope.statuses.doubleBronze = false;
-        if(!$scope.winners){
-          $scope.winners ={};
+        if (!$scope.winners) {
+            $scope.winners = {};
         }
         NavigationService.getWinners(constraints, function(response) {
             if (response.value) {
@@ -2852,7 +2856,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-.controller('QualifyCtrl', function($scope, TemplateService, NavigationService, $timeout,$stateParams) {
+.controller('QualifyCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("qualify");
         $scope.menutitle = NavigationService.makeactive("Qualify");
@@ -2870,7 +2874,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.feedLimit += 1;
         };
         $scope.getQualifyingRound = function() {
-          $scope.qualifyingrounds = undefined;
+            $scope.qualifyingrounds = undefined;
             NavigationService.getQualifyingRound({
                 sport: $stateParams.id
             }, function(response) {
@@ -2883,12 +2887,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                             return _.zipObject(["round", "qualifyingrounds", "order"], currentItem);
                         })
                         .value();
-                  _.each($scope.qualifyingrounds,function (key) {
-                    key.feedLimit = 3;
-                  });
+                    _.each($scope.qualifyingrounds, function(key) {
+                        key.feedLimit = 3;
+                    });
                     console.log($scope.qualifyingrounds);
-                }else{
-                  $scope.qualifyingrounds = [];
+                } else {
+                    $scope.qualifyingrounds = [];
                 }
             });
         };
@@ -3459,7 +3463,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 })
 
-.controller('headerctrl', function($scope, TemplateService,$rootScope) {
+.controller('headerctrl', function($scope, TemplateService, $rootScope) {
     $scope.template = TemplateService;
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
@@ -3485,7 +3489,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             "img": "img/footer/n3.jpg",
             "href": "",
             "game": "Support Partner"
-        },{
+        }, {
             "img": "img/footer/p7.jpg",
             "href": "",
             "game": "Media Partner "

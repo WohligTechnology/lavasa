@@ -3,7 +3,7 @@ templateservicemod.service('TemplateService', function() {
   this.title = "Home";
   this.meta = "Google";
   this.metadesc = "Home";
-
+  this.description = "";
   var d = new Date();
   this.year = d.getFullYear();
 
