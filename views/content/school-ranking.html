@@ -82,7 +82,7 @@
                     <td class="txt-left pointer" ui-sref="school-profile({
                       id:school.school._id
                     })">
-                      {{school.school.name}}
+                      {{school.school.name}} {{school.school.status && ' ' || '*'}}
                     </td>
                     <td>
                     <table class="">

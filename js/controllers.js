@@ -250,10 +250,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
   },{
       "img":"img/sm2.jpg",
     "link":"https://sfanow.in/students"
-  },{
-    "img":"img/sl4.jpg",
-  "link":"https://instagram.com/sfanow/"
-}];
+  }];
 
 
     })
