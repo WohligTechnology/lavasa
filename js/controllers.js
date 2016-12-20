@@ -4,7 +4,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("home");
-        $scope.menutitle = NavigationService.makeactive("Sport Events | School activities for Kids | SFA");
+        $scope.menutitle = NavigationService.makeactive("Sport Events | School activities for Kids");
         TemplateService.header = "views/header2.html";
         TemplateService.description = "Looking for your child to hone their sporting talents? Choose SFA, join world class sport events & watch your child shine in their favourite sport activities! ";
         TemplateService.title = $scope.menutitle;
