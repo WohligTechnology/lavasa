@@ -7,6 +7,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Sport Events | School activities for Kids");
         TemplateService.header = "views/header2.html";
         TemplateService.description = "Looking for your child to hone their sporting talents? Choose SFA, join world class sport events & watch your child shine in their favourite sport activities! ";
+        TemplateService.keywords = "Sport activities, sports activities for kids, sport events, sports games for kids, school activities for kids, kids sports games ";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.countdown = {};
@@ -265,6 +266,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.template = TemplateService.changecontent("about-us");
         $scope.menutitle = NavigationService.makeactive("About-Us");
         TemplateService.description = "SFA brings you excellence in sports activities. Let your child participate in the best interschool competition events, get access to quality resources & excel! ";
+          TemplateService.keywords = "best interschool competition, inter school competition, inter school competition events, gymnastics for kids, international sporting events, kids sports activities, sport activities";
         TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
@@ -1186,6 +1188,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.menutitle = NavigationService.makeactive("Sport Training | Training Academy | SFA");
         TemplateService.header = "views/header2.html";
         TemplateService.description = "Get the best kids fitness programs & sport training and let your child excel in everything from swimming competitions to table tennis with Sports For All!";
+        TemplateService.keywords = "sport training, swimming competition, swimming coaching in Mumbai ,table tennis training, table tennis academy, kids fitness programs";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
