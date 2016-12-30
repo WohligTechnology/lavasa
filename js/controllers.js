@@ -282,6 +282,25 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav();
 
     })
+    .controller('CertificateCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        $scope.template = TemplateService.changecontent("certificate");
+        $scope.menutitle = NavigationService.makeactive("Certificate");
+        TemplateService.header = "";
+        TemplateService.footer = "";
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+        $scope.sport=[{
+          name:"Water polo",
+          index:"1"
+        },{
+          name:"Swimming",
+          index:"2"
+        }]
+
+    })
     .controller('DownloadScheduleCtrl', function($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 

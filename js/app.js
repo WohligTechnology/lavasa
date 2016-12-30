@@ -28,6 +28,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     templateUrl: "views/template.html",
     controller: 'BlogCtrl'
 })
+        .state('certificate', {
+    url: "/certificate",
+    templateUrl: "views/template.html",
+    controller: 'CertificateCtrl'
+})
 .state('draw-schedule', {
     url: "/draw-schedule",
     templateUrl: "views/template.html",
