@@ -266,7 +266,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.template = TemplateService.changecontent("about-us");
         $scope.menutitle = NavigationService.makeactive("About-Us");
         TemplateService.description = "SFA brings you excellence in sports activities. Let your child participate in the best interschool competition events, get access to quality resources & excel! ";
-          TemplateService.keywords = "best interschool competition, inter school competition, inter school competition events, gymnastics for kids, international sporting events, kids sports activities, sport activities";
+        TemplateService.keywords = "best interschool competition, inter school competition, inter school competition events, gymnastics for kids, international sporting events, kids sports activities, sport activities";
         TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
@@ -292,12 +292,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
-        $scope.sport=[{
-          name:"Water polo",
-          index:"1"
-        },{
-          name:"Swimming",
-          index:"2"
+        $scope.sport = [{
+            name: "Water polo",
+            index: "1"
+        }, {
+            name: "Swimming",
+            index: "2"
         }]
 
     })
@@ -2485,7 +2485,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 .controller('StudentProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
     //Used to name the .html file
+    $scope.exportCertificate = function(data) {
+        if (data) {
+            console.log("data", data);
+            // window.open(adminURL + 'order/generateExcelByDesigner?designer=' + data, '_blank');
+            // window.close();
+        }
 
+    };
     console.log("Testing Consoles");
 
     $scope.template = TemplateService.changecontent("student-profile");
@@ -2509,6 +2516,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             id: id
         });
     };
+
     $scope.tabchanges = function(tabs, a) {
         //        console.log(tab);
         $scope.tabs = tabs;
