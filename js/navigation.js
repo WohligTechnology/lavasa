@@ -424,6 +424,9 @@ var navigationservice = angular.module('navigationservice', [])
                 data: request
             }).success(callback);
         },
+        pdfGenerate: function (formData, callback) {
+            $http.post(adminurl + 'student/generateEmailPdf', formData).success(callback);
+        },
         getLimitedMedia: function(request, callback) {
             $http({
                 url: adminurl + 'media/getLimitedMedia',

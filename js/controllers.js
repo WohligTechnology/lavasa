@@ -2485,13 +2485,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
 .controller('StudentProfileCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
     //Used to name the .html file
-    $scope.exportCertificate = function(data) {
-        if (data) {
-            console.log("data", data);
-            // window.open(adminURL + 'order/generateExcelByDesigner?designer=' + data, '_blank');
-            // window.close();
-        }
+    // $scope.exportCertificate = function(data) {
+    //     if (data) {
+    //         console.log("data", data);
+    //         window.open(adminurl + 'Config/generatePdf' + data, '_blank');
+    //         // window.close();
+    //     }
+    //
+    // };
+    $scope.exportCertificate = function (studentProfile) {
+      var studentProfile=studentProfile;
+        NavigationService.pdfGenerate(studentProfile,function (data) {
+console.log(data);
+            $scope.pdf = data.data;
 
+            $state.go("certificate");
+
+        });
     };
     console.log("Testing Consoles");
 
