@@ -1405,6 +1405,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.classv = '';
         $scope.studentMedal = {};
         var constraints = {};
+
+
+
+
         $scope.getSport = function (sport) {
             console.log(sport);
 
@@ -2483,7 +2487,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
     })
 
-    .controller('StudentProfileCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, $window) {
+    .controller('StudentProfileCtrl', function ($scope, $filter, TemplateService, NavigationService, $timeout, $stateParams, $state, $window) {
         //Used to name the .html file
         // $scope.exportCertificate = function(data) {
         //     if (data) {
@@ -2493,6 +2497,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //     }
         //
         // };
+
+
+        $scope.abc;
+
         $scope.SPORTDATA = {};
         $scope.medalData = {};
         console.log("PARAMS", $state.params.id);
@@ -2505,13 +2513,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
 
         $scope.exportCertificate = function (studentProfile, sportName, medalName) {
-
+            studentProfile.ageGroup = $filter('ageFilter')(studentProfile.dob);
+            // studentProfile.dob = studentProfile.dobDemo;
+            console.log('studentProfile.dob', studentProfile.dobDemo);
+            console.log("LOg", studentProfile);
             var studentProfile = studentProfile;
             var sportname = sportName;
             var medal = medalName;
             var spname = [];
             _.forEach(sportName, function (name) {
-            //    console.log("THE SPORTS NAME", name.name);
+                //    console.log("THE SPORTS NAME", name.name);
                 spname.push(name.name);
             });
             var MAINDATA = [];
@@ -2537,47 +2548,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         "sport": data.sport.sportslist.name,
                         "isMedal": true
                     });
-          //          console.log("JSONNN", MAINDATA);
+                    //          console.log("JSONNN", MAINDATA);
 
 
                 });
                 console.log("JSON", MAINDATA);
 
-            //     var FINALDATA ={};
-            //    var i = spname.length;
-            //     console.log("LEN", i);
-            //     var j;
-                
-
-            //     for (j = 0; j <= i; j++) {
-            //    var k = spname.length;
-                        
-            //         if (MAINDATA[j]) {
-            //             console.log("Console.", MAINDATA[j].sport);
-
-            //             if (spname[j] && MAINDATA[j].sport) {
-            //                 console.log("Console sportname", spname[j]);
-            //                 console.log("Console.", MAINDATA[j].sport);
-            //                 if (spname[j] == MAINDATA[j].sport) {
-                          
-            //                 } else {
-            //                     console.log("IN ELSE")
-            //                  FINALDATA.push({
-            //                         "medal": "no medal",
-            //                         "sport": spname[j],
-            //                         "isMedal": false
-            //                     });
-
-            //                 }
-            //             }
-            //         }
-            //     }
-
-        //        console.log("FINAL DATA", FINALDATA);
-                // for( i=0;i<=spname.length();i++){
-
-                // }
-                // console.log("SPNAME",medal.sport.sportslist.name);
             });
 
             studentProfile.sports = spname;
@@ -2589,13 +2565,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             console.log("sportname NEW OBJ", studentProfile);
             NavigationService.pdfGenerate(studentProfile, function (data) {
-              console.log("PDF",data);
-             
-             
-            //   $window.open(data.url);
-                console.log('sssssssssss');
-
+                console.log("PDF", data);
             });
+
+
         };
         console.log("Testing Consoles");
 

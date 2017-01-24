@@ -26,7 +26,7 @@
                             <ul class="padding0 sf-list-padding">
                                 <li class="border-right-2">
                                     <div class="f16-zero">
-                                        <p class="text-up color-orange">age group</p>
+                                        <p class="text-up color-orange" ng-model="abc">age group</p>
                                         <p>{{(studentProfile.dob | ageFilter) || '-'}}</p>
                                     </div>
                                 </li>
@@ -38,7 +38,7 @@
                                 </li>
                                 <li class="border-right-2">
                                     <div class="f16-zero">
-                                        <p class="text-up color-orange">Age</p>
+                                        <p class="text-up color-orange"data-id="age"  >Age</p>
                                         <p class="text-up">{{studentProfile.dob | ageYearFilter }} <span ng-if="studentProfile.dob">years</span></p>
                                     </div>
                                 </li>
@@ -65,7 +65,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li>
+                                <li>    
                                     <div class="medal-num">
                                         <div class="img-medal display-inline ">
                                             <img src="img/sf-silver-big.png" alt="">
@@ -91,7 +91,7 @@
                         </div>
                         <div class="btn-common mt25">
                             <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="student-bio({'id':studentid})">athlete bio</button>
-                             <button type="button" name="button" class="text-up btn-orange padd-btn ml10" ng-hide="studentSport.length==0" ng-click="exportCertificate(studentProfile,SPORTDATA,medalData); ">Certificate</button> 
+                             <button type="button" name="button" class="text-up btn-orange padd-btn ml10" ng-hide="studentSport.length==0 || medalData.data.length==0" ng-click="exportCertificate(studentProfile,SPORTDATA,medalData); ">Certificate</button> 
                         </div>
                         </div>
                     </div>
