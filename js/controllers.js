@@ -2529,7 +2529,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             _.each(medal, function (innermedal) {
                 console.log("Medal", innermedal);
                 _.forEach(innermedal, function (data) {
-                    console.log("INNER DATAA", data.medal);
+                    console.log("INNER DATAA", data.year);
+                
+                    if(data.year!="2015")
+{
                     if (data.medal === 1) {
                         data.medal = "Gold";
                     } else if (data.medal === 2) {
@@ -2538,18 +2541,19 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                         data.medal = "Bronze";
 
                     }
-
-                    // console.log("INNER DATAA",data.medal);
-                    // console.log("SPNAME",data.sport.sportslist.name);
-                    // MAINDATA.medal=data.medal;
-                    // MAINDATA.sport=data.sport.sportslist.name;
+                  
+       
+                    console.log("INNER DATAA",data.medal);
+                    console.log("SPNAME",data.sport.sportslist.name);
+                    MAINDATA.medal=data.medal;
+                    MAINDATA.sport=data.sport.sportslist.name;
                     MAINDATA.push({
                         "medal": data.medal,
                         "sport": data.sport.sportslist.name,
                         "isMedal": true
                     });
                     //          console.log("JSONNN", MAINDATA);
-
+}
 
                 });
                 console.log("JSON", MAINDATA);
