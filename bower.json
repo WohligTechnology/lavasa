@@ -28,7 +28,7 @@
     "font-awesome": "^4.6.3",
     "lodash": "~4.0.0",
     "ui-router": "~0.2.15",
-    "angular": "^1.5.0",
+    "angular": "1.5.8",
     "fancyBox": "fancybox#^2.1.5",
     "angulartics-google-analytics": "^0.1.4",
     "ng-dialog": "^0.6.2",
@@ -40,5 +40,8 @@
   },
   "devDependencies": {
     "angular-translate": "^2.11.0"
+  },
+  "resolutions": {
+    "angular": "1.5.8"
   }
 }
