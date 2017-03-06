@@ -81,7 +81,18 @@ var navigationservice = angular.module('navigationservice', [])
                     method: 'POST',
                     withCredentials: true,
                     data: request
-                }).success(callback);
+                }).success(function (data) {
+                    var ranks = _.map(data.data, function (n) {
+                        n.points = (n.gold * 5) + (n.silver * 3) + (n.bronze * 2);
+                        return n;
+                    });
+                    ranks = _.orderBy(ranks, ['points', 'gold', "silver", "bronze"], ["desc", 'desc', 'desc', 'desc']);
+                    ranks = _.map(ranks, function (n, key) {
+                        n.rank = key + 1;
+                        return n;
+                    });
+                    callback(ranks);
+                });
             },
             getSearchDataSchool: function (input, callback) {
                 $http({
@@ -434,11 +445,11 @@ var navigationservice = angular.module('navigationservice', [])
             pdfGenerate: function (formData, callback) {
                 $http.post(adminurl + 'student/generatePdf', formData).then(function (data) {
                     data = data.data;
-               console.log("THE PDF ARRAY",data.data);
-               _.each(data.data,function(n){
-                    window.open(n);
-  
-               });
+                    console.log("THE PDF ARRAY", data.data);
+                    _.each(data.data, function (n) {
+                        window.open(n);
+
+                    });
 
                     // console.log(callback);
                     // console.log("URLURL NS", data.url);

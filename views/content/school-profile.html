@@ -1,21 +1,21 @@
 <section>
     <div class="banner sf-relative my-banner-school">
         <!-- <img src="img/new-banner.png" alt="" class="img-responsive width100"> -->
-      <div class="p100 p1002">
+        <div class="p100 p1002">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xs-12 pointer" ng-click= "state.reload()">
+                    <div class="col-md-3 col-sm-3 col-xs-12 pointer" ng-click="state.reload()">
                         <div class="sf-school-logo sf-relative text-center border-r">
                             <img ng-src="{{getSchoolProfile.logo|uploadpath}}" alt="">
                             <!-- <img src="img/sf-school-profile-big.png" alt=""> -->
                             <div class="sigh-second sf-absulate">
-                                <img ng-if="getSchoolProfile.status" ng-src="img/sf-right-big.png"  alt="" class="w30-main">
+                                <img ng-if="getSchoolProfile.status" ng-src="img/sf-right-big.png" alt="" class="w30-main">
                             </div>
                         </div>
                     </div>
                     <div class="col-md-9 col-xs-12 col-sm-9 text-c-m">
                         <div class="sf-school-data">
-                            <div class="scl-title display-inline pointer" ng-click= "state.reload()">
+                            <div class="scl-title display-inline pointer" ng-click="state.reload()">
                                 <h3 class="color-orange font-semi f-mcell-20">{{getSchoolProfile.name}}</h3>
                             </div>
                             <!-- <div class="display-inline cup">
@@ -162,7 +162,7 @@
                     <h4 class="text-up color-blue display-inline">Year</h4>
                     <div class="display-inline">
                         <div class="sfa-select">
-                            <select class="select" ng-model="filter.year" ng-change = "changeYear()">
+                            <select class="select" ng-model="filter.year" ng-change="changeYear()">
                                 <option value="2015">2015</option>
                                 <option value="2016">2016</option>
 
@@ -174,48 +174,50 @@
             </div>
             <div class="col-md-offset-1 col-md-10">
                 <div class="sport-slider mt40">
-                <!-- SOLUTION to FLex slider not updating, 2 flex sliders NOT THE BEST SOLUTION-->
-                  <flex-slider ng-if="filter.year == '2015'" class="carousel" flex-slide="sportDetails in sportsStudentGender[filter.year] track by $index" animation="slide" item-width="140" item-margin="60">
-                      <li>
-                          <a >
-                              <div class="sports-participate text-center">
-                                  <img ng-src="{{ sportDetails._id.name !== filter.sport.name && (sportDetails._id.inactiveimage | uploadpath) || (sportDetails._id.image  | uploadpath)}}" alt="" class="img-responsive image-width"
-                                  ng-click="selectSport(sportDetails._id)">
-                                  <span class="color-base text-up f16 mt10">{{sportDetails._id.name}}</span>
-                                  <div class="combine mt10">
-                                      <div class="boy-sec display-inline color-base icon-right">
-                                          <img ng-src="img/sf-boys-mini.png" alt="">{{ sportDetails.Boys || '0' }}
-                                      </div>
-                                      <div class="boy-sec display-inline color-base icon-left">
-                                          <img ng-src="img/sf-girl-mini.png" alt="">{{ sportDetails.Girls || '0' }}
-                                      </div>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                  </flex-slider>
-                  <flex-slider ng-if="filter.year == '2016'" class="carousel" flex-slide="sportDetails in sportsStudentGender[filter.year] track by $index" animation="slide" item-width="140" item-margin="60">
-                      <li>
-                          <a >
-                              <div class="sports-participate text-center">
-                                  <img ng-src="{{ sportDetails._id.name !== filter.sport.name && (sportDetails._id.inactiveimage | uploadpath) || (sportDetails._id.image  | uploadpath)}}" alt="" class="img-responsive image-width"
-                                  ng-click="selectSport(sportDetails._id)">
-                                  <span class="color-base text-up f16 mt10">{{sportDetails._id.name}}</span>
-                                  <div class="combine mt10">
-                                      <div class="boy-sec display-inline color-base icon-right">
-                                          <img ng-src="img/sf-boys-mini.png" alt="">{{ sportDetails.Boys || 0 }}
-                                      </div>
-                                      <div class="boy-sec display-inline color-base icon-left">
-                                          <img ng-src="img/sf-girl-mini.png" alt="">{{ sportDetails.Girls || 0 }}
-                                      </div>
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                  </flex-slider>
-                  <div class="text-center" ng-if="!(sportsStudentGender[filter.year].length > 0)">
-                    {{sportsStudentGender[filter.year] == undefined && 'Loading .. ' || 'No Sports Participated in '+filter.year}}
-                  </div>
+                    <!-- SOLUTION to FLex slider not updating, 2 flex sliders NOT THE BEST SOLUTION-->
+                    <flex-slider ng-if="filter.year == '2015'" class="carousel" flex-slide="sportDetails in sportsStudentGender[filter.year] track by $index"
+                        animation="slide" item-width="140" item-margin="60">
+                        <li>
+                            <a>
+                                <div class="sports-participate text-center">
+                                    <img ng-src="{{ sportDetails._id.name !== filter.sport.name && (sportDetails._id.inactiveimage | uploadpath) || (sportDetails._id.image  | uploadpath)}}"
+                                        alt="" class="img-responsive image-width" ng-click="selectSport(sportDetails._id)">
+                                    <span class="color-base text-up f16 mt10">{{sportDetails._id.name}}</span>
+                                    <div class="combine mt10">
+                                        <div class="boy-sec display-inline color-base icon-right">
+                                            <img ng-src="img/sf-boys-mini.png" alt="">{{ sportDetails.Boys || '0' }}
+                                        </div>
+                                        <div class="boy-sec display-inline color-base icon-left">
+                                            <img ng-src="img/sf-girl-mini.png" alt="">{{ sportDetails.Girls || '0' }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </flex-slider>
+                    <flex-slider ng-if="filter.year == '2016'" class="carousel" flex-slide="sportDetails in sportsStudentGender[filter.year] track by $index"
+                        animation="slide" item-width="140" item-margin="60">
+                        <li>
+                            <a>
+                                <div class="sports-participate text-center">
+                                    <img ng-src="{{ sportDetails._id.name !== filter.sport.name && (sportDetails._id.inactiveimage | uploadpath) || (sportDetails._id.image  | uploadpath)}}"
+                                        alt="" class="img-responsive image-width" ng-click="selectSport(sportDetails._id)">
+                                    <span class="color-base text-up f16 mt10">{{sportDetails._id.name}}</span>
+                                    <div class="combine mt10">
+                                        <div class="boy-sec display-inline color-base icon-right">
+                                            <img ng-src="img/sf-boys-mini.png" alt="">{{ sportDetails.Boys || 0 }}
+                                        </div>
+                                        <div class="boy-sec display-inline color-base icon-left">
+                                            <img ng-src="img/sf-girl-mini.png" alt="">{{ sportDetails.Girls || 0 }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </flex-slider>
+                    <div class="text-center" ng-if="!(sportsStudentGender[filter.year].length > 0)">
+                        {{sportsStudentGender[filter.year] == undefined && 'Loading .. ' || 'No Sports Participated in '+filter.year}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -225,23 +227,23 @@
                 <div class=" text-center">
                     <h3 class="font-semi color-blue margin0">CONTINGENT STRENGTH {{filterStatistics.year}}</h3>
                     <div class="sf-list">
-                    <ul class="padding0 pad-line mt15 ">
-                        <li>
-                            <div class="sto-pro-list">
-                                <img src="img/sf-boys-mini.png" alt="">{{contingent.gender.Boys || '0'}}
-                            </div>
-                        </li>
-                        <li>
-                            <div class="sto-pro-list display-inline">
-                                <img src="img/sf-girl-mini.png" alt="">{{contingent.gender.Girls || '0'}}
-                            </div>
-                        </li>
-                        <li>
-                            <div class="sto-pro-list total display-inline" style="border: 1px solid #bbb;">
-                                {{contingent.gender.Boys + contingent.gender.Girls || '0'}}
-                            </div>
-                        </li>
-                    </ul>
+                        <ul class="padding0 pad-line mt15 ">
+                            <li>
+                                <div class="sto-pro-list">
+                                    <img src="img/sf-boys-mini.png" alt="">{{contingent.gender.Boys || '0'}}
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sto-pro-list display-inline">
+                                    <img src="img/sf-girl-mini.png" alt="">{{contingent.gender.Girls || '0'}}
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sto-pro-list total display-inline" style="border: 1px solid #bbb;">
+                                    {{contingent.gender.Boys + contingent.gender.Girls || '0'}}
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="mt-min-30">
@@ -264,7 +266,7 @@
             <div class="col-md-3 mt15" ng-repeat="data in contingent.data track by $index">
                 <a href="">
                     <div class="school-sec" ui-sref="student-profile({id:data._id})">
-                      <!-- <img src="img/sf-cl.png" alt="" class="mt-min-18"> -->
+                        <!-- <img src="img/sf-cl.png" alt="" class="mt-min-18"> -->
                         <div class="stu-img text-center sf-relative">
                             <img ng-src="{{data.profilePic | uploadpath}}" alt="">
                             <!-- <div class="sigh-pro sf-absulate">
@@ -281,7 +283,7 @@
                 </a>
             </div>
             <div class="text-center" ng-if="!(contingent.data.length > 0)">
-              {{contingent.data == undefined && 'Loading .. ' || 'No Contingent Found'}}
+                {{contingent.data == undefined && 'Loading .. ' || 'No Contingent Found'}}
 
             </div>
         </div>
@@ -290,7 +292,9 @@
             <div class="col-md-12">
                 <div class="float-right sf-list">
                     <nav aria-label="Page navigation" ng-if="contingent.totalpages > 1">
-                        <uib-pagination ng-change="contingentStrengthByYear()" total-items="contingent.total" ng-model="filterStatistics.pagenumber" items-per-page="filterStatistics.pagesize" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination>
+                        <uib-pagination ng-change="contingentStrengthByYear()" total-items="contingent.total" ng-model="filterStatistics.pagenumber"
+                            items-per-page="filterStatistics.pagesize" max-size="maxSize" class="pagination-sm" boundary-links="true"
+                            force-ellipses="true"></uib-pagination>
                     </nav>
                 </div>
             </div>
@@ -380,7 +384,7 @@
                                     <h4 class="text-up color-blue display-inline">Year</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
-                                            <select  class="select">
+                                            <select class="select">
                                                 <option value="">All</option>
                                                 <option value="2015">2015</option>
                                                 <option value="2016">2016</option>
@@ -448,11 +452,11 @@
                                         </div>
                                     </div>
                                 </div>
-                              <div class="col-md-3 col-sm-4 col-xs-12 text-c-m">
+                                <div class="col-md-3 col-sm-4 col-xs-12 text-c-m">
                                     <h4 class="text-up color-blue display-inline">gender</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
-                                          <select ng-change="getStats()" ng-model="filterStatistics.gender" class="select">
+                                            <select ng-change="getStats()" ng-model="filterStatistics.gender" class="select">
                                               <option value=""></option>
                                               <option value="Boys">Boys</option>
                                               <option value="Girls">Girls</option>
@@ -466,7 +470,7 @@
                                     <h4 class="text-up color-blue display-inline">age group</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
-                                          <select ng-change="getStats()" class="select" ng-model="filterStatistics.agegroup" ng-options="item.name as item.name for item in dropdowns.agegroup"></select>
+                                            <select ng-change="getStats()" class="select" ng-model="filterStatistics.agegroup" ng-options="item.name as item.name for item in dropdowns.agegroup"></select>
                                             <span class="only-border"></span>
                                         </div>
                                     </div>
@@ -475,7 +479,7 @@
                                     <h4 class="text-up color-blue display-inline">category</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
-                                          <select class="select" ng-change="getStats()" ng-model="filterStatistics.category" ng-options="item.name as item.name for item in dropdowns.category"></select>
+                                            <select class="select" ng-change="getStats()" ng-model="filterStatistics.category" ng-options="item.name as item.name for item in dropdowns.category"></select>
                                             <span class="only-border"></span>
                                         </div>
                                     </div>
@@ -487,43 +491,44 @@
                                         <table class="table">
                                             <thead>
                                                 <tr class="text-up color-white bg-table">
-                                                  <th ng-if="table.layout == 'Knockout'">
-                                                      <span>year</span>
-                                                  </th>
-                                                  <th ng-if="table.layout == 'Knockout'">
-                                                      <span>CATEGORY</span>
-                                                  </th>
-                                                  <th ng-if="table.layout == 'Knockout'">
-                                                      <span>ROUND</span>
-                                                  </th>
-                                                  <!-- <th ng-if="table.layout == 'Knockout'"> -->
-                                                      <!-- <span>STUDENT NAME</span> -->
-                                                  <!-- </th> -->
-                                                  <th ng-if="table.layout == 'Knockout'">
-                                                      <span>OPPONENT NAME</span>
-                                                  </th>
-                                                  <th ng-if="table.layout == 'Knockout'">
-                                                      <span>score</span>
-                                                  </th>
-                                                  <th ng-if="table.layout == 'Knockout'">
-                                                      <span>match videos</span>
-                                                  </th>
+                                                    <th ng-if="table.layout == 'Knockout'">
+                                                        <span>year</span>
+                                                    </th>
+                                                    <th ng-if="table.layout == 'Knockout'">
+                                                        <span>CATEGORY</span>
+                                                    </th>
+                                                    <th ng-if="table.layout == 'Knockout'">
+                                                        <span>ROUND</span>
+                                                    </th>
+                                                    <!-- <th ng-if="table.layout == 'Knockout'"> -->
+                                                    <!-- <span>STUDENT NAME</span> -->
+                                                    <!-- </th> -->
+                                                    <th ng-if="table.layout == 'Knockout'">
+                                                        <span>OPPONENT NAME</span>
+                                                    </th>
+                                                    <th ng-if="table.layout == 'Knockout'">
+                                                        <span>score</span>
+                                                    </th>
+                                                    <th ng-if="table.layout == 'Knockout'">
+                                                        <span>match videos</span>
+                                                    </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                              <!-- DO NOT DELETE -->
+                                                <!-- DO NOT DELETE -->
                                                 <!-- <tr  ng-repeat="stat in schoolStats"> -->
                                                 <!-- DO NOT DELETE -->
                                                 <tr class="other-bg" ng-repeat="stat in schoolStats">
-                                                  <td><span>{{stat.year}}</span></td>
+                                                    <td><span>{{stat.year}}</span></td>
                                                     <td><span class="text-up">{{stat.sport.agegroup.name}} <br> {{stat.sport.gender}}  <br> {{stat.sport.firstcategory.name}}</span></td>
-                                                    <td><span class="text-up"  ng-if="table.layout == 'Knockout'">{{stat.knockout.round}}</span></td>
+                                                    <td><span class="text-up" ng-if="table.layout == 'Knockout'">{{stat.knockout.round}}</span></td>
                                                     <!-- <td class="text-up" ng-if="table.layout == 'Knockout'"><img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.self.result == 'Won' || stat.self.result == 'Bye' || stat.self.result == 'Walkover'">{{stat.student.name}}</td> -->
-                                                    <td class="text-up" ng-if="table.layout == 'Knockout'"><img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.opponent.result == 'Won' || stat.opponent.result == 'Bye' || stat.opponent.result == 'Walkover'">{{stat.opponent.detail.name || '-' | removeSchool:stat.opponent.detail.school.name }}
+                                                    <td class="text-up" ng-if="table.layout == 'Knockout'"><img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.opponent.result == 'Won' || stat.opponent.result == 'Bye' || stat.opponent.result == 'Walkover'">{{stat.opponent.detail.name
+                                                        || '-' | removeSchool:stat.opponent.detail.school.name }}
                                                         <p>{{stat.opponent.detail.school.name}}</p>
                                                     </td>
                                                     <td ng-if="table.layout == 'Knockout'">
-                                                    {{stat.knockout.score}}
+                                                        {{stat.knockout.score}}
                                                         <!-- <div class="table-data display-inline text-center text-up score-1st">
 
                                                             <ul class="padding0 list-style">
@@ -551,10 +556,11 @@
                                                     </td>
                                                     <td class="sf-relative">
                                                         <div class="text-center display-inline ver-mid main-pos sf-absulate">
-                                                            <div class="replay-img  "  ng-if="stat.knockout.video || stat.heat.video || stat.league.video">
-                                                                <a class="various fancybox.iframe" href="https://www.youtube.com/embed/{{stat.drawFormat == 'Knockout' && stat.knockout.video }}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="gallery1" fancybox><img src="img/sf-play.png" alt=""></a>
+                                                            <div class="replay-img  " ng-if="stat.knockout.video || stat.heat.video || stat.league.video">
+                                                                <a class="various fancybox.iframe" href="https://www.youtube.com/embed/{{stat.drawFormat == 'Knockout' && stat.knockout.video }}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
+                                                                    rel="gallery1" fancybox><img src="img/sf-play.png" alt=""></a>
                                                             </div>
-                                                            <div class="sf-play " >
+                                                            <div class="sf-play ">
                                                                 <span>{{stat.drawFormat == 'Knockout' && stat.self.result}}</span>
                                                             </div>
                                                         </div>
@@ -570,7 +576,7 @@
                                             </tbody>
                                         </table>
                                         <div ng-if="!(schoolStats.length > 0) " class="text-center">
-                                          {{schoolStats == undefined && 'Loading ..' || teamDetails.layout && 'No'+table.layout+'found.' || 'No Data Found.'}}
+                                            {{schoolStats == undefined && 'Loading ..' || teamDetails.layout && 'No'+table.layout+'found.' || 'No Data Found.'}}
                                         </div>
                                     </div>
                                 </div>

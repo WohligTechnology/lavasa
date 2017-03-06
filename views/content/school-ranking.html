@@ -1,7 +1,7 @@
 <section>
-    <div class="head-banner">
-        <img src="img/school-ranking.png" class="img-responsive img width100 margin-auto">
-    </div>
+  <div class="head-banner">
+    <img src="img/school-ranking.png" class="img-responsive img width100 margin-auto">
+  </div>
 </section>
 <section class="bottom-padding">
   <div class="container">
@@ -9,22 +9,22 @@
       <div class="col-md-12 ">
         <div class="box-content">
           <div class="text-center mt40">
-              <h3 class="font-semi color-blue text-up f162">SFA mumbai {{filter.year}}</h3>
+            <h3 class="font-semi color-blue text-up f162">SFA mumbai {{filter.year}}</h3>
           </div>
           <div class="mt-min-30 mt-min-40">
-              <div class="float-right">
-                  <h4 class="text-up color-blue display-inline">Year</h4>
-                  <div class="display-inline">
-                      <div class="sfa-select">
-                          <select class="select" ng-model="filter.year" ng-change="rankingByYear()">
+            <div class="float-right">
+              <h4 class="text-up color-blue display-inline">Year</h4>
+              <div class="display-inline">
+                <div class="sfa-select">
+                  <select class="select" ng-model="filter.year" ng-change="rankingByYear()">
                               <option value="2015">2015</option>
                               <option value="2016">2016</option>
 
                           </select>
-                          <span class="only-border"></span>
-                      </div>
-                  </div>
+                  <span class="only-border"></span>
+                </div>
               </div>
+            </div>
           </div>
           <div class="tbl-ranking mt15 main-over">
             <table class="table  w700">
@@ -40,7 +40,7 @@
                     <table>
                       <thead>
                         <tr>
-                          <th  class="text-center" colspan="3">
+                          <th class="text-center" colspan="3">
                             medals tally
                           </th>
                         </tr>
@@ -75,16 +75,16 @@
                 </tr>
               </thead>
               <tbody class="tb-pn">
-                  <tr ng-repeat="school in schools ">
-                    <td>
-                      {{$index + 1}}
-                    </td>
-                    <td class="txt-left pointer" ui-sref="school-profile({
+                <tr ng-repeat="school in schools ">
+                  <td>
+                    {{school.rank}}
+                  </td>
+                  <td class="txt-left pointer" ui-sref="school-profile({
                       id:school.school._id
                     })">
-                      {{school.school.name}} {{school.school.status && ' ' || '*'}}
-                    </td>
-                    <td>
+                    {{school.school.name}} {{school.school.status && ' ' || '*'}}
+                  </td>
+                  <td>
                     <table class="">
                       <thead class="sc-op">
                         <tr>
@@ -100,16 +100,16 @@
                         </tr>
                       </thead>
                     </table>
-                    </td>
+                  </td>
 
-                    <td>
-                  {{school.school['totalPoints'+filter.year]}}
-                    </td>
-                  </tr>
-                </tbody>
+                  <td>
+                    {{school.school['totalPoints'+filter.year]}}
+                  </td>
+                </tr>
+              </tbody>
             </table>
             <div class="text-center" ng-if="!(schools.length >0)">
-      {{schools === undefined && 'Loading ..' || 'No Ranking Data'}}
+              {{schools === undefined && 'Loading ..' || 'No Ranking Data'}}
             </div>
           </div>
         </div>

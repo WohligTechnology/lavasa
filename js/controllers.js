@@ -826,12 +826,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.filter.year = "2016";
         $scope.rankingByYear = function () {
             $scope.schools = undefined;
-            NavigationService.getAllSchoolRank($scope.filter, function (response) {
-                if (response.value) {
-                    $scope.schools = response.data;
-                } else {
-                    $scope.schools = [];
-                }
+            NavigationService.getAllSchoolRank($scope.filter, function (data) {
+                $scope.schools = data;
             });
         };
         $scope.rankingByYear();
@@ -2401,14 +2397,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 }
             });
         };
+        NavigationService.getAllSchoolRank({
+            year: "2016"
+        }, function (data) {
+            var school = _.find(data, function (school) {
+                return school._id == $stateParams.id;
+            });
+            $scope.schooldata.rank = school.rank;
+        });
+
 
         $scope.getSportParticipated = function (constraints) {
             $scope.sportsStudentGender[constraints.year] = undefined;
             NavigationService.getSchoolSportByGender(constraints, function (data) {
+
                 if (data.value) {
                     $scope.sportsStudentGender[constraints.year] = data.data.sports;
                     $scope.schooldata.gender = data.data.gender;
-                    $scope.schooldata.rank = data.data.rank;
+                    // $scope.schooldata.rank = data.data.rank;
                     _.each($scope.sportsStudentGender[constraints.year], function (key) {
                         _.each(key.gender, function (value) {
                             key[value.name] = value.count;
@@ -2530,30 +2536,29 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log("Medal", innermedal);
                 _.forEach(innermedal, function (data) {
                     console.log("INNER DATAA", data.year);
-                
-                    if(data.year!="2015")
-{
-                    if (data.medal === 1) {
-                        data.medal = "Gold";
-                    } else if (data.medal === 2) {
-                        data.medal = "Silver";
-                    } else if (data.medal === 3) {
-                        data.medal = "Bronze";
 
+                    if (data.year != "2015") {
+                        if (data.medal === 1) {
+                            data.medal = "Gold";
+                        } else if (data.medal === 2) {
+                            data.medal = "Silver";
+                        } else if (data.medal === 3) {
+                            data.medal = "Bronze";
+
+                        }
+
+
+                        console.log("INNER DATAA", data.medal);
+                        console.log("SPNAME", data.sport.sportslist.name);
+                        MAINDATA.medal = data.medal;
+                        MAINDATA.sport = data.sport.sportslist.name;
+                        MAINDATA.push({
+                            "medal": data.medal,
+                            "sport": data.sport.sportslist.name,
+                            "isMedal": true
+                        });
+                        //          console.log("JSONNN", MAINDATA);
                     }
-                  
-       
-                    console.log("INNER DATAA",data.medal);
-                    console.log("SPNAME",data.sport.sportslist.name);
-                    MAINDATA.medal=data.medal;
-                    MAINDATA.sport=data.sport.sportslist.name;
-                    MAINDATA.push({
-                        "medal": data.medal,
-                        "sport": data.sport.sportslist.name,
-                        "isMedal": true
-                    });
-                    //          console.log("JSONNN", MAINDATA);
-}
 
                 });
                 console.log("JSON", MAINDATA);
