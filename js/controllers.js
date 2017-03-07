@@ -2,7 +2,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     .controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval) {
         //Used to name the .html file
-
         $scope.template = TemplateService.changecontent("home");
         $scope.menutitle = NavigationService.makeactive("Sport Events | School activities for Kids");
         TemplateService.header = "views/header2.html";

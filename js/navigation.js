@@ -82,6 +82,9 @@ var navigationservice = angular.module('navigationservice', [])
                     withCredentials: true,
                     data: request
                 }).success(function (data) {
+                    data.data = _.filter(data.data, function (n) {
+                        return n._id != "585764172f6a2920432518fb";
+                    });
                     var ranks = _.map(data.data, function (n) {
                         n.points = (n.gold * 5) + (n.silver * 3) + (n.bronze * 2);
                         return n;
