@@ -8,7 +8,7 @@
                         <div class="sf-school-logo sf-relative text-center border-r ">
                             <img ng-src="{{ studentProfile.profilePic | uploadpath:200:200:'cover' }}" alt="" class="img-border img-responsive">
                             <div class="sigh-second sf-absulate l6">
-                                <img ng-if="studentProfile.status" ng-src="img/sf-right-org.png"  alt="" class="w30-main">
+                                <img ng-if="studentProfile.status" ng-src="img/sf-right-org.png" alt="" class="w30-main">
                             </div>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                                 <img src="img/sf-cup.png" alt="">
                             </div> -->
                         </div>
-                        <div class="data-list custom-li color-white mt15 display-inline text-c-m mar0-main" >
+                        <div class="data-list custom-li color-white mt15 display-inline text-c-m mar0-main">
                             <ul class="padding0 sf-list-padding">
                                 <li class="border-right-2">
                                     <div class="f16-zero">
@@ -38,7 +38,7 @@
                                 </li>
                                 <li class="border-right-2">
                                     <div class="f16-zero">
-                                        <p class="text-up color-orange"data-id="age"  >Age</p>
+                                        <p class="text-up color-orange" data-id="age">Age</p>
                                         <p class="text-up">{{studentProfile.dob | ageYearFilter }} <span ng-if="studentProfile.dob">years</span></p>
                                     </div>
                                 </li>
@@ -51,48 +51,49 @@
                             </ul>
                         </div>
                         <div class="cl-mob-ps">
-                        <div class="sf-list ptop-per">
-                            <span class="text-center text-up color-orange f-mcell-20">Medals Won</span>
-                            <ul class="padd-left padding0 mt5 second-border">
-                                <li>
-                                    <div class="medal-num">
-                                        <div class="img-medal display-inline">
-                                            <img src="img/sf-gold-big.png" alt="">
+                            <div class="sf-list ptop-per">
+                                <span class="text-center text-up color-orange f-mcell-20">Medals Won</span>
+                                <ul class="padd-left padding0 mt5 second-border">
+                                    <li>
+                                        <div class="medal-num">
+                                            <div class="img-medal display-inline">
+                                                <img src="img/sf-gold-big.png" alt="">
+                                            </div>
+                                            <div class="display-inline f16-zero">
+                                                <p class="margin0 color-orange text-center">{{studentMedal.gold && studentMedal.gold || '0' }}</p>
+                                                <p class="margin0 color-white">Gold</p>
+                                            </div>
                                         </div>
-                                        <div class="display-inline f16-zero">
-                                            <p class="margin0 color-orange text-center">{{studentMedal.gold && studentMedal.gold || '0' }}</p>
-                                            <p class="margin0 color-white">Gold</p>
+                                    </li>
+                                    <li>
+                                        <div class="medal-num">
+                                            <div class="img-medal display-inline ">
+                                                <img src="img/sf-silver-big.png" alt="">
+                                            </div>
+                                            <div class="display-inline f16-zero">
+                                                <p class="margin0 color-orange text-center">{{studentMedal.silver && studentMedal.silver || '0' }}</p>
+                                                <p class="margin0 color-white">Silver</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>    
-                                    <div class="medal-num">
-                                        <div class="img-medal display-inline ">
-                                            <img src="img/sf-silver-big.png" alt="">
+                                    </li>
+                                    <li>
+                                        <div class="medal-num">
+                                            <div class="img-medal display-inline">
+                                                <img src="img/sf-bronze-big.png" alt="">
+                                            </div>
+                                            <div class="display-inline f16-zero">
+                                                <p class="margin0 color-orange text-center">{{studentMedal.bronze && studentMedal.bronze || '0' }}</p>
+                                                <p class="margin0 color-white">Bronze</p>
+                                            </div>
                                         </div>
-                                        <div class="display-inline f16-zero">
-                                            <p class="margin0 color-orange text-center">{{studentMedal.silver && studentMedal.silver || '0' }}</p>
-                                            <p class="margin0 color-white">Silver</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="medal-num">
-                                        <div class="img-medal display-inline">
-                                            <img src="img/sf-bronze-big.png" alt="">
-                                        </div>
-                                        <div class="display-inline f16-zero">
-                                            <p class="margin0 color-orange text-center">{{studentMedal.bronze && studentMedal.bronze || '0' }}</p>
-                                            <p class="margin0 color-white">Bronze</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="btn-common mt25">
-                            <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="student-bio({'id':studentid})">athlete bio</button>
-                             <button type="button" name="button" class="text-up btn-orange padd-btn ml10" ng-hide="studentSport.length==0 || medalData.data.length==0" ng-click="exportCertificate(studentProfile,SPORTDATA,medalData); ">Certificate</button> 
-                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="btn-common mt25">
+                                <button type="button" name="button" class="text-up btn-orange padd-btn" ui-sref="student-bio({'id':studentid})">athlete bio</button>
+                                <button type="button" name="button" class="text-up btn-orange padd-btn ml10" ng-hide="studentSport.length==0 || medalData.data.length==0"
+                                    ng-click="exportCertificate(studentProfile,SPORTDATA,medalData); ">Certificate</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -105,16 +106,16 @@
     <div class="container mt40">
         <div class="row">
             <div class="text-center">
-                  <h4 class="text-up color-blue display-inline">Year</h4>
-                  <div class="display-inline">
-                      <div class="sfa-select">
-                          <select ng-change="changeYear()" class="select" ng-model="filter.year">
+                <h4 class="text-up color-blue display-inline">Year</h4>
+                <div class="display-inline">
+                    <div class="sfa-select">
+                        <select ng-change="changeYear()" class="select" ng-model="filter.year">
                               <option value="2015">2015</option>
                               <option value="2016">2016</option>
                           </select>
-                          <span class="only-border"></span>
-                      </div>
-                  </div>
+                        <span class="only-border"></span>
+                    </div>
+                </div>
 
                 <h4 class="color-blue text-up font-semi mt25">sports participated</h4>
                 <h5 ng-if="!(studentSport.length > 0)" class="mt25">{{studentSport === undefined && 'Loading ..' || 'No Sports Participated in '+filter.year}}</h5>
@@ -122,7 +123,7 @@
                     <div class="sport-icon-list sf-list blue-cat">
                         <ul>
                             <hovericon game="game" ng-repeat="game in studentSport" ng-click="sportsSelected(game);">
-                                   
+
                             </hovericon>
                         </ul>
                     </div>
@@ -162,12 +163,12 @@ student’s blog
                         </div>
                     </div>
                 </div>
-                <div class="row mt25 text-center"  >
+                <div class="row mt25 text-center">
                     <div class="col-md-12 col-sm-12 col-xs-12 text-c-m">
                         <h4 class="text-up color-blue display-inline">Year</h4>
                         <div class="display-inline">
                             <div class="sfa-select">
-                              <select class="select" ng-change="getStats()" ng-model="filterStatistics.year">
+                                <select class="select" ng-change="getStats()" ng-model="filterStatistics.year">
                                   <option value="2015">2015</option>
                                   <option value="2016">2016</option>
                               </select>
@@ -202,7 +203,7 @@ student’s blog
                 <div class="row mt25" ng-if="filterStatistics.sport">
                     <div class="col-md-12 mt25 main-over">
                         <div class="table-statistics w700">
-                            <table class="table" >
+                            <table class="table">
                                 <thead>
                                     <tr class="text-up color-white bg-table">
                                         <th>
@@ -220,7 +221,7 @@ student’s blog
                                         <th>
                                             <span>score</span>
                                         </th>
-                                        <th >
+                                        <th>
                                             <span>result</span>
                                         </th>
                                     </tr>
@@ -229,26 +230,32 @@ student’s blog
                                     <tr style="background:transparent;" ng-repeat="stat in studentStats">
                                         <td><span>{{stat.year}}</span></td>
                                         <td class="pointer" ng-click="drawDispatcher(stat.sport.drawFormat,stat.sport._id)"><span class="text-up">{{stat.sport.agegroup.name}} <br> {{stat.sport.gender}}  <br>{{stat.sport.firstcategory.name}}</span></td>
-                                        <td class="text-up" >{{table.layout == 'Knockout' && stat.knockout.round || table.layout == 'Heats' && stat.heat.round || table.layout == 'League' && stat.league.round || '-'}}</td>
-                                        <td class="text-up" ng-if="table.layout == 'Knockout' || table.layout == 'League'"><img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.opponent.result == 'Won' || stat.opponent.result == 'Bye' || stat.opponent.result == 'Walkover'">{{stat.opponent.detail.name || '-' | removeSchool:stat.opponent.detail.school.name }}
+                                        <td class="text-up">{{table.layout == 'Knockout' && stat.knockout.round || table.layout == 'Heats' &&
+                                            stat.heat.round || table.layout == 'League' && stat.league.round || '-'}}</td>
+                                        <td class="text-up" ng-if="table.layout == 'Knockout' || table.layout == 'League'"><img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.opponent.result == 'Won' || stat.opponent.result == 'Bye' || stat.opponent.result == 'Walkover'">{{stat.opponent.detail.name
+                                            || '-' | removeSchool:stat.opponent.detail.school.name }}
                                             <p>{{stat.opponent.detail.school.name}}</p>
                                         </td>
                                         <td>
-                                          <!-- score -->
-                                          <div ng-if="table.layout == 'Knockout'">{{stat.knockout.score || '-'}}</div>
-                                          <div ng-if="table.layout == 'League'">{{stat.league.score || '-'}}</div>
-                                          <div ng-if="table.layout == 'Heats'">{{stat.self.timing || '-'}}</div>
+                                            <!-- score -->
+                                            <div ng-if="table.layout == 'Knockout'">{{stat.knockout.score || '-'}}</div>
+                                            <div ng-if="table.layout == 'League'">{{stat.league.score || '-'}}</div>
+                                            <div ng-if="table.layout == 'Heats'">{{stat.self.timing || '-'}}</div>
+                                            <div ng-if="stat.qualifyinground.score">{{stat.qualifyinground.score}}</div>
 
                                         </td>
-                                        <td >
-                                            <div class="text-center display-inline ver-mid " >
+                                        <td>
+                                            <div class="text-center display-inline ver-mid ">
                                                 <div class="sf-play">
                                                     <span>{{table.layout == 'Knockout'&& stat.self.result || table.layout == 'Heats' && ((stat.self.standing | ordinal)+' / '+stat.self.timing) || (table.layout == 'League' && stat.self.result) || ""}}</span>
                                                 </div>
                                                 <div class="replay-img " ng-if="stat.knockout.video || stat.heat.video || stat.league.video">
-                                                      <a class="various fancybox.iframe" href="https://www.youtube.com/embed/{{stat.knockout.video || stat.heat.video || stat.league.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1" rel="gallery1" fancybox><img src="img/sf-play.png" alt=""></a>
+                                                    <a class="various fancybox.iframe" href="https://www.youtube.com/embed/{{stat.knockout.video || stat.heat.video || stat.league.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
+                                                        rel="gallery1" fancybox><img src="img/sf-play.png" alt=""></a>
                                                 </div>
                                             </div>
+                                            <div ng-if="stat.qualifyinground.position">{{stat.qualifyinground.position}}</div>
+
 
                                         </td>
                                     </tr>
@@ -315,9 +322,10 @@ student’s blog
 
                             </table>
                             <div ng-if="!(studentStats.length > 0) " class="text-center">
-                               <span ng-if="studentStats === undefined">Loading ..</span>
+                                <span ng-if="studentStats === undefined">Loading ..</span>
 
-                               <div ng-if="studentStats.length === 0"> {{participatedSports[filterStatistics.year].length>0 && 'Participated in' || 'No Data found.'}} <span ng-repeat="sport in participatedSports[filterStatistics.year]">{{sport.sportslist.name}}&nbsp;{{sport.firstcategory.name}}&nbsp;{{sport.agegroup.name}}{{$index !== participatedSports[filterStatistics.year].length-1 && ',' || '.'}}&nbsp;</span></div>
+                                <div ng-if="studentStats.length === 0"> {{participatedSports[filterStatistics.year].length>0 && 'Participated in' || 'No Data found.'}}
+                                    <span ng-repeat="sport in participatedSports[filterStatistics.year]">{{sport.sportslist.name}}&nbsp;{{sport.firstcategory.name}}&nbsp;{{sport.agegroup.name}}{{$index !== participatedSports[filterStatistics.year].length-1 && ',' || '.'}}&nbsp;</span></div>
                             </div>
                         </div>
                     </div>
