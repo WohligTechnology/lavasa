@@ -143,9 +143,15 @@
                 </div>
             </div>
         </div>
-        <div class="sf-absulate spon" ng-if="getSchoolProfile.supportedBy">
+        <div class="sf-absulate spon" ng-if="getSchoolProfile.supporterName && getSchoolProfile.supporterName ">
             <div class="">
-                <span class="color-orange text-cap f16">Supported by: <img src="img/menulogo.jpg" alt="" class="w40"></span>
+                   
+                <span class="color-orange text-cap f16 pull-left">Supported by:</span>
+                    <span class="onside text-center">
+                    <img src="{{ getSchoolProfile.supporterLogo | uploadpath }}" height="50">
+<span class="color-white text-cap f16"><h4>{{getSchoolProfile.supporterName }}</h4></span>
+                    </span>
+                 
             </div>
         </div>
     </div>
