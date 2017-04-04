@@ -1,0 +1,466 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="">
+                <div>
+                    <h1 class=" school">Athlete Registration Form</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-push-2">
+                <div class="box box-padd">
+                    <div>
+                        <p class="para"><span class="blue">Kindly Note:</span> This is a one-time registration process. Completion of this
+                            process will allow you to register using your SFA ID & Code for all future SFA Events. This also
+                            enables us to create a personalized sporting experience for your school on our website www.sfanow.in
+                            to highlight your performances in sport by way of profiles, records maintenance, match videos,
+                            statistics and reports.</p>
+                    </div>
+                    <div>
+                        <h5 class="blue">We request you to keep the following details ready to ensure a smooth registration process: </h5>
+                        <ul type="circle" class="para mar-l">
+                            <li>Mobile Number which you wish to register with SFA </li>
+                            <li>Email ID which you wish to register with SFA</li>
+                            <li>Scanned copy of your Aadhar ID Card OR Passport OR Pan Card OR Birth Certificate</li>
+                            <li>Scanned copy of your School ID Card OR School Report Card</li>
+                            <li>Credit Card/Debit Card/Bank Details (Only in case of online payment)</li>
+                            <li>Your profile picture in Jpeg/PNG format</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="blue">
+                            *The applicant represents that the information provided is true and correct. SFA will keep confidential and protect your
+                            personal information except where disclosure is required or permitted by law.</h5>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <p class="d-padd para2">If you have participated in SFA Championships before, kindly enter your</p>
+                    </div>
+                    <label class="para2 sfa-padd">  SFA ID or Name:</label>
+                    <select class="sfa-drop">
+                        <option style="display:none"></option>
+                   <option class="para"> SFA ID </option>
+                   <option class="para">Athlete Name</option>
+                  
+               </select>
+                    <div>
+                        <p class="para2 t-padd">If you have not participated in SFA Championships before, your SFA ID will be generated<br> on successful
+                            completion of registration.</p>
+                        <p class="para2 b-padd">Please Note: All fields with * are mandatory.</p>
+                    </div>
+                </div>
+                <form ng-submit="test(xs)">
+                    <div class="wid-hei">
+                        <div class="step1">
+                            Step 1: Personal Details
+                        </div>
+                    </div>
+                    <div class="box box-padd para2 box-hei2">
+                        <div class="t-padd">
+                            <label class="padd-r3">*Select your School:</label>
+                            <select class="sfa-drop" required>
+                           </select>
+                            <p class="text-center">or</p>
+                            <p class="text-center">In case you do not find your school, click on add school.</p>
+                            <div class=" text-center">
+                                <button class="btn btn-default sub-mit" ng-click="showSchool=true">Add School</button>
+                            </div>
+                        </div>
+                        <div ng-if="showSchool">
+                            <div class="t-padd">
+                                <label class="padd-r1">  *School Name:</label>
+                                <input type="text" class="sfa-drop" required>
+                            </div>
+                            <div class="t-padd">
+                                <label class="padd-r1">  *Area/Locality:</label>
+                                <input type="text" class="sfa-drop" required>
+                            </div>
+                            <div class="t-padd">
+                                <label class="padd-r12">  *School Contact:</label>
+                                <input type="text" class="sfa-drop" required>
+                            </div>
+                        </div>
+                        <div class="t-padd">
+                            <label class="padd-r12">*Upload School ID Card OR Report Card::</label>
+                            <!--<input type="file" />-->
+                            <upload-image class="up-img" no-view></upload-image>
+                            <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
+                            <div class="hover-img">
+                                <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
+                            </div>
+                            <div class="hover-img">
+                                <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
+                                <div class="iconinfo">
+                                    <p>This is to verify that you are an athlete from the selected school</p>
+                                </div>
+                            </div>
+                            <!--<label class="kindly-up up-m175">Kindly upload only .jpg or .png format. Maximum file size 1MB.</label>-->
+                        </div>
+                        <div class="d-padd mar-l">
+                            <h4 class="blue">Athlete Details</h4>
+                            <label class="padd-r5 ">*Surname:</label>
+                            <input type="text" class="sfa-drop" required>
+                        </div>
+                        <div class="d-padd mar-l ">
+                            <label class="padd-r75 ">*First Name:</label> <input type="text" class="sfa-drop" required>
+                        </div>
+                        <div class="d-padd mar-l ">
+                            <label class="padd-r61">*Middle Name:</label> <input type="text" class="sfa-drop">
+                        </div>
+                        <div class="d-padd mar-l ">
+                            <label class="padd-r16 ">*Gender:</label>
+                            <input type="radio" name="gender" value="male"><label class="padd-lr"> Male</label>
+                            <input type="radio" name="gender" value="male"><label class="padd-lr"> Female</label>
+                        </div>
+                        <div class="d-padd mar-l">
+                            <label class="padd40">  *Grade/Standard:</label>
+                            <select class="sfa-drop2 sfa4" required>
+                            <option style="display:none"></option>
+                   <option>Jr. KG </option>
+                   <option>Sr. KG </option>
+                   
+                    
+                      </select>
+                            <label class="padd-25">  Blood Group:</label>
+                            <!--<input type="text" class="bor-t" required minlength="10" maxlength="10">-->
+                            <select class="sfa-drop2 sfa4" required>
+                            <option style="display:none"></option>
+                   <option>AB - </option>
+                   <option>AB + </option>
+                    <option>A - </option>
+                     <option>A + </option>
+                      <option>B -</option>
+                       <option>B + </option>
+                        <option>O - </option>
+                         <option>O + </option>
+                   
+                    
+                      </select>
+                            <div class="hover-img">
+                                <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
+                                <div class="iconinfo">
+                                    <p>This information will be important in case of medical emergencies</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="t-padd ">
+                            <label class="padd-r12">*Upload Photograph:</label>
+                            <upload-image class="up-img " no-view></upload-image>
+                            <div class="hover-img">
+                                <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
+                                <div class="iconinfo">
+                                    <p>This photograph will be displayed on your SFA Athlete profile.</p>
+                                </div>
+                            </div>
+                            <label class="kindly-up up-m175">Kindly upload only .jpg or .png format. Maximum file size 1MB.</label>
+                        </div>
+                        <div class="d-padd mar-l">
+                            <label class="padd-r8">*Date Of Birth:</label>
+                            <input type="text" placeholder="dd" class="bor-t date-month" required>
+                            <input type="text" placeholder="mm" class="bor-t date-month" required>
+                            <input type="text" placeholder="yyyy" class="bor-t date-yr" required>
+                            <label class="padd-25">  Age:</label>
+                        </div>
+                        <div class="t-padd">
+                            <label class="padd-r12">*Upload Age Proof:</label>
+                            <select class="sfa-drop2" required>
+                            <option style="display:none"></option>
+                    <option>Adhaar Card </option>
+                   <option>Birth Certificate + Photo ID </option>
+                    <option>PAN Card</option>
+                     <option>Passport</option>
+                        </select>
+                            <label class="myupload2">  <upload-image class="up-img" no-view></upload-image></label>
+                            <label class="myupload">   <upload-image class="up-img" no-view></upload-image></label>
+                            <div class="hover-img">
+                                <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
+                                <div class="iconinfo age">
+                                    <p>For age verification</p>
+                                </div>
+                            </div>
+                            <!--<label class="kindly-up up-m175">Kindly upload only .jpg or .png format. Maximum file size 1MB.</label>-->
+                        </div>
+                        <div class="d-padd mar-l">
+                            <h4 class="blue">Have you played National/State/District tournaments? (Optional)</h4>
+                            <!--<button class="btn btn-default sub-mit" ng-click="myshow=true">yes</button>
+                             <button class="btn btn-default sub-mit" >No</button>-->
+                            <input type="radio" name="gender" value="male" ng-click="myshow=true"><label class="padd-lr"> Yes</label>
+                            <input type="radio" name="gender" value="male"><label class="padd-lr"> No</label>
+                        </div>
+                        <div class="d-padd mar-l" ng-if="myshow" ng-repeat="arr in sportsLevelChunkedArray track by $index">
+                            <!--ng-repeat="x in sportsLevelArray track by $index"-->
+                            <div class="box3 box3-display" ng-if="arr[0]">
+                                <div class="">
+                                    <label class="sportlevel">Level:</label>
+                                    <select class="sfa-drop2 sfa-drop5" required>
+                            <option style="display:none"></option>
+                   <option>National</option>
+                   <option>State</option>
+                    
+                        </select>
+                                </div>
+                                <div class="">
+                                    <label class="sportlevel">Sport:</label>
+                                    <select class="sfa-drop2" required>
+                            <option style="display:none"></option>
+                   <option>Basketball</option>
+                   <option>Volleyball</option>
+                     <option>Throwball</option>
+                      <option>Handball</option>
+                       <option>Kho Kho</option>
+                        <option>Hockey</option>
+                         <option>Football</option>
+                          <option>Kabaddi</option>
+                           <option>Badminton</option>
+                            <option>Tennis</option>
+                             <option>Table Tennis</option>
+                              <option>Squash</option>
+                               <option>Judo</option>
+                                <option>Karate</option>
+                                 <option>Sports MMA</option>
+                                 <option>Boxing</option>
+                                 <option>Taekwondo</option>
+                                 <option>Fencing</option>
+                                 <option>Archery</option>
+                                  <option>Shooting</option>
+                                   <option>Swimming</option>
+                                     <option>Waterpolo</option>
+                                      <option>Athletics</option>
+                                         <option>Carrom</option>
+                                           <option>Chess</option>
+                                        </select>
+                                </div>
+                                <div class="plus">
+                                    <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportLevelForm()">
+                                </div>
+                            </div>
+                            <div class="box3 box3-display" ng-if="arr[1]">
+                                <div class="">
+                                    <label class="sportlevel">Level:</label>
+                                    <select class="sfa-drop2 sfa-drop5" required>
+                            <option style="display:none"></option>
+                   <option>National</option>
+                   <option>State</option>
+                    
+                        </select>
+                                </div>
+                                <div class="">
+                                    <label class="sportlevel">Sport:</label>
+                                    <select class="sfa-drop2" required>
+                            <option style="display:none"></option>
+                   <option>Basketball</option>
+                   <option>Volleyball</option>
+                     <option>Throwball</option>
+                      <option>Handball</option>
+                       <option>Kho Kho</option>
+                        <option>Hockey</option>
+                         <option>Football</option>
+                          <option>Kabaddi</option>
+                           <option>Badminton</option>
+                            <option>Tennis</option>
+                             <option>Table Tennis</option>
+                              <option>Squash</option>
+                               <option>Judo</option>
+                                <option>Karate</option>
+                                 <option>Sports MMA</option>
+                                 <option>Boxing</option>
+                                 <option>Taekwondo</option>
+                                 <option>Fencing</option>
+                                 <option>Archery</option>
+                                  <option>Shooting</option>
+                                   <option>Swimming</option>
+                                     <option>Waterpolo</option>
+                                      <option>Athletics</option>
+                                         <option>Carrom</option>
+                                           <option>Chess</option>
+                                        </select>
+                                </div>
+                                <div class="plus">
+                                    <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportLevelForm()">
+                                </div>
+                            </div>
+                            <div class="box3 box3-display" ng-if="arr[2]">
+                                <div class="">
+                                    <label class="sportlevel">Level:</label>
+                                    <select class="sfa-drop2 sfa-drop5" required>
+                            <option style="display:none"></option>
+                   <option>National</option>
+                   <option>State</option>
+                    
+                        </select>
+                                </div>
+                                <div class="">
+                                    <label class="sportlevel">Sport:</label>
+                                    <select class="sfa-drop2" required>
+                            <option style="display:none"></option>
+                   <option>Basketball</option>
+                   <option>Volleyball</option>
+                     <option>Throwball</option>
+                      <option>Handball</option>
+                       <option>Kho Kho</option>
+                        <option>Hockey</option>
+                         <option>Football</option>
+                          <option>Kabaddi</option>
+                           <option>Badminton</option>
+                            <option>Tennis</option>
+                             <option>Table Tennis</option>
+                              <option>Squash</option>
+                               <option>Judo</option>
+                                <option>Karate</option>
+                                 <option>Sports MMA</option>
+                                 <option>Boxing</option>
+                                 <option>Taekwondo</option>
+                                 <option>Fencing</option>
+                                 <option>Archery</option>
+                                  <option>Shooting</option>
+                                   <option>Swimming</option>
+                                     <option>Waterpolo</option>
+                                      <option>Athletics</option>
+                                         <option>Carrom</option>
+                                           <option>Chess</option>
+                                        </select>
+                                </div>
+                                <div class="plus">
+                                    <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportLevelForm()">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                    <div class="wid-hei top-mar">
+                        <div class="step1">
+                            Step 2: Contact Details
+                        </div>
+                    </div>
+                    <div class="box box-padd para2">
+                        <div class="d-padd mar-l">
+                            <div class="d-padd mar-l">
+                                <label class="padd-r11">*Mobile No:</label>
+                                <input type="number " class="bor-t" required minlength="10" maxlength="10">
+                                <button class="btn btn-default sub-mit send-otp">Send OTP </button>
+                                <label class="enter-otp"> *Enter OTP:</label>
+                                <input type="number" class="bor-t" required>
+                                <div class="hover-img">
+                                    <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
+                                    <div class="iconinfo iconinfo3">
+                                        <p>Kindly ensure the contact details given below are correct. A verification One Time
+                                            Password (OTP) will be sent. We welcome parents to enter their details in this
+                                            section. All important details regarding SFA Mumbai 2017 such asconfirmation
+                                            of registration, draws and schedules will besent on the same.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-padd mar-l">
+                                <label class="padd-r50">*Email:</label><input type="email" class="bor-t" required>
+                            </div>
+                        </div>
+                        <div class="d-padd mar-l">
+                            <h4 class="blue">Residential Address</h4>
+                            <label class="padd-r5 ">*Line 1:</label>
+                            <input type="text" class="sfa-drop" required>
+                        </div>
+                        <div class="d-padd mar-l ">
+                            <label class="padd-r5 ">*Line 2:</label> <input type="text" class="sfa-drop" required>
+                        </div>
+                        <div class="d-padd mar-l">
+                            <label class="padd-r6"> *State:</label>
+                            <span> Maharashstra</span>
+                            <label class="padd-r9">*District:</label>
+                            <select class="sfa-drop2" required>
+                            <option style="display:none"></option>
+                   <option>Mumbai City </option>
+                   <option>Mumbai Suburban</option>
+                    <option>Thane</option>
+                     <option>Palghar</option>
+                      <option>Raigad</option> 
+                      </select>
+                        </div>
+                        <div class="d-padd mar-l">
+                            <label class="padd-r7">  *City</label>
+                            <select class="sfa-drop2 w147" required>
+                            <option style="display:none"></option>
+                   <option>Kalyan-Dombivali </option>
+                   <option>Mira-Bhayandar</option>
+                   <option>Mumbai</option>
+                   <option>Navi Mumbai</option>
+                   <option>Panvel</option>
+                   <option>Thane</option>
+                    <option>Ulhasnagar</option>
+                     <option>Vasai-Virar</option>
+                     <option>Raigad</option>
+                     <option>Thane</option>
+               </select>
+                            <label class="padd-r41">  *Pin Code:</label>
+                            <select class="sfa-drop2 w147" required>
+                 <option style="display:none"></option>
+                    <option> 222300</option>
+                  </select>
+                        </div>
+                        <div class="d-padd mar-l">
+                        </div>
+                        <div class="d-padd mar-l">
+                            <h4 class="blue pb10">Parent/Guardian Details</h4>
+                            <p class="check-box ">
+                                
+                            
+                                
+                                <label  ng-click="termcondition()" >*Terms & Conditions</label>
+                                 <input type="checkbox" id="test1" />
+                                <label for="test1"></label>
+                            </p>
+                            <div class="box2" ng-repeat="x in finalSportArray track by $index">
+                                <div class="d-padd ">
+                                    <label class="padd-r8"> *Relation:</label>
+                                    <input type="radio" name="gender" value="male" ng-click="myshow=true"> <label class="padd-lr">Mother</label>
+                                    <input type="radio" name="gender" value="male" ng-click="myshow=true"><label class="padd-lr"> Father</label>
+                                    <input type="radio" name="gender" value="male"><label class="padd-lr"> Guardian</label>
+                                </div>
+                                <div class="d-padd ">
+                                    <label class="padd-r5 ">*Name:</label> <input type="text" class="sfa-drop" required>
+                                </div>
+                                <div class="d-padd ">
+                                    <label class="padd-r8 ">*Surname:</label> <input type="text" class="sfa-drop" required>
+                                </div>
+                                <div class="d-padd">
+                                    <label class="padd-r85"> *Mobile:</label>
+                                    <input type="number" class="bor-t" required minlength="10" maxlength="10">
+                                    <label class="padd-lr20">  *Email:</label><input type="email" class="bor-t" required>
+                                </div>
+                                <div class="sub-padd">
+                                    <img src="img/icon/p.png" alt="logo" class="img-responsive myicon2" ng-click="addSportForm()">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wid-hei top-mar">
+                        <div class="step1">
+                            Step 3: Registration Fee
+                        </div>
+                    </div>
+                    <div class="box box-padd ">
+                        <div class="d-padd">
+                            <h4>Paayment Gateway:</h4>
+                        </div>
+                        <div class="d-padd para2">
+                                    
+                                    <input type="radio" name="gender" value="male" > <label class="padd-lr">Cash</label>
+                                    <input type="radio" name="gender" value="male" ><label class="padd-lr"> Cheque</label>
+                                    <input type="radio" name="gender" value="male"><label class="padd-lr"> Online Paytm</label>
+                                </div>
+                    </div>
+                    <div class="text-center sub-padd">
+                        <button class="btn btn-default sub-mit" type="submit">Submit & Save</button>
+                    </div>
+                
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--</div>
+</div>
+</div>
+</div>-->

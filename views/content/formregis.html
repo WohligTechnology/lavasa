@@ -1,0 +1,355 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="">
+                <div>
+                    <h1 class=" school">School Registration Form</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-push-2">
+                <div class="box box-padd">
+                    <div>
+                        <p class="para"><span class="blue">Kindly Note:</span> This is a one-time registration process. Completion of this
+                            process will allow you to register using your SFA ID & Code for all future SFA Events. This also
+                            enables us to create a personalized sporting experience for your school on our website www.sfanow.in
+                            to highlight your performances in sport by way of profiles, records maintenance, match videos,
+                            statistics and reports.</p>
+                    </div>
+                    <div>
+                        <h5 class="blue">We request you to keep the following details ready to ensure a smooth registration process: </h5>
+                        <ul type="circle" class="para mar-l">
+                            <li>Mobile Number which you wish to register with SFA</li>
+                            <li>Email ID which you wish to register with SFA</li>
+                            <li>Credit Card/Debit Card/Bank Details(in case of online payment)</li>
+                            <li>Your School's logo in jpeg/PNG format(optional)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="blue">
+                            * The applicant represents that the information provided is true and correct. SFA will keep confidential and protect your
+                            personal information except where disclosure is required or permitted by law.</h5>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <p class="d-padd para2">If you have participated in SFA Championships before, kindly enter your</p>
+                    </div>
+                    <label class="para2 sfa-padd">  SFA ID or Name:</label>
+                    <select class="sfa-drop">
+                        <option style="display:none"></option>
+                   <option class="para">School SFA ID </option>
+                   <option class="para">School Name</option>
+               </select>
+                    <div>
+                        <p class="para2 t-padd">If you have not participated in SFA Championships before, your SFA ID will be generated<br> on successful
+                            completion of registration.</p>
+                        <p class="para2 b-padd">Please Note: All fields with * are mandatory.</p>
+                    </div>
+                </div>
+                <form ng-submit="test(xs)">
+                <div class="wid-hei">
+                    <div class="step1">
+                        Step 1: School Details
+                    </div>
+                </div>
+             
+                    <div class="box box-padd para2 box-hei">
+                        <div class="t-padd">
+                            <label class="padd-r1">  *School Name:</label>
+                            <input type="text" class="sfa-drop" required>
+                        </div>
+                        <div class="t-padd">
+                            <label class="padd-r2">  *School Type:</label>
+                            <select class="sfa-drop2" required>
+                             <option style="display:none"></option>
+                   <option>Co-Educational</option>
+                   <option>Boys</option>
+                    <option>Girls</option>
+               </select>
+                        </div>
+                        <div class="t-padd">
+                            <label class="padd-r3">*School Category:</label>
+                            <select class="sfa-drop2" required>
+                             <option style="display:none"></option>
+                   <option>Un-aided </option>
+                   <option>Government </option>
+                  <option> Aided</option>
+               </select>
+                        </div>
+                        <div class="t-padd">
+                            <label class="padd-r4">*Affiliated Board:</label>
+                            <select class="sfa-drop2" required>
+                             <option style="display:none"></option>
+                   <option>Central Board of Secondary Education (CBSE) </option>
+                   <option>International Baccalaureate (IB)</option>
+                    <option>Indian Certificate of Secondary Education (ICSE )</option>
+                     <option>International General Certificate of Secondary Education (IGCSE)</option>
+                      <option>National Institute of Open Schooling (NIOS)</option>
+                       <option>Secondary School Certificate (SSC)</option>
+                        <option>A Level</option>
+               </select>
+                        </div>
+                        <div class="t-padd">
+                            <label class="padd-r12">*Upload School Logo:</label>
+                            <!--<input type="file" />-->
+                            <upload-image class="up-img" no-view ></upload-image>
+                            <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
+                            <div class="hover-img">
+                                <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
+                                <div class="iconinfo">
+                                    <p>This logo will be displayed on your school’s profile page on sfanow.in</p>
+                                </div>
+                            </div>
+                            <label class="kindly-up up-m175">Kindly upload only .jpg or .png format. Maximum file size 1MB.</label>
+                        </div>
+                    </div>
+              
+                <div class="wid-hei top-mar">
+                    <div class="step1">
+                        Step 2: Contact Details
+                    </div>
+                </div>
+                <div class="box box-padd para2">
+                    <div class="d-padd mar-l">
+                        <h4 class="blue">School Address</h4>
+                        <label class="padd-r5 ">*Line 1:</label>
+                        <input type="text" class="sfa-drop" required>
+                    </div>
+                    <div class="d-padd mar-l ">
+                        <label class="padd-r5 ">*Line 2:</label> <input type="text" class="sfa-drop" required>
+                    </div>
+                    <div class="d-padd mar-l">
+                        <label class="padd-r6"> *State:</label>
+                        <span> Maharashstra</span>
+                        <label class="padd-r9">*District:</label>
+                        <select class="sfa-drop2" required>
+                            <option style="display:none"></option>
+                   <option>Mumbai City </option>
+                   <option>Mumbai Suburban</option>
+                    <option>Thane</option>
+                     <option>Palghar</option>
+                      <option>Raigad</option> 
+                      
+               </select>
+                    </div>
+                    <div class="d-padd mar-l">
+                        <label class="padd-r7">  *City</label>
+                        <select class="sfa-drop2 w147" required>
+                            <option style="display:none"></option>
+                   <option>Kalyan-Dombivali </option>
+                   <option>Mira-Bhayandar</option>
+                   <option>Mumbai</option>
+                   <option>Navi Mumbai</option>
+                   <option>Panvel</option>
+                   <option>Thane</option>
+                    <option>Ulhasnagar</option>
+                     <option>Vasai-Virar</option>
+                     <option>Raigad</option>
+                     <option>Thane</option>
+               </select>
+                        <label class="padd-r10">*Area/Locality:</label>
+                        <select class=" sfa-drop2 w147" required>
+                            <option style="display:none"></option>
+                   <option>School SFA ID </option>
+                   <option>School Name</option>
+               </select>
+                    </div>
+                    <div class="d-padd mar-l">
+                        <label class="padd-r8">  *Pin Code:</label>
+                        <select class="sfa-drop2 w147" required>
+                 <option style="display:none"></option>
+                    <option> 222300</option>
+                 
+                 
+               </select>
+                    </div>
+                    <div class="d-padd mar-l">
+                        <h4 class="blue pb10">Details For Correspondence</h4>
+                        <div class="box2">
+                            <div class="d-padd">
+                                <p>All communication regarding SFA MUMBAI 2017 will be sent on the below mentioned details.</p>
+                                <label class="padd-r11"> Contact Person:</label>
+                                <input type="text" class=" sfa-in">
+                            </div>
+                            <div class="d-padd">
+                                <label class="padd-r30">  *Landline:</label><input type="number" class="bor-t" required minlength="8" maxlength="15">
+                                <label class="padd-r14"> *Mobile:</label>
+                                <input type="number" class="bor-t" required minlength="10" maxlength="10">
+                            </div>
+                            <div class="d-padd">
+                                <label class="padd-r13">  *Email:</label><input type="email" class="bor-t" required>
+                                <label class="padd-r15"> Website:</label>
+                                <input type="url" class="bor-t">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-padd mar-l">
+                        <h4 class="blue">School Principal</h4>
+                        <div class="d-padd mar-l">
+                            <label class="padd-r5">*Name:</label>
+                            <input type="text" class="sfa-in bor-t" required>
+                        </div>
+                        <div class="d-padd mar-l">
+                            <label class="padd-r5">*Mobile:</label>
+                            <input type="number " class="bor-t" required minlength="10" maxlength="10">
+                            <label class="padd-r17"> *Landline:</label>
+                            <input type="number" class="bor-t" required minlength="8" maxlength="15">
+                        </div>
+                        <div class="d-padd mar-l">
+                            <label class="padd-r16">*Email:</label><input type="email" class="bor-t" required>
+                        </div>
+                    </div>
+                    <div class="d-padd mar-l">
+                        <div class="dis-bloc">
+                            <h4 class="blue"> Sports Department (Optional)</h4>
+                        </div>
+                        <div class="hover-img">
+                            <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
+                            <div class="iconinfo w478">
+                                <p>Coaches play an extremely vital role in shaping the future of young athletes. As part of
+                                    your school’s sporting profile, SFA would be happy to highlight the efforts of your sports
+                                    department. Kindly request youto fill in the following details.</p>
+                            </div>
+                        </div>
+                        <div class="box2" ng-repeat="x in finalSportArray track by $index">
+                            <div class="d-padd">
+                                <label class="padd-r8">*Name:</label>
+                                <input type="text" class="sfa-drop" name="$index" ng-model="x.name" required>
+                            </div>
+                            <div class="d-padd">
+                                <label class="padd-r18">*Designation:</label>
+                                <input type="text" class="bor-t" ng-model="x.designation" required>
+                            </div>
+                            <div class="d-padd">
+                                <label class="padd-r8">*E-mail:</label>
+                                <input type="email" class="bor-t" ng-model="x.email" required>
+                            </div>
+                            <div class="d-padd">
+                                <!--<label>Upload Photograph:</label><input type="file" class="bor-t">
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i>-->
+                                <label class="padd-r3">*Upload Photograph:</label>
+                                <!--<input type="file" />-->
+                                <upload-image class="up-img" no-view required ng-model="x.photo" ></upload-image>
+                                <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
+                                <label class="kindly-up">Kindly upload only .jpg or .png format. Maximum file size 1MB.</p></label>
+                                 <img src="img/icon/p.png" alt="logo" class="img-responsive myicon2" ng-click="addSportForm()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wid-hei top-mar">
+                    <div class="step1">
+                        Step 3: Select Sports
+                    </div>
+                </div>
+                <div class="box box-padd r para2">
+                    <div class="d-padd">
+                        <div class="dis-inline">
+                            <h4 class="blue">Team Sports</h4>
+                            <!--<p> <input type="checkbox">Football</p>-->
+                            <p> <input type="checkbox" id="test1" />
+                                <label for="test1">Basketball</label></p>
+                            <p> <input type="checkbox" id="test" />
+                                <label for="test">Handball</label></p>
+                            <p> <input type="checkbox" id="test3" />
+                                <label for="test3">Hockey</label></p>
+                            <p> <input type="checkbox" id="test4" />
+                                <label for="test4">Kabaddi</label></p>
+                            <p> <input type="checkbox" id="test5" />
+                                <label for="test5">Kho Kho</label></p>
+                            <p> <input type="checkbox" id="test6" />
+                                <label for="test6">Throwball</label></p>
+                            <p> <input type="checkbox" id="test7" />
+                                <label for="test7">Volleyball</label></p>
+                        </div>
+                        <div class="dis-inline">
+                            <h4 class="blue">Racquet Sports
+                            </h4>
+                            <p> <input type="checkbox" id="test8" />
+                                <label for="test8">Table Tennis</label></p>
+                            <p> <input type="checkbox" id="test9" />
+                                <label for="test9">Tennis</label></p>
+                            <p> <input type="checkbox" id="test10" />
+                                <label for="test10">Squash</label></p>
+                            <p> <input type="checkbox" id="test11" />
+                                <label for="test11">Badminton</label></p>
+                        </div>
+                        <div class="dis-inline">
+                            <h4 class="blue">Combat Sports</h4>
+                            <p> <input type="checkbox" id="test12" />
+                                <label for="test12">Boxing</label></p>
+                            <p> <input type="checkbox" id="test13" />
+                                <label for="test13">Fencing</label></p>
+                            <p> <input type="checkbox" id="test14" />
+                                <label for="test14">Judo</label></p>
+                            <p> <input type="checkbox" id="test15" />
+                                <label for="test15">Karate</label></p>
+                            <p> <input type="checkbox" id="test16" />
+                                <label for="test16">Sport Mma</label></p>
+                            <p> <input type="checkbox" id="test17" />
+                                <label for="test17">Taekwondo</label></p>
+                        </div>
+                        <div class="dis-inline">
+                            <div>
+                                <h4 class="blue">Target Sports</h4>
+                                <p> <input type="checkbox" id="test18" />
+                                    <label for="test18">Archery</label></p>
+                                <p> <input type="checkbox" id="test19" />
+                                    <label for="test19">Shooting</label></p>
+                            </div>
+                            <div>
+                                <h4 class="blue">Aquatics</h4>
+                                <p> <input type="checkbox" id="test20" />
+                                    <label for="test20">Swimming</label></p>
+                                <p> <input type="checkbox" id="test21" />
+                                    <label for="test21">Water Polo</label></p>
+                            </div>
+                        </div>
+                        <div class="dis-inline">
+                            <h4 class="blue">Individual Sports</h4>
+                            <p> <input type="checkbox" id="test23" />
+                                <label for="test23">Athletics</label></p>
+                            <p> <input type="checkbox" id="test24" />
+                                <label for="test24">Carrom</label></p>
+                            <p> <input type="checkbox" id="test25" />
+                                <label for="test25">Chess</label></p>
+                        </div>
+                        <p> <label class="sel-spo">Selected Sports:</label>Basketball, Football, Hockey</p>
+                        <p>A registration fee of `11,500/- (inclusive of all applicable taxes) will be payable.<br>
+                            <label class="blue"> #Kindly Note:</label> This is an annual fee that enables your school to
+                            send any number of athletes across all the above mentioned sports. This fee structure has been
+                            devised to encourage schools and athletes to participate in multiple sports and to maintain a
+                            high quality of competition.</p>
+                    </div>
+                </div>
+                <div class="wid-hei top-mar">
+                    <div class="step1">
+                        Step 4: Registration Fee
+                    </div>
+                </div>
+                <div class="box box-padd para2">
+                    <div class="d-padd">
+                        <h4>Paayment Gateway:</h4>
+                    </div>
+                    <div class="d-padd ">
+                                    
+                                    <input type="radio" name="gender" value="male" > <label class="padd-lr">Cash</label>
+                                    <input type="radio" name="gender" value="male" ><label class="padd-lr"> Cheque</label>
+                                    <input type="radio" name="gender" value="male"><label class="padd-lr"> Online Paytm</label>
+                              
+                                </div>
+                </div>
+                <div class="text-center sub-padd">
+                    <button class="btn btn-default sub-mit" type="submit">Submit & Save</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--</div>
+</div>
+</div>
+</div>-->

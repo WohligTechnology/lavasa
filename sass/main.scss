@@ -42,6 +42,18 @@ sans-serif !default;
 }
 
 @font-face {
+    font-family: 'Titillium Web SemiBold';
+    src: url("../fonts/titillium-web.semibold.ttf");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Titillium Web Regular';
+    src: url("../fonts/titillium-web.regular.ttf");
+    font-weight: 600;
+}
+
+@font-face {
     font-family: 'Built Titling';
     src: url("../fonts/builttitlingsb.ttf");
     font-weight: 500;
@@ -3968,6 +3980,635 @@ iframe#twitter-widget-0 {
         height: auto;
     }
 }
+
+// school registration form
+.school {
+    margin-top: 91px;
+    font-family: Titillium Web SemiBold;
+    color: #f37720;
+    font-size: 31px;
+    /* Approximation due to font substitution */
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 9px;
+}
+
+.box {
+    box-shadow: 0px 0px 12px gray;
+}
+
+.box-padd {
+    padding: 18px;
+    //     span{
+    //         color:  #091a71;
+    // font-size: 16.67px;
+    // font-family: Titillium Web SemiBold;
+    //     }
+}
+
+.para {
+    font-family: 'Titillium Web Regular';
+    color: #646464;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 29.167px;
+}
+
+.para2 {
+    font-family: 'Titillium Web Regular';
+    color: #646464;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 29.167px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.blue {
+    color: #091a71;
+    font-size: 16.67px;
+    font-family: Titillium Web SemiBold;
+}
+
+.d-padd {
+    padding-left: 20px;
+    padding-top: 20px;
+    position: relative;
+}
+
+.t-padd {
+    padding-top: 20px;
+}
+
+.b-padd {
+    padding-bottom: 20px;
+}
+
+.mar-l {
+    margin-left: -19px;
+}
+
+.sfa-drop {
+    width: 63%;
+    border-top: none;
+    background: none;
+    border-color: lightgray;
+}
+
+.d-mar {
+    margin-top: 50px;
+}
+
+.box2 {
+    box-shadow: 0px 0px 0px 2px lightgray;
+    position: relative;
+}
+
+.dis-inline {
+    display: inline-block;
+    width: 19%;
+    vertical-align: top;
+}
+
+.step1 {
+    width: 240px;
+    height: 280px;
+    background: #091a71;
+    ;
+    -webkit-clip-path: polygon(0 0, 93% 0, 100% 16%, 0 16%);
+    clip-path: polygon(0 0, 93% 0, 100% 16%, 0 16%);
+    color: #ffffff;
+    font-size: 18.75px;
+    /* Approximation due to font substitution */
+    font-weight: 400;
+    text-align: center;
+    padding-right: 25px;
+    padding-top: 8px;
+}
+
+.wid-hei {
+    width: 10px;
+    height: 46px;
+}
+
+.sfa-padd {
+    padding-right: 7px;
+}
+
+.padd-r1 {
+    padding-right: 40px;
+}
+
+.padd-r2 {
+    padding-right: 49px;
+}
+
+.padd-r3 {
+    padding-right: 21px;
+}
+
+.padd-r4 {
+    padding-right: 27px;
+}
+
+.sfa-drop2 {
+    border-top: none;
+    background: none;
+    border-color: lightgray;
+}
+
+.iconinfo {
+    display: none;
+    position: absolute;
+    width: 309px;
+    padding: 12px;
+    box-shadow: 0px 0px 12px gray;
+    font-family: TitilliumWeb;
+    color: #091a71;
+    font-size: 16px;
+    font-style: italic;
+    margin-left: 16px;
+}
+
+.dis-bloc {
+    display: inline-block;
+}
+
+.myicon {
+    width: 20px;
+    height: 20px;
+}
+
+.hover-img {
+    display: inline-block;
+    margin-left: 20px;
+    &:hover {
+        .iconinfo {
+            display: block;
+            z-index: 1;
+            background: #fff;
+        }
+    }
+}
+
+.padd-r5 {
+    padding-right: 20px;
+}
+
+.top-mar {
+    margin-top: 41px;
+}
+
+.attach {
+    position: relative;
+}
+
+.attachbtn {
+    width: 140px;
+    height: 34px;
+}
+
+.attbtn {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    top: 6px;
+    height: 34px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    left: 0px;
+}
+
+.up-img {
+    display: inline-block;
+}
+
+.btn-outline {
+    color: #091a71;
+    background-color: #fff;
+    border-color: #091a71;
+    border: 2px solid #091a71;
+}
+
+.attbtn:hover {
+    color: #091a71;
+    background-color: #fff;
+    border-color: #091a71;
+    border: 2px solid #091a71;
+}
+
+.btn-outline:hover:hover {
+    color: #091a71;
+    background-color: #fff;
+    border-color: #091a71;
+    border: 2px solid #091a71;
+}
+
+.padd-r5 {
+    padding-right: 89px;
+}
+
+.padd-r6 {
+    padding-right: 93px;
+}
+
+.padd-r7 {
+    padding-right: 107px;
+}
+
+.padd-r8 {
+    padding-right: 70px;
+}
+
+.padd-r9 {
+    margin-left: 92px;
+    padding-right: 61px;
+}
+
+.padd-r10 {
+    margin-left: 41px;
+    padding-right: 21px;
+}
+
+.w147 {
+    width: 147px;
+}
+
+.padd-r11 {
+    padding-right: 15px;
+}
+
+.padd-r12 {
+    padding-right: 29px;
+}
+
+.padd-r30 {
+    padding-right: 59px;
+}
+
+.padd-r13 {
+    padding-right: 78px;
+    padding-bottom: 26px;
+}
+
+.padd-r14 {
+    margin-left: 61px;
+    padding-right: 24px;
+}
+
+.padd-r15 {
+    margin-left: 61px;
+    padding-right: 22px;
+}
+
+.sfa-in {
+    width: 71%;
+    border-top: none;
+    background: none;
+    border-color: lightgray;
+}
+
+.bor-t {
+    border-top: none;
+}
+
+.pb10 {
+    padding-bottom: 10px;
+}
+
+.padd-r16 {
+    padding-right: 100px;
+}
+
+.padd-r17 {
+    margin-left: 63px;
+    padding-right: 21px;
+}
+
+.padd-r18 {
+    padding-right: 34px;
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px;
+}
+
+[type="checkbox"]:not(:checked)+label,
+[type="checkbox"]:checked+label {
+    position: relative;
+    padding-left: 18px;
+    cursor: pointer;
+}
+
+
+/* checkbox aspect */
+
+[type="checkbox"]:not(:checked)+label:before,
+[type="checkbox"]:checked+label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 11px;
+    height: 11px;
+    border: 1px solid #ccc;
+    background: #fff;
+    //   box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+
+[type="checkbox"]:not(:checked)+label:after,
+[type="checkbox"]:checked+label:after {
+    content: '✔';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 15px;
+    //   line-height: 0.8;
+    color: #ccc;
+    transition: all .2s;
+}
+
+[type="checkbox"]:not(:checked)+label:after {
+    opacity: 0;
+    transform: scale(0);
+}
+
+[type="checkbox"]:checked+label:after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* disabled checkbox */
+
+[type="checkbox"]:disabled:not(:checked)+label:before,
+[type="checkbox"]:disabled:checked+label:before {
+    box-shadow: none;
+    border-color: #bbb;
+    background-color: #ddd;
+}
+
+[type="checkbox"]:disabled:checked+label:after {
+    color: #999;
+}
+
+[type="checkbox"]:disabled+label {
+    color: #aaa;
+}
+
+
+/* hover style just for information */
+
+label:hover:before {
+    border: 1px solid #ccc!important;
+}
+
+.sel-spo {
+    font-family: TitilliumWeb;
+    color: #646464;
+    font-size: 16.67px;
+    /* Approximation due to font substitution */
+    font-weight: 600;
+    padding-right: 15px;
+}
+
+.sub-mit {
+    color: #091a71;
+    border-color: #091a71;
+    font-family: TitilliumWeb;
+    font-size: 16.68px;
+    font-weight: 400;
+}
+
+.sub-padd {
+    padding-top: 15px;
+}
+
+.sub-mit:hover {
+    color: #091a71;
+    background-color: white;
+    border-color: #091a71;
+}
+
+.box-hei {
+    height: 415px;
+}
+
+.w478 {
+    width: 478px;
+}
+
+.kindly-up {
+    font-family: TitilliumWeb;
+    color: #8a8a8a;
+    font-size: 15px;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.up-m175 {
+    margin-left: 175px;
+}
+
+.myicon2 {
+    width: 33px;
+    height: 49px;
+    margin-left: 337px;
+    padding-bottom: 16px;
+}
+
+.box-hei2 {
+    height: auto;
+}
+
+// athlete form start
+.box3 {
+    box-shadow: 0px 0px 0px 1px #091a71;
+    position: relative;
+    width: 208px;
+}
+
+.sportlevel {
+    padding-right: 17px;
+    padding-left: 18px;
+    padding-top: 12px;
+}
+
+.padd-r75 {
+    padding-right: 75px;
+}
+
+.padd-lr {
+    padding-left: 8px;
+    padding-right: 9px;
+}
+
+.padd40 {
+    padding-right: 48px;
+}
+
+.padd-25 {
+    padding: 0 21px;
+    margin-left: 19px;
+}
+
+.sfa4 {
+    width: 150px;
+}
+
+.age {
+    width: 158px;
+}
+
+.sfa-drop5 {
+    width: 110px;
+}
+
+.plus {
+    margin-left: 87px;
+    padding: 5px;
+}
+
+.send-otp {
+    width: 78px;
+    height: 30px;
+    font-size: 12px;
+    margin-left: 15px;
+}
+
+.enter-otp {
+    padding-right: 12px;
+    padding-left: 19px;
+}
+
+.iconinfo3 {
+    width: 452px;
+    margin-left: -442px;
+    margin-top: 10px;
+}
+
+.padd-r50 {
+    padding-right: 50px;
+}
+
+.padd-r41 {
+    margin-left: 41px;
+    padding-right: 50px;
+}
+
+.padd-r85 {
+    padding-right: 85px;
+}
+
+.padd-lr20 {
+    padding-right: 20px;
+    padding-left: 23px;
+}
+
+.date-month {
+    width: 53px;
+    height: 24px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.date-yr {
+    width: 65px;
+    height: 24px;
+    text-align: center;
+}
+
+.padd-r61 {
+    padding-right: 61px;
+}
+
+.check-box {
+    label {
+        text-decoration: underline;
+        color:gray;
+    }
+    [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+        position: absolute;
+        //   left: -9999px;
+    }
+    [type="checkbox"]:not(:checked)+label,
+    [type="checkbox"]:checked+label {
+        position: relative;
+        //   padding-left: 18px;
+        cursor: pointer;
+    }
+    /* checkbox aspect */
+    [type="checkbox"]:not(:checked)+label:before,
+    [type="checkbox"]:checked+label:before {
+        content: '';
+        position: absolute;
+        left: 15px !important;
+        top: -6px;
+        width: 15px;
+        height: 15px;
+        border: 1px solid #ccc;
+        background: #fff;
+        //   box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+    }
+    [type="checkbox"]:not(:checked)+label:after,
+    [type="checkbox"]:checked+label:after {
+        content: '✔';
+        position: absolute;
+        top: -12px !important;
+        left: 15px !important;
+        font-size: 20px !important;
+        //   line-height: 0.8;
+        color: #ccc;
+        transition: all .2s;
+    }
+    [type="checkbox"]:not(:checked)+label:after {
+        opacity: 0;
+        transform: scale(0);
+    }
+    [type="checkbox"]:checked+label:after {
+        opacity: 1;
+        transform: scale(1);
+    }
+    /* disabled checkbox */
+    [type="checkbox"]:disabled:not(:checked)+label:before,
+    [type="checkbox"]:disabled:checked+label:before {
+        box-shadow: none;
+        border-color: #bbb;
+        background-color: #ddd;
+    }
+    [type="checkbox"]:disabled:checked+label:after {
+        color: #999;
+    }
+    [type="checkbox"]:disabled+label {
+        color: #aaa;
+    }
+    /* hover style just for information */
+    label:hover:before {
+        border: 1px solid #ccc!important;
+    }
+}
+
+.myupload2 {
+    padding-left: 8px;
+}
+
+.myupload {
+    padding-left: 8px;
+    .btn-outline:after {
+        content: ' Photo ID';
+    }
+}
+
+.box3-display{
+    display: inline-block;
+    margin-left: 23px;
+
+}
+
 
 @import "fancybox-override";
 @import "mobile";

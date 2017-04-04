@@ -9,7 +9,7 @@ var firstapp = angular.module('firstapp', [
     'angulartics.google.analytics'
 ]);
 
-firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider,cfpLoadingBarProvider) {
+firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, cfpLoadingBarProvider) {
     // for http request with session
     $httpProvider.defaults.withCredentials = true;
     // cfpLoadingBarProvider.latencyThreshold = 2000;
@@ -24,106 +24,116 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'HomeCtrl'
         })
         .state('blog', {
-    url: "/blog",
-    templateUrl: "views/template.html",
-    controller: 'BlogCtrl'
-})
+            url: "/blog",
+            templateUrl: "views/template.html",
+            controller: 'BlogCtrl'
+        })
         .state('certificate', {
-    url: "/certificate",
-    templateUrl: "views/template.html",
-    controller: 'CertificateCtrl'
-})
-.state('draw-schedule', {
-    url: "/draw-schedule",
-    templateUrl: "views/template.html",
-    controller: 'DrawScheduleCtrl'
-})
+            url: "/certificate",
+            templateUrl: "views/template.html",
+            controller: 'CertificateCtrl'
+        })
+        .state('draw-schedule', {
+            url: "/draw-schedule",
+            templateUrl: "views/template.html",
+            controller: 'DrawScheduleCtrl'
+        })
 
-.state('special-awards', {
-    url: "/special-awards",
-    templateUrl: "views/template.html",
-    controller: 'SpecialAwardsCtrl'
-})
-.state('league-knockout', {
-    url: "/league-knockout/:id",
-    templateUrl: "views/template.html",
-    controller: 'LeagueKnockoutCtrl'
-})
-.state('venue', {
-    url: "/venue",
-    templateUrl: "views/template.html",
-    controller: 'VenueCtrl'
-})
-.state('workshop-clinic', {
-    url: "/workshop-clinic",
-    templateUrl: "views/template.html",
-    controller: 'WorkshopClinicCtrl'
-})
-.state('download-schedule', {
-    url: "/download-schedule",
-    templateUrl: "views/template.html",
-    controller: 'DownloadScheduleCtrl'
-})
-.state('merchandise-apparels', {
-    url: "/merchandise-apparels",
-    templateUrl: "views/template.html",
-    controller: 'MerchandiseApparelsCtrl'
-})
-.state('medical-aid', {
-    url: "/medical-aid",
-    templateUrl: "views/template.html",
-    controller: 'medicalAidCtrl'
-})
-.state('food-and-entertainment', {
-    url: "/food-and-entertainment",
-    templateUrl: "views/template.html",
-    controller: 'foodAndEntertainmentCtrl'
-})
-.state('special-days', {
-    url: "/special-days",
-    templateUrl: "views/template.html",
-    controller: 'specialDaysCtrl'
-})
-.state('knockout-qualify', {
-    url: "/knockout-qualify",
-    templateUrl: "views/template.html",
-    controller: 'KnockoutQualifyCtrl'
-})
-.state('form-submit', {
-    url: "/form-submit",
-    templateUrl: "views/template.html",
-    controller: 'FormSubmitCtrl'
-})
-.state('after-form', {
-    url: "/after-form/:id",
-    templateUrl: "views/template.html",
-    controller: 'AfterFormCtrl'
-})
-.state('blog-detail', {
-    url: "/blog-detail",
-    templateUrl: "views/template.html",
-    controller: 'BlogDetailCtrl'
-})
-.state('school-ranking', {
-    url: "/school-ranking",
-    templateUrl: "views/template.html",
-    controller: 'SchoolRankingCtrl'
-})
-.state('result', {
-    url: "/result",
-    templateUrl: "views/template.html",
-    controller: 'ResultCtrl'
-})
-.state('sponser-partner', {
-    url: "/sponser-partner",
-    templateUrl: "views/template.html",
-    controller: 'SponserCtrl'
-})
-.state('champions', {
-    url: "/champions",
-    templateUrl: "views/template.html",
-    controller: 'ChampionsCtrl'
-})
+    .state('special-awards', {
+            url: "/special-awards",
+            templateUrl: "views/template.html",
+            controller: 'SpecialAwardsCtrl'
+        })
+        .state('league-knockout', {
+            url: "/league-knockout/:id",
+            templateUrl: "views/template.html",
+            controller: 'LeagueKnockoutCtrl'
+        })
+        .state('venue', {
+            url: "/venue",
+            templateUrl: "views/template.html",
+            controller: 'VenueCtrl'
+        })
+        .state('formregis', {
+            url: "/formregis",
+            templateUrl: "views/template.html",
+            controller: 'FormregisCtrl'
+        })
+         .state('formathlete', {
+            url: "/formathlete",
+            templateUrl: "views/template.html",
+            controller: 'FormathleteCtrl'
+        })
+        .state('workshop-clinic', {
+            url: "/workshop-clinic",
+            templateUrl: "views/template.html",
+            controller: 'WorkshopClinicCtrl'
+        })
+        .state('download-schedule', {
+            url: "/download-schedule",
+            templateUrl: "views/template.html",
+            controller: 'DownloadScheduleCtrl'
+        })
+        .state('merchandise-apparels', {
+            url: "/merchandise-apparels",
+            templateUrl: "views/template.html",
+            controller: 'MerchandiseApparelsCtrl'
+        })
+        .state('medical-aid', {
+            url: "/medical-aid",
+            templateUrl: "views/template.html",
+            controller: 'medicalAidCtrl'
+        })
+        .state('food-and-entertainment', {
+            url: "/food-and-entertainment",
+            templateUrl: "views/template.html",
+            controller: 'foodAndEntertainmentCtrl'
+        })
+        .state('special-days', {
+            url: "/special-days",
+            templateUrl: "views/template.html",
+            controller: 'specialDaysCtrl'
+        })
+        .state('knockout-qualify', {
+            url: "/knockout-qualify",
+            templateUrl: "views/template.html",
+            controller: 'KnockoutQualifyCtrl'
+        })
+        .state('form-submit', {
+            url: "/form-submit",
+            templateUrl: "views/template.html",
+            controller: 'FormSubmitCtrl'
+        })
+        .state('after-form', {
+            url: "/after-form/:id",
+            templateUrl: "views/template.html",
+            controller: 'AfterFormCtrl'
+        })
+        .state('blog-detail', {
+            url: "/blog-detail",
+            templateUrl: "views/template.html",
+            controller: 'BlogDetailCtrl'
+        })
+        .state('school-ranking', {
+            url: "/school-ranking",
+            templateUrl: "views/template.html",
+            controller: 'SchoolRankingCtrl'
+        })
+        .state('result', {
+            url: "/result",
+            templateUrl: "views/template.html",
+            controller: 'ResultCtrl'
+        })
+        .state('sponser-partner', {
+            url: "/sponser-partner",
+            templateUrl: "views/template.html",
+            controller: 'SponserCtrl'
+        })
+        .state('champions', {
+            url: "/champions",
+            templateUrl: "views/template.html",
+            controller: 'ChampionsCtrl'
+        })
         .state('school', {
             url: "/school",
             templateUrl: "views/template.html",
@@ -140,7 +150,7 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
             controller: 'MediaGalleryCtrl'
         })
 
-        .state('media-gallery-type', {
+    .state('media-gallery-type', {
             url: "/media-gallery/:type",
             templateUrl: "views/template.html",
             controller: 'MediaGalleryCtrl'
@@ -249,23 +259,23 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $loc
     $locationProvider.html5Mode(isproduction);
 });
 
-firstapp.directive('mycircle', function($compile, $parse) {
+firstapp.directive('mycircle', function ($compile, $parse) {
     return {
         restrict: 'EA',
         replace: false,
-        link: function($scope, element, attrs) {
+        link: function ($scope, element, attrs) {
             var $element = $(element);
             var amount = 1;
             var myinterval = {};
-            $element.ready(function() {
+            $element.ready(function () {
                 console.log("DEMO");
 
-                $element.hover(function() {
+                $element.hover(function () {
                     clearInterval(myinterval);
-                }, function() {
+                }, function () {
 
 
-                    myinterval = setInterval(function() {
+                    myinterval = setInterval(function () {
                         var $element = $(element);
                         var $elementli = $element.children("li");
                         $abc = $elementli;
@@ -306,25 +316,25 @@ firstapp.directive('mycircle', function($compile, $parse) {
         }
     };
 });
-firstapp.run(function($window, $rootScope) {
-      $rootScope.online = navigator.onLine;
-      $window.addEventListener("offline", function() {
-        $rootScope.$apply(function() {
-          $rootScope.online = false;
+firstapp.run(function ($window, $rootScope) {
+    $rootScope.online = navigator.onLine;
+    $window.addEventListener("offline", function () {
+        $rootScope.$apply(function () {
+            $rootScope.online = false;
         });
-      }, false);
+    }, false);
 
-      $window.addEventListener("online", function() {
-        $rootScope.$apply(function() {
-          $rootScope.online = true;
+    $window.addEventListener("online", function () {
+        $rootScope.$apply(function () {
+            $rootScope.online = true;
         });
-      }, false);
+    }, false);
 });
-firstapp.directive('giveitmargin', function($compile, $parse) {
+firstapp.directive('giveitmargin', function ($compile, $parse) {
     return {
         restrict: 'EA',
         replace: false,
-        link: function($scope, element, attrs) {
+        link: function ($scope, element, attrs) {
             $element = $(element);
             var i = 0;
 
@@ -339,32 +349,32 @@ firstapp.directive('giveitmargin', function($compile, $parse) {
                     $("ul.menu-list").css("margin-left", marginleft);
                 }
             }
-            $element.find("img").load(function() {
+            $element.find("img").load(function () {
                 addmarginleft(++i);
             });
-            $(window).resize(function() {
+            $(window).resize(function () {
                 addmarginleft(++i);
             });
         }
     };
 });
-firstapp.filter('ageYearFilter', function() {
-     function calculateAge(birthday) { // birthday is a date
-         var ageDifMs = Date.now() - new Date(birthday).getTime();
-         var ageDate = new Date(ageDifMs); // miliseconds from epoch
-         return Math.abs(ageDate.getUTCFullYear() - 1970);
-     }
+firstapp.filter('ageYearFilter', function () {
+    function calculateAge(birthday) { // birthday is a date
+        var ageDifMs = Date.now() - new Date(birthday).getTime();
+        var ageDate = new Date(ageDifMs); // miliseconds from epoch
+        return Math.abs(ageDate.getUTCFullYear() - 1970);
+    }
 
-     return function(birthdate) {
-           if(birthdate){
-             return calculateAge(birthdate);
-           }else{
-             return '-';
-           }
-     };
+    return function (birthdate) {
+        if (birthdate) {
+            return calculateAge(birthdate);
+        } else {
+            return '-';
+        }
+    };
 });
-firstapp.filter('uploadpath', function() {
-    return function(input, width, height, style, defaultFlag) {
+firstapp.filter('uploadpath', function () {
+    return function (input, width, height, style, defaultFlag) {
         //console.log(width, height, style, defaultFlag)
         var other = "";
         if (width && width !== "") {
@@ -384,7 +394,7 @@ firstapp.filter('uploadpath', function() {
             }
         } else {
             if (defaultFlag === false) {
-              console.log("new-banner");
+                console.log("new-banner");
                 return "img/sf-default.png";
 
             } else {
@@ -394,39 +404,39 @@ firstapp.filter('uploadpath', function() {
         }
     };
 });
-firstapp.filter('letterLimit', function() {
-    return function(value, limit) {
-        if(value){
-          if (value.length < limit) {
-              return value;
-          } else {
-              return value.slice(0, limit - 2) + "..";
-          }
-        }else{
-          return "";
+firstapp.filter('letterLimit', function () {
+    return function (value, limit) {
+        if (value) {
+            if (value.length < limit) {
+                return value;
+            } else {
+                return value.slice(0, limit - 2) + "..";
+            }
+        } else {
+            return "";
         }
     };
 });
-firstapp.filter('removeSchool', function() {
-    return function(value,school) {
-        if(value){
-          return value.replace(school+" ", "");
-        }else{
-          return "";
+firstapp.filter('removeSchool', function () {
+    return function (value, school) {
+        if (value) {
+            return value.replace(school + " ", "");
+        } else {
+            return "";
         }
     };
 });
-firstapp.filter('knockoutRoundName', function() {
-    return function(value) {
-        if(value){
-          return value.substring(value.indexOf(' ')+1);
-        }else{
-          return "";
+firstapp.filter('knockoutRoundName', function () {
+    return function (value) {
+        if (value) {
+            return value.substring(value.indexOf(' ') + 1);
+        } else {
+            return "";
         }
     };
 });
-firstapp.filter('mediapath', function() {
-    return function(value) {
+firstapp.filter('mediapath', function () {
+    return function (value) {
         if (value) {
             return "https://storage.googleapis.com/sportsforall/media%26gallery/" + value;
         } else {
@@ -435,8 +445,8 @@ firstapp.filter('mediapath', function() {
     };
 });
 
-firstapp.filter('videothumbnail', function() {
-    return function(value) {
+firstapp.filter('videothumbnail', function () {
+    return function (value) {
         if (value) {
             return "http://img.youtube.com/vi/" + value + "/hqdefault.jpg";
         } else {
@@ -445,23 +455,23 @@ firstapp.filter('videothumbnail', function() {
     };
 });
 
-firstapp.filter('lessthan10',function () {
-  return function (value) {
-    if(value){
-      if(value<10){
-        return "0"+value;
-      }else{
-        return value;
-      }
-    }else{
-      return "00";
-    }
-  };
+firstapp.filter('lessthan10', function () {
+    return function (value) {
+        if (value) {
+            if (value < 10) {
+                return "0" + value;
+            } else {
+                return value;
+            }
+        } else {
+            return "00";
+        }
+    };
 });
 
-firstapp.filter('ageFilter', function() {
-    return function(birthdate) { // birthday is a date
-      var birth = _.clone(birthdate);
+firstapp.filter('ageFilter', function () {
+    return function (birthdate) { // birthday is a date
+        var birth = _.clone(birthdate);
         if (birth) {
             if (new Date(birth) > new Date(2011, 1, 1)) {
                 return 'U-6';
@@ -497,11 +507,11 @@ firstapp.filter('ageFilter', function() {
         }
     };
 });
-firstapp.directive('giveitmargin', function($compile, $parse) {
+firstapp.directive('giveitmargin', function ($compile, $parse) {
     return {
         restrict: 'EA',
         replace: false,
-        link: function($scope, element, attrs) {
+        link: function ($scope, element, attrs) {
             $element = $(element);
             var i = 0;
 
@@ -516,25 +526,25 @@ firstapp.directive('giveitmargin', function($compile, $parse) {
                     $("ul.menu-list").css("margin-left", marginleft);
                 }
             }
-            $element.find("img").load(function() {
+            $element.find("img").load(function () {
                 addmarginleft(++i);
             });
-            $(window).resize(function() {
+            $(window).resize(function () {
                 addmarginleft(++i);
             });
         }
     };
 });
-firstapp.directive('img', function($compile, $parse) {
+firstapp.directive('img', function ($compile, $parse) {
     return {
         restrict: 'E',
         replace: false,
-        link: function($scope, element, attrs) {
+        link: function ($scope, element, attrs) {
             var $element = $(element);
             if (!attrs.noloading) {
                 $element.after("<img src='img/loading.gif' class='loading' />");
                 var $loading = $element.next(".loading");
-                $element.load(function() {
+                $element.load(function () {
                     $loading.remove();
                     $(this).addClass("doneLoading");
                 });
@@ -544,21 +554,21 @@ firstapp.directive('img', function($compile, $parse) {
         }
     };
 });
-firstapp.directive('mychart', function($compile, $parse) {
+firstapp.directive('mychart', function ($compile, $parse) {
     return {
         restrict: 'C',
         replace: false,
-        link: function($scope, element, attrs) {
+        link: function ($scope, element, attrs) {
             $(element).mychart();
         }
     };
 });
 
-firstapp.directive('fancyboxBox', function($document) {
+firstapp.directive('fancyboxBox', function ($document) {
     return {
         restrict: 'EA',
         replace: false,
-        link: function(scope, element, attr) {
+        link: function (scope, element, attr) {
             var $element = $(element);
             var target;
             if (attr.rel) {
@@ -579,14 +589,14 @@ firstapp.directive('fancyboxBox', function($document) {
         }
     };
 });
-firstapp.directive('fancybox', function($compile, $parse) {
+firstapp.directive('fancybox', function ($compile, $parse) {
     return {
         restrict: 'EA',
         replace: false,
-        link: function($scope, element, attrs) {
+        link: function ($scope, element, attrs) {
             $element = $(element);
             console.log("Checking Fancybox");
-            setTimeout(function() {
+            setTimeout(function () {
                 $(".various").fancybox({
                     maxWidth: 800,
                     maxHeight: 600,
@@ -603,7 +613,7 @@ firstapp.directive('fancybox', function($compile, $parse) {
         }
     };
 });
-firstapp.directive('hovericon', function($document) {
+firstapp.directive('hovericon', function ($document) {
     return {
         restrict: 'EA',
         replace: true,
@@ -611,7 +621,7 @@ firstapp.directive('hovericon', function($document) {
         scope: {
             game: '='
         },
-        link: function(scope, element, attr) {
+        link: function (scope, element, attr) {
 
             var ishover;
             var $element = $(element);
@@ -622,9 +632,9 @@ firstapp.directive('hovericon', function($document) {
                 var $bottom = $element.children(".bottom");
                 $bottom.width($top.width());
 
-                $element.hover(function() {
+                $element.hover(function () {
                     $element.addClass("bigger");
-                }, function() {
+                }, function () {
                     $element.removeClass("bigger");
                     $bottom.width($top.width());
                 });
@@ -633,17 +643,17 @@ firstapp.directive('hovericon', function($document) {
 
     };
 });
-firstapp.directive('scores', function($document) {
+firstapp.directive('scores', function ($document) {
     return {
         restrict: 'EA',
         replace: true,
         templateUrl: "views/directive/score.html",
-        link: function(scope, element, attr) {
+        link: function (scope, element, attr) {
             // console.info(scope.person);
         }
     };
 });
-firstapp.directive('draw', function($document,$state) {
+firstapp.directive('draw', function ($document, $state) {
     return {
         restrict: 'EA',
         replace: true,
@@ -651,59 +661,59 @@ firstapp.directive('draw', function($document,$state) {
         scope: {
             knockout: '='
         },
-        link: function($scope, element, attr) {
+        link: function ($scope, element, attr) {
             // console.info(scope.person);
             var sfastate = "";
-            $scope.profiles = function (participantType,id) {
-              console.log(participantType,id);
-              if(participantType == 'player'){
-                sfastate = 'student-profile';
-              }else{
-                sfastate = 'team-detail';
-              }
-              $state.go(sfastate,{
-                id:id
-              });
+            $scope.profiles = function (participantType, id) {
+                console.log(participantType, id);
+                if (participantType == 'player') {
+                    sfastate = 'student-profile';
+                } else {
+                    sfastate = 'team-detail';
+                }
+                $state.go(sfastate, {
+                    id: id
+                });
             };
         }
     };
 });
 firstapp.filter('rawHtml', ['$sce',
-    function($sce) {
-        return function(val) {
+    function ($sce) {
+        return function (val) {
             return $sce.trustAsHtml(val);
         };
     }
 ]);
-firstapp.filter('englishNumeralDate', function() {
-    return function(value) {
+firstapp.filter('englishNumeralDate', function () {
+    return function (value) {
         if (value) {
             return moment(new Date(value)).format("Do MMMM YYYY");
         }
     };
 });
-firstapp.directive('autoHeight', function($compile, $parse) {
+firstapp.directive('autoHeight', function ($compile, $parse) {
     return {
         restrict: 'EA',
         replace: false,
-        link: function($scope, element, attrs) {
+        link: function ($scope, element, attrs) {
             var $element = $(element);
             var windowHeight = $(window).height();
-            var addHeight = function() {
+            var addHeight = function () {
                 $element.css("min-height", windowHeight);
             };
             addHeight();
         }
     };
 });
-firstapp.directive('fancyboxButton', function($compile, $parse) {
+firstapp.directive('fancyboxButton', function ($compile, $parse) {
     return {
         restrict: 'EA',
         replace: false,
-        link: function($scope, element, attrs) {
+        link: function ($scope, element, attrs) {
             $element = $(element);
             console.log("Checking Fancybox");
-            setTimeout(function() {
+            setTimeout(function () {
                 $(".varies").fancybox({
                     maxWidth: 800,
                     maxHeight: 600,
@@ -721,8 +731,105 @@ firstapp.directive('fancyboxButton', function($compile, $parse) {
     };
 });
 
-firstapp.config(function($translateProvider) {
+firstapp.directive('uploadImage', function ($http, $filter) {
+    return {
+        templateUrl: 'views/directive/uploadFile.html',
+        scope: {
+            model: '=ngModel',
+            callback: "=ngCallback"
+        },
+        link: function ($scope, element, attrs) {
+            $scope.isMultiple = false;
+            $scope.inObject = false;
+            if (attrs.multiple || attrs.multiple === "") {
+                $scope.isMultiple = true;
+                $("#inputImage").attr("multiple", "ADD");
+            }
+            if (attrs.noView || attrs.noView === "") {
+                $scope.noShow = true;
+            }
+            if ($scope.model) {
+                if (_.isArray($scope.model)) {
+                    $scope.image = [];
+                    _.each($scope.model, function (n) {
+                        $scope.image.push({
+                            url: $filter("uploadpath")(n)
+                        });
+                    });
+                }
+
+            }
+            if (attrs.inobj || attrs.inobj === "") {
+                $scope.inObject = true;
+            }
+            $scope.clearOld = function () {
+                $scope.model = [];
+            };
+            $scope.uploadNow = function (image) {
+                var Template = this;
+                image.hide = true;
+                var formData = new FormData();
+                formData.append('file', image.file, image.name);
+                $http.post(uploadurl, formData, {
+                    headers: {
+                        'Content-Type': undefined
+                    },
+                    transformRequest: angular.identity
+                }).success(function (data) {
+                    console.log("success");
+                    if ($scope.callback) {
+                        $scope.callback(data);
+                    } else {
+                        if ($scope.isMultiple) {
+                            if ($scope.inObject) {
+                                $scope.model.push({
+                                    "image": data.data[0]
+                                });
+                            } else {
+                                $scope.model.push(data.data[0]);
+                            }
+                        } else {
+                            $scope.model = data.data[0];
+                        }
+                    }
+                });
+            };
+        }
+    };
+});
+
+firstapp.config(function ($translateProvider) {
     $translateProvider.translations('en', LanguageEnglish);
     $translateProvider.translations('hi', LanguageHindi);
     $translateProvider.preferredLanguage('en');
+});
+
+
+firstapp.directive('onlyDigits', function() {
+    return {
+        require: 'ngModel',
+        restrict: 'A',
+        link: function(scope, element, attr, ctrl) {
+            var digits;
+
+            function inputValue(val) {
+                if (val) {
+                    if (attr.type == "tel") {
+                        digits = val.replace(/[^0-9\+\\]/g, '');
+                    } else {
+                        digits = val.replace(/[^0-9\-\\]/g, '');
+                    }
+
+
+                    if (digits !== val) {
+                        ctrl.$setViewValue(digits);
+                        ctrl.$render();
+                    }
+                    return parseInt(digits, 10);
+                }
+                return undefined;
+            }
+            ctrl.$parsers.push(inputValue);
+        }
+    };
 });
