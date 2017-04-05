@@ -111,8 +111,11 @@
                         </div>
                         <div class="d-padd mar-l ">
                             <label class="padd-r16 ">*Gender:</label>
-                            <input type="radio" name="gender" value="male"><label class="padd-lr"> Male</label>
-                            <input type="radio" name="gender" value="male"><label class="padd-lr"> Female</label>
+                            <!--<input type="radio" name="gender" value="male"><label class="padd-lr"> Male</label>
+                            <input type="radio" name="gender" value="male"><label class="padd-lr"> Female</label>-->
+                             <input type="radio"  id="radio04" name="radio" value="male"><label  for="radio04" class="padd-lr"><span></span>Male</label>
+                                    <input type="radio" id="radio03"  name="radio" value="male"><label for="radio03" class="padd-lr"><span></span>Female</label>
+                            
                         </div>
                         <div class="d-padd mar-l">
                             <label class="padd40">  *Grade/Standard:</label>
@@ -186,8 +189,10 @@
                             <h4 class="blue">Have you played National/State/District tournaments? (Optional)</h4>
                             <!--<button class="btn btn-default sub-mit" ng-click="myshow=true">yes</button>
                              <button class="btn btn-default sub-mit" >No</button>-->
-                            <input type="radio" name="gender" value="male" ng-click="myshow=true"><label class="padd-lr"> Yes</label>
-                            <input type="radio" name="gender" value="male"><label class="padd-lr"> No</label>
+                            <!--<input type="radio" name="gender" value="male" ng-click="myshow=true"><label class="padd-lr"> Yes</label>
+                            <input type="radio" name="gender" value="male"><label class="padd-lr"> No</label>-->
+                             <input type="radio"  id="radio04" name="radio" value="male" ng-click="myshow=true"><label  for="radio04" class="padd-lr"><span></span>Yes</label>
+                                    <input type="radio" id="radio03"  name="radio" value="male"><label for="radio03" class="padd-lr"><span></span>No</label>
                         </div>
                         <div class="d-padd mar-l" ng-if="myshow" ng-repeat="arr in sportsLevelChunkedArray track by $index">
                             <!--ng-repeat="x in sportsLevelArray track by $index"-->
@@ -414,9 +419,12 @@
                             <div class="box2" ng-repeat="x in finalSportArray track by $index">
                                 <div class="d-padd ">
                                     <label class="padd-r8"> *Relation:</label>
-                                    <input type="radio" name="gender" value="male" ng-click="myshow=true"> <label class="padd-lr">Mother</label>
+                                    <!--<input type="radio" name="gender" value="male" ng-click="myshow=true"> <label class="padd-lr">Mother</label>
                                     <input type="radio" name="gender" value="male" ng-click="myshow=true"><label class="padd-lr"> Father</label>
-                                    <input type="radio" name="gender" value="male"><label class="padd-lr"> Guardian</label>
+                                    <input type="radio" name="gender" value="male"><label class="padd-lr"> Guardian</label>-->
+                                     <input type="radio" id="radio02"  name="radio" value="male"><label for="radio02" class="padd-lr"><span></span>Mother</label>
+                                    <input type="radio"  id="radio04" name="radio" value="male"><label  for="radio04" class="padd-lr"><span></span>Father</label>
+                                    <input type="radio" id="radio03"  name="radio" value="male"><label for="radio03" class="padd-lr"><span></span>Guardian</label>
                                 </div>
                                 <div class="d-padd ">
                                     <label class="padd-r5 ">*Name:</label> <input type="text" class="sfa-drop" required>
@@ -445,10 +453,10 @@
                             <h4>Paayment Gateway:</h4>
                         </div>
                         <div class="d-padd para2">
-                                    
-                                    <input type="radio" name="gender" value="male" > <label class="padd-lr">Cash</label>
-                                    <input type="radio" name="gender" value="male" ><label class="padd-lr"> Cheque</label>
-                                    <input type="radio" name="gender" value="male"><label class="padd-lr"> Online Paytm</label>
+                                  
+                                    <input type="radio" id="radio02"  name="radio" value="male"><label for="radio02" class="padd-lr"><span></span>Cash</label>
+                                    <input type="radio"  id="radio04" name="radio" value="male"><label  for="radio04" class="padd-lr"><span></span>Cheque</label>
+                                    <input type="radio" id="radio03"  name="radio" value="male"><label for="radio03" class="padd-lr"><span></span>Online Paytm</label>
                                 </div>
                     </div>
                     <div class="text-center sub-padd">
