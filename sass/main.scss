@@ -4012,6 +4012,7 @@ iframe#twitter-widget-0 {
     font-size: 16px;
     font-weight: 600;
     line-height: 29.167px;
+        text-align: justify;
 }
 
 .para2 {
@@ -4020,8 +4021,8 @@ iframe#twitter-widget-0 {
     font-size: 16px;
     font-weight: 400;
     line-height: 29.167px;
-    text-align: left;
-    padding-left: 20px;
+    // text-align: left;
+    // padding-left: 20px;
 }
 
 .blue {
@@ -4032,7 +4033,7 @@ iframe#twitter-widget-0 {
 
 .d-padd {
     padding-left: 20px;
-    padding-top: 20px;
+    // padding-top: 20px;
     position: relative;
 }
 
@@ -4049,7 +4050,7 @@ iframe#twitter-widget-0 {
 }
 
 .sfa-drop {
-    width: 63%;
+    width: 81%;
     border-top: none;
     background: none;
     border-color: lightgray;
@@ -4151,9 +4152,9 @@ iframe#twitter-widget-0 {
     }
 }
 
-.padd-r5 {
-    padding-right: 20px;
-}
+// .padd-r5 {
+//     padding-right: 20px;
+// }
 
 .top-mar {
     margin-top: 41px;
@@ -4232,7 +4233,7 @@ iframe#twitter-widget-0 {
 }
 
 .w147 {
-    width: 147px;
+    width: 146px;
 }
 
 .padd-r11 {
@@ -4263,7 +4264,7 @@ iframe#twitter-widget-0 {
 }
 
 .sfa-in {
-    width: 71%;
+    width: 85%;
     border-top: none;
     background: none;
     border-color: lightgray;
@@ -4327,7 +4328,7 @@ iframe#twitter-widget-0 {
     left: 0px;
     font-size: 15px;
     //   line-height: 0.8;
-    color: #ccc;
+    color: black;
     transition: all .2s;
 }
 
@@ -4407,11 +4408,15 @@ label:hover:before {
     font-size: 15px;
     font-weight: 300;
     font-style: italic;
+    // padding-left: 28px;
+}
+.kindly-padd{
+    padding-left: 25px;
 }
 
-.up-m175 {
-    margin-left: 175px;
-}
+// .up-m175 {
+//     margin-left: 175px;
+// }
 
 .myicon2 {
     width: 33px;
@@ -4647,8 +4652,45 @@ input[type="radio"]:checked + label span {
   transition:background-color 0.4s linear;
 }
 
+.padd-left{
+    padding-left: 16px;
+}
+.mar-left{
+    margin-left: 19px;
+}
+.blue-top{
+    padding-top: 5px;
+}
+.padd-right{
+    padding-right: 37px;
+}
+.padd-bott{
+    padding-bottom: 24px;
+}
+.details-top{
+    padding-top: 17px;
+}
+.mob-padd{
+    padding-left: 13px;
+    padding-right: 14px;
 
-
-
+}
+.web-padd{
+    padding-left: 18px;
+    padding-right: 8px;
+}
+.aquatics{
+        margin-top: 55px;
+}
+.mobileno-padd{
+        padding-left: 13px;
+    padding-right: 47px;
+}
+.email-padd{
+        padding-right: 19px;
+}
+.relation-top{
+    padding-top: 10px;
+}
 @import "fancybox-override";
 @import "mobile";
