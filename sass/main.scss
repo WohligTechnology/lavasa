@@ -4241,7 +4241,7 @@ iframe#twitter-widget-0 {
 }
 
 .padd-r12 {
-    padding-right: 29px;
+    padding-right: 7px;
 }
 
 .padd-r30 {
@@ -4598,7 +4598,8 @@ label:hover:before {
 }
 
 .myupload2 {
-    padding-left: 8px;
+        padding-left: 21px;
+    padding-right: 30px;
 }
 
 .myupload {
@@ -4672,12 +4673,12 @@ input[type="radio"]:checked + label span {
 }
 .mob-padd{
     padding-left: 13px;
-    padding-right: 14px;
+    padding-right: 12px;
 
 }
 .web-padd{
-    padding-left: 18px;
-    padding-right: 8px;
+    padding-left: 16px;
+    padding-right: 6px;
 }
 .aquatics{
         margin-top: 55px;
@@ -4687,10 +4688,22 @@ input[type="radio"]:checked + label span {
     padding-right: 47px;
 }
 .email-padd{
-        padding-right: 19px;
+        padding-right: 12px;
 }
 .relation-top{
     padding-top: 10px;
 }
+.mb-padd{
+        padding-left: 16px;
+    padding-right: 16px;
+}
+.land-padd{
+        padding-left: 12px;
+    padding-right: 16px;
+}
+.basketball{
+    color:#091a71;
+}
+
 @import "fancybox-override";
 @import "mobile";

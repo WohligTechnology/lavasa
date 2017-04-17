@@ -13,7 +13,7 @@
                     <div>
                         <p class="para"><span class="blue">Kindly Note:</span> This is a one-time registration process. Completion of this
                             process will allow you to register using your SFA ID & Code for all future SFA Events. This also
-                            enables us to create a personalized sporting experience for your school on our website www.sfanow.in
+                            enables us to create a personalized sporting experience for you on our website www.sfanow.in
                             to highlight your performances in sport by way of profiles, records maintenance, match videos,
                             statistics and reports.</p>
                     </div>
@@ -118,7 +118,8 @@
                         </div>
                         </div>
                         <div class="form-group">
-                            <h4 class="blue">Athlete Details</h4>
+                            <div class="col-sm-12">
+                            <h4 class="blue">Athlete Details</h4></div>
                             <label class="col-sm-3">*Surname:</label>
                             <div class="col-sm-9">
                             <input type="text" class="sfa-drop" required>
@@ -131,9 +132,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3">*Middle Name:</label>
+                            <label class="col-sm-3">Middle Name:</label>
                              <div class="col-sm-9">
-                            <input type="text" class="sfa-drop">
+                            <input type="text" class="sfa-drop" >
                              </div>
                         </div>
                         <div class="form-group">
@@ -209,20 +210,18 @@
                         <div class="form-group">
                             <div class="col-sm-12">
                             <label class="padd-r12">*Upload Age Proof:</label>
-                          
-                            <select class="sfa-drop2" required>
+                    <select class="sfa-drop2" required>
                             <option style="display:none"></option>
                     <option>Adhaar Card </option>
-                   <option>Birth Certificate + Photo ID </option>
+                   <option >Birth Certificate + Photo ID </option>
                     <option>PAN Card</option>
                      <option>Passport</option>
                         </select>
-                    
-                    
                             <label class=" myupload2">  <upload-image class="up-img" no-view></upload-image></label>
-                        
-                      
-                            <label class=" myupload">   <upload-image class="up-img" no-view></upload-image></label>
+                    <label class=" myupload" ><upload-image class="up-img" no-view></upload-image></label>
+                             <div class="hover-img">
+                                <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
+                            </div>
                             <div class="hover-img">
                                 <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
                                 <div class="iconinfo age">
@@ -237,10 +236,7 @@
                         <div class="form-group">
                             <div class="col-sm-12">
                             <h4 class="blue">Have you played National/State/District tournaments? (Optional)</h4>
-                            <!--<button class="btn btn-default sub-mit" ng-click="myshow=true">yes</button>
-                             <button class="btn btn-default sub-mit" >No</button>-->
-                            <!--<input type="radio" name="gender" value="male" ng-click="myshow=true"><label class="padd-lr"> Yes</label>
-                            <input type="radio" name="gender" value="male"><label class="padd-lr"> No</label>-->
+                     
                             <input type="radio" id="radio07" name="radio" value="male" ng-click="myshow=true"><label for="radio07"
                                 class="padd-lr"><span></span>Yes</label>
                             <input type="radio" id="radio08" name="radio" value="male"><label for="radio08" class="padd-lr"><span></span>No</label>
@@ -248,7 +244,7 @@
                     </div>
                         <div class="d-padd mar-l" ng-if="myshow" ng-repeat="arr in sportsLevelChunkedArray track by $index">
                             <!--ng-repeat="x in sportsLevelArray track by $index"-->
-                            <div class="box3 box3-display" ng-if="arr[0]">
+                            <div class="box3 box3-display" ng-if="arr[0] ">
                                 <div class="">
                                     <label class="sportlevel">Level:</label>
                                     <select class="sfa-drop2 sfa-drop5" required>
@@ -290,7 +286,7 @@
                                         </select>
                                 </div>
                                 <div class="plus">
-                                    <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportLevelForm()">
+                                    <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportLevelForm(n)">
                                 </div>
                             </div>
                             <div class="box3 box3-display" ng-if="arr[1]">
@@ -335,7 +331,7 @@
                                         </select>
                                 </div>
                                 <div class="plus">
-                                    <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportLevelForm()">
+                                    <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportLevelForm(n)">
                                 </div>
                             </div>
                             <div class="box3 box3-display" ng-if="arr[2]">
@@ -397,7 +393,7 @@
                             <div class="form-group">
                                 <label class="mobileno-padd" >*Mobile No:</label>
                                 
-                                <input type="number " class="bor-t" required minlength="10" maxlength="10">
+                                <input type="text" only-Digits ng-model="mobile" class="bor-t"  minlength="10" maxlength="10" required>
                                 <button class="btn btn-default sub-mit send-otp">Send OTP </button>
                                 <label class="enter-otp"> *Enter OTP:</label>
                                 <input type="number" class="bor-t" required>
@@ -420,7 +416,9 @@
                             </div>
                        
                         <div class="form-group">
+                            <div class="col-sm-12">
                             <h4 class="blue">Residential Address</h4>
+                            </div>
                             <label class="col-sm-3">*Line 1:</label>
                             <div class="col-sm-9">
                             <input type="text" class="sfa-drop" required>
@@ -428,9 +426,9 @@
                         </div>
                         <div class="form-group ">
                             
-                            <label class="col-sm-3 ">*Line 2:</label> 
+                            <label class="col-sm-3 ">Line 2:</label> 
                             <div class="col-sm-9">
-                            <input type="text" class="sfa-drop" required>
+                            <input type="text" class="sfa-drop" >
                             </div>
                         </div>
                         <div class="form-group">
@@ -473,10 +471,8 @@
                             </div>
                             <div class="col-sm-6">
                             <label class="padd-r4">  *Pin Code:</label>
-                            <select class="sfa-drop2 w147" required>
-                 <option style="display:none"></option>
-                    <option> 222300</option>
-                  </select>
+                            <input type="text" class="sfa-drop2 w147" required>
+               
                         </div>
                         </div>
                         <div class="d-padd mar-l">
@@ -520,7 +516,7 @@
                                    
                                     <label class="col-sm-3"> *Mobile:</label>
                                     <div class="col-sm-3">
-                                    <input type="number" class="bor-t" minlength="10" maxlength="10" required>
+                                    <input type="text" only-Digits ng-model="mobile" class="bor-t" minlength="10" maxlength="10" required>
                                     </div>
                                     <div class="col-sm-6">
                                     <label class="email-padd" >  *Email:</label>
@@ -531,7 +527,9 @@
                                 </div>
                             </div>
                                 <div class="sub-padd">
-                                    <img src="img/icon/p.png" alt="logo" class="img-responsive myicon2" ng-click="addSportForm()">
+
+            
+                                    <img src="img/icon/p.png" alt="logo" class="img-responsive myicon2" ng-click="addSportForm(m)">
                                 </div>
                             </div>
                      
@@ -546,11 +544,13 @@
                         <!--<div class="d-padd">
                             <h4>Paayment Gateway:</h4>
                         </div>-->
-                        <div class="form-group para2">
+                      <div class="d-padd para2">
+                        <div class="form-group ">
                             <input type="radio" id="radio11" name="radio" value="male"><label for="radio11" class="padd-lr"><span></span>Cash</label>
                             <input type="radio" id="radio12" name="radio" value="male"><label for="radio12" class="padd-lr"><span></span>Cheque</label>
-                            <input type="radio" id="radio13" name="radio" value="male"><label for="radio13" class="padd-lr"><span></span>Online Paytm</label>
+                            <input type="radio" id="radio13" name="radio" value="male"><label for="radio13" class="padd-lr"><span></span>Online PAYU</label>
                         </div>
+                      </div>
                     </div>
                     <div class="text-center sub-padd">
                         <button class="btn btn-default sub-mit" type="submit">Submit & Save</button>

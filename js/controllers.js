@@ -681,7 +681,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.finalSportArray = [];
     $scope.sportsLevelArray=[];
     $scope.sportsLevelArray.push({});
-   
+   $scope.m=0;
        $scope.sportDepart = {
             Relation: "",
             Name: "",
@@ -695,8 +695,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.finalSportArray.push($scope.sportDepart);
             $scope.firstTime++;
         }
-        
-    $scope.addSportForm = function () {   
+
+    $scope.addSportForm = function (m) {  
+        $scope.m=m; 
+        console.log("function",m);
+                if($scope.m<2){
         $scope.sportDepart = {
             Relation: null,
             Name: null,
@@ -706,13 +709,21 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.finalSportArray.push($scope.sportDepart);
         console.log("finalSportArray", $scope.finalSportArray);
-        
+        $scope.m++;
+                }
     };
-$scope.sportsLevelChunkedArray=_.chunk($scope.sportsLevelArray,3)
- $scope.addSportLevelForm = function () {   
-        $scope.sportsLevelArray.push({});
-        $scope.sportsLevelChunkedArray=_.chunk($scope.sportsLevelArray,3)
+$scope.sportsLevelChunkedArray=_.chunk($scope.sportsLevelArray,3);
+$scope.n=0;
+ $scope.addSportLevelForm = function (n) { 
+     $scope.n=n;
+     console.log(n);
+     if($scope.n<9){
 
+    
+        $scope.sportsLevelArray.push({});
+        $scope.sportsLevelChunkedArray=_.chunk($scope.sportsLevelArray,3);
+        $scope.n++;
+   }
        // console.log("sportsLevelArray", $scope.sportsLevelArray);
         
     };
@@ -751,11 +762,7 @@ $scope.sportsLevelChunkedArray=_.chunk($scope.sportsLevelArray,3)
 // this controller is for fromregis & other...
 .controller('FormregisCtrl', function ($scope, TemplateService, NavigationService, $timeout,$uibModal) {
     //Used to name the .html file
-
-
-
-
-
+         $scope.m=0;
      $scope.finalSportArray = [];
        $scope.sportDepart = {
             name: "",
@@ -765,14 +772,15 @@ $scope.sportsLevelChunkedArray=_.chunk($scope.sportsLevelArray,3)
         };
         
 
-
      $scope.firstTime = 0;
         if ($scope.firstTime == 0) {
             $scope.finalSportArray.push($scope.sportDepart);
             $scope.firstTime++;
         }
         
-    $scope.addSportForm = function () {   
+    $scope.addSportForm = function (m) { 
+           $scope.m=m; 
+           if($scope.m<2){ 
         $scope.sportDepart = {
             name: null,
             designation: null,
@@ -781,7 +789,8 @@ $scope.sportsLevelChunkedArray=_.chunk($scope.sportsLevelArray,3)
         };
         $scope.finalSportArray.push($scope.sportDepart);
         console.log("finalSportArray", $scope.finalSportArray);
-        
+         $scope.m++;
+           }
     };
 
 
