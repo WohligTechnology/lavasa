@@ -209,6 +209,7 @@
                                     </div>
                                 </div>
                                 </div>
+                               
                                 <div class="form-group">
                                     <div class=" d-padd">
                                         <label class="col-sm-3">  *Landline:</label>
@@ -216,23 +217,41 @@
                                             <input type="text" only-Digits ng-model="landline" class="bor-t" required minlength="8" maxlength="15">
                                         </div>
                                         <div class="col-sm-6">
-                                            <label class="mob-padd"> *Mobile:</label>
-                                            <input type="text" only-Digits ng-model="mobile" class="bor-t"  minlength="10" maxlength="10" required>
+                                            <!--<label class="mob-padd"> *Mobile:</label>
+                                            <input type="text" only-Digits ng-model="mobile" class="bor-t"  minlength="10" maxlength="10" required>-->
+                                             <label class="col-sm-3 ">  *Email:</label>
+                                              <input type="email" class="bor-t" required>
                                         </div>
                                     </div>
                                 </div>
+                                   
                                 <div class="form-group">
                                     <div class="d-padd">
-                                        <label class="col-sm-3 padd-bott">  *Email:</label>
+                                         <label class="col-sm-3 web-padd"> Website:</label>
+                                          <div class="col-sm-9">
+                                              <input type="url" class="bor-t">
+                                          </div>
+                                        <!--<label class="col-sm-3 padd-bott">  *Email:</label>
                                         <div class="col-sm-3">
                                             <input type="email" class="bor-t" required>
                                         </div>
                                         <div class="col-sm-6">
                                             <label class="web-padd"> Website:</label>
                                             <input type="url" class="bor-t">
-                                        </div>
+                                        </div>-->
                                     </div>
                                 </div>
+                                 <div class="form-group">
+                                     <div class=" d-padd">
+                                <label class="mobileno-padd padd-bott" >*Mobile:</label>
+                                
+                                <input type="text" only-Digits ng-model="mobile" class="bor-t"  minlength="10" maxlength="10" required>
+                                <button class="btn btn-default sub-mit send-otp">Send OTP </button>
+                                <label class="enter-otp"> *Enter OTP:</label>
+                                <input type="text" only-Digits ng-model="OTP" class="bor-t" required>
+                                     </div>
+                              
+                            </div>
                             </div>
                         </div>
                         <div class="d-padd mar-l">
@@ -273,6 +292,13 @@
                                 </div>
                             </div>
                             <div class="box2" ng-repeat="x in finalSportArray track by $index">
+                         
+                                     <div class="x-img3">
+                                         <div class="x-img" ng-click="removeSportForm($index)">
+                                 <img src="img/icon/x.png"  alt="logo" class="img-responsive  pull-right" >
+                                     </div>
+                                     </div>
+           
                                 <div class="form-group d-padd details-top">
                                     <label class="col-sm-3">*Name:</label>
                                     <div class="col-sm-9">
@@ -306,7 +332,10 @@
                             </div>
                                     <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
                                     <label class="kindly-up ">Kindly upload only .jpg or .png format. Maximum file size 1MB.</p></label>
-                                    <img src="img/icon/p.png" alt="logo" class="img-responsive myicon2" ng-click="addSportForm(m)">
+                            
+                                    <img src="img/icon/p.png" alt="logo" class="img-responsive myicon2" ng-click="addSportForm()">
+                                     
+                                 
                                 </div>
                             </div>
                         </div>

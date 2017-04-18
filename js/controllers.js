@@ -676,121 +676,137 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-.controller('FormathleteCtrl', function ($scope, TemplateService, NavigationService, $timeout,$uibModal) {
+.controller('FormathleteCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
     //Used to name the .html file
     $scope.finalSportArray = [];
-    $scope.sportsLevelArray=[];
+    $scope.sportsLevelArray = [];
     $scope.sportsLevelArray.push({});
-   $scope.m=0;
-       $scope.sportDepart = {
-            Relation: "",
-            Name: "",
-            Surname: "",
-            Mobile: "",
-            Email:""
-        };
-        
-     $scope.firstTime = 0;
-        if ($scope.firstTime == 0) {
-            $scope.finalSportArray.push($scope.sportDepart);
-            $scope.firstTime++;
-        }
-
-    $scope.addSportForm = function (m) {  
-        $scope.m=m; 
-        console.log("function",m);
-                if($scope.m<2){
-        $scope.sportDepart = {
-            Relation: null,
-            Name: null,
-            Surname: null,
-            Mobile: null,
-            Email:null
-        };
-        $scope.finalSportArray.push($scope.sportDepart);
-        console.log("finalSportArray", $scope.finalSportArray);
-        $scope.m++;
-                }
+    $scope.m = 0;
+    $scope.sportDepart = {
+        Relation: "",
+        Name: "",
+        Surname: "",
+        Mobile: "",
+        Email: ""
     };
-$scope.sportsLevelChunkedArray=_.chunk($scope.sportsLevelArray,3);
-$scope.n=0;
- $scope.addSportLevelForm = function (n) { 
-     $scope.n=n;
-     console.log(n);
-     if($scope.n<9){
 
+    $scope.firstTime = 0;
+    if ($scope.firstTime == 0) {
+        $scope.finalSportArray.push($scope.sportDepart);
+        $scope.firstTime++;
+    }
+
+    $scope.addSportForm = function () {
     
-        $scope.sportsLevelArray.push({});
-        $scope.sportsLevelChunkedArray=_.chunk($scope.sportsLevelArray,3);
-        $scope.n++;
-   }
-       // console.log("sportsLevelArray", $scope.sportsLevelArray);
-        
+      
+       if ($scope.finalSportArray.length < 3)  {
+            $scope.sportDepart = {
+                Relation: null,
+                Name: null,
+                Surname: null,
+                Mobile: null,
+                Email: null
+            };
+            $scope.finalSportArray.push($scope.sportDepart);
+              console.log("finalSportArray", $scope.finalSportArray);
+            
+        }
+    };
+ $scope.removeSportForm = function (index) {
+         console.log("hello remove",index);
+        if (index !=0) {
+            $scope.finalSportArray.splice(index,1);
+            console.log("finalSportArray", $scope.finalSportArray);
+        }
+    };
+
+
+    $scope.sportsLevelChunkedArray = _.chunk($scope.sportsLevelArray, 3);
+    $scope.addSportLevelForm = function () {
+        if ($scope.sportsLevelArray.length <= 9) {
+            $scope.sportsLevelArray.push({});
+            $scope.sportsLevelChunkedArray = _.chunk($scope.sportsLevelArray, 3);
+            
+        }
+        // console.log("sportsLevelArray", $scope.sportsLevelArray);
+
+    };
+      $scope.removeSportLevelForm  = function (index) {
+         console.log("hello remove",index);
+        if (index !=0) {
+            $scope.sportsLevelArray.splice(index,1);
+            console.log("finalSportArray", $scope.finalSportArray);
+            $scope.sportsLevelChunkedArray = _.chunk($scope.sportsLevelArray, 3);
+        }
     };
 
 
     $scope.template = TemplateService.changecontent("formathlete");
     $scope.menutitle = NavigationService.makeactive("Formathlete");
     TemplateService.header = "views/header2.html";
-     TemplateService.footer = " ";
+    TemplateService.footer = " ";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-      $scope.test = function (size) {
-        
-            $scope.testModal = $uibModal.open({
-                animation: true,
-                templateUrl: 'views/modal/modsub.html',
-                scope: $scope,
-                size: size,
-                windowClass: "test-modal"
+    $scope.test = function (size) {
 
-            });
-        };
+        $scope.testModal = $uibModal.open({
+            animation: true,
+            templateUrl: 'views/modal/modsub.html',
+            scope: $scope,
+            size: size,
+            windowClass: "test-modal"
+
+        });
+    };
     $scope.termcondition = function (size) {
-        
-            $scope.termconditionModal = $uibModal.open({
-                animation: true,
-                templateUrl: 'views/modal/terms.html',
-                scope: $scope,
-                size: size,
-                windowClass: "termcondition-modal"
 
-            });
-        };
+        $scope.termconditionModal = $uibModal.open({
+            animation: true,
+            templateUrl: 'views/modal/terms.html',
+            scope: $scope,
+            size: size,
+            windowClass: "termcondition-modal"
+
+        });
+    };
 })
 
 // this controller is for fromregis & other...
-.controller('FormregisCtrl', function ($scope, TemplateService, NavigationService, $timeout,$uibModal) {
+.controller('FormregisCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
     //Used to name the .html file
-         $scope.m=0;
-     $scope.finalSportArray = [];
-       $scope.sportDepart = {
-            name: "",
-            designation: "",
-            email: "",
-            photo: ""
-        };
-        
+    $scope.finalSportArray = [];
+    $scope.sportDepart = {
+        name: "",
+        designation: "",
+        email: "",
+        photo: ""
+    };
 
-     $scope.firstTime = 0;
-        if ($scope.firstTime == 0) {
-            $scope.finalSportArray.push($scope.sportDepart);
-            $scope.firstTime++;
-        }
-        
-    $scope.addSportForm = function (m) { 
-           $scope.m=m; 
-           if($scope.m<2){ 
-        $scope.sportDepart = {
-            name: null,
-            designation: null,
-            email: null,
-            photo: null
-        };
+
+    $scope.firstTime = 0;
+    if ($scope.firstTime == 0) {
         $scope.finalSportArray.push($scope.sportDepart);
-        console.log("finalSportArray", $scope.finalSportArray);
-         $scope.m++;
-           }
+        $scope.firstTime++;
+    }
+
+    $scope.addSportForm = function () {
+        if ($scope.finalSportArray.length < 3) {
+            $scope.sportDepart = {
+                name: null,
+                designation: null,
+                email: null,
+                photo: null
+            };
+            $scope.finalSportArray.push($scope.sportDepart);
+            console.log("finalSportArray", $scope.finalSportArray);
+        }
+    };
+     $scope.removeSportForm = function (index) {
+         console.log("hello remove",index);
+        if (index !=0) {
+            $scope.finalSportArray.splice(index,1);
+            console.log("finalSportArray", $scope.finalSportArray);
+        }
     };
 
 
@@ -800,18 +816,18 @@ $scope.n=0;
     TemplateService.footer = " ";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-   
-       $scope.test = function (size) {
-        
-            $scope.testModal = $uibModal.open({
-                animation: true,
-                templateUrl: 'views/modal/modsub.html',
-                scope: $scope,
-                size: size,
-                windowClass: "test-modal"
 
-            });
-        };
+    $scope.test = function (size) {
+
+        $scope.testModal = $uibModal.open({
+            animation: true,
+            templateUrl: 'views/modal/modsub.html',
+            scope: $scope,
+            size: size,
+            windowClass: "test-modal"
+
+        });
+    };
 })
 
 .controller('AfterFormCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state) {

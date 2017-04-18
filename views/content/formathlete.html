@@ -210,15 +210,15 @@
                         <div class="form-group">
                             <div class="col-sm-12">
                             <label class="padd-r12">*Upload Age Proof:</label>
-                    <select class="sfa-drop2" required>
+                    <select class="sfa-drop2" ng-model="myVar" required>
                             <option style="display:none"></option>
                     <option>Adhaar Card </option>
-                   <option >Birth Certificate + Photo ID </option>
+                   <option value="hello">Birth Certificate + Photo ID </option>
                     <option>PAN Card</option>
                      <option>Passport</option>
                         </select>
                             <label class=" myupload2">  <upload-image class="up-img" no-view></upload-image></label>
-                    <label class=" myupload" ><upload-image class="up-img" no-view></upload-image></label>
+                    <label class=" myupload" ><upload-image class="up-img" ng-show="myVar=='hello'" no-view></upload-image></label>
                              <div class="hover-img">
                                 <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
                             </div>
@@ -245,7 +245,10 @@
                         <div class="d-padd mar-l" ng-if="myshow" ng-repeat="arr in sportsLevelChunkedArray track by $index">
                             <!--ng-repeat="x in sportsLevelArray track by $index"-->
                             <div class="box3 box3-display" ng-if="arr[0] ">
-                                <div class="">
+                                 <div class="x-img2">
+                                 <img src="img/icon/x.png" ng-click="removeSportLevelForm()" alt="logo" class="img-responsive myicon pull-right">
+                                </div>
+                                <div class="yes-level">
                                     <label class="sportlevel">Level:</label>
                                     <select class="sfa-drop2 sfa-drop5" required>
                             <option style="display:none"></option>
@@ -289,8 +292,12 @@
                                     <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportLevelForm(n)">
                                 </div>
                             </div>
+                    
                             <div class="box3 box3-display" ng-if="arr[1]">
-                                <div class="">
+                                 <div class="x-img2">
+                                 <img src="img/icon/x.png" ng-click="removeSportLevelForm()"  alt="logo" class="img-responsive myicon pull-right">
+                                </div>
+                                <div class="yes-level">
                                     <label class="sportlevel">Level:</label>
                                     <select class="sfa-drop2 sfa-drop5" required>
                             <option style="display:none"></option>
@@ -335,7 +342,10 @@
                                 </div>
                             </div>
                             <div class="box3 box3-display" ng-if="arr[2]">
-                                <div class="">
+                                 <div class="x-img2">
+                                 <img src="img/icon/x.png" ng-click="removeSportLevelForm()"  alt="logo" class="img-responsive myicon pull-right">
+                                </div>
+                                <div class="yes-level">
                                     <label class="sportlevel">Level:</label>
                                     <select class="sfa-drop2 sfa-drop5" required>
                             <option style="display:none"></option>
@@ -376,7 +386,7 @@
                                         </select>
                                 </div>
                                 <div class="plus">
-                                    <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportLevelForm()">
+                                    <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportForm()">
                                 </div>
                             </div>
                         </div>
@@ -396,7 +406,7 @@
                                 <input type="text" only-Digits ng-model="mobile" class="bor-t"  minlength="10" maxlength="10" required>
                                 <button class="btn btn-default sub-mit send-otp">Send OTP </button>
                                 <label class="enter-otp"> *Enter OTP:</label>
-                                <input type="number" class="bor-t" required>
+                                <input type="text" only-Digits ng-model="OTP" class="bor-t" required>
                                 <div class="hover-img">
                                     <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
                                     <div class="iconinfo iconinfo3">
@@ -487,6 +497,11 @@
                           
                             <div class="box2" ng-repeat="x in finalSportArray track by $index">
                                  <div class="d-padd">
+                                     <div class="x-img3">
+                                         <div class="x-img" ng-click="removeSportForm($index)">
+                                 <img src="img/icon/x.png"  alt="logo" class="img-responsive  pull-right" >
+                                     </div>
+                                     </div>
                                 <div class="form-group ">
                                     <div class="relation-top">
                                     <label class="col-sm-3"> *Relation:</label>

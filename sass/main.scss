@@ -4012,7 +4012,7 @@ iframe#twitter-widget-0 {
     font-size: 16px;
     font-weight: 600;
     line-height: 29.167px;
-        text-align: justify;
+    text-align: justify;
 }
 
 .para2 {
@@ -4155,7 +4155,6 @@ iframe#twitter-widget-0 {
 // .padd-r5 {
 //     padding-right: 20px;
 // }
-
 .top-mar {
     margin-top: 41px;
 }
@@ -4410,14 +4409,14 @@ label:hover:before {
     font-style: italic;
     // padding-left: 28px;
 }
-.kindly-padd{
+
+.kindly-padd {
     padding-left: 25px;
 }
 
 // .up-m175 {
 //     margin-left: 175px;
 // }
-
 .myicon2 {
     width: 33px;
     height: 49px;
@@ -4533,7 +4532,7 @@ label:hover:before {
 .check-box {
     label {
         text-decoration: underline;
-        color:gray;
+        color: gray;
     }
     [type="checkbox"]:not(:checked),
     [type="checkbox"]:checked {
@@ -4598,7 +4597,7 @@ label:hover:before {
 }
 
 .myupload2 {
-        padding-left: 21px;
+    padding-left: 21px;
     padding-right: 30px;
 }
 
@@ -4609,100 +4608,130 @@ label:hover:before {
     }
 }
 
-.box3-display{
+.box3-display {
     display: inline-block;
     margin-left: 23px;
-
 }
-
 
 input[type="radio"] {
-  width:15px;
-  height:15px;
-
-   
+    width: 15px;
+    height: 15px;
 }
-input[type="radio"] + label {
+
+input[type="radio"]+label {
     // color: red;
-    font-family:Arial, sans-serif;
-    font-size:14px;
-  margin-left:-20px;
-}
-input[type="radio"] + label span {
-    display:inline-block;
-    width:8px;
-    height:8px;
-    margin:-9px 9px 0 0;
-    vertical-align:middle;
-    cursor:pointer;
-    -moz-border-radius:  50%;
-    border-radius:  50%;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin-left: -20px;
 }
 
-
-
-input[type="radio"]:checked + label span{
-     background-color:#f47321;
+input[type="radio"]+label span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: -9px 9px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
 }
 
-input[type="radio"] + label span,
-input[type="radio"]:checked + label span {
-  -webkit-transition:background-color 0.4s linear;
-  -o-transition:background-color 0.4s linear;
-  -moz-transition:background-color 0.4s linear;
-  transition:background-color 0.4s linear;
+input[type="radio"]:checked+label span {
+    background-color: #f47321;
 }
 
-.padd-left{
+input[type="radio"]+label span,
+input[type="radio"]:checked+label span {
+    -webkit-transition: background-color 0.4s linear;
+    -o-transition: background-color 0.4s linear;
+    -moz-transition: background-color 0.4s linear;
+    transition: background-color 0.4s linear;
+}
+
+.padd-left {
     padding-left: 16px;
 }
-.mar-left{
+
+.mar-left {
     margin-left: 19px;
 }
-.blue-top{
+
+.blue-top {
     padding-top: 5px;
 }
-.padd-right{
+
+.padd-right {
     padding-right: 37px;
 }
-.padd-bott{
+
+.padd-bott {
     padding-bottom: 24px;
 }
-.details-top{
+
+.details-top {
     padding-top: 17px;
 }
-.mob-padd{
+
+.mob-padd {
     padding-left: 13px;
     padding-right: 12px;
-
 }
-.web-padd{
+
+.web-padd {
     padding-left: 16px;
     padding-right: 6px;
 }
-.aquatics{
-        margin-top: 55px;
+
+.aquatics {
+    margin-top: 55px;
 }
-.mobileno-padd{
-        padding-left: 13px;
+
+.mobileno-padd {
+    padding-left: 13px;
     padding-right: 47px;
 }
-.email-padd{
-        padding-right: 12px;
+
+.email-padd {
+    padding-right: 12px;
 }
-.relation-top{
+
+.relation-top {
     padding-top: 10px;
 }
-.mb-padd{
-        padding-left: 16px;
+
+.mb-padd {
+    padding-left: 16px;
     padding-right: 16px;
 }
-.land-padd{
-        padding-left: 12px;
+
+.land-padd {
+    padding-left: 12px;
     padding-right: 16px;
 }
-.basketball{
-    color:#091a71;
+
+.basketball {
+    color: #091a71;
+}
+
+.x-img {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    padding: 10px;
+    z-index: 9999;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.x-img2 {
+    padding: 1px;
+}
+
+.yes-level {
+    margin-top: 15px;
 }
 
 @import "fancybox-override";
