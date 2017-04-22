@@ -98,6 +98,7 @@ sans-serif !default;
 
 body {
     font-family: $font-family-sans-serif;
+    overflow-x: hidden;
 }
 
 .font-titling {
@@ -4146,7 +4147,7 @@ iframe#twitter-widget-0 {
     &:hover {
         .iconinfo {
             display: block;
-            z-index: 1;
+            z-index: 10000;
             background: #fff;
         }
     }
@@ -4399,6 +4400,7 @@ label:hover:before {
 
 .w478 {
     width: 478px;
+    z-index: 10000;
 }
 
 .kindly-up {
@@ -4492,6 +4494,7 @@ label:hover:before {
     width: 452px;
     margin-left: -442px;
     margin-top: 10px;
+
 }
 
 .padd-r50 {
@@ -4661,7 +4664,7 @@ input[type="radio"]:checked+label span {
 }
 
 .padd-right {
-    padding-right: 37px;
+    padding-right: 38px;
 }
 
 .padd-bott {
@@ -4691,22 +4694,24 @@ input[type="radio"]:checked+label span {
     padding-right: 47px;
 }
 
-.email-padd {
+.email-padd2 {
+    padding-right: 18px;
+}
+.email-padd3{
     padding-right: 12px;
 }
-
 .relation-top {
     padding-top: 10px;
 }
 
 .mb-padd {
     padding-left: 16px;
-    padding-right: 16px;
+    padding-right: 2px;
 }
 
 .land-padd {
     padding-left: 12px;
-    padding-right: 16px;
+    padding-right: 8px;
 }
 
 .basketball {
@@ -4733,6 +4738,27 @@ input[type="radio"]:checked+label span {
 .yes-level {
     margin-top: 15px;
 }
-
+.email-padd{
+     padding-right: 39px;
+    padding-top: 14px;
+}
+.mobileno-padd {
+    
+    padding-right: 36px;
+}
+.emailid-padd{
+    padding-right: 66px;
+    padding-left: 13px;
+}
+.right27{
+    right: 27px;
+}
+.sfa434{
+    width: 434px;
+}
+.myicon3{
+    margin-left: 69px;
+    padding-bottom: 15px;
+}
 @import "fancybox-override";
 @import "mobile";

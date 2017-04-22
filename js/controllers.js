@@ -719,7 +719,9 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log("finalSportArray", $scope.finalSportArray);
         }
     };
-
+$scope.goto=function(){
+    $scope.showSchool=!$scope.showSchool;
+}
 
     $scope.sportsLevelChunkedArray = _.chunk($scope.sportsLevelArray, 3);
     $scope.addSportLevelForm = function () {

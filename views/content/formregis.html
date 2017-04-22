@@ -1,94 +1,99 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="">
-                <div>
-                    <h1 class=" school regis">School Registration Form</h1>
+         <h1 class=" school regis">School Registration Form</h1>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-push-2 col-sm-12 col-xs-12 ">
+            <div class=" box box-padd ">
+                <div class="">
+                    <p class="para sf-list"><span class="blue fs-14">Kindly Note:</span> This is a one-time registration process. Completion of this
+                        process will allow you to register using your SFA ID & Code for all future SFA Events. This also
+                        enables us to create a personalized sporting experience for your school on our website www.sfanow.in
+                        to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics
+                        and reports.</p>
+                </div>
+                <div class=" t-padd">
+                    <h5 class="blue fs-14">We request you to keep the following details ready to ensure a smooth registration process: </h5>
+                    <ul type="circle" class="para sf-list mar-l">
+                        <li>Mobile Number which you wish to register with SFA</li>
+                        <li>Email ID which you wish to register with SFA</li>
+                        <li>Credit Card/Debit Card/Bank Details(in case of online payment)</li>
+                        <li>Your School's logo in jpeg/PNG format(optional)</li>
+                    </ul>
+                </div>
+                <div class="blue-top">
+                    <h5 class="blue fs-14">
+                        * The applicant represents that the information provided is true and correct. SFA will keep confidential and protect your
+                        personal information except where disclosure is required or permitted by law.</h5>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-8 col-md-push-2 col-sm-12 col-xs-12">
-                <div class="box box-padd col-xs-12">
-                    <div class="col-xs-12">
-                        <p class="para sf-list"><span class="blue fs-14">Kindly Note:</span> This is a one-time registration process. Completion of this
-                            process will allow you to register using your SFA ID & Code for all future SFA Events. This also
-                            enables us to create a personalized sporting experience for your school on our website www.sfanow.in
-                            to highlight your performances in sport by way of profiles, records maintenance, match videos,
-                            statistics and reports.</p>
-                    </div>
-                    <div class="col-xs-12 t-padd">
-                        <h5 class="blue fs-14">We request you to keep the following details ready to ensure a smooth registration process: </h5>
-                        <ul type="circle" class="para sf-list mar-l">
-                            <li>Mobile Number which you wish to register with SFA</li>
-                            <li>Email ID which you wish to register with SFA</li>
-                            <li>Credit Card/Debit Card/Bank Details(in case of online payment)</li>
-                            <li>Your School's logo in jpeg/PNG format(optional)</li>
-                        </ul>
-                    </div>
-                    <div class="blue-top">
-                        <h5 class="blue fs-14">
-                            * The applicant represents that the information provided is true and correct. SFA will keep confidential and protect your
-                            personal information except where disclosure is required or permitted by law.</h5>
-                    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-push-2 col-sm-12 col-xs-12">
+            <div class="box-sfa">
+                <div>
+                    <p class="d-padd para2 sf-list">If you have participated in SFA Championships before, kindly enter your</p>
                 </div>
-                <div >
-                    <div>
-                        <p class="d-padd para2 sf-list">If you have participated in SFA Championships before, kindly enter your</p>
-                    </div>
-                    <div class="mar-left">
-                    <label class="para2 sfa-padd sf-list">  SFA ID or Name:</label>
-                    <select class="sfa-drop sf-list">
+                <div class=" mar-left">
+                    <label class="para2 sfa-padd  sf-list">  SFA ID or Name:</label>
+                    <select class="sfa-drop sfa-name sf-list">
                         <option style="display:none"></option>
-                   <option class="para">School SFA ID </option>
-                   <option class="para">School Name</option>
+                   <option class="para sf-list">School SFA ID </option>
+                   <option class="para sf-list">School Name</option>
                </select>
-                    <div>
+                    <div class="">
                         <p class="para2 t-padd sf-list">If you have not participated in SFA Championships before, your SFA ID will be generated<br> on successful
                             completion of registration.</p>
                         <p class="para2 b-padd sf-list">Please Note: All fields with * are mandatory.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-push-2 col-sm-12 col-xs-12">
+            <form class="form-horizontal" ng-submit="test(xs)">
+                <div class="wid-hei">
+                    <div class="step1 fs-14">
+                        Step 1: School Details
+                    </div>
                 </div>
-                <form class="form-horizontal" ng-submit="test(xs)">
-                    <div class="wid-hei">
-                        <div class="step1 fs-14">
-                            Step 1: School Details
+                <div class=" box box-padd para2 box-hei">
+                    <div class="form-group">
+                        <label class="col-sm-3 col-xs-5 sf-list">  *School Name:</label>
+                        <div class="col-sm-9 col-xs-7">
+                            <input type="text" class="sfa-drop" required>
                         </div>
                     </div>
-                    <div class="box box-padd para2 box-hei">
-                        <div class="form-group">
-                            <label class="col-sm-3 col-xs-5 fs-14">  *School Name:</label>
-                            <div class="col-sm-9 col-xs-7">
-                                <input type="text" class="sfa-drop" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 col-xs-5 fs-14">  *School Type:</label>
-                            <div class="col-sm-9 col-xs-7">
-                                <select class="sfa-drop2" required>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-xs-5 sf-list">  *School Type:</label>
+                        <div class="col-sm-9 col-xs-7">
+                            <select class="sfa-drop2 sf-list" required>
                              <option style="display:none"></option>
                    <option>Co-Educational</option>
                    <option>Boys</option>
                     <option>Girls</option>
                </select>
-                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 col-xs-5">*School Category:</label>
-                            <div class="col-sm-9 col-xs-7">
-                                <select class="sfa-drop2" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-xs-5 sf-list">*School Category:</label>
+                        <div class="col-sm-9 col-xs-7">
+                            <select class="sfa-drop2 sf-list" required>
                              <option style="display:none"></option>
                    <option>Un-aided </option>
                    <option>Government </option>
                   <option> Aided</option>
                </select>
-                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 col-xs-5">*Affiliated Board:</label>
-                            <div class="col-sm-9 col-xs-7">
-                                <select class="sfa-drop2" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-xs-5 sf-list">*Affiliated Board:</label>
+                        <div class="col-sm-9 col-xs-7">
+                            <select class="sfa-drop2 sf-list" required>
                              <option style="display:none"></option>
                    <option>Central Board of Secondary Education (CBSE) </option>
                    <option>International Baccalaureate (IB)</option>
@@ -98,77 +103,74 @@
                        <option>Secondary School Certificate (SSC)</option>
                         <option>A Level</option>
                </select>
-                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 col-xs-5">*Upload School Logo:</label>
-                            <!--<input type="file" />-->
-                            <div class="col-sm-9 col-xs-7">
-                                
-                                <upload-image class="up-img" no-view></upload-image>
-                                <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
-                                    <div class="hover-img">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-xs-5 sf-list">Upload School Logo:</label>
+                        <!--<input type="file" />-->
+                        <div class="col-sm-9 col-xs-7">
+                            <upload-image class="up-img sf-list" no-view></upload-image>
+                            <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
+                            <div class="hover-img">
                                 <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
                             </div>
-                                <div class="hover-img">
-                                    <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
-                                    <div class="iconinfo">
-                                        <p>This logo will be displayed on your school’s profile page on sfanow.in</p>
-                                    </div>
+                            <div class="hover-img">
+                                <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
+                                <div class="iconinfo sf-list">
+                                    <p>This logo will be displayed on your school’s profile page on sfanow.in</p>
                                 </div>
-                                <div class="kindly-up ">Kindly upload only .jpg or .png format. Maximum file size 1MB.</div>
                             </div>
-                            
+                            <div class="kindly-up sf-list">Kindly upload only .jpg or .png format. Maximum file size 1MB.</div>
                         </div>
                     </div>
-                    <div class="wid-hei top-mar">
-                        <div class="step1">
-                            Step 2: Contact Details
+                </div>
+                <div class="wid-hei top-mar">
+                    <div class="step1 fs-14">
+                        Step 2: Contact Details
+                    </div>
+                </div>
+                <div class="box box-padd para2 sf-list">
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12 blue fs-14">
+                            <h4>School Address</h4>
+                        </div>
+                        <label class="col-sm-3 col-xs-4">*Line 1:</label>
+                        <div class="col-sm-9 col-xs-8">
+                            <input type="text" class="sfa-drop sfa434" required>
                         </div>
                     </div>
-                    <div class="box box-padd para2">
-                        <div class="form-group">
-                            <div class="col-md-12 blue">
-                                <h4>School Address</h4>
-                            </div>
-                            <label class="col-sm-3">*Line 1:</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="sfa-drop" required>
-                            </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-xs-4">Line 2:</label>
+                        <div class="col-sm-9 col-xs-8">
+                            <input type="text" class="sfa-drop sfa434">
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3">Line 2:</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="sfa-drop" >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3"> *State:</label>
-                            <div class="col-sm-3"> 
-                                  <select class="sfa-drop2 w147" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-xs-4"> *State:</label>
+                        <div class="col-sm-3 col-xs-8">
+                            <select class="sfa-drop2 w147" required>
                             <option style="display:none"></option>
                    <option>Maharashstra</option>
                   
                       
                </select>
-                            </div>
-                            <div class="col-sm-6">
-                                <label class="padd-right">*District:</label>
-                                <select class="sfa-drop2" required>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <label class="padd-right">*District:</label>
+                            <select class="sfa-drop2" required>
                             <option style="display:none"></option>
                    <option>Mumbai City </option>
                    <option>Mumbai Suburban</option>
                     <option>Thane</option>
                      <option>Palghar</option>
                       <option>Raigad</option> 
-                      
-               </select>
-                            </div>
+              </select>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3">  *City:</label>
-                            <div class="col-sm-3">
-                                <select class="sfa-drop2 w147" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-xs-4">  *City:</label>
+                        <div class="col-sm-3 col-xs-8">
+                            <select class="sfa-drop2 w147" required>
                             <option style="display:none"></option>
                    <option>Kalyan-Dombivali </option>
                    <option>Mira-Bhayandar</option>
@@ -181,57 +183,54 @@
                      <option>Raigad</option>
                      <option>Thane</option>
                </select>
-                            </div>
-                            <div class="col-sm-6">
-                                <label>*Area/Locality:</label>
-                                <input type="text" class=" sfa-drop2 w147" required>
-                      
-                            </div>
                         </div>
-                        <div class="form-group mar-l">
-                            <label class="col-sm-3">  *Pin Code:</label>
-                            <div class="col-sm-9">
-                                <input type="text" only-Digits ng-model="pincode"  class="sfa-drop2 w147" required>
-   
-                            </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <label class="Area-padd">*Area/Locality:</label>
+                            <input type="text" class=" sfa-drop2 w147" required>
                         </div>
-                        <div class="d-padd mar-l">
-                            <h4 class="blue pb10">Details For Correspondence</h4>
-                            <div class="box2">
-                                <div class="form-group">
-                                       <div class=" d-padd">
-                                <div class="col-sm-12">
-                                    <p class="details-top">All communication regarding SFA MUMBAI 2017 will be sent on the below mentioned details.</p>
+                    </div>
+                    <div class="form-group mar-l">
+                        <label class="col-sm-3 col-xs-4">  *Pin Code:</label>
+                        <div class="col-sm-9 col-xs-8">
+                            <input type="text" only-Digits ng-model="pincode" class="sfa-drop2 w147" minlengh="6" maxlength="6" required>
+                        </div>
+                    </div>
+                    <div class="d-padd mar-l">
+                        <h4 class="blue pb10">Details For Correspondence</h4>
+                        <div class="box2">
+                            <div class="form-group">
+                                <div class=" d-padd">
+                                    <div class="col-sm-12 col-xs-12">
+                                        <p class="details-top">All communication regarding SFA MUMBAI 2017 will be sent on the below mentioned details.
+                                        </p>
                                     </div>
-                                    <label class="col-sm-3"> Contact Person:</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-3 col-xs-3 "> *Contact Person:</label>
+                                    <div class="col-sm-9 col-xs-9">
                                         <input type="text" class=" sfa-in" required>
                                     </div>
                                 </div>
-                                </div>
-                               
-                                <div class="form-group">
-                                    <div class=" d-padd">
-                                        <label class="col-sm-3">  *Landline:</label>
-                                        <div class="col-sm-3">
-                                            <input type="text" only-Digits ng-model="landline" class="bor-t" required minlength="8" maxlength="15">
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <!--<label class="mob-padd"> *Mobile:</label>
+                            </div>
+                            <div class="form-group">
+                                <div class=" d-padd">
+                                    <label class="col-sm-3 col-xs-3">  *Landline:</label>
+                                    <div class="col-sm-3 col-xs-9">
+                                        <input type="text" only-Digits ng-model="landline" class="bor-t" required minlength="11" maxlength="11">
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12">
+                                        <!--<label class="mob-padd"> *Mobile:</label>
                                             <input type="text" only-Digits ng-model="mobile" class="bor-t"  minlength="10" maxlength="10" required>-->
-                                             <label class="col-sm-3 ">  *Email:</label>
-                                              <input type="email" class="bor-t" required>
-                                        </div>
+                                        <label class="email-padd2">*Mobile:</label>
+                                        <input type="text" only-Digits ng-model="mobile" class="bor-t" minlength="10" maxlength="10" required>
                                     </div>
                                 </div>
-                                   
-                                <div class="form-group">
-                                    <div class="d-padd">
-                                         <label class="col-sm-3 web-padd"> Website:</label>
-                                          <div class="col-sm-9">
-                                              <input type="url" class="bor-t">
-                                          </div>
-                                        <!--<label class="col-sm-3 padd-bott">  *Email:</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="d-padd">
+                                    <label class="col-sm-3 col-xs-3 web-padd"> Website:</label>
+                                    <div class="col-sm-9 col-xs-9">
+                                        <input type="text" class="bor-t">
+                                    </div>
+                                    <!--<label class="col-sm-3 padd-bott">  *Email:</label>
                                         <div class="col-sm-3">
                                             <input type="email" class="bor-t" required>
                                         </div>
@@ -239,214 +238,209 @@
                                             <label class="web-padd"> Website:</label>
                                             <input type="url" class="bor-t">
                                         </div>-->
-                                    </div>
-                                </div>
-                                 <div class="form-group">
-                                     <div class=" d-padd">
-                                <label class="mobileno-padd padd-bott" >*Mobile:</label>
-                                
-                                <input type="text" only-Digits ng-model="mobile" class="bor-t"  minlength="10" maxlength="10" required>
-                                <button class="btn btn-default sub-mit send-otp">Send OTP </button>
-                                <label class="enter-otp"> *Enter OTP:</label>
-                                <input type="text" only-Digits ng-model="OTP" class="bor-t" required>
-                                     </div>
-                              
-                            </div>
-                            </div>
-                        </div>
-                        <div class="d-padd mar-l">
-                            <h4 class="blue">School Principal</h4>
-                            <div class="form-group">
-                                <label class="col-sm-3">*Name:</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="sfa-in bor-t" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3">Mobile:</label>
-                                <div class="col-sm-3">
-                                    <input type="text" only-Digits ng-model="mobile" class="bor-t" minlength="10" maxlength="10" >
-                                </div>
-                                <div class="col-sm-6">
-                                    <label class="land-padd"> Landline:</label>
-                                    <input type="text" only-Digits ng-model="landline" class="bor-t" minlength="8" maxlength="11" >
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3">*Email:</label>
-                                <div class="col-sm-9">
+                                <div class="col-xs-12 d-padd">
+                                    <label class="mobileno-padd padd-bott">*Email:</label>
                                     <input type="email" class="bor-t" required>
+                                    <button class="btn btn-default sub-mit send-otp">Send OTP </button>
+                                    <label class="enter-otp"> *Enter OTP:</label>
+                                    <input type="text" only-Digits ng-model="OTP" class="bor-t" required>
                                 </div>
                             </div>
                         </div>
-                        <div class="d-padd mar-l">
-                            <div class="dis-bloc">
-                                <h4 class="blue"> Sports Department (Optional)</h4>
+                    </div>
+                    <div class="d-padd mar-l">
+                        <h4 class="blue">School Principal</h4>
+                        <div class="form-group">
+                            <label class="col-sm-3 col-xs-3">*Name:</label>
+                            <div class="col-sm-9 col-xs-9">
+                                <input type="text" class="sfa-in bor-t" required>
                             </div>
-                            <div class="hover-img">
-                                <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
-                                <div class="iconinfo w478">
-                                    <p>Coaches play an extremely vital role in shaping the future of young athletes. As part
-                                        of your school’s sporting profile, SFA would be happy to highlight the efforts of
-                                        your sports department. Kindly request youto fill in the following details.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 col-xs-3">Mobile:</label>
+                            <div class="col-sm-3 col-xs-9">
+                                <input type="text" only-Digits ng-model="mobile" class="bor-t" minlength="10" maxlength="10">
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <label class="land-padd "> Landline:</label>
+                                <input type="text" only-Digits ng-model="landline" class="bor-t" minlength="8" maxlength="11">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 col-xs-3">*Email:</label>
+                            <div class="col-sm-9 col-xs-9">
+                                <input type="email" class="bor-t" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-padd mar-l">
+                        <div class="dis-bloc">
+                            <h4 class="blue"> Sports Department (Optional)</h4>
+                        </div>
+                        <div class="hover-img">
+                            <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
+                            <div class="iconinfo w478">
+                                <p>Coaches play an extremely vital role in shaping the future of young athletes. As part of
+                                    your school’s sporting profile, SFA would be happy to highlight the efforts of your sports
+                                    department. Kindly request youto fill in the following details.</p>
+                            </div>
+                        </div>
+                        <div class="box2" ng-repeat="x in finalSportArray track by $index">
+                            <div class="x-img3">
+                                <div class="x-img" ng-click="removeSportForm($index)">
+                                    <img src="img/icon/x.png" alt="logo" class="img-responsive  pull-right">
                                 </div>
                             </div>
-                            <div class="box2" ng-repeat="x in finalSportArray track by $index">
-                         
-                                     <div class="x-img3">
-                                         <div class="x-img" ng-click="removeSportForm($index)">
-                                 <img src="img/icon/x.png"  alt="logo" class="img-responsive  pull-right" >
-                                     </div>
-                                     </div>
-           
-                                <div class="form-group d-padd details-top">
-                                    <label class="col-sm-3">*Name:</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="sfa-in" name="$index" ng-model="x.name" required>
-                                    </div>
+                            <div class="form-group d-padd details-top">
+                                <label class="col-sm-3 col-xs-3">*Name:</label>
+                                <div class="col-sm-9 col-xs-9">
+                                    <input type="text" class="sfa-in" name="$index" ng-model="x.name" required>
                                 </div>
-                                <div class="form-group  d-padd">
-                                    <label class="col-sm-3">*Designation:</label>
-                                    <div class="col-sm-3">
-                                        <input type="text" class="bor-t" ng-model="x.designation" required>
-                                    </div>
-                                    <div class="col-sm-6">
-                                    <label class="mb-padd"> Mobile:</label>
-                                    <input type="text" only-Digits ng-model="landline" class="bor-t" minlength="10" maxlength="10" >
+                            </div>
+                            <div class="form-group  d-padd">
+                                <label class="col-sm-3 col-xs-3">*Designation:</label>
+                                <div class="col-sm-3 col-xs-9">
+                                    <input type="text" class="bor-t" ng-model="x.designation" required>
                                 </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <label class="mb-padd"> *Mobile:</label>
+                                    <input type="text" only-Digits ng-model="landline" class="bor-t" minlength="10" maxlength="10">
                                 </div>
-                                <div class="form-group d-padd">
-                                    <label class="col-sm-3">*E-mail:</label>
-                                    <div class="col-sm-9">
-                                        <input type="email" class="bor-t" ng-model="x.email" required>
-                                    </div>
+                            </div>
+                            <div class="form-group d-padd">
+                                <label class="col-sm-3 col-xs-3">*E-mail:</label>
+                                <div class="col-sm-9 col-xs-9">
+                                    <input type="email" class="bor-t" ng-model="x.email" required>
                                 </div>
-                                <div class="d-padd">
-                                    <!--<label>Upload Photograph:</label><input type="file" class="bor-t">
+                            </div>
+                            <div class="form-group d-padd">
+                                <!--<label>Upload Photograph:</label><input type="file" class="bor-t">
                                 <i class="fa fa-plus-circle" aria-hidden="true"></i>-->
-                                    <label class="padd-r3">*Upload Photograph:</label>
-                                    <!--<input type="file" />-->
+                                <label class="col-sm-4">Upload Photograph:</label>
+                                <!--<input type="file" />-->
+                                <div class="col-sm-8">
                                     <upload-image class="up-img" no-view required ng-model="x.photo"></upload-image>
                                     <div class="hover-img">
-                                <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
-                            </div>
+                                        <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
+                                    </div>
                                     <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
-                                    <label class="kindly-up ">Kindly upload only .jpg or .png format. Maximum file size 1MB.</p></label>
-                            
-                                    <img src="img/icon/p.png" alt="logo" class="img-responsive myicon2" ng-click="addSportForm()">
-                                     
-                                 
+                                    <label class="kindly-up sf-list">Kindly upload only .jpg or .png format. Maximum file size 1MB.</p></label>
+                                    <img src="img/icon/p.png" alt="logo" class="img-responsive myicon3" ng-click="addSportForm()">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="wid-hei top-mar">
-                        <div class="step1">
-                            Step 3: Select Sports
-                        </div>
+                </div>
+                <div class="wid-hei top-mar">
+                    <div class="step1 fs-14">
+                        Step 3: Select Sports
                     </div>
-                    <div class=" box box-padd r para2">
-                        <div class="d-padd">
-                            <div class="dis-inline">
-                                <h4 class="blue">Team Sports</h4>
-                                <!--<p> <input type="checkbox">Football</p>-->
-                                <p> <input type="checkbox" id="test1" ng-model="Basketball" />
-                                    <label for="test1" ng-class="{basketball:Basketball}">Basketball</label></p>
-                                <p> <input type="checkbox" id="test" ng-model="Handball"/>
-                                    <label for="test" ng-class="{basketball:Handball}">Handball</label></p>
-                                <p> <input type="checkbox" id="test3" ng-model="Hockey" />
-                                    <label for="test3" ng-class="{basketball:Hockey}">Hockey</label></p>
-                                <p> <input type="checkbox" id="test4" ng-model="Kabaddi" />
-                                    <label for="test4" ng-class="{basketball:Kabaddi}">Kabaddi</label></p>
-                                <p> <input type="checkbox" id="test5" ng-model="Kho" />
-                                    <label for="test5" ng-class="{basketball:Kho}">Kho Kho</label></p>
-                                <p> <input type="checkbox" id="test6" ng-model="Throwball" />
-                                    <label for="test6" ng-class="{basketball:Throwball}">Throwball</label></p>
-                                <p> <input type="checkbox" id="test7" ng-model="Volleyball" />
-                                    <label for="test7" ng-class="{basketball:Volleyball}">Volleyball</label></p>
-                            </div>
-                            <div class="dis-inline">
-                                <h4 class="blue">Racquet Sports
-                                </h4>
-                                <p> <input type="checkbox" id="test8" ng-model="Table" />
-                                    <label for="test8" ng-class="{basketball:Table}">Table Tennis</label></p>
-                                <p> <input type="checkbox" id="test9" ng-model="Tennis" />
-                                    <label for="test9" ng-class="{basketball:Tennis}">Tennis</label></p>
-                                <p> <input type="checkbox" id="test10" ng-model="Squash" />
-                                    <label for="test10" ng-class="{basketball:Squash}">Squash</label></p>
-                                <p> <input type="checkbox" id="test11" ng-model="Badminton" />
-                                    <label for="test11" ng-class="{basketball:Badminton}">Badminton</label></p>
-                            </div>
-                            <div class="dis-inline">
-                                <h4 class="blue">Combat Sports</h4>
-                                <p> <input type="checkbox" id="test12" ng-model="Boxing" />
-                                    <label for="test12" ng-class="{basketball:Boxing}">Boxing</label></p>
-                                <p> <input type="checkbox" id="test13" ng-model="Fencing" />
-                                    <label for="test13" ng-class="{basketball:Fencing}">Fencing</label></p>
-                                <p> <input type="checkbox" id="test14" ng-model="Judo" />
-                                    <label for="test14" ng-class="{basketball:Judo}">Judo</label></p>
-                                <p> <input type="checkbox" id="test15" ng-model="Karate" />
-                                    <label for="test15" ng-class="{basketball:Karate}">Karate</label></p>
-                                <p> <input type="checkbox" id="test16" ng-model="Sport" />
-                                    <label for="test16" ng-class="{basketball:Sport}">Sport Mma</label></p>
-                                <p> <input type="checkbox" id="test17" ng-model="Taekwondo" />
-                                    <label for="test17" ng-class="{basketball:Taekwondo}">Taekwondo</label></p>
-                            </div>
-                            <div class="dis-inline">
-                                <div>
-                                    <h4 class="blue">Target Sports</h4>
-                                    <p> <input type="checkbox" id="test18" ng-model="Archery" />
-                                        <label for="test18" ng-class="{basketball:Archery}">Archery</label></p>
-                                    <p> <input type="checkbox" id="test19" ng-model="Shooting" />
-                                        <label for="test19" ng-class="{basketball:Shooting}">Shooting</label></p>
-                                </div>
-                                <div class="aquatics">
-                                    <h4 class="blue">Aquatics</h4>
-                                    <p> <input type="checkbox" id="test20" ng-model="Swimming" />
-                                        <label for="test20"  ng-class="{basketball:Swimming}">Swimming</label></p>
-                                    <p> <input type="checkbox" id="test21" ng-model="Water" />
-                                        <label for="test21"  ng-class="{basketball:Water}">Water Polo</label></p>
-                                </div>
-                            </div>
-                            <div class="dis-inline">
-                                <h4 class="blue">Individual Sports</h4>
-                                <p> <input type="checkbox" id="test23" ng-model="Athletics" />
-                                    <label for="test23" ng-class="{basketball:Athletics}">Athletics</label></p>
-                                <p> <input type="checkbox" id="test24" ng-model="Carrom" />
-                                    <label for="test24" ng-class="{basketball:Carrom}">Carrom</label></p>
-                                <p> <input type="checkbox" id="test25" ng-model="Chess" />
-                                    <label for="test25" ng-class="{basketball:Chess}">Chess</label></p>
-                            </div>
-                            <p> <label class="sel-spo">Selected Sports:</label>Basketball, Football, Hockey</p>
-                            <p>A registration fee of `12,000/- (inclusive of all applicable taxes) will be payable.<br>
-                                <label class="blue"> #Kindly Note:</label> This is an annual fee that enables your school
-                                to send any number of athletes across all the above mentioned sports. This fee structure
-                                has been devised to encourage schools and athletes to participate in multiple sports and
-                                to maintain a high quality of competition.</p>
+                </div>
+                <div class=" box box-padd r para2 sf-list">
+                    <div class="d-padd d-paddd">
+                        <div class="dis-inline">
+                            <h4 class="blue fs-14">Team Sports</h4>
+                            <!--<p> <input type="checkbox">Football</p>-->
+                            <p> <input type="checkbox" id="test1" ng-model="Basketball" />
+                                <label for="test1" ng-class="{basketball:Basketball}">Basketball</label></p>
+                            <p> <input type="checkbox" id="test" ng-model="Handball" />
+                                <label for="test" ng-class="{basketball:Handball}">Handball</label></p>
+                            <p> <input type="checkbox" id="test3" ng-model="Hockey" />
+                                <label for="test3" ng-class="{basketball:Hockey}">Hockey</label></p>
+                            <p> <input type="checkbox" id="test4" ng-model="Kabaddi" />
+                                <label for="test4" ng-class="{basketball:Kabaddi}">Kabaddi</label></p>
+                            <p> <input type="checkbox" id="test5" ng-model="Kho" />
+                                <label for="test5" ng-class="{basketball:Kho}">Kho Kho</label></p>
+                            <p> <input type="checkbox" id="test6" ng-model="Throwball" />
+                                <label for="test6" ng-class="{basketball:Throwball}">Throwball</label></p>
+                            <p> <input type="checkbox" id="test7" ng-model="Volleyball" />
+                                <label for="test7" ng-class="{basketball:Volleyball}">Volleyball</label></p>
                         </div>
-                    </div>
-                    <div class="wid-hei top-mar">
-                        <div class="step1">
-                            Step 4: Registration Fee
+                        <div class="dis-inline">
+                            <h4 class="blue fs-14">Racquet Sports
+                            </h4>
+                            <p> <input type="checkbox" id="test8" ng-model="Table" />
+                                <label for="test8" ng-class="{basketball:Table}">Table Tennis</label></p>
+                            <p> <input type="checkbox" id="test9" ng-model="Tennis" />
+                                <label for="test9" ng-class="{basketball:Tennis}">Tennis</label></p>
+                            <p> <input type="checkbox" id="test10" ng-model="Squash" />
+                                <label for="test10" ng-class="{basketball:Squash}">Squash</label></p>
+                            <p> <input type="checkbox" id="test11" ng-model="Badminton" />
+                                <label for="test11" ng-class="{basketball:Badminton}">Badminton</label></p>
                         </div>
+                        <div class="dis-inline">
+                            <h4 class="blue fs-14">Combat Sports</h4>
+                            <p> <input type="checkbox" id="test12" ng-model="Boxing" />
+                                <label for="test12" ng-class="{basketball:Boxing}">Boxing</label></p>
+                            <p> <input type="checkbox" id="test13" ng-model="Fencing" />
+                                <label for="test13" ng-class="{basketball:Fencing}">Fencing</label></p>
+                            <p> <input type="checkbox" id="test14" ng-model="Judo" />
+                                <label for="test14" ng-class="{basketball:Judo}">Judo</label></p>
+                            <p> <input type="checkbox" id="test15" ng-model="Karate" />
+                                <label for="test15" ng-class="{basketball:Karate}">Karate</label></p>
+                            <p> <input type="checkbox" id="test16" ng-model="Sport" />
+                                <label for="test16" ng-class="{basketball:Sport}">Sport Mma</label></p>
+                            <p> <input type="checkbox" id="test17" ng-model="Taekwondo" />
+                                <label for="test17" ng-class="{basketball:Taekwondo}">Taekwondo</label></p>
+                        </div>
+                        <div class="dis-inline">
+                            <div>
+                                <h4 class="blue fs-14">Target Sports</h4>
+                                <p> <input type="checkbox" id="test18" ng-model="Archery" />
+                                    <label for="test18" ng-class="{basketball:Archery}">Archery</label></p>
+                                <p> <input type="checkbox" id="test19" ng-model="Shooting" />
+                                    <label for="test19" ng-class="{basketball:Shooting}">Shooting</label></p>
+                            </div>
+                            <div class="aquatics">
+                                <h4 class="blue fs-14">Aquatics</h4>
+                                <p> <input type="checkbox" id="test20" ng-model="Swimming" />
+                                    <label for="test20" ng-class="{basketball:Swimming}">Swimming</label></p>
+                                <p> <input type="checkbox" id="test21" ng-model="Water" />
+                                    <label for="test21" ng-class="{basketball:Water}">Water Polo</label></p>
+                            </div>
+                        </div>
+                        <div class="dis-inline">
+                            <h4 class="blue fs-14">Individual Sports</h4>
+                            <p> <input type="checkbox" id="test23" ng-model="Athletics" />
+                                <label for="test23" ng-class="{basketball:Athletics}">Athletics</label></p>
+                            <p> <input type="checkbox" id="test24" ng-model="Carrom" />
+                                <label for="test24" ng-class="{basketball:Carrom}">Carrom</label></p>
+                            <p> <input type="checkbox" id="test25" ng-model="Chess" />
+                                <label for="test25" ng-class="{basketball:Chess}">Chess</label></p>
+                        </div>
+                        <p> <label class="sel-spo">Selected Sports:</label>Basketball, Football, Hockey</p>
+                        <p>A registration fee of `12,000/- (inclusive of all applicable taxes) will be payable.<br>
+                            <label class="blue fs-14"> #Kindly Note:</label> This is an annual fee that enables your school
+                            to send any number of athletes across all the above mentioned sports. This fee structure has
+                            been devised to encourage schools and athletes to participate in multiple sports and to maintain
+                            a high quality of competition.</p>
                     </div>
-                    <div class="box box-padd para2">
-                        <!--<div class="d-padd">
+                </div>
+                <div class="wid-hei top-mar">
+                    <div class="step1 fs-14">
+                        Step 4: Registration Fee
+                    </div>
+                </div>
+                <div class="box box-padd para2">
+                    <!--<div class="d-padd">
                         <h4>Paayment Gateway:</h4>
                     </div>-->
-                        <div class="d-padd ">
-                            <input type="radio" id="radio02" name="radio" value="male"><label for="radio02" class="padd-lr"><span></span>Cash</label>
-                            <input type="radio" id="radio04" name="radio" value="male"><label for="radio04" class="padd-lr"><span></span>Cheque/DD</label>
-                            <input type="radio" id="radio03" name="radio" value="male"><label for="radio03" class="padd-lr"><span></span>Online PAYU</label>
-                        </div>
+                    <div class="d-padd d-paddd">
+                        <input type="radio" id="radio02" name="radio" value="male"><label for="radio02" class="padd-lr"><span></span>Cash</label>
+                        <input type="radio" id="radio04" name="radio" value="male"><label for="radio04" class="padd-lr"><span></span>Cheque/DD</label>
+                        <input type="radio" id="radio03" name="radio" value="male"><label for="radio03" class="padd-lr"><span></span>Online PAYU</label>
                     </div>
-                    <div class="text-center sub-padd">
-                        <button class="btn btn-default sub-mit" type="submit">Submit & Save</button>
-                    </div>
-                </form>
-            </div>
+                </div>
+                <div class="text-center sub-padd">
+                    <button class="btn btn-default sub-mit" type="submit">Submit & Save</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 </div>
 <!--</div>
 </div>
