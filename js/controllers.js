@@ -815,7 +815,7 @@ $scope.goto=function(){
     $scope.template = TemplateService.changecontent("formregis");
     $scope.menutitle = NavigationService.makeactive("Formregis");
     TemplateService.header = "views/header2.html";
-    TemplateService.footer = " ";
+    TemplateService.footer = "";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
