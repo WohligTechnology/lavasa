@@ -39,7 +39,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'DrawScheduleCtrl'
         })
 
-    .state('special-awards', {
+        .state('special-awards', {
             url: "/special-awards",
             templateUrl: "views/template.html",
             controller: 'SpecialAwardsCtrl'
@@ -59,7 +59,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "views/template.html",
             controller: 'FormregisCtrl'
         })
-         .state('formathlete', {
+        .state('formathlete', {
             url: "/formathlete",
             templateUrl: "views/template.html",
             controller: 'FormathleteCtrl'
@@ -150,7 +150,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'MediaGalleryCtrl'
         })
 
-    .state('media-gallery-type', {
+        .state('media-gallery-type', {
             url: "/media-gallery/:type",
             templateUrl: "views/template.html",
             controller: 'MediaGalleryCtrl'
@@ -373,9 +373,9 @@ firstapp.filter('ageYearFilter', function () {
         }
     };
 });
+
 firstapp.filter('uploadpath', function () {
-    return function (input, width, height, style, defaultFlag) {
-        //console.log(width, height, style, defaultFlag)
+    return function (input, width, height, style) {
         var other = "";
         if (width && width !== "") {
             other += "&width=" + width;
@@ -392,18 +392,10 @@ firstapp.filter('uploadpath', function () {
             } else {
                 return input;
             }
-        } else {
-            if (defaultFlag === false) {
-                console.log("new-banner");
-                return "img/sf-default.png";
-
-            } else {
-                return "img/noimage.png";
-
-            }
         }
     };
 });
+
 firstapp.filter('letterLimit', function () {
     return function (value, limit) {
         if (value) {
@@ -535,6 +527,7 @@ firstapp.directive('giveitmargin', function ($compile, $parse) {
         }
     };
 });
+
 firstapp.directive('img', function ($compile, $parse) {
     return {
         restrict: 'E',
@@ -554,6 +547,7 @@ firstapp.directive('img', function ($compile, $parse) {
         }
     };
 });
+
 firstapp.directive('mychart', function ($compile, $parse) {
     return {
         restrict: 'C',
@@ -731,31 +725,68 @@ firstapp.directive('fancyboxButton', function ($compile, $parse) {
     };
 });
 
-firstapp.directive('uploadImage', function ($http, $filter) {
+firstapp.directive('uploadImage', function ($http, $filter, $timeout) {
     return {
         templateUrl: 'views/directive/uploadFile.html',
         scope: {
             model: '=ngModel',
-            callback: "=ngCallback"
+            type: "@type",
+            callback: "&ngCallback"
         },
         link: function ($scope, element, attrs) {
+            console.log($scope.model);
+            $scope.showImage = function () {};
+            $scope.check = true;
+            if (!$scope.type) {
+                $scope.type = "image";
+            }
             $scope.isMultiple = false;
             $scope.inObject = false;
-            if (attrs.multiple || attrs.multiple === "") {
+            if (attrs.multiple == "true") {
                 $scope.isMultiple = true;
                 $("#inputImage").attr("multiple", "ADD");
             }
             if (attrs.noView || attrs.noView === "") {
                 $scope.noShow = true;
             }
+            // if (attrs.required) {
+            //     $scope.required = true;
+            // } else {
+            //     $scope.required = false;
+            // }
+
+            $scope.$watch("image", function (newVal, oldVal) {
+                console.log(newVal, oldVal);
+                isArr = _.isArray(newVal);
+                if (!isArr && newVal && newVal.file) {
+                    $scope.uploadNow(newVal);
+                } else if (isArr && newVal.length > 0 && newVal[0].file) {
+
+                    $timeout(function () {
+                        console.log(oldVal, newVal);
+                        console.log(newVal.length);
+                        _.each(newVal, function (newV, key) {
+                            if (newV && newV.file) {
+                                $scope.uploadNow(newV);
+                            }
+                        });
+                    }, 100);
+
+                }
+            });
+
             if ($scope.model) {
                 if (_.isArray($scope.model)) {
                     $scope.image = [];
                     _.each($scope.model, function (n) {
                         $scope.image.push({
-                            url: $filter("uploadpath")(n)
+                            url: n
                         });
                     });
+                } else {
+                    if (_.endsWith($scope.model, ".pdf")) {
+                        $scope.type = "pdf";
+                    }
                 }
 
             }
@@ -764,34 +795,57 @@ firstapp.directive('uploadImage', function ($http, $filter) {
             }
             $scope.clearOld = function () {
                 $scope.model = [];
+                $scope.uploadStatus = "removed";
             };
+            $scope.removeImage = function (index) {
+                $scope.image = [];
+                $scope.model.splice(index, 1);
+                _.each($scope.model, function (n) {
+                    $scope.image.push({
+                        url: n
+                    });
+                });
+            }
             $scope.uploadNow = function (image) {
+                $scope.uploadStatus = "uploading";
+
                 var Template = this;
                 image.hide = true;
                 var formData = new FormData();
-                formData.append('file', image.file, image.name);
+                formData.append('file', image.file, image.file.name);
                 $http.post(uploadurl, formData, {
                     headers: {
                         'Content-Type': undefined
                     },
                     transformRequest: angular.identity
-                }).success(function (data) {
-                    console.log("success");
-                    if ($scope.callback) {
-                        $scope.callback(data);
-                    } else {
-                        if ($scope.isMultiple) {
-                            if ($scope.inObject) {
-                                $scope.model.push({
-                                    "image": data.data[0]
-                                });
-                            } else {
-                                $scope.model.push(data.data[0]);
-                            }
+                }).then(function (data) {
+                    data = data.data;
+                    $scope.uploadStatus = "uploaded";
+                    if ($scope.isMultiple) {
+                        if ($scope.inObject) {
+                            $scope.model.push({
+                                "image": data.data[0]
+                            });
                         } else {
-                            $scope.model = data.data[0];
+                            if (!$scope.model) {
+                                $scope.clearOld();
+                            }
+                            $scope.model.push(data.data[0]);
                         }
+                    } else {
+                        if (_.endsWith(data.data[0], ".pdf")) {
+                            $scope.type = "pdf";
+                        } else {
+                            $scope.type = "image";
+                        }
+                        $scope.model = data.data[0];
+                        console.log($scope.model, 'model means blob')
+
                     }
+                    $timeout(function () {
+                        $scope.callback();
+                    }, 100);
+
                 });
             };
         }
@@ -805,11 +859,11 @@ firstapp.config(function ($translateProvider) {
 });
 
 
-firstapp.directive('onlyDigits', function() {
+firstapp.directive('onlyDigits', function () {
     return {
         require: 'ngModel',
         restrict: 'A',
-        link: function(scope, element, attr, ctrl) {
+        link: function (scope, element, attr, ctrl) {
             var digits;
 
             function inputValue(val) {
@@ -834,11 +888,11 @@ firstapp.directive('onlyDigits', function() {
     };
 });
 
-firstapp.directive('onlyDigits', function() {
+firstapp.directive('onlyDigits', function () {
     return {
         require: 'ngModel',
         restrict: 'A',
-        link: function(scope, element, attr, ctrl) {
+        link: function (scope, element, attr, ctrl) {
             var digits;
 
             function inputValue(val) {

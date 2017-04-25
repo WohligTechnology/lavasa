@@ -65,13 +65,13 @@
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-5 sf-list">  *School Name:</label>
                         <div class="col-sm-9 col-xs-7">
-                            <input type="text" class="sfa-drop" required>
+                            <input ng-model="formdata.schoolName" type="text" class="sfa-drop" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-5 sf-list">  *School Type:</label>
                         <div class="col-sm-9 col-xs-7">
-                            <select class="sfa-drop2 sf-list" required>
+                            <select ng-model="formdata.schoolType" class="sfa-drop2 sf-list" required>
                              <option style="display:none"></option>
                    <option>Co-Educational</option>
                    <option>Boys</option>
@@ -82,7 +82,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-5 sf-list">*School Category:</label>
                         <div class="col-sm-9 col-xs-7">
-                            <select class="sfa-drop2 sf-list" required>
+                            <select ng-model="formdata.schoolCategory" class="sfa-drop2 sf-list" required>
                              <option style="display:none"></option>
                    <option>Un-aided </option>
                    <option>Government </option>
@@ -93,7 +93,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-5 sf-list">*Affiliated Board:</label>
                         <div class="col-sm-9 col-xs-7">
-                            <select class="sfa-drop2 sf-list" required>
+                            <select class="sfa-drop2 sf-list" ng-model="formdata.affiliatedBoard" required>
                              <option style="display:none"></option>
                    <option>Central Board of Secondary Education (CBSE) </option>
                    <option>International Baccalaureate (IB)</option>
@@ -106,13 +106,14 @@
                         </div>
                     </div>
                     <div class="form-group">
+
                         <label class="col-sm-3 col-xs-5 sf-list">Upload School Logo:</label>
                         <!--<input type="file" />-->
                         <div class="col-sm-9 col-xs-7">
-                            <upload-image class="up-img sf-list" no-view></upload-image>
+                            <upload-image ng-model="formdata.schoolLogo" ng-disabled="type.disabled"></upload-image>
                             <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
                             <div class="hover-img">
-                                <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
+                                <img src="img/icon/x.png" alt="logo" class="img-responsive myicon" ng-click="removeImage(formdata.logoFile)">
                             </div>
                             <div class="hover-img">
                                 <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
@@ -136,19 +137,19 @@
                         </div>
                         <label class="col-sm-3 col-xs-4">*Line 1:</label>
                         <div class="col-sm-9 col-xs-8">
-                            <input type="text" class="sfa-drop sfa434" required>
+                            <input ng-model="formdata.schoolType" type="text" class="sfa-drop sfa434" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-4">Line 2:</label>
                         <div class="col-sm-9 col-xs-8">
-                            <input type="text" class="sfa-drop sfa434">
+                            <input ng-model="formdata.schoolType" type="text" class="sfa-drop sfa434">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-4"> *State:</label>
                         <div class="col-sm-3 col-xs-8">
-                            <select class="sfa-drop2 w147" required>
+                            <select ng-model="formdata.schoolType" class="sfa-drop2 w147" required>
                             <option style="display:none"></option>
                    <option>Maharashstra</option>
                   
@@ -157,7 +158,7 @@
                         </div>
                         <div class="col-sm-6 col-xs-12">
                             <label class="padd-right">*District:</label>
-                            <select class="sfa-drop2" required>
+                            <select ng-model="formdata.schoolType" class="sfa-drop2" required>
                             <option style="display:none"></option>
                    <option>Mumbai City </option>
                    <option>Mumbai Suburban</option>
@@ -170,7 +171,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-4">  *City:</label>
                         <div class="col-sm-3 col-xs-8">
-                            <select class="sfa-drop2 w147" required>
+                            <select ng-model="formdata.schoolType" class="sfa-drop2 w147" required>
                             <option style="display:none"></option>
                    <option>Kalyan-Dombivali </option>
                    <option>Mira-Bhayandar</option>
@@ -186,13 +187,14 @@
                         </div>
                         <div class="col-sm-6 col-xs-12">
                             <label class="Area-padd">*Area/Locality:</label>
-                            <input type="text" class=" sfa-drop2 w147" required>
+                            <input ng-model="formdata.schoolType" type="text" class=" sfa-drop2 w147" required>
                         </div>
                     </div>
                     <div class="form-group mar-l">
                         <label class="col-sm-3 col-xs-4">  *Pin Code:</label>
                         <div class="col-sm-9 col-xs-8">
-                            <input type="text" only-Digits ng-model="pincode" class="sfa-drop2 w147" minlengh="6" maxlength="6" required>
+                            <input ng-model="formdata.schoolType" type="text" only-Digits ng-model="pincode" class="sfa-drop2 w147" minlengh="6" maxlength="6"
+                                required>
                         </div>
                     </div>
                     <div class="d-padd mar-l">
@@ -206,7 +208,7 @@
                                     </div>
                                     <label class="col-sm-3 col-xs-3 "> *Contact Person:</label>
                                     <div class="col-sm-9 col-xs-9">
-                                        <input type="text" class=" sfa-in" required>
+                                        <input ng-model="formdata.schoolType" type="text" class=" sfa-in" required>
                                     </div>
                                 </div>
                             </div>
@@ -214,13 +216,14 @@
                                 <div class=" d-padd">
                                     <label class="col-sm-3 col-xs-3">  *Landline:</label>
                                     <div class="col-sm-3 col-xs-9">
-                                        <input type="text" only-Digits ng-model="landline" class="bor-t" required minlength="11" maxlength="11">
+                                        <input ng-model="formdata.schoolType" type="text" only-Digits ng-model="landline" class="bor-t" required minlength="11" maxlength="11">
                                     </div>
                                     <div class="col-sm-6 col-xs-12">
                                         <!--<label class="mob-padd"> *Mobile:</label>
                                             <input type="text" only-Digits ng-model="mobile" class="bor-t"  minlength="10" maxlength="10" required>-->
                                         <label class="email-padd2">*Mobile:</label>
-                                        <input type="text" only-Digits ng-model="mobile" class="bor-t" minlength="10" maxlength="10" required>
+                                        <input ng-model="formdata.schoolType" type="text" only-Digits ng-model="mobile" class="bor-t" minlength="10" maxlength="10"
+                                            required>
                                     </div>
                                 </div>
                             </div>
@@ -228,7 +231,7 @@
                                 <div class="d-padd">
                                     <label class="col-sm-3 col-xs-3 web-padd"> Website:</label>
                                     <div class="col-sm-9 col-xs-9">
-                                        <input type="text" class="bor-t">
+                                        <input ng-model="formdata.schoolType" type="text" class="bor-t">
                                     </div>
                                     <!--<label class="col-sm-3 padd-bott">  *Email:</label>
                                         <div class="col-sm-3">
@@ -243,10 +246,10 @@
                             <div class="form-group">
                                 <div class="col-xs-12 d-padd">
                                     <label class="mobileno-padd padd-bott">*Email:</label>
-                                    <input type="email" class="bor-t" required>
+                                    <input ng-model="formdata.schoolType" type="email" class="bor-t" required>
                                     <button class="btn btn-default sub-mit send-otp">Send OTP </button>
                                     <label class="enter-otp"> *Enter OTP:</label>
-                                    <input type="text" only-Digits ng-model="OTP" class="bor-t" required>
+                                    <input ng-model="formdata.schoolType" type="text" only-Digits ng-model="OTP" class="bor-t" required>
                                 </div>
                             </div>
                         </div>
@@ -256,23 +259,23 @@
                         <div class="form-group">
                             <label class="col-sm-3 col-xs-3">*Name:</label>
                             <div class="col-sm-9 col-xs-9">
-                                <input type="text" class="sfa-in bor-t" required>
+                                <input ng-model="formdata.schoolType" type="text" class="sfa-in bor-t" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 col-xs-3">Mobile:</label>
                             <div class="col-sm-3 col-xs-9">
-                                <input type="text" only-Digits ng-model="mobile" class="bor-t" minlength="10" maxlength="10">
+                                <input ng-model="formdata.schoolType" type="text" only-Digits ng-model="mobile" class="bor-t" minlength="10" maxlength="10">
                             </div>
                             <div class="col-sm-6 col-xs-12">
                                 <label class="land-padd "> Landline:</label>
-                                <input type="text" only-Digits ng-model="landline" class="bor-t" minlength="8" maxlength="11">
+                                <input ng-model="formdata.schoolType" type="text" only-Digits ng-model="landline" class="bor-t" minlength="8" maxlength="11">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 col-xs-3">*Email:</label>
                             <div class="col-sm-9 col-xs-9">
-                                <input type="email" class="bor-t" required>
+                                <input ng-model="formdata.schoolType" type="email" class="bor-t" required>
                             </div>
                         </div>
                     </div>
@@ -297,23 +300,23 @@
                             <div class="form-group d-padd details-top">
                                 <label class="col-sm-3 col-xs-3">*Name:</label>
                                 <div class="col-sm-9 col-xs-9">
-                                    <input type="text" class="sfa-in" name="$index" ng-model="x.name" required>
+                                    <input ng-model="formdata.schoolType" type="text" class="sfa-in" name="$index" ng-model="x.name" required>
                                 </div>
                             </div>
                             <div class="form-group  d-padd">
                                 <label class="col-sm-3 col-xs-3">*Designation:</label>
                                 <div class="col-sm-3 col-xs-9">
-                                    <input type="text" class="bor-t" ng-model="x.designation" required>
+                                    <input ng-model="formdata.schoolType" type="text" class="bor-t" ng-model="x.designation" required>
                                 </div>
                                 <div class="col-sm-6 col-xs-12">
                                     <label class="mb-padd"> *Mobile:</label>
-                                    <input type="text" only-Digits ng-model="landline" class="bor-t" minlength="10" maxlength="10">
+                                    <input ng-model="formdata.schoolType" type="text" only-Digits ng-model="landline" class="bor-t" minlength="10" maxlength="10">
                                 </div>
                             </div>
                             <div class="form-group d-padd">
                                 <label class="col-sm-3 col-xs-3">*E-mail:</label>
                                 <div class="col-sm-9 col-xs-9">
-                                    <input type="email" class="bor-t" ng-model="x.email" required>
+                                    <input ng-model="formdata.schoolType" type="email" class="bor-t" ng-model="x.email" required>
                                 </div>
                             </div>
                             <div class="form-group d-padd">
