@@ -30,6 +30,17 @@ var navigationservice = angular.module('navigationservice', [])
         }];
 
         return {
+            apiCallWithData: function (url, formData, callback) {
+                console.log("inside nav");
+
+                $http.post(adminurl + url, formData).then(function (data) {
+                    data = data.data;
+                    callback(data);
+
+                });
+            },
+
+
             getnav: function () {
                 return navigation;
             },
