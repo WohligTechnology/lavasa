@@ -784,6 +784,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             email: "",
             photo: ""
         };
+        $scope.formdata = {}
 
 
         $scope.firstTime = 0;
@@ -811,6 +812,73 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log("finalSportArray", $scope.finalSportArray);
             }
         };
+        $scope.teamSport = [];
+        $scope.racquetSports = [];
+        $scope.combatSports = [];
+        $scope.targetSports = [];
+        $scope.individualSports = [];
+
+        $scope.saveRegis = function (formdata) {
+            formdata.teamSports = $scope.teamSport
+            formdata.racquetSports = $scope.racquetSports
+            formdata.combatSports = $scope.combatSports
+            formdata.targetSports = $scope.targetSports
+            formdata.individualSports = $scope.individualSports
+
+            // formdata.serviceRequest = $scope.serviceList;
+            console.log("form", formdata);
+            $scope.url = "registration/saveRegistrationForm";
+            console.log($scope.url);
+            NavigationService.apiCallWithData($scope.url, formdata, function (data) {
+
+            });
+        }
+
+        //team sports
+
+        $scope.addTeamSports = function (formdata) {
+            // formdata.serviceRequest = $scope.serviceList;
+            console.log("formdata", formdata);
+            //document.getElementById(formdata).checked
+            $scope.teamSport.push(formdata);
+            // formdata.
+        }
+        //racquet sports
+        $scope.addRacquetSports = function (formdata) {
+            // formdata.serviceRequest = $scope.serviceList;
+            console.log("formdata", formdata);
+            //document.getElementById(formdata).checked
+            $scope.racquetSports.push(formdata);
+            // formdata.
+        }
+
+        //combatSports
+        $scope.addCombatSports = function (formdata) {
+            // formdata.serviceRequest = $scope.serviceList;
+            console.log("formdata", formdata);
+            //document.getElementById(formdata).checked
+            $scope.racquetSports.push(formdata);
+            // formdata.
+        }
+
+        //targetSports
+        $scope.addTargetSports = function (formdata) {
+            // formdata.serviceRequest = $scope.serviceList;
+            console.log("formdata", formdata);
+            //document.getElementById(formdata).checked
+            $scope.racquetSports.push(formdata);
+            // formdata.
+        }
+
+        //individualSports
+        $scope.addIndividualSports = function (formdata) {
+            // formdata.serviceRequest = $scope.serviceList;
+            console.log("formdata", formdata);
+            //document.getElementById(formdata).checked
+            $scope.individualSports.push(formdata);
+            // formdata.
+        }
+
 
 
         $scope.template = TemplateService.changecontent("formregis");
@@ -831,9 +899,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             });
         };
-        $scope.formdata = {}
+
         $scope.removeImage = function (data) {
-            console.log("remove me", data);
+            console.log("remove me", document.getElementById("inputImage").value = null);
+            $scope.formdata.schoolLogo = null;
         }
     })
 
