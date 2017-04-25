@@ -6,7 +6,8 @@ var firstapp = angular.module('firstapp', [
     'navigationservice',
     'pascalprecht.translate',
     'angulartics',
-    'angulartics.google.analytics'
+    'angulartics.google.analytics',
+    'imageupload'
 ]);
 
 firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, cfpLoadingBarProvider) {

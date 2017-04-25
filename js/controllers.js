@@ -689,6 +689,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             Mobile: "",
             Email: ""
         };
+        $scope.form = {};
 
         $scope.firstTime = 0;
         if ($scope.firstTime == 0) {
@@ -714,7 +715,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
         $scope.removeSportForm = function (index) {
             console.log("hello remove", index);
-            if (index != 0) {
+            if (index !== 0) {
                 $scope.finalSportArray.splice(index, 1);
                 console.log("finalSportArray", $scope.finalSportArray);
             }
