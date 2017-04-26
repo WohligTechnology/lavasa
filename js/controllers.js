@@ -697,6 +697,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.firstTime++;
         }
 
+        $scope.saveAthelete = function (formdata) {
+            console.log("form", formdata);
+            $scope.url = "Athelete/saveAthelete";
+            console.log($scope.url);
+            NavigationService.apiCallWithData($scope.url, formdata, function (data) {
+
+            });
+        }
+
+
         $scope.addSportForm = function () {
 
 
