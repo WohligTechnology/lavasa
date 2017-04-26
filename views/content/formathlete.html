@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8 col-md-push-2">
+        <div class="col-md-8 col-md-push-2 col-xs-12">
             <div class="box box-padd">
                 <div>
                     <p class="para sf-list"><span class="blue fs-14">Kindly Note:</span> This is a one-time registration process. Completion of this
@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8 col-md-push-2">
+        <div class="col-md-8 col-md-push-2 col-xs-12">
             <div>
                 <div>
                     <p class="d-padd para2 sf-list">If you have participated in SFA Championships before, kindly enter your</p>
@@ -59,6 +59,82 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+        <div class="row">
+            <div class="col-md-8 col-md-push-2 col-xs-12">
+                <form class="form-horizontal" ng-submit="test(xs)">
+                    <div class="wid-hei">
+                        <div class="step1 fs-14">
+                            Step 1: Personal Details
+                        </div>
+                    </div>
+                    <div class="box box-padd para2 box-hei2">
+                        <div class="form-group">
+                            <label class="col-sm-3 col-xs-5 sf-list">*Select your School:</label>
+                            <div class="col-sm-9 col-xs-7">
+                                <select class="sfa-drop" required>
+                           </select>
+                            </div>
+                            <div class="col-sm-12 col-xs-12">
+                                <p class="text-center sf-list">or</p>
+                                <p class="text-center sf-list">In case you do not find your school, click on add school.</p>
+                                <div class="text-center">
+                                    <button class="btn btn-default sub-mit sf-list" ng-click="goto()">Add School</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-if="showSchool">
+                            <div>
+                                <div class="x-img3">
+                                    <div class="x-img right27" ng-click="goto()">
+                                        <img src="img/icon/x.png" alt="logo" class="img-responsive  pull-right">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 col-xs-4 sf-list">  *School Name:</label>
+                                    <div class="col-sm-9 col-xs-8">
+                                        <input type="text" class="sfa-drop sf-list" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 col-xs-4 sf-list">  *Area/Locality:</label>
+                                    <div class="col-sm-9 col-xs-8">
+                                        <input type="text" class="sfa-drop sf-list" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 col-xs-4 sf-list">  *School Contact:</label>
+                                    <div class="col-sm-9 col-xs-8">
+                                        <input type="text" only-Digits ng-model="mobile" class="sfa-drop sf-list" minlength="11" maxlength="11" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="form-group">
+                            <label class="col-sm-5 col-xs-12 sf-list">Upload School ID Card OR Report Card:</label>
+                            <div class="col-sm-7 col-xs-12">
+                                 <upload-image class="up-img ng-isolate-scope" no-view></upload-image>
+                                <div class="hover-img">
+                                    <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
+                                </div>
+                                <div class="hover-img">
+                                    <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
+                                    <div class="iconinfo sf-list">
+                                        <p>This is to verify that you are an athlete from the selected school</p>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>-->
+                      
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <h4 class="blue fs-14">Athlete Details</h4>
+                            </div>
+                            <label class="col-sm-3 col-xs-4 sf-list">*Surname:</label>
+                            <div class="col-sm-9 col-xs-8">
+                                <input type="text" class="sfa-drop sf-list" required>
+=======
     <div class="row">
         <div class="col-md-8 col-md-push-2">
             <form class="form-horizontal" ng-submit="test(xs)">
@@ -124,9 +200,37 @@
                                 <div class="iconinfo">
                                     <p>This is to verify that you are an athlete from the selected school</p>
                                 </div>
+>>>>>>> 8945db65a837461fc36845cedd8711a94b012445
                             </div>
                             <!--<label class="kindly-up up-m175">Kindly upload only .jpg or .png format. Maximum file size 1MB.</label>-->
                         </div>
+<<<<<<< HEAD
+                        <div class="form-group">
+                            <label class="col-sm-3 col-xs-4 sf-list">*First Name:</label>
+                            <div class="col-sm-9 col-xs-8">
+                                <input type="text" class="sfa-drop sf-list" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 col-xs-4 sf-list">Middle Name:</label>
+                            <div class="col-sm-9 col-xs-8">
+                                <input type="text" class="sfa-drop sf-list">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 col-xs-4 sf-list">*Gender:</label>
+                            <!--<input type="radio" name="gender" value="male"><label class="padd-lr"> Male</label>
+                            <input type="radio" name="gender" value="male"><label class="padd-lr"> Female</label>-->
+                            <div class="col-sm-9 col-xs-8">
+                                <input type="radio" id="radio04" name="radio" value="male"><label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
+                                <input type="radio" id="radio03" name="radio" value="male"><label for="radio03" class="padd-lr sf-list"><span></span>Female</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 col-xs-4 sf-list">  *Grade/Standard:</label>
+                            <div class="col-sm-3 col-xs-8">
+                                <select class="sfa-drop2 sfa4 sf-list" required>
+=======
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
@@ -162,17 +266,26 @@
                         <label class="col-sm-3">  *Grade/Standard:</label>
                         <div class="col-sm-3">
                             <select class="sfa-drop2 sfa4" required>
+>>>>>>> 8945db65a837461fc36845cedd8711a94b012445
                             <option style="display:none"></option>
-                   <option>Jr. KG </option>
+                   <option>Jr. KG </option> 
                    <option>Sr. KG </option>
                    
                     
                       </select>
+<<<<<<< HEAD
+                            </div>
+                            <label class="col-sm-2  sf-list">  Blood Group:</label>
+                            <!--<input type="text" class="bor-t" required minlength="10" maxlength="10">-->
+                            <div class="col-sm-4 ">
+                                <select class="sfa-drop2 sfa4 sf-list" required>
+=======
                         </div>
                         <label class="col-sm-2">  Blood Group:</label>
                         <!--<input type="text" class="bor-t" required minlength="10" maxlength="10">-->
                         <div class="col-sm-4">
                             <select class="sfa-drop2 sfa4" required>
+>>>>>>> 8945db65a837461fc36845cedd8711a94b012445
                             <option style="display:none"></option>
                    <option>AB - </option>
                    <option>AB + </option>
@@ -192,6 +305,77 @@
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
+                        <!--<div class="form-group">
+                            <label class="col-sm-4 col-xs-5 sf-list">Upload Photograph:</label>
+                            <div class="col-sm-8 col-xs-7">
+                                <upload-image class="up-img " no-view></upload-image>
+                                <div class="hover-img">
+                                    <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
+                                </div>
+                                <div class="hover-img">
+                                    <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
+                                    <div class="iconinfo sf-list">
+                                        <p>This photograph will be displayed on your SFA Athlete profile.</p>
+                                    </div>
+                                </div>
+                                <label class="kindly-up up-m175 sf-list">Kindly upload only .jpg or .png format. Maximum file size 1MB.</label>
+                            </div>
+                        </div>-->
+                        <div class="form-group">
+                            <label class="col-sm-3 col-xs-3  sf-list">*Date Of Birth:</label>
+                            <div class="col-sm-9 col-xs-9">
+                                <input type="text" placeholder="dd" class="bor-t date-month sf-list" required>
+                                <input type="text" placeholder="mm" class="bor-t date-month sf-list" required>
+                                <input type="text" placeholder="yyyy" class="bor-t date-yr sf-list" required>
+                                <label class="padd-25 sf-list">  Age:</label>
+                            </div>
+                        </div>
+                        <!--<div class="form-group">
+                            <div class="col-sm-12 col-xs-12">
+                               <label class="padd-r12">Upload Age Proof:</label>
+ -                          
+ -                           
+ +                    <select class="sfa-drop2" required>
+                              <option style="display:none"></option>
+                      <option>Adhaar Card </option>
+ -                   <option>Birth Certificate + Photo ID </option>
+ +                   <option >Birth Certificate + Photo ID </option>
+                      <option>PAN Card</option>
+                       <option>Passport</option>
+                          </select>
+                              <label class=" myupload">   <upload-image class="up-img" no-view></upload-image></label>
+ +                    <label class=" myupload" ><upload-image class="up-img" no-view></upload-image></label>
+                                <div class="hover-img">
+                                    <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
+                                </div>
+                                <div class="hover-img hover-img3">
+                                    <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
+                                    <div class="iconinfo age sf-list">
+                                        <p>For age verification</p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>-->
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <h4 class="blue fs-14">Have you played National/State/District tournaments? (Optional)</h4>
+                                <input type="radio" id="radio07" name="radio" value="male" ng-click="myshow=true">
+                                <label for="radio07" class="padd-lr sf-list"><span></span>Yes</label>
+                                <input type="radio" id="radio08" name="radio" value="male"><label for="radio08" class="padd-lr sf-list"><span></span>No</label>
+                            </div>
+                        </div>
+                        <div class="d-padd mar-l" ng-if="myshow" ng-repeat="arr in sportsLevelChunkedArray track by $index">
+                            <!--ng-repeat="x in sportsLevelArray track by $index"-->
+                            <div class="box3 box3-display" ng-if="arr[0] ">
+                                <div class="x-img2">
+                                    <img src="img/icon/x.png" ng-click="removeSportLevelForm()" alt="logo" class="img-responsive myicon pull-right">
+                                </div>
+                                <div class="yes-level sf-list">
+                                    <label class="sportlevel">Level:</label>
+                                    <select class="sfa-drop2 sfa-drop5 sf-list" required>
+=======
                     </div>
                     <div class="form-group">
                         <label class="col-sm-4">Upload Photograph:</label>
@@ -259,15 +443,23 @@
                             <div class="yes-level">
                                 <label class="sportlevel">Level:</label>
                                 <select class="sfa-drop2 sfa-drop5" required>
+>>>>>>> 8945db65a837461fc36845cedd8711a94b012445
                             <option style="display:none"></option>
                    <option>National</option>
                    <option>State</option>
                     
                         </select>
+<<<<<<< HEAD
+                                </div>
+                                <div class="">
+                                    <label class="sportlevel sf-list">Sport:</label>
+                                    <select class="sfa-drop2 sf-list" required>
+=======
                             </div>
                             <div class="">
                                 <label class="sportlevel">Sport:</label>
                                 <select class="sfa-drop2" required>
+>>>>>>> 8945db65a837461fc36845cedd8711a94b012445
                             <option style="display:none"></option>
                    <option>Basketball</option>
                    <option>Volleyball</option>
@@ -296,6 +488,15 @@
                                            <option>Chess</option>
                                         </select>
                             </div>
+<<<<<<< HEAD
+                            <div class="box3 box3-display" ng-if="arr[1]">
+                                <div class="x-img2">
+                                    <img src="img/icon/x.png" ng-click="removeSportLevelForm()" alt="logo" class="img-responsive myicon pull-right">
+                                </div>
+                                <div class="yes-level">
+                                    <label class="sportlevel sf-list">Level:</label>
+                                    <select class="sfa-drop2 sfa-drop5 sf-list" required>
+=======
                             <div class="plus">
                                 <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportLevelForm(n)">
                             </div>
@@ -307,15 +508,23 @@
                             <div class="yes-level">
                                 <label class="sportlevel">Level:</label>
                                 <select class="sfa-drop2 sfa-drop5" required>
+>>>>>>> 8945db65a837461fc36845cedd8711a94b012445
                             <option style="display:none"></option>
                    <option>National</option>
                    <option>State</option>
                     
                         </select>
+<<<<<<< HEAD
+                                </div>
+                                <div class="">
+                                    <label class="sportlevel sf-list">Sport:</label>
+                                    <select class="sfa-drop2 sf-list" required>
+=======
                             </div>
                             <div class="">
                                 <label class="sportlevel">Sport:</label>
                                 <select class="sfa-drop2" required>
+>>>>>>> 8945db65a837461fc36845cedd8711a94b012445
                             <option style="display:none"></option>
                    <option>Basketball</option>
                    <option>Volleyball</option>
@@ -360,10 +569,17 @@
                    <option>State</option>
                     
                         </select>
+<<<<<<< HEAD
+                                </div>
+                                <div class="">
+                                    <label class="sportlevel sf-list">Sport:</label>
+                                    <select class="sfa-drop2 sf-list" required>
+=======
                             </div>
                             <div class="">
                                 <label class="sportlevel">Sport:</label>
                                 <select class="sfa-drop2" required>
+>>>>>>> 8945db65a837461fc36845cedd8711a94b012445
                             <option style="display:none"></option>
                    <option>Basketball</option>
                    <option>Volleyball</option>
@@ -397,6 +613,37 @@
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
+                    <div class="wid-hei top-mar">
+                        <div class="step1 fs-14">
+                            Step 2: Contact Details
+                        </div>
+                    </div>
+                    <div class="box box-padd para2">
+                        <div class="form-group">
+                            <label class="mobileno-padd mobileno-mob sf-list">*Mobile No:</label>
+                            <input type="text" only-Digits ng-model="mobile" class="bor-t" minlength="10" maxlength="10" required>
+                            <button class="btn btn-default sub-mit send-otp sf-list">Send OTP </button>
+                            <label class="enter-otp sf-list"> *Enter OTP:</label>
+                            <input type="text" only-Digits ng-model="OTP" class="bor-t" required>
+                            <div class="hover-img">
+                                <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
+                                <div class="iconinfo iconinfo3 sf-list">
+                                    <p>Kindly ensure the contact details given below are correct. A verification One Time Password
+                                        (OTP) will be sent. We welcome parents to enter their details in this section. All
+                                        important details regarding SFA Mumbai 2017 such asconfirmation of registration,
+                                        draws and schedules will besent on the same.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="emailid-padd email-mob3 sf-list">*Email:</label>
+                            <input type="email" class="bor-t" required>
+                            <button class="btn btn-default sub-mit send-otp sf-list">Send OTP </button>
+                            <label class="enter-otp sf-list"> *Enter OTP:</label>
+                            <input type="text" only-Digits ng-model="OTP" class="bor-t" required>
+                            <!--<div class="hover-img">
+=======
                     <div>
                     </div>
                 </div>
@@ -429,6 +676,7 @@
                         <label class="enter-otp"> *Enter OTP:</label>
                         <input type="text" only-Digits ng-model="OTP" class="bor-t" required>
                         <!--<div class="hover-img">
+>>>>>>> 8945db65a837461fc36845cedd8711a94b012445
                                     <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
                                     <div class="iconinfo iconinfo3">
                                         <p>Kindly ensure the contact details given below are correct. A verification One Time
@@ -445,6 +693,27 @@
                                 <input type="email" class="bor-t" required>
                                 </div>
                             </div>-->
+<<<<<<< HEAD
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <h4 class="blue fs-14">Residential Address</h4>
+                            </div>
+                            <label class="col-sm-3 col-xs-3 sf-list">*Line 1:</label>
+                            <div class="col-sm-9 col-xs-9">
+                                <input type="text" class="sfa-drop" required>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-3 col-xs-3 sf-list">Line 2:</label>
+                            <div class="col-sm-9 col-xs-9">
+                                <input type="text" class="sfa-drop">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 col-xs-3 sf-list"> *State:</label>
+                            <div class="col-sm-3 col-xs-9">
+                                <select class="sfa-drop2 w147" required>
+=======
                     <div class="form-group">
                         <div class="col-sm-12">
                             <h4 class="blue">Residential Address</h4>
@@ -464,14 +733,22 @@
                         <label class="col-sm-3"> *State:</label>
                         <div class="col-sm-3">
                             <select class="sfa-drop2 w147" required>
+>>>>>>> 8945db65a837461fc36845cedd8711a94b012445
                             <option style="display:none"></option>
                    <option>Maharashstra </option>
                    
                       </select>
+<<<<<<< HEAD
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <label class="padd-right dist-mob sf-list">*District:</label>
+                                <select class="sfa-drop2 w147 sf-list" required>
+=======
                         </div>
                         <div class="col-sm-6">
                             <label class="padd-right">*District:</label>
                             <select class="sfa-drop2 w147" required>
+>>>>>>> 8945db65a837461fc36845cedd8711a94b012445
                             <option style="display:none"></option>
                    <option>Mumbai City </option>
                    <option>Mumbai Suburban</option>
@@ -480,11 +757,18 @@
                       <option>Raigad</option> 
                       </select>
                         </div>
+<<<<<<< HEAD
+                        <div class="form-group">
+                            <label class="col-sm-3 col-xs-3 sf-list">  *City</label>
+                            <div class="col-sm-3 col-xs-9">
+                                <select class="sfa-drop2 w147 sf-list" required>
+=======
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3">  *City</label>
                         <div class="col-sm-3">
                             <select class="sfa-drop2 w147" required>
+>>>>>>> 8945db65a837461fc36845cedd8711a94b012445
                             <option style="display:none"></option>
                    <option>Kalyan-Dombivali </option>
                    <option>Mira-Bhayandar</option>
@@ -497,11 +781,72 @@
                      <option>Raigad</option>
                      <option>Thane</option>
                </select>
+<<<<<<< HEAD
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <label class="padd-r4 pin-mob sf-list">  *Pin Code:</label>
+                                <input type="text" only-Digits ng-model="pin" class="sfa-drop2 w147" minlength="6" maxlength="6" required>
+                            </div>
+=======
+>>>>>>> 8945db65a837461fc36845cedd8711a94b012445
                         </div>
                         <div class="col-sm-6">
                             <label class="padd-r4">  *Pin Code:</label>
                             <input type="text" only-Digits ng-model="pin" class="sfa-drop2 w147" minlength="6" maxlength="6" required>
                         </div>
+<<<<<<< HEAD
+                        <div class="d-padd mar-l">
+                            <h4 class="blue pb10 fs-14">Parent/Guardian Details</h4>
+                            <p class="check-box ">
+                                <label class="sf-list" ng-click="termcondition()">*Terms & Conditions</label>
+                                <input type="checkbox" id="test5" />
+                                <label for="test5"></label>
+                            </p>
+                            <div class="box2" ng-repeat="x in finalSportArray track by $index">
+                                <div class="d-padd">
+                                    <div class="x-img3">
+                                        <div class="x-img" ng-click="removeSportForm($index)">
+                                            <img src="img/icon/x.png" alt="logo" class="img-responsive  pull-right">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <div class="relation-top">
+                                            <label class="col-sm-3 col-xs-3 sf-list"> *Relation:</label>
+                                            <!--<input type="radio" name="gender" value="male" ng-click="myshow=true"> <label class="padd-lr">Mother</label>
+                                    <input type="radio" name="gender" value="male" ng-click="myshow=true"><label class="padd-lr"> Father</label>
+                                    <input type="radio" name="gender" value="male"><label class="padd-lr"> Guardian</label>-->
+                                            <div class="col-sm-9 col-xs-9 sf-list">
+                                                <input type="radio" id="radio02" name="radio" value="male"><label for="radio02"
+                                                    class="padd-lr sf-list"><span></span>Mother</label>
+                                                <input type="radio" id="radio09" name="radio" value="male"><label for="radio09"
+                                                    class="padd-lr sf-list"><span></span>Father</label>
+                                                <input type="radio" id="radio10" name="radio" value="male"><label for="radio10"
+                                                    class="padd-lr sf-list"><span></span>Guardian</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 col-xs-3 sf-list">*Name:</label>
+                                        <div class="col-sm-9 col-xs-9">
+                                            <input type="text" class="sfa-drop" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 col-xs-3 sf-list">*Surname:</label>
+                                        <div class="col-sm-9 col-xs-9">
+                                            <input type="text" class="sfa-drop" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 col-xs-3 sf-list"> *Mobile:</label>
+                                        <div class="col-sm-3 col-xs-9">
+                                            <input type="text" only-Digits ng-model="mobile" class="bor-t" minlength="10" maxlength="10" required>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-12">
+                                            <label class="email-padd3 email-mob sf-list">  *Email:</label>
+                                            <input type="email" class="bor-t" required>
+                                        </div>
+=======
                     </div>
                     <div class="d-padd mar-l">
                     </div>
@@ -545,6 +890,7 @@
                                     <label class="col-sm-3">*Surname:</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="sfa-drop" required>
+>>>>>>> 8945db65a837461fc36845cedd8711a94b012445
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -573,11 +919,20 @@
                     <!--<div class="d-padd">
                             <h4>Paayment Gateway:</h4>
                         </div>-->
+<<<<<<< HEAD
+                        <div class="d-padd para2">
+                            <div class="form-group ">
+                                <input type="radio" id="radio11" name="radio" value="male"><label for="radio11" class="padd-lr sf-list"><span></span>Cash</label>
+                                <input type="radio" id="radio12" name="radio" value="male"><label for="radio12" class="padd-lr sf-list"><span></span>Cheque</label>
+                                <input type="radio" id="radio13" name="radio" value="male"><label for="radio13" class="padd-lr sf-list"><span></span>Online PAYU</label>
+                            </div>
+=======
                     <div class="d-padd para2">
                         <div class="form-group ">
                             <input type="radio" id="radio11" name="radio" value="male"><label for="radio11" class="padd-lr"><span></span>Cash</label>
                             <input type="radio" id="radio12" name="radio" value="male"><label for="radio12" class="padd-lr"><span></span>Cheque</label>
                             <input type="radio" id="radio13" name="radio" value="male"><label for="radio13" class="padd-lr"><span></span>Online PAYU</label>
+>>>>>>> 8945db65a837461fc36845cedd8711a94b012445
                         </div>
                     </div>
                 </div>
