@@ -1246,7 +1246,7 @@ img{
 //     margin-left: 20px;
 // }
 .attachbtn {
-    width: 96px;
+    width: 123px;
     height: 30px;
 }
 .padd-right {
@@ -1254,7 +1254,7 @@ img{
     padding-top: 8px;
 }
 .Area-padd{
-      padding-right: 32px;
+      padding-right: 36px;
     padding-top: 11px;
 }
 .send-otp{
@@ -1267,12 +1267,12 @@ img{
 }
 .land-padd {
     padding-left: 0px; 
-    padding-right: 34px;
+    padding-right: 37px;
     padding-top: 15px;
 }
 .mb-padd {
      padding-left: 0px; 
-    padding-right: 38px;
+    padding-right: 36px;
     padding-top: 15px;
 }
 .dis-inline{
@@ -1290,9 +1290,89 @@ img{
 .sfa434 {
     width: 170px;
 }
-
+.right27 {
+    right: 14px;
+}
 // .d-padd{
 //   padding-left: 0px;
 // }
+
+
+.date-month {
+    width: 39px;
+    height: 14px;
+    text-align: center;
+}
+
+
+.date-yr {
+    width: 40px;
+    height: 14px;
+}
+.padd-25 {
+     padding: 0 0px; 
+    margin-left: 11px;
+}
+.hover-img {
+  margin-left: 21px;
+
+}
+.hover-img3{
+  margin-left: 5px;
+}
+
+.myicon {
+    width: 17px;
+    height: 17px;
+}
+.myupload2{
+  padding-right: 23px;
+}
+.sfa-drop2 {
+    width: 110px;
+}
+input[type="radio"] + label{
+  font-size: 10px;
+}
+.padd-right {
+    padding-right: 66px;
+}
+.pin-mob{
+padding-right: 30px;
+    padding-top: 10px;
+}
+.email-mob {
+  padding-right: 41px;
+    padding-top: 19px;
+}
+.mobno-mob{
+      padding-right: 36px;
+    padding-top: 17px;
+}
+.email2-mob{
+  padding-right: 44px;
+}
+.mobileno-mob {
+  padding-right: 9px;
+}
+.send-otp {
+    width: 72px;
+}
+.send-otp {
+    margin-left: 1px;
+}
+.enter-otp {
+    padding-right: 9px;
+    padding-left: 13px;
+    padding-bottom: 10px;
+        padding-top: 14px;
+}
+.email-mob3 {
+      padding-right: 32px;
+}
+.dist-mob {
+      padding-right: 37px;
+}
+
 
 }
