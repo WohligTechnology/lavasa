@@ -678,7 +678,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     .controller('FormathleteCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
         //Used to name the .html file
-        $scope.finalSportArray = [];
+        $scope.sportsDepartment = [];
         $scope.sportsLevelArray = [];
         $scope.sportsLevelArray.push({});
         $scope.m = 0;
@@ -693,14 +693,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.firstTime = 0;
         if ($scope.firstTime == 0) {
-            $scope.finalSportArray.push($scope.sportDepart);
+            $scope.sportsDepartment.push($scope.sportDepart);
             $scope.firstTime++;
         }
 
         $scope.addSportForm = function () {
 
 
-            if ($scope.finalSportArray.length < 3) {
+            if ($scope.sportsDepartment.length < 3) {
                 $scope.sportDepart = {
                     Relation: null,
                     Name: null,
@@ -708,16 +708,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     Mobile: null,
                     Email: null
                 };
-                $scope.finalSportArray.push($scope.sportDepart);
-                console.log("finalSportArray", $scope.finalSportArray);
+                $scope.sportsDepartment.push($scope.sportDepart);
+                console.log("sportsDepartment", $scope.sportsDepartment);
 
             }
         };
         $scope.removeSportForm = function (index) {
             console.log("hello remove", index);
             if (index !== 0) {
-                $scope.finalSportArray.splice(index, 1);
-                console.log("finalSportArray", $scope.finalSportArray);
+                $scope.sportsDepartment.splice(index, 1);
+                console.log("sportsDepartment", $scope.sportsDepartment);
             }
         };
         $scope.goto = function () {
@@ -738,7 +738,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log("hello remove", index);
             if (index != 0) {
                 $scope.sportsLevelArray.splice(index, 1);
-                console.log("finalSportArray", $scope.finalSportArray);
+                console.log("sportsDepartment", $scope.sportsDepartment);
                 $scope.sportsLevelChunkedArray = _.chunk($scope.sportsLevelArray, 3);
             }
         };
@@ -777,7 +777,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     // this controller is for fromregis & other...
     .controller('FormregisCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
         //Used to name the .html file
-        $scope.finalSportArray = [];
+        $scope.formData = {}
+        $scope.formData.sportsDepartment = [];
         $scope.sportDepart = {
             name: "",
             designation: "",
@@ -789,27 +790,27 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
         $scope.firstTime = 0;
         if ($scope.firstTime == 0) {
-            $scope.finalSportArray.push($scope.sportDepart);
+            $scope.formData.sportsDepartment.push($scope.sportDepart);
             $scope.firstTime++;
         }
 
         $scope.addSportForm = function () {
-            if ($scope.finalSportArray.length < 3) {
+            if ($scope.formData.sportsDepartment.length < 3) {
                 $scope.sportDepart = {
                     name: null,
                     designation: null,
                     email: null,
                     photo: null
                 };
-                $scope.finalSportArray.push($scope.sportDepart);
-                console.log("finalSportArray", $scope.finalSportArray);
+                $scope.formData.sportsDepartment.push($scope.sportDepart);
+                console.log("sportsDepartment", $scope.formData.sportsDepartment);
             }
         };
         $scope.removeSportForm = function (index) {
             console.log("hello remove", index);
             if (index != 0) {
-                $scope.finalSportArray.splice(index, 1);
-                console.log("finalSportArray", $scope.finalSportArray);
+                $scope.formData.sportsDepartment.splice(index, 1);
+                console.log("sportsDepartment", $scope.formData.sportsDepartment);
             }
         };
         $scope.teamSport = [];
