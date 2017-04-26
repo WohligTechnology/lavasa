@@ -858,7 +858,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // formdata.serviceRequest = $scope.serviceList;
             console.log("formdata", formdata);
             //document.getElementById(formdata).checked
-            $scope.racquetSports.push(formdata);
+            $scope.combatSports.push(formdata);
             // formdata.
         }
 
@@ -867,7 +867,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // formdata.serviceRequest = $scope.serviceList;
             console.log("formdata", formdata);
             //document.getElementById(formdata).checked
-            $scope.racquetSports.push(formdata);
+            $scope.targetSports.push(formdata);
             // formdata.
         }
 
