@@ -110,7 +110,11 @@
                         <label class="col-sm-3 col-xs-5 sf-list">Upload School Logo:</label>
                         <!--<input type="file" />-->
                         <div class="col-sm-9 col-xs-7">
-                            <upload-image ng-model="formData.schoolLogo" ng-disabled="type.disabled"></upload-image>
+                              <button class="btn btn-default myupload">Upload </button>
+                            <div class="dirctive-op">
+                                <upload-image class="up-img ng-isolate-scope" no-view></upload-image>
+                            </div>
+                            <!--<upload-image ng-model="formData.schoolLogo" ng-disabled="type.disabled"></upload-image>-->
                             <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
                             <div class="hover-img">
                                 <img src="img/icon/x.png" alt="logo" class="img-responsive myicon" ng-click="removeImage(formData.schoolLogo)">
@@ -221,7 +225,7 @@
                                     <div class="col-sm-6 col-xs-12">
                                         <!--<label class="mob-padd"> *Mobile:</label>
                                             <input type="text" only-Digits ng-model="mobile" class="bor-t"  minlength="10" maxlength="10" required>-->
-                                        <label class="email-padd2">*Mobile:</label>
+                                        <label class="email-padd2 mobno-mob">*Mobile:</label>
                                         <input ng-model="formData.mobile" type="text" only-Digits ng-model="mobile" class="bor-t" minlength="10" maxlength="10" required>
                                     </div>
                                 </div>
@@ -323,10 +327,14 @@
                             <div class="form-group d-padd">
                                 <!--<label>Upload Photograph:</label><input type="file" class="bor-t">
                                 <i class="fa fa-plus-circle" aria-hidden="true"></i>-->
-                                <label class="col-sm-4">Upload Photograph:</label>
+                                <label class="col-sm-4 col-xs-4">Upload Photograph:</label>
                                 <!--<input type="file" />-->
-                                <div class="col-sm-8">
-                                    <upload-image class="up-img" no-view required ng-model="x.photo"></upload-image>
+                                <div class="col-sm-8 col-xs-8">
+                                    <!--<upload-image class="up-img" no-view required ng-model="x.photo"></upload-image>-->
+                                      <button class="btn btn-default myupload">Upload </button>
+                            <div class="dirctive-op">
+                                <upload-image class="up-img ng-isolate-scope" no-view></upload-image>
+                            </div>
                                     <div class="hover-img">
                                         <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
                                     </div>
