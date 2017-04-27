@@ -697,19 +697,28 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.firstTime++;
         }
 
-        $scope.saveAthelete = function (formdata) {
+        //saves Athelete to database
+        $scope.saveAthelete = function (formdata) { //formdata is data or body for this url
             console.log("form", formdata);
             $scope.url = "Athelete/saveAthelete";
             console.log($scope.url);
             NavigationService.apiCallWithData($scope.url, formdata, function (data) {
+                //links navigation services 
 
+            });
+        }
+
+        //get school name for binding with dropdown
+        $scope.getRegisteredSchoolName = function (formdata) {
+            console.log("form", formdata);
+            NavigationService.getSchoolName(formdata, function (data) {
+                $scope.schoolName = data.schoolName;
+                console.log("schoolName", $scope.schoolName);
             });
         }
 
 
         $scope.addSportForm = function () {
-
-
             if ($scope.sportsDepartment.length < 3) {
                 $scope.sportDepart = {
                     Relation: null,
@@ -723,6 +732,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             }
         };
+
         $scope.removeSportForm = function (index) {
             console.log("hello remove", index);
             if (index !== 0) {
@@ -730,6 +740,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log("sportsDepartment", $scope.sportsDepartment);
             }
         };
+
         $scope.goto = function () {
             $scope.showSchool = !$scope.showSchool;
         }
@@ -784,7 +795,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         };
     })
 
-    // this controller is for fromregis & other...
+    // this controller is for fromregis 
     .controller('FormregisCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
         //Used to name the .html file
         $scope.formData = {}
@@ -829,6 +840,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.targetSports = [];
         $scope.individualSports = [];
 
+        //save registerform to database
         $scope.saveRegis = function (formdata) {
             formdata.teamSports = $scope.teamSport
             formdata.racquetSports = $scope.racquetSports
@@ -845,49 +857,48 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         }
 
-        //team sports
-
+        //team sports array
         $scope.addTeamSports = function (formdata) {
             // formdata.serviceRequest = $scope.serviceList;
             console.log("formdata", formdata);
             //document.getElementById(formdata).checked
             $scope.teamSport.push(formdata);
-            // formdata.
+
         }
-        //racquet sports
+
+        //racquet sports array
         $scope.addRacquetSports = function (formdata) {
             // formdata.serviceRequest = $scope.serviceList;
             console.log("formdata", formdata);
             //document.getElementById(formdata).checked
             $scope.racquetSports.push(formdata);
-            // formdata.
         }
 
-        //combatSports
+        //combatSports array
         $scope.addCombatSports = function (formdata) {
             // formdata.serviceRequest = $scope.serviceList;
             console.log("formdata", formdata);
             //document.getElementById(formdata).checked
             $scope.combatSports.push(formdata);
-            // formdata.
+
         }
 
-        //targetSports
+        //targetSports array
         $scope.addTargetSports = function (formdata) {
             // formdata.serviceRequest = $scope.serviceList;
             console.log("formdata", formdata);
             //document.getElementById(formdata).checked
             $scope.targetSports.push(formdata);
-            // formdata.
+
         }
 
-        //individualSports
+        //individualSports array
         $scope.addIndividualSports = function (formdata) {
             // formdata.serviceRequest = $scope.serviceList;
             console.log("formdata", formdata);
             //document.getElementById(formdata).checked
             $scope.individualSports.push(formdata);
-            // formdata.
+
         }
 
 
@@ -911,6 +922,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             });
         };
 
+        //removes image uploaded
         $scope.removeImage = function (data) {
             console.log("remove me", document.getElementById("inputImage").value = null);
             $scope.formdata.schoolLogo = null;

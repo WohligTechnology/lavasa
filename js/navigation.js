@@ -445,6 +445,13 @@ var navigationservice = angular.module('navigationservice', [])
                     data: request
                 }).success(callback);
             },
+            getSchoolName: function (request, callback) {
+                $http({
+                    url: adminurl + 'resistration/search',
+                    method: 'POST',
+                    data: request
+                }).success(callback);
+            },
             getSportRoundLeague: function (request, callback) {
                 $http({
                     url: adminurl + 'league/getSportRoundLeague',
@@ -452,7 +459,6 @@ var navigationservice = angular.module('navigationservice', [])
                     data: request
                 }).success(callback);
             },
-
             getMedal: function (formData, callback) {
                 $http.post(adminurl + 'medal/getStudentMedal', formData).success(callback);
             },
