@@ -198,7 +198,11 @@
                     <div class="form-group">
                         <label class="col-sm-4 col-xs-5 sf-list">Upload Photograph:</label>
                         <div class="col-sm-8 col-xs-7">
-                            <upload-image class="up-img " no-view></upload-image>
+                            <button class="btn btn-default myupload">Upload </button>
+                            <div class="dirctive-op">
+                                <upload-image class="up-img ng-isolate-scope" no-view></upload-image>
+                            </div>
+
                             <div class="hover-img">
                                 <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
                             </div>
@@ -231,8 +235,16 @@
                     <option>PAN Card</option>
                      <option>Passport</option>
                         </select>
-                            <label class=" myupload2">  <upload-image class="up-img" no-view></upload-image></label>
-                            <label class=" myupload"><upload-image class="up-img" ng-show="myVar=='hello'" no-view></upload-image></label>
+                            <button class="btn btn-default myupload">Upload </button>
+                            <div class="dirctive-op">
+                                <upload-image class="up-img ng-isolate-scope" no-view></upload-image>
+                            </div>
+                            <button class="btn btn-default myupload">Upload </button>
+                            <div class="dirctive-op">
+                                <upload-image class="up-img ng-isolate-scope" ng-show="myVar=='hello'" no-view></upload-image>
+                            </div>
+                            <!--<label class=" myupload2">  <upload-image class="up-img" no-view></upload-image></label>-->
+                            <!--<label class=" myupload"><upload-image class="up-img" ng-show="myVar=='hello'" no-view></upload-image></label>-->
                             <div class="hover-img">
                                 <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
                             </div>
