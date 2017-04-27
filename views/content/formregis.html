@@ -110,9 +110,9 @@
                         <label class="col-sm-3 col-xs-5 sf-list">Upload School Logo:</label>
                         <!--<input type="file" />-->
                         <div class="col-sm-9 col-xs-7">
-                              <button class="btn btn-default myupload">Upload </button>
+                            <button class="btn btn-default myupload">Upload </button>
                             <div class="dirctive-op">
-                                <upload-image class="up-img ng-isolate-scope" no-view></upload-image>
+                                <upload-image class="up-img ng-isolate-scope" ng-disabled="type.disabled" ng-model="formData.schoolLogo"></upload-image>
                             </div>
                             <!--<upload-image ng-model="formData.schoolLogo" ng-disabled="type.disabled"></upload-image>-->
                             <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
@@ -250,7 +250,7 @@
                                 <div class="col-xs-12 d-padd">
                                     <label class="mobileno-padd padd-bott">*Email:</label>
                                     <input ng-model="formData.email" type="email" class="bor-t" required>
-                                    <button class="btn btn-default sub-mit send-otp">Send OTP </button>
+                                    <button class="btn btn-default sub-mit send-otp" ng-click="sendOTP(formData.mobile)">Send OTP </button>
                                     <label class="enter-otp"> *Enter OTP:</label>
                                     <input ng-model="formData.enterOTP" type="text" only-Digits ng-model="OTP" class="bor-t" required>
                                 </div>
@@ -331,12 +331,12 @@
                                 <!--<input type="file" />-->
                                 <div class="col-sm-8 col-xs-8">
                                     <!--<upload-image class="up-img" no-view required ng-model="x.photo"></upload-image>-->
-                                      <button class="btn btn-default myupload">Upload </button>
-                            <div class="dirctive-op">
-                                <upload-image class="up-img ng-isolate-scope" no-view></upload-image>
-                            </div>
+                                    <button class="btn btn-default myupload">Upload </button>
+                                    <div class="dirctive-op">
+                                        <upload-image class="up-img ng-isolate-scope" ng-model="x.photograph"></upload-image>
+                                    </div>
                                     <div class="hover-img">
-                                        <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
+                                        <img src="img/icon/x.png" alt="logo" class="img-responsive myicon" ng-click="removeArrayImage($index)">
                                     </div>
                                     <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
                                     <label class="kindly-up sf-list">Kindly upload only .jpg or .png format. Maximum file size 1MB.</p></label>

@@ -92,7 +92,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 col-xs-4 sf-list">  *School Name:</label>
                                 <div class="col-sm-9 col-xs-8">
-                                    <input type="text" class="sfa-drop sf-list" required>
+                                    <input type="text" ng-model="formData.schoolName" class="sfa-drop sf-list" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -240,8 +240,8 @@
                                 <upload-image class="up-img ng-isolate-scope" no-view></upload-image>
                             </div>
                             <button class="btn btn-default myupload upload6" ng-show="myVar=='hello'">Upload </button>
-                            <div class="dirctive-op upload7" ng-show="myVar=='hello'" >
-                                <upload-image class="up-img ng-isolate-scope"  no-view></upload-image>
+                            <div class="dirctive-op upload7" ng-show="myVar=='hello'">
+                                <upload-image class="up-img ng-isolate-scope" no-view></upload-image>
                             </div>
                             <!--<label class=" myupload2">  <upload-image class="up-img" no-view></upload-image></label>-->
                             <!--<label class=" myupload"><upload-image class="up-img" ng-show="myVar=='hello'" no-view></upload-image></label>-->

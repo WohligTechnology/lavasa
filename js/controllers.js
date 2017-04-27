@@ -827,6 +827,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log("sportsDepartment", $scope.formData.sportsDepartment);
             }
         };
+        $scope.removeArrayImage = function (index) {
+            console.log("remove me", document.getElementById("inputImage").value = null);
+            $scope.formData.sportsDepartment[index].photograph = null;
+        }
         $scope.removeSportForm = function (index) {
             console.log("hello remove", index);
             if (index != 0) {
@@ -861,8 +865,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.addTeamSports = function (formdata) {
             // formdata.serviceRequest = $scope.serviceList;
             console.log("formdata", formdata);
+            var frm = {};
+            frm.name = formdata;
             //document.getElementById(formdata).checked
-            $scope.teamSport.push(formdata);
+            $scope.teamSport.push(frm);
 
         }
 
@@ -870,16 +876,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.addRacquetSports = function (formdata) {
             // formdata.serviceRequest = $scope.serviceList;
             console.log("formdata", formdata);
+            var frm = {};
+            frm.name = formdata;
             //document.getElementById(formdata).checked
-            $scope.racquetSports.push(formdata);
+            $scope.racquetSports.push(frm);
         }
 
         //combatSports array
         $scope.addCombatSports = function (formdata) {
             // formdata.serviceRequest = $scope.serviceList;
             console.log("formdata", formdata);
+            var frm = {};
+            frm.name = formdata;
             //document.getElementById(formdata).checked
-            $scope.combatSports.push(formdata);
+            $scope.combatSports.push(frm);
 
         }
 
@@ -887,8 +897,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.addTargetSports = function (formdata) {
             // formdata.serviceRequest = $scope.serviceList;
             console.log("formdata", formdata);
+            var frm = {};
+            frm.name = formdata;
             //document.getElementById(formdata).checked
-            $scope.targetSports.push(formdata);
+            $scope.targetSports.push(frm);
 
         }
 
@@ -896,8 +908,10 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.addIndividualSports = function (formdata) {
             // formdata.serviceRequest = $scope.serviceList;
             console.log("formdata", formdata);
+            var frm = {};
+            frm.name = formdata;
             //document.getElementById(formdata).checked
-            $scope.individualSports.push(formdata);
+            $scope.individualSports.push(frm);
 
         }
 
@@ -925,7 +939,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         //removes image uploaded
         $scope.removeImage = function (data) {
             console.log("remove me", document.getElementById("inputImage").value = null);
-            $scope.formdata.schoolLogo = null;
+            $scope.formData.schoolLogo = null;
+        }
+
+        $scope.sendOTP = function (formData) {
+            console.log("form", formdata);
+            $scope.url = "registration/generateOTP";
+            console.log($scope.url);
+            NavigationService.apiCallWithData($scope.url, formdata, function (data) {
+
+            });
         }
     })
 
