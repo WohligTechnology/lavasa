@@ -446,7 +446,7 @@ var navigationservice = angular.module('navigationservice', [])
             },
             getSchoolName: function (request, callback) {
                 $http({
-                    url: adminurl + 'resistration/search',
+                    url: adminurl + 'registration/search',
                     method: 'POST',
                     data: request
                 }).success(callback);

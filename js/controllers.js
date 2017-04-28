@@ -676,24 +676,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
     })
 
-    .controller('FormathleteCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+    .controller('FormathleteCtrl', function ($scope, TemplateService, $element, NavigationService, $timeout, $uibModal) {
         //Used to name the .html file
-        $scope.sportsDepartment = [];
+        $scope.formData = {}
+        $scope.formData.parentDetails = [];
         $scope.sportsLevelArray = [];
         $scope.sportsLevelArray.push({});
         $scope.m = 0;
-        $scope.sportDepart = {
-            Relation: "",
-            Name: "",
-            Surname: "",
-            Mobile: "",
-            Email: ""
-        };
         $scope.form = {};
 
         $scope.firstTime = 0;
         if ($scope.firstTime == 0) {
-            $scope.sportsDepartment.push($scope.sportDepart);
+            $scope.formData.parentDetails.push({});
             $scope.firstTime++;
         }
 
@@ -709,26 +703,30 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
 
         //get school name for binding with dropdown
-        $scope.getRegisteredSchoolName = function (formdata) {
-            console.log("form", formdata);
-            NavigationService.getSchoolName(formdata, function (data) {
-                $scope.schoolName = data.schoolName;
-                console.log("schoolName", $scope.schoolName);
-            });
+        NavigationService.getSchoolName({}, function (data) {
+            console.log("schoolName", data);
+            $scope.schoolList = data.data.results;
+            // console.log("schoolName", $scope.schoolName);
+        });
+
+
+        //removes image uploaded
+        $scope.removeImage = function (data) {
+            console.log("remove me", document.getElementById("inputImage").value = null);
+            $scope.formData.photoImage = null;
+            $scope.formData.birthImage = null;
         }
 
+        $scope.removePhoto = function (data) {
+            console.log("remove me", document.getElementById("inputImage").value = null);
+            $scope.formData.photograph = null;
+        }
 
         $scope.addSportForm = function () {
-            if ($scope.sportsDepartment.length < 3) {
-                $scope.sportDepart = {
-                    Relation: null,
-                    Name: null,
-                    Surname: null,
-                    Mobile: null,
-                    Email: null
-                };
-                $scope.sportsDepartment.push($scope.sportDepart);
-                console.log("sportsDepartment", $scope.sportsDepartment);
+            if ($scope.formData.parentDetails.length < 3) {
+
+                $scope.formData.parentDetails.push({});
+                console.log("sportsDepartment", $scope.formData.parentDetails);
 
             }
         };
@@ -736,8 +734,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.removeSportForm = function (index) {
             console.log("hello remove", index);
             if (index !== 0) {
-                $scope.sportsDepartment.splice(index, 1);
-                console.log("sportsDepartment", $scope.sportsDepartment);
+                $scope.formData.parentDetails.splice(index, 1);
+                console.log("sportsDepartment", $scope.formData.parentDetails);
             }
         };
 
@@ -745,11 +743,11 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $scope.showSchool = !$scope.showSchool;
         }
 
-        $scope.sportsLevelChunkedArray = _.chunk($scope.sportsLevelArray, 3);
+        $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);
         $scope.addSportLevelForm = function () {
             if ($scope.sportsLevelArray.length <= 9) {
                 $scope.sportsLevelArray.push({});
-                $scope.sportsLevelChunkedArray = _.chunk($scope.sportsLevelArray, 3);
+                $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);
 
             }
             // console.log("sportsLevelArray", $scope.sportsLevelArray);
@@ -758,9 +756,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.removeSportLevelForm = function (index) {
             console.log("hello remove", index);
             if (index != 0) {
-                $scope.sportsLevelArray.splice(index, 1);
-                console.log("sportsDepartment", $scope.sportsDepartment);
-                $scope.sportsLevelChunkedArray = _.chunk($scope.sportsLevelArray, 3);
+                if ($scope.sportsLevelArray.length > 1) {
+                    $scope.sportsLevelArray.splice(index, 1);
+                } else {
+                    $scope.sportsLevelArray = [];
+                    $scope.sportsLevelArray.push({});
+                    $scope.myshow = false;
+                    $scope.formData.played = 'no';
+                }
+
+                $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);
             }
         };
 
@@ -793,6 +798,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             });
         };
+
+        $scope.searchTerm;
+        $scope.clearSearchTerm = function () {
+            $scope.searchTerm = '';
+        };
+        console.log("aaa", $scope.searchTerm);
+        // The md-select directive eats keydown events for some quick select
+        // logic. Since we have a search input here, we don't need that logic.
+        $element.find('input').on('keydown', function (ev) {
+            console.log("ev", ev, $scope.searchTerm);
+            ev.stopPropagation();
+        });
     })
 
     // this controller is for fromregis 

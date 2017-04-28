@@ -50,6 +50,17 @@
                    <option class="para">Athlete Name</option>
                   
                </select>
+
+
+                    <md-select ng-model="searchdata.coupon" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader">
+                        <md-select-header class="demo-select-header">
+                            <input class="searchTerm" ng-model="searchTerm" type="text" placeholder="Search for a couponCode..">
+                        </md-select-header>
+                        <md-optgroup label="couponCode">
+                            <md-option value="{{coupon.name}}" ng-repeat="coupon in  schoolList |
+             filter:searchTerm">{{coupon.name}}</md-option>
+                        </md-optgroup>
+                    </md-select>
                     <div>
                         <p class="para2 t-padd sf-list">If you have not participated in SFA Championships before, your SFA ID will be generated<br> on successful
                             completion of registration.</p>
@@ -61,7 +72,7 @@
     </div>
     <div class="row">
         <div class="col-md-8 col-md-push-2 col-xs-12">
-            <form class="form-horizontal" ng-submit="test(xs)">
+            <form class="form-horizontal" ng-submit="saveAthelete(formData)">
                 <div class="wid-hei">
                     <div class="step1 fs-14">
                         Step 1: Personal Details
@@ -71,8 +82,11 @@
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-5 sf-list">*Select your School:</label>
                         <div class="col-sm-9 col-xs-7">
-                            <select class="sfa-drop" required>
-                           </select>
+                            <input class="searchTerm" ng-model="searchTerm" type="text" placeholder="Search for a couponCode..">
+                            <select class="sfa-drop" ng-model="school">
+<option ng-repeat="x in schoolList |
+             filter:searchTerm" value="{{x._id}}">{{x.schoolName}}</option>
+</select>
                         </div>
                         <div class="col-sm-12 col-xs-12">
                             <p class="text-center sf-list">or</p>
@@ -98,13 +112,13 @@
                             <div class="form-group">
                                 <label class="col-sm-3 col-xs-4 sf-list">  *Area/Locality:</label>
                                 <div class="col-sm-9 col-xs-8">
-                                    <input type="text" class="sfa-drop sf-list" required>
+                                    <input type="text" ng-model="formData.locality" class="sfa-drop sf-list" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 col-xs-4 sf-list">  *School Contact:</label>
                                 <div class="col-sm-9 col-xs-8">
-                                    <input type="text" only-Digits ng-model="mobile" class="sfa-drop sf-list" minlength="11" maxlength="11" required>
+                                    <input type="text" ng-model="formData.mobile" only-Digits class="sfa-drop sf-list" minlength="11" maxlength="11" required>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +128,7 @@
                         <div class="col-sm-7 col-xs-7">
                             <button class="btn btn-default myupload">Upload </button>
                             <div class="dirctive-op">
-                                <upload-image class="up-img ng-isolate-scope" no-view></upload-image>
+                                <upload-image class="up-img ng-isolate-scope" ng-model="formdara.idProof" ng-disabled="type.disabled"></upload-image>
                             </div>
 
                             <div class="hover-img">
@@ -136,19 +150,19 @@
                         </div>
                         <label class="col-sm-3 col-xs-4 sf-list">*Surname:</label>
                         <div class="col-sm-9 col-xs-8">
-                            <input type="text" class="sfa-drop sf-list" required>
+                            <input type="text" ng-model="formData.surname" class="sfa-drop sf-list" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-4 sf-list">*First Name:</label>
                         <div class="col-sm-9 col-xs-8">
-                            <input type="text" class="sfa-drop sf-list" required>
+                            <input type="text" ng-model="formData.firstName" class="sfa-drop sf-list" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-4 sf-list">Middle Name:</label>
                         <div class="col-sm-9 col-xs-8">
-                            <input type="text" class="sfa-drop sf-list">
+                            <input type="text" ng-model="formData.middleName" class="sfa-drop sf-list">
                         </div>
                     </div>
                     <div class="form-group">
@@ -156,14 +170,16 @@
                         <!--<input type="radio" name="gender" value="male"><label class="padd-lr"> Male</label>
                             <input type="radio" name="gender" value="male"><label class="padd-lr"> Female</label>-->
                         <div class="col-sm-9 col-xs-8">
-                            <input type="radio" id="radio04" name="radio" value="male"><label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
-                            <input type="radio" id="radio03" name="radio" value="male"><label for="radio03" class="padd-lr sf-list"><span></span>Female</label>
+                            <input type="radio" ng-model="formData.male" id="radio04" name="radio" value="male">
+                            <label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
+                            <input type="radio" ng-model="formData.female" id="radio03" name="radio" value="female">
+                            <label for="radio03" class="padd-lr sf-list"><span></span>Female</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-4 sf-list">  *Grade/Standard:</label>
                         <div class="col-sm-3 col-xs-8">
-                            <select class="sfa-drop2 sfa4 sf-list" required>
+                            <select class="sfa-drop2 sfa4 sf-list" ng-model="formData.standard" required>
                             <option style="display:none"></option>
                    <option>Jr. KG </option> 
                    <option>Sr. KG </option>
@@ -174,7 +190,7 @@
                         <label class="col-sm-2 sf-list blood-mob">  Blood Group:</label>
                         <!--<input type="text" class="bor-t" required minlength="10" maxlength="10">-->
                         <div class="col-sm-4">
-                            <select class="sfa-drop2 sfa4 blood-mob2 sf-list" required>
+                            <select class="sfa-drop2 sfa4 blood-mob2 sf-list" ng-model="formData.bloodGroup" required>
                             <option style="display:none"></option>
                    <option>AB - </option>
                    <option>AB + </option>
@@ -200,11 +216,11 @@
                         <div class="col-sm-8 col-xs-7">
                             <button class="btn btn-default myupload">Upload </button>
                             <div class="dirctive-op">
-                                <upload-image class="up-img ng-isolate-scope" no-view></upload-image>
+                                <upload-image class="up-img ng-isolate-scope" ng-model="formData.photograph" ng-disabled="type.disabled"></upload-image>
                             </div>
 
                             <div class="hover-img">
-                                <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
+                                <img src="img/icon/x.png" alt="logo" ng-click="removePhoto(formData.photograph)" class="img-responsive myicon">
                             </div>
                             <div class="hover-img">
                                 <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
@@ -218,9 +234,9 @@
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-3  sf-list">*Date Of Birth:</label>
                         <div class="col-sm-9 col-xs-9">
-                            <input type="text" placeholder="dd" class="bor-t date-month sf-list" required>
-                            <input type="text" placeholder="mm" class="bor-t date-month sf-list" required>
-                            <input type="text" placeholder="yyyy" class="bor-t date-yr sf-list" required>
+                            <input type="text" ng-model="formData.day" placeholder="dd" class="bor-t date-month sf-list" required>
+                            <input type="text" ng-model="formData.month" placeholder="mm" class="bor-t date-month sf-list" required>
+                            <input type="text" ng-model="formData.year" placeholder="yyyy" class="bor-t date-yr sf-list" required>
                             <label class="padd-25 sf-list">  Age:</label>
                         </div>
                     </div>
@@ -228,7 +244,7 @@
                     <div class="form-group">
                         <div class="col-sm-12 col-xs-12">
                             <label class="padd-r12 sf-list label-age">*Upload Age Proof:</label>
-                            <select class="sfa-drop2 sf-list sfa-mob2 label-two" ng-model="myVar" required>
+                            <select class="sfa-drop2 sf-list sfa-mob2 label-two" ng-model="ageProof" required>
                             <option style="display:none"></option>
                     <option>Adhaar Card </option>
                    <option value="hello">Birth Certificate + Photo ID </option>
@@ -237,16 +253,16 @@
                         </select>
                             <button class="btn btn-default myupload upload4">Upload </button>
                             <div class="dirctive-op upload5">
-                                <upload-image class="up-img ng-isolate-scope" no-view></upload-image>
+                                <upload-image class="up-img ng-isolate-scope" ng-model="formData.birthImage" ng-disabled="type.disabled"></upload-image>
                             </div>
-                            <button class="btn btn-default myupload upload6" ng-show="myVar=='hello'">Upload </button>
-                            <div class="dirctive-op upload7" ng-show="myVar=='hello'">
-                                <upload-image class="up-img ng-isolate-scope" no-view></upload-image>
+                            <button class="btn btn-default myupload upload6" ng-show="ageProof=='hello'">Upload </button>
+                            <div class="dirctive-op upload7" ng-show="ageProof=='hello'">
+                                <upload-image class="up-img ng-isolate-scope" ng-disabled="type.disabled" ng-model="formData.photoImage" </upload-image>
                             </div>
                             <!--<label class=" myupload2">  <upload-image class="up-img" no-view></upload-image></label>-->
                             <!--<label class=" myupload"><upload-image class="up-img" ng-show="myVar=='hello'" no-view></upload-image></label>-->
                             <div class="hover-img">
-                                <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
+                                <img src="img/icon/x.png" alt="logo" ng-click="removeImage(formData.photoImage,formData.birthImage)" class="img-responsive myicon">
                             </div>
                             <div class="hover-img">
                                 <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
@@ -260,12 +276,13 @@
                     <div class="form-group">
                         <div class="col-sm-12">
                             <h4 class="blue fs-14">Have you played National/State/District tournaments? (Optional)</h4>
-                            <input type="radio" id="radio07" name="radio" value="male" ng-click="myshow=true">
+                            <input type="radio" ng-model="formData.played" id="radio07" name="radio" value="yes" ng-click="myshow=true">
                             <label for="radio07" class="padd-lr sf-list"><span></span>Yes</label>
-                            <input type="radio" id="radio08" name="radio" value="male"><label for="radio08" class="padd-lr sf-list"><span></span>No</label>
+                            <input type="radio" ng-model="formData.played" id="radio08" name="radio" value="no">
+                            <label for="radio08" class="padd-lr sf-list"><span></span>No</label>
                         </div>
                     </div>
-                    <div class="d-padd mar-l" ng-if="myshow" ng-repeat="arr in sportsLevelChunkedArray track by $index">
+                    <div class="d-padd mar-l" ng-if="formData.played=='yes'" ng-repeat="arr in formData.sportLevel track by $index">
                         <!--ng-repeat="x in sportsLevelArray track by $index"-->
                         <div class="box3 box3-display" ng-if="arr[0] ">
                             <div class="x-img2">
@@ -273,7 +290,7 @@
                             </div>
                             <div class="yes-level sf-list">
                                 <label class="sportlevel">Level:</label>
-                                <select class="sfa-drop2 sfa-drop5 sf-list" required>
+                                <select class="sfa-drop2 sfa-drop5 sf-list" ng-model="arr.level" required>
                             <option style="display:none"></option>
                    <option>National</option>
                    <option>State</option>
@@ -282,7 +299,7 @@
                             </div>
                             <div class="">
                                 <label class="sportlevel sf-list">Sport:</label>
-                                <select class="sfa-drop2 sf-list" required>
+                                <select class="sfa-drop2 sf-list" ng-model="arr.sport" required>
                             <option style="display:none"></option>
                    <option>Basketball</option>
                    <option>Volleyball</option>
@@ -408,7 +425,7 @@
                                         </select>
                             </div>
                             <div class="plus">
-                                <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportForm()">
+                                <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportLevelForm(n)">
                             </div>
                         </div>
                     </div>
@@ -423,10 +440,10 @@
                 <div class="box box-padd para2">
                     <div class="form-group">
                         <label class="mobileno-padd mobileno-mob sf-list">*Mobile No:</label>
-                        <input type="text" only-Digits ng-model="mobile" class="bor-t" minlength="10" maxlength="10" required>
+                        <input type="text" ng-model="formData.mobile" class="bor-t" minlength="10" maxlength="10" required>
                         <button class="btn btn-default sub-mit send-otp sf-list">Send OTP </button>
                         <label class="enter-otp sf-list"> *Enter OTP:</label>
-                        <input type="text" only-Digits ng-model="OTP" class="bor-t" required>
+                        <input type="text" ng-model="formData.smsOTP" only-Digits ng-model="OTP" class="bor-t" required>
                         <div class="hover-img">
                             <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
                             <div class="iconinfo iconinfo3 sf-list">
@@ -439,10 +456,10 @@
                     </div>
                     <div class="form-group">
                         <label class="emailid-padd email-mob3 sf-list">*Email:</label>
-                        <input type="email" class="bor-t" required>
+                        <input type="email" ng-model="formData.email" class="bor-t" required>
                         <button class="btn btn-default sub-mit send-otp sf-list">Send OTP </button>
                         <label class="enter-otp sf-list"> *Enter OTP:</label>
-                        <input type="text" only-Digits ng-model="OTP" class="bor-t" required>
+                        <input type="text" ng-model="formData.emailOTP" only-Digits ng-model="OTP" class="bor-t" required>
                         <!--<div class="hover-img">
                                     <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
                                     <div class="iconinfo iconinfo3">
@@ -466,19 +483,19 @@
                         </div>
                         <label class="col-sm-3 col-xs-3 sf-list">*Line 1:</label>
                         <div class="col-sm-9 col-xs-9">
-                            <input type="text" class="sfa-drop" required>
+                            <input type="text" ng-model="formData.address" class="sfa-drop" required>
                         </div>
                     </div>
                     <div class="form-group ">
                         <label class="col-sm-3 col-xs-3 sf-list">Line 2:</label>
                         <div class="col-sm-9 col-xs-9">
-                            <input type="text" class="sfa-drop">
+                            <input type="text" ng-model="formData.addressLine2" class="sfa-drop">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-3 sf-list"> *State:</label>
                         <div class="col-sm-3 col-xs-9">
-                            <select class="sfa-drop2 w147" required>
+                            <select class="sfa-drop2 w147" ng-model="formData.state" required>
                             <option style="display:none"></option>
                    <option>Maharashstra </option>
                    
@@ -486,7 +503,7 @@
                         </div>
                         <div class="col-sm-6 col-xs-12">
                             <label class="padd-right dist-mob sf-list">*District:</label>
-                            <select class="sfa-drop2 w147 sf-list" required>
+                            <select class="sfa-drop2 w147 sf-list" ng-model="formData.district" required>
                             <option style="display:none"></option>
                    <option>Mumbai City </option>
                    <option>Mumbai Suburban</option>
@@ -499,7 +516,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-3 sf-list">  *City</label>
                         <div class="col-sm-3 col-xs-9">
-                            <select class="sfa-drop2 w147 sf-list" required>
+                            <select class="sfa-drop2 w147 sf-list" ng-model="formData.address" required>
                             <option style="display:none"></option>
                    <option>Kalyan-Dombivali </option>
                    <option>Mira-Bhayandar</option>
@@ -515,7 +532,8 @@
                         </div>
                         <div class="col-sm-6 col-xs-12">
                             <label class="padd-r4 pin-mob sf-list">  *Pin Code:</label>
-                            <input type="text" only-Digits ng-model="pin" class="sfa-drop2 w147" minlength="6" maxlength="6" required>
+                            <input type="text" ng-model="formData.pinCode" only-Digits ng-model="formData.pinCode" class="sfa-drop2 w147" minlength="6"
+                                maxlength="6" required>
                         </div>
                     </div>
                     <div class="d-padd mar-l">
@@ -524,10 +542,10 @@
                         <h4 class="blue pb10 fs-14">Parent/Guardian Details</h4>
                         <p class="check-box ">
                             <label class="sf-list" ng-click="termcondition()">*Terms & Conditions</label>
-                            <input type="checkbox" id="test5" />
+                            <input type="checkbox" ng-model="formData.termsAndCondition" id="test5" />
                             <label for="test5"></label>
                         </p>
-                        <div class="box2" ng-repeat="x in sportsDepartment track by $index">
+                        <div class="box2" ng-repeat="x in formData.parentDetails track by $index">
                             <div class="d-padd">
                                 <div class="x-img3">
                                     <div class="x-img" ng-click="removeSportForm($index)">
@@ -541,11 +559,11 @@
                                     <input type="radio" name="gender" value="male" ng-click="myshow=true"><label class="padd-lr"> Father</label>
                                     <input type="radio" name="gender" value="male"><label class="padd-lr"> Guardian</label>-->
                                         <div class="col-sm-9 col-xs-9 sf-list">
-                                            <input ng-model="x.relation" type="radio" id="radio02" name="radio" value="male">
+                                            <input ng-model="x.relation" type="radio" id="radio02" name="radio" value="mother">
                                             <label for="radio02" class="padd-lr sf-list"><span></span>Mother</label>
-                                            <input ng-model="x.relation" type="radio" id="radio09" name="radio" value="male">
+                                            <input ng-model="x.relation" type="radio" id="radio09" name="radio" value="father">
                                             <label for="radio09" class="padd-lr sf-list"><span></span>Father</label>
-                                            <input ng-model="x.relation" type="radio" id="radio10" name="radio" value="male">
+                                            <input ng-model="x.relation" type="radio" id="radio10" name="radio" value="guardian">
                                             <label for="radio10" class="padd-lr sf-list"><span></span>Guardian</label>
                                         </div>
                                     </div>
@@ -565,7 +583,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 col-xs-3 sf-list"> *Mobile:</label>
                                     <div class="col-sm-3 col-xs-9">
-                                        <input type="text" only-Digits ng-model="x.mobile" class="bor-t" minlength="10" maxlength="10" required>
+                                        <input type="text" ng-model="x.mobile" class="bor-t" minlength="10" maxlength="10" required>
                                     </div>
                                     <div class="col-sm-6 col-xs-12">
                                         <label class="email-padd3 email-mob sf-list">  *Email:</label>
@@ -590,9 +608,12 @@
                         </div>-->
                     <div class="d-padd para2">
                         <div class="form-group ">
-                            <input type="radio" id="radio11" name="radio" value="male"><label for="radio11" class="padd-lr sf-list"><span></span>Cash</label>
-                            <input type="radio" id="radio12" name="radio" value="male"><label for="radio12" class="padd-lr sf-list"><span></span>Cheque</label>
-                            <input type="radio" id="radio13" name="radio" value="male"><label for="radio13" class="padd-lr sf-list"><span></span>Online PAYU</label>
+                            <input ng-model="formData.cash" type="radio" id="radio11" name="radio" value="cash">
+                            <label for="radio11" class="padd-lr sf-list"><span></span>Cash</label>
+                            <input ng-model="formData.cheque" type="radio" id="radio12" name="radio" value="cheque">
+                            <label for="radio12" class="padd-lr sf-list"><span></span>Cheque</label>
+                            <input ng-model="formData.online" type="radio" id="radio13" name="radio" value="online PAYU">
+                            <label for="radio13" class="padd-lr sf-list"><span></span>Online PAYU</label>
                         </div>
                     </div>
                 </div>
