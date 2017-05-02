@@ -10,7 +10,7 @@
 // var adminurl = "http://127.0.0.1:1337/api/";
 
 
-var adminurl = "https://api.sfanow.in/api/";
+
 // var adminurl = "http://192.168.2.83:1337/api/";
 var imgpath = adminurl + "upload/readFile";
 var uploadurl = adminurl + "upload/";
