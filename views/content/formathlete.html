@@ -43,24 +43,28 @@
                     <p class="d-padd para2 sf-list">If you have participated in SFA Championships before, kindly enter your</p>
                 </div>
                 <div class="mar-left">
-                    <label class="para2 sfa-padd sf-list">  SFA ID or Name:</label>
-                    <select class="sfa-drop sfa-name sf-list">
-                        <option style="display:none"></option>
-                   <option class="para"> SFA ID </option>
-                   <option class="para">Athlete Name</option>
-                  
-               </select>
+                    <label class="para2 sfa-padd sf-list">  SFA ID or Name:{{$select.school.schoolName}}</label>
+                    <ui-select ng-model="school.schoolNamel" on-select="getDataBasedonSFA(searchTerm.school)">
+                        <ui-select-match>{{$select.school.schoolName}}</ui-select-match>
+                        <ui-select-choices repeat="school.id as school in schoolList | filter: $select.search">
+                            <div ng-bind-html="school.schoolName | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
 
 
-                    <md-select ng-model="searchdata.coupon" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader">
+
+                    <!--<md-select ng-model="searchdata.school" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader">
                         <md-select-header class="demo-select-header">
-                            <input class="searchTerm" ng-model="searchTerm" type="text" placeholder="Search for a couponCode..">
+                            <input class="searchTerm" ng-model="searchTerm" type="text" placeholder="Search for a Sfa..">
+                            <md-optgroup label="Sfa">
+                                <md-option value="{{school.schoolName}}" ng-repeat="school in  schoolList |
+             filter:searchTerm">{{school.schoolName}}</md-option>
+                            </md-optgroup>
                         </md-select-header>
-                        <md-optgroup label="couponCode">
-                            <md-option value="{{coupon.name}}" ng-repeat="coupon in  schoolList |
-             filter:searchTerm">{{coupon.name}}</md-option>
-                        </md-optgroup>
-                    </md-select>
+
+                    </md-select>-->
+
+
                     <div>
                         <p class="para2 t-padd sf-list">If you have not participated in SFA Championships before, your SFA ID will be generated<br> on successful
                             completion of registration.</p>
@@ -82,7 +86,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-5 sf-list">*Select your School:</label>
                         <div class="col-sm-9 col-xs-7">
-                            <input class="searchTerm" ng-model="searchTerm" type="text" placeholder="Search for a couponCode..">
+                            <!--<input class="searchTerm" ng-model="searchTerm" type="text" placeholder="Search for a SFA..">-->
                             <select class="sfa-drop" ng-model="school">
 <option ng-repeat="x in schoolList |
              filter:searchTerm" value="{{x._id}}">{{x.schoolName}}</option>
@@ -106,19 +110,19 @@
                             <div class="form-group">
                                 <label class="col-sm-3 col-xs-4 sf-list">  *School Name:</label>
                                 <div class="col-sm-9 col-xs-8">
-                                    <input type="text" ng-model="formData.schoolName" class="sfa-drop sf-list" required>
+                                    <input type="text" ng-model="formData.atheleteSchoolName" class="sfa-drop sf-list" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 col-xs-4 sf-list">  *Area/Locality:</label>
                                 <div class="col-sm-9 col-xs-8">
-                                    <input type="text" ng-model="formData.locality" class="sfa-drop sf-list" required>
+                                    <input type="text" ng-model="formData.atheleteSchoolLocality" class="sfa-drop sf-list" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 col-xs-4 sf-list">  *School Contact:</label>
                                 <div class="col-sm-9 col-xs-8">
-                                    <input type="text" ng-model="formData.mobile" only-Digits class="sfa-drop sf-list" minlength="11" maxlength="11" required>
+                                    <input type="text" ng-model="formData.atheleteSchoolContact" class="sfa-drop sf-list" minlength="11" maxlength="11" required>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +132,7 @@
                         <div class="col-sm-7 col-xs-7">
                             <button class="btn btn-default myupload">Upload </button>
                             <div class="dirctive-op">
-                                <upload-image class="up-img ng-isolate-scope" ng-model="formdara.idProof" ng-disabled="type.disabled"></upload-image>
+                                <upload-image class="up-img ng-isolate-scope" ng-model="formdara.atheleteSchoolIdImage" ng-disabled="type.disabled"></upload-image>
                             </div>
 
                             <div class="hover-img">
@@ -234,10 +238,9 @@
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-3  sf-list">*Date Of Birth:</label>
                         <div class="col-sm-9 col-xs-9">
-                            <input type="text" ng-model="formData.day" placeholder="dd" class="bor-t date-month sf-list" required>
-                            <input type="text" ng-model="formData.month" placeholder="mm" class="bor-t date-month sf-list" required>
-                            <input type="text" ng-model="formData.year" placeholder="yyyy" class="bor-t date-yr sf-list" required>
+                            <input type="date" ng-model="formData.dob" placeholder="dd" class="bor-t date-month sf-list" required>
                             <label class="padd-25 sf-list">  Age:</label>
+                            <label ng-if="formData.dob">{{ageCalculate(formData.dob)}}</label>
                         </div>
                     </div>
 

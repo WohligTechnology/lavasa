@@ -1405,8 +1405,7 @@ img.fancybox-image {
                 opacity: 0;
             }
             .bottom {
-                opacity: 1;
-                //                     width:100px !important;
+                opacity: 1; //                     width:100px !important;
             }
             figcaption {
                 color: $brand-primary;
@@ -3176,8 +3175,7 @@ a.color-yellow1:hover {
     background: white;
     border-radius: 50px;
     padding: 50px 100px;
-    box-shadow: 4px 4px 22px rgba(136, 136, 136, 0.45);
-    // margin: 100px 0px 0px 0px;
+    box-shadow: 4px 4px 22px rgba(136, 136, 136, 0.45); // margin: 100px 0px 0px 0px;
 }
 
 .ps-anj {
@@ -3686,8 +3684,7 @@ ul.dropdown-menu.sf-absulate.blue-menus li a {
     }
     100% {
         color: green;
-    }
-    // transition: all 0.3s ease;
+    } // transition: all 0.3s ease;
 }
 
 
@@ -3699,8 +3696,7 @@ ul.dropdown-menu.sf-absulate.blue-menus li a {
     }
     50% {
         color: green;
-    }
-    // transition: all 0.3s ease;
+    } // transition: all 0.3s ease;
 }
 
 
@@ -3712,8 +3708,7 @@ ul.dropdown-menu.sf-absulate.blue-menus li a {
     }
     100% {
         background: green;
-    }
-    // transition: all 0.3s ease;
+    } // transition: all 0.3s ease;
 }
 
 
@@ -3725,8 +3720,7 @@ ul.dropdown-menu.sf-absulate.blue-menus li a {
     }
     100% {
         background: green;
-    }
-    // transition: all 0.3s ease;
+    } // transition: all 0.3s ease;
 }
 
 .dt-venu {
@@ -3999,8 +3993,7 @@ iframe#twitter-widget-0 {
 }
 
 .box-padd {
-    padding: 18px;
-    //     span{
+    padding: 18px; //     span{
     //         color:  #091a71;
     // font-size: 16.67px;
     // font-family: Titillium Web SemiBold;
@@ -4021,8 +4014,7 @@ iframe#twitter-widget-0 {
     color: #646464;
     font-size: 16px;
     font-weight: 400;
-    line-height: 29.167px;
-    // text-align: left;
+    line-height: 29.167px; // text-align: left;
     // padding-left: 20px;
 }
 
@@ -4033,8 +4025,7 @@ iframe#twitter-widget-0 {
 }
 
 .d-padd {
-    padding-left: 20px;
-    // padding-top: 20px;
+    padding-left: 20px; // padding-top: 20px;
     position: relative;
 }
 
@@ -4191,26 +4182,24 @@ iframe#twitter-widget-0 {
 //     border-color: #091a71;
 //     border: 2px solid #091a71;
 // }
-
 // .attbtn:hover {
 //     color: #091a71;
 //     background-color: #fff;
 //     border-color: #091a71;
 //     border: 2px solid #091a71;
 // }
-
 // .btn-outline:hover:hover {
 //     color: #091a71;
 //     background-color: #fff;
 //     border-color: #091a71;
 //     border: 2px solid #091a71;
 // }
-
-.create-btn{
-        width: 117px;
+.create-btn {
+    width: 117px;
     position: relative;
 }
-.myupload{
+
+.myupload {
     width: 117px;
     /* top: 31px; */
     pointer-events: none;
@@ -4220,14 +4209,17 @@ iframe#twitter-widget-0 {
     z-index: 2;
     margin-left: -15px;
     border: 2px solid #091a71;
-    color:#091a71;
+    color: #091a71;
 }
-.dirctive-op{
+
+.dirctive-op {
     display: inline;
 }
-.mybtnupload{
-    width:80px;
+
+.mybtnupload {
+    width: 80px;
 }
+
 .padd-r5 {
     padding-right: 89px;
 }
@@ -4338,8 +4330,7 @@ iframe#twitter-widget-0 {
     width: 11px;
     height: 11px;
     border: 1px solid #ccc;
-    background: #fff;
-    //   box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+    background: #fff; //   box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
 }
 
 [type="checkbox"]:not(:checked)+label:after,
@@ -4348,8 +4339,7 @@ iframe#twitter-widget-0 {
     position: absolute;
     top: 0px;
     left: 0px;
-    font-size: 15px;
-    //   line-height: 0.8;
+    font-size: 15px; //   line-height: 0.8;
     color: black;
     transition: all .2s;
 }
@@ -4430,8 +4420,7 @@ label:hover:before {
     color: #8a8a8a;
     font-size: 15px;
     font-weight: 300;
-    font-style: italic;
-    // padding-left: 28px;
+    font-style: italic; // padding-left: 28px;
 }
 
 .kindly-padd {
@@ -4516,7 +4505,6 @@ label:hover:before {
     width: 452px;
     margin-left: -442px;
     margin-top: 10px;
-
 }
 
 .padd-r50 {
@@ -4538,7 +4526,7 @@ label:hover:before {
 }
 
 .date-month {
-    width: 53px;
+    width: 180px;
     height: 24px;
     text-align: center;
     margin-right: 10px;
@@ -4561,13 +4549,11 @@ label:hover:before {
     }
     [type="checkbox"]:not(:checked),
     [type="checkbox"]:checked {
-        position: absolute;
-        //   left: -9999px;
+        position: absolute; //   left: -9999px;
     }
     [type="checkbox"]:not(:checked)+label,
     [type="checkbox"]:checked+label {
-        position: relative;
-        //   padding-left: 18px;
+        position: relative; //   padding-left: 18px;
         cursor: pointer;
     }
     /* checkbox aspect */
@@ -4580,8 +4566,7 @@ label:hover:before {
         width: 15px;
         height: 15px;
         border: 1px solid #ccc;
-        background: #fff;
-        //   box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+        background: #fff; //   box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
     }
     [type="checkbox"]:not(:checked)+label:after,
     [type="checkbox"]:checked+label:after {
@@ -4589,8 +4574,7 @@ label:hover:before {
         position: absolute;
         top: -12px !important;
         left: 15px !important;
-        font-size: 20px !important;
-        //   line-height: 0.8;
+        font-size: 20px !important; //   line-height: 0.8;
         color: #ccc;
         transition: all .2s;
     }
@@ -4632,18 +4616,23 @@ label:hover:before {
         content: ' Photo ID';
     }
 }
-.upload4{
-        margin-left: 6px;
+
+.upload4 {
+    margin-left: 6px;
 }
-.upload5{
-        margin-left: 21px;
+
+.upload5 {
+    margin-left: 21px;
 }
-.upload6{
+
+.upload6 {
     margin-left: 19px;
 }
-.upload7{
-     margin-left: 34px;
+
+.upload7 {
+    margin-left: 34px;
 }
+
 .box3-display {
     display: inline-block;
     margin-left: 23px;
@@ -4730,9 +4719,11 @@ input[type="radio"]:checked+label span {
 .email-padd2 {
     padding-right: 18px;
 }
-.email-padd3{
+
+.email-padd3 {
     padding-right: 12px;
 }
+
 .relation-top {
     padding-top: 10px;
 }
@@ -4771,27 +4762,33 @@ input[type="radio"]:checked+label span {
 .yes-level {
     margin-top: 15px;
 }
-.email-padd{
-     padding-right: 39px;
+
+.email-padd {
+    padding-right: 39px;
     padding-top: 14px;
 }
+
 .mobileno-padd {
-    
     padding-right: 36px;
 }
-.emailid-padd{
+
+.emailid-padd {
     padding-right: 66px;
     padding-left: 13px;
 }
-.right27{
+
+.right27 {
     right: 27px;
 }
-.sfa434{
+
+.sfa434 {
     width: 434px;
 }
-.myicon3{
+
+.myicon3 {
     margin-left: 69px;
     padding-bottom: 15px;
 }
+
 @import "fancybox-override";
 @import "mobile";

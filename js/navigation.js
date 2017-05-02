@@ -451,6 +451,14 @@ var navigationservice = angular.module('navigationservice', [])
                     data: request
                 }).success(callback);
             },
+            getAtheleteSFA: function (request, callback) {
+                $http({
+                    url: adminurl + 'athelete/search',
+                    method: 'POST',
+                    data: request
+                }).success(callback);
+            },
+
             getSportRoundLeague: function (request, callback) {
                 $http({
                     url: adminurl + 'league/getSportRoundLeague',

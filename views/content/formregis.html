@@ -39,11 +39,12 @@
                 </div>
                 <div class=" mar-left">
                     <label class="para2 sfa-padd  sf-list">  SFA ID or Name:</label>
-                    <select class="sfa-drop sfa-name sf-list">
-                        <option style="display:none"></option>
-                   <option class="para sf-list">School SFA ID </option>
-                   <option class="para sf-list">School Name</option>
-               </select>
+                    <ui-select ng-model="school.schoolNamel" on-select="getDataBasedonSFA(searchTerm.school)">
+                        <ui-select-match>{{$select.school.schoolName}}</ui-select-match>
+                        <ui-select-choices repeat="school.id as school in schoolList | filter: $select.search">
+                            <div ng-bind-html="school.schoolName | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
                     <div class="">
                         <p class="para2 t-padd sf-list">If you have not participated in SFA Championships before, your SFA ID will be generated<br> on successful
                             completion of registration.</p>

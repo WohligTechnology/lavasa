@@ -1,4 +1,4 @@
-angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select', 'ordinal', 'wt.responsive'])
+angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select', 'ordinal', 'wt.responsive'])
 
     .controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval) {
         //Used to name the .html file
@@ -701,12 +701,46 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             });
         }
+        $scope.count = 0;
+
+        $scope.ageCalculate = function (birthday) {
+
+            var ageDifMs = Date.now() - birthday.getTime();
+            var ageDate = new Date(ageDifMs); // miliseconds from epoch
+            return Math.abs(ageDate.getUTCFullYear() - 1970);
+
+        }
+
+        //search filter
+
+        $scope.getDataBasedonSFA = function (uiselCust) {
+            console.log("inside get");
+            if (uiselCust.schoolName == "----Otributor Group") {
+                $scope.uiCarrierGroups = {
+                    name: "abc-ui"
+                };
+            } else {
+                $scope.uiCarrierGroups = {
+                    name: "def-ui"
+                };
+            }
+
+        }
+
 
         //get school name for binding with dropdown
         NavigationService.getSchoolName({}, function (data) {
             console.log("schoolName", data);
             $scope.schoolList = data.data.results;
+
             // console.log("schoolName", $scope.schoolName);
+        });
+
+        NavigationService.getAtheleteSFA({}, function (data) {
+            console.log("sfa", data);
+            $scope.atheleList = data.data.results;
+
+            console.log("list", $scope.atheleList);
         });
 
 
