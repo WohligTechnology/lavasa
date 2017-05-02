@@ -203,9 +203,9 @@ gulp.task('inlinesource', function () {
 
 gulp.task('uglify:js', function () {
     var uglify = require('gulp-uglify');
-    var stripDebug = require('gulp-strip-debug');
+    // var stripDebug = require('gulp-strip-debug');
     return gulp.src('./w/w.js')
-        .pipe(stripDebug())
+        // .pipe(stripDebug())
         .pipe(uglify({
             mangle: false
         }))
