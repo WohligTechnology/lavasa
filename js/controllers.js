@@ -969,7 +969,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
 
         $scope.template = TemplateService.changecontent("formregis");
-        $scope.menutitle = NavigationService.makeactive("Formregis");
+        $scope.menutitle = NavigationService.makeactive("Form Registration");
         TemplateService.header = "views/header2.html";
         TemplateService.footer = "";
         TemplateService.title = $scope.menutitle;
