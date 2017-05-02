@@ -257,7 +257,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'StudentsCtrl'
         });
     $urlRouterProvider.otherwise("/");
-    $locationProvider.html5Mode(isproduction);
+    $locationProvider.html5Mode(true);
 });
 
 firstapp.directive('mycircle', function ($compile, $parse) {
