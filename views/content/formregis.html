@@ -39,10 +39,15 @@
                 </div>
                 <div class=" mar-left">
                     <label class="para2 sfa-padd  sf-list">  SFA ID or Name:</label>
-                    <ui-select ng-model="school.schoolNamel" on-select="getDataBasedonSFA(searchTerm.school)">
-                        <ui-select-match>{{$select.school.schoolName}}</ui-select-match>
-                        <ui-select-choices repeat="school.id as school in schoolList | filter: $select.search">
-                            <div ng-bind-html="school.schoolName | highlight: $select.search"></div>
+                    <ui-select ng-model="sfaId" ng-change="searchSFA($select.selected.sfaid)">
+                        <ui-select-match>
+                            <span ng-bind="$select.selected.sfaid"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="item in (schoolList | filter: $select.search)" refresh="searchSFA($select.search)">
+                            <span ng-bind="item.sfaid"></span>
+                            <small>
+                                 name: {{item.name}}
+                            </small>
                         </ui-select-choices>
                     </ui-select>
                     <div class="">
@@ -441,11 +446,11 @@
                         <h4>Paayment Gateway:</h4>
                     </div>-->
                             <div class="d-padd d-paddd">
-                                <input ng-model="formData.cash" type="radio" id="radio02" name="radio" value="cash">
+                                <input ng-model="formData.registrationFee" type="radio" id="radio02" name="radio" value="cash">
                                 <label for="radio02" class="padd-lr"><span></span>Cash</label>
-                                <input ng-model="formData.cheque" type="radio" id="radio04" name="radio" value="cheque">
+                                <input ng-model="formData.registrationFee" type="radio" id="radio04" name="radio" value="cheque">
                                 <label for="radio04" class="padd-lr"><span></span>Cheque/DD</label>
-                                <input ng-model="formData.online" type="radio" id="radio03" name="radio" value="online PAYU">
+                                <input ng-model="formData.registrationFee" type="radio" id="radio03" name="radio" value="online PAYU">
                                 <label for="radio03" class="padd-lr"><span></span>Online PAYU</label>
                             </div>
                         </div>

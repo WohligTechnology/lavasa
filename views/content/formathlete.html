@@ -43,26 +43,18 @@
                     <p class="d-padd para2 sf-list">If you have participated in SFA Championships before, kindly enter your</p>
                 </div>
                 <div class="mar-left">
-                    <label class="para2 sfa-padd sf-list">  SFA ID or Name:{{$select.school.schoolName}}</label>
-                    <ui-select ng-model="school.schoolNamel" on-select="getDataBasedonSFA(searchTerm.school)">
-                        <ui-select-match>{{$select.school.schoolName}}</ui-select-match>
-                        <ui-select-choices repeat="school.id as school in schoolList | filter: $select.search">
-                            <div ng-bind-html="school.schoolName | highlight: $select.search"></div>
+                    <label class="para2 sfa-padd sf-list"> SFA ID or Name:</label>
+                    <ui-select ng-model="sfaId" ng-change="searchChange($select.selected.sfaid)">
+                        <ui-select-match>
+                            <span ng-bind="$select.selected.sfaid"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="item in (atheleList | filter: $select.search)" refresh="searchChange($select.search)">
+                            <span ng-bind="item.sfaid"></span>
+                            <small>
+                                 name: {{item.firstname}}{{item.lastname}}
+                            </small>
                         </ui-select-choices>
                     </ui-select>
-
-
-
-                    <!--<md-select ng-model="searchdata.school" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader">
-                        <md-select-header class="demo-select-header">
-                            <input class="searchTerm" ng-model="searchTerm" type="text" placeholder="Search for a Sfa..">
-                            <md-optgroup label="Sfa">
-                                <md-option value="{{school.schoolName}}" ng-repeat="school in  schoolList |
-             filter:searchTerm">{{school.schoolName}}</md-option>
-                            </md-optgroup>
-                        </md-select-header>
-
-                    </md-select>-->
 
 
                     <div>
@@ -174,9 +166,9 @@
                         <!--<input type="radio" name="gender" value="male"><label class="padd-lr"> Male</label>
                             <input type="radio" name="gender" value="male"><label class="padd-lr"> Female</label>-->
                         <div class="col-sm-9 col-xs-8">
-                            <input type="radio" ng-model="formData.male" id="radio04" name="radio" value="male">
+                            <input type="radio" ng-model="formData.gender" id="radio04" name="radio" value="male">
                             <label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
-                            <input type="radio" ng-model="formData.female" id="radio03" name="radio" value="female">
+                            <input type="radio" ng-model="formData.gender" id="radio03" name="radio" value="female">
                             <label for="radio03" class="padd-lr sf-list"><span></span>Female</label>
                         </div>
                     </div>
@@ -293,7 +285,7 @@
                             </div>
                             <div class="yes-level sf-list">
                                 <label class="sportlevel">Level:</label>
-                                <select class="sfa-drop2 sfa-drop5 sf-list" ng-model="arr.level" required>
+                                <select class="sfa-drop2 sfa-drop5 sf-list" ng-model="arr[0].level" required>
                             <option style="display:none"></option>
                    <option>National</option>
                    <option>State</option>
@@ -302,7 +294,7 @@
                             </div>
                             <div class="">
                                 <label class="sportlevel sf-list">Sport:</label>
-                                <select class="sfa-drop2 sf-list" ng-model="arr.sport" required>
+                                <select class="sfa-drop2 sf-list" ng-model="arr[0].sport" required>
                             <option style="display:none"></option>
                    <option>Basketball</option>
                    <option>Volleyball</option>
@@ -341,7 +333,7 @@
                             </div>
                             <div class="yes-level">
                                 <label class="sportlevel sf-list">Level:</label>
-                                <select class="sfa-drop2 sfa-drop5 sf-list" required>
+                                <select class="sfa-drop2 sfa-drop5 sf-list" ng-model="arr[1].level" required>
                             <option style="display:none"></option>
                    <option>National</option>
                    <option>State</option>
@@ -350,7 +342,7 @@
                             </div>
                             <div class="">
                                 <label class="sportlevel sf-list">Sport:</label>
-                                <select class="sfa-drop2 sf-list" required>
+                                <select class="sfa-drop2 sf-list" ng-model="arr[1].sport" required>
                             <option style="display:none"></option>
                    <option>Basketball</option>
                    <option>Volleyball</option>
@@ -389,7 +381,7 @@
                             </div>
                             <div class="yes-level">
                                 <label class="sportlevel">Level:</label>
-                                <select class="sfa-drop2 sfa-drop5" required>
+                                <select class="sfa-drop2 sfa-drop5" ng-model="arr[2].level" required>
                             <option style="display:none"></option>
                    <option>National</option>
                    <option>State</option>
@@ -398,7 +390,7 @@
                             </div>
                             <div class="">
                                 <label class="sportlevel sf-list">Sport:</label>
-                                <select class="sfa-drop2 sf-list" required>
+                                <select class="sfa-drop2 sf-list" ng-model="arr[2].sport" required>
                             <option style="display:none"></option>
                    <option>Basketball</option>
                    <option>Volleyball</option>
@@ -446,7 +438,7 @@
                         <input type="text" ng-model="formData.mobile" class="bor-t" minlength="10" maxlength="10" required>
                         <button class="btn btn-default sub-mit send-otp sf-list">Send OTP </button>
                         <label class="enter-otp sf-list"> *Enter OTP:</label>
-                        <input type="text" ng-model="formData.smsOTP" only-Digits ng-model="OTP" class="bor-t" required>
+                        <input type="text" ng-model="formData.smsOTP" only-Digits class="bor-t" required>
                         <div class="hover-img">
                             <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
                             <div class="iconinfo iconinfo3 sf-list">
@@ -462,7 +454,7 @@
                         <input type="email" ng-model="formData.email" class="bor-t" required>
                         <button class="btn btn-default sub-mit send-otp sf-list">Send OTP </button>
                         <label class="enter-otp sf-list"> *Enter OTP:</label>
-                        <input type="text" ng-model="formData.emailOTP" only-Digits ng-model="OTP" class="bor-t" required>
+                        <input type="text" ng-model="formData.emailOTP" only-Digits class="bor-t" required>
                         <!--<div class="hover-img">
                                     <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
                                     <div class="iconinfo iconinfo3">
@@ -519,7 +511,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-3 sf-list">  *City</label>
                         <div class="col-sm-3 col-xs-9">
-                            <select class="sfa-drop2 w147 sf-list" ng-model="formData.address" required>
+                            <select class="sfa-drop2 w147 sf-list" ng-model="formData.city" required>
                             <option style="display:none"></option>
                    <option>Kalyan-Dombivali </option>
                    <option>Mira-Bhayandar</option>
@@ -535,8 +527,7 @@
                         </div>
                         <div class="col-sm-6 col-xs-12">
                             <label class="padd-r4 pin-mob sf-list">  *Pin Code:</label>
-                            <input type="text" ng-model="formData.pinCode" only-Digits ng-model="formData.pinCode" class="sfa-drop2 w147" minlength="6"
-                                maxlength="6" required>
+                            <input type="text" ng-model="formData.pinCode" only-Digits class="sfa-drop2 w147" minlength="6" maxlength="6" required>
                         </div>
                     </div>
                     <div class="d-padd mar-l">
@@ -611,11 +602,11 @@
                         </div>-->
                     <div class="d-padd para2">
                         <div class="form-group ">
-                            <input ng-model="formData.cash" type="radio" id="radio11" name="radio" value="cash">
+                            <input ng-model="formData.registrationFee" type="radio" id="radio11" name="radio" value="cash">
                             <label for="radio11" class="padd-lr sf-list"><span></span>Cash</label>
-                            <input ng-model="formData.cheque" type="radio" id="radio12" name="radio" value="cheque">
+                            <input ng-model="formData.registrationFee" type="radio" id="radio12" name="radio" value="cheque">
                             <label for="radio12" class="padd-lr sf-list"><span></span>Cheque</label>
-                            <input ng-model="formData.online" type="radio" id="radio13" name="radio" value="online PAYU">
+                            <input ng-model="formData.registrationFee" type="radio" id="radio13" name="radio" value="online PAYU">
                             <label for="radio13" class="padd-lr sf-list"><span></span>Online PAYU</label>
                         </div>
                     </div>

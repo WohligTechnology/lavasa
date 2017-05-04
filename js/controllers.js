@@ -684,16 +684,19 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.sportsLevelArray.push({});
         $scope.m = 0;
         $scope.form = {};
+        //$scope.searchTerm = [];
 
         $scope.firstTime = 0;
         if ($scope.firstTime == 0) {
             $scope.formData.parentDetails.push({});
             $scope.firstTime++;
         }
+        $scope.sfaId = {}
 
         //saves Athelete to database
         $scope.saveAthelete = function (formdata) { //formdata is data or body for this url
             console.log("form", formdata);
+            formdata.sfaId = $scope.sfaId
             $scope.url = "Athelete/saveAthelete";
             console.log($scope.url);
             NavigationService.apiCallWithData($scope.url, formdata, function (data) {
@@ -712,7 +715,17 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         }
 
         //search filter
+        $scope.searchChange = function (paramData) {
+            console.log("changekeyword", paramData);
+            $scope.sfaId = paramData;
+            NavigationService.getAtheleteSFA($scope.sfaId, function (data) {
+                console.log("sfa", data);
+                $scope.atheleList = data.data.results;
+                //$scope.schoolList = data.data;
+            });
 
+
+        }
         $scope.getDataBasedonSFA = function (uiselCust) {
             console.log("inside get");
             if (uiselCust.schoolName == "----Otributor Group") {
@@ -739,9 +752,9 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         NavigationService.getAtheleteSFA({}, function (data) {
             console.log("sfa", data);
             $scope.atheleList = data.data.results;
-
-            console.log("list", $scope.atheleList);
+            // $scope.atheleList = data.data;
         });
+
 
 
         //removes image uploaded
@@ -833,17 +846,6 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             });
         };
 
-        $scope.searchTerm;
-        $scope.clearSearchTerm = function () {
-            $scope.searchTerm = '';
-        };
-        console.log("aaa", $scope.searchTerm);
-        // The md-select directive eats keydown events for some quick select
-        // logic. Since we have a search input here, we don't need that logic.
-        $element.find('input').on('keydown', function (ev) {
-            console.log("ev", ev, $scope.searchTerm);
-            ev.stopPropagation();
-        });
     })
 
     // this controller is for fromregis 
@@ -858,6 +860,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             photo: ""
         };
         $scope.formdata = {}
+
 
 
         $scope.firstTime = 0;
@@ -894,6 +897,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.combatSports = [];
         $scope.targetSports = [];
         $scope.individualSports = [];
+        $scope.sfaID = {};
 
         //save registerform to database
         $scope.saveRegis = function (formdata) {
@@ -902,6 +906,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             formdata.combatSports = $scope.combatSports
             formdata.targetSports = $scope.targetSports
             formdata.individualSports = $scope.individualSports
+            formdata.sfaID = $scope.sfaID
 
             // formdata.serviceRequest = $scope.serviceList;
             console.log("form", formdata);
@@ -965,6 +970,24 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             $scope.individualSports.push(frm);
 
         }
+
+        $scope.searchSFA = function (paramData) {
+            console.log("changekeyword", paramData);
+            $scope.sfaID = paramData;
+            NavigationService.getSchoolSFA($scope.sfaID, function (data) {
+                console.log("sfa regis", data);
+                $scope.schoolList = data.data.results;
+                //$scope.schoolList = data.data;
+            });
+        }
+
+        //get school name for binding with dropdown
+        NavigationService.getSchoolSFA({}, function (data) {
+            console.log("sfa regis", data);
+            $scope.schoolList = data.data.results;
+            //$scope.schoolList = data.data;
+        });
+
 
 
 
