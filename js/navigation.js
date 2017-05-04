@@ -32,7 +32,7 @@ var navigationservice = angular.module('navigationservice', [])
         return {
             apiCallWithData: function (url, formData, callback) {
                 console.log("inside nav");
-                $http.post(adminurl + url, formData).then(function (data) {
+                $http.post(adminurl2 + url, formData).then(function (data) {
                     data = data.data;
                     callback(data);
 
@@ -446,7 +446,7 @@ var navigationservice = angular.module('navigationservice', [])
             },
             getSchoolName: function (request, callback) {
                 $http({
-                    url: adminurl + 'registration/search',
+                    url: adminurl2 + 'registration/search',
                     method: 'POST',
                     data: request
                 }).success(callback);
@@ -454,7 +454,7 @@ var navigationservice = angular.module('navigationservice', [])
 
             getSchoolSFA: function (request, callback) {
                 $http({
-                    url: adminurl + 'school/search',
+                    url: adminurl2 + 'school/search',
                     method: 'POST',
                     data: {
                         keyword: request
@@ -465,7 +465,7 @@ var navigationservice = angular.module('navigationservice', [])
 
             getAtheleteSFA: function (request, callback) {
                 $http({
-                    url: adminurl + 'student/search',
+                    url: adminurl2 + 'student/search',
                     method: 'POST',
                     data: {
                         keyword: request
