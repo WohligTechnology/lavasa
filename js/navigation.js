@@ -1,17 +1,3 @@
-// var adminURL = "";
-// if (isproduction) {
-//     adminURL = "http://www.wohlig.co.in/demo/index.php";
-// } else {
-//     adminURL = "http://localhost/demo/index.php";
-// }
-
-
-// var adminurl = "http://localhost:1337/api/";
-// var adminurl = "http://127.0.0.1:1337/api/";
-
-
-
-// var adminurl = "http://192.168.2.83:1337/api/";
 var imgpath = adminurl + "upload/readFile";
 var uploadurl = adminurl + "upload/";
 var currentYears = ["2015", "2016"];
