@@ -696,6 +696,15 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         //saves Athelete to database
         $scope.saveAthelete = function (formdata) { //formdata is data or body for this url
             console.log("form", formdata);
+            var sportLevelArray = []
+            if (!_.isEmpty(formdata.sportLevel)) {
+                _.forEach(formdata.sportLevel, function (val) {
+                    _.forEach(val, function (val1) {
+                        sportLevelArray.push(val1);
+                    });
+                });
+            };
+            formdata.sportLevel = sportLevelArray;
             formdata.sfaId = $scope.sfaId
             $scope.url = "Athelete/saveAthelete";
             console.log($scope.url);
