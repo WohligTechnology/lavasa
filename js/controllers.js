@@ -758,7 +758,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             // console.log("schoolName", $scope.schoolName);
         });
 
-        NavigationService.getAtheleteSFA({}, function (data) {
+        NavigationService.getAtheleteSFA("", function (data) {
             console.log("sfa", data);
             $scope.atheleList = data.data.results;
             // $scope.atheleList = data.data;
@@ -991,7 +991,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         }
 
         //get school name for binding with dropdown
-        NavigationService.getSchoolSFA({}, function (data) {
+        NavigationService.getSchoolSFA("", function (data) {
             console.log("sfa regis", data);
             $scope.schoolList = data.data.results;
             //$scope.schoolList = data.data;
