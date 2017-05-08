@@ -49,9 +49,9 @@
                             <span ng-bind="$select.selected.sfaid"></span>
                         </ui-select-match>
                         <ui-select-choices repeat="item in (atheleList | filter: $select.search)" refresh="searchChange($select.search)">
-                            <span ng-bind="item.sfaid"></span>
+                            <span ng-bind="item.sfaid"></span><br>
                             <small>
-                                 name: {{item.firstname}}{{item.lastname}}
+                                 Name: {{item.firstname}}  {{item.lastname}}
                             </small>
                         </ui-select-choices>
                     </ui-select>
@@ -81,7 +81,7 @@
                             <!--<input class="searchTerm" ng-model="searchTerm" type="text" placeholder="Search for a SFA..">-->
                             <select class="sfa-drop" ng-model="school">
 <option ng-repeat="x in schoolList |
-             filter:searchTerm" value="{{x._id}}">{{x.schoolName}}</option>
+             filter:searchTerm" value="{{x._id}}">{{x.name}}</option>
 </select>
                         </div>
                         <div class="col-sm-12 col-xs-12">
@@ -289,6 +289,7 @@
                             <option style="display:none"></option>
                    <option>National</option>
                    <option>State</option>
+                   <option>District</option>
                     
                         </select>
                             </div>
@@ -438,7 +439,8 @@
                         <input type="text" ng-model="formData.mobile" class="bor-t" minlength="10" maxlength="10" required>
                         <button class="btn btn-default sub-mit send-otp sf-list">Send OTP </button>
                         <label class="enter-otp sf-list"> *Enter OTP:</label>
-                        <input type="text" ng-model="formData.smsOTP" only-Digits class="bor-t" required>
+                        <input type="text" ng-model="formData.smsOTP" class="bor-t" required>
+                        <!--//only-digit remoced-->
                         <div class="hover-img">
                             <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
                             <div class="iconinfo iconinfo3 sf-list">
@@ -454,7 +456,8 @@
                         <input type="email" ng-model="formData.email" class="bor-t" required>
                         <button class="btn btn-default sub-mit send-otp sf-list">Send OTP </button>
                         <label class="enter-otp sf-list"> *Enter OTP:</label>
-                        <input type="text" ng-model="formData.emailOTP" only-Digits class="bor-t" required>
+                        <input type="text" ng-model="formData.emailOTP" class="bor-t" required>
+                        <!--only-Digits removed from upper line-->
                         <!--<div class="hover-img">
                                     <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
                                     <div class="iconinfo iconinfo3">
@@ -527,7 +530,8 @@
                         </div>
                         <div class="col-sm-6 col-xs-12">
                             <label class="padd-r4 pin-mob sf-list">  *Pin Code:</label>
-                            <input type="text" ng-model="formData.pinCode" only-Digits class="sfa-drop2 w147" minlength="6" maxlength="6" required>
+                            <input type="text" ng-model="formData.pinCode" class="sfa-drop2 w147" minlength="6" maxlength="6" required>
+                            <!--only-Digits removed -->
                         </div>
                     </div>
                     <div class="d-padd mar-l">

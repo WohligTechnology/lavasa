@@ -753,7 +753,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         //get school name for binding with dropdown
         NavigationService.getSchoolName({}, function (data) {
             console.log("schoolName", data);
-            $scope.schoolList = data.data.results;
+            $scope.schoolList = data.data;
 
             // console.log("schoolName", $scope.schoolName);
         });
@@ -902,6 +902,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             }
         };
         $scope.teamSport = [];
+        $scope.aquaticsSports = [];
         $scope.racquetSports = [];
         $scope.combatSports = [];
         $scope.targetSports = [];
@@ -915,6 +916,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             formdata.combatSports = $scope.combatSports
             formdata.targetSports = $scope.targetSports
             formdata.individualSports = $scope.individualSports
+            formdata.aquaticsSports = $scope.aquaticsSports
             formdata.sfaID = $scope.sfaID
 
             // formdata.serviceRequest = $scope.serviceList;
@@ -977,6 +979,16 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             frm.name = formdata;
             //document.getElementById(formdata).checked
             $scope.individualSports.push(frm);
+
+        }
+        //aquaticsSports array
+        $scope.addAquaticsSports = function (formdata) {
+            // formdata.serviceRequest = $scope.serviceList;
+            console.log("formdata", formdata);
+            var frm = {};
+            frm.name = formdata;
+            //document.getElementById(formdata).checked
+            $scope.aquaticsSports.push(frm);
 
         }
 
@@ -3938,6 +3950,16 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 score2: "5"
             }]
         }];
+
+    })
+    .controller('ChampionshipCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        $scope.template = TemplateService.changecontent("championship");
+        $scope.menutitle = NavigationService.makeactive("Championship");
+        TemplateService.header = "views/header2.html";
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
 
     })
 
