@@ -48,6 +48,12 @@ sans-serif !default;
 }
 
 @font-face {
+    font-family: 'Titillium Web Bold';
+    src: url("../fonts/titillium-web-bold.ttf");
+    font-weight: 600;
+}
+
+@font-face {
     font-family: 'Titillium Web Regular';
     src: url("../fonts/titillium-web.regular.ttf");
     font-weight: 600;
@@ -2553,6 +2559,52 @@ img.fancybox-image {
     }
 }
 
+.curve-head-mum {
+    background: rgba(24, 31, 187, 0.9);
+    position: relative;
+    padding: 20px 20px 50px 0px;
+    border-radius: 10px;
+    float: right;
+    min-width: 180px;
+    margin-right: 235px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    color: white;
+    &:after {
+        position: absolute;
+        top: 0;
+        left: 423px;
+        margin-top: -3px;
+        width: 0;
+        height: 0;
+        border-top: 10px solid;
+        border-right: 8px solid transparent;
+        border-left: 8px solid transparent;
+        color: #fff;
+        content: "";
+    }
+    &.no-after {
+        &:after {
+            opacity: 0;
+        }
+    }
+    ul {
+        padding-left: 20px;
+        li a {
+            color: white;
+            display: block;
+            border-bottom: 1px solid #686875;
+            padding: 10px 0px 10px 0px;
+            &:hover {
+                text-decoration: none;
+                outline: 0;
+                background: transparent;
+                color: #fc7700 !important;
+            }
+        }
+    }
+}
+
 .mt-0 {
     margin-top: 0;
 }
@@ -3134,6 +3186,7 @@ a.color-yellow1:hover {
 .sfa-mum {
     position: absolute;
     top: 20px;
+    right: 290px;
     img {
         margin-top: 25px;
         cursor: pointer;
@@ -3365,6 +3418,13 @@ ul.dropdown-menu.sf-absulate.blue-menus li a {
 .after {
     &:after {
         right: 8%;
+        left: inherit;
+    }
+}
+
+.after2 {
+    &:after {
+        right: 45%;
         left: inherit;
     }
 }
@@ -4788,6 +4848,111 @@ input[type="radio"]:checked+label span {
 .myicon3 {
     margin-left: 69px;
     padding-bottom: 15px;
+}
+
+//SCSS FPR CHAMPIONSHIP
+.proffessional {
+    position: relative;
+    padding: 0 0px 150px 20px;
+    .boy-img {
+        position: absolute;
+        top: -200px;
+        right: -120px;
+    }
+    h3 {
+        font-family: Titillium Web Bold;
+        color: #1796d0;
+        font-size: 28px;
+        //margin-bottom: 30px;
+    }
+    p,
+    li {
+        font-size: 16px;
+        font-weight: 400;
+        position: relative;
+        li:before {
+            content: '';
+            width: 7px;
+            position: absolute;
+            height: 10px;
+            border-bottom: 1px solid red;
+            top: 2px;
+            left: -12px;
+        }
+    }
+}
+
+.list-dash {}
+
+.p-right30 {
+    padding-right: 30px;
+}
+
+.list-common {
+    padding: 20px 0;
+}
+
+.content-padding {
+    padding: 0 20px;
+}
+
+.m0 {
+    margin: 0;
+}
+
+.professional-img {
+    padding: 0px 0px 50px 50px;
+}
+
+.brand-blue {
+    color: #1796d0;
+    font-family: Titillium Web SemiBold;
+    position: relative;
+    &:before {
+        content: '';
+        width: 7px;
+        height: 7px;
+        background-color: #1796d0;
+        border: 1px solid #1796d0;
+        border-radius: 50%;
+        position: absolute;
+        top: 8px;
+        left: -11px;
+    }
+}
+
+.largest {
+    padding: 100px 50px 220px 40px;
+}
+
+.largest-content {
+    padding: 70px 120px 40px 0px;
+    text-align: justify;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.largest-list {
+    padding-bottom: 70px;
+    li {
+        padding-bottom: 10px;
+        color: #2bb568;
+        font-size: 20px;
+    }
+}
+
+.largest-ball {
+    position: relative;
+}
+
+.ball {
+    position: absolute;
+    top: 135px;
+    left: 80px;
+}
+
+.blue-sec {
+    background-color: #1796d0;
 }
 
 @import "fancybox-override";
