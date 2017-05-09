@@ -3962,6 +3962,16 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.navigation = NavigationService.getnav();
 
     })
+    .controller('RegisterCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        $scope.template = TemplateService.changecontent("register");
+        $scope.menutitle = NavigationService.makeactive("Register");
+        TemplateService.header = "views/header2.html";
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
 
     .controller('headerctrl', function ($scope, TemplateService, $rootScope) {
         $scope.template = TemplateService;
