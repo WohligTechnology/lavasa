@@ -36,6 +36,12 @@ sans-serif !default;
 }
 
 @font-face {
+    font-family: 'TitilliumWeb-Light';
+    src: url("../fonts/TitilliumWeb-Light.ttf");
+    font-weight: 600;
+}
+
+@font-face {
     font-family: 'Futura Std Bold Condensed';
     src: url("../fonts/Futura Std Bold Condensed.otf");
     font-weight: 400;
@@ -4109,7 +4115,7 @@ iframe#twitter-widget-0 {
 
 .sfa-drop {
     width: 81%;
-    border-top: none;
+    // border-top: none;
     background: none;
     border-color: lightgray;
 }
@@ -4117,7 +4123,6 @@ iframe#twitter-widget-0 {
 .d-mar {
     margin-top: 50px;
 }
-
 .box2 {
     box-shadow: 0px 0px 0px 2px lightgray;
     position: relative;
@@ -4133,7 +4138,7 @@ iframe#twitter-widget-0 {
     width: 240px;
     height: 280px;
     background: #091a71;
-    ;
+    
     -webkit-clip-path: polygon(0 0, 93% 0, 100% 16%, 0 16%);
     clip-path: polygon(0 0, 93% 0, 100% 16%, 0 16%);
     color: #ffffff;
@@ -4171,7 +4176,7 @@ iframe#twitter-widget-0 {
 }
 
 .sfa-drop2 {
-    border-top: none;
+    // border-top: none;
     background: none;
     border-color: lightgray;
 }
@@ -4263,6 +4268,7 @@ iframe#twitter-widget-0 {
 .create-btn {
     width: 117px;
     position: relative;
+    margin-top: -104px;
 }
 
 .myupload {
@@ -4345,13 +4351,13 @@ iframe#twitter-widget-0 {
 
 .sfa-in {
     width: 85%;
-    border-top: none;
+    // border-top: none;
     background: none;
     border-color: lightgray;
 }
 
 .bor-t {
-    border-top: none;
+    // border-top: none;
 }
 
 .pb10 {
@@ -4520,7 +4526,7 @@ label:hover:before {
 
 .sportlevel {
     padding-right: 17px;
-    padding-left: 18px;
+    padding-left: 17px;
     padding-top: 12px;
 }
 
@@ -4529,8 +4535,8 @@ label:hover:before {
 }
 
 .padd-lr {
-    padding-left: 8px;
-    padding-right: 9px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .padd40 {
@@ -4645,7 +4651,7 @@ label:hover:before {
         top: -12px !important;
         left: 15px !important;
         font-size: 20px !important; //   line-height: 0.8;
-        color: #ccc;
+        color: black;
         transition: all .2s;
     }
     [type="checkbox"]:not(:checked)+label:after {
@@ -4717,14 +4723,14 @@ input[type="radio"]+label {
     // color: red;
     font-family: Arial, sans-serif;
     font-size: 14px;
-    margin-left: -20px;
+    margin-left: -21px;
 }
 
 input[type="radio"]+label span {
     display: inline-block;
     width: 8px;
     height: 8px;
-    margin: -9px 9px 0 0;
+    margin: -10px 10px 0 0;
     vertical-align: middle;
     cursor: pointer;
     -moz-border-radius: 50%;
@@ -4813,8 +4819,8 @@ input[type="radio"]:checked+label span {
 }
 
 .x-img {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     position: absolute;
     right: 0;
     padding: 10px;
@@ -5157,10 +5163,13 @@ input[type="radio"]:checked+label span {
 }
 
 .venue {
-    box-shadow: 2px 2px 25px #ccc;
-    padding: 40px;
-    margin-top: -55px;
+    box-shadow: 2px 2px 12px #ccc;
+    padding: 20px 40px;
+    margin: -55px 0 60px 0;
     background: #fff;
+    p {
+        font-size: 16px;
+    }
 }
 
 .date-details {
@@ -5170,12 +5179,22 @@ input[type="radio"]:checked+label span {
     }
 }
 
+.past-championship {
+    h2 {
+        font-size: 35px;
+        text-transform: uppercase;
+        font-family: Titillium Web SemiBold;
+        color: #091a71;
+    }
+}
+
 .championship-blue {
     background: #091a71;
+    margin-top: 50px;
 }
 
 .school-registration {
-    margin: 10px 30px 0 100px;
+    margin: 45px 20px 0 100px;
     border: 1px solid #53bb74;
     .btn-school {
         padding: 40px 0 5px 0;
@@ -5185,14 +5204,39 @@ input[type="radio"]:checked+label span {
         .school-icon {
             position: absolute;
             top: -70px;
-            left: 140px;
+            left: 155px;
         }
     }
 }
 
+.green {
+    background: #53bb74;
+}
+
+.blue-light {
+    background: #37c1f0;
+}
+
+.orange {
+    background: #e99e37;
+}
+
+.video {
+    display: inline-block;
+    padding: 0px 45px 10px;
+    margin-top: -30px;
+    h2 {
+        font-size: 24px;
+        color: #f47621;
+        font-family: Titillium Web SemiBold;
+    }
+}
+
 .athletes {
-    margin: 10px 30px 0 100px;
+    margin: 45px 100px 0 20px;
     border: 1px solid #e99e37;
+    border-bottom: none;
+    padding-bottom: 2px;
     .athlets-btn {
         padding: 40px 0 5px 0;
         background: #e99e37;
@@ -5201,17 +5245,36 @@ input[type="radio"]:checked+label span {
         .athlets-icon {
             position: absolute;
             top: -70px;
-            left: 140px;
+            left: 155px;
         }
     }
 }
 
 .category-padding {
-    padding: 25px 40px;
+    padding: 25px 40px 10px;
+    p {
+        font-size: 16px;
+    }
+}
+
+.btn-category {
+    padding: 8px 25px;
+    border: none;
+    font-size: 20px;
+    color: white;
+}
+
+.categories {
+    h1 {
+        font-family: Titillium Web SemiBold;
+        color: #091a71;
+        text-transform: uppercase;
+        margin-bottom: 35px;
+    }
 }
 
 .sport-registration {
-    margin: 100px 0px 0 0;
+    margin: 100px 55px 0px 55px;
     border: 1px solid #3eacde;
     .btn-sport {
         padding: 40px 0 5px 0;
@@ -5221,9 +5284,141 @@ input[type="radio"]:checked+label span {
         .sport-icon {
             position: absolute;
             top: -70px;
-            left: 170px;
+            left: 165px;
         }
     }
+}
+
+.store-for-you {
+    padding: 100px 0;
+    font-size: 17px;
+    h2 {
+        color: #091b71;
+        font-family: Titillium Web SemiBold;
+        margin-bottom: 30px;
+    }
+}
+
+.store-for-you-list {
+    padding-left: 17px;
+}
+
+.store-padding {
+    padding: 0 100px 0px 17px;
+}
+
+.common-store {
+    p {
+        margin: 0;
+        color: #d9495b;
+        font-family: Titillium Web SemiBold;
+    }
+}
+
+.sport-row-space {
+    padding-bottom: 30px;
+}
+
+.sport25 {
+    font-size: 34px;
+    font-family: TitilliumWeb-Light;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.institution {
+    padding: 0 40px;
+    position: relative;
+    &:before {
+        content: '';
+        width: 5px;
+        height: 28px;
+        border-left: 2px solid #000;
+        position: absolute;
+        left: 15px;
+        top: 14px;
+    }
+    &:after {
+        content: '';
+        width: 5px;
+        height: 28px;
+        border-left: 2px solid #000;
+        position: absolute;
+        right: 15px;
+        top: 14px;
+    }
+}
+
+.date-venue {
+    font-size: 22px;
+    font-family: TitilliumWeb-Light;
+    margin-bottom: 30px;
+    li {
+        padding: 0 10px;
+        position: relative;
+        &:before {
+            content: '';
+            width: 5px;
+            height: 25px;
+            border-left: 2px solid #000;
+            position: absolute;
+            right: -5px;
+            top: 5px;
+        }
+    }
+    li:nth-of-type(2) {
+        &:before {
+            content: '';
+            border-left: none;
+        }
+    }
+}
+
+.venue-bottom li {
+    padding: 0 5px;
+}
+
+.mb-20 {
+    margin-bottom: -20px;
+}
+
+.pd-left {
+    padding-left: 40px;
+}
+
+.ml3 {
+    margin-left: -3px;
+}
+.padd-l38{
+    padding-left: 38px;
+}
+.w150{
+    width: 150px;
+}
+.w100{
+    width: 100%;
+}
+.cross-icon{
+    float: right;
+}
+.display-block{
+    display: inline-block;
+}
+.float-r{
+    float: right;
+ 
+    margin-right: 25px;
+    margin-top: 30px;
+}
+.Upload-Age{
+    .create-btn {
+    width: 117px;
+    position: relative;
+    margin-top: 6px; 
+}
+}
+.text-right{
+    text-align: right;
 }
 
 @import "fancybox-override";
