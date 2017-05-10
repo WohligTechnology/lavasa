@@ -49,9 +49,12 @@
                             <span ng-bind="$select.selected.sfaid"></span>
                         </ui-select-match>
                         <ui-select-choices repeat="item in (atheleList | filter: $select.search)" refresh="searchChange($select.search)">
-                            <span ng-bind="item.sfaid"></span><br>
+                            <span ng-bind="item.sfaid"></span>
                             <small>
-                                 Name: {{item.firstname}}  {{item.lastname}}
+                                {{item.firstname}}  {{item.lastname}}
+                            </small><br>
+                            <small>
+                                school
                             </small>
                         </ui-select-choices>
                     </ui-select>
@@ -126,7 +129,12 @@
                             <div class="dirctive-op">
                                 <upload-image class="up-img ng-isolate-scope" ng-model="formdara.atheleteSchoolIdImage" ng-disabled="type.disabled"></upload-image>
                             </div>
-
+                               <div class="display-inline padd-l38">
+                                <div class="w150">
+                                <img src="img/dy-patil.jpg" class="img-resopnsive w100">
+                                </div>
+                            </div>
+                      <label class="kindly-up up-m175 sf-list">Kindly upload only .jpg or .png format. Maximum file size 1MB.</label>
                             <div class="hover-img">
                                 <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
                             </div>
@@ -173,15 +181,13 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 col-xs-4 sf-list">  *Grade/Standard:</label>
+                        <label class="col-sm-3 col-xs-4 sf-list">*Grade/Standard:</label>
                         <div class="col-sm-3 col-xs-8">
                             <select class="sfa-drop2 sfa4 sf-list" ng-model="formData.standard" required>
                             <option style="display:none"></option>
                    <option>Jr. KG </option> 
                    <option>Sr. KG </option>
-                   
-                    
-                      </select>
+                     </select>
                         </div>
                         <label class="col-sm-2 sf-list blood-mob">  Blood Group:</label>
                         <!--<input type="text" class="bor-t" required minlength="10" maxlength="10">-->
@@ -214,6 +220,11 @@
                             <div class="dirctive-op">
                                 <upload-image class="up-img ng-isolate-scope" ng-model="formData.photograph" ng-disabled="type.disabled"></upload-image>
                             </div>
+                               <div class="display-inline padd-l38">
+                                <div class="w150">
+                                <img src="img/dy-patil.jpg" class="img-resopnsive w100">
+                                </div>
+                            </div>
 
                             <div class="hover-img">
                                 <img src="img/icon/x.png" alt="logo" ng-click="removePhoto(formData.photograph)" class="img-responsive myicon">
@@ -231,46 +242,64 @@
                         <label class="col-sm-3 col-xs-3  sf-list">*Date Of Birth:</label>
                         <div class="col-sm-9 col-xs-9">
                             <input type="date" ng-model="formData.dob" placeholder="dd" class="bor-t date-month sf-list" required>
-                            <label class="padd-25 sf-list">  Age:</label>
+                            <label class="padd-25 sf-list">Age:</label>
                             <label ng-if="formData.dob">{{ageCalculate(formData.dob)}}</label>
                         </div>
                     </div>
-
-                    <div class="form-group">
+                       <div class="form-group">
                         <div class="col-sm-12 col-xs-12">
                             <label class="padd-r12 sf-list label-age">*Upload Age Proof:</label>
                             <select class="sfa-drop2 sf-list sfa-mob2 label-two" ng-model="ageProof" required>
                             <option style="display:none"></option>
                     <option>Adhaar Card </option>
-                   <option value="hello">Birth Certificate + Photo ID </option>
+                   <option value="hello">Birth Certificate + Photo ID</option>
                     <option>PAN Card</option>
                      <option>Passport</option>
                         </select>
-                            <button class="btn btn-default myupload upload4">Upload </button>
-                            <div class="dirctive-op upload5">
+                       <button class="btn btn-default myupload upload4">Upload</button>
+                       
+                            <div class="dirctive-op upload5 Upload-Age">
                                 <upload-image class="up-img ng-isolate-scope" ng-model="formData.birthImage" ng-disabled="type.disabled"></upload-image>
                             </div>
-                            <button class="btn btn-default myupload upload6" ng-show="ageProof=='hello'">Upload </button>
-                            <div class="dirctive-op upload7" ng-show="ageProof=='hello'">
-                                <upload-image class="up-img ng-isolate-scope" ng-disabled="type.disabled" ng-model="formData.photoImage" </upload-image>
+                            
+                     <button class="btn btn-default myupload upload6" ng-show="ageProof=='hello'">Upload </button>
+                            <div class="dirctive-op upload7 Upload-Age" ng-show="ageProof=='hello'">
+                                <upload-image class="up-img ng-isolate-scope" ng-disabled="type.disabled" ng-model="formData.photoImage"> </upload-image>
                             </div>
-                            <!--<label class=" myupload2">  <upload-image class="up-img" no-view></upload-image></label>-->
+                         <!--<label class=" myupload2">  <upload-image class="up-img" no-view></upload-image></label>-->
                             <!--<label class=" myupload"><upload-image class="up-img" ng-show="myVar=='hello'" no-view></upload-image></label>-->
-                            <div class="hover-img">
-                                <img src="img/icon/x.png" alt="logo" ng-click="removeImage(formData.photoImage,formData.birthImage)" class="img-responsive myicon">
-                            </div>
-                            <div class="hover-img">
+                         <div class="hover-img">
                                 <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
                                 <div class="iconinfo age sf-list">
                                     <p>For age verification</p>
                                 </div>
                             </div>
-                            <!--<label class="kindly-up up-m175">Kindly upload only .jpg or .png format. Maximum file size 1MB.</label>-->
+                            <div class="text-right">
+                            <label class="kindly-up up-m175 ">Kindly upload only .jpg or .png format. Maximum file size 1MB.</label>
+                            </div>
+                            <div>
+                             <div class=" padd-l38 display-block float-r">
+                                 <div class="w150">
+                                 <img src="img/icon/x.png" alt="logo" ng-click="removeImage(formData.photoImage,formData.birthImage)" class="img-responsive myicon cross-icon">
+                                 </div>
+                                <div class="w150">
+                                <img src="img/dy-patil.jpg" class="img-resopnsive w100">
+                                </div>
+                            </div>
+                             <div class=" padd-l38 display-block float-r">
+                                 <div class="w150">
+                                 <img src="img/icon/x.png" alt="logo" ng-click="removeImage(formData.photoImage,formData.birthImage)" class="img-responsive myicon cross-icon">
+                                 </div>
+                                <div class="w150">
+                                <img src="img/dy-patil.jpg" class="img-resopnsive w100">
+                                </div>
+                            </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <h4 class="blue fs-14">Have you played National/State/District tournaments? (Optional)</h4>
+                            <h4 class="blue fs-14">Have you played National/State/District tournaments? </h4>
                             <input type="radio" ng-model="formData.played" id="radio07" name="radio" value="yes" ng-click="myshow=true">
                             <label for="radio07" class="padd-lr sf-list"><span></span>Yes</label>
                             <input type="radio" ng-model="formData.played" id="radio08" name="radio" value="no">
@@ -616,7 +645,7 @@
                     </div>
                 </div>
                 <div class="text-center sub-padd">
-                    <button class="btn btn-default sub-mit" type="submit">Submit & Save</button>
+                    <button class="btn btn-default sub-mit" type="submit">Submit </button>
                 </div>
             </form>
         </div>
