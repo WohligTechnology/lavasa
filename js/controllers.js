@@ -706,7 +706,11 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             };
             formdata.sportLevel = sportLevelArray;
             formdata.sfaId = $scope.sfaId
-            $scope.url = "Athelete/saveAthelete";
+            if (_.isEqual(formdata.registrationFee, "online PAYU")) {
+                $scope.url = "PayU/atheletePayment";
+            } else {
+                $scope.url = "Athelete/saveAthelete";
+            }
             console.log($scope.url);
             NavigationService.apiCallWithData($scope.url, formdata, function (data) {
                 //links navigation services 

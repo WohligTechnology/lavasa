@@ -82,7 +82,7 @@
                         <label class="col-sm-3 col-xs-5 sf-list">*Select your School:</label>
                         <div class="col-sm-9 col-xs-7">
                             <!--<input class="searchTerm" ng-model="searchTerm" type="text" placeholder="Search for a SFA..">-->
-                            <select class="sfa-drop" ng-model="school">
+                            <select class="sfa-drop" ng-model="formData.school">
 <option ng-repeat="x in schoolList |
              filter:searchTerm" value="{{x._id}}">{{x.name}}</option>
 </select>
@@ -127,14 +127,14 @@
                         <div class="col-sm-7 col-xs-7">
                             <button class="btn btn-default myupload">Upload </button>
                             <div class="dirctive-op">
-                                <upload-image class="up-img ng-isolate-scope" ng-model="formdara.atheleteSchoolIdImage" ng-disabled="type.disabled"></upload-image>
+                                <upload-image class="up-img ng-isolate-scope" ng-model="formData.atheleteSchoolIdImage" ng-disabled="type.disabled"></upload-image>
                             </div>
-                               <div class="display-inline padd-l38">
+                            <div class="display-inline padd-l38">
                                 <div class="w150">
-                                <img src="img/dy-patil.jpg" class="img-resopnsive w100">
+                                    <img src="img/dy-patil.jpg" class="img-resopnsive w100">
                                 </div>
                             </div>
-                      <label class="kindly-up up-m175 sf-list">Kindly upload only .jpg or .png format. Maximum file size 1MB.</label>
+                            <label class="kindly-up up-m175 sf-list">Kindly upload only .jpg or .png format. Maximum file size 1MB.</label>
                             <div class="hover-img">
                                 <img src="img/icon/x.png" alt="logo" class="img-responsive myicon">
                             </div>
@@ -220,9 +220,9 @@
                             <div class="dirctive-op">
                                 <upload-image class="up-img ng-isolate-scope" ng-model="formData.photograph" ng-disabled="type.disabled"></upload-image>
                             </div>
-                               <div class="display-inline padd-l38">
+                            <div class="display-inline padd-l38">
                                 <div class="w150">
-                                <img src="img/dy-patil.jpg" class="img-resopnsive w100">
+                                    <img src="img/dy-patil.jpg" class="img-resopnsive w100">
                                 </div>
                             </div>
 
@@ -246,7 +246,7 @@
                             <label ng-if="formData.dob">{{ageCalculate(formData.dob)}}</label>
                         </div>
                     </div>
-                       <div class="form-group">
+                    <div class="form-group">
                         <div class="col-sm-12 col-xs-12">
                             <label class="padd-r12 sf-list label-age">*Upload Age Proof:</label>
                             <select class="sfa-drop2 sf-list sfa-mob2 label-two" ng-model="ageProof" required>
@@ -256,44 +256,44 @@
                     <option>PAN Card</option>
                      <option>Passport</option>
                         </select>
-                       <button class="btn btn-default myupload upload4">Upload</button>
-                       
+                            <button class="btn btn-default myupload upload4">Upload</button>
+
                             <div class="dirctive-op upload5 Upload-Age">
                                 <upload-image class="up-img ng-isolate-scope" ng-model="formData.birthImage" ng-disabled="type.disabled"></upload-image>
                             </div>
-                            
-                     <button class="btn btn-default myupload upload6" ng-show="ageProof=='hello'">Upload </button>
+
+                            <button class="btn btn-default myupload upload6" ng-show="ageProof=='hello'">Upload </button>
                             <div class="dirctive-op upload7 Upload-Age" ng-show="ageProof=='hello'">
                                 <upload-image class="up-img ng-isolate-scope" ng-disabled="type.disabled" ng-model="formData.photoImage"> </upload-image>
                             </div>
-                         <!--<label class=" myupload2">  <upload-image class="up-img" no-view></upload-image></label>-->
+                            <!--<label class=" myupload2">  <upload-image class="up-img" no-view></upload-image></label>-->
                             <!--<label class=" myupload"><upload-image class="up-img" ng-show="myVar=='hello'" no-view></upload-image></label>-->
-                         <div class="hover-img">
+                            <div class="hover-img">
                                 <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
                                 <div class="iconinfo age sf-list">
                                     <p>For age verification</p>
                                 </div>
                             </div>
                             <div class="text-right">
-                            <label class="kindly-up up-m175 ">Kindly upload only .jpg or .png format. Maximum file size 1MB.</label>
+                                <label class="kindly-up up-m175 ">Kindly upload only .jpg or .png format. Maximum file size 1MB.</label>
                             </div>
                             <div>
-                             <div class=" padd-l38 display-block float-r">
-                                 <div class="w150">
-                                 <img src="img/icon/x.png" alt="logo" ng-click="removeImage(formData.photoImage,formData.birthImage)" class="img-responsive myicon cross-icon">
-                                 </div>
-                                <div class="w150">
-                                <img src="img/dy-patil.jpg" class="img-resopnsive w100">
+                                <div class=" padd-l38 display-block float-r">
+                                    <div class="w150">
+                                        <img src="img/icon/x.png" alt="logo" ng-click="removeImage(formData.photoImage,formData.birthImage)" class="img-responsive myicon cross-icon">
+                                    </div>
+                                    <div class="w150">
+                                        <img src="img/dy-patil.jpg" class="img-resopnsive w100">
+                                    </div>
                                 </div>
-                            </div>
-                             <div class=" padd-l38 display-block float-r">
-                                 <div class="w150">
-                                 <img src="img/icon/x.png" alt="logo" ng-click="removeImage(formData.photoImage,formData.birthImage)" class="img-responsive myicon cross-icon">
-                                 </div>
-                                <div class="w150">
-                                <img src="img/dy-patil.jpg" class="img-resopnsive w100">
+                                <div class=" padd-l38 display-block float-r">
+                                    <div class="w150">
+                                        <img src="img/icon/x.png" alt="logo" ng-click="removeImage(formData.photoImage,formData.birthImage)" class="img-responsive myicon cross-icon">
+                                    </div>
+                                    <div class="w150">
+                                        <img src="img/dy-patil.jpg" class="img-resopnsive w100">
+                                    </div>
                                 </div>
-                            </div>
                             </div>
                         </div>
                     </div>
