@@ -5095,23 +5095,136 @@ input[type="radio"]:checked+label span {
     font-family: Titillium Web SemiBold;
 }
 
-.sport-icon {
-    padding: 90px 0 20px;
-    li {
-        display: inline-block;
-        width: 12%;
-        padding: 0 8px;
-    }
-    p {
-        font-size: 12px;
-        text-transform: uppercase;
-        text-align: center;
-        color: #272863;
-        margin-top: 5px;
-        font-family: Titillium Web Bold;
+.multi-sporting {
+    .sport-icon {
+        padding: 90px 0 20px;
+        li {
+            display: inline-block;
+            width: 12%;
+            padding: 0 8px;
+        }
+        p {
+            font-size: 12px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #272863;
+            margin-top: 5px;
+            font-family: Titillium Web Bold;
+        }
     }
 }
 
 //scss for register
+.registration-img {
+    background-color: #0d1f77;
+    padding: 50px 0 50px 0px;
+    .sport-icon {
+        li {
+            display: inline-block;
+            width: 9%;
+            padding: 0 8px;
+        }
+        p {
+            font-size: 12px;
+            text-transform: uppercase;
+            text-align: center;
+            color: #fff;
+            margin-top: 5px;
+            font-family: Titillium Web Bold;
+        }
+    }
+}
+
+.registration-desc {
+    padding: 60px;
+    h2 {
+        font-family: Futura Std Bold Condensed;
+        color: white;
+        position: relative;
+        &:before {
+            content: '';
+            width: 180px;
+            height: 10px;
+            border-bottom: 1px solid #a01aff;
+            position: absolute;
+            bottom: -9px;
+        }
+    }
+    h3 {
+        color: #37c1f0;
+        font-family: Futura Std Bold Condensed;
+    }
+}
+
+.venue {
+    box-shadow: 2px 2px 25px #ccc;
+    padding: 40px;
+    margin-top: -55px;
+    background: #fff;
+}
+
+.date-details {
+    text-align: center;
+    li {
+        display: inline-block;
+    }
+}
+
+.championship-blue {
+    background: #091a71;
+}
+
+.school-registration {
+    margin: 10px 30px 0 100px;
+    border: 1px solid #53bb74;
+    .btn-school {
+        padding: 40px 0 5px 0;
+        background: #53bb74;
+        color: white;
+        position: relative;
+        .school-icon {
+            position: absolute;
+            top: -70px;
+            left: 140px;
+        }
+    }
+}
+
+.athletes {
+    margin: 10px 30px 0 100px;
+    border: 1px solid #e99e37;
+    .athlets-btn {
+        padding: 40px 0 5px 0;
+        background: #e99e37;
+        color: white;
+        position: relative;
+        .athlets-icon {
+            position: absolute;
+            top: -70px;
+            left: 140px;
+        }
+    }
+}
+
+.category-padding {
+    padding: 25px 40px;
+}
+
+.sport-registration {
+    margin: 100px 0px 0 0;
+    border: 1px solid #3eacde;
+    .btn-sport {
+        padding: 40px 0 5px 0;
+        background: #3eacde;
+        color: white;
+        position: relative;
+        .sport-icon {
+            position: absolute;
+            top: -70px;
+            left: 170px;
+        }
+    }
+}
+
 @import "fancybox-override";
 @import "mobile";
