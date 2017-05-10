@@ -727,6 +727,24 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
         }
 
+        $scope.sendMobileOTP = function (formData) {
+            console.log("form", formData);
+            $scope.url = "athelete/generateMobileOTP";
+            console.log($scope.url);
+            NavigationService.apiCallWithData($scope.url, formData, function (data) {
+
+            });
+        }
+
+        $scope.sendEmailOTP = function (formData) {
+            console.log("form", formData);
+            $scope.url = "athelete/generateEmailOTP";
+            console.log($scope.url);
+            NavigationService.apiCallWithData($scope.url, formData, function (data) {
+
+            });
+        }
+
         //search filter
         $scope.searchChange = function (paramData) {
             console.log("changekeyword", paramData);

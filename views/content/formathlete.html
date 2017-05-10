@@ -187,6 +187,18 @@
                             <option style="display:none"></option>
                    <option>Jr. KG </option> 
                    <option>Sr. KG </option>
+                   <option>1 </option>
+                   <option>2 </option>
+                   <option>3 </option>
+                   <option>4 </option>
+                   <option>5 </option>
+                   <option>6 </option>
+                   <option>7 </option>
+                   <option>8 </option>
+                   <option>9 </option>
+                   <option>10 </option>
+                   <option>11 </option>
+                   <option>12 </option>
                      </select>
                         </div>
                         <label class="col-sm-2 sf-list blood-mob">  Blood Group:</label>
@@ -241,7 +253,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-3  sf-list">*Date Of Birth:</label>
                         <div class="col-sm-9 col-xs-9">
-                            <input type="date" ng-model="formData.dob" placeholder="dd" class="bor-t date-month sf-list" required>
+                            <input type="date" max="9999-12-31" ng-model="formData.dob" placeholder="dd" class="bor-t date-month sf-list" required>
                             <label class="padd-25 sf-list">Age:</label>
                             <label ng-if="formData.dob">{{ageCalculate(formData.dob)}}</label>
                         </div>
@@ -415,6 +427,7 @@
                             <option style="display:none"></option>
                    <option>National</option>
                    <option>State</option>
+                   <option>District</option>
                     
                         </select>
                             </div>
@@ -466,7 +479,7 @@
                     <div class="form-group">
                         <label class="mobileno-padd mobileno-mob sf-list">*Mobile No:</label>
                         <input type="text" ng-model="formData.mobile" class="bor-t" minlength="10" maxlength="10" required>
-                        <button class="btn btn-default sub-mit send-otp sf-list">Send OTP </button>
+                        <button class="btn btn-default sub-mit send-otp sf-list" ng-click="sendMobileOTP(formData.mobile)">Send OTP </button>
                         <label class="enter-otp sf-list"> *Enter OTP:</label>
                         <input type="text" ng-model="formData.smsOTP" class="bor-t" required>
                         <!--//only-digit remoced-->
@@ -483,7 +496,7 @@
                     <div class="form-group">
                         <label class="emailid-padd email-mob3 sf-list">*Email:</label>
                         <input type="email" ng-model="formData.email" class="bor-t" required>
-                        <button class="btn btn-default sub-mit send-otp sf-list">Send OTP </button>
+                        <button class="btn btn-default sub-mit send-otp sf-list" ng-click="sendEmailOTP(formData.email)">Send OTP </button>
                         <label class="enter-otp sf-list"> *Enter OTP:</label>
                         <input type="text" ng-model="formData.emailOTP" class="bor-t" required>
                         <!--only-Digits removed from upper line-->
