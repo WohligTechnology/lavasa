@@ -1004,6 +1004,17 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             $scope.teamSport.push(frm);
 
         }
+        $scope.termcondition = function (size) {
+
+            $scope.termconditionModal = $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/terms-school.html',
+                scope: $scope,
+                size: size,
+                windowClass: "termcondition-modal"
+
+            });
+        };
 
         //racquet sports array
         $scope.addRacquetSports = function (formdata) {

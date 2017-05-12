@@ -9,8 +9,8 @@
             <div class="box box-padd">
                 <div>
                     <p class="para sf-list"><span class="blue fs-14">Kindly Note:</span> This is a one-time registration process. Completion of this
-                        process will allow you to register using your SFA ID & Code for all future SFA Events. This also
-                        enables us to create a personalized sporting experience for you on our website www.sfanow.in to highlight
+                        process will allow you to register using your SFA ID for all future SFA Events. This also enables
+                        us to create a personalized sporting experience for you on our website www.sfanow.in to highlight
                         your performances in sport by way of profiles, records maintenance, match videos, statistics and
                         reports.
                     </p>
@@ -63,7 +63,7 @@
                     <div>
                         <p class="para2 t-padd sf-list">If you have not participated in SFA Championships before, your SFA ID will be generated<br> on successful
                             completion of registration.</p>
-                        <p class="para2 b-padd sf-list">Please Note: All fields with * are mandatory.</p>
+                        <p class="para2 b-padd sf-list">Please Note: All fields marked with * are mandatory.</p>
                     </div>
                 </div>
             </div>
@@ -123,7 +123,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-5 col-xs-5 sf-list">Upload School ID Card OR Report Card:</label>
+                        <label class="col-sm-5 col-xs-5 sf-list">*Upload School ID Card OR Report Card:</label>
                         <div class="col-sm-7 col-xs-7">
                             <button class="btn btn-default myupload">Upload </button>
                             <div class="dirctive-op">
@@ -486,7 +486,7 @@
                     <div class="d-padd mar-l">
                         <h4 class="blue pb10 fs-14">Parent/Guardian Details</h4>
                         <p class="check-box ">
-                            <label class="sf-list" ng-click="termcondition()">*Terms & Conditions</label>
+                            <label class="sf-list" ng-click="termcondition()">*I have carefully read and understood the terms and conditions of this form / disclaimer / waiver and as described in this form / disclaimer / waiver and consent to all of them.</label>
                             <input type="checkbox" ng-model="formData.termsAndCondition" id="test5" />
                             <label for="test5"></label>
                         </p>
@@ -537,7 +537,8 @@
                                 </div>
                             </div>
                             <div class="sub-padd">
-                                <img src="img/icon/p.png" alt="logo" class="img-responsive myicon2" ng-click="addSportForm(m)">
+                                <img src="img/icon/p.png" alt="logo" class="img-responsive myicon2 display-inline " ng-click="addSportForm(m)">
+                                <p class="display-inline ">Add Parent/Guardian</p>
                             </div>
                         </div>
                     </div>
@@ -554,11 +555,19 @@
                     <div class="d-padd para2">
                         <div class="form-group ">
                             <input ng-model="formData.registrationFee" type="radio" id="radio11" name="radio" value="cash">
-                            <label for="radio11" class="padd-lr sf-list"><span></span>Cash</label>
-                            <input ng-model="formData.registrationFee" type="radio" id="radio12" name="radio" value="cheque">
-                            <label for="radio12" class="padd-lr sf-list"><span></span>Cheque</label>
+                            <label for="radio11" class="padd-lr sf-list"><span></span>Cash/Cheque/Demand Draft</label>
+                            <p>Online Payment: Selecting this option will enable you to pay the registration fee of Rs. 200
+                                (Inclusive of all applicable taxes) via one of the following methods: 4) Credit Card 5) Debit
+                                Card 6) Net Banking </p>
+                            <!--<input ng-model="formData.registrationFee" type="radio" id="radio12" name="radio" value="cheque">
+                            <label for="radio12" class="padd-lr sf-list"><span></span>Cheque</label>-->
                             <input ng-model="formData.registrationFee" type="radio" id="radio13" name="radio" value="online PAYU">
-                            <label for="radio13" class="padd-lr sf-list"><span></span>Online PAYU</label>
+                            <label for="radio13" class="padd-lr sf-list"><span></span>Online Payment</label>
+                            <p>
+                                Cash/Cheque/Demand Draft: Selecting this option will enable you to pay the registration fee of Rs. 200 (Inclusive of all
+                                applicable taxes) by Cash/Cheque/Demand Draft in favour of ‘SFA Events Private Limited’ which
+                                is to be couriered/hand delivered to: 1306, Panchratna Building, Opera House (Next to Roxy
+                                Cinema), Charni Road, Mumbai – 400004</p>
                         </div>
                     </div>
                 </div>
