@@ -976,21 +976,21 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         }
         $scope.checkOTP = function (otp) {
             console.log("opt", $scope.emailOtp, otp);
-            if (_.isEqual($scope.emailOtp, otp)) {
+            if ($scope.emailOtp == otp) {
                 console.log("email OTP verified");
             } else {
                 alert("Incorrect OTP!");
             }
         }
 
-        $scope.sendOTP = function (mobile) {
+        $scope.sendOTP = function (email) {
             var formdata = {}
-            formdata.mobile = mobile;
+            formdata.email = email;
             console.log("form", formdata);
             $scope.url = "registration/generateOTP";
             console.log($scope.url);
             NavigationService.apiCallWithData($scope.url, formdata, function (data) {
-                $scope.emailOtp = data;
+                $scope.emailOtp = data.data;
             });
         }
 

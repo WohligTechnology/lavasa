@@ -230,7 +230,7 @@
                         <div class="col-sm-8 col-xs-7">
                             <button class="btn btn-default myupload">Upload </button>
                             <div class="dirctive-op">
-                                <upload-image class="up-img ng-isolate-scope" ng-model="formData.photograph" ng-disabled="type.disabled"></upload-image>
+                                <upload-image class="up-img ng-isolate-scope" ng-model="formData.photograph" no-view ng-disabled="type.disabled"></upload-image>
                             </div>
                             <div class="display-inline padd-l38">
                                 <div class="w150">
@@ -271,12 +271,12 @@
                             <button class="btn btn-default myupload upload4">Upload</button>
 
                             <div class="dirctive-op upload5 Upload-Age">
-                                <upload-image class="up-img ng-isolate-scope" ng-model="formData.birthImage" ng-disabled="type.disabled"></upload-image>
+                                <upload-image class="up-img ng-isolate-scope" ng-model="formData.birthImage" no-view ng-disabled="type.disabled"></upload-image>
                             </div>
 
                             <button class="btn btn-default myupload upload6" ng-show="ageProof=='hello'">Upload </button>
                             <div class="dirctive-op upload7 Upload-Age" ng-show="ageProof=='hello'">
-                                <upload-image class="up-img ng-isolate-scope" ng-disabled="type.disabled" ng-model="formData.photoImage"> </upload-image>
+                                <upload-image class="up-img ng-isolate-scope" ng-disabled="type.disabled" no-view ng-model="formData.photoImage"> </upload-image>
                             </div>
                             <!--<label class=" myupload2">  <upload-image class="up-img" no-view></upload-image></label>-->
                             <!--<label class=" myupload"><upload-image class="up-img" ng-show="myVar=='hello'" no-view></upload-image></label>-->
@@ -384,8 +384,8 @@
                         <input type="text" ng-model="formData.mobile" class="bor-t" minlength="10" maxlength="10" required>
                         <button class="btn btn-default sub-mit send-otp sf-list" ng-click="sendMobileOTP(formData.mobile)">Send OTP </button>
                         <label class="enter-otp sf-list"> *Enter OTP:</label>
-                        <input type="text" ng-model="formData.smsOTP" ng-change="checkOTP(formData.smsOTP)" class="bor-t width-100" required>
-                        <button class="btn btn-default sub-mit send-otp sf-list" ng-click="sendMobileOTP(formData.mobile)">Verify OTP </button>
+                        <input type="text" ng-model="formData.smsOTP" class="bor-t width-100" required>
+                        <button class="btn btn-default sub-mit send-otp sf-list" ng-click="checkOTP(formData.smsOTP)">Verify OTP </button>
                         <!--//only-digit remoced-->
                         <div class="hover-img">
                             <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
@@ -402,8 +402,8 @@
                         <input type="email" ng-model="formData.email" class="bor-t" required>
                         <button class="btn btn-default sub-mit send-otp sf-list" ng-click="sendEmailOTP(formData.email)">Send OTP </button>
                         <label class="enter-otp sf-list"> *Enter OTP:</label>
-                        <input type="text" ng-model="formData.emailOTP" ng-change="checkOTP(formData.emailOTP)" class="bor-t width-100" required>
-                        <button class="btn btn-default sub-mit send-otp sf-list" ng-click="sendMobileOTP(formData.mobile)">Verify OTP </button>
+                        <input type="text" ng-model="formData.emailOTP" class="bor-t width-100" required>
+                        <button class="btn btn-default sub-mit send-otp sf-list" ng-click="checkOTP(formData.emailOTP)">Verify OTP </button>
                         <!--only-Digits removed from upper line-->
                         <!--<div class="hover-img">
                                     <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
