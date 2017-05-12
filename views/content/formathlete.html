@@ -136,7 +136,7 @@
                             </div>
                             <label class="kindly-up up-m175 sf-list">Kindly upload only .jpg or .png format. Maximum file size 1MB.</label>
                             <div class="hover-img">
-                                <img src="img/icon/x.png" alt="logo" ng-click="removePhoto(formData.atheleteSchoolIdImage)" class="img-responsive myicon">
+                                <img src="img/icon/x.png" alt="logo" ng-click="removeImage(formData.atheleteSchoolIdImage)" class="img-responsive myicon">
                             </div>
                             <div class="hover-img">
                                 <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
@@ -239,7 +239,7 @@
                             </div>
 
                             <div class="hover-img">
-                                <img src="img/icon/x.png" alt="logo" ng-click="removeImage(formData.photograph)" class="img-responsive myicon">
+                                <img src="img/icon/x.png" alt="logo" ng-click="removePhoto(formData.photograph)" class="img-responsive myicon">
                             </div>
                             <div class="hover-img">
                                 <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
@@ -292,7 +292,7 @@
                             <div>
                                 <div class=" padd-l38 display-block float-r">
                                     <div class="w150">
-                                        <img src="img/icon/x.png" alt="logo" ng-click="removeImage(formData.photoImage,formData.birthImage)" class="img-responsive myicon cross-icon">
+                                        <img src="img/icon/x.png" alt="logo" ng-click="removeProof(formData.photoImage,formData.birthImage)" class="img-responsive myicon cross-icon">
                                     </div>
                                     <div class="w150">
                                         <img src="{{formData.photoImage |serverimage}}" class="img-resopnsive w100">
@@ -369,103 +369,6 @@
                                 <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportLevelForm(indexX,indexY)">
                             </div>
                         </div>
-                        <!--<div class="box3 box3-display" ng-if="arr[1]">
-                            <div class="x-img2">
-                                <img src="img/icon/x.png" ng-click="removeSportLevelForm()" alt="logo" class="img-responsive myicon pull-right">
-                            </div>
-                            <div class="yes-level">
-                                <label class="sportlevel sf-list">Level:</label>
-                                <select class="sfa-drop2 sfa-drop5 sf-list" ng-model="arr[1].level" required>
-                            <option style="display:none"></option>
-                   <option>National</option>
-                   <option>State</option>
-                    
-                        </select>
-                            </div>
-                            <div class="">
-                                <label class="sportlevel sf-list">Sport:</label>
-                                <select class="sfa-drop2 sf-list" ng-model="arr[1].sport" required>
-                            <option style="display:none"></option>
-                   <option>Basketball</option>
-                   <option>Volleyball</option>
-                     <option>Throwball</option>
-                      <option>Handball</option>
-                       <option>Kho Kho</option>
-                        <option>Hockey</option>
-                         <option>Football</option>
-                          <option>Kabaddi</option>
-                           <option>Badminton</option>
-                            <option>Tennis</option>
-                             <option>Table Tennis</option>
-                              <option>Squash</option>
-                               <option>Judo</option>
-                                <option>Karate</option>
-                                 <option>Sports MMA</option>
-                                 <option>Boxing</option>
-                                 <option>Taekwondo</option>
-                                 <option>Fencing</option>
-                                 <option>Archery</option>
-                                  <option>Shooting</option>
-                                   <option>Swimming</option>
-                                     <option>Waterpolo</option>
-                                      <option>Athletics</option>
-                                         <option>Carrom</option>
-                                           <option>Chess</option>
-                                        </select>
-                            </div>
-                            <div class="plus">
-                                <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportLevelForm(n)">
-                            </div>
-                        </div>
-                        <div class="box3 box3-display" ng-if="arr[2]">
-                            <div class="x-img2">
-                                <img src="img/icon/x.png" ng-click="removeSportLevelForm()" alt="logo" class="img-responsive myicon pull-right">
-                            </div>
-                            <div class="yes-level">
-                                <label class="sportlevel">Level:</label>
-                                <select class="sfa-drop2 sfa-drop5" ng-model="arr[2].level" required>
-                            <option style="display:none"></option>
-                   <option>National</option>
-                   <option>State</option>
-                   <option>District</option>
-                    
-                        </select>
-                            </div>
-                            <div class="">
-                                <label class="sportlevel sf-list">Sport:</label>
-                                <select class="sfa-drop2 sf-list" ng-model="arr[2].sport" required>
-                            <option style="display:none"></option>
-                   <option>Basketball</option>
-                   <option>Volleyball</option>
-                     <option>Throwball</option>
-                      <option>Handball</option>
-                       <option>Kho Kho</option>
-                        <option>Hockey</option>
-                         <option>Football</option>
-                          <option>Kabaddi</option>
-                           <option>Badminton</option>
-                            <option>Tennis</option>
-                             <option>Table Tennis</option>
-                              <option>Squash</option>
-                               <option>Judo</option>
-                                <option>Karate</option>
-                                 <option>Sports MMA</option>
-                                 <option>Boxing</option>
-                                 <option>Taekwondo</option>
-                                 <option>Fencing</option>
-                                 <option>Archery</option>
-                                  <option>Shooting</option>
-                                   <option>Swimming</option>
-                                     <option>Waterpolo</option>
-                                      <option>Athletics</option>
-                                         <option>Carrom</option>
-                                           <option>Chess</option>
-                                        </select>
-                            </div>
-                            <div class="plus">
-                                <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportLevelForm(n)">
-                            </div>
-                        </div>-->
                     </div>
                     <div>
                     </div>

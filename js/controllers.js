@@ -809,7 +809,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
 
         //removes image uploaded
-        $scope.removeImage = function (data) {
+        $scope.removeProof = function (data) {
             console.log("remove me", document.getElementById("inputImage").value = null);
             $scope.formData.photoImage = null;
             $scope.formData.birthImage = null;
@@ -818,6 +818,10 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.removePhoto = function (data) {
             console.log("remove me", document.getElementById("inputImage").value = null);
             $scope.formData.photograph = null;
+        }
+        $scope.removeImage = function (data) {
+            console.log("remove me", document.getElementById("inputImage").value = null);
+            $scope.formData.atheleteSchoolIdImage = null;
         }
 
         $scope.addSportForm = function () {
