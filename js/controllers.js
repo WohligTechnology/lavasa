@@ -694,6 +694,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.sfaId = {}
         $scope.emailOtp = {}
 
+
+
         //saves Athelete to database
         $scope.saveAthelete = function (formdata) { //formdata is data or body for this url
             console.log("form", formdata);

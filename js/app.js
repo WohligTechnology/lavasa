@@ -901,6 +901,17 @@ firstapp.directive('onlyDigits', function () {
     };
 });
 
+firstapp.filter('serverimage', function () {
+    return function (image) {
+        if (image && image !== null) {
+            console.log("adminurl--", adminurl);
+            return adminurl + "upload/readFile?file=" + image;
+        } else {
+            return undefined;
+        }
+    }
+});
+
 // firstapp.directive('onlyDigits', function () {
 //     return {
 //         require: 'ngModel',

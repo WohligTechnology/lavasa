@@ -45,9 +45,9 @@
                         </ui-select-match>
                         <ui-select-choices repeat="item in (schoolList | filter: $select.search)" refresh="searchSFA($select.search)">
                             <span ng-bind="item.sfaid"></span><br>
-                            <small>
-                                 Name: {{item.name}}
-                            </small>
+                            <large>
+                                {{item.name}}
+                            </large>
                         </ui-select-choices>
                     </ui-select>
                     <div class="">
@@ -263,7 +263,7 @@
                                 <div class="col-xs-12 d-padd">
                                     <label class="mobileno-padd padd-bott">*Email:</label>
                                     <input ng-model="formData.email" type="email" class="bor-t" required>
-                                    <button class="btn btn-default sub-mit send-otp" ng-click="sendOTP(formData.mobile)">Send OTP </button>
+                                    <button class="btn btn-default sub-mit send-otp" ng-click="sendOTP(formData.email)">Send OTP </button>
                                     <label class="enter-otp"> *Enter OTP:</label>
                                     <input ng-model="formData.enterOTP" ng-change="checkOTP(formData.enterOTP)" type="text" class="bor-t" required>
                                     <!--only-Digits removed-->
@@ -470,7 +470,7 @@
                             </div>
                         </div>
                         <div class="text-center sub-padd">
-                            <button class="btn btn-default sub-mit" type="submit">Submit</button>
+                            <button class="btn btn-default sub-mit" type="submit">Accept&Submit</button>
                         </div>
             </form>
             </div>
