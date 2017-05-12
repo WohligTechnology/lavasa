@@ -394,6 +394,10 @@ a {
     margin-top: 50px;
 }
 
+.relate {
+    position: relative;
+}
+
 .search-btn {
     background: $brand-primary;
     height: 45px;
@@ -3198,7 +3202,7 @@ a.color-yellow1:hover {
 .sfa-mum {
     position: absolute;
     top: 20px;
-    right: 290px;
+    left: 0;
     img {
         margin-top: 25px;
         cursor: pointer;
@@ -4123,6 +4127,7 @@ iframe#twitter-widget-0 {
 .d-mar {
     margin-top: 50px;
 }
+
 .box2 {
     box-shadow: 0px 0px 0px 2px lightgray;
     position: relative;
@@ -4138,7 +4143,6 @@ iframe#twitter-widget-0 {
     width: 240px;
     height: 280px;
     background: #091a71;
-    
     -webkit-clip-path: polygon(0 0, 93% 0, 100% 16%, 0 16%);
     clip-path: polygon(0 0, 93% 0, 100% 16%, 0 16%);
     color: #ffffff;
@@ -5005,9 +5009,10 @@ input[type="radio"]:checked+label span {
 }
 
 .ball {
-    position: absolute;
-    top: 135px;
-    left: 80px;
+    // position: absolute;
+    // top: 135px;
+    // left: 80px;
+    margin: -20px 0 0 80px;
 }
 
 .blue-sec {
@@ -5102,7 +5107,7 @@ input[type="radio"]:checked+label span {
 }
 
 .multi-sporting {
-    .sport-icon {
+    .sport-icon-championship {
         padding: 90px 0 20px;
         li {
             display: inline-block;
@@ -5154,6 +5159,8 @@ input[type="radio"]:checked+label span {
             border-bottom: 1px solid #a01aff;
             position: absolute;
             bottom: -9px;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
     }
     h3 {
@@ -5167,6 +5174,7 @@ input[type="radio"]:checked+label span {
     padding: 20px 40px;
     margin: -55px 0 60px 0;
     background: #fff;
+    color: #646464;
     p {
         font-size: 16px;
     }
@@ -5194,12 +5202,19 @@ input[type="radio"]:checked+label span {
 }
 
 .school-registration {
-    margin: 45px 20px 0 100px;
+    margin: 55px 20px 0 100px;
     border: 1px solid #53bb74;
+    border-bottom: none;
+    padding-bottom: 3px;
     .btn-school {
         padding: 40px 0 5px 0;
         background: #53bb74;
-        color: white;
+        p {
+            color: white;
+            font-size: 20px;
+            margin: 5px 0;
+            font-family: Titillium Web SemiBold;
+        }
         position: relative;
         .school-icon {
             position: absolute;
@@ -5209,16 +5224,73 @@ input[type="radio"]:checked+label span {
     }
 }
 
-.green {
+.green-btn {
     background: #53bb74;
+    position: relative;
+    &:before {
+        content: '';
+        width: 65px;
+        height: 30px;
+        position: absolute;
+        border-bottom: 1px solid #53bb74;
+        top: -3px;
+        left: -80px;
+    }
+    &:after {
+        content: '';
+        width: 65px;
+        height: 30px;
+        position: absolute;
+        border-bottom: 1px solid #53bb74;
+        top: -3px;
+        right: -80px;
+    }
 }
 
 .blue-light {
     background: #37c1f0;
+    position: relative;
+    &:before {
+        content: '';
+        width: 75px;
+        height: 30px;
+        position: absolute;
+        border-bottom: 1px solid #37c1f0;
+        top: -3px;
+        left: -89px;
+    }
+    &:after {
+        content: '';
+        width: 75px;
+        height: 30px;
+        position: absolute;
+        border-bottom: 1px solid #37c1f0;
+        top: -3px;
+        right: -90px;
+    }
 }
 
 .orange {
     background: #e99e37;
+    position: relative;
+    &:before {
+        content: '';
+        width: 65px;
+        height: 30px;
+        position: absolute;
+        border-bottom: 1px solid #e99e37;
+        top: -4px;
+        left: -82px;
+    }
+    &:after {
+        content: '';
+        width: 65px;
+        height: 30px;
+        position: absolute;
+        border-bottom: 1px solid #e99e37;
+        top: -4px;
+        right: -81px;
+    }
 }
 
 .video {
@@ -5233,15 +5305,20 @@ input[type="radio"]:checked+label span {
 }
 
 .athletes {
-    margin: 45px 100px 0 20px;
+    margin: 55px 100px 0 20px;
     border: 1px solid #e99e37;
     border-bottom: none;
     padding-bottom: 2px;
     .athlets-btn {
         padding: 40px 0 5px 0;
         background: #e99e37;
-        color: white;
         position: relative;
+        p {
+            color: white;
+            font-size: 20px;
+            margin: 5px 0;
+            font-family: Titillium Web SemiBold;
+        }
         .athlets-icon {
             position: absolute;
             top: -70px;
@@ -5250,10 +5327,33 @@ input[type="radio"]:checked+label span {
     }
 }
 
+.sport-sec {
+    margin: 90px 55px 0px 55px;
+}
+
+.mb-75 {
+    margin-bottom: 75px;
+}
+
 .category-padding {
     padding: 25px 40px 10px;
     p {
-        font-size: 16px;
+        font-size: 17px;
+    }
+}
+
+.category-padding-sport {
+    padding: 25px 50px 25px;
+    p {
+        font-size: 17px;
+        text-align: justify;
+    }
+}
+
+.category-padding-athelet {
+    padding: 25px 40px 34px;
+    p {
+        font-size: 17px;
     }
 }
 
@@ -5262,9 +5362,11 @@ input[type="radio"]:checked+label span {
     border: none;
     font-size: 20px;
     color: white;
+    font-family: Titillium Web SemiBold;
 }
 
 .categories {
+    color: #646464;
     h1 {
         font-family: Titillium Web SemiBold;
         color: #091a71;
@@ -5274,13 +5376,19 @@ input[type="radio"]:checked+label span {
 }
 
 .sport-registration {
-    margin: 100px 55px 0px 55px;
     border: 1px solid #3eacde;
+    border-bottom: none;
+    padding-bottom: 3px;
     .btn-sport {
         padding: 40px 0 5px 0;
         background: #3eacde;
-        color: white;
         position: relative;
+        p {
+            color: white;
+            font-size: 20px;
+            margin: 5px 0;
+            font-family: Titillium Web SemiBold;
+        }
         .sport-icon {
             position: absolute;
             top: -70px;
@@ -5292,6 +5400,7 @@ input[type="radio"]:checked+label span {
 .store-for-you {
     padding: 100px 0;
     font-size: 17px;
+    color: #646464;
     h2 {
         color: #091b71;
         font-family: Titillium Web SemiBold;
@@ -5333,7 +5442,7 @@ input[type="radio"]:checked+label span {
         content: '';
         width: 5px;
         height: 28px;
-        border-left: 2px solid #000;
+        border-left: 2px solid #646464;
         position: absolute;
         left: 15px;
         top: 14px;
@@ -5342,7 +5451,7 @@ input[type="radio"]:checked+label span {
         content: '';
         width: 5px;
         height: 28px;
-        border-left: 2px solid #000;
+        border-left: 2px solid #646464;
         position: absolute;
         right: 15px;
         top: 14px;
@@ -5360,7 +5469,7 @@ input[type="radio"]:checked+label span {
             content: '';
             width: 5px;
             height: 25px;
-            border-left: 2px solid #000;
+            border-left: 2px solid #646464;
             position: absolute;
             right: -5px;
             top: 5px;
@@ -5372,6 +5481,61 @@ input[type="radio"]:checked+label span {
             border-left: none;
         }
     }
+}
+
+.school-list {
+    padding: 0 17px;
+    font-size: 16px;
+    li {
+        position: relative;
+        &:before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background-color: #53bb74;
+            border: 1px solid #53bb74;
+            border-radius: 50%;
+            position: absolute;
+            top: 8px;
+            left: -15px;
+        }
+    }
+}
+
+.athlete-list {
+    padding: 0 17px;
+    font-size: 16px;
+    li {
+        position: relative;
+        &:before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background-color: #e99e37;
+            border: 1px solid #e99e37;
+            border-radius: 50%;
+            position: absolute;
+            top: 8px;
+            left: -15px;
+        }
+    }
+}
+
+.video-icon img {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.fancybox-skin {
+    background: black;
+}
+
+//end of register
+.step {
+    font-size: 22px;
 }
 
 .venue-bottom li {
@@ -5389,36 +5553,53 @@ input[type="radio"]:checked+label span {
 .ml3 {
     margin-left: -3px;
 }
-.padd-l38{
+
+.padd-l38 {
     padding-left: 38px;
 }
-.w150{
+
+.w150 {
     width: 150px;
 }
-.w100{
+
+.w100 {
     width: 100%;
 }
-.cross-icon{
+
+.cross-icon {
     float: right;
 }
-.display-block{
+
+.display-block {
     display: inline-block;
 }
-.float-r{
+
+.float-r {
     float: right;
- 
     margin-right: 25px;
     margin-top: 30px;
 }
-.Upload-Age{
+
+.Upload-Age {
     .create-btn {
-    width: 117px;
-    position: relative;
-    margin-top: 6px; 
+        width: 117px;
+        position: relative;
+        margin-top: 6px;
+    }
 }
-}
-.text-right{
+
+.text-right {
     text-align: right;
+}
+
+.test {
+    content: '';
+    width: 65px;
+    height: 30px;
+    position: absolute;
+    border-bottom: 1px solid red;
+    top: -4px;
+    left: -80px;
 }
 
 @import "fancybox-override";
