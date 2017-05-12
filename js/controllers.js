@@ -692,11 +692,17 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             $scope.firstTime++;
         }
         $scope.sfaId = {}
+        $scope.emailOtp = {}
 
         //saves Athelete to database
         $scope.saveAthelete = function (formdata) { //formdata is data or body for this url
             console.log("form", formdata);
             var sportLevelArray = []
+
+            if (formdata.school && formdata.schoolName) {
+                formdata.school = "";
+            }
+
             if (!_.isEmpty(formdata.sportLevel)) {
                 _.forEach(formdata.sportLevel, function (val) {
                     _.forEach(val, function (val1) {
@@ -706,7 +712,11 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             };
             formdata.sportLevel = sportLevelArray;
             formdata.sfaId = $scope.sfaId
-            $scope.url = "Athelete/saveAthelete";
+            if (_.isEqual(formdata.registrationFee, "online PAYU")) {
+                $scope.url = "PayU/atheletePayment";
+            } else {
+                $scope.url = "Athelete/saveAthelete";
+            }
             console.log($scope.url);
             NavigationService.apiCallWithData($scope.url, formdata, function (data) {
                 //links navigation services 
@@ -715,12 +725,42 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         }
         $scope.count = 0;
 
+        $scope.checkOTP = function (otp) {
+            console.log("opt", $scope.emailOtp, otp);
+            if (_.isEqual($scope.emailOtp, otp)) {
+                console.log("email OTP verified");
+            } else {
+                alert("Incorrect OTP!");
+            }
+        }
+
         $scope.ageCalculate = function (birthday) {
 
             var ageDifMs = Date.now() - birthday.getTime();
             var ageDate = new Date(ageDifMs); // miliseconds from epoch
             return Math.abs(ageDate.getUTCFullYear() - 1970);
 
+        }
+
+        $scope.sendMobileOTP = function (formData) {
+            console.log("form", formData);
+            $scope.url = "athelete/generateMobileOTP";
+            console.log($scope.url);
+            NavigationService.apiCallWithData($scope.url, formData, function (data) {
+                $scope.emailOtp = data;
+
+            });
+        }
+        $scope.sendEmailOTP = function (email) {
+            var formData = {};
+            console.log("form", email);
+            $scope.url = "athelete/generateEmailOTP";
+            console.log($scope.url);
+            formData.email = email;
+            NavigationService.apiCallWithData($scope.url, formData, function (data) {
+                $scope.emailOtp = data;
+
+            });
         }
 
         //search filter
@@ -809,11 +849,11 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             // console.log("sportsLevelArray", $scope.sportsLevelArray);
 
         };
-        $scope.removeSportLevelForm = function (index) {
-            console.log("hello remove", index);
-            if (index != 0) {
+        $scope.removeSportLevelForm = function (indexX, indexY) {
+            if (indexX >= 0 && indexY >= 0) {
                 if ($scope.sportsLevelArray.length > 1) {
-                    $scope.sportsLevelArray.splice(index, 1);
+                    $scope.formData.sportLevel[indexX].splice(indexY, 1);
+                    $scope.sportsLevelArray = _.flatten($scope.formData.sportLevel);
                 } else {
                     $scope.sportsLevelArray = [];
                     $scope.sportsLevelArray.push({});
@@ -908,6 +948,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.targetSports = [];
         $scope.individualSports = [];
         $scope.sfaID = {};
+        $scope.emailOtp = {};
 
         //save registerform to database
         $scope.saveRegis = function (formdata) {
@@ -925,6 +966,25 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             console.log($scope.url);
             NavigationService.apiCallWithData($scope.url, formdata, function (data) {
 
+            });
+        }
+        $scope.checkOTP = function (otp) {
+            console.log("opt", $scope.emailOtp, otp);
+            if (_.isEqual($scope.emailOtp, otp)) {
+                console.log("email OTP verified");
+            } else {
+                alert("Incorrect OTP!");
+            }
+        }
+
+        $scope.sendOTP = function (mobile) {
+            var formdata = {}
+            formdata.mobile = mobile;
+            console.log("form", formdata);
+            $scope.url = "registration/generateOTP";
+            console.log($scope.url);
+            NavigationService.apiCallWithData($scope.url, formdata, function (data) {
+                $scope.emailOtp = data;
             });
         }
 
@@ -1037,14 +1097,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             $scope.formData.schoolLogo = null;
         }
 
-        $scope.sendOTP = function (formData) {
-            console.log("form", formdata);
-            $scope.url = "registration/generateOTP";
-            console.log($scope.url);
-            NavigationService.apiCallWithData($scope.url, formdata, function (data) {
 
-            });
-        }
     })
 
     .controller('AfterFormCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state) {

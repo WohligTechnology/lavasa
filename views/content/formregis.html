@@ -122,7 +122,7 @@
                             </div>
                             <div class="display-inline padd-l38">
                                 <div class="w150">
-                                <img src="img/dy-patil.jpg" class="img-resopnsive w100">
+                                    <img src="img/dy-patil.jpg" class="img-resopnsive w100">
                                 </div>
                             </div>
                             <!--<upload-image ng-model="formData.schoolLogo" ng-disabled="type.disabled"></upload-image>-->
@@ -265,7 +265,7 @@
                                     <input ng-model="formData.email" type="email" class="bor-t" required>
                                     <button class="btn btn-default sub-mit send-otp" ng-click="sendOTP(formData.mobile)">Send OTP </button>
                                     <label class="enter-otp"> *Enter OTP:</label>
-                                    <input ng-model="formData.enterOTP" type="text" class="bor-t" required>
+                                    <input ng-model="formData.enterOTP" ng-change="checkOTP(formData.enterOTP)" type="text" class="bor-t" required>
                                     <!--only-Digits removed-->
                                 </div>
                             </div>
@@ -351,11 +351,11 @@
                                     <div class="dirctive-op">
                                         <upload-image class="up-img ng-isolate-scope" ng-model="x.photograph"></upload-image>
                                     </div>
-                                      <div class="display-inline padd-l38">
-                                <div class="w150">
-                                <img src="img/dy-patil.jpg" class="img-resopnsive w100">
-                                </div>
-                            </div>
+                                    <div class="display-inline padd-l38">
+                                        <div class="w150">
+                                            <img src="img/dy-patil.jpg" class="img-resopnsive w100">
+                                        </div>
+                                    </div>
                                     <div class="hover-img">
                                         <img src="img/icon/x.png" alt="logo" class="img-responsive myicon" ng-click="removeArrayImage($index)">
                                     </div>
