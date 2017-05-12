@@ -384,7 +384,8 @@
                         <input type="text" ng-model="formData.mobile" class="bor-t" minlength="10" maxlength="10" required>
                         <button class="btn btn-default sub-mit send-otp sf-list" ng-click="sendMobileOTP(formData.mobile)">Send OTP </button>
                         <label class="enter-otp sf-list"> *Enter OTP:</label>
-                        <input type="text" ng-model="formData.smsOTP" ng-change="checkOTP(formData.smsOTP)" class="bor-t" required>
+                        <input type="text" ng-model="formData.smsOTP" ng-change="checkOTP(formData.smsOTP)" class="bor-t width-100" required>
+                        <button class="btn btn-default sub-mit send-otp sf-list" ng-click="sendMobileOTP(formData.mobile)">Verify OTP </button>
                         <!--//only-digit remoced-->
                         <div class="hover-img">
                             <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
@@ -401,7 +402,8 @@
                         <input type="email" ng-model="formData.email" class="bor-t" required>
                         <button class="btn btn-default sub-mit send-otp sf-list" ng-click="sendEmailOTP(formData.email)">Send OTP </button>
                         <label class="enter-otp sf-list"> *Enter OTP:</label>
-                        <input type="text" ng-model="formData.emailOTP" ng-change="checkOTP(formData.emailOTP)" class="bor-t" required>
+                        <input type="text" ng-model="formData.emailOTP" ng-change="checkOTP(formData.emailOTP)" class="bor-t width-100" required>
+                        <button class="btn btn-default sub-mit send-otp sf-list" ng-click="sendMobileOTP(formData.mobile)">Verify OTP </button>
                         <!--only-Digits removed from upper line-->
                         <!--<div class="hover-img">
                                     <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
