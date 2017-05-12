@@ -118,11 +118,11 @@
                         <div class="col-sm-9 col-xs-7">
                             <button class="btn btn-default myupload">Upload </button>
                             <div class="dirctive-op">
-                                <upload-image class="up-img ng-isolate-scope" ng-disabled="type.disabled" ng-model="formData.schoolLogo"></upload-image>
+                                <upload-image class="up-img ng-isolate-scope" ng-disabled="type.disabled" ng-model="formData.schoolLogo" no-view></upload-image>
                             </div>
                             <div class="display-inline padd-l38">
                                 <div class="w150">
-                                    <img src="img/dy-patil.jpg" class="img-resopnsive w100">
+                                    <img src="{{formData.schoolLogo |serverimage}}" class="img-resopnsive w100">
                                 </div>
                             </div>
                             <!--<upload-image ng-model="formData.schoolLogo" ng-disabled="type.disabled"></upload-image>-->
@@ -265,8 +265,8 @@
                                     <input ng-model="formData.email" type="email" class="bor-t" required>
                                     <button class="btn btn-default sub-mit send-otp" ng-click="sendOTP(formData.email)">Send OTP </button>
                                     <label class="enter-otp"> *Enter OTP:</label>
-                                    <input ng-model="formData.enterOTP" ng-change="checkOTP(formData.enterOTP)" type="text" class="bor-t width-100" required>
-                                    <button class="btn btn-default sub-mit send-otp" ng-click="sendOTP(formData.email)">Verify OTP </button>
+                                    <input ng-model="formData.enterOTP" type="text" class="bor-t width-100" required>
+                                    <button class="btn btn-default sub-mit send-otp" ng-click="checkOTP(formData.enterOTP)">Verify OTP </button>
                                     <!--only-Digits removed-->
                                 </div>
                             </div>
@@ -350,11 +350,11 @@
                                     <!--<upload-image class="up-img" no-view required ng-model="x.photo"></upload-image>-->
                                     <button class="btn btn-default myupload">Upload </button>
                                     <div class="dirctive-op">
-                                        <upload-image class="up-img ng-isolate-scope" ng-model="x.photograph"></upload-image>
+                                        <upload-image class="up-img ng-isolate-scope" ng-model="x.photograph" no-view></upload-image>
                                     </div>
                                     <div class="display-inline padd-l38">
                                         <div class="w150">
-                                            <img src="img/dy-patil.jpg" class="img-resopnsive w100">
+                                            <img src="{{x.photograph |serverimage}}" class="img-resopnsive w100">
                                         </div>
                                     </div>
                                     <div class="hover-img">
