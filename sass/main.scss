@@ -4523,10 +4523,10 @@ label:hover:before {
 //     margin-left: 175px;
 // }
 .myicon2 {
-    width: 33px;
-    height: 49px;
+    // width: 33px;
+    // height: 49px;
     margin-left: 337px;
-    padding-bottom: 16px;
+    padding-bottom: 4px;
 }
 
 .box-hei2 {
@@ -4638,6 +4638,8 @@ label:hover:before {
     label {
         text-decoration: underline;
         color: gray;
+        padding-left: 22px;
+        padding-top: 12px;
     }
     [type="checkbox"]:not(:checked),
     [type="checkbox"]:checked {
@@ -4653,8 +4655,8 @@ label:hover:before {
     [type="checkbox"]:checked+label:before {
         content: '';
         position: absolute;
-        left: 15px !important;
-        top: -6px;
+        left: 0px !important;
+        top: -59px;
         width: 15px;
         height: 15px;
         border: 1px solid #ccc;
@@ -4879,7 +4881,8 @@ input[type="radio"]:checked+label span {
 
 .myicon3 {
     margin-left: 69px;
-    padding-bottom: 15px;
+    // padding-bottom: 15px;
+    padding-bottom: 4px;
 }
 
 //SCSS FPR CHAMPIONSHIP
@@ -5646,6 +5649,19 @@ input[type="radio"]:checked+label span {
     }
     p {
         margin: 0 0 20px;
+    }
+}
+
+// navincss
+p.regest-fee {
+    margin-top: -15px;
+}
+
+.cross-close-term {
+    .fa {
+        position: absolute;
+        top: 20px;
+        color: grey;
     }
 }
 

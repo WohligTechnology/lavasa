@@ -538,7 +538,9 @@
                             </div>
                             <div class="sub-padd">
                                 <img src="img/icon/p.png" alt="logo" class="img-responsive myicon2 display-inline " ng-click="addSportForm(m)">
-                                <p class="display-inline ">Add Parent/Guardian</p>
+                                <div class="inline-block text-center">
+                                    <p class="display-inline text-center">Add Sports Department</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -552,18 +554,19 @@
                     <!--<div class="d-padd">
                             <h4>Paayment Gateway:</h4>
                         </div>-->
-                    <div class="d-padd para2">
+                    <div class="d-padd para2 ng-init=" show=0 "">
                         <div class="form-group ">
                             <input ng-model="formData.registrationFee" type="radio" id="radio11" name="radio" value="cash">
-                            <label for="radio11" class="padd-lr sf-list"><span></span>Cash/Cheque/Demand Draft</label>
-                            <p>Online Payment: Selecting this option will enable you to pay the registration fee of Rs. 200
+                            <label for="radio11" class="padd-lr sf-list" ng-click="show=1"><span></span>Cash/Cheque/Demand Draft</label>
+                            <input ng-model="formData.registrationFee" type="radio" id="radio13" name="radio" value="online PAYU">
+                            <label for="radio13" class="padd-lr sf-list" ng-click="show=2"><span></span>Online Payment</label>
+                            <p ng-if="show==2">Online Payment: Selecting this option will enable you to pay the registration fee of Rs. 200
                                 (Inclusive of all applicable taxes) via one of the following methods: 4) Credit Card 5) Debit
                                 Card 6) Net Banking </p>
                             <!--<input ng-model="formData.registrationFee" type="radio" id="radio12" name="radio" value="cheque">
                             <label for="radio12" class="padd-lr sf-list"><span></span>Cheque</label>-->
-                            <input ng-model="formData.registrationFee" type="radio" id="radio13" name="radio" value="online PAYU">
-                            <label for="radio13" class="padd-lr sf-list"><span></span>Online Payment</label>
-                            <p>
+
+                            <p ng-if="show==1">
                                 Cash/Cheque/Demand Draft: Selecting this option will enable you to pay the registration fee of Rs. 200 (Inclusive of all
                                 applicable taxes) by Cash/Cheque/Demand Draft in favour of ‘SFA Events Private Limited’ which
                                 is to be couriered/hand delivered to: 1306, Panchratna Building, Opera House (Next to Roxy
