@@ -4279,6 +4279,14 @@ iframe#twitter-widget-0 {
     margin-top: -42px;
 }
 
+.register-upload {
+    .create-btn {
+        width: 117px;
+        position: relative;
+        margin-top: -105px !important;
+    }
+}
+
 .myupload {
     width: 117px;
     /* top: 31px; */
@@ -5130,6 +5138,14 @@ input[type="radio"]:checked+label span {
 }
 
 //scss for register
+.btn-tab button {
+    background: #0d1f77;
+    border: none;
+    padding: 5px 20px;
+    color: white;
+    font-family: Titillium Web Regular;
+}
+
 .registration-img {
     background-color: #0d1f77;
     padding: 50px 0 50px 0px;
@@ -5148,6 +5164,21 @@ input[type="radio"]:checked+label span {
             font-family: Titillium Web Bold;
         }
     }
+}
+
+.tab-register {
+    position: fixed;
+    top: 80%;
+    right: 0;
+    //z-index: 9;
+}
+
+.tab-img {
+    position: relative;
+    top: 24px;
+    left: 13px;
+    border-radius: 100%;
+    box-shadow: 3px 0px 0px #fff;
 }
 
 .registration-desc {
@@ -5610,6 +5641,12 @@ input[type="radio"]:checked+label span {
 .login-modal {
     padding: 50px;
     text-align: justify;
+    ul {
+        padding: 0 10px;
+    }
+    p {
+        margin: 0 0 20px;
+    }
 }
 
 @import "fancybox-override";
