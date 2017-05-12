@@ -98,6 +98,9 @@
   }
   //end of header
   //scss for championship page
+  .pb60 {
+    padding-bottom: 0px;
+  }
   .boy-img {
     display: none;
   }
@@ -123,7 +126,7 @@
     padding: 0px 0px 50px 0px;
   }
   .proffessional {
-    padding: 0 0px 30px 20px;
+    padding: 0 0px 30px 0px;
   }
   .blue-girl {
     display: none;
@@ -287,6 +290,9 @@
 
 @media (max-width:$screen-xs-max) {
   //scss for register
+  .largest-content {
+    padding: 20px 0px 0px 0px;
+  }
   .registration-desc {
     h2 {
       font-size: 18px;
@@ -313,6 +319,9 @@
   }
   //end of register
   //scss for championship
+  .img-features {
+    padding-bottom: 30px;
+  }
   .btn-register button {
     font-size: 6px;
     width: 100px;
@@ -321,6 +330,9 @@
   }
   .secion-img {
     margin-top: 0;
+  }
+  .pb60 {
+    padding-bottom: 0;
   }
   .largest {
     padding: 20px 8px 20px 8px;
@@ -347,7 +359,7 @@
   }
   .proffessional p,
   .proffessional li {
-    font-size: 11px;
+    font-size: 10px;
   }
   .list-common {
     padding: 5px 0;
@@ -389,11 +401,11 @@
     padding: 15px 20px 25px 20px;
     font-size: 10px;
     h1 {
-      font-size: 40px;
+      font-size: 37px;
     }
   }
   .list-coach {
-    padding: 30px 0px;
+    padding: 0px 0px;
   }
   .championship p,
   .championship li {
@@ -408,6 +420,9 @@
   .brand-orange:before,
   .brand-blue:before {
     top: 3px;
+  }
+  .proffessional {
+    padding: 0 0px 30px 0px;
   }
   //ens of championship
   .min-w-auto {
@@ -515,7 +530,8 @@
   }
   .navbar-collapse {
     border-top: 0 solid transparent;
-    margin-top: 64px;
+    //margin-top: 64px;
+    margin-top: 10px;
   }
   .navbar {
     position: relative;

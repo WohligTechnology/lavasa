@@ -265,7 +265,8 @@
                                     <input ng-model="formData.email" type="email" class="bor-t" required>
                                     <button class="btn btn-default sub-mit send-otp" ng-click="sendOTP(formData.email)">Send OTP </button>
                                     <label class="enter-otp"> *Enter OTP:</label>
-                                    <input ng-model="formData.enterOTP" ng-change="checkOTP(formData.enterOTP)" type="text" class="bor-t" required>
+                                    <input ng-model="formData.enterOTP" ng-change="checkOTP(formData.enterOTP)" type="text" class="bor-t width-100" required>
+                                    <button class="btn btn-default sub-mit send-otp" ng-click="sendOTP(formData.email)">Verify OTP </button>
                                     <!--only-Digits removed-->
                                 </div>
                             </div>
