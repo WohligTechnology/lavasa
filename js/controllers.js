@@ -281,6 +281,62 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.navigation = NavigationService.getnav();
 
     })
+
+    .controller('PaymentSuccessCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        $scope.template = TemplateService.changecontent("paymentSuccess");
+        $scope.menutitle = NavigationService.makeactive("paymentSuccess");
+        TemplateService.header = "views/header2.html";
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+
+        window.setTimeout(function () {
+
+            // Move to a new location or you can do something else
+            window.location.href = adminUrl + "/register";
+
+        }, 10000);
+
+    })
+
+    .controller('SorryAtheleteCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        $scope.template = TemplateService.changecontent("sorryAthelete");
+        $scope.menutitle = NavigationService.makeactive("sorryAthelete");
+        TemplateService.header = "views/header2.html";
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+
+        window.setTimeout(function () {
+
+            // Move to a new location or you can do something else
+            window.location.href = adminUrl + "/formAthelete";
+
+        }, 10000);
+
+    })
+
+    .controller('PaymentFailureCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        $scope.template = TemplateService.changecontent("paymentFailure");
+        $scope.menutitle = NavigationService.makeactive("paymentFailure");
+        TemplateService.header = "views/header2.html";
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+        window.setTimeout(function () {
+            // Move to a new location or you can do something else
+            window.location.href = adminUrl + "/formregis";
+
+        }, 10000);
+
+    })
+
     .controller('CertificateCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 

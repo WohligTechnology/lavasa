@@ -266,6 +266,21 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             url: "/students",
             templateUrl: "views/template.html",
             controller: 'StudentsCtrl'
+        })
+        .state('paymentSuccess', {
+            url: "/paymentSuccess",
+            templateUrl: "views/template.html",
+            controller: 'PaymentSuccessCtrl'
+        })
+        .state('sorryAthelete', {
+            url: "/sorryAthelete",
+            templateUrl: "views/template.html",
+            controller: 'SorryAtheleteCtrl'
+        })
+        .state('paymentFailure', {
+            url: "/paymentFailure",
+            templateUrl: "views/template.html",
+            controller: 'PaymentFailureCtrl'
         });
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);
