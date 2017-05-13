@@ -121,6 +121,7 @@
     </div>
 </div>
 <div class="container hidden-xs hidden-sm">
+    <!--<div class="container">-->
     <div class="venue">
         <div>
             <p>Sports For All brings to you Mumbai's ultimate inter-school sporting championship, where best school contingents
@@ -149,7 +150,7 @@
         <h1 class="text-center">Register for SFA Mumbai 2017</h1>
         <p class="text-center step">Step 1 : School / Athlete Registrations & Verification</p>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-12">
                 <div class="school-registration">
                     <div class="btn-school text-center">
                         <p>School Registrations</p>
@@ -173,7 +174,7 @@
                     <div class="text-center mb-20 "><button class="btn-category green-btn ">School Registrations Form</button></div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-12">
                 <div class="athletes">
                     <div class="athlets-btn text-center">
                         <div class="athlets-icon">
@@ -328,21 +329,34 @@
         </div>
     </div>
 </div>
-<div class="tab-register">
-    <div class="registration hidden">
-        <div class="tab-img dis-bloc">
-            <img src="img/icon/television.png" class="img-responsive ">
+<div class="tab-register ">
+    <div class="registration side-menu menu-out menu-in">
+        <div class="tab-img dis-bloc" ng-if="closeReg == true">
+            <img src=" img/icon/television.png " class="img-responsive" ng-click="closeMenu();">
         </div>
-        <div class="btn-tab  dis-bloc">
-            <button class="">Registration Process Video</button>
+        <div class="tab-img dis-bloc" ng-if="closeReg == false">
+            <img src=" img/icon/television.png " class="img-responsive" ng-click="getMenu();">
         </div>
+        <div class="btn-tab dis-bloc ">
+            <a href="img/pdf/sfa_athelete_group.pdf " target="_new ">
+                <button class=" ">Registration Process</button>
+            </a>
+        </div>
+
     </div>
-    <div class="age-event hidden">
-        <div class="tab-img ">
-            <img src="img/icon/book.png" class="img-responsive">
-        </div>
-        <div class="btn-tab dis-bloc">
-            <button class=" ">Age Group & Event Categories</button>
+    <div class="tab1">
+        <div class="age-event menu-in1  menu-out side-menu1">
+            <div class="tab-img dis-bloc" ng-if="closeAge == true">
+                <img src="img/icon/book.png " class="img-responsive " ng-click="closeMenu1();">
+            </div>
+            <div class="tab-img dis-bloc" ng-if="closeAge == false">
+                <img src="img/icon/book.png " class="img-responsive " ng-click="getMenu1();">
+            </div>
+            <div class="btn-tab dis-bloc">
+                <a href="img/pdf/sfa_agegroup_event.pdf " target="_new ">
+                    <button class=" ">Age Group & Event Categories</button>
+                </a>
+            </div>
         </div>
     </div>
 </div>

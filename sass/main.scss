@@ -4442,7 +4442,7 @@ iframe#twitter-widget-0 {
 }
 
 [type="checkbox"]:checked+label:after {
-    opacity: 1;
+    opacity: 2;
     transform: scale(1);
 }
 
@@ -4641,6 +4641,9 @@ label:hover:before {
         padding-left: 22px;
         padding-top: 12px;
     }
+    label.padding0 {
+        padding: 0;
+    }
     [type="checkbox"]:not(:checked),
     [type="checkbox"]:checked {
         position: absolute; //   left: -9999px;
@@ -4656,19 +4659,19 @@ label:hover:before {
         content: '';
         position: absolute;
         left: 0px !important;
-        top: -59px;
+        top: -70px;
         width: 15px;
         height: 15px;
         border: 1px solid #ccc;
-        background: #fff; //   box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+        // background: #fff; //   box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
     }
     [type="checkbox"]:not(:checked)+label:after,
     [type="checkbox"]:checked+label:after {
         content: '✔';
         position: absolute;
-        top: -12px !important;
-        left: 15px !important;
-        font-size: 20px !important; //   line-height: 0.8;
+        top: -76px !important;
+        left: 0px !important;
+        font-size: 16px !important; //   line-height: 0.8;
         color: black;
         transition: all .2s;
     }
@@ -5173,13 +5176,20 @@ input[type="radio"]:checked+label span {
     position: fixed;
     top: 80%;
     right: 0;
-    //z-index: 9;
+    z-index: 9999;
+    .registration {
+        text-align: right;
+    }
+    .age-event {
+        text-align: right;
+        margin: -15px 0 0;
+    }
 }
 
 .tab-img {
     position: relative;
-    top: 24px;
-    left: 13px;
+    top: 23px;
+    left: 3px;
     border-radius: 100%;
     box-shadow: 3px 0px 0px #fff;
 }
@@ -5658,11 +5668,108 @@ p.regest-fee {
 }
 
 .cross-close-term {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+}
+
+.side-menu {
+    // width: 100%;
+    // height: 100%;
+    // padding: 50px;
+    position: relative;
+    top: -14px;
+    right: 50px;
+    z-index: 10;
+    // border:1px solid #000;
+    // background-image: url("../img/home/r2.jpg");
     .fa {
-        position: absolute;
-        top: 20px;
-        color: grey;
+        cursor: pointer;
     }
+    .active {
+        background-color: transparent;
+    }
+    .navbar-nav>li>a {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        li {
+            padding: 5px 0;
+            a {
+                color: #fff;
+                &:hover {
+                    text-decoration: none;
+                    color: $brand-danger;
+                }
+                &:active {
+                    text-decoration: none;
+                }
+                &:focus {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+.side-menu1 {
+    // width: 100%;
+    // height: 100%;
+    // padding: 50px;
+    position: relative;
+    top: 0;
+    right: -4px;
+    z-index: 10;
+    // border:1px solid #000;
+    // background-image: url("../img/home/r2.jpg");
+    .fa {
+        cursor: pointer;
+    }
+    .active {
+        background-color: transparent;
+    }
+    .navbar-nav>li>a {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        li {
+            padding: 5px 0;
+            a {
+                color: #fff;
+                &:hover {
+                    text-decoration: none;
+                    color: $brand-danger;
+                }
+                &:active {
+                    text-decoration: none;
+                }
+                &:focus {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+.menu-in {
+    transform: translateX(50px);
+    transition: all 0.3s linear;
+}
+
+.menu-in1 {
+    transform: translateX(-4px);
+    transition: all 0.3s linear;
+}
+
+.menu-out {
+    transform: translateX(212px);
+    transition: all 0.3s linear;
 }
 
 @import "fancybox-override";

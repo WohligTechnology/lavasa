@@ -50,9 +50,8 @@
                         </ui-select-match>
                         <ui-select-choices repeat="item in (atheleList | filter: $select.search)" refresh="searchChange($select.search)">
                             <span ng-bind="item.sfaid"></span>
-                            <large>
-                                {{item.firstname}} {{item.lastname}}
-                            </large><br>
+                            <large><br> {{item.firstname}} {{item.lastname}}
+                            </large>
                             <!--<small>
                                 school
                             </small>-->
@@ -80,12 +79,28 @@
                 <div class="box box-padd para2 box-hei2">
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-5 sf-list">*Select your School:</label>
-                        <div class="col-sm-9 col-xs-7">
-                            <!--<input class="searchTerm" ng-model="searchTerm" type="text" placeholder="Search for a SFA..">-->
-                            <select class="sfa-drop" ng-model="formData.school">
-<option ng-repeat="x in schoolList |
-             filter:searchTerm" value="{{x._id}}">{{x.name}}</option>
-</select>
+                        <div class="col-sm-9 col-xs-7 ">
+
+                            <!--<ui-select class="sfa-drop" ng-model="formData.school">
+                                <ui-select-choices ng-repeat="x in schoolList |
+             filter:searchTerm" value="{{x._id}}">
+                                    {{x.name}}
+
+                                </ui-select-choices>
+                            </ui-select>-->
+                            <ui-select ng-model="formData.school" ng-change="searchChange($select.selected.name)" class="sfa-drop">
+                                <ui-select-match>
+                                    <span ng-bind="$select.selected.name"></span>
+                                </ui-select-match>
+                                <ui-select-choices repeat="item in (schoolList | filter: $select.search)" refresh="searchChange($select.search)">
+
+                                    <large>{{item.name}}
+                                    </large>
+                                    <!--<small>
+                                school
+                            </small>-->
+                                </ui-select-choices>
+                            </ui-select>
                         </div>
                         <div class="col-sm-12 col-xs-12">
                             <p class="text-center sf-list">or</p>
@@ -485,10 +500,15 @@
                     </div>
                     <div class="d-padd mar-l">
                         <h4 class="blue pb10 fs-14">Parent/Guardian Details</h4>
-                        <p class="check-box ">
-                            <label class="sf-list" ng-click="termcondition()">*I have carefully read and understood the terms and conditions of this form / disclaimer / waiver and as described in this form / disclaimer / waiver and consent to all of them.</label>
+                        <!--<p class="check-box ">
+                            <label class="sf-list" ng-click="termcondition()">I have carefully read and understood the terms and conditions of this form / disclaimer / waiver and as described in this form / disclaimer / waiver and consent to all of them.</label>
                             <input type="checkbox" ng-model="formData.termsAndCondition" id="test5" />
                             <label for="test5"></label>
+                        </p>-->
+                        <p class="check-box ">
+                            <label class="sf-list" ng-click="termcondition()">I have carefully read and understood the terms and conditions of this form / disclaimer / waiver and as described in this form / disclaimer / waiver and consent to all of them.</label>
+                            <input type="checkbox" ng-model="formData.termsAndCondition" id="test5" />
+                            <label for="test5" class="padding0"></label>
                         </p>
                         <div class="box2" ng-repeat="x in formData.parentDetails track by $index">
                             <div class="d-padd">
