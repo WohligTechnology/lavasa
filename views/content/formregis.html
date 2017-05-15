@@ -116,19 +116,20 @@
 
                         <label class="col-sm-3 col-xs-5 sf-list">Upload School Logo:</label>
                         <!--<input type="file" />-->
-                        <div class="col-sm-9 col-xs-7">
-                            <button class="btn btn-default myupload">Upload </button>
+                        <div class="col-sm-9 col-xs-7 " ng-init="show=0">
+                            <!--<button class="btn btn-default myupload">Upload </button>-->
                             <div class="dirctive-op">
-                                <upload-image class="up-img ng-isolate-scope" ng-disabled="type.disabled" ng-model="formData.schoolLogo" no-view></upload-image>
+                                <upload-image class="up-img ng-isolate-scope" ng-disabled="type.disabled" ng-model="formData.schoolLogo" ng-click="show=1"
+                                    no-view></upload-image>
                             </div>
                             <div class="display-inline padd-l38">
-                                <div class="w150">
+                                <div class="w150" ng-if="show==1">
                                     <img src="{{formData.schoolLogo |serverimage}}" class="img-resopnsive w100">
                                 </div>
                             </div>
                             <!--<upload-image ng-model="formData.schoolLogo" ng-disabled="type.disabled"></upload-image>-->
                             <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
-                            <div class="hover-img">
+                            <div class="hover-img" ng-if="show==1">
                                 <img src="img/icon/x.png" alt="logo" class="img-responsive myicon" ng-click="removeImage(formData.schoolLogo)">
                             </div>
                             <div class="hover-img">
@@ -347,18 +348,18 @@
                                 <i class="fa fa-plus-circle" aria-hidden="true"></i>-->
                                 <label class="col-sm-4 col-xs-4">Upload Photograph:</label>
                                 <!--<input type="file" />-->
-                                <div class="col-sm-8 col-xs-8">
+                                <div class="col-sm-8 col-xs-8" ng-init="show=0">
                                     <!--<upload-image class="up-img" no-view required ng-model="x.photo"></upload-image>-->
-                                    <button class="btn btn-default myupload">Upload </button>
+                                    <!--<button class="btn btn-default myupload">Upload </button>-->
                                     <div class="dirctive-op">
-                                        <upload-image class="up-img ng-isolate-scope" ng-model="x.photograph" no-view></upload-image>
+                                        <upload-image class="up-img ng-isolate-scope" ng-model="x.photograph" ng-click="show=1" no-view></upload-image>
                                     </div>
                                     <div class="display-inline padd-l38">
-                                        <div class="w150">
+                                        <div class="w150" ng-if="show==1">
                                             <img src="{{x.photograph |serverimage}}" class="img-resopnsive w100">
                                         </div>
                                     </div>
-                                    <div class="hover-img">
+                                    <div class="hover-img" ng-if="show==1">
                                         <img src="img/icon/x.png" alt="logo" class="img-responsive myicon" ng-click="removeArrayImage($index)">
                                     </div>
                                     <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
