@@ -1057,11 +1057,10 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             console.log($scope.url);
             NavigationService.apiCallWithData($scope.url, formdata, function (data) {
                 if (data.value == true) {
+                    var id = data.data._id;
                     console.log("true and in payment");
-                    $scope.url = "payU/schoolPayment";
-                    NavigationService.apiCallWithData($scope.url, formdata, function (data) {
-                        $scope.value = data.value;
-                    });
+                    var url = "payU/schoolPayment?id=" + id;
+                    window.location.href = adminurl + url;
                 }
             });
 
