@@ -1059,8 +1059,9 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 if (data.value == true) {
                     var id = data.data._id;
                     console.log("true and in payment");
-                    var url = "payU/schoolPayment?id=" + id;
-                    window.location.href = adminurl + url;
+                    $scope.url = "payU/schoolPayment?id=" + id;
+                    //    window.location.href = adminurl + url;
+                    NavigationService.apiCallWithData($scope.url, formdata, function (data) {});
                 }
             });
 
