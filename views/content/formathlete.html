@@ -132,7 +132,8 @@
                             <div class="form-group">
                                 <label class="col-sm-3 col-xs-4 sf-list">  *School Contact:</label>
                                 <div class="col-sm-9 col-xs-8">
-                                    <input type="text" ng-model="formData.atheleteSchoolContact" class="sfa-drop sf-list" minlength="11" maxlength="11" required>
+                                    <input type="text" only-Digits ng-model="formData.atheleteSchoolContact" class="sfa-drop sf-list" minlength="11" maxlength="11"
+                                        required>
                                 </div>
                             </div>
                         </div>
@@ -307,7 +308,7 @@
                             <div>
                                 <div class=" padd-l38 display-block float-r">
                                     <div class="w150">
-                                        <img src="img/icon/x.png" alt="logo" ng-click="removeProof(formData.photoImage,formData.birthImage)" class="img-responsive myicon cross-icon">
+                                        <img src="img/icon/x.png" alt="logo" ng-click="removeProof1(formData.photoImage)" class="img-responsive myicon cross-icon">
                                     </div>
                                     <div class="w150">
                                         <img src="{{formData.photoImage |serverimage}}" class="img-resopnsive w100">
@@ -315,7 +316,7 @@
                                 </div>
                                 <div class=" padd-l38 display-block float-r">
                                     <div class="w150">
-                                        <img src="img/icon/x.png" alt="logo" ng-click="removeImage(formData.photoImage,formData.birthImage)" class="img-responsive myicon cross-icon">
+                                        <img src="img/icon/x.png" alt="logo" ng-click="removeProof(formData.birthImage)" class="img-responsive myicon cross-icon">
                                     </div>
                                     <div class="w150">
                                         <img src="{{formData.birthImage |serverimage}}" class="img-resopnsive w100">
@@ -396,7 +397,7 @@
                 <div class="box box-padd para2">
                     <div class="form-group">
                         <label class="mobileno-padd mobileno-mob sf-list">*Mobile No:</label>
-                        <input type="text" ng-model="formData.mobile" class="bor-t" minlength="10" maxlength="10" required>
+                        <input type="text" only-Digits ng-model="formData.mobile" class="bor-t" minlength="10" maxlength="10" required>
                         <button class="btn btn-default sub-mit send-otp sf-list" ng-click="sendMobileOTP(formData.mobile)">Send OTP </button>
                         <label class="enter-otp sf-list"> *Enter OTP:</label>
                         <input type="text" ng-model="formData.smsOTP" class="bor-t width-100" required>
@@ -492,7 +493,7 @@
                         </div>
                         <div class="col-sm-6 col-xs-12">
                             <label class="padd-r4 pin-mob sf-list">  *Pin Code:</label>
-                            <input type="text" ng-model="formData.pinCode" class="sfa-drop2 w147" minlength="6" maxlength="6" required>
+                            <input type="text" only-Digits ng-model="formData.pinCode" class="sfa-drop2 w147" minlength="6" maxlength="6" required>
                             <!--only-Digits removed -->
                         </div>
                     </div>
@@ -548,7 +549,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 col-xs-3 sf-list"> *Mobile:</label>
                                     <div class="col-sm-3 col-xs-9">
-                                        <input type="text" ng-model="x.mobile" class="bor-t" minlength="10" maxlength="10" required>
+                                        <input type="text" only-Digits ng-model="x.mobile" class="bor-t" minlength="10" maxlength="10" required>
                                     </div>
                                     <div class="col-sm-6 col-xs-12">
                                         <label class="email-padd3 email-mob sf-list">  *Email:</label>

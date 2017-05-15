@@ -800,10 +800,12 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
         }
 
-        $scope.sendMobileOTP = function (formData) {
+        $scope.sendMobileOTP = function (mobile) {
+            var formData = {};
             console.log("form", formData);
             $scope.url = "athelete/generateMobileOTP";
             console.log($scope.url);
+            formData.mobile = mobile;
             NavigationService.apiCallWithData($scope.url, formData, function (data) {
                 $scope.emailOtp = data;
 
@@ -866,18 +868,21 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
         //removes image uploaded
         $scope.removeProof = function (data) {
-            console.log("remove me", document.getElementById("inputImage").value = null);
-            $scope.formData.photoImage = null;
-            $scope.formData.birthImage = null;
+            console.log("remove me", document.getElementById("inputImage").value);
+            $scope.formData.birthImage = undefined;
+        }
+        $scope.removeProof1 = function (data) {
+            console.log("remove me", document.getElementById("inputImage").value);
+            $scope.formData.photoImage = undefined;
         }
 
         $scope.removePhoto = function (data) {
-            console.log("remove me", document.getElementById("inputImage").value = null);
-            $scope.formData.photograph = null;
+            console.log("remove me", document.getElementById("inputImage").value);
+            $scope.formData.photograph = undefined;
         }
         $scope.removeImage = function (data) {
-            console.log("remove me", document.getElementById("inputImage").value = null);
-            $scope.formData.atheleteSchoolIdImage = null;
+            console.log("remove me", document.getElementById("inputImage").value);
+            $scope.formData.atheleteSchoolIdImage = undefined;
         }
 
         $scope.addSportForm = function () {
@@ -1002,7 +1007,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             }
         };
         $scope.removeArrayImage = function (index) {
-            console.log("remove me", document.getElementById("inputImage").value = null);
+            console.log("remove me", document.getElementById("inputImage").value);
             $scope.formData.sportsDepartment[index].photograph = null;
         }
         $scope.removeSportForm = function (index) {
@@ -1175,18 +1180,9 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
         //removes image uploaded
         $scope.removeImage = function (data) {
-            console.log("remove me", document.getElementById("inputImage").value = null);
+            console.log("remove me", document.getElementById("inputImage").value);
             $scope.formData.schoolLogo = null;
         }
-
-
-
-
-
-
-
-
-
 
     })
 
