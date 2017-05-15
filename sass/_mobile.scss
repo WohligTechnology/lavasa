@@ -825,6 +825,12 @@
 }
 
 @media (max-width:480px) {
+  .drop-cust {
+    width: 300px;
+  }
+  .ft12 {
+    font-size: 12px;
+  }
   .bg-rgs.text-center p {
     color: #fff;
     font-size: 14px;
@@ -1570,6 +1576,6 @@
 }
 
 //navin
-sf-list-custom {
+drop-cust {
   width: 300px;
 }

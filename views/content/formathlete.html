@@ -508,7 +508,7 @@
                         </p>-->
                         <p class="check-box ">
                             <label class="sf-list"><span ng-click="termcondition()">I have carefully read and understood the terms and conditions of this form / disclaimer / waiver and as described in this form / disclaimer / waiver and consent to all of them.</span></label>
-                            <input type="checkbox" ng-model="formData.termsAndCondition" id="test5" />
+                            <input type="checkbox" ng-model="formData.termsAndCondition" ngRequired id="test5" required/>
                             <label for="test5" class="padding0"></label>
                         </p>
                         <div class="box2" ng-repeat="x in formData.parentDetails track by $index">
@@ -577,17 +577,17 @@
                         </div>-->
                     <div class="d-padd para2 ng-init=" show=0 "">
                         <div class="form-group ">
-                            <input ng-model="formData.registrationFee" type="radio" id="radio11" name="radio" value="cash">
+                            <input ng-model="formData.registrationFee" type="radio" id="radio11" name="radio" value="cash" required>
                             <label for="radio11" class="padd-lr sf-list" ng-click="show=1"><span></span>Cash/Cheque/Demand Draft</label>
                             <input ng-model="formData.registrationFee" type="radio" id="radio13" name="radio" value="online PAYU">
                             <label for="radio13" class="padd-lr sf-list" ng-click="show=2"><span></span>Online Payment</label>
-                            <p ng-if="show==2">Online Payment: Selecting this option will enable you to pay the registration fee of Rs. 200
+                            <p ng-if="show==2" class="ft12">Online Payment: Selecting this option will enable you to pay the registration fee of Rs. 200
                                 (Inclusive of all applicable taxes) via one of the following methods: 4) Credit Card 5) Debit
                                 Card 6) Net Banking </p>
                             <!--<input ng-model="formData.registrationFee" type="radio" id="radio12" name="radio" value="cheque">
                             <label for="radio12" class="padd-lr sf-list"><span></span>Cheque</label>-->
 
-                            <p ng-if="show==1">
+                            <p ng-if="show==1" class="ft12">
                                 Cash/Cheque/Demand Draft: Selecting this option will enable you to pay the registration fee of Rs. 200 (Inclusive of all
                                 applicable taxes) by Cash/Cheque/Demand Draft in favour of ‘SFA Events Private Limited’ which
                                 is to be couriered/hand delivered to: 1306, Panchratna Building, Opera House (Next to Roxy
