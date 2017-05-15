@@ -140,18 +140,18 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-5 col-xs-5 sf-list">*Upload School ID Card OR Report Card:</label>
-                        <div class="col-sm-7 col-xs-7">
-                            <button class="btn btn-default myupload">Upload </button>
+                        <div class="col-sm-7 col-xs-7" ng-init="show=0">
+                            <!--<button class="btn btn-default myupload">Upload </button>-->
                             <div class="dirctive-op">
-                                <upload-image class="up-img ng-isolate-scope" ng-model="formData.atheleteSchoolIdImage" no-view ng-disabled="type.disabled"></upload-image>
+                                <upload-image class="up-img ng-isolate-scope" ng-model="formData.atheleteSchoolIdImage" ng-click="show=1" no-view ng-disabled="type.disabled"></upload-image>
                             </div>
                             <div class="display-inline padd-l38">
-                                <div class="w150">
+                                <div class="w150" ng-if="show==1">
                                     <img src="{{formData.atheleteSchoolIdImage |serverimage}}" class="img-resopnsive w100">
                                 </div>
                             </div>
                             <label class="kindly-up up-m175 sf-list">Kindly upload only .jpg or .png format. Maximum file size 1MB.</label>
-                            <div class="hover-img">
+                            <div class="hover-img" ng-if="show==1">
                                 <img src="img/icon/x.png" alt="logo" ng-click="removeImage(formData.atheleteSchoolIdImage)" class="img-responsive myicon">
                             </div>
                             <div class="hover-img">
@@ -243,18 +243,18 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-4 col-xs-5 sf-list">Upload Photograph:</label>
-                        <div class="col-sm-8 col-xs-7">
-                            <button class="btn btn-default myupload">Upload </button>
+                        <div class="col-sm-8 col-xs-7" ng-init="show=0">
+                            <!--<button class="btn btn-default myupload">Upload </button>-->
                             <div class="dirctive-op">
-                                <upload-image class="up-img ng-isolate-scope" ng-model="formData.photograph" no-view ng-disabled="type.disabled"></upload-image>
+                                <upload-image class="up-img ng-isolate-scope" ng-model="formData.photograph" ng-click="show=1" no-view ng-disabled="type.disabled"></upload-image>
                             </div>
                             <div class="display-inline padd-l38">
-                                <div class="w150">
+                                <div class="w150" ng-if="show==1">
                                     <img src="{{formData.photograph |serverimage}}" class="img-resopnsive w100">
                                 </div>
                             </div>
 
-                            <div class="hover-img">
+                            <div class="hover-img" ng-if="show==1">
                                 <img src="img/icon/x.png" alt="logo" ng-click="removePhoto(formData.photograph)" class="img-responsive myicon">
                             </div>
                             <div class="hover-img">
@@ -284,13 +284,13 @@
                     <option>PAN Card</option>
                      <option>Passport</option>
                         </select>
-                            <button class="btn btn-default myupload upload4">Upload</button>
+                            <!--<button class="btn btn-default myupload upload4">Upload</button>-->
 
                             <div class="dirctive-op upload5 Upload-Age">
                                 <upload-image class="up-img ng-isolate-scope" ng-model="formData.birthImage" no-view ng-disabled="type.disabled"></upload-image>
                             </div>
 
-                            <button class="btn btn-default myupload upload6" ng-show="ageProof=='hello'">Upload </button>
+                            <button class="btn btn-default myupload upload6" ng-show="ageProof=='hello'" ng-click="show=1">Upload </button>
                             <div class="dirctive-op upload7 Upload-Age" ng-show="ageProof=='hello'">
                                 <upload-image class="up-img ng-isolate-scope" ng-disabled="type.disabled" no-view ng-model="formData.photoImage"> </upload-image>
                             </div>
@@ -307,18 +307,18 @@
                             </div>
                             <div>
                                 <div class=" padd-l38 display-block float-r">
-                                    <div class="w150">
+                                    <div class="w150" ng-if="show==1">
                                         <img src="img/icon/x.png" alt="logo" ng-click="removeProof1(formData.photoImage)" class="img-responsive myicon cross-icon">
                                     </div>
-                                    <div class="w150">
+                                    <div class="w150" ng-if="show==1">
                                         <img src="{{formData.photoImage |serverimage}}" class="img-resopnsive w100">
                                     </div>
                                 </div>
                                 <div class=" padd-l38 display-block float-r">
-                                    <div class="w150">
+                                    <div class="w150" ng-if="show==1">
                                         <img src="img/icon/x.png" alt="logo" ng-click="removeProof(formData.birthImage)" class="img-responsive myicon cross-icon">
                                     </div>
-                                    <div class="w150">
+                                    <div class="w150" ng-if="show==1">
                                         <img src="{{formData.birthImage |serverimage}}" class="img-resopnsive w100">
                                     </div>
                                 </div>
