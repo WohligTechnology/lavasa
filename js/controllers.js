@@ -771,15 +771,16 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             };
             formdata.sportLevel = sportLevelArray;
             formdata.sfaId = $scope.sfaId
-            if (_.isEqual(formdata.registrationFee, "online PAYU")) {
-                $scope.url = "PayU/atheletePayment";
-            } else {
-                $scope.url = "Athelete/saveAthelete";
-            }
+
+            $scope.url = "Athelete/saveAthelete";
             console.log($scope.url);
             NavigationService.apiCallWithData($scope.url, formdata, function (data) {
-                //links navigation services 
-
+                if (data.value == true) {
+                    var id = data.data._id;
+                    console.log("true and in payment");
+                    var url = "payU/atheletePayment?id=" + id;
+                    window.location.href = adminurl + url;
+                }
             });
         }
         $scope.count = 0;
@@ -1061,6 +1062,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                     console.log("true and in payment");
                     var url = "payU/schoolPayment?id=" + id;
                     window.location.href = adminurl + url;
+                    //     NavigationService.apiCallWithData($scope.url, formdata, function (data) {});
                 }
             });
 
