@@ -733,199 +733,199 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
     })
 
     .controller('FormathleteCtrl', function ($scope, TemplateService, $element, NavigationService, $timeout, $uibModal) {
-        // //Used to name the .html file
-        // $scope.formData = {}
-        // $scope.formData.parentDetails = [];
-        // $scope.sportsLevelArray = [];
-        // $scope.sportsLevelArray.push({});
-        // $scope.m = 0;
-        // $scope.form = {};
-        // //$scope.searchTerm = [];
+        //Used to name the .html file
+        $scope.formData = {}
+        $scope.formData.parentDetails = [];
+        $scope.sportsLevelArray = [];
+        $scope.sportsLevelArray.push({});
+        $scope.m = 0;
+        $scope.form = {};
+        //$scope.searchTerm = [];
 
-        // $scope.firstTime = 0;
-        // if ($scope.firstTime == 0) {
-        //     $scope.formData.parentDetails.push({});
-        //     $scope.firstTime++;
-        // }
-        // $scope.sfaId = {}
-        // $scope.emailOtp = {}
-
-
-
-        // //saves Athelete to database
-        // $scope.saveAthelete = function (formdata) { //formdata is data or body for this url
-        //     console.log("form", formdata);
-        //     var sportLevelArray = []
-
-        //     if (formdata.school && formdata.schoolName) {
-        //         formdata.school = "";
-        //     }
-
-        //     if (!_.isEmpty(formdata.sportLevel)) {
-        //         _.forEach(formdata.sportLevel, function (val) {
-        //             _.forEach(val, function (val1) {
-        //                 sportLevelArray.push(val1);
-        //             });
-        //         });
-        //     };
-        //     formdata.sportLevel = sportLevelArray;
-        //     formdata.sfaId = $scope.sfaId
-        //     if (_.isEqual(formdata.registrationFee, "online PAYU")) {
-        //         $scope.url = "PayU/atheletePayment";
-        //     } else {
-        //         $scope.url = "Athelete/saveAthelete";
-        //     }
-        //     console.log($scope.url);
-        //     NavigationService.apiCallWithData($scope.url, formdata, function (data) {
-        //         //links navigation services 
-
-        //     });
-        // }
-        // $scope.count = 0;
-
-        // $scope.checkOTP = function (otp) {
-        //     console.log("opt", $scope.emailOtp, otp);
-        //     if (_.isEqual($scope.emailOtp, otp)) {
-        //         console.log("email OTP verified");
-        //     } else {
-        //         alert("Incorrect OTP!");
-        //     }
-        // }
-
-        // $scope.ageCalculate = function (birthday) {
-
-        //     var ageDifMs = Date.now() - birthday.getTime();
-        //     var ageDate = new Date(ageDifMs); // miliseconds from epoch
-        //     return Math.abs(ageDate.getUTCFullYear() - 1970);
-
-        // }
-
-        // $scope.sendMobileOTP = function (formData) {
-        //     console.log("form", formData);
-        //     $scope.url = "athelete/generateMobileOTP";
-        //     console.log($scope.url);
-        //     NavigationService.apiCallWithData($scope.url, formData, function (data) {
-        //         $scope.emailOtp = data;
-
-        //     });
-        // }
-        // $scope.sendEmailOTP = function (email) {
-        //     var formData = {};
-        //     console.log("form", email);
-        //     $scope.url = "athelete/generateEmailOTP";
-        //     console.log($scope.url);
-        //     formData.email = email;
-        //     NavigationService.apiCallWithData($scope.url, formData, function (data) {
-        //         $scope.emailOtp = data;
-
-        //     });
-        // }
-
-        // //search filter
-        // $scope.searchChange = function (paramData) {
-        //     console.log("changekeyword", paramData);
-        //     $scope.sfaId = paramData;
-        //     NavigationService.getAtheleteSFA($scope.sfaId, function (data) {
-        //         console.log("sfa", data);
-        //         $scope.atheleList = data.data.results;
-        //         //$scope.schoolList = data.data;
-        //     });
-
-
-        // }
-        // $scope.getDataBasedonSFA = function (uiselCust) {
-        //     console.log("inside get");
-        //     if (uiselCust.schoolName == "----Otributor Group") {
-        //         $scope.uiCarrierGroups = {
-        //             name: "abc-ui"
-        //         };
-        //     } else {
-        //         $scope.uiCarrierGroups = {
-        //             name: "def-ui"
-        //         };
-        //     }
-
-        // }
-
-
-        // //get school name for binding with dropdown
-        // NavigationService.getSchoolName({}, function (data) {
-        //     console.log("schoolName", data);
-        //     $scope.schoolList = data.data;
-
-        //     // console.log("schoolName", $scope.schoolName);
-        // });
-
-        // NavigationService.getAtheleteSFA("", function (data) {
-        //     console.log("sfa", data);
-        //     $scope.atheleList = data.data.results;
-        //     // $scope.atheleList = data.data;
-        // });
+        $scope.firstTime = 0;
+        if ($scope.firstTime == 0) {
+            $scope.formData.parentDetails.push({});
+            $scope.firstTime++;
+        }
+        $scope.sfaId = {}
+        $scope.emailOtp = {}
 
 
 
-        // //removes image uploaded
-        // $scope.removeProof = function (data) {
-        //     console.log("remove me", document.getElementById("inputImage").value = null);
-        //     $scope.formData.photoImage = null;
-        //     $scope.formData.birthImage = null;
-        // }
+        //saves Athelete to database
+        $scope.saveAthelete = function (formdata) { //formdata is data or body for this url
+            console.log("form", formdata);
+            var sportLevelArray = []
 
-        // $scope.removePhoto = function (data) {
-        //     console.log("remove me", document.getElementById("inputImage").value = null);
-        //     $scope.formData.photograph = null;
-        // }
-        // $scope.removeImage = function (data) {
-        //     console.log("remove me", document.getElementById("inputImage").value = null);
-        //     $scope.formData.atheleteSchoolIdImage = null;
-        // }
+            if (formdata.school && formdata.schoolName) {
+                formdata.school = "";
+            }
 
-        // $scope.addSportForm = function () {
-        //     if ($scope.formData.parentDetails.length < 3) {
+            if (!_.isEmpty(formdata.sportLevel)) {
+                _.forEach(formdata.sportLevel, function (val) {
+                    _.forEach(val, function (val1) {
+                        sportLevelArray.push(val1);
+                    });
+                });
+            };
+            formdata.sportLevel = sportLevelArray;
+            formdata.sfaId = $scope.sfaId
+            if (_.isEqual(formdata.registrationFee, "online PAYU")) {
+                $scope.url = "PayU/atheletePayment";
+            } else {
+                $scope.url = "Athelete/saveAthelete";
+            }
+            console.log($scope.url);
+            NavigationService.apiCallWithData($scope.url, formdata, function (data) {
+                //links navigation services 
 
-        //         $scope.formData.parentDetails.push({});
-        //         console.log("sportsDepartment", $scope.formData.parentDetails);
+            });
+        }
+        $scope.count = 0;
 
-        //     }
-        // };
+        $scope.checkOTP = function (otp) {
+            console.log("opt", $scope.emailOtp, otp);
+            if (_.isEqual($scope.emailOtp, otp)) {
+                console.log("email OTP verified");
+            } else {
+                alert("Incorrect OTP!");
+            }
+        }
 
-        // $scope.removeSportForm = function (index) {
-        //     console.log("hello remove", index);
-        //     if (index !== 0) {
-        //         $scope.formData.parentDetails.splice(index, 1);
-        //         console.log("sportsDepartment", $scope.formData.parentDetails);
-        //     }
-        // };
+        $scope.ageCalculate = function (birthday) {
 
-        // $scope.goto = function () {
-        //     $scope.showSchool = !$scope.showSchool;
-        // }
+            var ageDifMs = Date.now() - birthday.getTime();
+            var ageDate = new Date(ageDifMs); // miliseconds from epoch
+            return Math.abs(ageDate.getUTCFullYear() - 1970);
 
-        // $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);
-        // $scope.addSportLevelForm = function () {
-        //     if ($scope.sportsLevelArray.length <= 9) {
-        //         $scope.sportsLevelArray.push({});
-        //         $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);
+        }
 
-        //     }
-        //     // console.log("sportsLevelArray", $scope.sportsLevelArray);
+        $scope.sendMobileOTP = function (formData) {
+            console.log("form", formData);
+            $scope.url = "athelete/generateMobileOTP";
+            console.log($scope.url);
+            NavigationService.apiCallWithData($scope.url, formData, function (data) {
+                $scope.emailOtp = data;
 
-        // };
-        // $scope.removeSportLevelForm = function (indexX, indexY) {
-        //     if (indexX >= 0 && indexY >= 0) {
-        //         if ($scope.sportsLevelArray.length > 1) {
-        //             $scope.formData.sportLevel[indexX].splice(indexY, 1);
-        //             $scope.sportsLevelArray = _.flatten($scope.formData.sportLevel);
-        //         } else {
-        //             $scope.sportsLevelArray = [];
-        //             $scope.sportsLevelArray.push({});
-        //             $scope.myshow = false;
-        //             $scope.formData.played = 'no';
-        //         }
+            });
+        }
+        $scope.sendEmailOTP = function (email) {
+            var formData = {};
+            console.log("form", email);
+            $scope.url = "athelete/generateEmailOTP";
+            console.log($scope.url);
+            formData.email = email;
+            NavigationService.apiCallWithData($scope.url, formData, function (data) {
+                $scope.emailOtp = data;
 
-        //         $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);
-        //     }
-        // };
+            });
+        }
+
+        //search filter
+        $scope.searchChange = function (paramData) {
+            console.log("changekeyword", paramData);
+            $scope.sfaId = paramData;
+            NavigationService.getAtheleteSFA($scope.sfaId, function (data) {
+                console.log("sfa", data);
+                $scope.atheleList = data.data.results;
+                //$scope.schoolList = data.data;
+            });
+
+
+        }
+        $scope.getDataBasedonSFA = function (uiselCust) {
+            console.log("inside get");
+            if (uiselCust.schoolName == "----Otributor Group") {
+                $scope.uiCarrierGroups = {
+                    name: "abc-ui"
+                };
+            } else {
+                $scope.uiCarrierGroups = {
+                    name: "def-ui"
+                };
+            }
+
+        }
+
+
+        //get school name for binding with dropdown
+        NavigationService.getSchoolName({}, function (data) {
+            console.log("schoolName", data);
+            $scope.schoolList = data.data;
+
+            // console.log("schoolName", $scope.schoolName);
+        });
+
+        NavigationService.getAtheleteSFA("", function (data) {
+            console.log("sfa", data);
+            $scope.atheleList = data.data.results;
+            // $scope.atheleList = data.data;
+        });
+
+
+
+        //removes image uploaded
+        $scope.removeProof = function (data) {
+            console.log("remove me", document.getElementById("inputImage").value = null);
+            $scope.formData.photoImage = null;
+            $scope.formData.birthImage = null;
+        }
+
+        $scope.removePhoto = function (data) {
+            console.log("remove me", document.getElementById("inputImage").value = null);
+            $scope.formData.photograph = null;
+        }
+        $scope.removeImage = function (data) {
+            console.log("remove me", document.getElementById("inputImage").value = null);
+            $scope.formData.atheleteSchoolIdImage = null;
+        }
+
+        $scope.addSportForm = function () {
+            if ($scope.formData.parentDetails.length < 3) {
+
+                $scope.formData.parentDetails.push({});
+                console.log("sportsDepartment", $scope.formData.parentDetails);
+
+            }
+        };
+
+        $scope.removeSportForm = function (index) {
+            console.log("hello remove", index);
+            if (index !== 0) {
+                $scope.formData.parentDetails.splice(index, 1);
+                console.log("sportsDepartment", $scope.formData.parentDetails);
+            }
+        };
+
+        $scope.goto = function () {
+            $scope.showSchool = !$scope.showSchool;
+        }
+
+        $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);
+        $scope.addSportLevelForm = function () {
+            if ($scope.sportsLevelArray.length <= 9) {
+                $scope.sportsLevelArray.push({});
+                $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);
+
+            }
+            // console.log("sportsLevelArray", $scope.sportsLevelArray);
+
+        };
+        $scope.removeSportLevelForm = function (indexX, indexY) {
+            if (indexX >= 0 && indexY >= 0) {
+                if ($scope.sportsLevelArray.length > 1) {
+                    $scope.formData.sportLevel[indexX].splice(indexY, 1);
+                    $scope.sportsLevelArray = _.flatten($scope.formData.sportLevel);
+                } else {
+                    $scope.sportsLevelArray = [];
+                    $scope.sportsLevelArray.push({});
+                    $scope.myshow = false;
+                    $scope.formData.played = 'no';
+                }
+
+                $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);
+            }
+        };
 
 
         $scope.template = TemplateService.changecontent("formathlete");
