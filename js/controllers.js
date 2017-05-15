@@ -749,6 +749,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         }
         $scope.sfaId = {}
         $scope.emailOtp = {}
+        $scope.emobileOtp = {}
 
 
 
@@ -783,12 +784,25 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         }
         $scope.count = 0;
 
-        $scope.checkOTP = function (otp) {
-            console.log("opt", $scope.emailOtp, otp);
-            if (_.isEqual($scope.emailOtp, otp)) {
+        $scope.checkMobileOTP = function (otp) {
+            console.log("opt", $scope.mobileOtp, otp);
+            if (_.isEqual($scope.mobileOtp, otp)) {
+                $(' .verify-otp').html('<i class="fa fa-check"></i>');
                 console.log("email OTP verified");
             } else {
                 alert("Incorrect OTP!");
+                $(' .verify-otp').text('Verify OTP');
+            }
+        }
+
+        $scope.checkEmailOTP = function (otp) {
+            console.log("opt", $scope.emailOtp, otp);
+            if (_.isEqual($scope.emailOtp, otp)) {
+                $(' .verify-otp').html('<i class="fa fa-check"></i>');
+                console.log("email OTP verified");
+            } else {
+                alert("Incorrect OTP!");
+                $(' .verify-otp').text('Verify OTP');
             }
         }
 
@@ -807,7 +821,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             console.log($scope.url);
             formData.mobile = mobile;
             NavigationService.apiCallWithData($scope.url, formData, function (data) {
-                $scope.emailOtp = data;
+                $scope.mobileOtp = data.data;
 
             });
         }
@@ -818,7 +832,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             console.log($scope.url);
             formData.email = email;
             NavigationService.apiCallWithData($scope.url, formData, function (data) {
-                $scope.emailOtp = data;
+                $scope.emailOtp = data.data;
 
             });
         }
@@ -1035,21 +1049,40 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             formdata.individualSports = $scope.individualSports
             formdata.aquaticsSports = $scope.aquaticsSports
             formdata.sfaID = $scope.sfaID
+            $scope.value = {}
 
             // formdata.serviceRequest = $scope.serviceList;
             console.log("form", formdata);
             $scope.url = "registration/saveRegistrationForm";
             console.log($scope.url);
             NavigationService.apiCallWithData($scope.url, formdata, function (data) {
-
+                if (data.value == true) {
+                    console.log("true and in payment");
+                    $scope.url = "payU/schoolPayment";
+                    NavigationService.apiCallWithData($scope.url, formdata, function (data) {
+                        $scope.value = data.value;
+                    });
+                }
             });
+
         }
+        // $scope.checkOTP = function (otp) {
+        //     console.log("opt", $scope.emailOtp, otp);
+        //     if ($scope.emailOtp == otp) {
+        //         console.log("email OTP verified");
+        //     } else {
+        //         alert("Incorrect OTP!");
+        //     }
+        // }
+
         $scope.checkOTP = function (otp) {
             console.log("opt", $scope.emailOtp, otp);
-            if ($scope.emailOtp == otp) {
+            if (_.isEqual($scope.emailOtp, otp)) {
+                $(' .verify-otp').html('<i class="fa fa-check"></i>');
                 console.log("email OTP verified");
             } else {
                 alert("Incorrect OTP!");
+                $(' .verify-otp').text('Verify OTP');
             }
         }
 
