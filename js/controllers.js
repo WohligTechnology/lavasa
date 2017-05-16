@@ -771,12 +771,25 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             }
         }
 
+        var isSchoolAdded = function (form) {
+            if (form.school || (form.atheleteSchoolName && form.atheleteSchoolLocality && form.atheleteSchoolContact)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         //saves Athelete to database
         $scope.saveAthelete = function (formdata) { //formdata is data or body for this url
             console.log("Athlete data: ", formdata);
             if (!isFormValid(formdata)) {
                 return;
             }
+            if (!isSchoolAdded(formdata)) {
+                alert("Please select the school or enter all school details manually.");
+                return;
+            }
+
             console.log("form", formdata);
             var sportLevelArray = []
 
