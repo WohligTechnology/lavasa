@@ -1176,10 +1176,10 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             $scope.value = {};
 
             if (formdata.termsAndCondition == undefined) {
-                $scope.reqTerms = "please check mark";
+                $scope.showTerm = true;
 
             } else {
-                $scope.reqTerms = "";
+                $scope.showTerm = false;
             }
 
             // formdata.serviceRequest = $scope.serviceList;
@@ -1187,16 +1187,22 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             $scope.url = "registration/saveRegistrationForm";
             console.log($scope.url);
 
-            // if ($scope.showOtpSuccess == false) {
-            NavigationService.apiCallWithData($scope.url, formdata, function (data) {
-                if (data.value == true && data.data.registrationFee == "online PAYU") {
-                    var id = data.data._id;
-                    console.log("true and in payment");
-                    var url = "payU/schoolPayment?id=" + id;
-                    window.location.href = adminurl + url;
-                }
-            });
-            // }
+            if ($scope.showOtpSuccess == false) {
+                NavigationService.apiCallWithData($scope.url, formdata, function (data) {
+                    if (data.value == true) {
+                        if (data.data.registrationFee == "online PAYU") {
+
+                            var id = data.data._id;
+                            console.log("true and in payment");
+                            var url = "payU/schoolPayment?id=" + id;
+                            window.location.href = adminurl + url;
+                        } else {
+                            console.log("opening modal");
+                            $scope.openModal();
+                        }
+                    }
+                });
+            }
 
 
         }
@@ -1254,6 +1260,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             }
 
         }
+
+
 
         $scope.sendOTP = function (email) {
             var formdata = {}

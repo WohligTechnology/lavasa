@@ -477,14 +477,16 @@
                                     <p> <input type="checkbox" id="Chess" ng-click="addIndividualSports('Chess')" />
                                         <label for="Chess" ng-class="{basketball:Chess}">Chess</label></p>
                                 </div>
+                                <div class="" ng-show="showTeamSports">Please select your sports Type*</div>
                                 <p class="check-box ">
                                     <label class="sf-list"><span ng-click="termcondition()"> I have carefully read and understood the terms and conditions of this form / disclaimer / waiver and as described in this form / disclaimer / waiver and consent to all of them.</span></label>
-                                    <input type="checkbox" name="checkIhav" ng-model="formData.termsAndCondition" id="test5" />
+                                    <input type="checkbox" name="checkIhav" ng-checked="termsCheck(formData.termsAndCondition)" ng-model="formData.termsAndCondition"
+                                        id="test5" />
                                     <label for="test5" class="padding0"></label>
-                                    <div class="validate-col" ng-show="formRegister.checkIhav.$error.required && formRegister.checkIhav.$touched">Please Check the box *</div>
+                                    <div class="validate-col" ng-show="showTerm">Please Check the box *</div>
 
                                 </p>
-                                <div class="" ng-show="showTeamSports">Please select your sports Type*</div>
+
                                 <!--<p> <label class="sel-spo">Selected Sports:</label>Basketball, Football, Hockey</p>-->
                                 <p class="regest-fee">A registration fee of `12,000/- (inclusive of all applicable taxes) will be payable.<br>
                                     <label class="blue fs-14"> #Kindly Note:</label> This is an annual fee that enables your
