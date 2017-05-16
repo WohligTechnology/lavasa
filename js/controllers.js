@@ -749,7 +749,9 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         }
         $scope.sfaId = {}
         $scope.emailOtp = {}
-        $scope.emobileOtp = {}
+        $scope.mobileOtp = {}
+        $scope.showEmailOtpSuccess = {}
+        $scope.showMobileOtpSuccess = {}
 
 
 
@@ -787,23 +789,65 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
         $scope.checkMobileOTP = function (otp) {
             console.log("opt", $scope.mobileOtp, otp);
-            if (_.isEqual($scope.mobileOtp, otp)) {
-                $(' .verify-otp-mobile').html('<i class="fa fa-check"></i>').css("color", "green");
-                console.log("email OTP verified");
-            } else {
-                alert("Incorrect OTP!");
-                $(' .verify-otp-mobile').html('<i class="fa fa-times"></i>').css("color", "red");
+            console.log(typeof otp, typeof $scope.mobileOtp);
+
+            var otpCheck = otp.toString();
+            console.log("length", otpCheck.length);
+            if (otpCheck.length == 4) {
+
+                if (_.isEqual($scope.mobileOtp, otpCheck)) {
+                    console.log("email OTP verified");
+                    $scope.showMobileOtpSuccess = false;
+
+                } else {
+                    $scope.showMobileOtpSuccess = true;
+                }
+            } else if (otpCheck.length == 3) {
+                otpCheck = "0" + otpCheck;
+                console.log("otpCheck", otpCheck);
+                if (_.isEqual($scope.emailOtp, otpCheck)) {
+                    console.log("email OTP verified");
+                    $scope.showMobileOtpSuccess = false;
+
+                } else {
+                    $scope.showMobileOtpSuccess = true;
+                }
             }
         }
 
+
+
         $scope.checkEmailOTP = function (otp) {
             console.log("opt", $scope.emailOtp, otp);
-            if (_.isEqual($scope.emailOtp, otp)) {
-                $(' .verify-otp').html('<i class="fa fa-check"></i>').css("color", "green");
-                console.log("email OTP verified");
-            } else {
-                alert("Incorrect OTP!");
-                $(' .verify-otp').html('<i class="fa fa-times"></i>').css("color", "red");
+            console.log(typeof otp, typeof $scope.emailOtp);
+
+            var otpCheck = otp.toString();
+            console.log("length", otpCheck.length);
+            if (otpCheck.length == 4) {
+
+                if (_.isEqual($scope.emailOtp, otpCheck)) {
+                    // $(' .verify-otp-regis').html('<i class="fa fa-check"></i>').css("color", "green");
+                    console.log("email OTP verified");
+                    $scope.showEmailOtpSuccess = false;
+
+                } else {
+                    // alert("Incorrect OTP!");
+                    // $(' .verify-otp-regis').html('<i class="fa fa-times"></i>').css("color", "red");
+                    $scope.showEmailOtpSuccess = true;
+                }
+            } else if (otpCheck.length == 3) {
+                otpCheck = "0" + otpCheck;
+                console.log("otpCheck", otpCheck);
+                if (_.isEqual($scope.emailOtp, otpCheck)) {
+                    // $(' .verify-otp-regis').html('<i class="fa fa-check"></i>').css("color", "green");
+                    console.log("email OTP verified");
+                    $scope.showEmailOtpSuccess = false;
+
+                } else {
+                    // alert("Incorrect OTP!");
+                    // $(' .verify-otp-regis').html('<i class="fa fa-times"></i>').css("color", "red");
+                    $scope.showEmailOtpSuccess = true;
+                }
             }
         }
 
@@ -1040,6 +1084,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.individualSports = [];
         $scope.sfaID = {};
         $scope.emailOtp = {};
+        $scope.showOtpSuccess = {};
 
         //save registerform to database
         $scope.saveRegis = function (formdata) {
@@ -1051,20 +1096,28 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             formdata.aquaticsSports = $scope.aquaticsSports
             formdata.sfaID = $scope.sfaID
             $scope.value = {}
+            if (formdata.teamSports == '' || formdata.racquetSports == '' || formdata.combatSports == '' || formdata.targetSports == '' || formdata.individualSports == '' || formdata.aquaticsSports == '') {
+                $scope.showTeamSports = true;
+            } else {
+                $scope.showTeamSports = false;
+            }
 
             // formdata.serviceRequest = $scope.serviceList;
             console.log("form", formdata);
             $scope.url = "registration/saveRegistrationForm";
             console.log($scope.url);
-            NavigationService.apiCallWithData($scope.url, formdata, function (data) {
-                if (data.value == true) {
-                    var id = data.data._id;
-                    console.log("true and in payment");
-                    var url = "payU/schoolPayment?id=" + id;
-                    window.location.href = adminurl + url;
-                    //     NavigationService.apiCallWithData($scope.url, formdata, function (data) {});
-                }
-            });
+
+            if ($scope.showOtpSuccess == false) {
+                NavigationService.apiCallWithData($scope.url, formdata, function (data) {
+                    if (data.value == true && data.data.registrationFee == "online PAYU") {
+                        var id = data.data._id;
+                        console.log("true and in payment");
+                        var url = "payU/schoolPayment?id=" + id;
+                        window.location.href = adminurl + url;
+                    }
+                });
+            }
+
 
         }
         // $scope.checkOTP = function (otp) {
@@ -1076,15 +1129,50 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         //     }
         // }
 
+        // $scope.checkOTP = function (otp) {
+        //     console.log("opt", $scope.emailOtp, otp);
+        //     if (_.isEqual($scope.emailOtp, otp)) {
+        //         $(' .verify-otp-regis').html('<i class="fa fa-check"></i>').css("color", "green");
+        //         console.log("email OTP verified");
+        //     } else {
+        //         alert("Incorrect OTP!");
+        //         $(' .verify-otp-regis').html('<i class="fa fa-times"></i>').css("color", "red");
+        //     }
+        // }
+
         $scope.checkOTP = function (otp) {
             console.log("opt", $scope.emailOtp, otp);
-            if (_.isEqual($scope.emailOtp, otp)) {
-                $(' .verify-otp-regis').html('<i class="fa fa-check"></i>').css("color", "green");
-                console.log("email OTP verified");
-            } else {
-                alert("Incorrect OTP!");
-                $(' .verify-otp-regis').html('<i class="fa fa-times"></i>').css("color", "red");
+            console.log(typeof otp, typeof $scope.emailOtp);
+
+            var otpCheck = otp.toString();
+            console.log("length", otpCheck.length);
+            if (otpCheck.length == 4) {
+
+                if (_.isEqual($scope.emailOtp, otpCheck)) {
+                    // $(' .verify-otp-regis').html('<i class="fa fa-check"></i>').css("color", "green");
+                    console.log("email OTP verified");
+                    $scope.showOtpSuccess = false;
+
+                } else {
+                    // alert("Incorrect OTP!");
+                    // $(' .verify-otp-regis').html('<i class="fa fa-times"></i>').css("color", "red");
+                    $scope.showOtpSuccess = true;
+                }
+            } else if (otpCheck.length == 3) {
+                otpCheck = "0" + otpCheck;
+                console.log("otpCheck", otpCheck);
+                if (_.isEqual($scope.emailOtp, otpCheck)) {
+                    // $(' .verify-otp-regis').html('<i class="fa fa-check"></i>').css("color", "green");
+                    console.log("email OTP verified");
+                    $scope.showOtpSuccess = false;
+
+                } else {
+                    // alert("Incorrect OTP!");
+                    // $(' .verify-otp-regis').html('<i class="fa fa-times"></i>').css("color", "red");
+                    $scope.showOtpSuccess = true;
+                }
             }
+
         }
 
         $scope.sendOTP = function (email) {
