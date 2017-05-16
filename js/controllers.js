@@ -789,6 +789,10 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 alert("Please select the school or enter all school details manually.");
                 return;
             }
+            if (!formdata.registrationFee) {
+                alert("Please select one of the payment options!");
+                return;
+            }
 
             console.log("form", formdata);
             var sportLevelArray = []

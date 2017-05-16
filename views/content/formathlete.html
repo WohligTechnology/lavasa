@@ -290,7 +290,7 @@
                                 <upload-image class="up-img ng-isolate-scope" ng-model="formData.birthImage" no-view ng-disabled="type.disabled"></upload-image>
                             </div>
 
-                            <button class="btn btn-default myupload upload6" ng-show="formData.ageProof=='hello'" ng-click="show=1">Upload </button>
+                            <!--<button class="btn btn-default myupload upload6" ng-show="formData.ageProof=='hello'" ng-click="show=1">Upload </button>-->
                             <div class="dirctive-op upload7 Upload-Age" ng-show="formData.ageProof=='hello'">
                                 <upload-image class="up-img ng-isolate-scope" ng-disabled="type.disabled" no-view ng-model="formData.photoImage"> </upload-image>
                             </div>
@@ -580,7 +580,7 @@
                         </div>-->
                     <div class="d-padd para2 ng-init=" show=4 "">
                         <div class="form-group ">
-                            <input ng-model="formData.registrationFee" type="radio" id="radio11" name="radio" value="cash" required>
+                            <input ng-model="formData.registrationFee" type="radio" id="radio11" name="radio" value="cash">
                             <label for="radio11" class="padd-lr sf-list" ng-click="show=5"><span></span>Cash/Cheque/Demand Draft</label>
                             <input ng-model="formData.registrationFee" type="radio" id="radio13" name="radio" value="online PAYU">
                             <label for="radio13" class="padd-lr sf-list" ng-click="show=6"><span></span>Online Payment</label>
