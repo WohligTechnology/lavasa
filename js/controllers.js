@@ -816,8 +816,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             if ($scope.showEmailOtpSuccess == false && $scope.showMobileOtpSuccess == false) {
                 NavigationService.apiCallWithData($scope.url, formdata, function (data) {
                     if (data.value == true) {
-                        var id = data.data._id;
-                        console.log("true and in payment");
+                        var id = data.data[0]._id;
+                        console.log("true and in payment", id);
                         var url = "payU/atheletePayment?id=" + id;
                         window.location.href = adminurl + url;
                     }

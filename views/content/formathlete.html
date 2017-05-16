@@ -397,8 +397,7 @@
                 <div class="box box-padd para2">
                     <div class="form-group">
                         <label class="mobileno-padd mobileno-mob sf-list">*Mobile No:</label>
-                        <input type="text" only-Digits ng-model="formData.mobile" ng-click="sendMobileOTP(formData.mobile)" class="bor-t" minlength="10"
-                            maxlength="10" required>
+                        <input type="text" only-Digits ng-model="formData.mobile" class="bor-t" minlength="10" maxlength="10" required>
                         <button class="btn btn-default sub-mit send-otp sf-list" ng-click="sendMobileOTP(formData.mobile)">Send OTP </button>
                         <label class="enter-otp sf-list"> *Enter OTP:</label>
                         <input type="text" ng-model="formData.smsOTP" ng-change="checkMobileOTP(formData.smsOTP)" class="bor-t width-100" required>
