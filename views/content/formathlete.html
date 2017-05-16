@@ -277,7 +277,7 @@
                     <div class="form-group">
                         <div class="col-sm-12 col-xs-12">
                             <label class="padd-r12 sf-list label-age">*Upload Age Proof:</label>
-                            <select class="sfa-drop2 sf-list sfa-mob2 label-two" ng-model="ageProof" required>
+                            <select class="sfa-drop2 sf-list sfa-mob2 label-two" ng-model="formData.ageProof" required>
                             <option style="display:none"></option>
                     <option>Adhaar Card </option>
                    <option value="hello">Birth Certificate + Photo ID</option>
@@ -290,8 +290,8 @@
                                 <upload-image class="up-img ng-isolate-scope" ng-model="formData.birthImage" no-view ng-disabled="type.disabled"></upload-image>
                             </div>
 
-                            <button class="btn btn-default myupload upload6" ng-show="ageProof=='hello'" ng-click="show=1">Upload </button>
-                            <div class="dirctive-op upload7 Upload-Age" ng-show="ageProof=='hello'">
+                            <!--<button class="btn btn-default myupload upload6" ng-show="formData.ageProof=='hello'" ng-click="show=1">Upload </button>-->
+                            <div class="dirctive-op upload7 Upload-Age" ng-show="formData.ageProof=='hello'">
                                 <upload-image class="up-img ng-isolate-scope" ng-disabled="type.disabled" no-view ng-model="formData.photoImage"> </upload-image>
                             </div>
                             <!--<label class=" myupload2">  <upload-image class="up-img" no-view></upload-image></label>-->
@@ -397,8 +397,7 @@
                 <div class="box box-padd para2">
                     <div class="form-group">
                         <label class="mobileno-padd mobileno-mob sf-list">*Mobile No:</label>
-                        <input type="text" only-Digits ng-model="formData.mobile" ng-click="sendMobileOTP(formData.mobile)" class="bor-t" minlength="10"
-                            maxlength="10" required>
+                        <input type="text" only-Digits ng-model="formData.mobile" class="bor-t" minlength="10" maxlength="10" required>
                         <button class="btn btn-default sub-mit send-otp sf-list" ng-click="sendMobileOTP(formData.mobile)">Send OTP </button>
                         <label class="enter-otp sf-list"> *Enter OTP:</label>
                         <input type="text" ng-model="formData.smsOTP" ng-change="checkMobileOTP(formData.smsOTP)" class="bor-t width-100" required>
@@ -580,7 +579,7 @@
                         </div>-->
                     <div class="d-padd para2 ng-init=" show=4 "">
                         <div class="form-group ">
-                            <input ng-model="formData.registrationFee" type="radio" id="radio11" name="radio" value="cash" required>
+                            <input ng-model="formData.registrationFee" type="radio" id="radio11" name="radio" value="cash">
                             <label for="radio11" class="padd-lr sf-list" ng-click="show=5"><span></span>Cash/Cheque/Demand Draft</label>
                             <input ng-model="formData.registrationFee" type="radio" id="radio13" name="radio" value="online PAYU">
                             <label for="radio13" class="padd-lr sf-list" ng-click="show=6"><span></span>Online Payment</label>
