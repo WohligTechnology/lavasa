@@ -753,10 +753,30 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.showEmailOtpSuccess = {}
         $scope.showMobileOtpSuccess = {}
 
-
+        var isFormValid = function (form) {
+            if (!form.atheleteSchoolIdImage) {
+                alert("School ID image is not uploaded");
+                return false;
+            } else if (!form.photograph) {
+                alert("Photograph not uploaded");
+                return false;
+            } else if (!form.birthImage) {
+                alert("Birth proof is not uploaded");
+                return false;
+            } else if ($scope.ageProof == "hello" && !form.photoImage) {
+                alert("Photo id not uploaded");
+                return false;
+            } else {
+                return true;
+            }
+        }
 
         //saves Athelete to database
         $scope.saveAthelete = function (formdata) { //formdata is data or body for this url
+            console.log("Athlete data: ", formdata);
+            if (!isFormValid(formdata)) {
+                return;
+            }
             console.log("form", formdata);
             var sportLevelArray = []
 
