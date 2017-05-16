@@ -788,11 +788,11 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.checkMobileOTP = function (otp) {
             console.log("opt", $scope.mobileOtp, otp);
             if (_.isEqual($scope.mobileOtp, otp)) {
-                $(' .verify-otp').html('<i class="fa fa-check"></i>').css("color", "green");
+                $(' .verify-otp-mobile').html('<i class="fa fa-check"></i>').css("color", "green");
                 console.log("email OTP verified");
             } else {
                 alert("Incorrect OTP!");
-                $(' .verify-otp').html('<i class="fa fa-times"></i>').css("color", "red");
+                $(' .verify-otp-mobile').html('<i class="fa fa-times"></i>').css("color", "red");
             }
         }
 
@@ -1079,11 +1079,11 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.checkOTP = function (otp) {
             console.log("opt", $scope.emailOtp, otp);
             if (_.isEqual($scope.emailOtp, otp)) {
-                $(' .verify-otp').html('<i class="fa fa-check"></i>');
+                $(' .verify-otp-regis').html('<i class="fa fa-check"></i>').css("color", "green");
                 console.log("email OTP verified");
             } else {
                 alert("Incorrect OTP!");
-                $(' .verify-otp').text('Verify OTP');
+                $(' .verify-otp-regis').html('<i class="fa fa-times"></i>').css("color", "red");
             }
         }
 
