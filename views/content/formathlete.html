@@ -190,9 +190,9 @@
                         <!--<input type="radio" name="gender" value="male"><label class="padd-lr"> Male</label>
                             <input type="radio" name="gender" value="male"><label class="padd-lr"> Female</label>-->
                         <div class="col-sm-9 col-xs-8">
-                            <input type="radio" ng-model="formData.gender" id="radio04" name="radio" value="male">
+                            <input type="radio" ng-model="formData.gender" id="radio04" name="radio" value="male" required>
                             <label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
-                            <input type="radio" ng-model="formData.gender" id="radio03" name="radio" value="female">
+                            <input type="radio" ng-model="formData.gender" id="radio03" name="radio" value="female" required>
                             <label for="radio03" class="padd-lr sf-list"><span></span>Female</label>
                         </div>
                     </div>
@@ -220,7 +220,7 @@
                         <label class="col-sm-2 sf-list blood-mob">  Blood Group:</label>
                         <!--<input type="text" class="bor-t" required minlength="10" maxlength="10">-->
                         <div class="col-sm-4">
-                            <select class="sfa-drop2 sfa4 blood-mob2 sf-list" ng-model="formData.bloodGroup" required>
+                            <select class="sfa-drop2 sfa4 blood-mob2 sf-list" ng-model="formData.bloodGroup">
                             <option style="display:none"></option>
                    <option>AB - </option>
                    <option>AB + </option>

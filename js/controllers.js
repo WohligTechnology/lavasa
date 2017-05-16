@@ -1003,6 +1003,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
 
 
+
         $scope.firstTime = 0;
         if ($scope.firstTime == 0) {
             $scope.formData.sportsDepartment.push($scope.sportDepart);
@@ -1050,7 +1051,16 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             formdata.individualSports = $scope.individualSports
             formdata.aquaticsSports = $scope.aquaticsSports
             formdata.sfaID = $scope.sfaID
-            $scope.value = {}
+            $scope.value = {};
+
+            if (formdata.termsAndCondition == undefined) {
+                $scope.reqTerms = "please check mark";
+
+            } else {
+                $scope.reqTerms = "";
+            }
+
+
 
             // formdata.serviceRequest = $scope.serviceList;
             console.log("form", formdata);
