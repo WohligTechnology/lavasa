@@ -1122,7 +1122,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                     name: null,
                     designation: null,
                     email: null,
-                    photo: null
+                    photo: null,
+                    mobile: null
                 };
                 $scope.formData.sportsDepartment.push($scope.sportDepart);
                 console.log("sportsDepartment", $scope.formData.sportsDepartment);
@@ -1180,16 +1181,16 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             $scope.url = "registration/saveRegistrationForm";
             console.log($scope.url);
 
-            if ($scope.showOtpSuccess == false) {
-                NavigationService.apiCallWithData($scope.url, formdata, function (data) {
-                    if (data.value == true && data.data.registrationFee == "online PAYU") {
-                        var id = data.data._id;
-                        console.log("true and in payment");
-                        var url = "payU/schoolPayment?id=" + id;
-                        window.location.href = adminurl + url;
-                    }
-                });
-            }
+            // if ($scope.showOtpSuccess == false) {
+            NavigationService.apiCallWithData($scope.url, formdata, function (data) {
+                if (data.value == true && data.data.registrationFee == "online PAYU") {
+                    var id = data.data._id;
+                    console.log("true and in payment");
+                    var url = "payU/schoolPayment?id=" + id;
+                    window.location.href = adminurl + url;
+                }
+            });
+            // }
 
 
         }
