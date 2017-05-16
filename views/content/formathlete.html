@@ -277,7 +277,7 @@
                     <div class="form-group">
                         <div class="col-sm-12 col-xs-12">
                             <label class="padd-r12 sf-list label-age">*Upload Age Proof:</label>
-                            <select class="sfa-drop2 sf-list sfa-mob2 label-two" ng-model="ageProof" required>
+                            <select class="sfa-drop2 sf-list sfa-mob2 label-two" ng-model="formData.ageProof" required>
                             <option style="display:none"></option>
                     <option>Adhaar Card </option>
                    <option value="hello">Birth Certificate + Photo ID</option>
@@ -290,8 +290,8 @@
                                 <upload-image class="up-img ng-isolate-scope" ng-model="formData.birthImage" no-view ng-disabled="type.disabled"></upload-image>
                             </div>
 
-                            <button class="btn btn-default myupload upload6" ng-show="ageProof=='hello'" ng-click="show=1">Upload </button>
-                            <div class="dirctive-op upload7 Upload-Age" ng-show="ageProof=='hello'">
+                            <button class="btn btn-default myupload upload6" ng-show="formData.ageProof=='hello'" ng-click="show=1">Upload </button>
+                            <div class="dirctive-op upload7 Upload-Age" ng-show="formData.ageProof=='hello'">
                                 <upload-image class="up-img ng-isolate-scope" ng-disabled="type.disabled" no-view ng-model="formData.photoImage"> </upload-image>
                             </div>
                             <!--<label class=" myupload2">  <upload-image class="up-img" no-view></upload-image></label>-->

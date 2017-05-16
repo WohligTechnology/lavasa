@@ -763,7 +763,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             } else if (!form.birthImage) {
                 alert("Birth proof is not uploaded");
                 return false;
-            } else if ($scope.ageProof == "hello" && !form.photoImage) {
+            } else if (form.ageProof == "hello" && !form.photoImage) {
                 alert("Photo id not uploaded");
                 return false;
             } else {
