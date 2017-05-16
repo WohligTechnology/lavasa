@@ -809,14 +809,17 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
             $scope.url = "Athelete/saveAthelete";
             console.log($scope.url);
-            NavigationService.apiCallWithData($scope.url, formdata, function (data) {
-                if (data.value == true) {
-                    var id = data.data._id;
-                    console.log("true and in payment");
-                    var url = "payU/atheletePayment?id=" + id;
-                    window.location.href = adminurl + url;
-                }
-            });
+            if ($scope.showEmailOtpSuccess == false && $scope.showMobileOtpSuccess == false) {
+                NavigationService.apiCallWithData($scope.url, formdata, function (data) {
+                    if (data.value == true) {
+                        var id = data.data._id;
+                        console.log("true and in payment");
+                        var url = "payU/atheletePayment?id=" + id;
+                        window.location.href = adminurl + url;
+                    }
+                });
+            }
+
         }
         $scope.count = 0;
 
@@ -831,7 +834,6 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 if (_.isEqual($scope.mobileOtp, otpCheck)) {
                     console.log("email OTP verified");
                     $scope.showMobileOtpSuccess = false;
-
                 } else {
                     $scope.showMobileOtpSuccess = true;
                 }
