@@ -1084,6 +1084,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             var modalInstance = $uibModal.open({
                 animation: true,
                 scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
                 // size: 'sm',
                 templateUrl: "views/modal/thankyou.html"
             });
