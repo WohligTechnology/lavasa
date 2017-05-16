@@ -748,6 +748,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             $scope.firstTime++;
         }
         $scope.sfaId = {}
+        $scope.schoolname = {}
         $scope.emailOtp = {}
         $scope.mobileOtp = {}
         $scope.showEmailOtpSuccess = {}
@@ -809,7 +810,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 });
             };
             formdata.sportLevel = sportLevelArray;
-            formdata.sfaId = $scope.sfaId
+            formdata.sfaId = $scope.sfaId;
+            formdata.school = $scope.schoolname;
 
             $scope.url = "Athelete/saveAthelete";
             console.log($scope.url);
@@ -926,6 +928,17 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             console.log("changekeyword", paramData);
             $scope.sfaId = paramData;
             NavigationService.getAtheleteSFA($scope.sfaId, function (data) {
+                console.log("sfa", data);
+                $scope.atheleList = data.data.results;
+                //$scope.schoolList = data.data;
+            });
+
+
+        }
+        $scope.searchChangeSchool = function (paramData) {
+            console.log("changekeyword", paramData);
+            $scope.schoolname = paramData;
+            NavigationService.getAtheleteSFA($scope.schoolname, function (data) {
                 console.log("sfa", data);
                 $scope.atheleList = data.data.results;
                 //$scope.schoolList = data.data;
