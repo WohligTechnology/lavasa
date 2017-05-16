@@ -280,8 +280,10 @@
                                     <input ng-model="formData.email" type="email" class="bor-t" required>
                                     <button class="btn btn-default sub-mit send-otp" ng-click="sendOTP(formData.email)">Send OTP </button>
                                     <label class="enter-otp"> *Enter OTP:</label>
-                                    <input ng-model="formData.enterOTP" only-Digits type="text" maxlength="4" class="bor-t width-100" required>
-                                    <button class="btn btn-default sub-mit send-otp verify-otp-regis" ng-click="checkOTP(formData.enterOTP)">Verify OTP </button>
+                                    <input ng-model="formData.enterOTP" ng-change="checkOTP(formData.enterOTP)" only-Digits type="text" maxlength="4" class="bor-t width-100"
+                                        required>
+                                    <div class="" ng-show="showOtpSuccess">Please Enter Correct OTP</div>
+                                    <!--<button class="btn btn-default sub-mit send-otp verify-otp-regis" ng-click="checkOTP(formData.enterOTP)">Verify OTP </button>-->
                                     <!--only-Digits removed-->
                                 </div>
                             </div>
@@ -482,6 +484,7 @@
                                     <div class="validate-col" ng-show="formRegister.checkIhav.$error.required && formRegister.checkIhav.$touched">Please Check the box *</div>
 
                                 </p>
+                                <div class="" ng-show="showTeamSports">Please select your sports Type*</div>
                                 <!--<p> <label class="sel-spo">Selected Sports:</label>Basketball, Football, Hockey</p>-->
                                 <p class="regest-fee">A registration fee of `12,000/- (inclusive of all applicable taxes) will be payable.<br>
                                     <label class="blue fs-14"> #Kindly Note:</label> This is an annual fee that enables your
