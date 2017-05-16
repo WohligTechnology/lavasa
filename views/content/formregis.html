@@ -5,7 +5,6 @@
         </div>
     </div>
     <!--<pre>{{formData|json}}</pre>-->
-    <button ng-click="openModal()"> click</button>
     <div class="row">
         <div class="col-md-8 col-md-push-2 col-sm-12 col-xs-12 ">
             <div class=" box box-padd ">
@@ -341,7 +340,7 @@
                                 </div>
                             </div>
                             <div class="form-group d-padd details-top">
-                                <label class="col-sm-3 col-xs-3">*Name:</label>
+                                <label class="col-sm-3 col-xs-3">Name:</label>
                                 <div class="col-sm-9 col-xs-9">
                                     <input type="text" class="sfa-in" name="sportName" ng-model="x.name">
                                     <div class="validate-col" ng-show="formRegister.sportName.$error.required && formRegister.sportName.$touched">Please Enter Your Contact Person*</div>
@@ -349,23 +348,23 @@
                                 </div>
                             </div>
                             <div class="form-group  d-padd">
-                                <label class="col-sm-3 col-xs-3">*Designation:</label>
+                                <label class="col-sm-3 col-xs-3">Designation:</label>
                                 <div class="col-sm-3 col-xs-9">
                                     <input type="text" name="designt" class="bor-t" ng-model="x.designation">
-                                    <div class="validate-col" ng-show="formRegister.designt.$error.required && formRegister.designt.$touched">Please Enter Designation*</div>
+                                    <!--<div class="validate-col" ng-show="formRegister.designt.$error.required && formRegister.designt.$touched">Please Enter Designation*</div>-->
                                 </div>
                                 <div class="col-sm-6 col-xs-12">
-                                    <label class="mb-padd"> *Mobile:</label>
+                                    <label class="mb-padd"> Mobile:</label>
                                     <input type="text" only-Digits ng-model="x.landline" name="deptSch" only-Digits class="bor-t" minlength="10" maxlength="10">
                                     <!--only-Digits removed-->
-                                    <div class="validate-col" ng-show="formRegister.deptSch.$error.required && formRegister.deptSch.$touched">Please Enter Mobile No*</div>
+                                    <!--<div class="validate-col" ng-show="formRegister.deptSch.$error.required && formRegister.deptSch.$touched">Please Enter Mobile No*</div>-->
                                 </div>
                             </div>
                             <div class="form-group d-padd">
-                                <label class="col-sm-3 col-xs-3">*E-mail:</label>
+                                <label class="col-sm-3 col-xs-3">E-mail:</label>
                                 <div class="col-sm-9 col-xs-9">
                                     <input name="xEmail" type="email" class="bor-t" ng-model="x.email">
-                                    <div class="validate-col" ng-show="formRegister.xEmail.$error.required && formRegister.xEmail.$touched">Please Enter Department Email*</div>
+                                    <!--<div class="validate-col" ng-show="formRegister.xEmail.$error.required && formRegister.xEmail.$touched">Please Enter Department Email*</div>-->
                                 </div>
                             </div>
                             <div class="form-group d-padd">
@@ -522,10 +521,6 @@
                         </div>
                         <div class="text-center sub-padd">
                             <button class="btn btn-default sub-mit" type="submit">Accept&Submit</button>
-                        </div>
-                        <div class="alert alert-success alert-dismissable">
-                            <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>Success!</strong> Form successful or positive action.
                         </div>
 
             </form>
