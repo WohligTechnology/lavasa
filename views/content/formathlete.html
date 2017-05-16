@@ -525,11 +525,11 @@
                                     <input type="radio" name="gender" value="male" ng-click="myshow=true"><label class="padd-lr"> Father</label>
                                     <input type="radio" name="gender" value="male"><label class="padd-lr"> Guardian</label>-->
                                         <div class="col-sm-9 col-xs-9 sf-list">
-                                            <input ng-model="x.relation" type="radio" id="{{'radio02'+$index}}" name="{{$index}}" value="mother">
+                                            <input ng-model="x.relation" type="radio" id="{{'radio02'+$index}}" name="{{$index}}" value="mother" required>
                                             <label for="{{'radio02'+$index}}" class="padd-lr sf-list"><span></span>Mother</label>
-                                            <input ng-model="x.relation" type="radio" id="{{'radio09'+$index}}" name="{{$index}}" value="father">
+                                            <input ng-model="x.relation" type="radio" id="{{'radio09'+$index}}" name="{{$index}}" value="father" required>
                                             <label for="{{'radio09'+$index}}" class="padd-lr sf-list"><span></span>Father</label>
-                                            <input ng-model="x.relation" type="radio" id="{{'radio10'+$index}}" name="{{$index}}" value="guardian">
+                                            <input ng-model="x.relation" type="radio" id="{{'radio10'+$index}}" name="{{$index}}" value="guardian" required>
                                             <label for="{{'radio10'+$index}}" class="padd-lr sf-list"><span></span>Guardian</label>
                                         </div>
                                     </div>
@@ -575,19 +575,19 @@
                     <!--<div class="d-padd">
                             <h4>Paayment Gateway:</h4>
                         </div>-->
-                    <div class="d-padd para2 ng-init=" show=0 "">
+                    <div class="d-padd para2 ng-init=" show=4 "">
                         <div class="form-group ">
                             <input ng-model="formData.registrationFee" type="radio" id="radio11" name="radio" value="cash" required>
-                            <label for="radio11" class="padd-lr sf-list" ng-click="show=1"><span></span>Cash/Cheque/Demand Draft</label>
+                            <label for="radio11" class="padd-lr sf-list" ng-click="show=5"><span></span>Cash/Cheque/Demand Draft</label>
                             <input ng-model="formData.registrationFee" type="radio" id="radio13" name="radio" value="online PAYU">
-                            <label for="radio13" class="padd-lr sf-list" ng-click="show=2"><span></span>Online Payment</label>
-                            <p ng-if="show==2" class="ft12">Online Payment: Selecting this option will enable you to pay the registration fee of Rs. 200
+                            <label for="radio13" class="padd-lr sf-list" ng-click="show=6"><span></span>Online Payment</label>
+                            <p ng-if="show==6" class="ft12">Online Payment: Selecting this option will enable you to pay the registration fee of Rs. 200
                                 (Inclusive of all applicable taxes) via one of the following methods: 4) Credit Card 5) Debit
                                 Card 6) Net Banking </p>
                             <!--<input ng-model="formData.registrationFee" type="radio" id="radio12" name="radio" value="cheque">
                             <label for="radio12" class="padd-lr sf-list"><span></span>Cheque</label>-->
 
-                            <p ng-if="show==1" class="ft12">
+                            <p ng-if="show==5" class="ft12">
                                 Cash/Cheque/Demand Draft: Selecting this option will enable you to pay the registration fee of Rs. 200 (Inclusive of all
                                 applicable taxes) by Cash/Cheque/Demand Draft in favour of ‘SFA Events Private Limited’ which
                                 is to be couriered/hand delivered to: 1306, Panchratna Building, Opera House (Next to Roxy
