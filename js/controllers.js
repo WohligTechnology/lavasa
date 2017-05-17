@@ -1090,7 +1090,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             name: "",
             designation: "",
             email: "",
-            photo: ""
+            photo: "",
+            mobile: ""
         };
         // $scope.menu = "menu-out";
         // $scope.getMenu = function () {
