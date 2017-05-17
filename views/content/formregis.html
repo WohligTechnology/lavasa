@@ -213,15 +213,16 @@
                         </div>
                         <div class="col-sm-6 col-xs-12">
                             <label class="Area-padd">*Area/Locality:</label>
-                            <input name="locality" ng-model="formData.locality" type="text" class=" sfa-drop2 w147">
-                            <div class="validate-col" ng-show="formRegister.locality.$error.required && formRegister.locality.$touched">Please Enter Your Locality*</div>
+                            <input name="regislocality" ng-model="formData.locality" type="text" class=" sfa-drop2 w147" required>
+                            <div class="validate-col" ng-show="formRegister.regislocality.$error.required && formRegister.regislocality.$touched">Please Enter Your Locality*</div>
                         </div>
                     </div>
                     <div class="form-group mar-l">
                         <label class="col-sm-3 col-xs-4">  *Pin Code:</label>
                         <div class="col-sm-9 col-xs-8">
-                            <input name="pincode" ng-model="formData.pinCode" only-Digits type="text" class="sfa-drop2 w147" minlengh="6" maxlength="6">
-                            <div class="validate-col" ng-show="formRegister.pincode.$error.required && formRegister.pincode.$touched">Please Enter Your Pincode*</div>
+                            <input name="regispincode" ng-model="formData.pinCode" only-Digits type="text" class="sfa-drop2 w147" minlengh="6" maxlength="6"
+                                required>
+                            <div class="validate-col" ng-show="formRegister.regispincode.$error.required && formRegister.regispincode.$touched">Please Enter Your Pincode*</div>
                             <!--only-Digits removed -->
                         </div>
                     </div>
@@ -236,7 +237,7 @@
                                     </div>
                                     <label class="col-sm-3 col-xs-3 "> *Contact Person:</label>
                                     <div class="col-sm-9 col-xs-9">
-                                        <input name="contactPerson" ng-model="formData.contactPerson" type="text" class=" sfa-in">
+                                        <input name="contactPerson" ng-model="formData.contactPerson" type="text" class=" sfa-in" required>
                                         <div class="validate-col" ng-show="formRegister.contactPerson.$error.required && formRegister.contactPerson.$touched">Please Enter Your Contact Person*</div>
                                     </div>
                                 </div>
@@ -245,14 +246,16 @@
                                 <div class=" d-padd">
                                     <label class="col-sm-3 col-xs-3">  *Landline:</label>
                                     <div class="col-sm-3 col-xs-9">
-                                        <input ng-model="formData.landline" only-Digits type="text" class="bor-t" required minlength="11" maxlength="11">
+                                        <input ng-model="formData.landline" name="regisLandline" only-Digits type="text" class="bor-t" required minlength="11" maxlength="11"
+                                            required>
+                                        <div class="validate-col" ng-show="formRegister.regisLandline.$error.required && formRegister.regisLandline.$touched">Please Enter Your Landline*</div>
                                         <!--only-Digits removed-->
                                     </div>
                                     <div class="col-sm-6 col-xs-12">
                                         <!--<label class="mob-padd"> *Mobile:</label>
                                             <input type="text" only-Digits ng-model="mobile" class="bor-t"  minlength="10" maxlength="10" required>-->
                                         <label class="email-padd2 mobno-mob">*Mobile:</label>
-                                        <input name="mobile" ng-model="formData.mobile" type="text" only-Digits class="bor-t" minlength="10" maxlength="10">
+                                        <input name="mobile" ng-model="formData.mobile" type="text" only-Digits class="bor-t" minlength="10" maxlength="10" required>
                                         <div class="validate-col" ng-show="formRegister.mobile.$error.required && formRegister.mobile.$touched">Please Enter Your Mobile*</div>
                                         <!--only-Digits removed -->
                                     </div>
@@ -282,7 +285,7 @@
                                     <label class="enter-otp"> *Enter OTP:</label>
                                     <input ng-model="formData.enterOTP" ng-change="checkOTP(formData.enterOTP)" only-Digits type="text" maxlength="4" class="bor-t width-100"
                                         required>
-                                    <div class="validate-col tr-right" ng-show="showOtpSuccess">Please Enter Correct OTP</div>
+                                    <div class="validate-col otp-text-div" ng-show="showOtpSuccess">Please Enter Correct OTP</div>
                                     <!--<button class="btn btn-default sub-mit send-otp verify-otp-regis" ng-click="checkOTP(formData.enterOTP)">Verify OTP </button>-->
                                     <!--only-Digits removed-->
                                 </div>
@@ -294,7 +297,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 col-xs-3">*Name:</label>
                             <div class="col-sm-9 col-xs-9">
-                                <input ng-model="formData.schoolPrincipalName" name="schoolPrincipal" type="text" class="sfa-in bor-t">
+                                <input ng-model="formData.schoolPrincipalName" name="schoolPrincipal" type="text" class="sfa-in bor-t" required>
                                 <div class="validate-col" ng-show="formRegister.schoolPrincipal.$error.required && formRegister.schoolPrincipal.$touched">Please Enter Name*</div>
                             </div>
                         </div>
@@ -313,7 +316,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 col-xs-3">*Email:</label>
                             <div class="col-sm-9 col-xs-9">
-                                <input ng-model="formData.schoolPrincipalEmail" name="schoolPrincipalEma" type="email" class="bor-t">
+                                <input ng-model="formData.schoolPrincipalEmail" name="schoolPrincipalEma" type="email" class="bor-t" required>
                                 <div class="validate-col" ng-show="formRegister.schoolPrincipalEma.$error.required && formRegister.schoolPrincipalEma.$touched">Please Enter Email*</div>
 
 
@@ -477,7 +480,7 @@
                                     <p> <input type="checkbox" id="Chess" ng-click="addIndividualSports('Chess')" />
                                         <label for="Chess" ng-class="{basketball:Chess}">Chess</label></p>
                                 </div>
-                                <div class="" ng-show="showTeamSports">Please select your sports Type*</div>
+                                <div class="validate-col" ng-show="showTeamSports">Please select atleast one sports Type*</div>
                                 <p class="check-box ">
                                     <label class="sf-list"><span ng-click="termcondition()"> I have carefully read and understood the terms and conditions of this form / disclaimer / waiver and as described in this form / disclaimer / waiver and consent to all of them.</span></label>
                                     <input type="checkbox" name="checkIhav" ng-checked="termsCheck(formData.termsAndCondition)" ng-model="formData.termsAndCondition"

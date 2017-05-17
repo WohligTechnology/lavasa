@@ -4122,8 +4122,7 @@ iframe#twitter-widget-0 {
 }
 
 .sfa-drop {
-    width: 81%;
-    // border-top: none;
+    width: 81%; // border-top: none;
     background: none;
     border-color: lightgray;
 }
@@ -4275,8 +4274,7 @@ iframe#twitter-widget-0 {
 // }
 .create-btn {
     width: 117px;
-    position: relative;
-    // margin-top: -42px;
+    position: relative; // margin-top: -42px;
     background-color: #e1e1e1;
 }
 
@@ -4367,8 +4365,7 @@ iframe#twitter-widget-0 {
 }
 
 .sfa-in {
-    width: 85%;
-    // border-top: none;
+    width: 85%; // border-top: none;
     background: none;
     border-color: lightgray;
 }
@@ -4663,8 +4660,7 @@ label:hover:before {
         top: -70px;
         width: 15px;
         height: 15px;
-        border: 1px solid #ccc;
-        // background: #fff; //   box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+        border: 1px solid #ccc; // background: #fff; //   box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
     }
     [type="checkbox"]:not(:checked)+label:after,
     [type="checkbox"]:checked+label:after {
@@ -4884,8 +4880,7 @@ input[type="radio"]:checked+label span {
 }
 
 .myicon3 {
-    margin-left: 69px;
-    // padding-bottom: 15px;
+    margin-left: 69px; // padding-bottom: 15px;
     padding-bottom: 4px;
 }
 
@@ -4901,8 +4896,7 @@ input[type="radio"]:checked+label span {
     h3 {
         font-family: Titillium Web Bold;
         color: #1796d0;
-        font-size: 28px;
-        //margin-bottom: 30px;
+        font-size: 28px; //margin-bottom: 30px;
     }
     p,
     li {
@@ -4961,8 +4955,7 @@ input[type="radio"]:checked+label span {
 }
 
 .one-time {
-    padding-right: 115px;
-    //text-align: justify;
+    padding-right: 115px; //text-align: justify;
 }
 
 .match-video {
@@ -5681,8 +5674,7 @@ p.regest-fee {
     position: relative;
     top: -14px;
     right: 50px;
-    z-index: 10;
-    // border:1px solid #000;
+    z-index: 10; // border:1px solid #000;
     // background-image: url("../img/home/r2.jpg");
     .fa {
         cursor: pointer;
@@ -5723,8 +5715,7 @@ p.regest-fee {
     position: relative;
     top: 0;
     right: -4px;
-    z-index: 10;
-    // border:1px solid #000;
+    z-index: 10; // border:1px solid #000;
     // background-image: url("../img/home/r2.jpg");
     .fa {
         cursor: pointer;
@@ -5779,6 +5770,12 @@ p.regest-fee {
 
 .tr-right {
     text-align: right;
+}
+
+.otp-text-div {
+    text-align: right;
+    padding-right: 141px;
+    margin-top: -16px;
 }
 
 @import "fancybox-override";
