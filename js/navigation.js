@@ -1,5 +1,9 @@
 var imgpath = adminurl + "upload/readFile";
 var uploadurl = adminurl + "upload/";
+
+
+var imgpath2 = adminurl2 + "upload/readFile";
+var uploadurl2 = adminurl2 + "upload/";
 var currentYears = ["2015", "2016"];
 var navigationservice = angular.module('navigationservice', [])
 
@@ -423,7 +427,7 @@ var navigationservice = angular.module('navigationservice', [])
             },
             getSchoolName: function (request, callback) {
                 $http({
-                    url: adminurl + 'school/getAllSchoolDetails',
+                    url: adminurl2 + 'school/getAllSchoolDetails',
                     method: 'POST',
                     data: request
                 }).success(callback);
@@ -431,7 +435,7 @@ var navigationservice = angular.module('navigationservice', [])
 
             getSchoolSFA: function (request, callback) {
                 $http({
-                    url: adminurl + 'school/search',
+                    url: adminurl2 + 'school/search',
                     method: 'POST',
                     data: {
                         keyword: request
@@ -442,7 +446,7 @@ var navigationservice = angular.module('navigationservice', [])
 
             getAtheleteSFA: function (request, callback) {
                 $http({
-                    url: adminurl + 'student/search',
+                    url: adminurl2 + 'student/search',
                     method: 'POST',
                     data: {
                         keyword: request
@@ -452,7 +456,7 @@ var navigationservice = angular.module('navigationservice', [])
 
             apiCallWithData: function (url, formData, callback) {
                 console.log("inside nav");
-                $http.post(adminurl + url, formData).then(function (data) {
+                $http.post(adminurl2 + url, formData).then(function (data) {
                     data = data.data;
                     callback(data);
 
