@@ -314,9 +314,9 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         window.setTimeout(function () {
 
             // Move to a new location or you can do something else
-            window.location.href = adminUrl + "/formAthelete";
+            window.location.href = adminUrl + "/formathlete";
 
-        }, 10000);
+        }, 5000);
 
     })
 
@@ -333,7 +333,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             // Move to a new location or you can do something else
             window.location.href = adminUrl + "/formregis";
 
-        }, 10000);
+        }, 5000);
 
     })
 
