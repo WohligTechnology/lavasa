@@ -4301,6 +4301,18 @@ iframe#twitter-widget-0 {
 
 .dirctive-op {
     display: inline;
+    .btn-upload {
+        background-color: #0a1a72;
+        border-color: #08155b;
+        input {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
 }
 
 .mybtnupload {
