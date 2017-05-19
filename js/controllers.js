@@ -819,6 +819,17 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             console.log("Athlete data: ", formdata);
             // console.log('Value', $scope.isSchoolAdded(formdata));
             // $scope.isSchoolAdded(formdata);
+            // if (!attributeSupported("required") || ($.browser.safari)) {
+            //     //If required attribute is not supported or browser is Safari (Safari thinks that it has this attribute, but it does not work), then check all fields that has required attribute
+            //     $("input [required]").each(function (index) {
+            //         if (!$(this).val()) {
+            //             //If at least one required value is empty, then ask to fill all required fields.
+            //             // alert("Please fill all required fields.");
+            //             // return false;
+            //             $scope.showRequired = true;
+            //         }
+            //     });
+            // }
             if (!isSchoolAdded(formdata)) {
                 return;
             }
