@@ -734,6 +734,14 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
     .controller('FormathleteCtrl', function ($scope, TemplateService, $element, NavigationService, $timeout, $uibModal) {
         //Used to name the .html file
+        $scope.template = TemplateService.changecontent("formathlete");
+        $scope.menutitle = NavigationService.makeactive("Formathlete");
+        TemplateService.header = "views/header2.html";
+        TemplateService.footer = " ";
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+
         $scope.formData = {}
         $scope.formData.parentDetails = [];
         $scope.sportsLevelArray = [];
@@ -756,43 +764,80 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
         var isFormValid = function (form) {
             if (!form.atheleteSchoolIdImage) {
-                alert("School ID image is not uploaded");
-                return false;
-            } else if (!form.photograph) {
-                alert("Photograph not uploaded");
-                return false;
-            } else if (!form.birthImage) {
-                alert("Birth proof is not uploaded");
-                return false;
+                $scope.openIdModal();
+                $timeout(function () {
+                    $scope.idInstances.close();
+                }, 1000)
+                // alert("School ID image is not uploaded");
+                // return false;
+            }
+            // else if (!form.photograph) {
+            //     $scope.openPhotoModal();
+            //     $timeout(function () {
+            //         $scope.modalInstances.close();
+            //     }, 1000)
+            //     // alert("Photograph not uploaded");
+            //     // return false;
+            // }
+            else if (!form.birthImage) {
+                // alert("Birth proof is not uploaded");
+                // return false;
+                $scope.openBirthModal();
+                $timeout(function () {
+                    $scope.birthInstances.close();
+                }, 1000)
             } else if (form.ageProof == "hello" && !form.photoImage) {
-                alert("Photo id not uploaded");
-                return false;
+                // alert("Photo id not uploaded");
+                // return false;
+                $scope.openAgeModal();
+                $timeout(function () {
+                    $scope.ageInstances.close();
+                }, 1000)
             } else {
                 return true;
             }
         }
 
         var isSchoolAdded = function (form) {
+            console.log('enter', form);
             if (form.school || (form.atheleteSchoolName && form.atheleteSchoolLocality && form.atheleteSchoolContact)) {
+                console.log('enter true');
                 return true;
             } else {
-                return false;
+                console.log('enter false');
+                $scope.openSchoolModal();
+                $timeout(function () {
+                    $scope.schoolInstances.close();
+                }, 1000);
+                // return false;
+
             }
         }
 
         //saves Athelete to database
-        $scope.saveAthelete = function (formdata) { //formdata is data or body for this url
+        $scope.saveAthelete = function (formdata, formAthlete) { //formdata is data or body for this url
             console.log("Athlete data: ", formdata);
+            // console.log('Value', $scope.isSchoolAdded(formdata));
+            // $scope.isSchoolAdded(formdata);
+            if (!isSchoolAdded(formdata)) {
+                return;
+            }
             if (!isFormValid(formdata)) {
                 return;
             }
-            if (!isSchoolAdded(formdata)) {
-                alert("Please select the school or enter all school details manually.");
-                return;
-            }
+            // if ($scope.isSchoolAdded(formdata) == false) {
+            //     console.log('Value', $scope.isSchoolAdded(formdata));
+            //     // alert("Please select the school or enter all school details manually.");
+            //     // return;
+            // }
             if (!formdata.registrationFee) {
-                alert("Please select one of the payment options!");
-                return;
+                // alert("Please select one of the payment options!");
+                // return;
+                $scope.openPaymentModal();
+                $timeout(function () {
+                    $scope.paymentInstances.close();
+                }, 1000);
+
             }
 
             console.log("form", formdata);
@@ -802,37 +847,59 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 formdata.school = "";
             }
 
-            if (!_.isEmpty(formdata.sportLevel)) {
-                _.forEach(formdata.sportLevel, function (val) {
-                    _.forEach(val, function (val1) {
-                        sportLevelArray.push(val1);
-                    });
-                });
-            };
-            formdata.sportLevel = sportLevelArray;
+            if (formdata.termsAndCondition == undefined) {
+                $scope.showTerm = true;
+
+            } else {
+                $scope.showTerm = false;
+            }
+
+            // if (!_.isEmpty(formdata.sportLevel)) {
+            //     _.forEach(formdata.sportLevel, function (val) {
+            //         _.forEach(val, function (val1) {
+            //             sportLevelArray.push(val1);
+            //         });
+            //     });
+            // };
+            // formdata.sportLevel = $scope.formdata.sportLevel;
             formdata.sfaId = $scope.sfaId;
             formdata.school = $scope.schoolname;
 
             $scope.url = "Athelete/saveAthelete";
             console.log($scope.url);
-            if ($scope.showEmailOtpSuccess == false && $scope.showMobileOtpSuccess == false) {
-                NavigationService.apiCallWithData($scope.url, formdata, function (data) {
-                    if (data.value == true) {
-                        if (data.data.registrationFee == "online PAYU") {
-
-                            var id = data.data[0]._id;
-                            console.log("true and in payment", id);
-                            var url = "payU/atheletePayment?id=" + id;
-                            window.location.href = adminurl2 + url;
+            if (formAthlete.$valid && $scope.showTerm == false) {
+                if ($scope.showEmailOtpSuccess == false && $scope.showMobileOtpSuccess == false) {
+                    NavigationService.apiCallWithData($scope.url, formdata, function (data) {
+                        if (data.value == true) {
+                            if (data.data.registrationFee == "online PAYU") {
+                                var id = data.data[0]._id;
+                                console.log("true and in payment", id);
+                                var url = "payU/atheletePayment?id=" + id;
+                                window.location.href = adminurl2 + url;
+                            } else {
+                                console.log("opening modal");
+                                $scope.openModal();
+                            }
                         } else {
-                            console.log("opening modal");
-                            $scope.openModal();
+                            console.log("User Already Exist");
+                            $scope.openExistModal();
+                            $timeout(function () {
+                                $scope.existInstances.close();
+                            }, 1000)
                         }
-                    }
-                });
+                    });
+                }
+            } else {
+                console.log("Enter all mandatory fields");
+                $scope.openErrorModal();
+                $timeout(function () {
+                    $scope.modalInstances.close();
+                }, 1000)
             }
 
         }
+
+
         $scope.count = 0;
 
         $scope.checkMobileOTP = function (otp) {
@@ -899,11 +966,9 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         }
 
         $scope.ageCalculate = function (birthday) {
-
             var ageDifMs = Date.now() - birthday.getTime();
             var ageDate = new Date(ageDifMs); // miliseconds from epoch
             return Math.abs(ageDate.getUTCFullYear() - 1970);
-
         }
 
         $scope.sendMobileOTP = function (mobile) {
@@ -914,7 +979,6 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             formData.mobile = mobile;
             NavigationService.apiCallWithData($scope.url, formData, function (data) {
                 $scope.mobileOtp = data.data;
-
             });
         }
         $scope.sendEmailOTP = function (email) {
@@ -925,7 +989,6 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             formData.email = email;
             NavigationService.apiCallWithData($scope.url, formData, function (data) {
                 $scope.emailOtp = data.data;
-
             });
         }
 
@@ -938,19 +1001,16 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 $scope.atheleList = data.data.results;
                 //$scope.schoolList = data.data;
             });
-
-
         }
+
         $scope.searchChangeSchool = function (paramData) {
             console.log("changekeyword", paramData);
             $scope.schoolname = paramData;
-            NavigationService.getAtheleteSFA($scope.schoolname, function (data) {
-                console.log("sfa", data);
-                $scope.atheleList = data.data.results;
-                //$scope.schoolList = data.data;
+            NavigationService.getSchoolSFA($scope.schoolname, function (data) {
+                console.log("sfa 1", data);
+                // $scope.atheleList = data.data.results;
+                $scope.schoolList = data.data.results;
             });
-
-
         }
         $scope.getDataBasedonSFA = function (uiselCust) {
             console.log("inside get");
@@ -963,7 +1023,6 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                     name: "def-ui"
                 };
             }
-
         }
 
 
@@ -981,25 +1040,31 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             // $scope.atheleList = data.data;
         });
 
-
-
         //removes image uploaded
-        $scope.removeProof = function (data) {
-            console.log("remove me", document.getElementById("inputImage").value);
-            $scope.formData.birthImage = undefined;
+        $scope.removeProof = function (data, className) {
+            console.log(className);
+            $("." + className + " input").val("");
+            delete $scope.formData.birthImage;
+            $scope.show = 0;
         }
-        $scope.removeProof1 = function (data) {
-            console.log("remove me", document.getElementById("inputImage").value);
-            $scope.formData.photoImage = undefined;
+        $scope.removeProof1 = function (data, className) {
+            console.log(className);
+            $("." + className + " input").val("");
+            delete $scope.formData.photoImage;
+            $scope.show = 0;
         }
 
-        $scope.removePhoto = function (data) {
-            console.log("remove me", document.getElementById("inputImage").value);
-            $scope.formData.photograph = undefined;
+        $scope.removePhoto = function (data, className) {
+            console.log(className);
+            $("." + className + " input").val("");
+            delete $scope.formData.photograph;
+            $scope.show = 0;
         }
-        $scope.removeImage = function (data) {
-            console.log("remove me", document.getElementById("inputImage").value);
-            $scope.formData.atheleteSchoolIdImage = undefined;
+        $scope.removeImage = function (data, className) {
+            console.log(className);
+            $("." + className + " input").val("");
+            delete $scope.formData.atheleteSchoolIdImage;
+            $scope.show = 0;
         }
 
         $scope.addSportForm = function () {
@@ -1024,6 +1089,33 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         }
 
         // $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);
+        // $scope.addSportLevelForm = function () {
+        //     if ($scope.sportsLevelArray.length <= 9) {
+        //         $scope.sportsLevelArray.push({});
+        //         $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);
+
+        //     }
+        //     // console.log("sportsLevelArray", $scope.sportsLevelArray);
+
+        // };
+        // $scope.removeSportLevelForm = function (indexX, indexY) {
+        //     if (indexX >= 0 && indexY >= 0) {
+        //         if ($scope.sportsLevelArray.length > 1) {
+        //             $scope.formData.sportLevel[indexX].splice(indexY, 1);
+        //             $scope.sportsLevelArray = _.flatten($scope.formData.sportLevel);
+        //         } else {
+        //             $scope.sportsLevelArray = [];
+        //             $scope.sportsLevelArray.push({});
+        //             $scope.myshow = false;
+        //             $scope.formData.played = 'no';
+        //         }
+
+        //         $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);
+        //     }
+        // };
+
+
+        // $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);
         $scope.addSportLevelForm = function (index) {
             if ($scope.formData.sportLevel.length < 9) {
                 $scope.formData.sportLevel.splice(index + 1, 0, {})
@@ -1042,12 +1134,6 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         };
 
 
-        $scope.template = TemplateService.changecontent("formathlete");
-        $scope.menutitle = NavigationService.makeactive("Formathlete");
-        TemplateService.header = "views/header2.html";
-        TemplateService.footer = " ";
-        TemplateService.title = $scope.menutitle;
-        $scope.navigation = NavigationService.getnav();
         $scope.test = function (size) {
 
             $scope.testModal = $uibModal.open({
@@ -1070,6 +1156,93 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
             });
         };
+        $scope.openModal = function () {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/thankyou.html"
+            });
+        };
+
+        $scope.openErrorModal = function () {
+            $scope.modalInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/error.html"
+            });
+        };
+
+        $scope.openExistModal = function () {
+            $scope.existInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/errorExist.html"
+            });
+        };
+
+        $scope.openPaymentModal = function () {
+            $scope.paymentInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/errorPayment.html"
+            });
+        };
+        $scope.openSchoolModal = function () {
+            $scope.schoolInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/errorSchool.html"
+            });
+        };
+
+        $scope.openBirthModal = function () {
+            $scope.birthInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/errorBirth.html"
+            });
+        };
+
+        $scope.openAgeModal = function () {
+            $scope.ageInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/errorPhoto.html"
+            });
+        };
+
+        $scope.openIdModal = function () {
+            $scope.idInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/errorId.html"
+            });
+        };
+
 
     })
 
@@ -1107,6 +1280,17 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             });
         };
 
+        $scope.openErrorModal = function () {
+            $scope.modalInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/error.html"
+            });
+        };
+
 
 
         $scope.firstTime = 0;
@@ -1128,10 +1312,11 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 console.log("sportsDepartment", $scope.formData.sportsDepartment);
             }
         };
-        $scope.removeArrayImage = function (index) {
-            console.log("remove me", document.getElementById("inputImage").value);
-            $scope.formData.sportsDepartment[index].photograph = null;
-        }
+        //    $scope.removeArrayImage = function (index) {
+        //         console.log("remove me", document.getElementById("inputImage").value);
+        //         $scope.formData.sportsDepartment[index].photograph = null;
+        //     }
+
         $scope.removeSportForm = function (index) {
             console.log("hello remove", index);
             if (index != 0) {
@@ -1150,7 +1335,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.showOtpSuccess = {};
 
         //save registerform to database
-        $scope.saveRegis = function (formdata) {
+        $scope.saveRegis = function (formdata, formvalid) {
             formdata.teamSports = $scope.teamSport
             formdata.racquetSports = $scope.racquetSports
             formdata.combatSports = $scope.combatSports
@@ -1160,11 +1345,40 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             formdata.sfaID = $scope.sfaID
 
             $scope.value = {}
-            if (formdata.teamSports == '' || formdata.racquetSports == '' || formdata.combatSports == '' || formdata.targetSports == '' || formdata.individualSports == '' || formdata.aquaticsSports == '') {
-                $scope.showTeamSports = true;
-            } else {
+            // if (formdata.teamSports == '' || formdata.racquetSports == '' || formdata.combatSports == '' || formdata.targetSports == '' || formdata.individualSports == '' || formdata.aquaticsSports == '') {
+            //     $scope.showTeamSports = true;
+            // } else {
+            //     $scope.showTeamSports = false;
+            // }
+
+            // if (formdata.teamSports == '') {
+            //     $scope.showTeamSports = true;
+            // } else
+            // if (formdata.racquetSports == '') {
+            //     $scope.showTeamSports = true;
+            // } else if (formdata.combatSports == '') {
+            //     $scope.showTeamSports = true;
+            // } else if (formdata.targetSports == '') {
+            //     $scope.showTeamSports = true;
+            // } else if (formdata.individualSports == '') {
+            //     $scope.showTeamSports = true;
+            // } else if (formdata.aquaticsSports == '') {
+            //     $scope.showTeamSports = true;
+            // } else {
+            //     $scope.showTeamSports = false;
+            // }
+            if (formdata.teamSports.length > 0 || formdata.racquetSports.length > 0 || formdata.combatSports.length > 0 || formdata.targetSports.length > 0 || formdata.individualSports.length > 0 || formdata.aquaticsSports.length > 0) {
                 $scope.showTeamSports = false;
+            } else {
+                console.log('enter');
+                $scope.showTeamSports = true;
             }
+            // if (formdata.teamSports != null || formdata.racquetSports != null || formdata.combatSports != null || formdata.targetSports != null || formdata.individualSports != null || formdata.aquaticsSports != null) {
+            //     $scope.showTeamSports = false;
+            // } else {
+            //     console.log(enter);
+            //     $scope.showTeamSports = true;
+            // }
 
             $scope.value = {};
 
@@ -1176,26 +1390,37 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             }
 
             // formdata.serviceRequest = $scope.serviceList;
-            console.log("form", formdata);
+            // console.log("form data", formdata);
+            // console.log("form st", $scope.showTerm);
+            // console.log("form ts", $scope.showTeamSports);
+            // console.log("form tnc", formdata.termsAndCondition);
+            // console.log("form valid", formvalid.$valid);
             $scope.url = "registration/saveRegistrationForm";
             console.log($scope.url);
-
-            if ($scope.showOtpSuccess == false) {
-                NavigationService.apiCallWithData($scope.url, formdata, function (data) {
-                    if (data.value == true) {
-                        if (data.data.registrationFee == "online PAYU") {
-
-                            var id = data.data._id;
-                            console.log("true and in payment");
-                            var url = "payU/schoolPayment?id=" + id;
-                            window.location.href = adminurl2 + url;
-                        } else {
-                            console.log("opening modal");
-                            $scope.openModal();
+            if (formvalid.$valid && $scope.showTerm == false && $scope.showTeamSports == false) {
+                if ($scope.showOtpSuccess == false) {
+                    NavigationService.apiCallWithData($scope.url, formdata, function (data) {
+                        if (data.value == true) {
+                            if (data.data.registrationFee == "online PAYU") {
+                                var id = data.data._id;
+                                console.log("true and in payment");
+                                var url = "payU/schoolPayment?id=" + id;
+                                window.location.href = adminurl2 + url;
+                            } else {
+                                console.log("opening modal");
+                                $scope.openModal();
+                            }
                         }
-                    }
-                });
+                    });
+                }
+            } else {
+                console.log("Enter all mandatory fields");
+                $scope.openErrorModal();
+                $timeout(function () {
+                    $scope.modalInstances.close();
+                }, 1000)
             }
+
 
 
         }
@@ -1267,16 +1492,6 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             });
         }
 
-        //team sports array
-        $scope.addTeamSports = function (formdata) {
-            // formdata.serviceRequest = $scope.serviceList;
-            console.log("formdata", formdata);
-            var frm = {};
-            frm.name = formdata;
-            //document.getElementById(formdata).checked
-            $scope.teamSport.push(frm);
-
-        }
         $scope.termcondition = function (size) {
 
             $scope.termconditionModal = $uibModal.open({
@@ -1289,57 +1504,102 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             });
         };
 
+        // $scope.addTeamSports = function (formdata) {
+        //         // formdata.serviceRequest = $scope.serviceList;
+        //         console.log("formdata", formdata);
+        //         var frm = {};
+        //         frm.name = formdata;
+        //         //document.getElementById(formdata).checked
+        //         $scope.teamSport.push(frm);
+
+        //     }
+
+        //team sports array
+        $scope.addTeamSports = function (formdata) {
+            var index = _.findIndex($scope.teamSport, function (n) {
+                return n.name == formdata;
+            });
+            if (index >= 0) {
+                _.pullAt($scope.teamSport, index);
+            } else {
+                $scope.teamSport.push({
+                    name: formdata
+                });
+            }
+            console.log($scope.teamSport);
+        }
+
         //racquet sports array
         $scope.addRacquetSports = function (formdata) {
-            // formdata.serviceRequest = $scope.serviceList;
-            console.log("formdata", formdata);
-            var frm = {};
-            frm.name = formdata;
-            //document.getElementById(formdata).checked
-            $scope.racquetSports.push(frm);
+            $scope.combatSports = [];
+            $scope.targetSports = [];
+            $scope.individualSports = [];
+            var index = _.findIndex($scope.racquetSports, function (n) {
+                return n.name == formdata;
+            });
+            if (index >= 0) {
+                _.pullAt($scope.racquetSports, index);
+            } else {
+                $scope.racquetSports.push({
+                    name: formdata
+                });
+            }
         }
 
         //combatSports array
         $scope.addCombatSports = function (formdata) {
-            // formdata.serviceRequest = $scope.serviceList;
-            console.log("formdata", formdata);
-            var frm = {};
-            frm.name = formdata;
-            //document.getElementById(formdata).checked
-            $scope.combatSports.push(frm);
-
+            var index = _.findIndex($scope.combatSports, function (n) {
+                return n.name == formdata;
+            });
+            if (index >= 0) {
+                _.pullAt($scope.combatSports, index);
+            } else {
+                $scope.combatSports.push({
+                    name: formdata
+                });
+            }
         }
 
         //targetSports array
         $scope.addTargetSports = function (formdata) {
-            // formdata.serviceRequest = $scope.serviceList;
-            console.log("formdata", formdata);
-            var frm = {};
-            frm.name = formdata;
-            //document.getElementById(formdata).checked
-            $scope.targetSports.push(frm);
-
+            var index = _.findIndex($scope.targetSports, function (n) {
+                return n.name == formdata;
+            });
+            if (index >= 0) {
+                _.pullAt($scope.targetSports, index);
+            } else {
+                $scope.targetSports.push({
+                    name: formdata
+                });
+            }
         }
 
         //individualSports array
         $scope.addIndividualSports = function (formdata) {
-            // formdata.serviceRequest = $scope.serviceList;
-            console.log("formdata", formdata);
-            var frm = {};
-            frm.name = formdata;
-            //document.getElementById(formdata).checked
-            $scope.individualSports.push(frm);
+            var index = _.findIndex($scope.individualSports, function (n) {
+                return n.name == formdata;
+            });
+            if (index >= 0) {
+                _.pullAt($scope.individualSports, index);
+            } else {
+                $scope.individualSports.push({
+                    name: formdata
+                });
+            }
 
         }
         //aquaticsSports array
         $scope.addAquaticsSports = function (formdata) {
-            // formdata.serviceRequest = $scope.serviceList;
-            console.log("formdata", formdata);
-            var frm = {};
-            frm.name = formdata;
-            //document.getElementById(formdata).checked
-            $scope.aquaticsSports.push(frm);
-
+            var index = _.findIndex($scope.aquaticsSports, function (n) {
+                return n.name == formdata;
+            });
+            if (index >= 0) {
+                _.pullAt($scope.aquaticsSports, index);
+            } else {
+                $scope.aquaticsSports.push({
+                    name: formdata
+                });
+            }
         }
 
         $scope.searchSFA = function (paramData) {
@@ -1382,9 +1642,23 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         };
 
         //removes image uploaded
-        $scope.removeImage = function (data) {
-            console.log("remove me", document.getElementById("inputImage").value);
-            $scope.formData.schoolLogo = null;
+        $scope.removeImage = function (data, className) {
+            // console.log("remove me", document.getElementById("inputImage").value);
+            // $scope.formData.schoolLogo = null;
+            console.log(className);
+            $("." + className + " input").val("");
+            delete $scope.formData.schoolLogo;
+            $scope.show = 0;
+        }
+        $scope.removeArrayImage = function (index, className) {
+            // console.log("remove me", document.getElementById("inputImage").value);
+            // $scope.formData.sportsDepartment[index].photograph = null;
+            console.log(className);
+            $("." + className + " input").val("");
+            console.log($scope.formData.sportsDepartment[index].photograph);
+            delete $scope.formData.sportsDepartment[index].photograph;
+            console.log($scope.formData.sportsDepartment[index].photograph);
+            $scope.show = 0;
         }
 
     })

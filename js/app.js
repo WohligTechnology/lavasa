@@ -66,15 +66,15 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "views/template.html",
             controller: 'VenueCtrl'
         })
-        .state('formregis', {
-            url: "/formregis",
-            templateUrl: "views/template.html",
-            controller: 'FormregisCtrl'
-        })
         .state('formathlete', {
             url: "/formathlete",
             templateUrl: "views/template.html",
             controller: 'FormathleteCtrl'
+        })
+        .state('formregis', {
+            url: "/formregis",
+            templateUrl: "views/template.html",
+            controller: 'FormregisCtrl'
         })
         .state('workshop-clinic', {
             url: "/workshop-clinic",

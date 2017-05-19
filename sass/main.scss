@@ -6,7 +6,7 @@
 @import "../bower_components/font-awesome/css/font-awesome.min.css";
 @import "../bower_components/angular-loading-bar/src/loading-bar.css";
 @import "../bower_components/fancyBox/source/jquery.fancybox.css";
-@import "../bower_components/angular-ui-select/dist/select";
+// @import "../bower_components/angular-ui-select/dist/select";
 @import "../bower_components/angular-responsive-tables/release/angular-responsive-tables.min.css";
 
 /* Bootstrap Variables Goes Here */
@@ -4748,7 +4748,7 @@ input[type="radio"]+label span {
     display: inline-block;
     width: 8px;
     height: 8px;
-    margin: -10px 10px 0 0;
+    margin: -1px 10px 0 0;
     vertical-align: middle;
     cursor: pointer;
     -moz-border-radius: 50%;
@@ -5772,10 +5772,37 @@ p.regest-fee {
     text-align: right;
 }
 
+.noerrPosmobile {
+    display: inline-block;
+    padding: 0 0 0 56px;
+}
+
+.noerrPos {
+    display: inline-block;
+    padding: 0 0 0 81px;
+}
+
+.errPos {
+    display: inline-block;
+    padding: 0px 0 0 140px;
+}
+
+.errPos1 {
+    padding: 0px 116px;
+}
+
 .otp-text-div {
     text-align: right;
     padding-right: 141px;
     margin-top: -16px;
+}
+
+.no-opacity {
+    opacity: 0 !important;
+}
+
+.no-opacitys {
+    display: none;
 }
 
 @import "fancybox-override";

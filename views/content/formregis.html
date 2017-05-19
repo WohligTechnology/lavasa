@@ -63,7 +63,7 @@
     </div>
     <div class="row">
         <div class="col-md-8 col-md-push-2 col-sm-12 col-xs-12">
-            <form class="form-horizontal" name="formRegister" ng-submit="saveRegis(formData)">
+            <form class="form-horizontal" name="formRegister" ng-submit="saveRegis(formData,formRegister)">
                 <div class="wid-hei">
                     <div class="step1 fs-14">
                         Step 1: School Details
@@ -74,7 +74,7 @@
                         <label class="col-sm-3 col-xs-5 sf-list">  *School Name:</label>
                         <div class="col-sm-9 col-xs-7">
                             <input ng-model="formData.schoolName" name="schoolName" type="text" class="sfa-drop" required>
-                            <div class="validate-col" ng-show="formRegister.schoolName.$error.required && formRegister.schoolName.$touched">Please Enter Your School Name *</div>
+                            <div class="validate-col" ng-show="formRegister.schoolName.$invalid && formRegister.schoolName.$touched">Please Enter Your School Name *</div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -86,7 +86,7 @@
                    <option>Boys</option>
                     <option>Girls</option>
                </select>
-                            <div class="validate-col" ng-show="formRegister.schoolType.$error.required && formRegister.schoolType.$touched">Please Enter Your School Type*</div>
+                            <div class="validate-col" ng-show="formRegister.schoolType.$invalid && formRegister.schoolType.$touched">Please Enter Your School Type*</div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -98,7 +98,7 @@
                    <option>Government </option>
                   <option> Aided</option>
                </select>
-                            <div class="validate-col" ng-show="formRegister.schoolCategory.$error.required && formRegister.schoolCategory.$touched">Please Enter Your School Category*</div>
+                            <div class="validate-col" ng-show="formRegister.schoolCategory.$invalid && formRegister.schoolCategory.$touched">Please Enter Your School Category*</div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -114,7 +114,7 @@
                        <option>Secondary School Certificate (SSC)</option>
                         <option>A Level</option>
                </select>
-                            <div class="validate-col" ng-show="formRegister.affiliatedBoard.$error.required && formRegister.affiliatedBoard.$touched">Please Enter Your School Category*</div>
+                            <div class="validate-col" ng-show="formRegister.affiliatedBoard.$invalid && formRegister.affiliatedBoard.$touched">Please Enter Your School Category*</div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -124,18 +124,18 @@
                         <div class="col-sm-9 col-xs-7 " ng-init="show=0">
                             <!--<button class="btn btn-default myupload">Upload </button>-->
                             <div class="dirctive-op">
-                                <upload-image2 class="up-img ng-isolate-scope" ng-disabled="type.disabled" ng-model="formData.schoolLogo" ng-click="show=1"
+                                <upload-image2 class="up-img schoolLogo ng-isolate-scope" ng-disabled="type.disabled" ng-model="formData.schoolLogo" ng-click="show=1"
                                     no-view></upload-image2>
                             </div>
                             <div class="display-inline padd-l38">
-                                <div class="w150" ng-if="show==1">
+                                <div class="w150" ng-if="show==1 && formData.schoolLogo">
                                     <img src="{{formData.schoolLogo |serverimage2}}" class="img-resopnsive w100">
                                 </div>
                             </div>
                             <!--<upload-image2 ng-model="formData.schoolLogo" ng-disabled="type.disabled"></upload-image2>-->
                             <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
-                            <div class="hover-img" ng-if="show==1">
-                                <img src="img/icon/x.png" alt="logo" class="img-responsive myicon" ng-click="removeImage(formData.schoolLogo)">
+                            <div class="hover-img" ng-if="show==1 && formData.schoolLogo">
+                                <img src="img/icon/x.png" alt="logo" class="img-responsive myicon" ng-click="removeImage(formData.schoolLogo, 'schoolLogo')">
                             </div>
                             <div class="hover-img">
                                 <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
@@ -160,7 +160,7 @@
                         <label class="col-sm-3 col-xs-4">*Line 1:</label>
                         <div class="col-sm-9 col-xs-8">
                             <input name="schoolAdd" ng-model="formData.schoolAddress" type="text" class="sfa-drop sfa434" required>
-                            <div class="validate-col" ng-show="formRegister.schoolAdd.$error.required && formRegister.schoolAdd.$touched">Please Enter Your School Address*</div>
+                            <div class="validate-col" ng-show="formRegister.schoolAdd.$invalid && formRegister.schoolAdd.$touched">Please Enter Your School Address*</div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -174,11 +174,11 @@
                         <div class="col-sm-3 col-xs-8">
                             <select name="state" ng-model="formData.state" class="sfa-drop2 w147" required>
                             <option style="display:none"></option>
-                   <option>Maharashstra</option>
+                   <option>Maharashtra</option>
                   
                       
                </select>
-                            <div class="validate-col" ng-show="formRegister.state.$error.required && formRegister.state.$touched">Please Enter Your State*</div>
+                            <div class="validate-col" ng-show="formRegister.state.$invalid && formRegister.state.$touched">Please Enter Your State*</div>
                         </div>
                         <div class="col-sm-6 col-xs-12">
                             <label class="padd-right">*District:</label>
@@ -190,7 +190,7 @@
                      <option>Palghar</option>
                       <option>Raigad</option> 
               </select>
-                            <div class="validate-col" ng-show="formRegister.district.$error.required && formRegister.district.$touched">Please Enter Your District*</div>
+                            <div class="validate-col" ng-show="formRegister.district.$invalid && formRegister.district.$touched">Please Enter Your District*</div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -209,12 +209,12 @@
                      <option>Raigad</option>
                      <option>Thane</option>
                </select>
-                            <div class="validate-col" ng-show="formRegister.city.$error.required && formRegister.city.$touched">Please Enter Your City*</div>
+                            <div class="validate-col" ng-show="formRegister.city.$invalid && formRegister.city.$touched">Please Enter Your City*</div>
                         </div>
                         <div class="col-sm-6 col-xs-12">
                             <label class="Area-padd">*Area/Locality:</label>
                             <input name="regislocality" ng-model="formData.locality" type="text" class=" sfa-drop2 w147" required>
-                            <div class="validate-col" ng-show="formRegister.regislocality.$error.required && formRegister.regislocality.$touched">Please Enter Your Locality*</div>
+                            <div class="validate-col" ng-show="formRegister.regislocality.$invalid && formRegister.regislocality.$touched">Please Enter Your Locality*</div>
                         </div>
                     </div>
                     <div class="form-group mar-l">
@@ -222,7 +222,7 @@
                         <div class="col-sm-9 col-xs-8">
                             <input name="regispincode" ng-model="formData.pinCode" only-Digits type="text" class="sfa-drop2 w147" minlengh="6" maxlength="6"
                                 required>
-                            <div class="validate-col" ng-show="formRegister.regispincode.$error.required && formRegister.regispincode.$touched">Please Enter Your Pincode*</div>
+                            <div class="validate-col" ng-show="formRegister.regispincode.$invalid && formRegister.regispincode.$touched">Please Enter Your Pincode*</div>
                             <!--only-Digits removed -->
                         </div>
                     </div>
@@ -238,7 +238,7 @@
                                     <label class="col-sm-3 col-xs-3 "> *Contact Person:</label>
                                     <div class="col-sm-9 col-xs-9">
                                         <input name="contactPerson" ng-model="formData.contactPerson" type="text" class=" sfa-in" required>
-                                        <div class="validate-col" ng-show="formRegister.contactPerson.$error.required && formRegister.contactPerson.$touched">Please Enter Your Contact Person*</div>
+                                        <div class="validate-col" ng-show="formRegister.contactPerson.$invalid && formRegister.contactPerson.$touched">Please Enter Your Contact Person*</div>
                                     </div>
                                 </div>
                             </div>
@@ -248,7 +248,7 @@
                                     <div class="col-sm-3 col-xs-9">
                                         <input ng-model="formData.landline" name="regisLandline" only-Digits type="text" class="bor-t" required minlength="11" maxlength="11"
                                             required>
-                                        <div class="validate-col" ng-show="formRegister.regisLandline.$error.required && formRegister.regisLandline.$touched">Please Enter Your Landline*</div>
+                                        <div class="validate-col" ng-show="formRegister.regisLandline.$invalid && formRegister.regisLandline.$touched">Please Enter Your Landline*</div>
                                         <!--only-Digits removed-->
                                     </div>
                                     <div class="col-sm-6 col-xs-12">
@@ -256,7 +256,7 @@
                                             <input type="text" only-Digits ng-model="mobile" class="bor-t"  minlength="10" maxlength="10" required>-->
                                         <label class="email-padd2 mobno-mob">*Mobile:</label>
                                         <input name="mobile" ng-model="formData.mobile" type="text" only-Digits class="bor-t" minlength="10" maxlength="10" required>
-                                        <div class="validate-col" ng-show="formRegister.mobile.$error.required && formRegister.mobile.$touched">Please Enter Your Mobile*</div>
+                                        <div class="validate-col" ng-show="formRegister.mobile.$invalid && formRegister.mobile.$touched">Please Enter Your Mobile*</div>
                                         <!--only-Digits removed -->
                                     </div>
                                 </div>
@@ -298,7 +298,7 @@
                             <label class="col-sm-3 col-xs-3">*Name:</label>
                             <div class="col-sm-9 col-xs-9">
                                 <input ng-model="formData.schoolPrincipalName" name="schoolPrincipal" type="text" class="sfa-in bor-t" required>
-                                <div class="validate-col" ng-show="formRegister.schoolPrincipal.$error.required && formRegister.schoolPrincipal.$touched">Please Enter Name*</div>
+                                <div class="validate-col" ng-show="formRegister.schoolPrincipal.$invalid && formRegister.schoolPrincipal.$touched">Please Enter Name*</div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -317,7 +317,7 @@
                             <label class="col-sm-3 col-xs-3">*Email:</label>
                             <div class="col-sm-9 col-xs-9">
                                 <input ng-model="formData.schoolPrincipalEmail" name="schoolPrincipalEma" type="email" class="bor-t" required>
-                                <div class="validate-col" ng-show="formRegister.schoolPrincipalEma.$error.required && formRegister.schoolPrincipalEma.$touched">Please Enter Email*</div>
+                                <div class="validate-col" ng-show="formRegister.schoolPrincipalEma.$invalid && formRegister.schoolPrincipalEma.$touched">Please Enter Email*</div>
 
 
                             </div>
@@ -346,7 +346,7 @@
                                 <label class="col-sm-3 col-xs-3">Name:</label>
                                 <div class="col-sm-9 col-xs-9">
                                     <input type="text" class="sfa-in" name="sportName" ng-model="x.name">
-                                    <div class="validate-col" ng-show="formRegister.sportName.$error.required && formRegister.sportName.$touched">Please Enter Your Contact Person*</div>
+                                    <div class="validate-col" ng-show="formRegister.sportName.$invalid && formRegister.sportName.$touched">Please Enter Your Contact Person*</div>
 
                                 </div>
                             </div>
@@ -354,20 +354,20 @@
                                 <label class="col-sm-3 col-xs-3">Designation:</label>
                                 <div class="col-sm-3 col-xs-9">
                                     <input type="text" name="designt" class="bor-t" ng-model="x.designation">
-                                    <!--<div class="validate-col" ng-show="formRegister.designt.$error.required && formRegister.designt.$touched">Please Enter Designation*</div>-->
+                                    <!--<div class="validate-col" ng-show="formRegister.designt.$invalid && formRegister.designt.$touched">Please Enter Designation*</div>-->
                                 </div>
                                 <div class="col-sm-6 col-xs-12">
                                     <label class="mb-padd"> Mobile:</label>
                                     <input type="text" only-Digits ng-model="x.mobile" name="deptSch" only-Digits class="bor-t" minlength="10" maxlength="10">
                                     <!--only-Digits removed-->
-                                    <!--<div class="validate-col" ng-show="formRegister.deptSch.$error.required && formRegister.deptSch.$touched">Please Enter Mobile No*</div>-->
+                                    <!--<div class="validate-col" ng-show="formRegister.deptSch.$invalid && formRegister.deptSch.$touched">Please Enter Mobile No*</div>-->
                                 </div>
                             </div>
                             <div class="form-group d-padd">
                                 <label class="col-sm-3 col-xs-3">E-mail:</label>
                                 <div class="col-sm-9 col-xs-9">
                                     <input name="xEmail" type="email" class="bor-t" ng-model="x.email">
-                                    <!--<div class="validate-col" ng-show="formRegister.xEmail.$error.required && formRegister.xEmail.$touched">Please Enter Department Email*</div>-->
+                                    <!--<div class="validate-col" ng-show="formRegister.xEmail.$invalid && formRegister.xEmail.$touched">Please Enter Department Email*</div>-->
                                 </div>
                             </div>
                             <div class="form-group d-padd">
@@ -379,15 +379,15 @@
                                     <!--<upload-image2 class="up-img" no-view required ng-model="x.photo"></upload-image2>-->
                                     <!--<button class="btn btn-default myupload">Upload </button>-->
                                     <div class="dirctive-op">
-                                        <upload-image2 class="up-img ng-isolate-scope" ng-model="x.photograph" ng-click="show=1" no-view></upload-image2>
+                                        <upload-image2 class="up-img arrayPhoto ng-isolate-scope" ng-model="x.photograph" ng-click="show=1" no-view></upload-image2>
                                     </div>
                                     <div class="display-inline padd-l38">
-                                        <div class="w150" ng-if="show==1">
+                                        <div class="w150" ng-if="show==1 && x.photograph">
                                             <img src="{{x.photograph |serverimage2}}" class="img-resopnsive w100">
                                         </div>
                                     </div>
-                                    <div class="hover-img" ng-if="show==1">
-                                        <img src="img/icon/x.png" alt="logo" class="img-responsive myicon" ng-click="removeArrayImage($index)">
+                                    <div class="hover-img" ng-if="show==1 && x.photograph">
+                                        <img src="img/icon/x.png" alt="logo" class="img-responsive myicon" ng-click="removeArrayImage($index, 'arrayPhoto')">
                                     </div>
                                     <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
                                     <label class="kindly-up sf-list">Kindly upload only .jpg or .png format. Maximum file size 1MB.</p></label>
@@ -480,13 +480,13 @@
                                     <p> <input type="checkbox" id="Chess" ng-click="addIndividualSports('Chess')" />
                                         <label for="Chess" ng-class="{basketball:Chess}">Chess</label></p>
                                 </div>
-                                <div class="validate-col" ng-show="showTeamSports">Please select atleast one sports Type*</div>
+                                <div class="validate-col" ng-show="showTeamSports">Please select atleast one sports Type</div>
                                 <p class="check-box ">
                                     <label class="sf-list"><span ng-click="termcondition()"> I have carefully read and understood the terms and conditions of this form / disclaimer / waiver and as described in this form / disclaimer / waiver and consent to all of them.</span></label>
                                     <input type="checkbox" name="checkIhav" ng-checked="termsCheck(formData.termsAndCondition)" ng-model="formData.termsAndCondition"
                                         id="test5" />
                                     <label for="test5" class="padding0"></label>
-                                    <div class="validate-col" ng-show="showTerm">Please Check the box *</div>
+                                    <div class="validate-col" ng-show="showTerm">Please accept terms and condition</div>
 
                                 </p>
 
