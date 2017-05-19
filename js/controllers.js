@@ -797,6 +797,16 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 return true;
             }
         }
+        var isRegistrationFee = function (form) {
+            if (!form.RegistrationFee) {
+                $scope.openPaymentModal();
+                $timeout(function () {
+                    $scope.paymentInstances.close();
+                }, 1000);
+            } else {
+                return true;
+            }
+        }
 
         var isSchoolAdded = function (form) {
             console.log('enter', form);
@@ -841,14 +851,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             //     // alert("Please select the school or enter all school details manually.");
             //     // return;
             // }
-            if (!formdata.registrationFee) {
-                // alert("Please select one of the payment options!");
-                // return;
-                $scope.openPaymentModal();
-                $timeout(function () {
-                    $scope.paymentInstances.close();
-                }, 1000);
-
+            if (!isRegistrationFee(formdata)) {
+                return;
             }
 
             console.log("form", formdata);
