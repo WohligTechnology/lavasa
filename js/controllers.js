@@ -1023,29 +1023,21 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             $scope.showSchool = !$scope.showSchool;
         }
 
-        $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);
-        $scope.addSportLevelForm = function () {
-            if ($scope.sportsLevelArray.length <= 9) {
-                $scope.sportsLevelArray.push({});
-                $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);
-
+        // $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);
+        $scope.addSportLevelForm = function (index) {
+            if ($scope.formData.sportLevel.length < 9) {
+                $scope.formData.sportLevel.splice(index + 1, 0, {})
+                // $scope.formData.sportLevel.push({});
             }
-            // console.log("sportsLevelArray", $scope.sportsLevelArray);
-
         };
-        $scope.removeSportLevelForm = function (indexX, indexY) {
-            if (indexX >= 0 && indexY >= 0) {
-                if ($scope.sportsLevelArray.length > 1) {
-                    $scope.formData.sportLevel[indexX].splice(indexY, 1);
-                    $scope.sportsLevelArray = _.flatten($scope.formData.sportLevel);
-                } else {
-                    $scope.sportsLevelArray = [];
-                    $scope.sportsLevelArray.push({});
-                    $scope.myshow = false;
-                    $scope.formData.played = 'no';
-                }
-
-                $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);
+        $scope.removeSportLevelForm = function (index) {
+            _.pullAt($scope.formData.sportLevel, index);
+        };
+        $scope.showLevels = function (value) {
+            if (value) {
+                $scope.formData.sportLevel = [{}];
+            } else {
+                $scope.formData.sportLevel = [];
             }
         };
 

@@ -30,7 +30,8 @@
                     <div class="blue-top">
                         <h5 class="blue fs-14">
                             *The applicant represents that the information provided is true and correct. SFA will keep confidential and protect your
-                            personal information except where disclosure is required or permitted by law.</h5>
+                            personal information except where disclosure is required or permitted by law.
+                        </h5>
                     </div>
                 </div>
             </div>
@@ -53,15 +54,14 @@
                             <large><br> {{item.firstname}} {{item.lastname}}
                             </large>
                             <!--<small>
-                                school
-                            </small>-->
+                        school
+                        </small>-->
                         </ui-select-choices>
                     </ui-select>
-
-
                     <div>
                         <p class="para2 t-padd sf-list">If you have not participated in SFA Championships before, your SFA ID will be generated<br> on successful
-                            completion of registration.</p>
+                            completion of registration.
+                        </p>
                         <p class="para2 b-padd sf-list">Please Note: All fields marked with * are mandatory.</p>
                     </div>
                 </div>
@@ -80,25 +80,23 @@
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-5 sf-list">*Select your School:</label>
                         <div class="col-sm-9 col-xs-7 ">
-
                             <!--<ui-select class="sfa-drop" ng-model="formData.school">
-                                <ui-select-choices ng-repeat="x in schoolList |
-             filter:searchTerm" value="{{x._id}}">
-                                    {{x.name}}
-
-                                </ui-select-choices>
-                            </ui-select>-->
+                        <ui-select-choices ng-repeat="x in schoolList |
+                        filter:searchTerm" value="{{x._id}}">
+                            {{x.name}}
+                        
+                        </ui-select-choices>
+                        </ui-select>-->
                             <ui-select ng-model="formData.school" ng-change="searchChangeSchool($select.selected.name)" class="sfa-drop">
                                 <ui-select-match>
                                     <span ng-bind="$select.selected.name"></span>
                                 </ui-select-match>
                                 <ui-select-choices repeat="item in (schoolList | filter: $select.search)" refresh="searchChange($select.search)">
-
                                     <large>{{item.name}}
                                     </large>
                                     <!--<small>
-                                school
-                            </small>-->
+                              school
+                              </small>-->
                                 </ui-select-choices>
                             </ui-select>
                         </div>
@@ -160,10 +158,8 @@
                                     <p>This is to verify that you are an athlete from the selected school</p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         <div class="col-sm-12">
                             <h4 class="blue fs-14">Athlete Details</h4>
@@ -188,7 +184,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-4 sf-list">*Gender:</label>
                         <!--<input type="radio" name="gender" value="male"><label class="padd-lr"> Male</label>
-                            <input type="radio" name="gender" value="male"><label class="padd-lr"> Female</label>-->
+                     <input type="radio" name="gender" value="male"><label class="padd-lr"> Female</label>-->
                         <div class="col-sm-9 col-xs-8">
                             <input type="radio" ng-model="formData.gender" id="radio04" name="radio" value="male" required>
                             <label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
@@ -200,39 +196,37 @@
                         <label class="col-sm-3 col-xs-4 sf-list">*Grade/Standard:</label>
                         <div class="col-sm-3 col-xs-8">
                             <select class="sfa-drop2 sfa4 sf-list" ng-model="formData.standard" required>
-                            <option style="display:none"></option>
-                   <option>Jr. KG </option> 
-                   <option>Sr. KG </option>
-                   <option>1 </option>
-                   <option>2 </option>
-                   <option>3 </option>
-                   <option>4 </option>
-                   <option>5 </option>
-                   <option>6 </option>
-                   <option>7 </option>
-                   <option>8 </option>
-                   <option>9 </option>
-                   <option>10 </option>
-                   <option>11 </option>
-                   <option>12 </option>
+                        <option style="display:none"></option>
+                        <option>Jr. KG </option>
+                        <option>Sr. KG </option>
+                        <option>1 </option>
+                        <option>2 </option>
+                        <option>3 </option>
+                        <option>4 </option>
+                        <option>5 </option>
+                        <option>6 </option>
+                        <option>7 </option>
+                        <option>8 </option>
+                        <option>9 </option>
+                        <option>10 </option>
+                        <option>11 </option>
+                        <option>12 </option>
                      </select>
                         </div>
                         <label class="col-sm-2 sf-list blood-mob">  Blood Group:</label>
                         <!--<input type="text" class="bor-t" required minlength="10" maxlength="10">-->
                         <div class="col-sm-4">
                             <select class="sfa-drop2 sfa4 blood-mob2 sf-list" ng-model="formData.bloodGroup">
-                            <option style="display:none"></option>
-                   <option>AB - </option>
-                   <option>AB + </option>
-                    <option>A - </option>
-                     <option>A + </option>
-                      <option>B -</option>
-                       <option>B + </option>
+                        <option style="display:none"></option>
+                        <option>AB - </option>
+                        <option>AB + </option>
+                        <option>A - </option>
+                        <option>A + </option>
+                        <option>B -</option>
+                        <option>B + </option>
                         <option>O - </option>
-                         <option>O + </option>
-                   
-                    
-                      </select>
+                        <option>O + </option>
+                     </select>
                             <div class="hover-img">
                                 <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
                                 <div class="iconinfo sf-list">
@@ -253,7 +247,6 @@
                                     <img src="{{formData.photograph |serverimage2}}" class="img-resopnsive w100">
                                 </div>
                             </div>
-
                             <div class="hover-img" ng-if="show==1">
                                 <img src="img/icon/x.png" alt="logo" ng-click="removePhoto(formData.photograph)" class="img-responsive myicon">
                             </div>
@@ -278,18 +271,16 @@
                         <div class="col-sm-12 col-xs-12">
                             <label class="padd-r12 sf-list label-age">*Upload Age Proof:</label>
                             <select class="sfa-drop2 sf-list sfa-mob2 label-two" ng-model="formData.ageProof" required>
-                            <option style="display:none"></option>
-                    <option>Adhaar Card </option>
-                   <option value="hello">Birth Certificate + Photo ID</option>
-                    <option>PAN Card</option>
-                     <option>Passport</option>
-                        </select>
+                        <option style="display:none"></option>
+                        <option>Adhaar Card </option>
+                        <option value="hello">Birth Certificate + Photo ID</option>
+                        <option>PAN Card</option>
+                        <option>Passport</option>
+                     </select>
                             <!--<button class="btn btn-default myupload upload4">Upload</button>-->
-
                             <div class="dirctive-op upload5 Upload-Age">
                                 <upload-image2 class="up-img ng-isolate-scope" ng-model="formData.birthImage" no-view ng-disabled="type.disabled"></upload-image2>
                             </div>
-
                             <!--<button class="btn btn-default myupload upload6" ng-show="formData.ageProof=='hello'" ng-click="show=1">Upload </button>-->
                             <div class="dirctive-op upload7 Upload-Age" ng-show="formData.ageProof=='hello'">
                                 <upload-image2 class="up-img ng-isolate-scope" ng-disabled="type.disabled" no-view ng-model="formData.photoImage"> </upload-image2>
@@ -328,64 +319,65 @@
                     <div class="form-group">
                         <div class="col-sm-12">
                             <h4 class="col-sm-12">Have you played National/State tournaments? </h4>
-                            <input type="radio" ng-model="formData.played" id="radio07" name="radio" value="yes" ng-click="myshow=true">
+                            <input type="radio" ng-model="formData.played" id="radio07" name="radio" value="yes" ng-click="showLevels(true);">
                             <label for="radio07" class="padd-lr sf-list"><span></span>Yes</label>
-                            <input type="radio" ng-model="formData.played" id="radio08" name="radio" value="no">
+                            <input type="radio" ng-model="formData.played" id="radio08" name="radio" ng-click="showLevels(false);" value="no">
                             <label for="radio08" class="padd-lr sf-list"><span></span>No</label>
                         </div>
                     </div>
-                    <div class="d-padd mar-l" ng-if="formData.played=='yes'" ng-repeat="(indexX,arr) in formData.sportLevel">
-                        <!--ng-repeat="x in sportsLevelArray track by $index"-->
-                        <div class="box3 box3-display" ng-repeat="(indexY,array) in arr" ng-if="arr[0]">
-                            <div class="x-img2">
-                                <img src="img/icon/x.png" ng-click="removeSportLevelForm(indexX,indexY)" alt="logo" class="img-responsive myicon pull-right">
-                            </div>
-                            <div class="yes-level sf-list">
-                                <label class="sportlevel">Level:</label>
-                                <select class="sfa-drop2 sfa-drop5 sf-list" ng-model="array.level" required>
-                            <option style="display:none"></option>
-                   <option>National</option>
-                   <option>State</option>
-                   
-                    
+
+
+                    <div class="box3 box3-display" ng-repeat="(sportLevelIndex,sportLevel) in formData.sportLevel">
+                        <div class="x-img2">
+                            <img src="img/icon/x.png" ng-click="removeSportLevelForm(sportLevelIndex)" alt="logo" class="img-responsive myicon pull-right"
+                                ng-class="{'no-opacity':formData.sportLevel.length==1}">
+                        </div>
+                        <div class="yes-level sf-list">
+                            <label class="sportlevel">Level:</label>
+                            <select class="sfa-drop2 sfa-drop5 sf-list" ng-model="sportLevel.level" required>
+                           <option style="display:none"></option>
+                           <option>National</option>
+                           <option>State</option>
                         </select>
-                            </div>
-                            <div class="">
-                                <label class="sportlevel sf-list">Sport:</label>
-                                <select class="sfa-drop2 sf-list" ng-model="array.sport" required>
-                            <option style="display:none"></option>
-                   <option>Basketball</option>
-                   <option>Volleyball</option>
-                     <option>Throwball</option>
-                      <option>Handball</option>
-                       <option>Kho Kho</option>
-                        <option>Hockey</option>
-                         <option>Football</option>
-                          <option>Kabaddi</option>
+                        </div>
+                        <div class="">
+                            <label class="sportlevel sf-list">Sport:</label>
+                            <select class="sfa-drop2 sf-list" ng-model="sportLevel.sport" required>
+                           <option style="display:none"></option>
+                           <option>Basketball</option>
+                           <option>Volleyball</option>
+                           <option>Throwball</option>
+                           <option>Handball</option>
+                           <option>Kho Kho</option>
+                           <option>Hockey</option>
+                           <option>Football</option>
+                           <option>Kabaddi</option>
                            <option>Badminton</option>
-                            <option>Tennis</option>
-                             <option>Table Tennis</option>
-                              <option>Squash</option>
-                               <option>Judo</option>
-                                <option>Karate</option>
-                                 <option>Sports MMA</option>
-                                 <option>Boxing</option>
-                                 <option>Taekwondo</option>
-                                 <option>Fencing</option>
-                                 <option>Archery</option>
-                                  <option>Shooting</option>
-                                   <option>Swimming</option>
-                                     <option>Waterpolo</option>
-                                      <option>Athletics</option>
-                                         <option>Carrom</option>
-                                           <option>Chess</option>
-                                        </select>
-                            </div>
-                            <div class="plus">
-                                <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportLevelForm(indexX,indexY)">
-                            </div>
+                           <option>Tennis</option>
+                           <option>Table Tennis</option>
+                           <option>Squash</option>
+                           <option>Judo</option>
+                           <option>Karate</option>
+                           <option>Sports MMA</option>
+                           <option>Boxing</option>
+                           <option>Taekwondo</option>
+                           <option>Fencing</option>
+                           <option>Archery</option>
+                           <option>Shooting</option>
+                           <option>Swimming</option>
+                           <option>Waterpolo</option>
+                           <option>Athletics</option>
+                           <option>Carrom</option>
+                           <option>Chess</option>
+                        </select>
+                        </div>
+                        <div class="plus">
+                            <img src="img/icon/p.png" alt="logo" class="img-responsive " ng-click="addSportLevelForm(sportLevelIndex)" ng-class="{'no-opacity':formData.sportLevel.length>=9}">
                         </div>
                     </div>
+
+
+
                     <div>
                     </div>
                 </div>
@@ -410,7 +402,8 @@
                                 <p>Kindly ensure the contact details given below are correct. A verification One Time Password
                                     (OTP) will be sent. We welcome parents to enter their details in this section. All important
                                     details regarding SFA Mumbai 2017 such asconfirmation of registration, draws and schedules
-                                    will besent on the same.</p>
+                                    will besent on the same.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -424,22 +417,22 @@
                         <!--<button class="btn btn-default sub-mit send-otp verify-otp sf-list" ng-change="checkEmailOTP(formData.emailOTP)">Verify OTP </button>-->
                         <!--only-Digits removed from upper line-->
                         <!--<div class="hover-img">
-                                    <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
-                                    <div class="iconinfo iconinfo3">
-                                        <p>Kindly ensure the contact details given below are correct. A verification One Time
-                                            Password (OTP) will be sent. We welcome parents to enter their details in this
-                                            section. All important details regarding SFA Mumbai 2017 such asconfirmation
-                                            of registration, draws and schedules will besent on the same.</p>
-                                    </div>
-                               
-                            </div>-->
+                     <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
+                     <div class="iconinfo iconinfo3">
+                         <p>Kindly ensure the contact details given below are correct. A verification One Time
+                             Password (OTP) will be sent. We welcome parents to enter their details in this
+                             section. All important details regarding SFA Mumbai 2017 such asconfirmation
+                             of registration, draws and schedules will besent on the same.</p>
+                     </div>
+                     
+                     </div>-->
                     </div>
                     <!--<div class="form-group">
-                                <label class="col-sm-2">*Email:</label>
-                                <div class="col-sm-10">
-                                <input type="email" class="bor-t" required>
-                                </div>
-                            </div>-->
+                  <label class="col-sm-2">*Email:</label>
+                  <div class="col-sm-10">
+                  <input type="email" class="bor-t" required>
+                  </div>
+                  </div>-->
                     <div class="form-group">
                         <div class="col-sm-12">
                             <h4 class="blue fs-14">Residential Address</h4>
@@ -459,39 +452,38 @@
                         <label class="col-sm-3 col-xs-3 sf-list"> *State:</label>
                         <div class="col-sm-3 col-xs-9">
                             <select class="sfa-drop2 w147" ng-model="formData.state" required>
-                            <option style="display:none"></option>
-                   <option>Maharashstra </option>
-                   
-                      </select>
+                        <option style="display:none"></option>
+                        <option>Maharashstra </option>
+                     </select>
                         </div>
                         <div class="col-sm-6 col-xs-12">
                             <label class="padd-right dist-mob sf-list">*District:</label>
                             <select class="sfa-drop2 w147 sf-list" ng-model="formData.district" required>
-                            <option style="display:none"></option>
-                   <option>Mumbai City </option>
-                   <option>Mumbai Suburban</option>
-                    <option>Thane</option>
-                     <option>Palghar</option>
-                      <option>Raigad</option> 
-                      </select>
+                        <option style="display:none"></option>
+                        <option>Mumbai City </option>
+                        <option>Mumbai Suburban</option>
+                        <option>Thane</option>
+                        <option>Palghar</option>
+                        <option>Raigad</option>
+                     </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-3 sf-list">  *City</label>
                         <div class="col-sm-3 col-xs-9">
                             <select class="sfa-drop2 w147 sf-list" ng-model="formData.city" required>
-                            <option style="display:none"></option>
-                   <option>Kalyan-Dombivali </option>
-                   <option>Mira-Bhayandar</option>
-                   <option>Mumbai</option>
-                   <option>Navi Mumbai</option>
-                   <option>Panvel</option>
-                   <option>Thane</option>
-                    <option>Ulhasnagar</option>
-                     <option>Vasai-Virar</option>
-                     <option>Raigad</option>
-                     <option>Thane</option>
-               </select>
+                        <option style="display:none"></option>
+                        <option>Kalyan-Dombivali </option>
+                        <option>Mira-Bhayandar</option>
+                        <option>Mumbai</option>
+                        <option>Navi Mumbai</option>
+                        <option>Panvel</option>
+                        <option>Thane</option>
+                        <option>Ulhasnagar</option>
+                        <option>Vasai-Virar</option>
+                        <option>Raigad</option>
+                        <option>Thane</option>
+                     </select>
                         </div>
                         <div class="col-sm-6 col-xs-12">
                             <label class="padd-r4 pin-mob sf-list">  *Pin Code:</label>
@@ -504,10 +496,10 @@
                     <div class="d-padd mar-l">
                         <h4 class="blue pb10 fs-14">Parent/Guardian Details</h4>
                         <!--<p class="check-box ">
-                            <label class="sf-list" ng-click="termcondition()">I have carefully read and understood the terms and conditions of this form / disclaimer / waiver and as described in this form / disclaimer / waiver and consent to all of them.</label>
-                            <input type="checkbox" ng-model="formData.termsAndCondition" id="test5" />
-                            <label for="test5"></label>
-                        </p>-->
+                     <label class="sf-list" ng-click="termcondition()">I have carefully read and understood the terms and conditions of this form / disclaimer / waiver and as described in this form / disclaimer / waiver and consent to all of them.</label>
+                     <input type="checkbox" ng-model="formData.termsAndCondition" id="test5" />
+                     <label for="test5"></label>
+                     </p>-->
                         <p class="check-box ">
                             <label class="sf-list"><span ng-click="termcondition()">I have carefully read and understood the terms and conditions of this form / disclaimer / waiver and as described in this form / disclaimer / waiver and consent to all of them.</span></label>
                             <input type="checkbox" ng-model="formData.termsAndCondition" ngRequired id="test5" required/>
@@ -524,8 +516,8 @@
                                     <div class="relation-top">
                                         <label class="col-sm-3 col-xs-3 sf-list"> *Relation:</label>
                                         <!--<input type="radio" name="gender" value="male" ng-click="myshow=true"> <label class="padd-lr">Mother</label>
-                                    <input type="radio" name="gender" value="male" ng-click="myshow=true"><label class="padd-lr"> Father</label>
-                                    <input type="radio" name="gender" value="male"><label class="padd-lr"> Guardian</label>-->
+                                 <input type="radio" name="gender" value="male" ng-click="myshow=true"><label class="padd-lr"> Father</label>
+                                 <input type="radio" name="gender" value="male"><label class="padd-lr"> Guardian</label>-->
                                         <div class="col-sm-9 col-xs-9 sf-list">
                                             <input ng-model="x.relation" type="radio" id="{{'radio02'+$index}}" name="{{$index}}" value="mother" required>
                                             <label for="{{'radio02'+$index}}" class="padd-lr sf-list"><span></span>Mother</label>
@@ -575,8 +567,8 @@
                 </div>
                 <div class="box box-padd ">
                     <!--<div class="d-padd">
-                            <h4>Paayment Gateway:</h4>
-                        </div>-->
+                  <h4>Paayment Gateway:</h4>
+                  </div>-->
                     <div class="d-padd para2 ng-init=" show=4 "">
                         <div class="form-group ">
                             <input ng-model="formData.registrationFee" type="radio" id="radio11" name="radio" value="cash">
@@ -585,15 +577,16 @@
                             <label for="radio13" class="padd-lr sf-list" ng-click="show=6"><span></span>Online Payment</label>
                             <p ng-if="show==6" class="ft12">Online Payment: Selecting this option will enable you to pay the registration fee of Rs. 200
                                 (Inclusive of all applicable taxes) via one of the following methods: 4) Credit Card 5) Debit
-                                Card 6) Net Banking </p>
+                                Card 6) Net Banking
+                            </p>
                             <!--<input ng-model="formData.registrationFee" type="radio" id="radio12" name="radio" value="cheque">
-                            <label for="radio12" class="padd-lr sf-list"><span></span>Cheque</label>-->
-
+                        <label for="radio12" class="padd-lr sf-list"><span></span>Cheque</label>-->
                             <p ng-if="show==5" class="ft12">
                                 Cash/Cheque/Demand Draft: Selecting this option will enable you to pay the registration fee of Rs. 200 (Inclusive of all
                                 applicable taxes) by Cash/Cheque/Demand Draft in favour of ‘SFA Events Private Limited’ which
                                 is to be couriered/hand delivered to: 1306, Panchratna Building, Opera House (Next to Roxy
-                                Cinema), Charni Road, Mumbai – 400004</p>
+                                Cinema), Charni Road, Mumbai – 400004
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -604,8 +597,7 @@
         </div>
     </div>
 </div>
-
 <!--</div>
-</div>
-</div>
-</div>-->
+   </div>
+   </div>
+   </div>-->
