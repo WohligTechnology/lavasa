@@ -767,7 +767,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 $scope.openIdModal();
                 $timeout(function () {
                     $scope.idInstances.close();
-                }, 1000)
+                }, 3000)
                 // alert("School ID image is not uploaded");
                 // return false;
             }
@@ -785,24 +785,24 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 $scope.openBirthModal();
                 $timeout(function () {
                     $scope.birthInstances.close();
-                }, 1000)
+                }, 3000)
             } else if (form.ageProof == "hello" && !form.photoImage) {
                 // alert("Photo id not uploaded");
                 // return false;
                 $scope.openAgeModal();
                 $timeout(function () {
                     $scope.ageInstances.close();
-                }, 1000)
+                }, 3000)
             } else {
                 return true;
             }
         }
         var isRegistrationFee = function (form) {
-            if (!form.RegistrationFee) {
+            if (!form.registrationFee) {
                 $scope.openPaymentModal();
                 $timeout(function () {
                     $scope.paymentInstances.close();
-                }, 1000);
+                }, 3000);
             } else {
                 return true;
             }
@@ -818,7 +818,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 $scope.openSchoolModal();
                 $timeout(function () {
                     $scope.schoolInstances.close();
-                }, 1000);
+                }, 3000);
                 // return false;
 
             }
@@ -900,7 +900,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                             $scope.openExistModal();
                             $timeout(function () {
                                 $scope.existInstances.close();
-                            }, 1000)
+                            }, 3000)
                         }
                     });
                 }
@@ -909,7 +909,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 $scope.openErrorModal();
                 $timeout(function () {
                     $scope.modalInstances.close();
-                }, 1000)
+                }, 3000)
             }
 
         }
@@ -1433,7 +1433,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 $scope.openErrorModal();
                 $timeout(function () {
                     $scope.modalInstances.close();
-                }, 1000)
+                }, 3000)
             }
 
 
