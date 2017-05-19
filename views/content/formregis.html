@@ -220,7 +220,7 @@
                     <div class="form-group mar-l">
                         <label class="col-sm-3 col-xs-4">  *Pin Code:</label>
                         <div class="col-sm-9 col-xs-8">
-                            <input name="regispincode" ng-model="formData.pinCode" only-Digits type="text" class="sfa-drop2 w147" minlengh="6" maxlength="6"
+                            <input type="text" name="regispincode" ng-model="formData.pinCode" only-Digits class="sfa-drop2 w147" minlength="6" maxlength="6"
                                 required>
                             <div class="validate-col" ng-show="formRegister.regispincode.$invalid && formRegister.regispincode.$touched">Please Enter Your Pincode*</div>
                             <!--only-Digits removed -->
@@ -248,7 +248,7 @@
                                     <div class="col-sm-3 col-xs-9">
                                         <input ng-model="formData.landline" name="regisLandline" only-Digits type="text" class="bor-t" required minlength="11" maxlength="11"
                                             required>
-                                        <div class="validate-col" ng-show="formRegister.regisLandline.$invalid && formRegister.regisLandline.$touched">Please Enter Your Landline*</div>
+                                        <div class="validate-col" ng-show="formRegister.regisLandline.$invalid && formRegister.regisLandline.$touched">Please Enter Your Landline With STD Code</div>
                                         <!--only-Digits removed-->
                                     </div>
                                     <div class="col-sm-6 col-xs-12">
@@ -347,7 +347,6 @@
                                 <div class="col-sm-9 col-xs-9">
                                     <input type="text" class="sfa-in" name="sportName" ng-model="x.name">
                                     <div class="validate-col" ng-show="formRegister.sportName.$invalid && formRegister.sportName.$touched">Please Enter Your Contact Person*</div>
-                                    <!--<div class="validate-col" ng-show="(formRegister.sportName.$invalid && formRegister.sportName.$touched) || showRequired">Please Enter Your Contact Person*</div>-->
 
                                 </div>
                             </div>

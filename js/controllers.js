@@ -829,17 +829,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             console.log("Athlete data: ", formdata);
             // console.log('Value', $scope.isSchoolAdded(formdata));
             // $scope.isSchoolAdded(formdata);
-            // if (!attributeSupported("required") || ($.browser.safari)) {
-            //     //If required attribute is not supported or browser is Safari (Safari thinks that it has this attribute, but it does not work), then check all fields that has required attribute
-            //     $("input [required]").each(function (index) {
-            //         if (!$(this).val()) {
-            //             //If at least one required value is empty, then ask to fill all required fields.
-            //             // alert("Please fill all required fields.");
-            //             // return false;
-            //             $scope.showRequired = true;
-            //         }
-            //     });
-            // }
+
             if (!isSchoolAdded(formdata)) {
                 return;
             }
@@ -900,7 +890,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                             $scope.openExistModal();
                             $timeout(function () {
                                 $scope.existInstances.close();
-                            }, 3000)
+                            }, 3000);
                         }
                     });
                 }
@@ -909,7 +899,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 $scope.openErrorModal();
                 $timeout(function () {
                     $scope.modalInstances.close();
-                }, 3000)
+                }, 3000);
             }
 
         }
@@ -1349,6 +1339,15 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.emailOtp = {};
         $scope.showOtpSuccess = {};
 
+        // var isSportSelected = function (form) {
+        //     if (formdata.teamSports.length > 0 || formdata.racquetSports.length > 0 || formdata.combatSports.length > 0 || formdata.targetSports.length > 0 || formdata.individualSports.length > 0 || formdata.aquaticsSports.length > 0) {
+        //         $scope.showTeamSports = false;
+        //     } else {
+        //         console.log('enter');
+        //         $scope.showTeamSports = true;
+        //     }
+        // }
+
         //save registerform to database
         $scope.saveRegis = function (formdata, formvalid) {
             formdata.teamSports = $scope.teamSport
@@ -1360,6 +1359,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             formdata.sfaID = $scope.sfaID
 
             $scope.value = {}
+
             // if (formdata.teamSports == '' || formdata.racquetSports == '' || formdata.combatSports == '' || formdata.targetSports == '' || formdata.individualSports == '' || formdata.aquaticsSports == '') {
             //     $scope.showTeamSports = true;
             // } else {
@@ -1382,20 +1382,19 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             // } else {
             //     $scope.showTeamSports = false;
             // }
-            if (formdata.teamSports.length > 0 || formdata.racquetSports.length > 0 || formdata.combatSports.length > 0 || formdata.targetSports.length > 0 || formdata.individualSports.length > 0 || formdata.aquaticsSports.length > 0) {
-                $scope.showTeamSports = false;
-            } else {
-                console.log('enter');
-                $scope.showTeamSports = true;
-            }
+
             // if (formdata.teamSports != null || formdata.racquetSports != null || formdata.combatSports != null || formdata.targetSports != null || formdata.individualSports != null || formdata.aquaticsSports != null) {
             //     $scope.showTeamSports = false;
             // } else {
             //     console.log(enter);
             //     $scope.showTeamSports = true;
             // }
-
-            $scope.value = {};
+            if (formdata.teamSports.length > 0 || formdata.racquetSports.length > 0 || formdata.combatSports.length > 0 || formdata.targetSports.length > 0 || formdata.individualSports.length > 0 || formdata.aquaticsSports.length > 0) {
+                $scope.showTeamSports = false;
+            } else {
+                console.log('enter');
+                $scope.showTeamSports = true;
+            }
 
             if (formdata.termsAndCondition == undefined) {
                 $scope.showTerm = true;
@@ -1404,12 +1403,6 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 $scope.showTerm = false;
             }
 
-            // formdata.serviceRequest = $scope.serviceList;
-            // console.log("form data", formdata);
-            // console.log("form st", $scope.showTerm);
-            // console.log("form ts", $scope.showTeamSports);
-            // console.log("form tnc", formdata.termsAndCondition);
-            // console.log("form valid", formvalid.$valid);
             $scope.url = "registration/saveRegistrationForm";
             console.log($scope.url);
             if (formvalid.$valid && $scope.showTerm == false && $scope.showTeamSports == false) {
@@ -1435,9 +1428,6 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                     $scope.modalInstances.close();
                 }, 3000)
             }
-
-
-
         }
         // $scope.checkOTP = function (otp) {
         //     console.log("opt", $scope.emailOtp, otp);
