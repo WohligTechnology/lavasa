@@ -2422,8 +2422,7 @@ img.fancybox-image {
     }
     .table>thead>tr>th {
         vertical-align: bottom;
-        border-bottom: 1px solid #000;
-        // text-align: center;
+        border-bottom: 1px solid #000; // text-align: center;
         color: #fff;
     }
     .table>tbody>tr {
@@ -4189,6 +4188,8 @@ iframe#twitter-widget-0 {
     background: #091a71;
     -webkit-clip-path: polygon(0 0, 93% 0, 100% 16%, 0 16%);
     clip-path: polygon(0 0, 93% 0, 100% 16%, 0 16%);
+    -webkit-clip-path: url("#clipping");
+    clip-path: url("#clipping");
     color: #ffffff;
     font-size: 18.75px;
     /* Approximation due to font substitution */
