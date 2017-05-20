@@ -4110,6 +4110,8 @@ iframe#twitter-widget-0 {
 
 .box {
     box-shadow: 0px 0px 12px gray;
+    -moz-box-shadow: 0px 0px 12px gray;
+    -webkit-box-shadow: 0px 0px 12px gray;
 }
 
 .box-padd {
@@ -4588,6 +4590,8 @@ label:hover:before {
 // athlete form start
 .box3 {
     box-shadow: 0px 0px 0px 1px #091a71;
+    -moz-box-shadow: 0px 0px 0px 1px #091a71;
+    -webkit-box-shadow: 0px 0px 0px 1px #091a71;
     position: relative;
     width: 208px;
 }
