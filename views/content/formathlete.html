@@ -113,23 +113,23 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 col-sm-3 col-xs-12 sf-list">  *School Name:</label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" ng-model="formData.atheleteSchoolName" name="schoolName" class="sfa-drop sf-list" required>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" ng-model="formData.atheleteSchoolName" name="schoolName" class="sfa-drop sf-list form-control" required>
                                     <div class="validate-col" ng-if="formAthlete.schoolName.$invalid && formAthlete.schoolName.$touched">Please Enter Your School Name</div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 col-sm-3 col-xs-12 sf-list">*Area/Locality:</label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" ng-model="formData.atheleteSchoolLocality" name="area" class="sfa-drop sf-list" required>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" ng-model="formData.atheleteSchoolLocality" name="area" class="sfa-drop sf-list form-control" required>
                                     <div class="validate-col" ng-if="formAthlete.area.$invalid && formAthlete.area.$touched">Please Enter Your Area/Locality</div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 col-sm-3 col-xs-12 sf-list">*School Contact:</label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" name="schoolContact" only-Digits ng-model="formData.atheleteSchoolContact" class="sfa-drop sf-list" minlength="11"
-                                        maxlength="11" required>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" name="schoolContact" only-Digits ng-model="formData.atheleteSchoolContact" class="sfa-drop sf-list form-control"
+                                        minlength="11" maxlength="11" required>
                                     <div class="validate-col" ng-if="formAthlete.schoolContact.$invalid && formAthlete.schoolContact.$touched">Please Enter Your School Contact</div>
                                 </div>
                             </div>
@@ -167,29 +167,29 @@
                             <h4 class="blue fs-14">Athlete Details</h4>
                         </div>
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">*Surname:</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" ng-model="formData.surname" name="surname" class="sfa-drop sf-list" required>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" ng-model="formData.surname" name="surname" class="sfa-drop sf-list form-control" required>
                             <div class="validate-col" ng-if="formAthlete.surname.$invalid && formAthlete.surname.$touched">Please Enter Your Surname</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">*First Name:</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" ng-model="formData.firstName" name="firstName" class="sfa-drop sf-list" required>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" ng-model="formData.firstName" name="firstName" class="sfa-drop sf-list form-control" required>
                             <div class="validate-col" ng-if="formAthlete.firstName.$invalid && formAthlete.firstName.$touched">Please Enter Your First Name</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">Middle Name:</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" ng-model="formData.middleName" class="sfa-drop sf-list">
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" ng-model="formData.middleName" class="sfa-drop sf-list form-control">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">*Gender:</label>
                         <!--<input type="radio" name="gender" value="male"><label class="padd-lr"> Male</label>
                             <input type="radio" name="gender" value="male"><label class="padd-lr"> Female</label>-->
-                        <div class="col-md-9 col-sm-9 col-xs-12">
+                        <div class="col-md-4 col-sm-5 col-xs-12">
                             <input type="radio" ng-model="formData.gender" id="radio04" name="radio1" value="male" required>
                             <label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
                             <input type="radio" ng-model="formData.gender" id="radio03" name="radio1" value="female" required>
@@ -200,7 +200,7 @@
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">*Grade/Standard:</label>
                         <div class="col-md-3 col-sm-3 col-xs-12">
-                            <select class="sfa-drop2 sfa4 sf-list" name="gradestd" ng-model="formData.standard" required>
+                            <select class="sfa-drop2 sfa4 sf-list form-control" name="gradestd" ng-model="formData.standard" required>
                                 <option style="display:none"></option>
                                 <option>Jr. KG </option> 
                                 <option>Sr. KG </option>
@@ -222,8 +222,8 @@
 
                         <label class="col-md-2 col-sm-2 col-xs-12 sf-list blood-mob">  Blood Group:</label>
                         <!--<input type="text" class="bor-t" required minlength="10" maxlength="10">-->
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <select class="sfa-drop2 sfa4 blood-mob2 sf-list" ng-model="formData.bloodGroup">
+                        <div class="col-md-3 col-sm-3 col-xs-11">
+                            <select class="sfa-drop2 sfa4 blood-mob2 sf-list form-control" ng-model="formData.bloodGroup">
                                 <option style="display:none"></option>
                                 <option>AB - </option>
                                 <option>AB + </option>
@@ -234,17 +234,17 @@
                                 <option>O - </option>
                                 <option>O + </option>
                             </select>
-                            <div class="hover-img">
-                                <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
-                                <div class="iconinfo sf-list">
-                                    <p>This information will be important in case of medical emergencies</p>
-                                </div>
+                        </div>
+                        <div class="hover-img margin0 col-md-1 col-sm-1 col-xs-1">
+                            <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
+                            <div class="iconinfo sf-list">
+                                <p>This information will be important in case of medical emergencies</p>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4 col-sm-4 col-xs-12 sf-list">Upload Photograph:</label>
-                        <div class="col-md-8 col-sm-8 col-xs-12" ng-init="show=0">
+                        <label class="col-md-3 col-sm-3 col-xs-12 sf-list">Upload Photograph:</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12" ng-init="show=0">
                             <!--<button class="btn btn-default myupload">Upload </button>-->
                             <div class="dirctive-op pl13">
                                 <upload-image2 class="up-img photoGraph ng-isolate-scope" ng-model="formData.photograph" ng-click="show=1" ng-disabled="type.disabled"
@@ -270,16 +270,18 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">*Date Of Birth:</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
                             <input type="date" max="9999-12-31" ng-model="formData.dob" placeholder="dd" class="bor-t date-month sf-list" name="dob"
                                 required>
-                            <label class="padd-25 sf-list">Age:</label>
-                            <label ng-if="formData.dob">{{ageCalculate(formData.dob)}}</label>
                             <div class="validate-col" ng-if="formAthlete.dob.$invalid && formAthlete.dob.$touched">Please Enter Date of birth</div>
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12">
+                            <label class="sf-list">Age:</label>
+                            <label ng-if="formData.dob">{{ageCalculate(formData.dob)}}</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="ccol-md-12 ol-sm-12 col-xs-12">
+                        <div class="col-md-12 ol-sm-12 col-xs-12">
                             <label class="padd-r12 sf-list label-age">*Upload Age Proof:</label>
                             <select class="sfa-drop2 sf-list sfa-mob2 label-two" name="ageProof" ng-model="formData.ageProof" required>
                                 <option style="display:none"></option>
@@ -385,7 +387,6 @@
                            <option>National</option>
                            <option>State</option>
                            <option>International</option>
-
                         </select>
                         </div>
                         <div class="">
@@ -529,29 +530,29 @@
                             <h4 class="blue fs-14">Residential Address</h4>
                         </div>
                         <label class="col-md-2 col-sm-2 col-xs-12 sf-list">*Line 1:</label>
-                        <div class="col-md-10 col-sm-10 col-xs-12">
-                            <input type="text" ng-model="formData.address" name="address" class="sfa-drop" required>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" ng-model="formData.address" name="address" class="sfa-drop form-control" required>
                             <div class="validate-col" ng-if="formAthlete.address.$invalid && formAthlete.address.$touched">Please Enter Your Address</div>
                         </div>
                     </div>
                     <div class="form-group ">
                         <label class="col-md-2 col-sm-2 col-xs-12 sf-list">Line 2:</label>
-                        <div class="col-md-10 col-sm-10 col-xs-12">
-                            <input type="text" ng-model="formData.addressLine2" class="sfa-drop">
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" ng-model="formData.addressLine2" class="sfa-drop form-control">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 col-sm-2 col-xs-12 sf-list"> *State:</label>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <select class="sfa-drop2 w147" name="state" ng-model="formData.state" required>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <select class="sfa-drop2 form-control" name="state" ng-model="formData.state" required>
                                 <option style="display:none"></option>
                                 <option>Maharashtra</option>
                             </select>
                             <div class="validate-col" ng-if="formAthlete.state.$invalid && formAthlete.state.$touched">Select Your State</div>
                         </div>
                         <label class="col-md-2 col-sm-2 col-xs-12 sf-list"> *District:</label>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <select class="sfa-drop2 w147 sf-list" name="district" ng-model="formData.district" required>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <select class="sfa-drop2 form-control sf-list" name="district" ng-model="formData.district" required>
                                 <option style="display:none"></option>
                                 <option>Mumbai City </option>
                                 <option>Mumbai Suburban</option>
@@ -577,8 +578,8 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 col-sm-2 col-xs-12 sf-list">  *City</label>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <select class="sfa-drop2 w147 sf-list" name="city" ng-model="formData.city" required>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <select class="sfa-drop2 form-control sf-list" name="city" ng-model="formData.city" required>
                                 <option style="display:none"></option>
                                 <option>Kalyan-Dombivali </option>
                                 <option>Mira-Bhayandar</option>
@@ -594,8 +595,8 @@
                             <div class="validate-col" ng-if="formAthlete.city.$invalid && formAthlete.city.$touched">Select Your City</div>
                         </div>
                         <label class="col-md-2 col-sm-2 col-xs-12 sf-list">*Pin Code:</label>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <input type="text" only-Digits name="pincode" ng-model="formData.pinCode" class="sfa-drop2 w147" minlength="6" maxlength="6"
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <input type="text" only-Digits name="pincode" ng-model="formData.pinCode" class="sfa-drop2 form-control" minlength="6" maxlength="6"
                                 required>
                             <div class="validate-col" ng-if="formAthlete.pincode.$invalid && formAthlete.pincode.$touched">Please Enter Your Pincode</div>
                         </div>
@@ -641,7 +642,7 @@
                                         <!--<input type="radio" name="gender" value="male" ng-click="myshow=true"> <label class="padd-lr">Mother</label>
                                     <input type="radio" name="gender" value="male" ng-click="myshow=true"><label class="padd-lr"> Father</label>
                                     <input type="radio" name="gender" value="male"><label class="padd-lr"> Guardian</label>-->
-                                        <div class="col-md-10 col-sm-10 col-xs-12 sf-list">
+                                        <div class="col-md-8 col-sm-8 col-xs-12 sf-list">
                                             <input ng-model="x.relation" type="radio" id="{{'radio02'+$index}}" name="radios1" value="mother" required>
                                             <label for="{{'radio02'+$index}}" class="padd-lr sf-list"><span></span>Mother</label>
                                             <input ng-model="x.relation" type="radio" id="{{'radio09'+$index}}" name="radios1" value="father" required>
@@ -654,27 +655,28 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-2 col-sm-2 col-xs-12 sf-list">*Name:</label>
-                                    <div class="col-md-10 col-sm-10 col-xs-12">
-                                        <input ng-model="x.name" type="text" name="parentName" class="sfa-drop" required>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input ng-model="x.name" type="text" name="parentName" class="sfa-drop form-control" required>
                                         <div class="validate-col" ng-if="formAthlete.parentName.$invalid && formAthlete.parentName.$touched">Please Enter Your Parent Name</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-2 col-sm-2 col-xs-12 sf-list">*Surname:</label>
-                                    <div class="col-md-10 col-sm-10 col-xs-12">
-                                        <input type="text" class="sfa-drop" ng-model="x.surname" name="parentSurname" required>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input type="text" class="sfa-drop form-control" ng-model="x.surname" name="parentSurname" required>
                                         <div class="validate-col" ng-if="formAthlete.parentSurname.$invalid && formAthlete.parentSurname.$touched">Please Enter Your Parent Surname</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-2 col-sm-2 col-xs-12 sf-list"> *Mobile:</label>
-                                    <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <input type="text" only-Digits ng-model="x.mobile" class="bor-t" minlength="10" maxlength="10" name="mobileno" required>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <input type="text" only-Digits ng-model="x.mobile" class="bor-t form-control" minlength="10" maxlength="10" name="mobileno"
+                                            required>
                                         <div class="validate-col" ng-if="formAthlete.mobileno.$invalid && formAthlete.mobileno.$touched">Enter Your Mobile No.</div>
                                     </div>
                                     <label class="col-md-2 col-sm-2 col-xs-12 sf-list"> *Email:</label>
-                                    <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <input type="email" class="bor-t w147" name="emailId" ng-model="x.email" required>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <input type="email" class="bor-t form-control" name="emailId" ng-model="x.email" required>
                                         <div class="validate-col" ng-if="formAthlete.emailId.$invalid && formAthlete.emailId.$touched">Please Enter Your Email Id</div>
                                     </div>
                                     <!--<div class="col-md-6 col-sm-6 col-xs-12">
@@ -684,10 +686,10 @@
                                     </div>-->
                                 </div>
                             </div>
-                            <div class="sub-padd">
-                                <img src="img/icon/p.png" alt="logo" class="img-responsive myicon2 display-inline " ng-click="addSportForm(m)">
-                                <div class="inline-block text-center">
-                                    <p class="display-inline text-center">Add Parent</p>
+                            <div class="sub-padd text-center">
+                                <img src="img/icon/p.png" alt="logo" class="img-responsive display-inline" ng-click="addSportForm(m)">
+                                <div class="inline-block">
+                                    <p class="display-inline">Add Parent</p>
                                 </div>
                             </div>
                         </div>

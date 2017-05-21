@@ -70,15 +70,15 @@
                 <div class=" box box-padd para2 ">
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">  *School Name:</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input ng-model="formData.schoolName" name="schoolName" type="text" class="sfa-drop" required>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input ng-model="formData.schoolName" name="schoolName" type="text" class="sfa-drop form-control" required>
                             <div class="validate-col" ng-show="formRegister.schoolName.$invalid && formRegister.schoolName.$touched">Please Enter Your School Name *</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">  *School Type:</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                            <select name="schoolType" ng-model="formData.schoolType" class="sfa-drop2 sf-list" required>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <select name="schoolType" ng-model="formData.schoolType" class="sfa-drop2 form-control sf-list" required>
                              <option style="display:none"></option>
                             <option>Co-Educational</option>
                             <option>Boys</option>
@@ -89,8 +89,8 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">*School Category:</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                            <select name="schoolCategory" ng-model="formData.schoolCategory" class="sfa-drop2 sf-list" required>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <select name="schoolCategory" ng-model="formData.schoolCategory" class="sfa-drop2 form-control sf-list" required>
                              <option style="display:none"></option>
                              <option>Un-aided </option>
                              <option>Government </option>
@@ -101,7 +101,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">*Affiliated Board:</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
+                        <div class="col-md-8 col-sm-8 col-xs-12">
                             <select name="affiliatedBoard" class="form-control sfa-drop2 sf-list drop-cust" ng-model="formData.affiliatedBoard" required>
                              <option style="display:none"></option>
                              <option>Central Board of Secondary Education (CBSE) </option>
@@ -156,29 +156,29 @@
                             <h4>School Address</h4>
                         </div>
                         <label class="col-md-3 col-sm-3 col-xs-12">*Line 1:</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input name="schoolAdd" ng-model="formData.schoolAddress" type="text" class="sfa-drop sfa434" required>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input name="schoolAdd" ng-model="formData.schoolAddress" type="text" class="sfa-drop form-control sfa434" required>
                             <div class="validate-col" ng-show="formRegister.schoolAdd.$invalid && formRegister.schoolAdd.$touched">Please Enter Your School Address*</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12">Line 2:</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input ng-model="formData.schoolAddressLine2" type="text" class="sfa-drop sfa434">
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input ng-model="formData.schoolAddressLine2" type="text" class="sfa-drop sfa434 form-control">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12"> *State:</label>
                         <div class="col-md-3 col-sm-3 col-xs-12">
-                            <select name="state" ng-model="formData.state" class="sfa-drop2 w147" required>
+                            <select name="state" ng-model="formData.state" class="sfa-drop2 form-control" required>
                                 <option style="display:none"></option>
                                 <option>Maharashtra</option>
                             </select>
                             <div class="validate-col" ng-show="formRegister.state.$invalid && formRegister.state.$touched">Please Enter Your State*</div>
                         </div>
-                        <label class="col-md-3 col-sm-3 col-xs-12"> *District:</label>
+                        <label class="col-md-2 col-sm-2 col-xs-12"> *District:</label>
                         <div class="col-md-3 col-sm-3 col-xs-12">
-                            <select name="district" ng-model="formData.district" class="sfa-drop2" required>
+                            <select name="district" ng-model="formData.district" class="sfa-drop2 form-control" required>
                             <option style="display:none"></option>
                             <option>Mumbai City </option>
                             <option>Mumbai Suburban</option>
@@ -204,7 +204,7 @@
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12">  *City:</label>
                         <div class="col-md-3 col-sm-3 col-xs-12">
-                            <select name="city" ng-model="formData.city" class="sfa-drop2 w147" required>
+                            <select name="city" ng-model="formData.city" class="sfa-drop2 form-control" required>
                             <option style="display:none"></option>
                         <option>Kalyan-Dombivali </option>
                         <option>Mira-Bhayandar</option>
@@ -219,9 +219,9 @@
                         </select>
                             <div class="validate-col" ng-show="formRegister.city.$invalid && formRegister.city.$touched">Please Enter Your City*</div>
                         </div>
-                        <label class="col-md-3 col-sm-3 col-xs-12"> *Area/Locality:</label>
+                        <label class="col-md-2 col-sm-2 col-xs-12"> *Area/Locality:</label>
                         <div class="col-md-3 col-sm-3 col-xs-12">
-                            <input name="regislocality" ng-model="formData.locality" type="text" class=" sfa-drop2 w147" required>
+                            <input name="regislocality" ng-model="formData.locality" type="text" class=" sfa-drop2 form-control" required>
                             <div class="validate-col" ng-show="formRegister.regislocality.$invalid && formRegister.regislocality.$touched">Please Enter Your Locality*</div>
                         </div>
                         <!--<div class="col-sm-6 col-xs-12">
@@ -232,9 +232,9 @@
                     </div>
                     <div class="form-group mar-l">
                         <label class="col-md-3 col-sm-3 col-xs-12">*Pin Code:</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" name="regispincode" ng-model="formData.pinCode" only-Digits class="sfa-drop2 w147" minlength="6" maxlength="6"
-                                required>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <input type="text" name="regispincode" ng-model="formData.pinCode" only-Digits class="sfa-drop2 form-control" minlength="6"
+                                maxlength="6" required>
                             <div class="validate-col" ng-show="formRegister.regispincode.$invalid && formRegister.regispincode.$touched">Please Enter Your Pincode*</div>
                             <!--only-Digits removed -->
                         </div>
@@ -249,8 +249,8 @@
                                         </p>
                                     </div>
                                     <label class="col-md-3 col-sm-3 col-xs-12"> *Contact Person:</label>
-                                    <div class="col-md-9 col-sm-9 col-xs-12">
-                                        <input name="contactPerson" ng-model="formData.contactPerson" type="text" class=" sfa-in" required>
+                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <input name="contactPerson" ng-model="formData.contactPerson" type="text" class=" sfa-in form-control" required>
                                         <div class="validate-col" ng-show="formRegister.contactPerson.$invalid && formRegister.contactPerson.$touched">Please Enter Your Contact Person*</div>
                                     </div>
                                 </div>
@@ -259,28 +259,29 @@
                                 <div class=" d-padd pl13">
                                     <label class="col-md-3 col-sm-3 col-xs-12">  *Landline:</label>
                                     <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <input ng-model="formData.landline" name="regisLandline" only-Digits type="text" class="bor-t" required minlength="11" maxlength="11"
-                                            required>
+                                        <input ng-model="formData.landline" name="regisLandline" only-Digits type="text" class="bor-t form-control" required minlength="11"
+                                            maxlength="11" required>
                                         <div class="validate-col" ng-show="formRegister.regisLandline.$invalid && formRegister.regisLandline.$touched">Please Enter Your Landline With STD Code</div>
                                         <!--only-Digits removed-->
                                     </div>
-                                    <!--<label class="col-md-3 col-sm-3 col-xs-12">*Mobile:</label>
+                                    <label class="col-md-2 col-sm-2 col-xs-12">*Mobile:</label>
                                     <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <input name="mobile" ng-model="formData.mobile" type="text" only-Digits class="bor-t" minlength="10" maxlength="10" required>
+                                        <input name="mobile" ng-model="formData.mobile" type="text" only-Digits class="bor-t form-control" minlength="10" maxlength="10"
+                                            required>
                                         <div class="validate-col" ng-show="formRegister.mobile.$invalid && formRegister.mobile.$touched">Please Enter Your Mobile*</div>
-                                    </div>-->
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    </div>
+                                    <!--<div class="col-md-6 col-sm-6 col-xs-12">
                                         <label class="email-padd2 mobno-mob">*Mobile:</label>
                                         <input name="mobile" ng-model="formData.mobile" type="text" only-Digits class="bor-t" minlength="10" maxlength="10" required>
                                         <div class="validate-col" ng-show="formRegister.mobile.$invalid && formRegister.mobile.$touched">Please Enter Your Mobile*</div>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="d-padd pl13">
                                     <label class="col-md-3 col-sm-3 col-xs-12 web-padd"> Website:</label>
-                                    <div class="col-md-9 col-sm-9 col-xs-12">
-                                        <input ng-model="formData.website" type="text" class="bor-t">
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <input ng-model="formData.website" type="text" class="bor-t form-control">
                                     </div>
                                     <!--<label class="col-sm-3 padd-bott">  *Email:</label>
                                         <div class="col-sm-3">
@@ -293,7 +294,7 @@
                                 </div>
                             </div>
                             <div class="form-group hidden-xs">
-                                <div class="col-md-12 col-sm-12 d-padd pl13">
+                                <div class="col-md-12 col-sm-12 col-xs-12 d-padd pl13">
                                     <label class="mobileno-padd padd-bott">*Email:</label>
                                     <input ng-model="formData.email" type="email" class="bor-t" required>
                                     <button class="btn btn-default sub-mit send-otp" ng-click="sendOTP(formData.email)">Send OTP </button>
@@ -306,7 +307,7 @@
                                 </div>
                             </div>
                             <div class="form-group visible-xs">
-                                <div class="col-xs-12 d-padd pl13">
+                                <div class="col-md-12 col-sm-12 col-xs-12 d-padd pl13">
                                     <label class="mobileno-padd">*Email:</label>
                                     <div class="pl13">
                                         <input ng-model="formData.email" type="email" class="bor-t" required>
@@ -328,8 +329,8 @@
                         <h4 class="blue">School Principal</h4>
                         <div class="form-group">
                             <label class="col-md-3 col-sm-3 col-xs-12">*Name:</label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input ng-model="formData.schoolPrincipalName" name="schoolPrincipal" type="text" class="sfa-in bor-t" required>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input ng-model="formData.schoolPrincipalName" name="schoolPrincipal" type="text" class="sfa-in bor-t form-control" required>
                                 <div class="validate-col" ng-show="formRegister.schoolPrincipal.$invalid && formRegister.schoolPrincipal.$touched">Please Enter Name*</div>
                             </div>
                         </div>
@@ -339,16 +340,20 @@
                                 <input ng-model="formData.schoolPrincipalMobile" only-Digits type="text" class="bor-t" minlength="10" maxlength="10">
                                 <!--only-Digits-->
                             </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <label class="land-padd "> Landline:</label>
-                                <input ng-model="formData.schoolPrincipalLandline" only-Digits type="text" class="bor-t" minlength="8" maxlength="11">
+                            <label class="col-md-2 col-sm-2 col-xs-12">Landline:</label>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <input ng-model="formData.schoolPrincipalLandline" only-Digits type="text" class="bor-t form-control">
                                 <!--only-Digits-->
                             </div>
+                            <!--<div class="col-md-6 col-sm-6 col-xs-12">
+                                <label class="land-padd "> Landline:</label>
+                                <input ng-model="formData.schoolPrincipalLandline" only-Digits type="text" class="bor-t" minlength="8" maxlength="11">
+                        </div>-->
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 col-sm-3 col-xs-12">*Email:</label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input ng-model="formData.schoolPrincipalEmail" name="schoolPrincipalEma" type="email" class="bor-t" required>
+                            <div class="col-md-5 col-sm-5 col-xs-12">
+                                <input ng-model="formData.schoolPrincipalEmail" name="schoolPrincipalEma" type="email" class="bor-t form-control" required>
                                 <div class="validate-col" ng-show="formRegister.schoolPrincipalEma.$invalid && formRegister.schoolPrincipalEma.$touched">Please Enter Email*</div>
                             </div>
                         </div>
@@ -373,8 +378,8 @@
                             </div>
                             <div class="form-group d-padd pl13 details-top">
                                 <label class="col-md-3 col-sm-3 col-xs-12">Name:</label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" class="sfa-in" name="sportName" ng-model="x.name">
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" class="sfa-in form-control" name="sportName" ng-model="x.name">
                                     <div class="validate-col" ng-show="formRegister.sportName.$invalid && formRegister.sportName.$touched">Please Enter Your Contact Person*</div>
 
                                 </div>
@@ -382,20 +387,23 @@
                             <div class="form-group  d-padd pl13">
                                 <label class="col-md-3 col-sm-3 col-xs-12">Designation:</label>
                                 <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input type="text" name="designt" class="bor-t" ng-model="x.designation">
+                                    <input type="text" name="designt" class="bor-t form-control" ng-model="x.designation">
                                     <!--<div class="validate-col" ng-show="formRegister.designt.$invalid && formRegister.designt.$touched">Please Enter Designation*</div>-->
                                 </div>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                <label class="col-md-2 col-sm-2 col-xs-12">Mobile:</label>
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <input type="text" only-Digits ng-model="x.mobile" name="deptSch" only-Digits class="bor-t form-control">
+                                    <!--<div class="validate-col" ng-show="formRegister.designt.$invalid && formRegister.designt.$touched">Please Enter Designation*</div>-->
+                                </div>
+                                <!--<div class="col-md-6 col-sm-6 col-xs-12">
                                     <label class="mb-padd"> Mobile:</label>
                                     <input type="text" only-Digits ng-model="x.mobile" name="deptSch" only-Digits class="bor-t" minlength="10" maxlength="10">
-                                    <!--only-Digits removed-->
-                                    <!--<div class="validate-col" ng-show="formRegister.deptSch.$invalid && formRegister.deptSch.$touched">Please Enter Mobile No*</div>-->
-                                </div>
+                                </div>-->
                             </div>
                             <div class="form-group d-padd pl13">
                                 <label class="col-md-3 col-sm-3 col-xs-12">E-mail:</label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input name="xEmail" type="email" class="bor-t" ng-model="x.email">
+                                <div class="col-md-5 col-sm-5 col-xs-12">
+                                    <input name="xEmail" type="email" class="bor-t form-control" ng-model="x.email">
                                     <!--<div class="validate-col" ng-show="formRegister.xEmail.$invalid && formRegister.xEmail.$touched">Please Enter Department Email*</div>-->
                                 </div>
                             </div>
@@ -420,9 +428,15 @@
                                     </div>
                                     <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
                                     <label class="kindly-up sf-list"><p>Kindly upload only .jpg or .png format. Maximum file size 1MB.</p></label>
-                                    <img src="img/icon/p.png" alt="logo" class="img-responsive myicon3 display-inline " ng-click="addSportForm()">
-                                    <div class="inline-block">
-                                        <p class="display-inline">Add Sports Department</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="text-center">
+                                        <img src="img/icon/p.png" alt="logo" class="img-responsive display-inline " ng-click="addSportForm()">
+                                        <div class="inline-block">
+                                            <p class="display-inline">Add Sports Department</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

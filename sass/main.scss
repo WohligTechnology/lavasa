@@ -4164,7 +4164,7 @@ iframe#twitter-widget-0 {
 }
 
 .sfa-drop {
-    width: 88%; // border-top: none;
+    //width: 88%; // border-top: none;
     background: none;
     border-color: lightgray;
 }
@@ -4363,6 +4363,11 @@ iframe#twitter-widget-0 {
                 border-color: #0a1a72;
                 color: #0a1a72;
             }
+            &:hover {
+                background-color: transparent;
+                border-color: #0a1a72;
+                color: #0a1a72;
+            }
         }
         &:focus {
             outline: none;
@@ -4447,7 +4452,7 @@ iframe#twitter-widget-0 {
 }
 
 .sfa-in {
-    width: 85%; // border-top: none;
+    //width: 85%; // border-top: none;
     background: none;
     border-color: lightgray;
 }
@@ -4461,7 +4466,7 @@ iframe#twitter-widget-0 {
 }
 
 .pl13 {
-    padding-left: 13px;
+    padding: 0 13px;
 }
 
 .pl18 {
@@ -4659,7 +4664,7 @@ label:hover:before {
 }
 
 .sfa4 {
-    width: 150px;
+    // width: 150px;
 }
 
 .age {
@@ -4671,8 +4676,11 @@ label:hover:before {
 }
 
 .plus {
-    margin-left: 87px;
-    padding: 5px;
+    // margin-left: 87px;
+    // padding: 5px;
+    img {
+        margin: 5px auto;
+    }
 }
 
 .send-otp {
@@ -4945,6 +4953,7 @@ input[type="radio"]:checked+label span {
 }
 
 .x-img2 {
+    cursor: pointer;
     padding: 1px;
 }
 
@@ -4971,7 +4980,7 @@ input[type="radio"]:checked+label span {
 }
 
 .sfa434 {
-    width: 434px;
+    //width: 434px;
 }
 
 .myicon3 {
@@ -6015,6 +6024,13 @@ a {
     &:hover {
         // text-decoration: none;
         color: #646464;
+    }
+}
+
+select,
+input {
+    &:focus {
+        outline: 0;
     }
 }
 
