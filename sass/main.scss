@@ -4108,18 +4108,17 @@ iframe#twitter-widget-0 {
     padding-bottom: 9px;
 }
 
-.box {
-    box-shadow: 0px 0px 12px gray;
-    -moz-box-shadow: 0px 0px 12px gray;
-    -webkit-box-shadow: 0px 0px 12px gray;
-}
-
+// .box {
+//      box-shadow: 0px 0px 12px gray;
+//      -moz-box-shadow: 0px 0px 12px gray;
+//      -webkit-box-shadow: 0px 0px 12px gray;
+// }
 .box-padd {
-    padding: 18px; //     span{
-    //         color:  #091a71;
-    // font-size: 16.67px;
-    // font-family: Titillium Web SemiBold;
-    //     }
+    padding: 18px;
+    border: 1px solid #d3d3d3;
+    -webkit-box-shadow: 0px 0px 3px 1px rgba(211, 211, 211, 1);
+    -moz-box-shadow: 0px 0px 3px 1px rgba(211, 211, 211, 1);
+    box-shadow: 0px 0px 3px 1px rgba(211, 211, 211, 1);
 }
 
 .para {
@@ -4147,7 +4146,8 @@ iframe#twitter-widget-0 {
 }
 
 .d-padd {
-    padding-left: 20px; // padding-top: 20px;
+    // padding-left: 20px; 
+    // padding-top: 20px;
     position: relative;
 }
 
@@ -4164,7 +4164,7 @@ iframe#twitter-widget-0 {
 }
 
 .sfa-drop {
-    width: 81%; // border-top: none;
+    width: 88%; // border-top: none;
     background: none;
     border-color: lightgray;
 }
@@ -4176,36 +4176,43 @@ iframe#twitter-widget-0 {
 .box2 {
     box-shadow: 0px 0px 0px 2px lightgray;
     position: relative;
+    margin-bottom: 20px;
 }
 
 .dis-inline {
     display: inline-block;
-    width: 19%;
+    width: 19.5%;
     vertical-align: top;
 }
 
 .step1 {
+    position: relative;
     width: 240px;
-    height: 280px;
-    background: #091a71;
-    -webkit-clip-path: polygon(0 0, 93% 0, 100% 16%, 0 16%);
-    clip-path: polygon(0 0, 93% 0, 100% 16%, 0 16%);
-    -webkit-clip-path: url("#clipping");
-    clip-path: url("#clipping");
+    height: 46px;
+    background: #091a71; // -webkit-clip-path: polygon(0 0, 93% 0, 100% 16%, 0 16%);
+    // clip-path: polygon(0 0, 93% 0, 100% 16%, 0 16%);
+    // -webkit-clip-path: url("#clipping");
+    // clip-path: url("#clipping");
     color: #ffffff;
     font-size: 18.75px;
     /* Approximation due to font substitution */
     font-weight: 400;
-    text-align: center;
-    padding-right: 25px;
-    padding-top: 8px;
+    text-align: center; // padding-right: 25px;
+    padding: 8px 0;
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0px;
+        left: 100%;
+        border-left: 20px solid #091a71;
+        border-top: 46px solid transparent;
+    }
 }
 
-.wid-hei {
-    width: 10px;
-    height: 46px;
-}
-
+// .wid-hei {
+//     width: 10px;
+//     height: 46px;
+// }
 .sfa-padd {
     padding-right: 7px;
 }
@@ -4345,9 +4352,28 @@ iframe#twitter-widget-0 {
 
 .dirctive-op {
     display: inline;
+    .btn {
+        margin: 0;
+    }
+    .btn-primary {
+        &:active {
+            &:focus {
+                outline: none;
+                background-color: transparent;
+                border-color: #0a1a72;
+                color: #0a1a72;
+            }
+        }
+        &:focus {
+            outline: none;
+        }
+    }
     .btn-upload {
-        background-color: #0a1a72;
-        border-color: #08155b;
+        // background-color: #0a1a72;
+        // border-color: #08155b;
+        background-color: transparent;
+        border-color: #0a1a72;
+        color: #0a1a72;
         input {
             opacity: 0;
             position: absolute;
@@ -4434,6 +4460,18 @@ iframe#twitter-widget-0 {
     padding-bottom: 10px;
 }
 
+.pl13 {
+    padding-left: 13px;
+}
+
+.pl18 {
+    padding-left: 18px;
+}
+
+.pbAll {
+    padding: 0 20px 10px 20px;
+}
+
 .pb5 {
     padding-bottom: 5px;
 }
@@ -4484,8 +4522,8 @@ iframe#twitter-widget-0 {
     content: '✔';
     position: absolute;
     top: 0px;
-    left: 0px;
-    font-size: 15px; //   line-height: 0.8;
+    left: 2px;
+    font-size: 13px;
     color: black;
     transition: all .2s;
 }
@@ -4673,19 +4711,17 @@ label:hover:before {
     padding-left: 23px;
 }
 
-.date-month {
-    width: 180px;
-    height: 24px;
-    text-align: center;
-    margin-right: 10px;
-}
-
-.date-yr {
-    width: 65px;
-    height: 24px;
-    text-align: center;
-}
-
+// .date-month {
+//     width: 180px;
+//     height: 24px;
+//     text-align: center;
+//     margin-right: 10px;
+// }
+// .date-yr {
+//     width: 65px;
+//     height: 24px;
+//     text-align: center;
+// }
 .padd-r61 {
     padding-right: 61px;
 }
@@ -4788,6 +4824,7 @@ label:hover:before {
 .box3-display {
     display: inline-block;
     margin-left: 23px;
+    margin-bottom: 23px;
 }
 
 input[type="radio"] {
@@ -5865,6 +5902,120 @@ p.regest-fee {
 
 .ui-select-focusser {
     display: none;
+}
+
+.checkbox-custom {
+    padding: 4px 2px;
+    input[type="checkbox"] {
+        display: none !important;
+    }
+    input[type="checkbox"]+label {
+        font-size: 16px;
+        position: relative;
+        cursor: pointer;
+        &:before {
+            content: "";
+            width: 15px;
+            height: 15px;
+            display: block;
+            position: absolute;
+            top: 7px;
+            transform: rotate(90deg);
+        }
+    }
+    input[type="checkbox"]+label span {
+        display: inline-block;
+        @include square(15px);
+        margin: -2px 4px 0 0;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid grey;
+        @include transition(all 300ms linear);
+        &:after {
+            content: "";
+            @include square(15px);
+            margin: -1px 0 0 -1px;
+            display: block;
+            background-color: red;
+            opacity: 0;
+            @include transition(all 300ms linear);
+        }
+    }
+    input[type="checkbox"]:checked+label span {
+        @include transition(all 300ms linear);
+        &:after {
+            opacity: 1;
+            @include transition(all 300ms linear);
+        }
+    }
+    input[type="checkbox"]+label span,
+    input[type="checkbox"]:checked+label span {
+        @include transition(all 0.4s linear);
+        margin-right: 8px;
+    }
+}
+
+.checkbox-custom input[type="checkbox"]+label {
+    font-size: 16px;
+    color: rgba(46, 46, 46, 0.7);
+    margin: 0;
+}
+
+// .checkbox-custom input[type="checkbox"]+label span:after {
+//     // font-size: 12px;
+//     // content: '\f00c';
+//     // font-family: 'fontawesome';
+//     // line-height: 13px;
+//     // padding: 0 0.6px;
+//     // background-color: transparent;
+//     // display: none;
+//     content: '✔';
+//     position: absolute;
+//     top: -76px !important;
+//     left: 0px !important;
+//     font-size: 16px !important; //   line-height: 0.8;
+//     color: black;
+//     transition: all .2s;
+// }
+// [type="checkbox"]:not(:checked)+label:before,
+// [type="checkbox"]:checked+label:before {
+//     content: '';
+//     position: absolute;
+//     left: 0px !important;
+//     top: -70px;
+//     width: 15px;
+//     height: 15px;
+//     border: 1px solid #ccc; // background: #fff; //   box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+// }
+// [type="checkbox"]:not(:checked)+label:after,
+// [type="checkbox"]:checked+label:after {
+//     content: '✔';
+//     position: absolute;
+//     top: -76px !important;
+//     left: 0px !important;
+//     font-size: 16px !important; //   line-height: 0.8;
+//     color: black;
+//     transition: all .2s;
+// }
+.checkbox-custom input[type="checkbox"]+label span {
+    width: 15px;
+    height: 15px;
+    border: 2px solid rgba(46, 46, 46, 0.7);
+    display: none;
+}
+
+.checkbox-custom {
+    margin-bottom: 30px;
+    margin-top: 5px;
+}
+
+a {
+    color: #646464;
+    line-height: 26.167px;
+    &:hover {
+        // text-decoration: none;
+        color: #646464;
+    }
 }
 
 @import "fancybox-override";
