@@ -35,27 +35,34 @@
     </div>
     <div class="row">
         <div class="col-md-8 col-md-push-2 col-sm-12 col-xs-12">
-            <div class="box-sfa">
+            <div class="box-sfa dummy">
+
                 <div class="mar-left">
                     <p class="d-padd para2 t-padd sf-list">If you have participated in SFA Championships before, kindly enter your</p>
-                    <label class="para2 sfa-padd  sf-list">  SFA ID or Name:</label>
-                    <ui-select ng-model="sfaId" ng-change="searchSFA($select.selected.sfaid)">
-                        <ui-select-match>
-                            <span ng-bind="$select.selected.sfaid"></span>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <label class="para2 sfa-padd sf-list">  SFA ID or Name:</label>
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <ui-select name="idSfa" id="idSfa" theme="bootstrap" ng-model="sfaId" ng-change="searchSFA($select.selected.sfaid)">
+                        <ui-select-match placeholder="Select/Search SFA ID or Name">
+                            {{$select.selected.sfaid}}
                         </ui-select-match>
-                        <ui-select-choices repeat="item in (schoolList | filter: $select.search)" refresh="searchSFA($select.search)">
-                            <span ng-bind="item.sfaid"></span><br>
+                        <ui-select-choices refresh-delay="0" repeat="item in schoolList | filter: $select.search" refresh="searchSFA($select.search)">
+                            <span ng-bind-html="item.sfaid"></span><br>
                             <large>
                                 {{item.name}}
                             </large>
                         </ui-select-choices>
                     </ui-select>
-                    <div class="">
-                        <p class="para2 t-padd sf-list">If you have not participated in SFA Championships before, your SFA ID will be generated<br> on successful
-                            completion of registration.</p>
-                        <p class="para2 b-padd sf-list">Please Note: All fields marked with * are mandatory.</p>
-                    </div>
                 </div>
+                <!--<div class="mar-left">-->
+                <div class="mar-left">
+                    <p class="para2 t-padd sf-list"><br>If you have not participated in SFA Championships before, your SFA ID will be generated<br> on successful
+                        completion of registration.</p>
+                    <p class="para2 b-padd sf-list">Please Note: All fields marked with * are mandatory.</p>
+                </div>
+                <!--</div>-->
             </div>
         </div>
     </div>
