@@ -77,8 +77,7 @@
                     <div class="form-group dummy">
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">*Select your School:</label>
                         <div class="col-md-8 col-sm-8 col-xs-12">
-                            <ui-select class="sfa-drop" name="selectSchoolName" id="selectSchoolName" theme="bootstrap" ng-model="formData.school" ng-change="searchChangeSchool($select.selected._id)"
-                                required>
+                            <ui-select class="sfa-drop" name="selectSchoolName" id="selectSchoolName" theme="bootstrap" ng-model="formData.school" ng-change="searchChangeSchool($select.selected._id)">
                                 <ui-select-match allow-clear="true" placeholder="Select/Search your school">
                                     {{$select.selected.name}}
                                 </ui-select-match>
