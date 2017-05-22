@@ -105,14 +105,16 @@
                             <div class="form-group">
                                 <label class="col-md-3 col-sm-3 col-xs-12 sf-list">  *School Name:</label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <input type="text" ng-model="formData.atheleteSchoolName" name="schoolName" class="sfa-drop sf-list form-control" required>
+                                    <input type="text" only-alpha ng-model="formData.atheleteSchoolName" name="schoolName" class="sfa-drop sf-list form-control"
+                                        required>
                                     <div class="validate-col" ng-if="formAthlete.schoolName.$invalid && formAthlete.schoolName.$touched">Please Enter Your School Name</div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 col-sm-3 col-xs-12 sf-list">*Area/Locality:</label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <input type="text" ng-model="formData.atheleteSchoolLocality" name="area" class="sfa-drop sf-list form-control" required>
+                                    <input type="text" only-alpha ng-model="formData.atheleteSchoolLocality" name="area" class="sfa-drop sf-list form-control"
+                                        required>
                                     <div class="validate-col" ng-if="formAthlete.area.$invalid && formAthlete.area.$touched">Please Enter Your Area/Locality</div>
                                 </div>
                             </div>
@@ -161,14 +163,14 @@
                         </div>
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">*Surname:</label>
                         <div class="col-md-8 col-sm-8 col-xs-12">
-                            <input type="text" ng-model="formData.surname" name="surname" class="sfa-drop sf-list form-control" required>
+                            <input type="text" only-alpha ng-model="formData.surname" name="surname" class="sfa-drop sf-list form-control" required>
                             <div class="validate-col" ng-if="formAthlete.surname.$invalid && formAthlete.surname.$touched">Please Enter Your Surname</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">*First Name:</label>
                         <div class="col-md-8 col-sm-8 col-xs-12">
-                            <input type="text" ng-model="formData.firstName" name="firstName" class="sfa-drop sf-list
+                            <input type="text" only-alpha ng-model="formData.firstName" name="firstName" class="sfa-drop sf-list
                 form-control" required>
                             <div class="validate-col" ng-if="formAthlete.firstName.$invalid && formAthlete.firstName.$touched">Please Enter Your First Name</div>
                         </div>
@@ -176,7 +178,7 @@
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">Middle Name:</label>
                         <div class="col-md-8 col-sm-8 col-xs-12">
-                            <input type="text" ng-model="formData.middleName" class="sfa-drop sf-list form-control">
+                            <input type="text" only-alpha ng-model="formData.middleName" class="sfa-drop sf-list form-control">
                         </div>
                     </div>
                     <div class="form-group">
@@ -656,14 +658,14 @@
                                 <div class="form-group">
                                     <label class="col-md-2 col-sm-2 col-xs-12 sf-list">*Name:</label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input ng-model="x.name" type="text" name="parentName" class="sfa-drop form-control" required>
+                                        <input ng-model="x.name" only-alpha type="text" name="parentName" class="sfa-drop form-control" required>
                                         <div class="validate-col" ng-if="formAthlete.parentName.$invalid && formAthlete.parentName.$touched">Please Enter Your Parent Name</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-2 col-sm-2 col-xs-12 sf-list">*Surname:</label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" class="sfa-drop form-control" ng-model="x.surname" name="parentSurname" required>
+                                        <input type="text" only-alpha class="sfa-drop form-control" ng-model="x.surname" name="parentSurname" required>
                                         <div class="validate-col" ng-if="formAthlete.parentSurname.$invalid && formAthlete.parentSurname.$touched">Please Enter Your Parent Surname</div>
                                     </div>
                                 </div>
