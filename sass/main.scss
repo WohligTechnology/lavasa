@@ -6043,6 +6043,10 @@ input {
     .btn {
         text-align: left;
     }
+    ul.ui-select-choices.ui-select-choices-content.ui-select-dropdown.dropdown-menu {
+        top: 35px !important;
+        width: 100% !important;
+    }
     .btn-default:hover {
         color: #000000;
         background-color: #ffffff;
