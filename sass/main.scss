@@ -6043,6 +6043,14 @@ input {
     .btn {
         text-align: left;
     }
+    .glyphicon {
+        font-family: 'FontAwesome';
+    }
+    .glyphicon-remove {
+        &:before {
+            content: '\f00d'
+        }
+    }
     ul.ui-select-choices.ui-select-choices-content.ui-select-dropdown.dropdown-menu {
         top: 35px !important;
         width: 100% !important;
@@ -6082,6 +6090,19 @@ input {
         text-decoration: none;
         color: #000000;
         background-color: transparent;
+    }
+    .clear-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px 10px;
+        position: absolute;
+        left: -2px;
+        top: 1px;
+    }
+    .clear-btn-offset {
+        position: absolute;
+        left: 25px;
     }
 }
 
