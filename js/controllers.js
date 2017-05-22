@@ -1,4 +1,4 @@
-angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select', 'ordinal', 'wt.responsive'])
+angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select', 'ordinal', 'wt.responsive', 'ui.date'])
 
     .controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval) {
         //Used to name the .html file
@@ -742,7 +742,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.navigation = NavigationService.getnav();
 
 
-        $scope.formData = {}
+        $scope.formData = {};
         $scope.formData.parentDetails = [];
         $scope.sportsLevelArray = [];
         $scope.sportsLevelArray.push({});
@@ -755,12 +755,12 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             $scope.formData.parentDetails.push({});
             $scope.firstTime++;
         }
-        $scope.sfaId = {}
-        $scope.schoolname = {}
-        $scope.emailOtp = {}
-        $scope.mobileOtp = {}
-        $scope.showEmailOtpSuccess = {}
-        $scope.showMobileOtpSuccess = {}
+        $scope.sfaId = '';
+        $scope.schoolname = {};
+        $scope.emailOtp = {};
+        $scope.mobileOtp = {};
+        $scope.showEmailOtpSuccess = {};
+        $scope.showMobileOtpSuccess = {};
 
         var isFormValid = function (form) {
             if (!form.atheleteSchoolIdImage) {
@@ -1342,7 +1342,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.combatSports = [];
         $scope.targetSports = [];
         $scope.individualSports = [];
-        $scope.sfaID = {};
+        $scope.sfaID = '';
         $scope.emailOtp = {};
         $scope.showOtpSuccess = {};
 
