@@ -1141,7 +1141,9 @@ firstapp.directive('inputDate', function ($compile, $parse) {
             $scope.data = {};
             console.log($scope.value);
             $scope.dateOptions = {
-                dateFormat: "dd/mm/yy"
+                dateFormat: "dd/mm/yy",
+                changeYear: true,
+                changeMonth: true
             };
             if (!_.isEmpty($scope.value)) {
                 $scope.data.dob = moment($scope.value).toDate();
