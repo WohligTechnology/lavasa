@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-md-8 col-sm-8 col-xs-12 ">
                     <ui-select name="idSfa" id="idSfa" theme="bootstrap" ng-model="sfaId " ng-change="searchChange($select.selected.sfaid)">
-                        <ui-select-match placeholder="Select/Search SFA ID or Name ">
+                        <ui-select-match allow-clear="true" placeholder="Select/Search SFA ID or Name ">
                             {{$select.selected.sfaid}}
                         </ui-select-match>
                         <ui-select-choices refresh-delay="0" repeat="item in atheleList | filter: $select.search
@@ -80,14 +80,14 @@
                         <div class="col-md-8 col-sm-8 col-xs-12 ">
                             <ui-select class="sfa-drop" name="selectSchoolName" id="selectSchoolName" theme="bootstrap" ng-model="formData.school" ng-change="searchChangeSchool($select.selected._id)"
                                 required>
-                                <ui-select-match placeholder="Select/Search your school">
+                                <ui-select-match allow-clear="true" placeholder="Select/Search your school">
                                     {{$select.selected.name}}
                                 </ui-select-match>
                                 <ui-select-choices refresh-delay="0" repeat="item in schoolList | filter: $select.search" refresh="searchChangeSchool($select.search)">
                                     <span ng-bind-html="item.name"></span>
                                 </ui-select-choices>
                             </ui-select>
-                            <div class="validate-col" ng-if="formAthlete.selectSchoolName.$invalid && formAthlete.selectSchoolName.$touched">Select Your School</div>
+                            <div class="validate-col" ng-if="(formAthlete.selectSchoolName.$invalid && formAthlete.selectSchoolName.$touched) && !showSchool">Select Your School</div>
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12 ">
                             <p class="text-center sf-list ">or</p>

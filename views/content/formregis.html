@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <ui-select name="idSfa" id="idSfa" theme="bootstrap" ng-model="sfaId" ng-change="searchSFA($select.selected.sfaid)">
-                        <ui-select-match placeholder="Select/Search SFA ID or Name">
+                        <ui-select-match allow-clear="true" placeholder="Select/Search SFA ID or Name">
                             {{$select.selected.sfaid}}
                         </ui-select-match>
                         <ui-select-choices refresh-delay="0" repeat="item in schoolList | filter: $select.search" refresh="searchSFA($select.search)">
