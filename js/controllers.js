@@ -1270,6 +1270,12 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             photo: "",
             mobile: ""
         };
+        // $scope.dateOptions = {
+        //     changeYear: true,
+        //     changeMonth: true,
+        //     yearRange: '1900:-0',
+        //     dateFormat: "dd/mm/yy"
+        // };
         // $scope.menu = "menu-out";
         // $scope.getMenu = function () {
         //     if ($scope.menu == "menu-out") {
