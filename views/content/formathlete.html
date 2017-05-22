@@ -46,11 +46,11 @@
                     <label class="para2 sfa-padd sf-list"> SFA ID or Name:</label>
                 </div>
                 <div class="col-md-8 col-sm-8 col-xs-12">
-                    <ui-select name="idSfa" id="idSfa" theme="bootstrap" ng-model="sfaId" ng-change="refreshChange($select.selected.sfaid)">
+                    <ui-select name="idSfa" id="idSfa" theme="bootstrap" ng-model="sfaId" ng-change="searchChange($select.selected.sfaid)">
                         <ui-select-match allow-clear="true" placeholder="Select/Search SFA ID or Name">
                             {{$select.selected.sfaid}}
                         </ui-select-match>
-                        <ui-select-choices refresh-delay="0" repeat="item in atheleList | filter: $select.search" refresh="searchChange($select.search)">
+                        <ui-select-choices refresh-delay="0" repeat="item in atheleList | filter: $select.search" refresh="refreshChange($select.search)">
                             <span ng-bind-html="item.sfaid"></span><br>
                             <large>{{item.firstname}} {{item.lastname}} {{item.middlename}}
                             </large>
