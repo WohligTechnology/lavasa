@@ -592,7 +592,7 @@
                                 <option>Ulhasnagar</option>
                                 <option>Vasai-Virar</option>
                                 <option>Raigad</option>
-                                <option>Thane</option>
+                                <!--<option>Thane</option>-->
                             </select>
                             <div class="validate-col" ng-if="formAthlete.city.$invalid && formAthlete.city.$touched">Select Your City</div>
                         </div>
@@ -713,8 +713,8 @@
                             <input ng-model="formData.registrationFee" type="radio" id="radio13" name="radio" value="online PAYU">
                             <label for="radio13" class="padd-lr sf-list" ng-click="show=6"><span></span>Online Payment</label>
                             <p ng-if="show==6" class="ft12">Online Payment: Selecting this option will enable you to pay the registration fee of Rs. 200
-                                (Inclusive of all applicable taxes) via one of the following methods: 4) Credit Card 5) Debit
-                                Card 6) Net Banking
+                                (Inclusive of all applicable taxes) via one of the following methods: 1) Credit Card 2) Debit
+                                Card 3) Net Banking
                             </p>
                             <!--<input ng-model="formData.registrationFee" type="radio" id="radio12" name="radio" value="cheque">
                             <label for="radio12" class="padd-lr sf-list"><span></span>Cheque</label>-->
@@ -727,7 +727,7 @@
                         </div>
                         <div class="form-group visible-xs">
                             <div class="">
-                                <input ng-model="formData.registrationFee" type="radio" id="radio11" name="radio" value="cash">
+                                <input ng-model="formData.registrationFee" type="radio" id="radio11" name="radioxs" value="cash">
                                 <label for="radio11" class="padd-lr sf-list" ng-click="show=5"><span></span>Cash/Cheque/Demand Draft</label>
                                 <p ng-if="show==5" class="ft12">
                                     Cash/Cheque/Demand Draft: Selecting this option will enable you to pay the registration fee of Rs. 200 (Inclusive of all
@@ -736,11 +736,11 @@
                                     to Roxy Cinema), Charni Road, Mumbai – 400004</p>
                             </div>
                             <div class="">
-                                <input ng-model="formData.registrationFee" type="radio" id="radio13" name="radio" value="online PAYU">
+                                <input ng-model="formData.registrationFee" type="radio" id="radio13" name="radioxs" value="online PAYU">
                                 <label for="radio13" class="padd-lr sf-list" ng-click="show=6"><span></span>Online Payment</label>
                                 <p ng-if="show==6" class="ft12">Online Payment: Selecting this option will enable you to pay the registration fee of Rs.200
-                                    (Inclusive of all applicable taxes) via one of the following methods: 4) Credit Card
-                                    5) Debit Card 6) Net Banking
+                                    (Inclusive of all applicable taxes) via one of the following methods: 1) Credit Card
+                                    2) Debit Card 3) Net Banking
                                 </p>
                             </div>
                         </div>
