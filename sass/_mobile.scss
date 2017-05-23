@@ -339,6 +339,19 @@
 .video {
          padding: 0px 95px 10px;
 }
+.ul-hide{
+    display: block;
+}
+.ul-show{
+  display: none;
+}
+.registration-img .sport-icon li {
+      width: 17%;
+      p{
+        font-size: 10px;
+      }
+}
+//end
   }
   
   @media (max-width:$screen-xs-max) {
@@ -1751,6 +1764,18 @@
 }
 .video {
          padding: 0px 49px 10px;
+}
+.ul-hide{
+    display: block;
+}
+.ul-show{
+  display: none;
+}
+.registration-img .sport-icon li {
+      width: 17%;
+      p{
+        font-size: 10px;
+      }
 }
   }
   
