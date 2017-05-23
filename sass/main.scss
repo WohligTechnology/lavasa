@@ -4996,7 +4996,7 @@
     }
 
     .professional-img {
-        padding: 0px 0px 50px 30px;
+        padding: 0px 0px 50px 20px;
     }
 
     .brand-blue {
@@ -5067,6 +5067,7 @@
         text-align: justify;
         font-weight: 600;
         font-size: 17px;
+        font-family: Titillium Web Bold;
     }
 
     .largest-list {
@@ -5094,7 +5095,7 @@
         padding: 40px 70px;
         p,
         li {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 400;
         }
         li {
@@ -5110,7 +5111,7 @@
             }
         }
         h3 {
-            font-family: Titillium Web Bold;
+            font-family: Futura Std Bold Condensed;
             color: #fff;
             font-size: 28px;
             margin-bottom: 20px;
@@ -5465,6 +5466,9 @@
         font-size: 20px;
         color: white;
         font-family: Titillium Web SemiBold;
+    }
+    .btn-category:focus{
+        outline: 0;
     }
 
     .categories {
@@ -6071,5 +6075,15 @@
         }
     }
 
+// Coming soon
+.com-category{
+        padding: 8px 25px;
+        border: none;
+        font-size: 20px;
+        color: white;
+        font-family: Titillium Web SemiBold;
+        width: 60%;
+
+}
     @import "fancybox-override";
     @import "mobile";
