@@ -246,21 +246,20 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             }
         });
 
-        $scope.bannerss = [
-            {
-            "img": "img/webresp.jpg",
-            "link": "https://sfanow.in/register"
-        }
-        //    {
-        //     "img": "img/sm1.jpg",
-        //     "link": "https://sfanow.in/school-ranking"
-        // }, {
-        //     "img": "img/sm2.jpg",
-        //     "link": "https://sfanow.in/students"
-        // }, {
-        //     "img": "img/sl4.jpg",
-        //     "link": "https://instagram.com/sfanow/"
-        // }
+        $scope.bannerss = [{
+                "img": "img/webresp.jpg",
+                "link": "https://sfanow.in/register"
+            }
+            //    {
+            //     "img": "img/sm1.jpg",
+            //     "link": "https://sfanow.in/school-ranking"
+            // }, {
+            //     "img": "img/sm2.jpg",
+            //     "link": "https://sfanow.in/students"
+            // }, {
+            //     "img": "img/sl4.jpg",
+            //     "link": "https://instagram.com/sfanow/"
+            // }
         ];
 
 
@@ -768,74 +767,73 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.showEmailOtpSuccess = {};
         $scope.showMobileOtpSuccess = {};
 
-        var isFormValid = function (form) {
-            if (!form.atheleteSchoolIdImage) {
-                $scope.openIdModal();
-                $timeout(function () {
-                    $scope.idInstances.close();
-                }, 3000)
-                // alert("School ID image is not uploaded");
-                // return false;
-            }
-            // else if (!form.photograph) {
-            //     $scope.openPhotoModal();
-            //     $timeout(function () {
-            //         $scope.modalInstances.close();
-            //     }, 1000)
-            //     // alert("Photograph not uploaded");
-            //     // return false;
-            // }
-            else if (!form.birthImage) {
-                // alert("Birth proof is not uploaded");
-                // return false;
-                $scope.openBirthModal();
-                $timeout(function () {
-                    $scope.birthInstances.close();
-                }, 3000)
-            } else if (form.ageProof == "hello" && !form.photoImage) {
-                // alert("Photo id not uploaded");
-                // return false;
-                $scope.openAgeModal();
-                $timeout(function () {
-                    $scope.ageInstances.close();
-                }, 3000)
-            } else {
-                return true;
-            }
-        }
-        var isRegistrationFee = function (form) {
-            if (!form.registrationFee) {
-                $scope.openPaymentModal();
-                $timeout(function () {
-                    $scope.paymentInstances.close();
-                }, 3000);
-            } else {
-                return true;
-            }
-        }
-
-        var isSchoolAdded = function (form) {
-            console.log('enter', form);
-            if (form.school || (form.atheleteSchoolName && form.atheleteSchoolLocality && form.atheleteSchoolContact)) {
-                console.log('enter true');
-                return true;
-            } else {
-                console.log('enter false');
-                $scope.openSchoolModal();
-                $timeout(function () {
-                    $scope.schoolInstances.close();
-                }, 3000);
-                // return false;
-
-            }
-        }
-
         //saves Athelete to database
         $scope.saveAthelete = function (formdata, formAthlete) { //formdata is data or body for this url
             console.log("Athlete data: ", formdata);
             // console.log('Value', $scope.isSchoolAdded(formdata));
             // $scope.isSchoolAdded(formdata);
 
+            var isFormValid = function (form) {
+                if (!form.atheleteSchoolIdImage) {
+                    $scope.openIdModal();
+                    $timeout(function () {
+                        $scope.idInstances.close();
+                    }, 3000)
+                    // alert("School ID image is not uploaded");
+                    // return false;
+                }
+                // else if (!form.photograph) {
+                //     $scope.openPhotoModal();
+                //     $timeout(function () {
+                //         $scope.modalInstances.close();
+                //     }, 1000)
+                //     // alert("Photograph not uploaded");
+                //     // return false;
+                // }
+                else if (!form.birthImage) {
+                    // alert("Birth proof is not uploaded");
+                    // return false;
+                    $scope.openBirthModal();
+                    $timeout(function () {
+                        $scope.birthInstances.close();
+                    }, 3000)
+                } else if (form.ageProof == "hello" && !form.photoImage) {
+                    // alert("Photo id not uploaded");
+                    // return false;
+                    $scope.openAgeModal();
+                    $timeout(function () {
+                        $scope.ageInstances.close();
+                    }, 3000)
+                } else {
+                    return true;
+                }
+            }
+            var isRegistrationFee = function (form) {
+                if (!form.registrationFee) {
+                    $scope.openPaymentModal();
+                    $timeout(function () {
+                        $scope.paymentInstances.close();
+                    }, 3000);
+                } else {
+                    return true;
+                }
+            }
+
+            var isSchoolAdded = function (form) {
+                console.log('enter', form);
+                if (form.school || (form.atheleteSchoolName && form.atheleteSchoolLocality && form.atheleteSchoolContact)) {
+                    console.log('enter true');
+                    return true;
+                } else {
+                    console.log('enter false');
+                    $scope.openSchoolModal();
+                    $timeout(function () {
+                        $scope.schoolInstances.close();
+                    }, 3000);
+                    // return false;
+
+                }
+            }
             if (!isSchoolAdded(formdata)) {
                 return;
             }

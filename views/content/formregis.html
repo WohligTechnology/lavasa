@@ -78,7 +78,7 @@
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">  *School Name:</label>
                         <div class="col-md-8 col-sm-8 col-xs-12">
-                            <input ng-model="formData.schoolName" only-alpha name="schoolName" type="text" class="sfa-drop form-control" required>
+                            <input ng-model="formData.schoolName" alpha-special name="schoolName" type="text" class="sfa-drop form-control" required>
                             <div class="validate-col" ng-show="formRegister.schoolName.$invalid && formRegister.schoolName.$touched">Please Enter Your School Name *</div>
                         </div>
                     </div>
@@ -395,7 +395,7 @@
                             <div class="form-group  d-padd pl13">
                                 <label class="col-md-3 col-sm-3 col-xs-12">Designation:</label>
                                 <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input type="text" name="designt" only-alpha class="bor-t form-control" ng-model="x.designation">
+                                    <input type="text" name="designt" alpha-special class="bor-t form-control" ng-model="x.designation">
                                     <!--<div class="validate-col" ng-show="formRegister.designt.$invalid && formRegister.designt.$touched">Please Enter Designation*</div>-->
                                 </div>
                                 <label class="col-md-2 col-sm-2 col-xs-12">Mobile:</label>
