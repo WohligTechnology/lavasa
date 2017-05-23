@@ -475,6 +475,8 @@
                                 <label for="Throwball" ng-class="{basketball:Throwball}">Throwball</label></p>
                             <p> <input type="checkbox" id="Volleyball" ng-click="addTeamSports('Volleyball')" />
                                 <label for="Volleyball" ng-class="{basketball:Volleyball}">Volleyball</label></p>
+                            <p> <input type="checkbox" id="Football" ng-click="addTeamSports('Football')" />
+                                <label for="Football" ng-class="{basketball:Football}">Football</label></p>
                         </div>
                         <div class="dis-inline">
                             <h4 class="blue fs-14">Racquet Sports
@@ -539,7 +541,7 @@
                         <div class="checkbox-custom">
                             <input type="checkbox" name="checkIhav" ng-checked="termsCheck(formData.termsAndCondition)" ng-model="formData.termsAndCondition"
                                 id="test5" />
-                            <label for="test5" class="sf-list" style="padding-left: 20px;"><span></span><a ng-click="termcondition()"> I have carefully read and understood the terms and conditions of this form / disclaimer / waiver and as described in this form / disclaimer / waiver and consent to all of them.</a></label>
+                            <label for="test5" class="sf-list custom-a" style="padding-left: 20px;"><span></span> I have carefully read and understood the <a ng-click="termcondition()" title="Click here"><strong>terms and conditions</strong></a> of this form / disclaimer / waiver and as described in this form / disclaimer / waiver and consent to all of them.</label>
                             <div class="validate-col" ng-show="showTerm">Please accept terms and condition</div>
                         </div>
                         <!--<p> <label class="sel-spo">Selected Sports:</label>Basketball, Football, Hockey</p>-->

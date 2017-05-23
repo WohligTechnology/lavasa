@@ -5100,6 +5100,7 @@
         }
         li {
             position: relative;
+            font-family: Titillium Web Regular;
             &:before {
                 content: '';
                 width: 7px;
@@ -5170,6 +5171,7 @@
         border: 1px solid white;
         margin-top: 30px;
         padding: 8px 0;
+        color: #fff;
     }
 
     .championship-content {
@@ -5968,6 +5970,15 @@
     .checkbox-custom {
         margin-bottom: 30px;
         margin-top: 5px;
+        .custom-a{
+            a{
+                font-family:Titillium Web SemiBold;
+                font-weight: bold;
+                &:hover{
+                     text-decoration: underline;       
+                } 
+            }
+        }
     }
 
     a {
@@ -6084,6 +6095,17 @@
         font-family: Titillium Web SemiBold;
         width: 60%;
 
+}
+
+//font-class
+.twsb{
+    font-family: Titillium Web SemiBold;
+}
+.twr{
+    font-family: Titillium Web Regular;
+}
+.font-boldcus{
+    font-weight: bold !important;
 }
     @import "fancybox-override";
     @import "mobile";

@@ -628,7 +628,7 @@
                         <div class="checkbox-custom">
                             <input type="checkbox" name="checkIhav" ng-checked="termsCheck(formData.termsAndCondition)" ng-model="formData.termsAndCondition"
                                 id="test5" />
-                            <label for="test5" class="sf-list" style="padding-left: 20px;"><span></span><a ng-click="termcondition()"> I have carefully read and understood the terms and conditions of this form / disclaimer / waiver and as described in this form / disclaimer / waiver and consent to all of them.</a></label>
+                            <label for="test5" class="sf-list custom-a" style="padding-left: 20px;"><span></span> I have carefully read and understood the <a ng-click="termcondition()" title="Click here"><strong>terms and conditions</strong></a> of this form / disclaimer / waiver and as described in this form / disclaimer / waiver and consent to all of them.</label>
                             <div class="validate-col" ng-show="showTerm">Please accept terms and condition</div>
                         </div>
                         <div class="box2" ng-repeat="x in formData.parentDetails track by $index">

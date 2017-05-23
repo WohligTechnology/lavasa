@@ -246,16 +246,22 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             }
         });
 
-        $scope.bannerss = [{
-            "img": "img/sm1.jpg",
-            "link": "https://sfanow.in/school-ranking"
-        }, {
-            "img": "img/sm2.jpg",
-            "link": "https://sfanow.in/students"
-        }, {
-            "img": "img/sl4.jpg",
-            "link": "https://instagram.com/sfanow/"
-        }];
+        $scope.bannerss = [
+            {
+            "img": "img/webresp.jpg",
+            "link": "https://sfanow.in/register"
+        }
+        //    {
+        //     "img": "img/sm1.jpg",
+        //     "link": "https://sfanow.in/school-ranking"
+        // }, {
+        //     "img": "img/sm2.jpg",
+        //     "link": "https://sfanow.in/students"
+        // }, {
+        //     "img": "img/sl4.jpg",
+        //     "link": "https://instagram.com/sfanow/"
+        // }
+        ];
 
 
     })
