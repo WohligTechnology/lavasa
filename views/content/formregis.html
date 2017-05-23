@@ -222,7 +222,7 @@
                             <option>Ulhasnagar</option>
                             <option>Vasai-Virar</option>
                             <option>Raigad</option>
-                            <option>Thane</option>
+                            <!--<option>Thane</option>-->
                         </select>
                             <div class="validate-col" ng-show="formRegister.city.$invalid && formRegister.city.$touched">Please Enter Your City*</div>
                         </div>
@@ -580,7 +580,7 @@
                     </div>
                     <div class="d-padd d-paddd visible-xs" ng-init="show=8">
                         <div class="">
-                            <input ng-model="formData.registrationFee" type="radio" id="radio02" name="radio" value="cash" required>
+                            <input ng-model="formData.registrationFee" type="radio" id="radio02" name="radioxs" value="cash" required>
                             <label for="radio02" class="padd-lr" ng-click="show=9"><span></span>Cash/Cheque/Demand Draft</label>
                             <p ng-if="show==9" class="ft12">Cash/Cheque/Demand Draft: Selecting this option will enable you to pay the registration fee of
                                 Rs. 12000 (Inclusive of all applicable taxes) by Cash/Cheque/Demand Draft in favour of ‘SFA
@@ -588,7 +588,7 @@
                                 Opera House (Next to Roxy Cinema),Charni Road, Mumbai – 400004</p>
                         </div>
                         <div class="">
-                            <input ng-model="formData.registrationFee" type="radio" id="radio03" name="radio" value="online PAYU" required>
+                            <input ng-model="formData.registrationFee" type="radio" id="radio03" name="radioxs" value="online PAYU" required>
                             <label for="radio03" class="padd-lr" ng-click="show=10"><span></span>Online Payment</label>
                             <p ng-if="show==10" class="ft12">Online Payment: Selecting this option will enable you to pay the registration fee of Rs. 12000
                                 (Inclusive of all applicable taxes) via one of the following methods: 1) Credit Card 2) Debit
