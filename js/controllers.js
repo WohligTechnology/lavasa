@@ -856,21 +856,13 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 formdata.school = "";
             }
 
-            if (formdata.termsAndCondition == undefined) {
+            // console.log('tnc', formdata.termsAndCondition);
+            if (formdata.termsAndCondition == undefined || formdata.termsAndCondition == false) {
                 $scope.showTerm = true;
 
             } else {
                 $scope.showTerm = false;
             }
-
-            // if (!_.isEmpty(formdata.sportLevel)) {
-            //     _.forEach(formdata.sportLevel, function (val) {
-            //         _.forEach(val, function (val1) {
-            //             sportLevelArray.push(val1);
-            //         });
-            //     });
-            // };
-            // formdata.sportLevel = $scope.formdata.sportLevel;
             formdata.sfaId = $scope.sfaId;
             formdata.school = $scope.schoolname;
 
@@ -1413,9 +1405,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 $scope.showTeamSports = true;
             }
 
-            if (formdata.termsAndCondition == undefined) {
+            if (formdata.termsAndCondition == undefined || formdata.termsAndCondition == false) {
                 $scope.showTerm = true;
-
             } else {
                 $scope.showTerm = false;
             }

@@ -91,7 +91,7 @@
                             <p class="text-center sf-list">or</p>
                             <p class="text-center sf-list">In case you do not find your school, click on add school.</p>
                             <div class="text-center">
-                                <button class="btn btn-default sub-mit sf-list" ng-click="goto()">Add School</button>
+                                <a class="btn btn-default sub-mit sf-list" ng-click="goto()">Add School</a>
                             </div>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                     <div class="form-group">
                         <label class="col-md-5 col-sm-5 col-xs-12 sf-list">*Upload School ID Card OR Report Card:</label>
                         <div class="col-md-5 col-sm-7 col-xs-12" ng-init="show=0">
-                            <!--<button class="btn btn-default myupload">Upload </button>-->
+                            <!--<a class="btn btn-default myupload">Upload </a>-->
                             <div class="dirctive-op pl13">
                                 <upload-image2 class="up-img schoolId ng-isolate-scope" ng-model="formData.atheleteSchoolIdImage" ng-disabled="type.disabled"
                                     ng-click="show=1" no-view></upload-image2>
@@ -241,7 +241,7 @@
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">Upload Photograph:</label>
                         <div class="col-md-9 col-sm-9 col-xs-12" ng-init="show=0">
-                            <!--<button class="btn btn-default myupload">Upload </button>-->
+                            <!--<a class="btn btn-default myupload">Upload </a>-->
                             <div class="dirctive-op pl13">
                                 <upload-image2 class="up-img photoGraph ng-isolate-scope" ng-model="formData.photograph" ng-click="show=1" ng-disabled="type.disabled"
                                     no-view></upload-image2>
@@ -287,13 +287,13 @@
                                 <option>PAN Card</option>
                                 <option>Passport</option>
                             </select>
-                            <!--<button class="btn btn-default myupload upload4">Upload</button>-->
+                            <!--<a class="btn btn-default myupload upload4">Upload</a>-->
 
                             <div class="dirctive-op upload5 Upload-Age">
                                 <upload-image2 class="up-img birthImg ng-isolate-scope" ng-model="formData.birthImage" no-view ng-disabled="type.disabled"></upload-image2>
                             </div>
 
-                            <!--<button class="btn btn-default myupload upload6" ng-show="formData.ageProof=='hello'" ng-click="show=1">Upload </button>-->
+                            <!--<a class="btn btn-default myupload upload6" ng-show="formData.ageProof=='hello'" ng-click="show=1">Upload </a>-->
                             <div class="dirctive-op upload7 Upload-Age" ng-show="formData.ageProof=='hello'">
                                 <upload-image2 class="up-img photoImg ng-isolate-scope" ng-disabled="type.disabled" no-view ng-model="formData.photoImage">
                                 </upload-image2>
@@ -437,8 +437,8 @@
                 <div class="box box-padd para2">
                     <div class="form-group hidden-xs">
                         <label class="mobileno-padd mobileno-mob sf-list">*Mobile No:</label>
-                        <input type="text" name="mobile" only-Digits ng-model="formData.mobile" class="bor-t" minlength="10" maxlength="10" required>
-                        <button class="btn btn-default sub-mit send-otp sf-list" ng-click="sendMobileOTP(formData.mobile)">Send OTP </button>
+                        <input type="text" name="mobile1" only-Digits ng-model="formData.mobile" class="bor-t" minlength="10" maxlength="10" required>
+                        <a class="btn btn-default sub-mit send-otp sf-list" ng-click="sendMobileOTP(formData.mobile)">Send OTP </a>
                         <label class="enter-otp sf-list"> *Enter OTP:</label>
                         <input type="text" ng-model="formData.smsOTP" ng-change="checkMobileOTP(formData.smsOTP)" class="bor-t width-100" required>
                         <div class="hover-img">
@@ -450,16 +450,16 @@
                                     will besent on the same.</p>
                             </div>
                         </div>
-                        <div class="validate-col noerrPosmobile" ng-if="formAthlete.mobile.$invalid && formAthlete.mobile.$touched">Please Enter Your Mobile No.</div>
-                        <div ng-if="formAthlete.mobile.$invalid && formAthlete.mobile.$touched" class="tr-right validate-col errPos" ng-show="showMobileOtpSuccess">Please Enter Correct Mobile OTP</div>
-                        <div ng-if="!(formAthlete.mobile.$invalid && formAthlete.mobile.$touched)" class="tr-right validate-col errPos1" ng-show="showMobileOtpSuccess">Please Enter Correct Mobile OTP</div>
+                        <div class="validate-col noerrPosmobile" ng-if="formAthlete.mobile1.$invalid && formAthlete.mobile1.$touched">Please Enter Your Mobile No.</div>
+                        <div ng-if="formAthlete.mobile1.$invalid && formAthlete.mobile1.$touched" class="tr-right validate-col errPos" ng-show="showMobileOtpSuccess">Please Enter Correct Mobile OTP</div>
+                        <div ng-if="!(formAthlete.mobile1.$invalid && formAthlete.mobile1.$touched)" class="tr-right validate-col errPos1" ng-show="showMobileOtpSuccess">Please Enter Correct Mobile OTP</div>
                     </div>
                     <div class="form-group visible-xs">
                         <div class="col-xs-12 d-padd">
                             <label class="mobileno-padd padd0">*Mobile No:</label>
                             <div class="padd0">
                                 <input type="text" name="mobile" only-Digits ng-model="formData.mobile" class="bor-t" minlength="10" maxlength="10" required>
-                                <button class="btn btn-default sub-mit send-otp sf-list" ng-click="sendMobileOTP(formData.mobile)">Send OTP </button>
+                                <a class="btn btn-default sub-mit send-otp sf-list" ng-click="sendMobileOTP(formData.mobile)">Send OTP </a>
                                 <div class="validate-col noerrPosmobile" ng-if="formAthlete.mobile.$invalid && formAthlete.mobile.$touched">Please Enter Your Mobile No.</div>
                             </div>
                             <div class="padd0">
@@ -477,20 +477,20 @@
                                 <div ng-if="formAthlete.mobile.$invalid && formAthlete.mobile.$touched" class="tr-right validate-col errPos padd0" ng-show="showMobileOtpSuccess">Please Enter Correct Mobile OTP</div>
                                 <div ng-if="!(formAthlete.mobile.$invalid && formAthlete.mobile.$touched)" class="tr-right validate-col errPos1 padd0" ng-show="showMobileOtpSuccess">Please Enter Correct Mobile OTP</div>
                             </div>
-                            <!--<button class="btn btn-default sub-mit send-otp verify-otp-regis" ng-click="checkOTP(formData.enterOTP)">Verify OTP </button>-->
+                            <!--<a class="btn btn-default sub-mit send-otp verify-otp-regis" ng-click="checkOTP(formData.enterOTP)">Verify OTP </a>-->
                             <!--only-Digits removed-->
                         </div>
                     </div>
                     <div class="form-group hidden-xs">
                         <label class="emailid-padd email-mob3 sf-list">*Email:</label>
-                        <input type="email" name="email" ng-model="formData.email" class="bor-t" required>
-                        <button class="btn btn-default sub-mit send-otp sf-list" ng-click="sendEmailOTP(formData.email)">Send OTP </button>
+                        <input type="email" name="email1" ng-model="formData.email" class="bor-t" required>
+                        <a class="btn btn-default sub-mit send-otp sf-list" ng-click="sendEmailOTP(formData.email)">Send OTP </a>
                         <label class="enter-otp sf-list"> *Enter OTP:</label>
                         <input type="text" ng-model="formData.emailOTP" ng-change="checkEmailOTP(formData.emailOTP)" class="bor-t width-100" required>
-                        <div class="validate-col noerrPos" ng-if="formAthlete.email.$invalid && formAthlete.email.$touched">Please Enter Your Email Id</div>
-                        <div ng-if="!(formAthlete.email.$invalid && formAthlete.email.$touched)" class="tr-right validate-col errPos1" ng-show="showEmailOtpSuccess">Please Enter Correct Email OTP</div>
-                        <div ng-if="formAthlete.email.$invalid && formAthlete.email.$touched" class="tr-right validate-col errPos" ng-show="showEmailOtpSuccess">Please Enter Correct Email OTP</div>
-                        <!--<button class="btn btn-default sub-mit send-otp verify-otp sf-list" ng-change="checkEmailOTP(formData.emailOTP)">Verify OTP </button>-->
+                        <div class="validate-col noerrPos" ng-if="formAthlete.email1.$invalid && formAthlete.email1.$touched">Please Enter Your Email Id</div>
+                        <div ng-if="!(formAthlete.email1.$invalid && formAthlete.email1.$touched)" class="tr-right validate-col errPos1" ng-show="showEmailOtpSuccess">Please Enter Correct Email OTP</div>
+                        <div ng-if="formAthlete.email1.$invalid && formAthlete.email1.$touched" class="tr-right validate-col errPos" ng-show="showEmailOtpSuccess">Please Enter Correct Email OTP</div>
+                        <!--<a class="btn btn-default sub-mit send-otp verify-otp sf-list" ng-change="checkEmailOTP(formData.emailOTP)">Verify OTP </a>-->
                         <!--only-Digits removed from upper line-->
                         <!--<div class="hover-img">
                                     <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
@@ -508,7 +508,7 @@
                             <label class="mobileno-padd padd0">*Email:</label>
                             <div class="padd0">
                                 <input type="email" name="email" ng-model="formData.email" class="bor-t" required>
-                                <button class="btn btn-default sub-mit send-otp sf-list" ng-click="sendEmailOTP(formData.email)">Send OTP </button>
+                                <a class="btn btn-default sub-mit send-otp sf-list" ng-click="sendEmailOTP(formData.email)">Send OTP </a>
                                 <div class="validate-col noerrPos" ng-if="formAthlete.email.$invalid && formAthlete.email.$touched">Please Enter Your Email Id</div>
                             </div>
                             <div class="">
@@ -517,7 +517,7 @@
                                 <div ng-if="!(formAthlete.email.$invalid && formAthlete.email.$touched)" class="tr-right validate-col errPos1 padd0" ng-show="showEmailOtpSuccess">Please Enter Correct Email OTP</div>
                                 <div ng-if="formAthlete.email.$invalid && formAthlete.email.$touched" class="tr-right validate-col errPos padd0" ng-show="showEmailOtpSuccess">Please Enter Correct Email OTP</div>
                             </div>
-                            <!--<button class="btn btn-default sub-mit send-otp verify-otp-regis" ng-click="checkOTP(formData.enterOTP)">Verify OTP </button>-->
+                            <!--<a class="btn btn-default sub-mit send-otp verify-otp-regis" ng-click="checkOTP(formData.enterOTP)">Verify OTP </a>-->
                             <!--only-Digits removed-->
                         </div>
                     </div>

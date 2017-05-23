@@ -127,7 +127,7 @@
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">Upload School Logo:</label>
                         <!--<input type="file" />-->
                         <div class="col-md-9 col-sm-9 col-xs-12" ng-init="show=0">
-                            <!--<button class="btn btn-default myupload">Upload </button>-->
+                            <!--<a class="btn btn-default myupload">Upload </a>-->
                             <div class="dirctive-op pl13">
                                 <upload-image2 class="up-img schoolLogo ng-isolate-scope" ng-disabled="type.disabled" ng-model="formData.schoolLogo" ng-click="show=1"
                                     no-view></upload-image2>
@@ -303,13 +303,16 @@
                             <div class="form-group hidden-xs">
                                 <div class="col-md-12 col-sm-12 col-xs-12 d-padd pl13">
                                     <label class="mobileno-padd padd-bott">*Email:</label>
-                                    <input ng-model="formData.email" type="email" class="bor-t" required>
-                                    <button class="btn btn-default sub-mit send-otp" ng-click="sendOTP(formData.email)">Send OTP </button>
+                                    <input name="email1" ng-model="formData.email" type="email" class="bor-t" required>
+                                    <a class="btn btn-default sub-mit send-otp" ng-click="sendOTP(formData.email)">Send OTP </a>
                                     <label class="enter-otp"> *Enter OTP:</label>
                                     <input ng-model="formData.enterOTP" ng-change="checkOTP(formData.enterOTP)" only-Digits type="text" maxlength="4" class="bor-t width-100"
                                         required>
-                                    <div class="validate-col otp-text-div" ng-show="showOtpSuccess">Please Enter Correct OTP</div>
-                                    <!--<button class="btn btn-default sub-mit send-otp verify-otp-regis" ng-click="checkOTP(formData.enterOTP)">Verify OTP </button>-->
+                                    <!--<div class="validate-col otp-text-div" ng-show="showOtpSuccess">Please Enter Correct OTP</div>-->
+                                    <div class="validate-col noerrPos" ng-if="formRegister.email1.$invalid && formRegister.email1.$touched">Please Enter Your Email Id</div>
+                                    <div ng-if="!(formRegister.email1.$invalid && formRegister.email1.$touched)" class="tr-right validate-col otp-text-div" ng-show="showOtpSuccess">Please Enter Correct Email OTP</div>
+                                    <div ng-if="formRegister.email1.$invalid && formRegister.email1.$touched" class="tr-right validate-col errPos" ng-show="showOtpSuccess">Please Enter Correct Email OTP</div>
+                                    <!--<a class="btn btn-default sub-mit send-otp verify-otp-regis" ng-click="checkOTP(formData.enterOTP)">Verify OTP </a>-->
                                     <!--only-Digits removed-->
                                 </div>
                             </div>
@@ -317,16 +320,19 @@
                                 <div class="col-md-12 col-sm-12 col-xs-12 d-padd pl13">
                                     <label class="mobileno-padd">*Email:</label>
                                     <div class="pl13">
-                                        <input ng-model="formData.email" type="email" class="bor-t" required>
-                                        <button class="btn btn-default sub-mit send-otp" ng-click="sendOTP(formData.email)">Send OTP </button>
+                                        <input name="email2" ng-model="formData.email" type="email" class="bor-t" required>
+                                        <a class="btn btn-default sub-mit send-otp" ng-click="sendOTP(formData.email)">Send OTP </a>
+                                        <div class="validate-col noerrPos" ng-if="formRegister.email2.$invalid && formRegister.email2.$touched">Please Enter Your Email Id</div>
                                     </div>
                                     <div class="">
                                         <label class="enter-otp padd13"> *Enter OTP:</label>
                                         <input ng-model="formData.enterOTP" ng-change="checkOTP(formData.enterOTP)" only-Digits type="text" maxlength="4" class="bor-t width-100"
                                             required>
-                                        <div class="validate-col pl18" ng-show="showOtpSuccess">Please Enter Correct OTP</div>
+                                        <!--<div class="validate-col pl18" ng-show="showOtpSuccess">Please Enter Correct OTP</div>-->
+                                        <div ng-if="!(formRegister.email2.$invalid && formRegister.email2.$touched)" class="tr-right validate-col errPos1" ng-show="showOtpSuccess">Please Enter Correct Email OTP</div>
+                                        <div ng-if="formRegister.email2.$invalid && formRegister.email2.$touched" class="tr-right validate-col errPos" ng-show="showOtpSuccess">Please Enter Correct Email OTP</div>
                                     </div>
-                                    <!--<button class="btn btn-default sub-mit send-otp verify-otp-regis" ng-click="checkOTP(formData.enterOTP)">Verify OTP </button>-->
+                                    <!--<a class="btn btn-default sub-mit send-otp verify-otp-regis" ng-click="checkOTP(formData.enterOTP)">Verify OTP </a>-->
                                     <!--only-Digits removed-->
                                 </div>
                             </div>
@@ -422,7 +428,7 @@
                                 <!--<input type="file" />-->
                                 <div class="col-md-8 col-sm-8 col-xs-12" ng-init="show=0">
                                     <!--<upload-image2 class="up-img" no-view required ng-model="x.photo"></upload-image2>-->
-                                    <!--<button class="btn btn-default myupload">Upload </button>-->
+                                    <!--<a class="btn btn-default myupload">Upload </a>-->
                                     <div class="dirctive-op pl13">
                                         <upload-image2 class="up-img arrayPhoto ng-isolate-scope" ng-model="x.photograph" ng-click="show=1" no-view></upload-image2>
                                     </div>
