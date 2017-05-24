@@ -247,12 +247,12 @@
                                     no-view></upload-image2>
                             </div>
                             <div class="display-inline padd-l38">
-                                <div class="w150" ng-if="show==1 && formData.photograph != ''">
+                                <div class="w150" ng-if="show==1 && formData.photograph">
                                     <img src="{{formData.photograph |serverimage2}}" class="img-resopnsive w100">
                                 </div>
                             </div>
 
-                            <div class="hover-img" ng-if="show==1 && formData.photograph != ''">
+                            <div class="hover-img" ng-if="show==1 && formData.photograph">
                                 <img src="img/icon/x.png" alt="logo" ng-click="removePhoto(formData.photograph,
                 'photoGraph')" class="img-responsive myicon">
                             </div>
@@ -300,7 +300,7 @@
                             </div>
                             <!--<label class=" myupload2">  <upload-image2 class="up-img" no-view></upload-image2></label>-->
                             <!--<label class=" myupload"><upload-image2 class="up-img" ng-show="myVar=='hello'" no-view></upload-image2></label>-->
-                            <div class="hover-img" ng-if="formData.ageProof !='hello' && formData.birthImage != ''">
+                            <div class="hover-img" ng-if="formData.ageProof !='hello' && formData.birthImage">
                                 <!--<div class=" padd-l38 display-block float-r">
                                     <div class="w150" ng-if="show==1 && formData.photoImage">
                                         <img src="img/icon/x.png" alt="logo" ng-click="removeProof1(formData.photoImage,
