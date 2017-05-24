@@ -96,6 +96,7 @@
       margin-left: 110px;
     } //end of header
     //scss for championship page
+ 
     .pb60 {
       padding-bottom: 0px;
     }
@@ -1792,6 +1793,19 @@
       p{
         font-size: 10px;
       }
+}
+.f-w{
+  p,
+  li{
+ font-weight: 600;
+  }
+ 
+}
+.blue-sec li:before {
+  top:-1px;
+}
+   .championship-content {
+    padding: 0px 15px 20px 15px;
 }
 //end
 
