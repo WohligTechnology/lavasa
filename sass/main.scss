@@ -5159,7 +5159,12 @@
             margin-bottom: 30px;
         }
     }
-
+.md-hidden{
+    display: none;
+}
+.xs-hidden{
+    display: block;
+}
     .list-coach {
         padding: 30px 40px;
     }
