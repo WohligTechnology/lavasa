@@ -91,14 +91,14 @@
                             <p class="text-center sf-list">or</p>
                             <p class="text-center sf-list">In case you do not find your school, click on add school.</p>
                             <div class="text-center">
-                                <a class="btn btn-default sub-mit sf-list" ng-click="goto()">Add School</a>
+                                <a class="btn btn-default sub-mit sf-list" ng-disabled="oneClick == true" ng-click="goto()">Add School</a>
                             </div>
                         </div>
                     </div>
-                    <div ng-if="showSchool">
+                    <div ng-if="showSchool && !formData.school">
                         <div>
                             <div class="x-img3">
-                                <div class="x-img right27" ng-click="goto()">
+                                <div class="x-img right27" ng-click="goToPrevious()">
                                     <img src="img/icon/x.png" alt="logo" class="img-responsive pull-right">
                                 </div>
                             </div>

@@ -753,6 +753,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.sportsLevelArray.push({});
         $scope.m = 0;
         $scope.form = {};
+        $scope.oneClick = false;
         //$scope.searchTerm = [];
 
         $scope.firstTime = 0;
@@ -1093,7 +1094,18 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         };
 
         $scope.goto = function () {
+            if ($scope.oneClick == false) {
+                $scope.showSchool = !$scope.showSchool;
+                $scope.oneClick = true;
+            }
+        }
+
+        $scope.goToPrevious = function () {
             $scope.showSchool = !$scope.showSchool;
+            $scope.formData.atheleteSchoolName = '';
+            $scope.formData.atheleteSchoolLocality = '';
+            $scope.formData.atheleteSchoolContact = '';
+            $scope.oneClick = false;
         }
 
         // $scope.formData.sportLevel = _.chunk($scope.sportsLevelArray, 3);

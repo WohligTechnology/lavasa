@@ -266,7 +266,7 @@
                                 <div class=" d-padd pl13">
                                     <label class="col-md-3 col-sm-3 col-xs-12">  *Landline:</label>
                                     <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <input ng-model="formData.landline" name="regisLandline" only-Digits type="text" class="bor-t form-control" required minlength="11"
+                                        <input ng-model="formData.landline" name="regisLandline" only-Digits type="text" class="bor-t form-control" minlength="11"
                                             maxlength="11" required>
                                         <div class="validate-col" ng-show="formRegister.regisLandline.$invalid && formRegister.regisLandline.$touched">Please Enter Your Landline With STD Code</div>
                                         <!--only-Digits removed-->
@@ -356,7 +356,7 @@
                             </div>
                             <label class="col-md-2 col-sm-2 col-xs-12">Landline:</label>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <input ng-model="formData.schoolPrincipalLandline" only-Digits type="text" class="bor-t form-control">
+                                <input ng-model="formData.schoolPrincipalLandline" only-Digits type="text" class="bor-t form-control" minlength="11" maxlength="11">
                                 <!--only-Digits-->
                             </div>
                             <!--<div class="col-md-6 col-sm-6 col-xs-12">
@@ -406,7 +406,7 @@
                                 </div>
                                 <label class="col-md-2 col-sm-2 col-xs-12">Mobile:</label>
                                 <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input type="text" only-Digits ng-model="x.mobile" name="deptSch" only-Digits class="bor-t form-control">
+                                    <input type="text" only-Digits ng-model="x.mobile" name="deptSch" class="bor-t form-control" minlength="10" maxlength="10">
                                     <!--<div class="validate-col" ng-show="formRegister.designt.$invalid && formRegister.designt.$touched">Please Enter Designation*</div>-->
                                 </div>
                                 <!--<div class="col-md-6 col-sm-6 col-xs-12">
