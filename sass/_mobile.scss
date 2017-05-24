@@ -363,6 +363,7 @@
 .iconinfo3 {
     width: 422px;
 }
+
   }
   
   @media (max-width:$screen-xs-max) {
@@ -1580,6 +1581,7 @@
     .myicon {
       width: 17px;
       height: 17px;
+      margin: 5px;
     }
     .myupload2 {
       padding-right: 23px;
@@ -1805,6 +1807,16 @@
 .iconinfo3 {
     width: 320px;
     margin-left: -204px;
+}
+.w150 {
+    width: 85px;
+}
+.step1 {
+  font-size: 14px;
+}
+.x-img {
+      top: 294px;
+          right: 19px;
 }
   }
   
