@@ -133,13 +133,13 @@
                                     no-view></upload-image2>
                             </div>
                             <div class="display-inline padd-l38">
-                                <div class="w150" ng-if="show==1 && formData.schoolLogo">
+                                <div class="w150" ng-if="show==1 && formData.schoolLogo != ''">
                                     <img src="{{formData.schoolLogo |serverimage2}}" class="img-resopnsive w100">
                                 </div>
                             </div>
                             <!--<upload-image2 ng-model="formData.schoolLogo" ng-disabled="type.disabled"></upload-image2>-->
                             <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
-                            <div class="hover-img" ng-if="show==1 && formData.schoolLogo">
+                            <div class="hover-img" ng-if="show==1 && formData.schoolLogo != ''">
                                 <img src="img/icon/x.png" alt="logo" class="img-responsive myicon" ng-click="removeImage(formData.schoolLogo, 'schoolLogo')">
                             </div>
                             <div class="hover-img">
@@ -433,11 +433,11 @@
                                         <upload-image2 class="up-img arrayPhoto ng-isolate-scope" ng-model="x.photograph" ng-click="show=1" no-view></upload-image2>
                                     </div>
                                     <div class="display-inline padd-l38">
-                                        <div class="w150" ng-if="show==1 && x.photograph">
+                                        <div class="w150" ng-if="show==1 && x.photograph != ''">
                                             <img src="{{x.photograph |serverimage2}}" class="img-resopnsive w100">
                                         </div>
                                     </div>
-                                    <div class="hover-img" ng-if="show==1 && x.photograph">
+                                    <div class="hover-img" ng-if="show==1 && x.photograph != ''">
                                         <img src="img/icon/x.png" alt="logo" class="img-responsive myicon" ng-click="removeArrayImage($index, 'arrayPhoto')">
                                     </div>
                                     <!--<i class="fa fa-info-circle" aria-hidden="true"></i>-->
