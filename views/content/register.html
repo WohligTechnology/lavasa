@@ -62,7 +62,7 @@
                         </li>
                         <li>
                             <img src="img/icon/11_Table-Tennis.png" class="img-responsive">
-                            <p>TableTennis</p>
+                            <p>Table Tennis</p>
                         </li>
                         <li>
                             <img src="img/icon/12_Squash.png" class="img-responsive">
@@ -225,7 +225,7 @@
             </ul>
             <ul class="list-unstyled date-venue">
                 <li>Dates: 1st Dec – 23th Dec 2017* </li>
-                <li>Venue: DY Patil Sports Acedemy, Nerul</li>
+                <li>Venue: DY Patil Sports Academy, Nerul</li>
             </ul>
 
             <div class="venue-bottom ">
@@ -239,12 +239,12 @@
     </div>
     <div class="categories">
         <h1 class="text-center">Register for SFA Mumbai 2017</h1>
-        <p class="text-center step">Step 1 : School / Athlete Registrations & Verification</p>
+        <p class="text-center step">Step 1 : School / Athlete Registration & Verification</p>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="school-registration">
                     <div class="btn-school text-center">
-                        <p>School Registrations</p>
+                        <p>School Registration</p>
                         <div class="school-icon">
                             <img src="img/icon/2.png" class="img-responsive">
                         </div>
@@ -257,7 +257,7 @@
                         </p>
                         <ul class="list-unstyled school-list">
                             <li>Fill out the online ‘School Registration Form’ & submit for verification</li>
-                            <li>Make a payment towards registration fees</li>
+                            <li>Make a payment  of Rs 12,000 (inclusive of all applicable taxes) towards registration fees</li>
                             <li>Receive SFA school verification along with a unique SFA ID & Password</li>
                             <li>Proceed to register athletes from your school for Sports Registration</li>
                         </ul>
@@ -281,7 +281,7 @@
                         </p>
                         <ul class="list-unstyled athlete-list f-s">
                             <li> Fill out the online ‘Athlete Registration Form’ and submit it along with a Photo ID for verification</li>
-                            <li>Make payment towards registration fees</li>
+                            <li>Make payment of 200 (inclusive of all applicable taxes) towards registration fees</li>
                             <li>Receive SFA athlete verification along with a unique SFA ID & Password</li>
                             <li>Proceed to register for Sports Registration</li>
                         </ul>
@@ -423,12 +423,14 @@
     </div>
 </div>
 <div class="tab-register ">
-    <div class="registration side-menu menu-out menu-in">
+    <div class="registration side-menu menu-out menu-in" ng-mouseleave="closeMenu();">
         <div class="tab-img dis-bloc" ng-if="closeReg == true">
-            <img src=" img/icon/reg.png " class="img-responsive" ng-click="closeMenu();">
+            <img src=" img/icon/reg.png " class="img-responsive">
+            <!--<img src=" img/icon/reg.png " class="img-responsive" ng-click="closeMenu();">-->
         </div>
         <div class="tab-img dis-bloc" ng-if="closeReg == false">
-            <img src=" img/icon/reg.png " class="img-responsive" ng-click="getMenu();">
+            <img src=" img/icon/reg.png " class="img-responsive" ng-mouseover="getMenu();">
+            <!--<img src=" img/icon/reg.png " class="img-responsive" ng-click="getMenu();">-->
         </div>
         <div class="btn-tab dis-bloc ">
             <a href="img/pdf/sfa_athelete_group.pdf " target="_new ">
@@ -438,12 +440,13 @@
 
     </div>
     <div class="tab1">
-        <div class="age-event menu-in1  menu-out side-menu1">
+        <div class="age-event menu-in1  menu-out side-menu1" ng-mouseleave="closeMenu1();">
             <div class="tab-img dis-bloc" ng-if="closeAge == true">
-                <img src="img/icon/age.png " class="img-responsive " ng-click="closeMenu1();">
+                <img src="img/icon/age.png " class="img-responsive " >
+                <!--<img src="img/icon/age.png " class="img-responsive " ng-click="closeMenu1();">-->
             </div>
             <div class="tab-img dis-bloc" ng-if="closeAge == false">
-                <img src="img/icon/age.png " class="img-responsive " ng-click="getMenu1();">
+                <img src="img/icon/age.png " class="img-responsive " ng-mouseover="getMenu1();">
             </div>
             <div class="btn-tab dis-bloc">
                 <a href="img/pdf/sfa_agegroup_event.pdf " target="_new ">
