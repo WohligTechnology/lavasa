@@ -105,8 +105,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 col-sm-3 col-xs-12 sf-list">  *School Name:</label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <input type="text" alpha-special ng-model="formData.atheleteSchoolName" name="schoolName" class="sfa-drop sf-list form-control"
-                                        required>
+                                    <input type="text" ng-model="formData.atheleteSchoolName" name="schoolName" class="sfa-drop sf-list form-control" required>
                                     <div class="validate-col" ng-if="formAthlete.schoolName.$invalid && formAthlete.schoolName.$touched">Please Enter Your School Name</div>
                                 </div>
                             </div>
@@ -153,10 +152,8 @@
                                 </div>
                             </div>
                             <label class="kindly-up up-m175 sf-list">Kindly upload only .jpg or .png format. Maximum file size 1MB.</label>
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         <div class="col-sm-12">
                             <h4 class="blue fs-14">Athlete Details</h4>
@@ -215,7 +212,6 @@
                             </select>
                             <div class="validate-col" ng-if="formAthlete.gradestd.$invalid && formAthlete.gradestd.$touched">Select Grade/Standard</div>
                         </div>
-
                         <label class="col-md-2 col-sm-2 col-xs-12 sf-list blood-mob">  Blood Group:</label>
                         <!--<input type="text" class="bor-t" required minlength="10" maxlength="10">-->
                         <div class="col-md-3 col-sm-3 col-xs-11">
@@ -251,7 +247,6 @@
                                     <img src="{{formData.photograph |serverimage2}}" class="img-resopnsive w100">
                                 </div>
                             </div>
-
                             <div class="hover-img" ng-if="show==1 && formData.photograph">
                                 <img src="img/icon/x.png" alt="logo" ng-click="removePhoto(formData.photograph,
                 'photoGraph')" class="img-responsive myicon">
@@ -288,11 +283,9 @@
                                 <option>Passport</option>
                             </select>
                             <!--<a class="btn btn-default myupload upload4">Upload</a>-->
-
                             <div class="dirctive-op upload5 Upload-Age">
                                 <upload-image2 class="up-img birthImg ng-isolate-scope" ng-model="formData.birthImage" no-view ng-disabled="type.disabled"></upload-image2>
                             </div>
-
                             <!--<a class="btn btn-default myupload upload6" ng-show="formData.ageProof=='hello'" ng-click="show=1">Upload </a>-->
                             <div class="dirctive-op upload7 Upload-Age" ng-show="formData.ageProof=='hello'">
                                 <upload-image2 class="up-img photoImg ng-isolate-scope" ng-disabled="type.disabled" no-view ng-model="formData.photoImage">
@@ -315,7 +308,6 @@
                                         <img src="{{formData.birthImage |serverimage2}}" class="img-resopnsive w100">
                                     </div>
                                 </div>
-
                                 <div class="hover-img" style="margin-left:18px">
                                     <img src="img/icon/x.png" alt="logo" ng-click="removeProof(formData.birthImage,
                 'birthImg')" class="img-responsive myicon">
@@ -332,12 +324,11 @@
                             </div>
                             <div class="hover-img">
                                 <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
-                                <div class="iconinfo age sf-list">
+                                <div class="iconinfo icon-msrl age sf-list">
                                     <p>For age verification</p>
                                 </div>
                             </div>
                             <div class="validate-col" ng-if="formAthlete.ageProof.$invalid && formAthlete.ageProof.$touched">Select Age Proof</div>
-
                             <div ng-if="formData.ageProof=='hello'">
                                 <div class=" padd-l38 display-block float-r" ng-if="formData.photoImage != ''">
                                     <!--ng-if="formData.birthImage && formData.photoImage"-->
@@ -364,7 +355,6 @@
                             <div class="text-right">
                                 <label class="kindly-up up-m175">Kindly upload only .jpg or .png format. Maximum file size 1MB.</label>
                             </div>
-
                         </div>
                     </div>
                     <div class="form-group">
@@ -376,7 +366,6 @@
                             <label for="radio08" class="padd-lr sf-list"><span></span>No</label>
                         </div>
                     </div>
-
                     <div class="box3 box3-display" ng-repeat="(sportLevelIndex,sportLevel) in formData.sportLevel">
                         <div class="x-img2">
                             <img src="img/icon/x.png" ng-click="removeSportLevelForm(sportLevelIndex)" alt="logo" class="img-responsive myicon pull-right"
@@ -395,31 +384,32 @@
                             <label class="sportlevel sf-list">Sport:</label>
                             <select class="sfa-drop2 sf-list" ng-model="sportLevel.sport" required>
                            <option style="display:none"></option>
-                           <option>Basketball</option>
-                           <option>Volleyball</option>
-                           <option>Throwball</option>
-                           <option>Handball</option>
-                           <option>Kho Kho</option>
-                           <option>Hockey</option>
-                           <option>Football</option>
-                           <option>Kabaddi</option>
+                            <option>Archery</option>
+                            <option>Athletics</option>
+                          
                            <option>Badminton</option>
-                           <option>Tennis</option>
-                           <option>Table Tennis</option>
-                           <option>Squash</option>
-                           <option>Judo</option>
-                           <option>Karate</option>
-                           <option>Sports MMA</option>
+                            <option>Basketball</option>
                            <option>Boxing</option>
-                           <option>Taekwondo</option>
-                           <option>Fencing</option>
-                           <option>Archery</option>
-                           <option>Shooting</option>
-                           <option>Swimming</option>
-                           <option>Waterpolo</option>
-                           <option>Athletics</option>
                            <option>Carrom</option>
                            <option>Chess</option>
+                           <option>Fencing</option>
+                           <option>Football</option>
+                           <option>Handball</option>
+                           <option>Hockey</option>
+                           <option>Judo</option>
+                           <option>Kabaddi</option>
+                           <option>Karate</option>
+                           <option>Kho Kho</option>
+                           <option>Shooting</option>
+                           <option>Squash</option>
+                           <option>Sports MMA</option>
+                           <option>Swimming</option>
+                           <option>Table Tennis</option>
+                           <option>Taekwondo</option>
+                           <option>Tennis</option>
+                           <option>Throwball</option>
+                           <option>Volleyball</option>
+                           <option>Waterpolo</option>
                         </select>
                         </div>
                         <div class="plus">
@@ -564,7 +554,6 @@
                             </select>
                             <div class="validate-col" ng-if="formAthlete.district.$invalid && formAthlete.district.$touched">Select Your District</div>
                         </div>
-
                         <!--<div class="col-md-6 col-sm-6 col-xs-12">
                             <label class="padd-right dist-mob sf-list">*District:</label>
                             <select class="sfa-drop2 w147 sf-list" name="district" ng-model="formData.district" required>
@@ -656,7 +645,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-2 col-sm-2 col-xs-12 sf-list">*Name:</label>
+                                    <label class="col-md-2 col-sm-2 col-xs-12 sf-list">*First Name:</label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
                                         <input ng-model="x.name" only-alpha type="text" name="parentName" class="sfa-drop form-control" required>
                                         <div class="validate-col" ng-if="formAthlete.parentName.$invalid && formAthlete.parentName.$touched">Please Enter Your Parent Name</div>
@@ -718,7 +707,6 @@
                             </p>
                             <!--<input ng-model="formData.registrationFee" type="radio" id="radio12" name="radio" value="cheque">
                             <label for="radio12" class="padd-lr sf-list"><span></span>Cheque</label>-->
-
                             <p ng-if="show==5" class="ft12">
                                 Cash/Cheque/Demand Draft: Selecting this option will enable you to pay the registration fee of Rs. 200 (Inclusive of all
                                 applicable taxes) by Cash/Cheque/Demand Draft in favour of ‘SFA Events Private Limited’ which
@@ -753,7 +741,6 @@
         </div>
     </div>
 </div>
-
 <!--</div>
 </div>
 </div>

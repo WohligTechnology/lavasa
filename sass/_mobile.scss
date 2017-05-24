@@ -352,6 +352,17 @@
       }
 }
 //end
+//formathlete
+.iconinfo {
+      margin-left: -314px;
+      padding: 8px;
+}
+.icon-msrl{
+   margin-left: 16px;
+}
+.iconinfo3 {
+    width: 422px;
+}
   }
   
   @media (max-width:$screen-xs-max) {
@@ -1699,6 +1710,9 @@
       top: -75px;
       left: 96px;
     }
+    .date-venue li {
+      // display: none;
+    }
     .category-padding-athelet {
     padding: 19px 15px 30px;
 }
@@ -1776,6 +1790,21 @@
       p{
         font-size: 10px;
       }
+}
+//end
+
+//formregis start
+.w478 {
+    width: 310px;
+}
+.iconinfo {
+      margin-left: -160px;
+          font-size: 14px;
+              padding: 8px;
+}
+.iconinfo3 {
+    width: 320px;
+    margin-left: -204px;
 }
   }
   
