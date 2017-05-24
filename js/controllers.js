@@ -865,6 +865,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 $scope.showTerm = false;
             }
             formdata.sfaId = $scope.sfaId;
+            formdata.age = $scope.age;
             formdata.school = $scope.schoolname;
 
             $scope.url = "Athelete/saveAthelete";
@@ -885,11 +886,18 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                                 $scope.openModal();
                             }
                         } else {
-                            console.log("User Already Exist");
-                            $scope.openExistModal();
-                            $timeout(function () {
-                                $scope.existInstances.close();
-                            }, 3000);
+                            if (data.error == 'Athlete Already Exist') {
+                                console.log("User Already Exist");
+                                $scope.openExistModal();
+                                $timeout(function () {
+                                    $scope.existInstances.close();
+                                }, 3000);
+                            } else {
+                                $scope.openErrModal();
+                                $timeout(function () {
+                                    $scope.errInstances.close();
+                                }, 3000);
+                            }
                         }
                     });
                 }
@@ -972,7 +980,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.ageCalculate = function (birthday) {
             var ageDifMs = Date.now() - birthday.getTime();
             var ageDate = new Date(ageDifMs); // miliseconds from epoch
-            return Math.abs(ageDate.getUTCFullYear() - 1970);
+            $scope.age = Math.abs(ageDate.getUTCFullYear() - 1970);
+            return $scope.age;
         }
 
         $scope.sendMobileOTP = function (mobile) {
@@ -1198,6 +1207,17 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             });
         };
 
+        $scope.openErrModal = function () {
+            $scope.errInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/err.html"
+            });
+        };
+
         $scope.openExistModal = function () {
             $scope.existInstances = $uibModal.open({
                 animation: true,
@@ -1317,7 +1337,16 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             });
         };
 
-
+        $scope.openErrModal = function () {
+            $scope.errInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/err.html"
+            });
+        };
 
         $scope.firstTime = 0;
         if ($scope.firstTime == 0) {
@@ -1438,6 +1467,11 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                                 console.log("opening modal");
                                 $scope.openModal();
                             }
+                        } else {
+                            $scope.openErrModal();
+                            $timeout(function () {
+                                $scope.errInstances.close();
+                            }, 3000);
                         }
                     });
                 }
