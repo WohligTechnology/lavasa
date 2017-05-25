@@ -298,12 +298,12 @@
   left:259px;
 }
 .green-btn:after {
-      right: -172px;
-          width: 159px;
+      right: -153px;
+          width: 143px;
 }
 .green-btn:before {
-    left: -172px;
-          width: 159px;
+    left: -153px;
+          width: 143px;
 }
 .athletes .athlets-btn .athlets-icon {
       left: 259px;
@@ -312,12 +312,12 @@
     margin: 110px 59px 0 42px;
 }
 .orange:before {
-    left: -172px;
-          width: 159px;
+    left: -150px;
+          width: 138px;
 }
 .orange:after {
-    right: -172px;
-          width: 159px;
+    right: -150px;
+          width: 138px;
 }
 .sport-registration .btn-sport .sport-icon {
 
@@ -1701,12 +1701,12 @@
     .school-registration {
       margin: 80px 20px 0 20px;
       .green-btn:after {
-        right: -15px;
-        width: 12px;
+        right: -17px;
+        width: 13px;
       }
       .green-btn:before {
-      left: -15px;
-        width: 12px;
+      left: -17px;
+        width: 13px;
       }
     }
     .school-registration .btn-school .school-icon {
@@ -1812,6 +1812,12 @@
 }
 .xs-hidden{
     display: none;
+}
+
+.btn-category {
+    padding: 8px 20px;
+
+    font-size: 14px;
 }
    
 //end
