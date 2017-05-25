@@ -117,7 +117,7 @@
                     </ul>
                 </div>
                 <div class="sport-icon ul-hide">
-                       <ul class="list-unstyled">
+                    <ul class="list-unstyled">
                         <li>
                             <img src="img/icon/1_Handball.png" class="img-responsive">
                             <p>HANDBALL</p>
@@ -134,13 +134,13 @@
                             <img src="img/icon/4_Throwball.png" class="img-responsive">
                             <p>Throwball</p>
                         </li>
-                         <li>
+                        <li>
                             <img src="img/icon/5_Hockey.png" class="img-responsive">
                             <p>Hockey</p>
                         </li>
                     </ul>
-                     <ul class="list-unstyled">
-                        
+                    <ul class="list-unstyled">
+
                         <li>
                             <img src="img/icon/6_Kho Kho.png" class="img-responsive">
                             <p>Kho-Kho</p>
@@ -153,7 +153,7 @@
                             <img src="img/icon/8_Football.png" class="img-responsive">
                             <p>Football</p>
                         </li>
-                         <li>
+                        <li>
                             <img src="img/icon/19_Shooting.png" class="img-responsive">
                             <p>Shooting</p>
                         </li>
@@ -161,9 +161,9 @@
                             <img src="img/icon/20_Archery.png" class="img-responsive">
                             <p>Archery</p>
                         </li>
-                     </ul>
-                      <ul class="list-unstyled">
-                      <li>
+                    </ul>
+                    <ul class="list-unstyled">
+                        <li>
                             <img src="img/icon/14_Taekwondo.png" class="img-responsive">
                             <p>Taekwondo</p>
                         </li>
@@ -184,7 +184,7 @@
                             <p>MMA</p>
                         </li>
                     </ul>
-                      <ul class="list-unstyled">
+                    <ul class="list-unstyled">
                         <li>
                             <img src="img/icon/23_Carrom.png" class="img-responsive">
                             <p>Carrom</p>
@@ -250,14 +250,14 @@
                         </div>
                     </div>
                     <div class="category-padding f-s mod-cls">
-                        <p >Once a school registers with SFA, any number of students of the registered school will be eligible
+                        <p>Once a school registers with SFA, any number of students of the registered school will be eligible
                             to participate in as many sports as they choose to (basis eligibility criteria).
                         </p>
                         <p><b>Register your school for SFA Mumbai 2017 in just 4 simple steps:</b>
                         </p>
                         <ul class="list-unstyled school-list">
                             <li>Fill out the online ‘School Registration Form’ & submit for verification</li>
-                            <li>Make a payment  of Rs 12,000 (inclusive of all applicable taxes) towards registration fees</li>
+                            <li>Make a payment of Rs 12,000 (inclusive of all applicable taxes) towards registration fees</li>
                             <li>Receive SFA school verification along with a unique SFA ID & Password</li>
                             <li>Proceed to register athletes from your school for Sports Registration</li>
                         </ul>
@@ -275,7 +275,7 @@
                         <p>Athlete Registration</p>
                     </div>
                     <div class="category-padding-athelet f-s mod-cls">
-                        <p >Once an athlete registers with SFA, he/she can participate in as many sports as he/she chooses to
+                        <p>Once an athlete registers with SFA, he/she can participate in as many sports as he/she chooses to
                             (basis eligibility criteria).
                         </p>
                         <p><b>Register yourself to compete at SFA Mumbai 2017 in just 4 simple steps:</b>
@@ -285,7 +285,7 @@
                             <li>Make payment of 200 (inclusive of all applicable taxes) towards registration fees</li>
                             <li>Receive SFA athlete verification along with a unique SFA ID & Password</li>
                             <li>Proceed to register for Sports Registration</li>
-                            
+
                         </ul>
                         <p class="custom-a"><a ng-click="athBenModal()"><strong>Click here to view registered school benefits for SFA Mumbai 2017</strong></a></p>
                     </div>
@@ -425,8 +425,8 @@
         </div>
     </div>
 </div>
-<div class="tab-register ">
-    <div class="registration side-menu menu-out menu-in" ng-mouseleave="closeMenu();">
+<div class="tab-register hidden-xs">
+    <div class="registration side-menu2">
         <div class="tab-img dis-bloc" ng-if="closeReg == true">
             <img src=" img/icon/reg.png " class="img-responsive">
             <!--<img src=" img/icon/reg.png " class="img-responsive" ng-click="closeMenu();">-->
@@ -443,10 +443,40 @@
 
     </div>
     <div class="tab1">
+        <div class="age-event side-menu1">
+            <div class="tab-img dis-bloc" ng-if="closeAge == true">
+                <img src="img/icon/age.png " class="img-responsive ">
+            </div>
+            <div class="tab-img dis-bloc" ng-if="closeAge == false">
+                <img src="img/icon/age.png " class="img-responsive " ng-mouseover="getMenu1();">
+            </div>
+            <div class="btn-tab dis-bloc">
+                <a href="img/pdf/sfa_agegroup_event.pdf " target="_new ">
+                    <button class=" ">Age Group & Event Categories</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tab-register visible-xs">
+    <div class="registration side-menu menu-out menu-in" ng-mouseleave="closeMenu();">
+        <div class="tab-img dis-bloc" ng-if="closeReg == true">
+            <img src=" img/icon/reg.png " class="img-responsive">
+        </div>
+        <div class="tab-img dis-bloc" ng-if="closeReg == false">
+            <img src=" img/icon/reg.png " class="img-responsive" ng-mouseover="getMenu();">
+        </div>
+        <div class="btn-tab dis-bloc ">
+            <a href="img/pdf/sfa_athelete_group.pdf " target="_new ">
+                <button class=" ">Registration Process</button>
+            </a>
+        </div>
+
+    </div>
+    <div class="tab1">
         <div class="age-event menu-in1  menu-out side-menu1" ng-mouseleave="closeMenu1();">
             <div class="tab-img dis-bloc" ng-if="closeAge == true">
-                <img src="img/icon/age.png " class="img-responsive " >
-                <!--<img src="img/icon/age.png " class="img-responsive " ng-click="closeMenu1();">-->
+                <img src="img/icon/age.png " class="img-responsive ">
             </div>
             <div class="tab-img dis-bloc" ng-if="closeAge == false">
                 <img src="img/icon/age.png " class="img-responsive " ng-mouseover="getMenu1();">

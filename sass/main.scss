@@ -5474,7 +5474,7 @@
     .btn-category {
         padding: 8px 25px;
         border: none;
-        font-size:16px;
+        font-size: 16px;
         color: white;
         font-family: Titillium Web SemiBold;
     }
@@ -5726,35 +5726,30 @@
         p {
             margin: 0 0 20px;
         }
-    } 
-    
+    }
 
     .schoolbenefit-modal {
         padding: 50px;
         text-align: justify;
-            
-         ul {
+        ul {
             list-style: none;
             padding: 0 10px;
-            }
-
-            .tick li:before {
+        }
+        .tick li:before {
             content: '✓';
             padding-right: 8px;
-            }
-            .notick {
+        }
+        .notick {
             padding-left: 40px;
-                li:before{
+            li:before {
                 display: none;
-            
             }
-            }
+        }
         p {
             margin: 0 0 20px;
         }
-    }
-    // navincss
-    .mod-cls{
+    } // navincss
+    .mod-cls {
         .custom-a {
             a {
                 font-family: Titillium Web SemiBold;
@@ -5766,15 +5761,18 @@
         }
     }
 
-    .pdl30{
+    .pdl30 {
         padding-left: 30px;
     }
-    .bdr{
+
+    .bdr {
         border: 1px solid gray;
     }
-    .mgtp{
+
+    .mgtp {
         margin-top: -10px !important;
     }
+
     p.regest-fee {
         margin-top: -15px;
     }
@@ -5792,6 +5790,47 @@
         position: relative;
         top: -14px;
         right: 50px;
+        z-index: 10; // border:1px solid #000;
+        // background-image: url("../img/home/r2.jpg");
+        .fa {
+            cursor: pointer;
+        }
+        .active {
+            background-color: transparent;
+        }
+        .navbar-nav>li>a {
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            li {
+                padding: 5px 0;
+                a {
+                    color: #fff;
+                    &:hover {
+                        text-decoration: none;
+                        color: $brand-danger;
+                    }
+                    &:active {
+                        text-decoration: none;
+                    }
+                    &:focus {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .side-menu2 {
+        // width: 100%;
+        // height: 100%;
+        // padding: 50px;
+        position: relative;
+        top: -14px;
+        right: 0;
         z-index: 10; // border:1px solid #000;
         // background-image: url("../img/home/r2.jpg");
         .fa {
@@ -6154,6 +6193,7 @@
         font-family: Titillium Web SemiBold;
         width: 60%;
     }
+
     .com-category:focus {
         outline: 0;
     }
