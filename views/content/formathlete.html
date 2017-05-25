@@ -12,9 +12,12 @@
                         process will allow you to register using your SFA ID for all future SFA Events. This also enables
                         us to create a personalized sporting experience for you on our website www.sfanow.in to highlight
                         your performances in sport by way of profiles, records maintenance, match videos, statistics and
-                        reports.<br>
-                        The annual Athlete registration fee for SFA Mumbai 2017 is Rs. 200 (Inclusive of all applicable taxes). <br>In the event that your school does not register for SFA Mumbai 2017 by the 30th of September an additional fee of Rs. 400/- (Inclusive of all applicable taxes) will be levied.<br>
-                        <a ng-click="athBenModal()"><strong>Click here</strong></a> to view registered athlete benefits for SFA Mumbai 2017.
+                        reports.
+                        <br> The annual Athlete registration fee for SFA Mumbai 2017 is Rs. 200 (Inclusive of all applicable
+                        taxes). <br>In the event that your school does not register for SFA Mumbai 2017 by the 30th of September
+                        an additional fee of Rs. 400/- (Inclusive of all applicable taxes) will be levied.<br>
+                        <a ng-click="athBenModal()"><strong>Click here</strong></a> to view registered athlete benefits for
+                        SFA Mumbai 2017.
                     </p>
                 </div>
                 <div class="t-padd">
@@ -42,7 +45,9 @@
         <div class="col-md-8 col-md-push-2 col-xs-12">
             <div class="dummy">
                 <div>
-                    <p class=" d-padd pl13 para2 sf-list">If you have participated in SFA Championships before, kindly enter your</p>
+                    <p class=" d-padd pl13 para2 sf-list" style="text-align: justify">In case you have participated in previous SFA Championships you will need to enter your SFA ID & Name
+                        to ensure that your previous years' match videos and statistics reflect in your new profile, which
+                        will be created on successful completion of this registration process</p>
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-12">
                     <label class="para2 sfa-padd sf-list"> SFA ID or Name:</label>
@@ -107,14 +112,15 @@
                             <div class="form-group">
                                 <label class="col-md-3 col-sm-3 col-xs-12 sf-list">  *School Name:</label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <input type="text" ng-model="formData.atheleteSchoolName" name="schoolName" class="sfa-drop sf-list form-control" required>
+                                    <input type="text" ng-model="formData.atheleteSchoolName" capitalize name="schoolName" class="sfa-drop sf-list form-control"
+                                        required>
                                     <div class="validate-col" ng-if="formAthlete.schoolName.$invalid && formAthlete.schoolName.$touched">Please Enter Your School Name</div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 col-sm-3 col-xs-12 sf-list">*Area/Locality:</label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <input type="text" only-alpha ng-model="formData.atheleteSchoolLocality" name="area" class="sfa-drop sf-list form-control"
+                                    <input type="text" only-alpha ng-model="formData.atheleteSchoolLocality" capitalize name="area" class="sfa-drop sf-list form-control"
                                         required>
                                     <div class="validate-col" ng-if="formAthlete.area.$invalid && formAthlete.area.$touched">Please Enter Your Area/Locality</div>
                                 </div>
@@ -162,14 +168,15 @@
                         </div>
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">*Surname:</label>
                         <div class="col-md-8 col-sm-8 col-xs-12">
-                            <input type="text" only-alpha ng-model="formData.surname" name="surname" class="sfa-drop sf-list form-control" required>
+                            <input type="text" only-alpha ng-model="formData.surname" name="surname" capitalize class="sfa-drop sf-list form-control"
+                                required>
                             <div class="validate-col" ng-if="formAthlete.surname.$invalid && formAthlete.surname.$touched">Please Enter Your Surname</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">*First Name:</label>
                         <div class="col-md-8 col-sm-8 col-xs-12">
-                            <input type="text" only-alpha ng-model="formData.firstName" name="firstName" class="sfa-drop sf-list
+                            <input type="text" only-alpha ng-model="formData.firstName" capitalize name="firstName" class="sfa-drop sf-list
                 form-control" required>
                             <div class="validate-col" ng-if="formAthlete.firstName.$invalid && formAthlete.firstName.$touched">Please Enter Your First Name</div>
                         </div>
@@ -177,7 +184,7 @@
                     <div class="form-group">
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list">Middle Name:</label>
                         <div class="col-md-8 col-sm-8 col-xs-12">
-                            <input type="text" only-alpha ng-model="formData.middleName" class="sfa-drop sf-list form-control">
+                            <input type="text" only-alpha ng-model="formData.middleName" capitalize class="sfa-drop sf-list form-control">
                         </div>
                     </div>
                     <div class="form-group">
@@ -531,14 +538,14 @@
                         </div>
                         <label class="col-md-2 col-sm-2 col-xs-12 sf-list">*Line 1:</label>
                         <div class="col-md-8 col-sm-8 col-xs-12">
-                            <input type="text" ng-model="formData.address" name="address" class="sfa-drop form-control" required>
+                            <input type="text" ng-model="formData.address" capitalize name="address" class="sfa-drop form-control" required>
                             <div class="validate-col" ng-if="formAthlete.address.$invalid && formAthlete.address.$touched">Please Enter Your Address</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 col-sm-2 col-xs-12 sf-list">Line 2:</label>
                         <div class="col-md-8 col-sm-8 col-xs-12">
-                            <input type="text" ng-model="formData.addressLine2" class="sfa-drop form-control">
+                            <input type="text" ng-model="formData.addressLine2" capitalize class="sfa-drop form-control">
                         </div>
                     </div>
                     <div class="form-group">
@@ -655,14 +662,14 @@
                                 <div class="form-group">
                                     <label class="col-md-2 col-sm-2 col-xs-12 sf-list">*First Name:</label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input ng-model="x.name" only-alpha type="text" name="parentName" class="sfa-drop form-control" required>
+                                        <input ng-model="x.name" only-alpha type="text" name="parentName" capitalize class="sfa-drop form-control" required>
                                         <div class="validate-col" ng-if="formAthlete.parentName.$invalid && formAthlete.parentName.$touched">Please Enter Your Parent Name</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-2 col-sm-2 col-xs-12 sf-list">*Surname:</label>
                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input type="text" only-alpha class="sfa-drop form-control" ng-model="x.surname" name="parentSurname" required>
+                                        <input type="text" only-alpha class="sfa-drop form-control" ng-model="x.surname" capitalize name="parentSurname" required>
                                         <div class="validate-col" ng-if="formAthlete.parentSurname.$invalid && formAthlete.parentSurname.$touched">Please Enter Your Parent Surname</div>
                                     </div>
                                 </div>
@@ -743,7 +750,7 @@
                     </div>
                 </div>
                 <div class="text-center sub-padd">
-                    <button class="btn btn-default sub-mit" type="submit">Accept & Submit</button>
+                    <button class="btn btn-default sub-mit" ng-disabled="isDisabled==true" type="submit">Accept & Submit</button>
                 </div>
             </form>
         </div>
