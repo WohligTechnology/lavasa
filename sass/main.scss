@@ -5159,12 +5159,15 @@
             margin-bottom: 30px;
         }
     }
-.md-hidden{
-    display: none;
-}
-.xs-hidden{
-    display: block;
-}
+
+    .md-hidden {
+        display: none;
+    }
+
+    .xs-hidden {
+        display: block;
+    }
+
     .list-coach {
         padding: 30px 40px;
     }
@@ -6050,7 +6053,10 @@
         &:focus {
             outline: 0;
         }
-    } //Extra but not waste
+    } // input {
+    //     background-color: transparent;
+    // } 
+    //Extra but not waste
     .dummy {
         .ui-select-match {
             outline: 0;
@@ -6139,9 +6145,7 @@
             position: absolute;
             left: 25px;
         }
-    }
-
-    // Coming soon
+    } // Coming soon
     .com-category {
         padding: 8px 25px;
         border: none;
@@ -6160,9 +6164,7 @@
 
     .ul-show {
         display: block;
-    }
-
-    //font-class
+    } //font-class
     .twsb {
         font-family: Titillium Web SemiBold;
     }

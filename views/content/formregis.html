@@ -14,7 +14,7 @@
                         us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight
                         your performances in sport by way of profiles, records maintenance, match videos, statistics and
                         reports.<br>
-                        The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) <a ng-click="regisBenModal()"><strong>Click here</strong></a> to view registered school benefits for SFA Mumbai 2017
+                        The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) <a ng-click="regisBenModal()"><strong>Click here</strong></a> to view registered school benefits for SFA Mumbai 2017.
                     </p>
                 </div>
                 <div class=" t-padd">
@@ -304,10 +304,10 @@
                             <div class="form-group hidden-xs">
                                 <div class="col-md-12 col-sm-12 col-xs-12 d-padd pl13">
                                     <label class="mobileno-padd padd-bott">*Email:</label>
-                                    <input name="email1" ng-model="formData.email" type="email" class="bor-t" required>
+                                    <input name="email1" ng-model="formData.email" type="email" class="bor-t sfa-drop" required>
                                     <a class="btn btn-default sub-mit send-otp" ng-click="sendOTP(formData.email)">Send OTP </a>
                                     <label class="enter-otp"> *Enter OTP:</label>
-                                    <input ng-model="formData.enterOTP" ng-change="checkOTP(formData.enterOTP)" only-Digits type="text" maxlength="4" class="bor-t width-100"
+                                    <input ng-model="formData.enterOTP" ng-change="checkOTP(formData.enterOTP)" only-Digits type="text" maxlength="4" class="bor-t sfa-drop width-100"
                                         required>
                                     <!--<div class="validate-col otp-text-div" ng-show="showOtpSuccess">Please Enter Correct OTP</div>-->
                                     <div class="validate-col noerrPos" ng-if="formRegister.email1.$invalid && formRegister.email1.$touched">Please Enter Your Email Id</div>
@@ -321,13 +321,13 @@
                                 <div class="col-md-12 col-sm-12 col-xs-12 d-padd pl13">
                                     <label class="mobileno-padd">*Email:</label>
                                     <div class="pl13">
-                                        <input name="email2" ng-model="formData.email" type="email" class="bor-t" required>
+                                        <input name="email2" ng-model="formData.email" type="email" class="bor-t sfa-drop" required>
                                         <a class="btn btn-default sub-mit send-otp" ng-click="sendOTP(formData.email)">Send OTP </a>
                                         <div class="validate-col noerrPos" ng-if="formRegister.email2.$invalid && formRegister.email2.$touched">Please Enter Your Email Id</div>
                                     </div>
                                     <div class="">
                                         <label class="enter-otp padd13"> *Enter OTP:</label>
-                                        <input ng-model="formData.enterOTP" ng-change="checkOTP(formData.enterOTP)" only-Digits type="text" maxlength="4" class="bor-t width-100"
+                                        <input ng-model="formData.enterOTP" ng-change="checkOTP(formData.enterOTP)" only-Digits type="text" maxlength="4" class="bor-t sfa-drop width-100"
                                             required>
                                         <!--<div class="validate-col pl18" ng-show="showOtpSuccess">Please Enter Correct OTP</div>-->
                                         <div ng-if="!(formRegister.email2.$invalid && formRegister.email2.$touched)" class="tr-right validate-col errPos1" ng-show="showOtpSuccess">Please Enter Correct Email OTP</div>
