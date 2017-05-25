@@ -5340,21 +5340,21 @@
         position: relative;
         &:before {
             content: '';
-            width: 65px;
+            width: 56px;
             height: 30px;
             position: absolute;
             border-bottom: 1px solid #53bb74;
             top: -3px;
-            left: -80px;
+            left: -60px;
         }
         &:after {
             content: '';
-            width: 65px;
+            width: 56px;
             height: 30px;
             position: absolute;
             border-bottom: 1px solid #53bb74;
             top: -3px;
-            right: -80px;
+            right: -60px;
         }
     }
 
@@ -5363,21 +5363,21 @@
         position: relative;
         &:before {
             content: '';
-            width: 75px;
+            width: 83px;
             height: 30px;
             position: absolute;
             border-bottom: 1px solid #37c1f0;
-            top: -3px;
+            top: -6px;
             left: -89px;
         }
         &:after {
             content: '';
-            width: 75px;
+            width: 83px;
             height: 30px;
             position: absolute;
             border-bottom: 1px solid #37c1f0;
-            top: -3px;
-            right: -90px;
+            top: -6px;
+            right: -89px;
         }
     }
 
@@ -5386,21 +5386,21 @@
         position: relative;
         &:before {
             content: '';
-            width: 65px;
+            width: 56px;
             height: 30px;
             position: absolute;
             border-bottom: 1px solid #e99e37;
             top: -4px;
-            left: -82px;
+            left: -58px;
         }
         &:after {
             content: '';
-            width: 65px;
+            width: 56px;
             height: 30px;
             position: absolute;
             border-bottom: 1px solid #e99e37;
             top: -4px;
-            right: -81px;
+            right: -58px;
         }
     }
 
@@ -5471,7 +5471,7 @@
     .btn-category {
         padding: 8px 25px;
         border: none;
-        font-size: 20px;
+        font-size:16px;
         color: white;
         font-family: Titillium Web SemiBold;
     }
@@ -5723,7 +5723,55 @@
         p {
             margin: 0 0 20px;
         }
-    } // navincss
+    } 
+    
+
+    .schoolbenefit-modal {
+        padding: 50px;
+        text-align: justify;
+            
+         ul {
+            list-style: none;
+            padding: 0 10px;
+            }
+
+            .tick li:before {
+            content: '✓';
+            padding-right: 8px;
+            }
+            .notick {
+            padding-left: 40px;
+                li:before{
+                display: none;
+            
+            }
+            }
+        p {
+            margin: 0 0 20px;
+        }
+    }
+    // navincss
+    .mod-cls{
+        .custom-a {
+            a {
+                font-family: Titillium Web SemiBold;
+                font-weight: bold;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .pdl30{
+        padding-left: 30px;
+    }
+    .bdr{
+        border: 1px solid gray;
+    }
+    .mgtp{
+        margin-top: -10px !important;
+    }
     p.regest-fee {
         margin-top: -15px;
     }
@@ -6097,10 +6145,13 @@
     .com-category {
         padding: 8px 25px;
         border: none;
-        font-size: 20px;
+        font-size: 16px;
         color: white;
         font-family: Titillium Web SemiBold;
         width: 60%;
+    }
+    .com-category:focus {
+        outline: 0;
     }
 
     .ul-hide {

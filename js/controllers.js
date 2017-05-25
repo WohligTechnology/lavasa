@@ -1174,6 +1174,16 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
             });
         };
+        $scope.athBenModal = function () {
+            $scope.errInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/athletebenefits.html"
+            });
+        };
         $scope.termcondition = function (size) {
 
             $scope.termconditionModal = $uibModal.open({
@@ -1345,6 +1355,16 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 keyboard: false,
                 // size: 'sm',
                 templateUrl: "views/modal/err.html"
+            });
+        };
+        $scope.regisBenModal = function () {
+            $scope.errInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/registerbenefits.html"
             });
         };
 
@@ -4641,7 +4661,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('RegisterCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    .controller('RegisterCtrl', function ($scope, $uibModal,TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("register");
@@ -4652,6 +4672,26 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.menu = "menu-out";
         $scope.closeAge = false;
         $scope.closeReg = false;
+        $scope.regisBenModal = function () {
+            $scope.errInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/registerbenefits.html"
+            });
+        };
+        $scope.athBenModal = function () {
+            $scope.errInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/athletebenefits.html"
+            });
+        };
         $scope.getMenu = function () {
             $(".side-menu").addClass("menu-in");
             $(".side-menu").removeClass("menu-out");
