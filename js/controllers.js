@@ -769,6 +769,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.showMobileOtpSuccess = {};
 
         //saves Athelete to database
+        $scope.isDisabled = false;
         $scope.saveAthelete = function (formdata, formAthlete) { //formdata is data or body for this url
             console.log("Athlete data: ", formdata);
             // console.log('Value', $scope.isSchoolAdded(formdata));
@@ -872,6 +873,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             console.log($scope.url);
             if (formAthlete.$valid && $scope.showTerm == false) {
                 if ($scope.showEmailOtpSuccess == false && $scope.showMobileOtpSuccess == false) {
+                    $scope.isDisabled = true;
                     NavigationService.apiCallWithData($scope.url, formdata, function (data) {
                         if (data.value == true) {
                             console.log("registrationFee", data.data[0].registrationFee);
@@ -886,6 +888,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                                 $scope.openModal();
                             }
                         } else {
+                            $scope.isDisabled = false;
                             if (data.error == 'Athlete Already Exist') {
                                 console.log("User Already Exist");
                                 $scope.openExistModal();
@@ -902,6 +905,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                     });
                 }
             } else {
+                $scope.isDisabled = false;
                 console.log("Enter all mandatory fields");
                 $scope.openErrorModal();
                 $timeout(function () {
@@ -1419,6 +1423,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         // }
 
         //save registerform to database
+        $scope.isDisabled = false;
         $scope.saveRegis = function (formdata, formvalid) {
             formdata.teamSports = $scope.teamSport
             formdata.racquetSports = $scope.racquetSports
@@ -1476,6 +1481,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             console.log($scope.url);
             if (formvalid.$valid && $scope.showTerm == false && $scope.showTeamSports == false) {
                 if ($scope.showOtpSuccess == false) {
+                    $scope.isDisabled = true;
                     NavigationService.apiCallWithData($scope.url, formdata, function (data) {
                         if (data.value == true) {
                             if (data.data.registrationFee == "online PAYU") {
@@ -1488,6 +1494,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                                 $scope.openModal();
                             }
                         } else {
+                            $scope.isDisabled = false;
                             $scope.openErrModal();
                             $timeout(function () {
                                 $scope.errInstances.close();
@@ -1496,6 +1503,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                     });
                 }
             } else {
+                $scope.isDisabled = false;
                 console.log("Enter all mandatory fields");
                 $scope.openErrorModal();
                 $timeout(function () {
@@ -4661,7 +4669,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('RegisterCtrl', function ($scope, $uibModal,TemplateService, NavigationService, $timeout) {
+    .controller('RegisterCtrl', function ($scope, $uibModal, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("register");
