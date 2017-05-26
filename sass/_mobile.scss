@@ -96,7 +96,6 @@
       margin-left: 110px;
     } //end of header
     //scss for championship page
- 
     .pb60 {
       padding-bottom: 0px;
     }
@@ -284,93 +283,95 @@
       margin-left: 40px;
       margin-right: 40px;
     }
-//registration
-.store-padding {
-    padding: 0 0px 0px 17px;
-}
-.pd-left {
-     padding-left: 0px; 
-}
-.school-registration {
-    margin: 55px 57px 0 42px;
-}
-.school-registration .btn-school .school-icon {
-  left:259px;
-}
-.green-btn:after {
-      right: -153px;
-          width: 143px;
-}
-.green-btn:before {
-    left: -153px;
-          width: 143px;
-}
-.athletes .athlets-btn .athlets-icon {
+    //registration
+    .store-padding {
+      padding: 0 0px 0px 17px;
+    }
+    .pd-left {
+      padding-left: 0px;
+    }
+    .school-registration {
+      margin: 55px 57px 0 42px;
+    }
+    .school-registration .btn-school .school-icon {
       left: 259px;
-}
-.athletes {
-    margin: 110px 59px 0 42px;
-}
-.orange:before {
-    left: -150px;
-          width: 138px;
-}
-.orange:after {
-    right: -150px;
-          width: 138px;
-}
-.sport-registration .btn-sport .sport-icon {
-
-    left: 244px
-}
-.blue-light:before {
+    }
+    .green-btn:after {
+      right: -153px;
+      width: 143px;
+    }
+    .green-btn:before {
+      left: -153px;
+      width: 143px;
+    }
+    .athletes .athlets-btn .athlets-icon {
+      left: 259px;
+    }
+    .athletes {
+      margin: 110px 59px 0 42px;
+    }
+    .orange:before {
+      left: -150px;
+      width: 138px;
+    }
+    .orange:after {
+      right: -150px;
+      width: 138px;
+    }
+    .sport-registration .btn-sport .sport-icon {
+      left: 244px
+    }
+    .blue-light:before {
       width: 110px;
-          left: -121px;
-}
-.blue-light:after {
+      left: -121px;
+    }
+    .blue-light:after {
       width: 110px;
-          right: -121px;
-}
-.sport-sec {
-    margin: 60px 55px 0px 55px;
-}
-.store-for-you {
-    padding: 45px 0;
-}
-.video {
-         padding: 0px 95px 10px;
-}
-.ul-hide{
-    display: block;
-}
-.ul-show{
-  display: none;
-}
-.registration-img .sport-icon li {
+      right: -121px;
+    }
+    .sport-sec {
+      margin: 60px 55px 0px 55px;
+    }
+    .store-for-you {
+      padding: 45px 0;
+    }
+    .video {
+      padding: 0px 95px 10px;
+    }
+    .ul-hide {
+      display: block;
+    }
+    .ul-show {
+      display: none;
+    }
+    .registration-img .sport-icon li {
       width: 17%;
-      p{
+      p {
         font-size: 10px;
       }
-}
-//end
-//formathlete
-.iconinfo {
+    }
+    //end
+    //formathlete
+    .iconinfo {
       margin-left: -314px;
       padding: 8px;
-}
-.icon-msrl{
-   margin-left: 16px;
-}
-.iconinfo3 {
-    width: 422px;
-}
-
+    }
+    .icon-msrl {
+      margin-left: 16px;
+    }
+    .iconinfo3 {
+      width: 422px;
+    }
   }
   
   @media (max-width:$screen-xs-max) {
     //scss for register
     .largest-content {
       padding: 20px 0px 0px 0px;
+    }
+    .schoolbenefit-modal {
+      padding: 50px 50px;
+      text-align: justify;
     }
     .registration-desc {
       h2 {
@@ -1668,12 +1669,11 @@
       margin: -9px 12px 0 1px;
     }
     //register
-    .f-s{
+    .f-s {
       p,
-      li{
-         font-size:14px !important;
+      li {
+        font-size: 14px !important;
       }
-     
     }
     .venue {
       padding: 20px 20px;
@@ -1696,8 +1696,8 @@
       }
     }
     .category-padding {
-    padding: 19px 17px 10px;
-}
+      padding: 19px 17px 10px;
+    }
     .school-registration {
       margin: 80px 20px 0 20px;
       .green-btn:after {
@@ -1705,7 +1705,7 @@
         width: 13px;
       }
       .green-btn:before {
-      left: -17px;
+        left: -17px;
         width: 13px;
       }
     }
@@ -1717,16 +1717,16 @@
       // display: none;
     }
     .category-padding-athelet {
-    padding: 19px 15px 30px;
-}
+      padding: 19px 15px 30px;
+    }
     .athletes {
       margin: 110px 20px 0 20px;
       .orange:before {
-         left: -15px;
+        left: -15px;
         width: 12px;
       }
-       .orange:after {
-         right: -15px;
+      .orange:after {
+        right: -15px;
         width: 12px;
       }
     }
@@ -1738,116 +1738,110 @@
         left: -15px;
       }
     }
-.category-padding-sport {
-    padding: 25px 15px 25px;
-}
+    .category-padding-sport {
+      padding: 25px 15px 25px;
+    }
     .sport-sec {
-    margin: 50px 20px 0px 20px;
-    .sport-registration .btn-sport .sport-icon {
-          left: 94px;
+      margin: 50px 20px 0px 20px;
+      .sport-registration .btn-sport .sport-icon {
+        left: 94px;
+      }
+      .store-padding {
+        padding: 0px 35px 0px 17px;
+      }
+      .blue-light:before {
+        left: -62px;
+        width: 56px;
+      }
+      .blue-light:after {
+        right: -62px;
+        width: 56px;
+      }
     }
-    .store-padding {
-    padding: 0px 35px 0px 17px;
-}
-    .blue-light:before {
-          left: -62px;
-              width: 56px;
+    .store-for-you {
+      padding: 25px 0px;
+      h2 {
+        font-size: 25px;
+      }
+      .common-store {
+        padding: 0 30px;
+      }
+      .pd-left {
+        padding-left: 29px;
+      }
+      .pd-left {
+        padding-left: 29px;
+      }
     }
-    .blue-light:after{
-      right: -62px;
-              width: 56px;
+    .past-championship {
+      h2 {
+        font-size: 25px;
+      }
     }
-}
-
-.store-for-you{
-  padding: 25px 0px;
-  h2{
-    font-size: 25px;
-  }
-  .common-store {
-    padding: 0 30px;
-  }
-  .pd-left {
-    padding-left: 29px;
-}
-.pd-left {
-    padding-left: 29px;
-}
-}
-.past-championship {
-  h2{
-    font-size: 25px;
-  }
-}
-.video {
-         padding: 0px 49px 10px;
-}
-.ul-hide{
-    display: block;
-}
-.ul-show{
-  display: none;
-}
-.registration-img .sport-icon li {
+    .video {
+      padding: 0px 49px 10px;
+    }
+    .ul-hide {
+      display: block;
+    }
+    .ul-show {
+      display: none;
+    }
+    .registration-img .sport-icon li {
       width: 17%;
-      p{
+      p {
         font-size: 10px;
       }
-}
-.f-w{
-  p,
-  li{
- font-weight: 600;
-  }
- 
-}
-.blue-sec li:before {
-  top:-1px;
-}
-   .championship-content {
-    padding: 0px 15px 20px 15px;
-}
-.md-hidden{
-    display: block;
-}
-.xs-hidden{
-    display: none;
-}
-
-.btn-category {
-    padding: 8px 20px;
-
-    font-size: 14px;
-}
-   
-//end
-
-//formregis athlete start
-.w478 {
-    width: 310px;
-}
-.iconinfo {
+    }
+    .f-w {
+      p,
+      li {
+        font-weight: 600;
+      }
+    }
+    .blue-sec li:before {
+      top: -1px;
+    }
+    .championship-content {
+      padding: 0px 15px 20px 15px;
+    }
+    .md-hidden {
+      display: block;
+    }
+    .xs-hidden {
+      display: none;
+    }
+    .btn-category {
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+    //end
+    //formregis athlete start
+    .w478 {
+      width: 310px;
+    }
+    .iconinfo {
       margin-left: -160px;
-          font-size: 14px;
-              padding: 8px;
-}
-.iconinfo3 {
-    width: 320px;
-    margin-left: -204px;
-}
-.w150 {
-    width: 85px;
-}
-.step1 {
-  font-size: 14px;
-}
-.x-img {
+      font-size: 14px;
+      padding: 8px;
+    }
+    .iconinfo3 {
+      width: 320px;
+      margin-left: -204px;
+    }
+    .w150 {
+      width: 85px;
+    }
+    .step1 {
+      font-size: 14px;
+    }
+    .x-img {
       top: 294px;
-          right: 19px;
-}
-.sportlevel {
-    padding-right: 11px;
-}
+      right: 19px;
+    }
+    .sportlevel {
+      padding-right: 11px;
+    }
   }
   
   // @media (max-width:400px) {

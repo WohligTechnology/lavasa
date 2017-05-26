@@ -1184,8 +1184,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 scope: $scope,
                 backdrop: 'static',
                 keyboard: false,
-                // size: 'sm',
-                templateUrl: "views/modal/athletebenefits.html"
+                templateUrl: "views/modal/athletebenefits.html",
+                size: 'lg'
             });
         };
         $scope.termcondition = function (size) {
@@ -1367,8 +1367,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 scope: $scope,
                 backdrop: 'static',
                 keyboard: false,
-                // size: 'sm',
-                templateUrl: "views/modal/registerbenefits.html"
+                templateUrl: "views/modal/registerbenefits.html",
+                size: 'lg'
             });
         };
 
@@ -4686,8 +4686,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 scope: $scope,
                 backdrop: 'static',
                 keyboard: false,
-                // size: 'sm',
-                templateUrl: "views/modal/registerbenefits.html"
+                templateUrl: "views/modal/registerbenefits.html",
+                size: 'lg'
             });
         };
         $scope.athBenModal = function () {
@@ -4696,8 +4696,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 scope: $scope,
                 backdrop: 'static',
                 keyboard: false,
-                // size: 'sm',
-                templateUrl: "views/modal/athletebenefits.html"
+                templateUrl: "views/modal/athletebenefits.html",
+                size: 'lg'
             });
         };
         $scope.getMenu = function () {

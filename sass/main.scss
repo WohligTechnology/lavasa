@@ -5729,16 +5729,19 @@
     }
     
     .schoolbenefit-modal {
-        padding: 50px;
+        padding: 50px 100px;
         text-align: justify;
         ul {
-            list-style: none;
+            // list-style: none;
             padding: 0 10px;
+            li {
+                margin-bottom: 10px;
+            }
         }
-        .tick li:before {
-            content: '✓';
-            padding-right: 8px;
-        }
+        // .tick li:before {
+        //     content: '✓';
+        //     padding-right: 8px;
+        // }
         .notick {
             padding-left: 40px;
             li:before {
@@ -5748,7 +5751,22 @@
         p {
             margin: 0 0 20px;
         }
-    } // navincss
+    }
+    
+    .custm-font {
+        color: #003188;
+        font-weight: bold;
+    }
+    
+    .cutm-font-prime {
+        color: #003188;
+    }
+    
+    .mr-left {
+        margin-left: 30px;
+    }
+    
+    // navincss
     .mod-cls {
         .custom-a {
             a {
@@ -5763,6 +5781,10 @@
     
     .pdl30 {
         padding-left: 30px;
+    }
+    
+    .pdl21 {
+        padding-left: 21px;
     }
     
     .bdr {
