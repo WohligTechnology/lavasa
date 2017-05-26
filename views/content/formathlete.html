@@ -649,11 +649,11 @@
                                     <input type="radio" name="gender" value="male" ng-click="myshow=true"><label class="padd-lr"> Father</label>
                                     <input type="radio" name="gender" value="male"><label class="padd-lr"> Guardian</label>-->
                                         <div class="col-md-8 col-sm-8 col-xs-12 sf-list">
-                                            <input ng-model="x.relation" type="radio" id="{{'radio02'+$index}}" name="radios1" value="mother" required>
+                                            <input ng-model="x.relation" type="radio" id="{{'radio02'+$index}}" name="{{'radio02'+$index}}" value="mother" required>
                                             <label for="{{'radio02'+$index}}" class="padd-lr sf-list"><span></span>Mother</label>
-                                            <input ng-model="x.relation" type="radio" id="{{'radio09'+$index}}" name="radios1" value="father" required>
+                                            <input ng-model="x.relation" type="radio" id="{{'radio09'+$index}}" name="{{'radio02'+$index}}" value="father" required>
                                             <label for="{{'radio09'+$index}}" class="padd-lr sf-list"><span></span>Father</label>
-                                            <input ng-model="x.relation" type="radio" id="{{'radio10'+$index}}" name="radios1" value="guardian" required>
+                                            <input ng-model="x.relation" type="radio" id="{{'radio10'+$index}}" name="{{'radio02'+$index}}" value="guardian" required>
                                             <label for="{{'radio10'+$index}}" class="padd-lr sf-list"><span></span>Guardian</label>
                                             <!--<div class="validate-col" ng-if="formAthlete.{{$index}}.$invalid && formAthlete.{{$index}}.$touched">Please Enter Your School Name *</div>-->
                                         </div>
