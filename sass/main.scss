@@ -2353,6 +2353,7 @@
         p {
             color: #535353;
             font-size: 15px;
+            margin: 0 0px 10px 19px;
         }
     }
 
@@ -6275,6 +6276,10 @@
 
     .font-boldcus {
         font-weight: bold !important;
+    }
+
+    .f-14 {
+        font-size: 14px;
     }
 
     @import "fancybox-override";
