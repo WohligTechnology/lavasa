@@ -3223,8 +3223,7 @@
 
     .prs {
         li {
-            padding: 36px 15px 12px 0;
-            text-transform: uppercase;
+            padding: 36px 15px 12px 0; // text-transform: uppercase;
             a {
                 &:hover {
                     color: $brand-success;
