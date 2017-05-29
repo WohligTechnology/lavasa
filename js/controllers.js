@@ -3,10 +3,10 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
     .controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval) {
         //Used to name the .html file
         $scope.template = TemplateService.changecontent("home");
-        $scope.menutitle = NavigationService.makeactive("Sport Events | School activities for Kids");
+        $scope.menutitle = NavigationService.makeactive("SPORTS FOR ALL | PROFESSIONAL SCHOOL & COLLEGE SPORTING SYSTEM");
         TemplateService.header = "views/header2.html";
-        TemplateService.description = "Looking for your child to hone their sporting talents? Choose SFA, join world class sport events & watch your child shine in their favourite sport activities! ";
-        TemplateService.keywords = "Sport activities, sports activities for kids, sport events, sports games for kids, school activities for kids, kids sports games ";
+        TemplateService.description = "Mumbai’s largest professional sport event & tournament for athletes from Schools & Colleges. Click here for athlete bios & match videos. Register now for SFA MUMBAI 2017";
+        TemplateService.keywords = "inter college, inter school, tournament, sport event, tournament for athletes ,athlete bios , match videos";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.countdown = {};
@@ -268,7 +268,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("about-us");
-        $scope.menutitle = NavigationService.makeactive("About-Us");
+        $scope.menutitle = NavigationService.makeactive("About-Us | SFA");
         TemplateService.description = "SFA brings you excellence in sports activities. Let your child participate in the best interschool competition events, get access to quality resources & excel! ";
         TemplateService.keywords = "best interschool competition, inter school competition, inter school competition events, gymnastics for kids, international sporting events, kids sports activities, sport activities";
         TemplateService.header = "views/header2.html";
@@ -2661,9 +2661,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
     .controller('SportCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
         $scope.template = TemplateService.changecontent("sport");
-        $scope.menutitle = NavigationService.makeactive($stateParams.name);
+        // $scope.menutitle = NavigationService.makeactive($stateParams.name);
         TemplateService.header = "views/header2.html";
-        TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
         $scope.gallery = {};
         $scope.filter = {};
@@ -2760,12 +2759,154 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 }
             });
         };
+
+
+
+
         if ($stateParams.name) {
             var sports2015 = ["basketball", "volleyball", "handball", "table tennis", "tennis", "squash", "badminton", "swimming", "judo"];
             $scope.is2015Sport = false;
             _.each(sports2015, function (key) {
                 if (key.toUpperCase() == $stateParams.name.toUpperCase()) {
                     $scope.is2015Sport = true;
+                }
+            });
+            // var sports2017 = ["Basketball", "volleyball"];
+            var sports2017 = [{
+                sport: "Basketball",
+                Title: "Enroll your Child in Exciting Basketball Competitions| SFA",
+                Description: "Give your child a platform to showcase his or her abilities via basketball tournaments to instil a sense of healthy competition. Have them join Sports For All today!",
+                Keywords: "Basketball competitions, basketball tournaments"
+            }, {
+                sport: "Football",
+                Title: "Build Confidence with the Best Football Training| SFA",
+                Description: "If you can see the potential in your kid to become the next Lionel Messi, help them reach their potential with great football coaching in Mumbai with us!",
+                Keywords: "Football training, football coaching in Mumbai"
+            }, {
+                sport: "Handball",
+                Title: "Join the Handball Academy for Fun and Sports| SFA",
+                Description: "Maybe you want to play a sport that is different and exciting. In that case, come and participate in our handball competitions to experience a new game.",
+                Keywords: "Handball academy, handball competitions"
+            }, {
+                sport: "Hockey",
+                Title: "Come and Learn with the Hockey Academy| SFA",
+                Description: "Be a part of the sports revolution by training in India’s national sport. To encourage love for all sports, practice with SFA’s intense but fun hockey training today!",
+                Keywords: "Hockey academy, hockey training"
+            }, {
+                sport: "Kabaddi",
+                Title: "Play like a Pro at Kabaddi Tournaments Today| SFA",
+                Description: "Toughen up and train in this hard-core Indian sport. Practice and play this mentally and physically challenging game at kabaddi competitions with SFA.",
+                Keywords: "Kabaddi tournaments, kabaddi competitions"
+            }, {
+                sport: "Kho Kho",
+                Title: "Take Part in the Specialised Kho Kho Coaching Now with SFA| SFA",
+                Description: "A game of skill, speed and sharpness, the sport of Kho Kho is a great one. Join our Kho Kho training sessions to know learn more and train to become a pro.",
+                Keywords: "Kho Kho coaching, kho kho training"
+            }, {
+                sport: "Throwball",
+                Title: "The Biggest Throwball Tournament for All the Kids Around| SFA",
+                Description: "Practice makes better is absolutely true, especially when it comes to sports. So if you want your children to play well, help them to get great throwball training.",
+                Keywords: "Throwball tournament, throwball training"
+            }, {
+                sport: "Volleyball",
+                Title: "Introducing a World Class Volleyball Academy| SFA",
+                Description: "If you think your kid has strong arms, is quick to move and loves sports, send them over to Sports For All today to be a part of our volleyball coaching in Mumbai.",
+                Keywords: "Volleyball academy, volleyball coaching in Mumbai"
+            }, {
+                sport: "Badminton",
+                Title: "Participate in Mumbai’s Exciting Badminton Competitions| SFA",
+                Description: "Feeling inspired by our great national badminton players representing the country? You can get there too! Just practice hard at our badminton coaching for kids.",
+                Keywords: "Badminton competition, badminton coaching for kids"
+            }, {
+                sport: "Table Tennis",
+                Title: "Move like the Wind for the Best Table-Tennis Tournaments| SFA",
+                Description: "Work hard and practice harder at a well-equipped table-tennis academy in Mumbai. Get the best training along with an enriching experience at SFA.",
+                Keywords: "Table-tennis tournaments, table-tennis academy in Mumbai"
+            }, {
+                sport: "Tennis",
+                Title: "Become the One of the World’s Next Tennis Champions| SFA",
+                Description: "Are you a huge fan of the way Sania Mirza plays and wish to have a forehand as strong as hers? You now can if you start playing with us for tennis training!",
+                Keywords: "Tennis champion, tennis training"
+            }, {
+                sport: "squash",
+                Title: "Play the Game with Skill, Only with Squash Coaching Courses| SFA",
+                Description: "Learn everything from the basic rules, grips and score keeping along with how to dominate the game. Do this with practice and play in squash training in Mumbai.",
+                Keywords: "Squash coaching courses, squash training in Mumbai"
+            }, {
+                sport: "Boxing",
+                Title: "You Can Be The Next Big Thing with Good Boxing Training| SFA",
+                Description: "From start to end, in a safe but extremely well-equipped environment, your children can now learn how to box. Introduce them to our boxing academy today!",
+                Keywords: "Boxing training, boxing academy"
+            }, {
+                sport: "fencing",
+                Title: "Tackle your Way to the Top at the Fencing Academy in Mumbai| SFA",
+                Description: "Figure out how professionals fence around the world and with practice, you can do the same or maybe even better! All you have to do is join us for fencing training.",
+                Keywords: "Fencing academy in Mumbai, fencing training"
+            }, {
+                sport: "judo",
+                Title: "For More than Just Self Defence, Join Judo Training| SFA",
+                Description: "Master a part of the renowned martial arts and find a brilliant way to ensure self-defence along with a great fitness regime at the judo academy.",
+                Keywords: "Judo training, judo academy"
+            }, {
+                sport: "Karate",
+                Title: "Now Become the New Karate Kid at the Karate Academy| SFA",
+                Description: "Rock the badass attitude with discipline, charm and physical strength like Jaden Smith today. Attain all of this by participating in karate competitions in Mumbai.",
+                Keywords: "Karate academy, karate competitions in Mumbai"
+            }, {
+                sport: "Sport MMA",
+                Title: "Win MMA Competitions and Live Like a Champion Now| SFA",
+                Description: "Join, practice, play and participate with the best teachers and an exciting environment for Mixed Martial Arts. This is possible with SFA’s MMA academy!",
+                Keywords: "MMA competitions, MMA academy"
+            }, {
+                sport: "Taekwondo",
+                Title: "Kick-Ass like a Professional Today with SFA’s Taekwondo Training| SFA",
+                Description: "Why be just fascinated and interested in the sport by watching all those marital arts movies? Be one of them by learning it at the taekwondo academy in Mumbai.",
+                Keywords: "Taekwondo training, taekwondo academy"
+            }, {
+                sport: "Archery",
+                Title: "With Archery Coaching, You will Always Hit the Target| SFA",
+                Description: "Achieve perfect aim along with discipline, hard work and fun at the archery academy in Mumbai. Sports For All promises you a great overall experience!",
+                Keywords: "Archery coaching, archery academy"
+            }, {
+                sport: "Shooting",
+                Title: "Aim and Shoot to your Heart’s Content with Shooting Coaching| SFA",
+                Description: "Are you interested in handling rifles, loading the, cleaning them and shooting targets with them? Then you must come for shooting coaching in Mumbai!",
+                Keywords: "Shooting coaching, shooting coaching in Mumbai"
+            }, {
+                sport: "Swimming",
+                Title: "Swim your Way to the Top at Swimming Competitions| SFA",
+                Description: "Push through your fears and demonstrate your strengths with lots of swimming training in Mumbai. With time and practice, become the next Michal Phelps!",
+                Keywords: "Swimming competitions, swimming training in Mumbai"
+            }, {
+                sport: "water polo",
+                Title: "Be the Best in the Game with Water Polo Training, Only with SFA| SFA",
+                Description: "Who said polo can only be played on land and on horses? Join the sports revolution and play a unique game at the water polo academy in Mumbai.",
+                Keywords: "Water polo training, water polo academy"
+            }, {
+                sport: "Athletics",
+                Title: "Run, Jump or Sprint: Do It All with the Athletics Academy| SFA",
+                Description: "Help your child hone his or her abilities by training them with professionals. Encourage them to participate in inter school athletics competitions also.",
+                Keywords: "Athletics academy, inter school athletics competitions"
+            }, {
+                sport: "Carrom",
+                Title: "Teach your Kids to Play at Carrom Competitions in Mumbai| SFA",
+                Description: "It’s one thing to play some fun family games with your kids, but what if they have the capability for more? Find out with good carrom coaching in the city.",
+                Keywords: "Carrom competitions, carrom coaching"
+            }, {
+                sport: "Chess",
+                Title: "Train your Brain the Right Way with Chess Training in Mumbai| SFA",
+                Description: "If you think your child has the intelligence to become a chess player, what are you waiting for? Start teaching them to play at chess tournaments in Mumbai!",
+                Keywords: "Chess training, chess tournaments in Mumbai"
+            }];
+            _.each(sports2017, function (name) {
+                if (name.sport.toUpperCase() == $stateParams.name.toUpperCase()) {
+                    // $scope.is2015Sport = true;
+                    // $scope.Description = 'desc' + $stateParams.name;
+                    // $scope.Keywords = 'key' + $stateParams.name;
+                    $scope.menutitle = NavigationService.makeactive(name.Title);
+                    TemplateService.title = $scope.menutitle;
+                    TemplateService.description = name.Description;
+                    TemplateService.keywords = name.Keywords;
                 }
             });
         }
