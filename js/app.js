@@ -282,7 +282,14 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             url: "/paymentFailure",
             templateUrl: "views/template.html",
             controller: 'PaymentFailureCtrl'
+        })
+        //School-registerform
+        .state('sports-registration', {
+            url: "/sports-registration",
+            templateUrl: "views/template.html",
+            controller: 'SportsRegistrationCtrl'
         });
+
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);
 });

@@ -4728,7 +4728,17 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
     })
 
 
+    //school-registrationForm
+    .controller('SportsRegistrationCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
 
+        $scope.template = TemplateService.changecontent("sports-registration");
+        $scope.menutitle = NavigationService.makeactive("Sports Registration");
+        TemplateService.header = "views/header2.html";
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+    })
 
 
     .controller('headerctrl', function ($scope, TemplateService, $rootScope) {
@@ -4842,6 +4852,4 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             }
             //  $rootScope.$apply();
         };
-    })
-
-;
+    });
