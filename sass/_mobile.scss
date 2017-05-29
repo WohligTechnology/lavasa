@@ -66,6 +66,12 @@
 
   @media (max-width:$screen-sm-max) {
     //scss for registration
+    .twoStrikes {
+      .statement {
+        padding: 8px;
+        font-size: 10px;
+      }
+    }
     .venue {
       .sport25 {
         font-size: 28px;
@@ -372,6 +378,12 @@
   }
 
   @media (max-width:$screen-xs-max) {
+    .twoStrikes {
+      .statement {
+        padding: 5px;
+        font-size: 6px;
+      }
+    }
     .date-venue li:before {
       display: none;
     } //scss for register
@@ -954,7 +966,12 @@
   }
 
   @media (max-width:480px) {
-    // .drop-cust {
+    .twoStrikes {
+      .statement {
+        padding: 2px;
+        font-size: 5px;
+      }
+    } // .drop-cust {
     //   width: 300px;
     // }
     // .ft12 {

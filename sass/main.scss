@@ -6285,5 +6285,16 @@
         font-size: 16px !important;
     }
 
+    .twoStrikes {
+        position: relative;
+        .statement {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 10px;
+            color: #fff;
+        }
+    }
+
     @import "fancybox-override";
     @import "mobile";
