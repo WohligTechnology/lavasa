@@ -1,49 +1,57 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
-      <h1 class="text-center">School Registration Form</h1>
+      <h1 class="text-center school">School Registration Form</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 sp-reg">
       <ul class="list-inline">
         <li>
-          <div class="text-right">
-            <div class="step1"> I am a Athlete</div>
+          <div class="text-right block-custom">
+            <div class="step1"> <a ng-click="tabchange()">I am a Athlete</a></div>
           </div>
         </li>
         <li>
-          <div class="step1"> I am a School</div>
+          <div class="step1"> <a ng-click="tabchange()">I am a School</a></div>
         </li>
       </ul>
       <div class="box-padd">
-        <form class="form-horizontal">
-          <div class="text-center mb25">
+        <form class="form-horizontal " name="formsports">
+          <div class="text-center mb25 blue-spreg">
             <h4>The SFA ID & password has been sent to register email ID.</h4>
-            <h4>In case you have forgotten your SFA ID,Please Call us on 7654567865/66/67 or email us at info@sfanow.in</h4>
+            <h4>In case you have forgotten your SFA ID,Please Call us on 7654567865/66/67 or email us at <a href="mailto:info@sfanow.in"
+                class="blue-spreg">info@sfanow.in</a></h4>
           </div>
-          <div class="form-group">
+          <div class="form-group para2">
             <label class="control-label col-md-offset-2 col-md-3 col-sm-offset-2 col-sm-3 col-xs-12">SFA ID:</label>
             <div class="col-md-2  col-sm-2 col-xs-12">
-              <input type="text" class="form-control" id="sfaid" placeholder="SFA ID" required>
+              <input type="text" class="form-control" name="sportsid" ng-model="formData.sfaid" placeholder="SFA ID" required>
+              <div class="validate-col" ng-if="formsports.sportsid.$invalid && formsports.sportsid.$touched">Please Enter Your SFA ID *</div>
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group para2">
             <label class="control-label col-md-offset-2 col-md-3 col-sm-offset-2 col-sm-3 col-xs-12">Password:</label>
             <div class="col-md-2 col-sm-2 col-xs-12">
-              <input type="text" class="form-control" id="password" placeholder="Password" required>
+              <input type="text" class="form-control" id="password" name="sportspasswrd" ng-model="formData.password" placeholder="Password"
+                required>
+              <div class="validate-col" ng-if="formsports.sportspasswrd.$invalid && formsports.sportspasswrd.$touched">Please Enter Correct password *</div>
             </div>
           </div>
           <div class="form-group">
-            <div class="col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-2 col-xs-12 text-center">
-              <label class="control-label">Forget Password ?</label>
+            <div class="col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-2 col-xs-12 text-center mb25">
+              <label class="control-label "><a ui-sref"forgot-password" class="sp-frget"> Forget Password ?</a></label>
             </div>
           </div>
           <div class="form-group">
-            <div class="col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-2 col-xs-12">
+            <div class="col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-2 col-xs-12 ">
               <button class="btn btn-default sub-mit form-control" type="submit">Submit</button>
             </div>
           </div>
+        </form>
       </div>
-      </form>
     </div>
   </div>
 </div>
-</div>
-</div>
+<!--</div>
+</div>-->
