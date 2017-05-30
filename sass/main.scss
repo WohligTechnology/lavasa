@@ -8,6 +8,7 @@
     @import "../bower_components/angular-loading-bar/src/loading-bar.css";
     @import "../bower_components/fancyBox/source/jquery.fancybox.css"; // @import "../bower_components/angular-ui-select/dist/select";
     @import "../bower_components/angular-responsive-tables/release/angular-responsive-tables.min.css";
+    @import "../bower_components/angular-toastr/dist/angular-toastr.css";
     /* Bootstrap Variables Goes Here */
     
     $brand-primary: #0a1a72 !default;
@@ -393,6 +394,10 @@
     
     .mt50 {
         margin-top: 50px;
+    }
+    
+    .mt91 {
+        margin-top: 91px;
     }
     
     .relate {
@@ -6311,18 +6316,32 @@
                 flex: 1;
                 a {
                     font-size: 18px;
-                    background: #dcdbdb;
-                    padding: 8px 60px;
+                    // background: #dcdbdb;
+                    padding: 10px 67px;
+                    color: white;
                     &:hover {
-                        color: $brand-primary;
+                        // color: $brand-primary;
                     }
                     &:focus {
                         color: $brand-primary;
                     }
                 }
                 .active-list {
-                    background: $brand-primary;
                     color: $white !important;
+                    // width: 240px;
+                    // height: 46px;
+                    .step2 {
+                        background-color: #091a71;
+                        &:after {
+                            border-left: 20px solid #091a71;
+                            border-top: 46px solid transparent;
+                        }
+                        &:before {
+                            border-right: 20px solid #091a71;
+                            // border-right: 20px solid #lightgray;
+                            border-top: 46px solid transparent;
+                        }
+                    }
                 }
             }
         }
@@ -6336,15 +6355,61 @@
             font-family: Titillium Web Regular;
             font-style: italic;
         }
-        .step1 {
+        .step2 {
+            position: relative;
+            width: 240px;
+            height: 46px;
+            background-color: lightgray; // -webkit-clip-path: polygon(0 0, 93% 0, 100% 16%, 0 16%);
+            // clip-path: polygon(0 0, 93% 0, 100% 16%, 0 16%);
+            // -webkit-clip-path: url("#clipping");
+            // clip-path: url("#clipping");
+            color: #ffffff;
+            font-size: 18.75px;
+            /* Approximation due to font substitution */
+            font-weight: 400;
+            text-align: center; // padding-right: 25px;
+            padding: 8px 0;
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0px;
+                left: 100%;
+                border-left: 20px solid lightgrey;
+                border-top: 46px solid transparent;
+            }
             &:before {
                 content: '';
                 position: absolute;
                 top: 0px;
                 right: 240px;
-                border-right: 20px solid #091a71;
+                border-right: 20px solid lightgrey;
+                // border-right: 20px solid #lightgray;
                 border-top: 46px solid transparent;
             }
+        }
+    }
+    
+    //END sports-registration-form
+    //custom-classes
+    .blue-spreg-custom {
+        color: #091a71;
+        font-size: 16.67px;
+        font-family: Titillium Web Regular;
+        font-style: italic;
+    }
+    
+    //forgot-password
+    .school-custom {
+        // margin-top: 91px;
+        font-family: Titillium Web SemiBold;
+        color: #f37720;
+        font-size: 31px;
+        /* Approximation due to font substitution */
+        font-weight: 600;
+        text-align: center;
+        padding-bottom: 9px;
+        a {
+            color: #091a71 !important;
         }
     }
     

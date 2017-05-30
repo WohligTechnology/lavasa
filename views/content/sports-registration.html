@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="col-md-12 col-sm-12 col-xs-12 mb25">
       <h1 class="text-center school">School Registration Form</h1>
     </div>
   </div>
@@ -8,12 +8,14 @@
     <div class="col-md-12 col-sm-12 col-xs-12 sp-reg">
       <ul class="list-inline">
         <li>
-          <div class="text-right block-custom">
-            <div class="step1"> <a ng-click="tabchange()">I am a Athlete</a></div>
+          <div class="block-custom" ng-click="tabchange('1')" ng-class="{'active-list':ath==true}">
+            <div class="step2"> <a>I am a Athlete</a></div>
           </div>
         </li>
         <li>
-          <div class="step1"> <a ng-click="tabchange()">I am a School</a></div>
+          <div class="" ng-click="tabchange('2')" ng-class="{'active-list':sch==true}">
+            <div class="step2"> <a>I am a School</a></div>
+          </div>
         </li>
       </ul>
       <div class="box-padd">
@@ -33,19 +35,19 @@
           <div class="form-group para2">
             <label class="control-label col-md-offset-2 col-md-3 col-sm-offset-2 col-sm-3 col-xs-12">Password:</label>
             <div class="col-md-2 col-sm-2 col-xs-12">
-              <input type="text" class="form-control" id="password" name="sportspasswrd" ng-model="formData.password" placeholder="Password"
-                required>
+              <input type="password" class="form-control" id="password" minlength="8" name="sportspasswrd" ng-model="formData.password"
+                placeholder="Password" required>
               <div class="validate-col" ng-if="formsports.sportspasswrd.$invalid && formsports.sportspasswrd.$touched">Please Enter Correct password *</div>
             </div>
           </div>
           <div class="form-group">
             <div class="col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-2 col-xs-12 text-center mb25">
-              <label class="control-label "><a ui-sref"forgot-password" class="sp-frget"> Forget Password ?</a></label>
+              <label class="control-label "><a ui-sref="forgot-password"  class="sp-frget"> Forgot Password ?</a></label>
             </div>
           </div>
           <div class="form-group">
             <div class="col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-2 col-xs-12 ">
-              <button class="btn btn-default sub-mit form-control" type="submit">Submit</button>
+              <button class="btn btn-default sub-mit form-control" type="submit" ng-disabled="isDisabled==true" ng-click="login(formData,formsports)">Submit</button>
             </div>
           </div>
         </form>

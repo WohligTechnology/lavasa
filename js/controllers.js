@@ -1,4 +1,4 @@
-angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select', 'ordinal', 'wt.responsive', 'ui.date'])
+angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select', 'ordinal', 'wt.responsive', 'ui.date', 'toastr'])
 
     .controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval) {
         //Used to name the .html file
@@ -4870,7 +4870,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
 
     //school-registrationForm
-    .controller('SportsRegistrationCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    .controller('SportsRegistrationCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr) {
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("sports-registration");
@@ -4878,10 +4878,125 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+        $scope.formData = {};
+        $scope.formData.type = "Athlete";
+        $scope.ath = true;
+        $scope.sch = false;
+        $scope.classa = 'active-list';
+        $scope.classb = '';
+        $scope.tabchange = function (data) {
+            if (data == 1) {
+                console.log('value', 'data')
+                $scope.ath = true;
+                $scope.sch = false;
+                $scope.formData.type = "Athlete";
+            } else {
+                $scope.ath = false;
+                $scope.sch = true;
+                $scope.formData.type = "School";
+            }
+            console.log($scope.formData);
+        };
+        $scope.isDisabled = false;
+        $scope.login = function (formData, formsports) {
+            console.log(formData);
+            if (formsports.$valid) {
+                console.log('everything is alright');
+                $scope.isDisabled = true;
+                // NavigationService.login(formData, function (data) {
+                //     if (data.value) {
+
+                //     } else {
+                //         $scope.isDisabled = false;
+                // toastr.error('Enter Your SFA ID and password ', 'Error');
+                //     }
+                // });
+            } else {
+                console.log('Something is fisshy');
+                $scope.isDisabled = false;
+                toastr.error('Enter all fields', 'Error');
+            }
+
+        };
 
     })
 
+    //Forgot-password
+    .controller('ForgotpasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr) {
+        //Used to name the .html file
 
+        $scope.template = TemplateService.changecontent("forgot-password");
+        $scope.menutitle = NavigationService.makeactive("Forgot password");
+        TemplateService.header = "views/header2.html";
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.isDisabled = false;
+        $scope.forgotPassword = function (formData, formsports) {
+            console.log(formData);
+            if (formsports.$valid) {
+                console.log("submit is active");
+                $scope.isDisabled = true;
+                // NavigationService.forgotPassword(formData, function (data) {
+                //     if (data) {
+                //         toastr.success('Email Sent successfully to register Email ID', 'success');
+                //     } else {
+                //         toastr.error('The entered SFA ID and Email ID do not match .Please try again', 'Error')
+                //     }
+
+
+                // });
+            } else {
+                console.log('submit is false');
+                $scope.isDisabled = false;
+                toastr.error("Enter all fields", 'Error');
+            }
+        };
+
+    })
+    //Change password
+    .controller('ChangepasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr) {
+        //Used to name the .html file
+
+        $scope.template = TemplateService.changecontent("change-password");
+        $scope.menutitle = NavigationService.makeactive("Change Password");
+        TemplateService.header = "views/header2.html";
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.data = {};
+        $scope.isDisabled = false;
+        $scope.changePassword = function (formchange, data) {
+            if (formchange.$valid) {
+                $scope.isDisabled = true;
+                console.log("disabled is on");
+                if (formchange.newpd == formchange.cnpd) {
+                    toastr.success("Sucessfully changed", "Sucess");
+                    // NavigationService.changePassword = (formchange, function (data) {
+                    //     if (data.value) {
+                    //         toastr.success("Sucessfully changed", "Sucess");
+
+                    //     } else {
+                    //         if () {
+                    //             toastr.error("New password and confirm password do not match ", "Error");
+                    //         }
+                    //         if () {
+                    //             toastr.error("New password and confirm password do not match", "Error");
+                    //         }
+                    //     }
+                    // });
+
+                } else {
+                    toastr.error("New password and confirm password do not match");
+                    $scope.isDisabled = false;
+                }
+
+            } else {
+                toastr.error("Please enter all fields", "Error");
+                $scope.isDisabled = false;
+                console.log("disabled is off");
+            }
+        };
+
+    })
     .controller('headerctrl', function ($scope, TemplateService, $rootScope) {
         $scope.template = TemplateService;
         $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {

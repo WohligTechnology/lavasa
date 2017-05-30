@@ -63,7 +63,7 @@
       font-size: 30px;
     }
   }
-
+  
   @media (max-width:$screen-sm-max) {
     //scss for registration
     .twoStrikes {
@@ -376,7 +376,7 @@
       width: 422px;
     }
   }
-
+  
   @media (max-width:$screen-xs-max) {
     .twoStrikes {
       .statement {
@@ -958,14 +958,29 @@
       font-size: 14px;
     }
   }
-
+  
   @media (max-width:525px) {
     .dis-inline {
       width: 32.3%;
     }
   }
-
+  
   @media (max-width:480px) {
+    //sports-registration-form
+    .sp-reg .step2 {
+      width: 120px;
+    }
+    .sp-reg ul li a {
+      padding: 10px 0px;
+    }
+    .sp-reg .step2:before {
+      right: 120px;
+    }
+    .sp-reg .block-custom {
+      float: right;
+      margin-right: 43px;
+      margin-left: 30px;
+    }
     .twoStrikes {
       .statement {
         padding: 2px;
@@ -1883,7 +1898,7 @@
       padding-right: 11px;
     }
   }
-
+  
   @media (max-width:400px) {
     .venue {
       .sport25 {

@@ -496,6 +496,31 @@ var navigationservice = angular.module('navigationservice', [])
                     method: 'POST',
                     data: request
                 }).success(callback);
-            }
+            },
+
+            //Sports Registration api calling
+            //  login: function (request, callback) {
+            //     $http({
+            //         url: adminurl2 + 'login/login',
+            //         method: 'POST',
+            //         data: request
+            //     }).success(callback);
+            // }
+            //Forgot password api calling
+            //  forgotPassword: function (request, callback) {
+            //     $http({
+            //         url: adminurl2 + 'login/login',
+            //         method: 'POST',
+            //         data: request
+            //     }).success(callback);
+            // }
+            //Change password api calling
+            //  changePassword: function (request, callback) {
+            //     $http({
+            //         url: adminurl2 + 'changepassword/changepassword',
+            //         method: 'POST',
+            //         data: request
+            //     }).success(callback);
+            // }
         };
     });

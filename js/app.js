@@ -288,7 +288,20 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             url: "/sports-registration",
             templateUrl: "views/template.html",
             controller: 'SportsRegistrationCtrl'
+        })
+        //forgot-password
+        .state('forgot-password', {
+            url: "/forgot-password",
+            templateUrl: "views/template.html",
+            controller: 'ForgotpasswordCtrl'
+        })
+        //Change-password
+        .state('change-password', {
+            url: "/change-password",
+            templateUrl: "views/template.html",
+            controller: 'ChangepasswordCtrl'
         });
+
 
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);
