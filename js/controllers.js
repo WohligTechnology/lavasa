@@ -696,10 +696,19 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                             stats = {};
                             stats.point = 0.0;
                             _.each(value, function (single) {
-                                if (!stats[single.result]) {
-                                    stats[single.result] = 0;
+                                if (single.result == "No Show") {
+                                    single.result = "Noshow";
+                                    if (!stats[single.result]) {
+                                        stats[single.result] = 0;
+                                    }
+                                    stats[single.result] += 1;
+                                } else {
+                                    if (!stats[single.result]) {
+                                        stats[single.result] = 0;
+                                    }
+                                    stats[single.result] += 1;
+
                                 }
-                                stats[single.result] += 1;
                                 stats.point += single.point;
 
                                 stats.participantType = single.participantType;
@@ -3961,12 +3970,13 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             NavigationService.getStatsForStudent($scope.filterStatistics, function (response) {
                 if (response.value) {
                     $scope.studentStats = response.data;
-                    // console.log($scope.studentStats);
+                    console.log($scope.studentStats);
                     if ($scope.studentStats) {
                         if ($scope.studentStats[0].drawFormat == 'Knockout') {
                             _.each($scope.studentStats, function (key) {
                                 key.opponent = {};
                                 key.self = {};
+                                console.log("layout", key);
                                 if (key.knockout.participantType == 'player') {
                                     console.log("");
                                     if (key.knockout[key.knockout.participantType + '1']._id == $stateParams.id) {
@@ -4027,6 +4037,63 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                                         key.self = single;
                                     }
                                 });
+                            });
+                        } else if ($scope.studentStats[0].drawFormat == 'League cum Knockout') {
+                            _.each($scope.studentStats, function (key) {
+                                key.opponent = {};
+                                key.self = {};
+                                console.log('LCK', key);
+                                // $scope.getLeagueKnockout = function () {
+                                NavigationService.getLeagueKnockout({
+                                    sport: key.sport._id,
+                                }, function (response) {
+                                    console.log('response', response);
+                                    if (response.value) {
+                                        $scope.leagueknockouts = _.chain(response.data)
+                                            .groupBy("leagueknockoutround")
+                                            .toPairs()
+                                            .map(function (currentItem) {
+                                                currentItem[2] = currentItem[1][0].leagueknockoutorder;
+                                                return _.zipObject(["leagueknockoutround", "leagueknockouts", "leagueknockoutorder"], currentItem);
+                                            })
+                                            .value();
+                                        if (_.findIndex($scope.leagueknockouts, function (key) {
+                                                return key.leagueknockoutround == 'Final';
+                                            }) !== -1) {
+                                            $scope.knockouts = _.remove($scope.leagueknockouts, function (key) {
+                                                return key.leagueknockoutround == 'Final';
+                                            })[0];
+                                        }
+                                        //Standing code real Smart
+                                        $scope.studentStats.participants = [];
+                                        _.each($scope.leagueknockouts, function (lk) {
+                                            $scope.studentStats.participants = [];
+                                            _.each(lk.leagueknockouts, function (key) {
+                                                if (key[key.participantType + '1']) {
+                                                    $scope.studentStats.participants.push({
+                                                        participant: key[key.participantType + '1'],
+                                                        point: key.point1,
+                                                        result: key.result1,
+                                                        participantType: key.participantType
+                                                    });
+                                                }
+                                                if (key[key.participantType + '2']) {
+                                                    $scope.studentStats.participants.push({
+                                                        participant: key[key.participantType + '2'],
+                                                        point: key.point2,
+                                                        result: key.result2,
+                                                        participantType: key.participantType
+                                                    });
+                                                }
+                                                // $scope.studentStats.participant = participants;
+                                            });
+                                        });
+
+                                        console.log($scope.studentStats.participants);
+                                        console.log($scope.leagueknockouts, $scope.knockouts);
+                                    }
+                                });
+                                // };
                             });
                         }
                     }
@@ -4384,7 +4451,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             NavigationService.getStatsForTeam($scope.filterStatistics, function (response) {
                 if (response.value) {
                     $scope.teamStats = response.data;
-                    // console.log($scope.teamStats);
+                    console.log($scope.teamStats);
                     if ($scope.teamStats) {
                         if ($scope.teamStats[0].drawFormat == 'Knockout') {
                             _.each($scope.teamStats, function (key) {
@@ -4997,6 +5064,20 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         };
 
     })
+    //rules
+    .controller('SportsregtermsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        $scope.template = TemplateService.changecontent("sportsreg-terms");
+        $scope.menutitle = NavigationService.makeactive("Sportsreg terms");
+        TemplateService.header = "views/header2.html";
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+
+
+        $scope.termsandCondition = "This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports.The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports.The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports.The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.";
+    })
+
     .controller('headerctrl', function ($scope, TemplateService, $rootScope) {
         $scope.template = TemplateService;
         $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
