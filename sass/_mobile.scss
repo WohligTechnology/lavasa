@@ -378,6 +378,33 @@
   }
   
   @media (max-width:$screen-xs-max) {
+    //sports-registration-form
+    .sp-reg .blue-spreg {
+      h4 {
+        // font-size: 14px !important;
+        a {
+          // font-size: 14px !important;
+          &:hover {
+            text-decoration: underline !important;
+          }
+        }
+      }
+    }
+    .sp-reg .step2 {
+      width: 156px;
+    }
+    .sp-reg ul li a {
+      padding: 10px 0px;
+    }
+    .sp-reg .step2:before {
+      right: 156px;
+    }
+    .sp-reg .block-custom {
+      // float: right;
+      margin-right: 43px;
+      // margin-left: 30px;
+    }
+    //end-sports-registration-form
     .twoStrikes {
       .statement {
         padding: 5px;
@@ -967,6 +994,33 @@
   
   @media (max-width:480px) {
     //sports-registration-form
+    .sp-reg .blue-spreg {
+      h4 {
+        font-size: 14px !important;
+        a {
+          font-size: 14px !important;
+          &:hover {
+            text-decoration: underline !important;
+          }
+        }
+      }
+    }
+    .school {
+      font-size: 25px;
+    }
+    .blue-spreg-custom {
+      h4 {
+        font-size: 14px !important;
+        a {
+          font-size: 14px !important;
+        }
+      }
+    }
+    .school-custom {
+      h1 {
+        font-size: 25px !important;
+      }
+    }
     .sp-reg .step2 {
       width: 120px;
     }
@@ -977,10 +1031,11 @@
       right: 120px;
     }
     .sp-reg .block-custom {
-      float: right;
+      // float: right;
       margin-right: 43px;
-      margin-left: 30px;
+      // margin-left: 30px;
     }
+    //end-sports-registration-form
     .twoStrikes {
       .statement {
         padding: 2px;
@@ -1900,6 +1955,22 @@
   }
   
   @media (max-width:400px) {
+    //sports-registration-form
+    .sp-reg .step2 {
+      width: 95px;
+    }
+    .sp-reg .block-custom {
+      // float: right;
+      margin-right: 32px;
+      margin-left: 8px;
+    }
+    .sp-reg .step2:before {
+      right: 95px;
+    }
+    .sp-reg ul li a {
+      font-size: 14px;
+    }
+    //end-sports-registration-form
     .venue {
       .sport25 {
         font-size: 20px;

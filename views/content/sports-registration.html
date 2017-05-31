@@ -18,7 +18,7 @@
           </div>
         </li>
       </ul>
-      <div class="box-padd">
+      <div class="box-padd mb91">
         <form class="form-horizontal " name="formsports">
           <div class="text-center mb25 blue-spreg">
             <h4>The SFA ID & password has been sent to register email ID.</h4>
@@ -27,26 +27,26 @@
           </div>
           <div class="form-group para2">
             <label class="control-label col-md-offset-2 col-md-3 col-sm-offset-2 col-sm-3 col-xs-12">SFA ID:</label>
-            <div class="col-md-2  col-sm-2 col-xs-12">
+            <div class="col-md-2  col-sm-4 col-xs-12">
               <input type="text" class="form-control" name="sportsid" ng-model="formData.sfaid" placeholder="SFA ID" required>
               <div class="validate-col" ng-if="formsports.sportsid.$invalid && formsports.sportsid.$touched">Please Enter Your SFA ID *</div>
             </div>
           </div>
           <div class="form-group para2">
             <label class="control-label col-md-offset-2 col-md-3 col-sm-offset-2 col-sm-3 col-xs-12">Password:</label>
-            <div class="col-md-2 col-sm-2 col-xs-12">
+            <div class="col-md-2 col-sm-4 col-xs-12">
               <input type="password" class="form-control" id="password" minlength="8" name="sportspasswrd" ng-model="formData.password"
                 placeholder="Password" required>
               <div class="validate-col" ng-if="formsports.sportspasswrd.$invalid && formsports.sportspasswrd.$touched">Please Enter Correct password *</div>
             </div>
           </div>
           <div class="form-group">
-            <div class="col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-2 col-xs-12 text-center mb25">
+            <div class="col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-4 col-xs-12 text-center mb25">
               <label class="control-label "><a ui-sref="forgot-password"  class="sp-frget"> Forgot Password ?</a></label>
             </div>
           </div>
           <div class="form-group">
-            <div class="col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-2 col-xs-12 ">
+            <div class="col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-4 col-xs-12 ">
               <button class="btn btn-default sub-mit form-control" type="submit" ng-disabled="isDisabled==true" ng-click="login(formData,formsports)">Submit</button>
             </div>
           </div>

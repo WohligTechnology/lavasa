@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+      <h1 class="text-center school">Sports Registration Form</h1>
+      <div class="step3">Tournamaent Rules and Regulation</div>
+      <div class="box-padd-term">
+        <div class="scrollbar" id="style-1">
+          <div class="spt-para">
+            <p ng-bind-html="termsandCondition"></p>
+          </div>
+        </div>
+        <div class="mt25 blue-schoolterm">
+          <p>You can also view these Rules and Regulation on the sports page.</p>
+          <p>You can view these rules & regulation on sports page any time.</p>
+          <div class="check-term ">
+            <input type="checkbox" name="checkIhav" ng-checked="termsCheck(formData.termsAndCondition)" ng-model="formData.termsAndCondition"
+              id="test5" />
+            <label for="test5" class="sf-list custom-a" style="padding-left: 20px;"><span></span> <b>I agree to terms and condition above</b></label>
+            <div class="validate-col" ng-show="showTerm">Please accept terms and condition</div>
+          </div>
+        </div>
+        <div class="row text-center mt25 mb-50">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <button class="btn btn-default width-86 sub-mit" type="submit">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,26 +9,22 @@
   <meta name="theme-color" content="#2a45d4">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title ng-bind="template.title">SFA</title>
-
   <!-- SEO -->
   <meta name="author" content="">
   <meta name="description" content="{{template.description}}">
   <meta name="keywords" content="{{template.keywords}}">
-
   <!-- Facebook -->
   <meta property="og:site_name" content="">
   <meta property="og:title" content="" />
   <meta property="og:description" content="" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="img/fb-banner.jpg">
-
   <!-- Twitter -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:url" content="">
   <meta name="twitter:title" content="">
   <meta name="twitter:description" content="">
   <meta name="twitter:image" content="img/tw-banner.jpg">
-
   <link rel="shortcut icon" ng-if="variables.online" href="img/favicon.ico" />
   <link rel="shortcut icon" ng-if="!variables.online" href="img/favicon2.ico" />
   <link rel="stylesheet" type="text/css" href="w.css" />
@@ -54,15 +50,38 @@
       'cookieDomain': 'none'
     });
   </script>
-
   <!--[if IE]>
         <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+  <!--Start of Zendesk Chat Script-->
+  <script type="text/javascript">
+    window.$zopim || (function (d, s) {
+      var z = $zopim = function (c) {
+          z._.push(c)
+        },
+        $ = z.s =
+        d.createElement(s),
+        e = d.getElementsByTagName(s)[0];
+      z.set = function (o) {
+        z.set.
+        _.push(o)
+      };
+      z._ = [];
+      z.set._ = [];
+      $.async = !0;
+      $.setAttribute("charset", "utf-8");
+      $.src = "https://v2.zopim.com/?4qnq4Gz7Ng1Vs36GloWWo4cCp6B4EYlT";
+      z.t = +new Date;
+      $.
+      type = "text/javascript";
+      e.parentNode.insertBefore($, e)
+    })(document, "script");
+  </script>
+  <!--End of Zendesk Chat Script-->
 </head>
 
 <body>
-
   <div class="repeated-item" ui-view></div>
   <script>
     (function (w, d, s, l, i) {
@@ -87,10 +106,6 @@
   </script>
   <!-- End Google Tag Manager -->
   <link rel="canonical" href="http://www.sfanow.in/home" />
-
-
-
-
   <!--end-->
 </body>
 

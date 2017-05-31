@@ -300,6 +300,12 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             url: "/change-password",
             templateUrl: "views/template.html",
             controller: 'ChangepasswordCtrl'
+        })
+        //sportsreg-terms
+        .state('sportsreg-terms', {
+            url: "/sportsreg-terms",
+            templateUrl: "views/template.html",
+            controller: 'SportsregtermsCtrl'
         });
 
 
@@ -583,7 +589,8 @@ firstapp.directive('img', function ($compile, $parse) {
         link: function ($scope, element, attrs) {
             var $element = $(element);
             if (!attrs.noloading) {
-                $element.after("<img src='img/loading.gif' class='loading' />");
+                // $element.after("<img src='img/loading.gif' class='loading' />");
+                $element.after("<img src='img/noimage.png' class='loading' />");
                 var $loading = $element.next(".loading");
                 $element.load(function () {
                     $loading.remove();
