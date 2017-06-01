@@ -65,6 +65,16 @@
   }
   
   @media (max-width:$screen-sm-max) {
+    //start sportsreg-terms
+    .school-sports {
+      margin-top: 100px;
+    }
+    .scrollbar {
+      margin-left: 0;
+      height: 400px;
+      overflow-y: scroll;
+      margin-right: -15px;
+    }
     //scss for registration
     .twoStrikes {
       .statement {
@@ -378,6 +388,22 @@
   }
   
   @media (max-width:$screen-xs-max) {
+    //start sports-congrats
+    .spc-inside-box {
+      padding: 30px 0px 30px 0px;
+    }
+    //end sports-congrats
+    //Start sportsreg-terms
+    .school-sports {
+      margin-top: 20px !important;
+    }
+    .scrollbar {
+      margin-left: 0;
+      height: 319px;
+      overflow-y: scroll;
+      margin-right: -33px;
+    }
+    //end sportsreg-terms
     //sports-registration-form
     .sp-reg .blue-spreg {
       h4 {
@@ -993,6 +1019,34 @@
   }
   
   @media (max-width:480px) {
+    //start sports-congrats
+    .spc-inside-box {
+      font-size: 12px;
+      .btn {
+        font-size: 11px !important;
+      }
+    }
+    .spc-inside-box .spc-btn button {
+      width: 175px;
+    }
+    //end sports-congrats
+    //start sportsreg-terms
+    .scrollbar {
+      margin-left: 0;
+      height: 240px;
+      overflow-y: scroll;
+      margin-right: -35px;
+    }
+    .style-1::-webkit-scrollbar {
+      width: 6px;
+    }
+    .spt-m {
+      font-size: 25px !important;
+    }
+    .box-padd-term .blue-schoolterm {
+      font-size: 12px !important;
+    }
+    //end-sportsreg-terms
     //sports-registration-form
     .sp-reg .blue-spreg {
       h4 {
@@ -1955,6 +2009,12 @@
   }
   
   @media (max-width:400px) {
+    //start sportsreg-terms
+    .step3 {
+      width: 157px;
+      font-size: 12px;
+    }
+    //end sportsreg-terms
     //sports-registration-form
     .sp-reg .step2 {
       width: 95px;

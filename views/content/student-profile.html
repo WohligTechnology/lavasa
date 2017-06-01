@@ -116,18 +116,15 @@
                         <span class="only-border"></span>
                     </div>
                 </div>
-
                 <h4 class="color-blue text-up font-semi mt25">sports participated</h4>
                 <h5 ng-if="!(studentSport.length > 0)" class="mt25">{{studentSport === undefined && 'Loading ..' || 'No Sports Participated in '+filter.year}}</h5>
                 <div class="sf-relative mt15">
                     <div class="sport-icon-list sf-list blue-cat">
                         <ul>
                             <hovericon game="game" ng-repeat="game in studentSport" ng-click="sportsSelected(game);">
-
                             </hovericon>
                         </ul>
                     </div>
-
                 </div>
             </div>
             <!-- <div class="text-center pad-fr-mob" ng-if="!filterStatistics.sport">
@@ -230,10 +227,10 @@ student’s blog
                                     <tr style="background:transparent;" ng-repeat="stat in studentStats">
                                         <td><span>{{stat.year}}</span></td>
                                         <td class="pointer" ng-click="drawDispatcher(stat.sport.drawFormat,stat.sport._id)"><span class="text-up">{{stat.sport.agegroup.name}} <br> {{stat.sport.gender}}  <br>{{stat.sport.firstcategory.name}}</span></td>
-                                        <pre>{{table}}</pre>
+                                        <!--<pre>{{table}}</pre>
                                         <pre>{{studentStats}}</pre>
                                         <pre>{{stat.knockout.round}}</pre>
-                                        <pre>{{stat.opponent.result}}</pre>
+                                        <pre>{{stat.opponent.result}}</pre>-->
                                         <td class="text-up">{{(table.layout == 'Knockout' && stat.knockout.round) || (table.layout == 'Heats'
                                             && stat.heat.round) || (table.layout == 'League' && stat.league.round) || (table.layout
                                             == 'League cum Knockout' && stat.league.round) || '-'}}</td>
@@ -247,7 +244,6 @@ student’s blog
                                             <div ng-if="table.layout == 'League'">{{stat.league.score || '-'}}</div>
                                             <div ng-if="table.layout == 'Heats'">{{stat.self.timing || '-'}}</div>
                                             <div ng-if="stat.qualifyinground.score">{{stat.qualifyinground.score}}</div>
-
                                         </td>
                                         <td>
                                             <div class="text-center display-inline ver-mid ">
@@ -260,11 +256,8 @@ student’s blog
                                                 </div>
                                             </div>
                                             <div ng-if="stat.qualifyinground.position">{{stat.qualifyinground.position}}</div>
-
-
                                         </td>
                                     </tr>
-
                                     <!-- <tr class="other-bg">
                                         <td><span>2016</span></td>
                                         <td><span class="text-up">U-10 <br> GIRLS <br> SINGLES</span></td>
@@ -324,11 +317,9 @@ student’s blog
                                         </td>
                                     </tr> -->
                                 </tbody>
-
                             </table>
                             <div ng-if="!(studentStats.length > 0) " class="text-center">
                                 <span ng-if="studentStats === undefined">Loading ..</span>
-
                                 <div ng-if="studentStats.length === 0"> {{participatedSports[filterStatistics.year].length>0 && 'Participated in' || 'No Data found.'}}
                                     <span ng-repeat="sport in participatedSports[filterStatistics.year]">{{sport.sportslist.name}}&nbsp;{{sport.firstcategory.name}}&nbsp;{{sport.agegroup.name}}{{$index !== participatedSports[filterStatistics.year].length-1 && ',' || '.'}}&nbsp;</span></div>
                             </div>

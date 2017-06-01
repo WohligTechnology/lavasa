@@ -306,6 +306,18 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             url: "/sportsreg-terms",
             templateUrl: "views/template.html",
             controller: 'SportsregtermsCtrl'
+        })
+        //Sports-congrats
+        .state('sports-congrats', {
+            url: "/sports-congrats",
+            templateUrl: "views/template.html",
+            controller: 'SportscongratsCtrl'
+        })
+        //Sports-tab
+        .state('sports-tab', {
+            url: "/sports-tab",
+            templateUrl: "views/template.html",
+            controller: 'SportstabCtrl'
         });
 
 
