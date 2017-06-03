@@ -318,6 +318,12 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             url: "/sports-tab",
             templateUrl: "views/template.html",
             controller: 'SportstabCtrl'
+        })
+        //Sports-confirmteam
+        .state('sports-confirmteam', {
+            url: "/sports-confirmteam",
+            templateUrl: "views/template.html",
+            controller: 'SportsconfirmteamCtrl'
         });
 
 

@@ -4,10 +4,105 @@
       <h1 class="text-center school-sports spt-m">Sports Registration Form</h1>
     </div>
   </div>
-  <div class="box-padd">
-    <div>
-      <p>Athlete need to register themselves via to be available</p>
-      <p>for selection in the team.Kindly ensure all the athletes are registered to form your team.</p>
+  <div class="col-md-offset-1 col-md-10">
+    <div class="pull-right mb25 sp-tab-right ">
+      <p class="mb0">SFA ID:&nbsp;146</p>
+      <p class="mb0">School Name:&nbsp;D.A.V Public School</p>
+      <ul class="list-inline">
+        <li>Change Password</li>
+        <li>Logout</li>
+      </ul>
+      <!--<p><a>Logout</a></p>-->
+    </div>
+  </div>
+  <div class="col-md-offset-1 col-md-10 col-sm-12 col-xs-12 sp-main-tab">
+    <div class="text-center">
+      <div class="display-inline mob-mr mob-mr" style="margin-right: 50px" ng-click="sptabchange('1')" ng-class="{'blue-active':sportsschool==true}">
+        <div class="step4  ">Sports</div>
+      </div>
+      <div class="display-inline" ng-click="sptabchange('2')" ng-class="{'blue-active':sportsregistered==true}">
+        <div class="step4 "> Registered Sports</div>
+      </div>
+    </div>
+    <div class="box-padd mb-50">
+      <div class="sp-head-tab">
+        <p>Athlete need to register themselves via to be available</p>
+        <p>for selection in the team.Kindly ensure all the athletes are registered to form your team.</p>
+      </div>
+      <div class="sp-row-tab">
+        <h5>Team Sports</h5>
+        <ul class="list-inline">
+          <li>
+            <button class="btn btn-default " type="submit">Basketball</button>
+          </li>
+          <li><button class="btn btn-default " type="submit">Football</button></li>
+          <li><button class="btn btn-default " type="submit">Handball</button></li>
+          <li><button class="btn btn-default " type="submit">Hockey</button></li>
+          <li><button class="btn btn-default " type="submit">Kabaddi</button></li>
+          <li><button class="btn btn-default " type="submit">Kho-Kho</button></li>
+          <li><button class="btn btn-default " type="submit">Throwball</button></li>
+          <li><button class="btn btn-default " type="submit">Volleyball</button></li>
+        </ul>
+      </div>
+      <div class="sp-row-tab">
+        <h5>Racquet Sports</h5>
+        <ul class="list-inline">
+          <li>
+            <button class="btn btn-default " type="submit">Badminton Singles</button>
+          </li>
+          <li><button class="btn btn-default " type="submit">Badminton Doubles</button></li>
+          <li><button class="btn btn-default " type="submit">Squash</button></li>
+          <li><button class="btn btn-default " type="submit">Table Tennis Singles</button></li>
+          <li><button class="btn btn-default " type="submit">Table Tennis Doubles</button></li>
+          <li><button class="btn btn-default " type="submit">Tennis Singles</button></li>
+          <li><button class="btn btn-default " type="submit">Tennis Doubles </button></li>
+          <li><button class="btn btn-default " type="submit">Tennis Mixed Doubles</button></li>
+        </ul>
+      </div>
+      <div class="sp-row-tab">
+        <h5>Combat Sports</h5>
+        <ul class="list-inline">
+          <li>
+            <button class="btn btn-default " type="submit">Boxing</button>
+          </li>
+          <li><button class="btn btn-default " type="submit">Fencing</button></li>
+          <li><button class="btn btn-default " type="submit">Judo</button></li>
+          <li><button class="btn btn-default " type="submit">Karate</button></li>
+          <li><button class="btn btn-default " type="submit">Karate-Team Kumite</button></li>
+          <li><button class="btn btn-default " type="submit">Sport MMA</button></li>
+          <li><button class="btn btn-default " type="submit">Taekwondo</button></li>
+        </ul>
+      </div>
+      <div class="sp-row-tab">
+        <h5>Individual Sports</h5>
+        <ul class="list-inline">
+          <li>
+            <button class="btn btn-default " type="submit">Athletics</button>
+          </li>
+          <li><button class="btn btn-default " type="submit">Athletics Relay</button></li>
+          <li><button class="btn btn-default " type="submit">Carrom</button></li>
+          <li><button class="btn btn-default " type="submit">Chess</button></li>
+        </ul>
+      </div>
+      <div class="sp-row-tab">
+        <h5>Target Sports</h5>
+        <ul class="list-inline">
+          <li>
+            <button class="btn btn-default " type="submit">Archery</button>
+          </li>
+          <li><button class="btn btn-default " type="submit">Shooting</button></li>
+        </ul>
+      </div>
+      <div class="sp-row-tab">
+        <h5>Aquatics Sports</h5>
+        <ul class="list-inline">
+          <li>
+            <button class="btn btn-default " type="submit">Swimming</button>
+          </li>
+          <li><button class="btn btn-default " type="submit">Swimming Relay</button></li>
+          <li><button class="btn btn-default " type="submit">Water-Polo</button></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

@@ -65,6 +65,22 @@
   }
   
   @media (max-width:$screen-sm-max) {
+    //start sports-tab
+    .sp-row-tab ul li button {
+      width: 150px;
+    }
+    .step4 {
+      width: 158px;
+      padding: 10px 0px;
+      font-size: 16.75px;
+    }
+    // .sp-tab-right {
+    //   float: left !important;
+    // }
+    .step4:before {
+      right: 158px;
+    }
+    //end sports-tab
     //start sportsreg-terms
     .school-sports {
       margin-top: 100px;
@@ -1019,6 +1035,51 @@
   }
   
   @media (max-width:480px) {
+    //sports-tab
+    .sp-tab-right p {
+      font-size: 12.75px;
+    }
+    .sp-tab-right ul li {
+      font-size: 12.75px;
+    }
+    .mob-mr {
+      margin-right: 40px !important;
+    }
+    .sp-row-tab ul li button {
+      width: 125px;
+    }
+    .sp-tab-right {
+      float: left !important;
+    }
+    .sp-row-tab {
+      text-align: center;
+    }
+    .sp-head-tab p {
+      font-size: 12px;
+    }
+    .sp-row-tab ul li button {
+      font-size: 11px;
+    }
+    .step4 {
+      width: 120px;
+      height: 35px;
+      padding: 11px 0px;
+      font-size: 12.75px;
+    }
+    .step4:before {
+      border-top: 35px solid transparent;
+      right: 120px;
+    }
+    .step4:after {
+      border-top: 36px solid transparent;
+    }
+    .sp-main-tab .blue-active .step4:before {
+      border-top: 35px solid transparent;
+    }
+    .sp-main-tab .blue-active .step4:after {
+      border-top: 35px solid transparent;
+    }
+    //end sports-tab
     //start sports-congrats
     .spc-inside-box {
       font-size: 12px;
@@ -2009,6 +2070,14 @@
   }
   
   @media (max-width:400px) {
+    //start sports-tab
+    .sp-row-tab {
+      text-align: center;
+    }
+    .mob-mr {
+      margin-right: 38px !important;
+    }
+    //end sports-tab
     //start sportsreg-terms
     .step3 {
       width: 157px;

@@ -246,19 +246,22 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             }
         });
 
-        $scope.bannerss = [{
-            "img": "img/webresp.jpg",
-            "link": "https://sfanow.in/register"
-        }, {
-            "img": "img/mobweb-1.jpg",
-            "link": "https://sfanow.in/register"
-        }, {
-            "img": "img/mobweb-2.jpg",
-            "link": "https://sfanow.in/register"
-        }, {
-            "img": "img/mobweb-3.jpg",
-            "link": "https://sfanow.in/register"
-        }];
+        $scope.bannerss = [
+            //     {
+            //     "img": "img/webresp.jpg",
+            //     "link": "https://sfanow.in/register"
+            // }, 
+            {
+                "img": "img/mobweb-2.jpg",
+                "link": "https://sfanow.in/register"
+            }, {
+                "img": "img/mobweb-3.jpg",
+                "link": "https://sfanow.in/register"
+            }, {
+                "img": "img/mobweb-1.jpg",
+                "link": "https://sfanow.in/register"
+            }
+        ];
 
 
     })
@@ -5091,6 +5094,33 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
         $scope.template = TemplateService.changecontent("sports-tab");
         $scope.menutitle = NavigationService.makeactive("Sports Tab");
+        TemplateService.header = "views/header2.html";
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+        $scope.sportsschool = true;
+        $scope.sportsregistered = false;
+        $scope.classactive = 'blue-active';
+        $scope.classinactive = '';
+        $scope.sptabchange = function (data) {
+            if (data == 1) {
+                console.log('value', 'data')
+                $scope.sportsschool = true;
+                $scope.sportsregistered = false;
+                console.log('school');
+            } else {
+                $scope.sportsschool = false;
+                $scope.sportsregistered = true;
+                console.log('register');
+            }
+        };
+
+    })
+
+    .controller('SportsconfirmteamCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        $scope.template = TemplateService.changecontent("sports-confirmteam");
+        $scope.menutitle = NavigationService.makeactive("Sports Confirm Team");
         TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
