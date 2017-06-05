@@ -4990,7 +4990,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
     })
 
     //Forgot-password
-    .controller('ForgotpasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr) {
+    .controller('ForgotPasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr) {
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("forgot-password");
@@ -5022,7 +5022,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
     })
     //Change password
-    .controller('ChangepasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr) {
+    .controller('ChangePasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr) {
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("change-password");
@@ -5065,8 +5065,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         };
 
     })
-    //rules
-    .controller('SportsregtermsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    //Rules
+    .controller('SportsRulesCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("sportsreg-terms");
@@ -5079,7 +5079,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.termsandCondition = "This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports.The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports.The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports.The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.";
     })
     //Sports-congrats
-    .controller('SportscongratsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    .controller('SportsCongratsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("sports-congrats");
@@ -5089,7 +5089,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         $scope.navigation = NavigationService.getnav();
 
     })
-    .controller('SportstabCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    //Sports-Selection
+    .controller('SportsSelectionCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("sports-tab");
@@ -5115,8 +5116,8 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         };
 
     })
-
-    .controller('SportsconfirmteamCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    //Sports-Confirm-Team
+    .controller('SportsConfirmTeamCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("sports-confirmteam");

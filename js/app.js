@@ -293,37 +293,37 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         .state('forgot-password', {
             url: "/forgot-password",
             templateUrl: "views/template.html",
-            controller: 'ForgotpasswordCtrl'
+            controller: 'ForgotPasswordCtrl'
         })
         //Change-password
         .state('change-password', {
             url: "/change-password",
             templateUrl: "views/template.html",
-            controller: 'ChangepasswordCtrl'
+            controller: 'ChangePasswordCtrl'
         })
         //sportsreg-terms
-        .state('sportsreg-terms', {
-            url: "/sportsreg-terms",
+        .state('sports-rules', {
+            url: "/sports-rules",
             templateUrl: "views/template.html",
-            controller: 'SportsregtermsCtrl'
+            controller: 'SportsRulesCtrl'
         })
         //Sports-congrats
         .state('sports-congrats', {
             url: "/sports-congrats",
             templateUrl: "views/template.html",
-            controller: 'SportscongratsCtrl'
+            controller: 'SportsCongratsCtrl'
         })
         //Sports-tab
-        .state('sports-tab', {
-            url: "/sports-tab",
+        .state('sports-selection', {
+            url: "/sports-selection",
             templateUrl: "views/template.html",
-            controller: 'SportstabCtrl'
+            controller: 'SportsSelectionCtrl'
         })
         //Sports-confirmteam
         .state('sports-confirmteam', {
             url: "/sports-confirmteam",
             templateUrl: "views/template.html",
-            controller: 'SportsconfirmteamCtrl'
+            controller: 'SportsConfirmTeamCtrl'
         });
 
 
