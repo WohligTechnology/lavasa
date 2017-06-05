@@ -5070,7 +5070,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("sportsreg-terms");
-        $scope.menutitle = NavigationService.makeactive("Sportsreg terms");
+        $scope.menutitle = NavigationService.makeactive("Sports Rules And Regulations");
         TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
@@ -5094,7 +5094,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("sports-tab");
-        $scope.menutitle = NavigationService.makeactive("Sports Tab");
+        $scope.menutitle = NavigationService.makeactive("Sports Selection");
         TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
