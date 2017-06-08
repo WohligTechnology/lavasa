@@ -3,14 +3,80 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="Heading">
         <h1 class="text-center school">Sports Registration Form</h1>
-        <h1 class="text-center text-uppercase checkTeam"><span>Check & Confirm Your Team<span></h1>
+        <h1 class="text-center text-uppercase checkTeam"><span>Check & Confirm Your Team</span></h1>
       </div>
     </div>
   </div>
-  <div class=" col-md-offset-1 col-md-10 col-sm-12 col-xs-12">
-    <div class="box-padd mb91">
-      <div class="">
-        <p>School Name:</p>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+      <div class="row">
+        <div class="box-padd mb91">
+          <div class="">
+            <div class="text-center">
+              <form class="form-horizontal">
+                <div class="form-group" ng-init="formData.schoolName == 'D.A.V Public School'">
+                  <div class="col-md-offset-2 col-md-8">
+                    <label for="inputEmail3" class="col-md-3 control-label">School Name:</label>
+                    <div class="col-md-8">
+                      <input type="text" class="form-control" ng-model="formData.schoolName" id="inputEmail3">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <h4>U-10 Male Basketball</h4>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-offset-2 col-md-8">
+                    <table class="table table-bordered text-left">
+                      <thead>
+                        <th>Sr. No.</th>
+                        <th>SFA ID-Name</th>
+                        <th>Captain</th>
+                        <th>Goalkeeper</th>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Cap</td>
+                          <td>126 - Kunjal Rawal</td>
+                          <td>
+                            <input name="radio" type="radio">
+                          </td>
+                          <td>
+                            <input name="radio" type="radio">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>126 - Kunjal Rawal</td>
+                          <td>
+                            <input name="radio" type="radio">
+                          </td>
+                          <td>
+                            <input name="radio" type="radio">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>126 - Kunjal Rawal</td>
+                          <td>
+                            <input name="radio" type="radio">
+                          </td>
+                          <td>
+                            <input name="radio" type="radio">
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-default sub-mit" ng-disabled="isDisabled==true" type="submit">Edit</button>
+                  <button class="btn btn-default sub-mit" ng-disabled="isDisabled==true" type="submit">Confirm</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
