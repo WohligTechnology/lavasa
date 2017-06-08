@@ -499,13 +499,29 @@ var navigationservice = angular.module('navigationservice', [])
             },
 
             //Sports Registration api calling
-            //  login: function (request, callback) {
-            //     $http({
-            //         url: adminurl2 + 'login/login',
-            //         method: 'POST',
-            //         data: request
-            //     }).success(callback);
-            // }
+             login: function (request, callback) {
+                $http({
+                    url: adminurl2 + 'login/login',
+                    method: 'POST',
+                    data: request
+                }).success(callback);
+            },
+            //logout api calling
+             logout: function (request,callback) {
+                 $.jStorage.flush();
+               $http({
+                    url: adminurl2 + 'login/logout',
+                    method: 'POST',
+                    data: request
+                }).success(callback);
+            },
+            //Set Jstorage for User
+            setUser: function (data) {
+                $.jStorage.set("userDetails", data);
+            },
+            setUserType: function (data) {
+                $.jStorage.set("userType", data);
+            },
             //Forgot password api calling
             //  forgotPassword: function (request, callback) {
             //     $http({
@@ -515,12 +531,12 @@ var navigationservice = angular.module('navigationservice', [])
             //     }).success(callback);
             // }
             //Change password api calling
-            //  changePassword: function (request, callback) {
-            //     $http({
-            //         url: adminurl2 + 'changepassword/changepassword',
-            //         method: 'POST',
-            //         data: request
-            //     }).success(callback);
-            // }
+             changePassword: function (request, callback) {
+                $http({
+                    url: adminurl2 + 'changepassword/changepassword',
+                    method: 'POST',
+                    data: request
+                }).success(callback);
+            }
         };
     });
