@@ -6343,6 +6343,9 @@ input {
         padding: 10px;
         color: #fff;
     }
+    img {
+        width: 100%;
+    }
 }
 
 .resultColor {
@@ -6365,8 +6368,7 @@ input {
             // flex: 1;
             display: inline-block;
             a {
-                font-size: 18px;
-                // background: #dcdbdb;
+                font-size: 18px; // background: #dcdbdb;
                 padding: 10px 0px;
                 color: white;
                 &:hover {
@@ -6377,8 +6379,7 @@ input {
                 }
             }
             .active-list {
-                color: $white !important;
-                // width: 240px;
+                color: $white !important; // width: 240px;
                 // height: 46px;
                 .step2 {
                     background-color: #091a71;
@@ -6387,8 +6388,7 @@ input {
                         border-top: 46px solid transparent;
                     }
                     &:before {
-                        border-right: 20px solid #091a71;
-                        // border-right: 20px solid #lightgray;
+                        border-right: 20px solid #091a71; // border-right: 20px solid #lightgray;
                         border-top: 46px solid transparent;
                     }
                 }
@@ -6439,8 +6439,7 @@ input {
             position: absolute;
             top: 0px;
             right: 240px;
-            border-right: 20px solid lightgrey;
-            // border-right: 20px solid #lightgray;
+            border-right: 20px solid lightgrey; // border-right: 20px solid #lightgray;
             border-top: 46px solid transparent;
         }
     }
@@ -6571,13 +6570,10 @@ input {
 
 //custom-scroll-bar
 .scrollbar {
-    margin-left: 5px;
-    // float: left;
-    height: 500px;
-    // width: 65px;
+    margin-left: 5px; // float: left;
+    height: 500px; // width: 65px;
     // background: #F5F5F5;
-    overflow-y: scroll;
-    // margin-bottom: 25px;
+    overflow-y: scroll; // margin-bottom: 25px;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
@@ -6585,8 +6581,7 @@ input {
 }
 
 .style-1::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
-    // border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important; // border-radius: 10px;
     background-color: #969696 !important;
 }
 
@@ -6641,8 +6636,7 @@ input {
 
 .sp-main-tab {
     .blue-active {
-        color: $white !important;
-        // width: 240px;
+        color: $white !important; // width: 240px;
         // height: 46px;
         .step4 {
             background-color: #091a71;
@@ -6651,8 +6645,7 @@ input {
                 border-top: 46px solid transparent;
             }
             &:before {
-                border-right: 20px solid #091a71;
-                // border-right: 20px solid #lightgray;
+                border-right: 20px solid #091a71; // border-right: 20px solid #lightgray;
                 border-top: 46px solid transparent;
             }
         }
@@ -6687,8 +6680,7 @@ input {
         position: absolute;
         top: 0px;
         right: 210px;
-        border-right: 20px solid lightgrey;
-        // border-right: 20px solid #lightgray;
+        border-right: 20px solid lightgrey; // border-right: 20px solid #lightgray;
         border-top: 46px solid transparent;
     }
 }
@@ -6726,5 +6718,21 @@ input {
 }
 
 //end sports-tab
+//start sports-confirmteam
+.checkTeam {
+    margin-top: -5px;
+    span {
+        color: #091a71;
+        text-decoration: underline;
+        text-decoration-color: #091a71;
+        font-size: 28px;
+    }
+}
+
+.Heading {
+    margin-bottom: 25px;
+}
+
+//end sports-confirmteam
 @import "fancybox-override";
 @import "mobile";
