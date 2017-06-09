@@ -1,83 +1,95 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-      <div class="Heading">
-        <h1 class="text-center school">Sports Registration Form</h1>
-        <h1 class="text-center text-uppercase checkTeam"><span>Check & Confirm Your Team</span></h1>
+<section class="confirmTeam">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="Heading">
+          <h1 class="text-center school">Sports Registration Form</h1>
+          <h1 class="text-center text-uppercase checkTeam"><span>Check & Confirm Your Team</span></h1>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
-      <div class="row">
-        <div class="box-padd mb91">
-          <div class="">
-            <div class="text-center">
-              <form class="form-horizontal">
-                <div class="form-group" ng-init="formData.schoolName == 'D.A.V Public School'">
-                  <div class="col-md-offset-2 col-md-8">
-                    <label for="inputEmail3" class="col-md-3 control-label">School Name:</label>
-                    <div class="col-md-8">
-                      <input type="text" class="form-control" ng-model="formData.schoolName" id="inputEmail3">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12">
+        <div class="row">
+          <div class="box-padd mb91">
+            <div class="confirmForm">
+              <div class="">
+                <form class="form-horizontal">
+                  <div class="form-group" ng-init="formData.schoolName = 'D.A.V Public School'">
+                    <div class="readSchoolName">
+                      <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12">
+                        <label for="inputEmail3" class="col-md-4 col-sm-4 col-xs-12 control-label para2">School Name:</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <input type="text" class="form-control" ng-model="formData.schoolName" id="inputEmail3" readonly>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="form-group">
-                  <h4>U-10 Male Basketball</h4>
-                </div>
-                <div class="form-group">
-                  <div class="col-md-offset-2 col-md-8">
-                    <table class="table table-bordered text-left">
-                      <thead>
-                        <th>Sr. No.</th>
-                        <th>SFA ID-Name</th>
-                        <th>Captain</th>
-                        <th>Goalkeeper</th>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Cap</td>
-                          <td>126 - Kunjal Rawal</td>
-                          <td>
-                            <input name="radio" type="radio">
-                          </td>
-                          <td>
-                            <input name="radio" type="radio">
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                          <td>126 - Kunjal Rawal</td>
-                          <td>
-                            <input name="radio" type="radio">
-                          </td>
-                          <td>
-                            <input name="radio" type="radio">
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>126 - Kunjal Rawal</td>
-                          <td>
-                            <input name="radio" type="radio">
-                          </td>
-                          <td>
-                            <input name="radio" type="radio">
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <div class="form-group text-center">
+                    <h4 class="teamHead">U-10 Male Basketball</h4>
                   </div>
-                </div>
-                <div class="form-group">
-                  <button class="btn btn-default sub-mit" ng-disabled="isDisabled==true" type="submit">Edit</button>
-                  <button class="btn btn-default sub-mit" ng-disabled="isDisabled==true" type="submit">Confirm</button>
-                </div>
-              </form>
+                  <div class="form-group">
+                    <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12">
+                      <div class="selectedTeamTable">
+                        <table class="table table-bordered">
+                          <thead>
+                            <th>Sr. No.</th>
+                            <th>SFA ID-Name</th>
+                            <th>Captain</th>
+                            <th>Goalkeeper</th>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Cap</td>
+                              <td>126 - Kunjal Rawal</td>
+                              <td>
+                                <input name="radio" type="radio">
+                              </td>
+                              <td>
+                                <input name="radio" type="radio">
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>126 - Kunjal Rawal</td>
+                              <td>
+                                <input name="radio" type="radio">
+                              </td>
+                              <td>
+                                <input name="radio" type="radio">
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td>126 - Kunjal Rawal</td>
+                              <td>
+                                <input name="radio" type="radio">
+                              </td>
+                              <td>
+                                <input name="radio" type="radio">
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12">
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <button class="btn btn-default sub-mit form-control" ng-disabled="isDisabled==true" type="submit">Edit</button>
+                      </div>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <button class="btn btn-default sub-mit form-control" ng-disabled="isDisabled==true" type="submit">Confirm</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>

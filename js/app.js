@@ -950,11 +950,6 @@ firstapp.directive('uploadImage2', function ($http, $filter, $timeout) {
             if (attrs.noView || attrs.noView === "") {
                 $scope.noShow = true;
             }
-            // if (attrs.required) {
-            //     $scope.required = true;
-            // } else {
-            //     $scope.required = false;
-            // }
 
             $scope.$watch("image", function (newVal, oldVal) {
                 console.log(newVal, oldVal);

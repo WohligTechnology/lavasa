@@ -6719,18 +6719,79 @@ input {
 
 //end sports-tab
 //start sports-confirmteam
-.checkTeam {
-    margin-top: -5px;
-    span {
-        color: #091a71;
-        text-decoration: underline;
-        text-decoration-color: #091a71;
-        font-size: 29px;
+.confirmTeam {
+    .checkTeam {
+        margin-top: -5px;
+        span {
+            color: #091a71;
+            text-decoration: underline;
+            text-decoration-color: #091a71;
+            font-size: 29px;
+        }
     }
-}
-
-.Heading {
-    margin-bottom: 25px;
+    .Heading {
+        margin-bottom: 25px;
+    }
+    .teamHead {
+        font-family: 'Titillium Web';
+        color: #646464;
+        font-size: 18px;
+        margin: 0px;
+        font-weight: 600;
+        line-height: 29.167px;
+    }
+    .form-control[disabled],
+    .form-control[readonly],
+    fieldset[disabled] .form-control {
+        background-color: transparent;
+        opacity: 1;
+        border-color: #091a71;
+        color: #091a71;
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+    .form-horizontal .control-label {
+        // label {
+        padding-top: 0;
+    }
+    .selectedTeamTable {
+        .table {
+            width: 100%;
+            overflow-x: auto;
+            border-collapse: separate;
+            border-spacing: 0px 5px;
+            border: none;
+            tbody {
+                tr {
+                    background-color: transparent;
+                }
+            }
+        }
+        th {
+            color: #fff;
+            background-color: #091a71;
+            border: none;
+            padding-right: 12px;
+        }
+        td {
+            text-align: left;
+        }
+        th:first-child {
+            width: 12%; // background: transparent;
+            border: 0px;
+            padding-right: 25px;
+        }
+        .mid_col,
+        td {
+            background: #ccc;
+            border: 1px solid #aaa;
+        }
+        td:nth-of-type(2) {
+            background: transparent;
+            border: 0px;
+            padding-left: 25px;
+        }
+    }
 }
 
 //end sports-confirmteam
