@@ -523,17 +523,18 @@ var navigationservice = angular.module('navigationservice', [])
                 $.jStorage.set("userType", data);
             },
             //Forgot password api calling
-            //  forgotPassword: function (request, callback) {
-            //     $http({
-            //         url: adminurl2 + 'login/login',
-            //         method: 'POST',
-            //         data: request
-            //     }).success(callback);
-            // }
+             forgotPassword: function (request,url, callback) {
+                $http({
+                    url: adminurl2 + url,
+                    method: 'POST',
+                    withCredentials: true,
+                    data: request
+                }).success(callback);
+            },
             //Change password api calling
              changePassword: function (request, callback) {
                 $http({
-                    url: adminurl2 + 'changepassword/changepassword',
+                    url: adminurl2 + 'login/changePassword',
                     method: 'POST',
                     data: request
                 }).success(callback);
