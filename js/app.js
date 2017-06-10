@@ -320,10 +320,10 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'SportsSelectionCtrl'
         })
         //select-athletes
-        .state('select-athletes', {
-            url: "/select-athletes",
+        .state('athletes-selection', {
+            url: "/athletes-selection",
             templateUrl: "views/template.html",
-            controller: 'SelectAthletesCtrl'
+            controller: 'AthletesSelectionCtrl'
         })
         //confirmteam
         .state('confirmteam', {

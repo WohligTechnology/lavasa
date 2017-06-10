@@ -5218,12 +5218,12 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         }
     })
 
-    //Select-athletes
-    .controller('SelectAthletesCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    //Athletes-Selection
+    .controller('AthletesSelectionCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("selectathletes");
-        $scope.menutitle = NavigationService.makeactive("Select Athletes");
+        $scope.menutitle = NavigationService.makeactive("Athletes Selection");
         TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
