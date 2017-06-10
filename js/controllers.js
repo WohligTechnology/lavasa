@@ -4994,19 +4994,18 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                         console.log("data", data);
                         if (data.value) {
                             NavigationService.setUser(data.data);
-                            toastr.success('Successfully Logged In', 'Login Message');
+                            toastr.success('Successfully Logged In.', 'Login Message');
                             $state.go('sports-selection');
                         } else {
                             $scope.isDisabled = false;
-                            toastr.error('Enter Your Correct SFA ID and password ', 'Login Message');
+                            toastr.error('Please Enter Valid SFA Id And Password.', 'Login Message');
                         }
                     });
                 }
 
             } else {
-                console.log('Something is fisshy');
                 $scope.isDisabled = false;
-                toastr.error('Enter all fields', 'Login Message');
+                toastr.error('Please Enter All Fields.', 'Login Message');
             }
 
         };
@@ -5032,14 +5031,18 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 console.log("data", data);
                 if (data.value) {
                     $scope.isDisabled = true;
-                    toastr.success('Email Sent successfully to register Email ID', 'success');
+                    toastr.success('Email Is Sent Successfully To Your Registered Email Id.', 'Forgot Password Message');
                     $state.go('sports-registration');
                 } else {
                     $scope.isDisabled = false;
                     if (data.error == "Incorrect Type") {
-                        toastr.error('Please check you are School or Athlete,Please try again', 'Error');
+                        if ($scope.formData.type == 'athlete') {
+                            toastr.error('Only Athlete Can Apply From Here For Forgot Password. Please Check You Are School Or Athlete, Please Try Again.', 'Forgot Password Message');
+                        } else {
+                            toastr.error('Only School Can Apply From Here For Forgot Password. Please Check You Are School Or Athlete, Please Try Again.', 'Forgot Password Message');
+                        }
                     } else {
-                        toastr.error('The entered SFA ID and Email ID do not match ,Please try again', 'Error');
+                        toastr.error('Please Enter Valid  SFA Id And Email Id, Please Try Again.', 'Forgot Password Message');
                     }
 
 
@@ -5065,7 +5068,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             } else {
                 console.log('submit is false');
                 $scope.isDisabled = false;
-                toastr.error("Enter all fields", 'Error');
+                toastr.error("Please Enter All Fields", 'Forgot Password Message');
             }
         };
 
@@ -5087,7 +5090,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             if (formsports.$valid) {
                 $scope.isDisabled = true;
                 console.log("disabled is on");
-                if (formchange.newpd == formchange.password) {
+                if (formchange.password == formchange.confirmPassword) {
 
                     if ($.jStorage.get("userType") != null) {
                         if ($.jStorage.get("userType") == "school") {
@@ -5101,7 +5104,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                             console.log("data", data);
                             if (data.value) {
                                 $scope.isDisabled = true;
-                                toastr.success("Password Sucessfully changed", "Sucess");
+                                toastr.success("Password Is Sucessfully changed.", "Change Password Message");
                                 $timeout(function () {
                                     $state.go('sports-selection');
                                 }, 2000);
@@ -5109,10 +5112,10 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                             } else {
                                 $scope.isDisabled = false;
                                 if (data.error == "Incorrect Old Password") {
-                                    toastr.error("Incorrect Old Password", "Error");
+                                    toastr.error("Enter Vaild Old Password.", "Change Password Message");
                                 }
-                                if (data.error == "Password match or Same password exist") {
-                                    toastr.error("New Password is Similar to the Old One", "Error");
+                                if (data.error == "Password matches or Same password exist") {
+                                    toastr.error("The New Password Is Similar To The Old Password.", "Change Password Message");
                                 }
                             }
                         });
@@ -5120,14 +5123,13 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
 
                 } else {
-                    toastr.error("New password and confirm password do not match");
+                    toastr.error("New Password and Confirm Password Do Not Match.");
                     $scope.isDisabled = false;
                 }
 
             } else {
-                toastr.error("Please enter all fields", "Error");
+                toastr.error("Please Enter All Fields.", "Change Password Message");
                 $scope.isDisabled = false;
-                console.log("disabled is off");
             }
         };
 
@@ -5212,29 +5214,106 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                     console.log($scope.requestObjUserType, "$scope.requestObjUserType");
                     $scope.logoutCommomFun($scope.requestObjUserType);
                 }
-
-
             }
-
-
         }
-
-
-
-
-
     })
-    //Sports-Confirm-Team
-    .controller('SportsConfirmTeamCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+
+    //Select-athletes
+    .controller('SelectAthletesCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
-        $scope.template = TemplateService.changecontent("sports-confirmteam");
-        $scope.menutitle = NavigationService.makeactive("Sports Confirm Team");
+        $scope.template = TemplateService.changecontent("selectathletes");
+        $scope.menutitle = NavigationService.makeactive("Select Athletes");
         TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
+        $scope.selectAthlete = [{
+            firstName: 'Harshit',
+            lastName: 'Shah',
+            sfaId: '45211',
+            photograph: 'img/noimage.png'
+
+        }, {
+            firstName: 'Harshit',
+            lastName: 'Shah',
+            sfaId: '45211',
+            photograph: 'img/noimage.png'
+
+        }, {
+            firstName: 'Harshit',
+            lastName: 'Shah',
+            sfaId: '45211',
+            photograph: 'img/noimage.png'
+
+        }, {
+            firstName: 'Harshit',
+            lastName: 'Shah',
+            sfaId: '45211',
+            photograph: 'img/noimage.png'
+
+        }, {
+            firstName: 'Harshit',
+            lastName: 'Shah',
+            sfaId: '45211',
+            photograph: 'img/noimage.png'
+
+        }, {
+            firstName: 'Harshit',
+            lastName: 'Shah',
+            sfaId: '45211',
+            photograph: 'img/noimage.png'
+
+        }, {
+            firstName: 'Harshit',
+            lastName: 'Shah',
+            sfaId: '45211',
+            photograph: 'img/noimage.png'
+
+        }, {
+            firstName: 'Harshit',
+            lastName: 'Shah',
+            sfaId: '45211',
+            photograph: 'img/noimage.png'
+
+        }, {
+            firstName: 'Harshit',
+            lastName: 'Shah',
+            sfaId: '45211',
+            photograph: 'img/noimage.png'
+
+        }, {
+            firstName: 'Harshit',
+            lastName: 'Shah',
+            sfaId: '45211',
+            photograph: 'img/noimage.png'
+
+        }, {
+            firstName: 'Harshit',
+            lastName: 'Shah',
+            sfaId: '45211',
+            photograph: 'img/noimage.png'
+
+        }, {
+            firstName: 'Harshit',
+            lastName: 'Shah',
+            sfaId: '45211',
+            photograph: 'img/noimage.png'
+
+        }]
     })
+
+    //Sports-Confirm-Team
+    .controller('ConfirmTeamCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+        //Used to name the .html file
+
+        $scope.template = TemplateService.changecontent("sports-confirmteam");
+        $scope.menutitle = NavigationService.makeactive("Confirm Team");
+        TemplateService.header = "views/header2.html";
+        TemplateService.title = $scope.menutitle;
+        $scope.navigation = NavigationService.getnav();
+    })
+
 
     .controller('headerctrl', function ($scope, TemplateService, $rootScope) {
         $scope.template = TemplateService;

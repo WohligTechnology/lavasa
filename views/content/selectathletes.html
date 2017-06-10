@@ -1,0 +1,119 @@
+<section class="selectAthletes">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10 col-sm-12 col-xs-12">
+                <h1 class="text-center school-sports spt-m">Sports Registration Form</h1>
+                <div class="step5">Basketball</div>
+                <div class="box-padd-term mb91">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+
+                            <form class="form-horizontal">
+                                <div class="">
+                                    <div class="readSchoolName">
+                                        <!--control-label-->
+                                        <label for="inputEmail3" class="specialColPadding col-md-2 col-sm-3 col-xs-12 para2">Select Gender</label>
+                                        <div class="col-md-10 col-sm-9 col-xs-12">
+                                            <input type="radio" ng-model="formData.gender" id="radio04" name="radio1" value="male" required>
+                                            <label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
+                                            <input type="radio" ng-model="formData.gender" id="radio03" name="radio1" value="female" required>
+                                            <label for="radio03" class="padd-lr sf-list"><span></span>Female</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="form-group specialMargin">
+                                    <div class="readSchoolName">
+                                        <!--control-label-->
+                                        <label for="inputEmail3" class="specialColPadding col-md-2 col-sm-3 col-xs-12 para2">Select Age Group</label>
+                                        <div class="col-md-10 col-sm-9 col-xs-12">
+                                            <input type="radio" ng-model="formData.gender" id="radio04" name="radio1" value="male" required>
+                                            <label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
+                                            <input type="radio" ng-model="formData.gender" id="radio03" name="radio1" value="female" required>
+                                            <label for="radio03" class="padd-lr sf-list"><span></span>Female</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="separateTwoBox">
+                                <!--ng-repeat="data in getSearchData.data"-->
+                                <div class="col-md-4 mt15" ng-repeat="checked in selectAthlete">
+                                    <div class="school-sec">
+                                        <div class="stu-img">
+                                            <img src="{{checked.photograph}}" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="stu-check">
+                                            <div class="checkbox-custom">
+                                                <input type="checkbox" name="checkIhav" ng-model="formData.isVideoAnalysis" id="option{{$index+1}}" />
+                                                <label for="option{{$index+1}}"><span></span></label>
+                                            </div>
+                                        </div>
+                                        <div class="stu-name text-center">
+                                            <h4 class="color-orange text-up font-semi">{{checked.firstName}} {{checked.lastName}}</h4>
+                                        </div>
+                                        <div class="stu-id text-center">
+                                            <h4 class="color-blue">SFA ID: {{checked.sfaId}}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="separateTwoBox">
+                                <div class="selectedTeamTable table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <th>
+                                                <div class="mid_col">Sr. No.</div>
+                                            </th>
+                                            <th>SFA ID-Name</th>
+                                            <th></th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="mid_cols">Cap</div>
+                                                </td>
+                                                <td>126 - Kunjal Rawal</td>
+                                                <td>
+                                                    <input name="radio" type="radio">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="mid_cols">1</div>
+                                                </td>
+                                                <td>126 - Kunjal Rawal</td>
+                                                <td>
+                                                    <input name="radio" type="radio">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="mid_cols">2</div>
+                                                </td>
+                                                <td>126 - Kunjal Rawal</td>
+                                                <td>
+                                                    <input name="radio" type="radio">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row text-center mt25 mb-50">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button class="btn btn-default width-86 sub-mit" type="submit">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

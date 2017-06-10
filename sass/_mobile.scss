@@ -63,7 +63,7 @@
       font-size: 30px;
     }
   }
-  
+
   @media (max-width:$screen-sm-max) {
     //start sports-tab
     .sp-row-tab ul li button {
@@ -73,14 +73,12 @@
       width: 158px;
       padding: 10px 0px;
       font-size: 16.75px;
-    }
-    // .sp-tab-right {
+    } // .sp-tab-right {
     //   float: left !important;
     // }
     .step4:before {
       right: 158px;
-    }
-    //end sports-tab
+    } //end sports-tab
     //start sportsreg-terms
     .school-sports {
       margin-top: 100px;
@@ -90,8 +88,7 @@
       height: 400px;
       overflow-y: scroll;
       margin-right: -15px;
-    }
-    //scss for registration
+    } //scss for registration
     .twoStrikes {
       .statement {
         padding: 8px;
@@ -402,13 +399,37 @@
       width: 422px;
     }
   }
-  
+
   @media (max-width:$screen-xs-max) {
+    //start confirmTeam
+    .table-responsive {
+      margin: 0;
+      border: 0;
+    }
+    .table-responsive>.table-bordered>tbody>tr>td:nth-child(4) {
+      border-right: 1px solid #ccc;
+    }
+    .table-responsive>.table-bordered>tbody>tr:last-child>td:nth-child(2) {
+      border-bottom: 1px solid #ccc;
+    }
+    .table-responsive>.table-bordered>tbody>tr:last-child>td:nth-child(3) {
+      border-bottom: 1px solid #ccc;
+    }
+    .table-responsive>.table-bordered>tbody>tr:last-child>td:nth-child(4) {
+      border-bottom: 1px solid #ccc;
+    }
+    .nominate {
+      input {
+        margin-bottom: 15px;
+      }
+    }
+    .confirmTeam .checkTeam span {
+      font-size: 24px;
+    } //end sports-confirmTeam
     //start sports-congrats
     .spc-inside-box {
       padding: 30px 0px 30px 0px;
-    }
-    //end sports-congrats
+    } //end sports-congrats
     //Start sportsreg-terms
     .school-sports {
       margin-top: 20px !important;
@@ -418,8 +439,7 @@
       height: 319px;
       overflow-y: scroll;
       margin-right: -33px;
-    }
-    //end sportsreg-terms
+    } //end sportsreg-terms
     //sports-registration-form
     .sp-reg .blue-spreg {
       h4 {
@@ -443,10 +463,8 @@
     }
     .sp-reg .block-custom {
       // float: right;
-      margin-right: 43px;
-      // margin-left: 30px;
-    }
-    //end-sports-registration-form
+      margin-right: 43px; // margin-left: 30px;
+    } //end-sports-registration-form
     .twoStrikes {
       .statement {
         padding: 5px;
@@ -1027,13 +1045,13 @@
       font-size: 14px;
     }
   }
-  
+
   @media (max-width:525px) {
     .dis-inline {
       width: 32.3%;
     }
   }
-  
+
   @media (max-width:480px) {
     //sports-tab
     .sp-tab-right p {
@@ -1078,8 +1096,7 @@
     }
     .sp-main-tab .blue-active .step4:after {
       border-top: 35px solid transparent;
-    }
-    //end sports-tab
+    } //end sports-tab
     //start sports-congrats
     .spc-inside-box {
       font-size: 12px;
@@ -1089,8 +1106,7 @@
     }
     .spc-inside-box .spc-btn button {
       width: 175px;
-    }
-    //end sports-congrats
+    } //end sports-congrats
     //start sportsreg-terms
     .scrollbar {
       margin-left: 0;
@@ -1106,8 +1122,7 @@
     }
     .box-padd-term .blue-schoolterm {
       font-size: 12px !important;
-    }
-    //end-sportsreg-terms
+    } //end-sportsreg-terms
     //sports-registration-form
     .sp-reg .blue-spreg {
       h4 {
@@ -1147,10 +1162,8 @@
     }
     .sp-reg .block-custom {
       // float: right;
-      margin-right: 43px;
-      // margin-left: 30px;
-    }
-    //end-sports-registration-form
+      margin-right: 43px; // margin-left: 30px;
+    } //end-sports-registration-form
     .twoStrikes {
       .statement {
         padding: 2px;
@@ -2068,7 +2081,7 @@
       padding-right: 11px;
     }
   }
-  
+
   @media (max-width:400px) {
     //start sports-tab
     .sp-row-tab {
@@ -2076,14 +2089,12 @@
     }
     .mob-mr {
       margin-right: 38px !important;
-    }
-    //end sports-tab
+    } //end sports-tab
     //start sportsreg-terms
     .step3 {
       width: 157px;
       font-size: 12px;
-    }
-    //end sportsreg-terms
+    } //end sportsreg-terms
     //sports-registration-form
     .sp-reg .step2 {
       width: 95px;
@@ -2098,8 +2109,7 @@
     }
     .sp-reg ul li a {
       font-size: 14px;
-    }
-    //end-sports-registration-form
+    } //end-sports-registration-form
     .venue {
       .sport25 {
         font-size: 20px;
