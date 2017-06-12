@@ -4951,6 +4951,9 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         if ($.jStorage.get("userType") == null) {
             NavigationService.setUserType("athlete");
         }
+        if ($.jStorage.get("userDetails") != null) {
+            $state.go('sports-selection');
+        }
         if ($.jStorage.get("userType") != null) {
             if ($.jStorage.get("userType") == "athlete") {
                 $scope.ath = true;
@@ -4981,26 +4984,49 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             }
 
         }
+
+        $scope.loginFunction = function (formData) {
+            NavigationService.login(formData, function (data) {
+                console.log("data", data);
+                if (data.value) {
+                    NavigationService.setUser(data.data);
+                    toastr.success('Successfully Logged In.', 'Login Message');
+                    $state.go('sports-selection');
+                } else {
+                    $scope.isDisabled = false;
+                    toastr.error('Please Enter Valid SFA Id And Password.', 'Login Message');
+                }
+            });
+        }
         $scope.isDisabled = false;
         $scope.login = function (formData, formsports) {
             console.log(formData);
             if (formsports.$valid) {
                 if (formData) {
                     formData.type = $.jStorage.get("userType");
-                    console.log('everything is alright');
-                    $scope.isDisabled = true;
-                    console.log("formData", formData);
-                    NavigationService.login(formData, function (data) {
-                        console.log("data", data);
-                        if (data.value) {
-                            NavigationService.setUser(data.data);
-                            toastr.success('Successfully Logged In.', 'Login Message');
-                            $state.go('sports-selection');
+                    if (formData.sfaid) {
+                        if (formData.sfaid.charAt(1) == "S" && formData.type == "athlete") {
+                            toastr.error('Only Athlete Can Log In.', 'Login Message');
                         } else {
-                            $scope.isDisabled = false;
-                            toastr.error('Please Enter Valid SFA Id And Password.', 'Login Message');
+                            if (formData.sfaid.charAt(1) == "A" && formData.type == "school") {
+                                toastr.error('Only School Can Log In.', 'Login Message');
+                            }
                         }
-                    });
+
+                    }
+                    console.log('everything is alright');
+                    // $scope.isDisabled = true;
+                    console.log("formData", formData);
+                    if (formData.sfaid.charAt(1) == "S" && formData.type == "school") {
+                        $scope.isDisabled = true;
+                        $scope.loginFunction(formData);
+                    } else {
+                        if (formData.sfaid.charAt(1) == "A" && formData.type == "athlete") {
+                            $scope.isDisabled = true;
+                            $scope.loginFunction(formData);
+                        }
+                    }
+
                 }
 
             } else {
@@ -5091,7 +5117,6 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 $scope.isDisabled = true;
                 console.log("disabled is on");
                 if (formchange.password == formchange.confirmPassword) {
-
                     if ($.jStorage.get("userType") != null) {
                         if ($.jStorage.get("userType") == "school") {
                             formchange.schoolToken = $.jStorage.get("userDetails").accessToken;
@@ -5100,7 +5125,6 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                         }
                         console.log("formchange", formchange);
                         NavigationService.changePassword(formchange, function (data) {
-
                             console.log("data", data);
                             if (data.value) {
                                 $scope.isDisabled = true;
@@ -5110,18 +5134,19 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                                 }, 2000);
 
                             } else {
+                                console.log("im ele");
                                 $scope.isDisabled = false;
                                 if (data.error == "Incorrect Old Password") {
                                     toastr.error("Enter Vaild Old Password.", "Change Password Message");
-                                }
-                                if (data.error == "Password matches or Same password exist") {
-                                    toastr.error("The New Password Is Similar To The Old Password.", "Change Password Message");
+                                } else {
+                                    if (data.error == "Password match or Same password exist") {
+                                        console.log("imin");
+                                        toastr.error("The New Password Is Similar To The Old Password.", "Change Password Message");
+                                    }
                                 }
                             }
                         });
                     }
-
-
                 } else {
                     toastr.error("New Password and Confirm Password Do Not Match.");
                     $scope.isDisabled = false;
@@ -5183,11 +5208,31 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 console.log('register');
             }
         };
-        if ($.jStorage.get("userType") != null) {
+
+
+        if ($.jStorage.get("userDetails") != null) {
             $scope.isLoggedIn = true;
+            if ($.jStorage.get("userType") == "school") {
+                $scope.sfaIdObj = $.jStorage.get("userDetails").sfaID;
+                $scope.schoolName = $.jStorage.get("userDetails").schoolName;
+            } else {
+                $scope.sfaIdObj = $.jStorage.get("userDetails").sfaId;
+                if ($.jStorage.get("userDetails").atheleteSchoolName) {
+                    $scope.schoolName = $.jStorage.get("userDetails").atheleteSchoolName;
+                } else {
+                    if ($.jStorage.get("userDetails").school) {
+                        $scope.schoolName = $.jStorage.get("userDetails").school.name;
+                    }
+                }
+
+
+            }
         } else {
 
             $scope.isLoggedIn = false;
+        }
+        if ($.jStorage.get("userDetails") == null) {
+            $state.go('sports-registration');
         }
         $scope.requestObjUserType = {};
         $scope.logoutCommomFun = function (requestObjUserType) {
