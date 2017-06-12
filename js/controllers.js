@@ -5241,7 +5241,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 if (data.value) {
                     toastr.success('Successfully Logged Out', 'Logout Message');
                     $scope.isLoggedIn = false;
-                    $state.go('home');
+                    $state.go('sports-registration');
                 } else {
                     toastr.error('Something went wrong', 'Logout Message');
                 }
