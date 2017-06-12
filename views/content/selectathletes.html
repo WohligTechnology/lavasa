@@ -27,10 +27,10 @@
                                         <!--control-label-->
                                         <label for="inputEmail3" class="specialColPadding col-md-2 col-sm-3 col-xs-12 para2">Select Age Group</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="radio" ng-model="formData.gender" id="radio04" name="radio1" value="male" required>
-                                            <label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
-                                            <input type="radio" ng-model="formData.gender" id="radio03" name="radio1" value="female" required>
-                                            <label for="radio03" class="padd-lr sf-list"><span></span>Female</label>
+                                            <input type="radio" ng-model="formData.genders" id="radio01" name="radio2" value="male" required>
+                                            <label for="radio01" class="padd-lr sf-list"><span></span>Male</label>
+                                            <input type="radio" ng-model="formData.genders" id="radio02" name="radio2" value="female" required>
+                                            <label for="radio02" class="padd-lr sf-list"><span></span>Female</label>
                                         </div>
                                     </div>
                                 </div>
@@ -40,6 +40,24 @@
                     <div class="row">
                         <div class="col-md-7">
                             <div class="separateTwoBox">
+                                <form class="form-horizontal">
+                                    <div class="form-group" ng-init="formData.schoolName = 'D.A.V Public School'">
+                                        <div class="readSchoolName">
+                                            <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12">-->
+                                            <label for="inputEmail3" class="col-md-4 col-sm-4 col-xs-12 control-label para2">School Name:</label>
+                                            <div class="col-md-6 col-sm-7 col-xs-10">
+                                                <input type="text" class="form-control" ng-model="formData.schoolName" id="inputEmail3" readonly>
+                                            </div>
+                                            <div class="hover-img margin0 col-md-2 col-sm-2 col-xs-2">
+                                                <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
+                                                <div class="iconinfo sf-list">
+                                                    <p>This information will be important in case of medical emergencies</p>
+                                                </div>
+                                            </div>
+                                            <!--</div>-->
+                                        </div>
+                                    </div>
+                                </form>
                                 <!--ng-repeat="data in getSearchData.data"-->
                                 <div class="col-md-4 mt15" ng-repeat="checked in selectAthlete">
                                     <div class="school-sec">
@@ -64,6 +82,15 @@
                         </div>
                         <div class="col-md-5">
                             <div class="separateTwoBox">
+                                <div class="text-center">
+                                    <h4>Basketball Male U-8</h4>
+                                </div>
+                                <div class="">
+                                    <p>Kindly select a minimum of 11 players and a maximum of 18 players.</p>
+                                </div>
+                                <div class="">
+                                    <p>Players Selected: 8</p>
+                                </div>
                                 <div class="selectedTeamTable table-responsive">
                                     <table class="table table-bordered">
                                         <thead>

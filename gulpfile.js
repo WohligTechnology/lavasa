@@ -24,6 +24,7 @@ var jsArray = [
     './bower_components/angular-ui-date/dist/date.js',
     './bower_components/angular-responsive-tables/release/angular-responsive-tables.min.js',
     './bower_components/angular-toastr/dist/angular-toastr.tpls.js',
+    './bower_components/jStorage/jstorage.min.js',
     './js/app.js',
     './js/language.js',
     './js/controllers.js',
