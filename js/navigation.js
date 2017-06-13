@@ -499,7 +499,7 @@ var navigationservice = angular.module('navigationservice', [])
             },
 
             //Sports Registration api calling
-             login: function (request, callback) {
+            login: function (request, callback) {
                 $http({
                     url: adminurl2 + 'login/login',
                     method: 'POST',
@@ -507,9 +507,9 @@ var navigationservice = angular.module('navigationservice', [])
                 }).success(callback);
             },
             //logout api calling
-             logout: function (request,callback) {
-                 $.jStorage.flush();
-               $http({
+            logout: function (request, callback) {
+                $.jStorage.flush();
+                $http({
                     url: adminurl2 + 'login/logout',
                     method: 'POST',
                     data: request
@@ -523,7 +523,7 @@ var navigationservice = angular.module('navigationservice', [])
                 $.jStorage.set("userType", data);
             },
             //Forgot password api calling
-             forgotPassword: function (request,url, callback) {
+            forgotPassword: function (request, url, callback) {
                 $http({
                     url: adminurl2 + url,
                     method: 'POST',
@@ -532,12 +532,31 @@ var navigationservice = angular.module('navigationservice', [])
                 }).success(callback);
             },
             //Change password api calling
-             changePassword: function (request, callback) {
+            changePassword: function (request, callback) {
                 $http({
                     url: adminurl2 + 'login/changePassword',
                     method: 'POST',
                     data: request
                 }).success(callback);
-            }
+            },
+            //SportsListSubCategory
+            getAllSportsListSubCategory: function (callback) {
+                $http({
+                    url: adminurl2 + 'SportsListSubCategory/getAll',
+                    method: 'POST'
+                }).success(callback);
+            },
+            getSportsRules: function (id, callback) {
+                var data = {
+                    _id: id
+                }
+                $http({
+                    url: adminurl2 + 'SportsListSubCategory/getRules',
+                    method: 'POST',
+                    data: data
+                }).success(callback);
+            },
+
+
         };
     });

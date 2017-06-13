@@ -303,7 +303,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         })
         //sportsreg-terms
         .state('sports-rules', {
-            url: "/sports-rules",
+            url: "/sports-rules/:id",
             templateUrl: "views/template.html",
             controller: 'SportsRulesCtrl'
         })

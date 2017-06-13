@@ -6,7 +6,8 @@
       <div class="box-padd-term mb-50">
         <div class="scrollbar style-1">
           <div class="spt-para">
-            <p ng-bind-html="termsandCondition"></p>
+            <!--<p ng-bind-html="termsandCondition"></p>-->
+            <p ng-bind-html="sportsRulesAndRegulation.rules.rulesAndRegulation"></p>
           </div>
         </div>
         <div class="mt25 blue-schoolterm">
@@ -16,12 +17,12 @@
             <input type="checkbox" name="checkIhav" ng-checked="termsCheck(formData.termsAndCondition)" ng-model="formData.termsAndCondition"
               id="test5" />
             <label for="test5" class="sf-list custom-a" style="padding-left: 20px;"><span></span> <b>I Agree to terms and conditions above</b></label>
-            <div class="validate-col" ng-show="showTerm">Please accept terms and conditions</div>
+            <div class="validate-col" ng-if="errorMsg">Please accept terms and conditions</div>
           </div>
         </div>
         <div class="row text-center mt25 mb-50">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <button class="btn btn-default width-86 sub-mit" type="submit">Next</button>
+            <button class="btn btn-default width-86 sub-mit" type="button" ng-click="goTotermsCheck(formData.termsAndCondition)">Next</button>
           </div>
         </div>
       </div>
