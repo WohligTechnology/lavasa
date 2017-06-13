@@ -65,6 +65,24 @@
     }
 
     @media (max-width:$screen-sm-max) {
+      //start athletes-selection
+      .selectAthletes .separateTwoBox .scroll-div .scrollbar {
+        margin-right: -6px;
+        clear: both;
+      }
+      .readSchoolName {
+        .iconinfo {
+          margin-left: -160px;
+          margin-top: 22px;
+        }
+      }
+      .mob-bottom {
+        margin-bottom: 15px;
+      }
+      .selectAthletes .separateTwoBox {
+        height: 598px;
+        margin-bottom: 15px;
+      } //end athletes-selection
       //start sports-tab
       .sp-row-tab ul li button {
         width: 150px;
@@ -1055,6 +1073,17 @@
     }
 
     @media (max-width:480px) {
+      //start athlete-selection
+      .iconinfo {
+        margin-left: -170px;
+        width: 250px;
+      }
+      .para2 {
+        font-size: 14px;
+      }
+      label.padd-lr.sf-list {
+        font-size: 12px;
+      } //end
       //sports-tab
       .sp-tab-right p {
         font-size: 12.75px;
@@ -2085,6 +2114,10 @@
     }
 
     @media (max-width:400px) {
+      //start athlete-selection
+      .selectAthletes .separateTwoBox .kind-select {
+        font-size: 12px;
+      } //end
       //start sports-tab
       .sp-row-tab {
         text-align: center;
