@@ -1211,6 +1211,16 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             });
         };
         $scope.openModal = function () {
+            $timeout(function () {
+                fbq('track', 'Lead', {
+                    value: 10.00,
+                    currency: 'USD'
+                });
+                fbq('track', 'CompleteRegistration', {
+                    value: 25.00,
+                    currency: 'USD'
+                });
+            });
             var modalInstance = $uibModal.open({
                 animation: true,
                 scope: $scope,
