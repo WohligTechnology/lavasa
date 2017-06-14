@@ -5361,18 +5361,20 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
 
             })
         }
-        $scope.goTotermsCheck = function (val) {
+        $scope.goTotermsCheck = function (val, id) {
             console.log("imin", val);
             if (val == undefined) {
                 toastr.error('Please Accept Terms And Conditions');
                 $scope.errorMsg = true;
 
             } else {
+                console.log("id", id);
                 if (val == true) {
                     $state.go('athletes-selection');
-                    // $state.go('athletes-selection',{
+                    $state.go('athletes-selection', {
+                        id: id
 
-                    // })
+                    })
                 }
             }
 
@@ -5424,13 +5426,16 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             if ($.jStorage.get("userType") == "school") {
                 $scope.sfaIdObj = $.jStorage.get("userDetails").sfaID;
                 $scope.schoolName = $.jStorage.get("userDetails").schoolName;
+
             } else {
                 $scope.sfaIdObj = $.jStorage.get("userDetails").sfaId;
                 if ($.jStorage.get("userDetails").atheleteSchoolName) {
                     $scope.schoolName = $.jStorage.get("userDetails").atheleteSchoolName;
+                    NavigationService.setUserSchool($scope.schoolName);
                 } else {
                     if ($.jStorage.get("userDetails").school) {
                         $scope.schoolName = $.jStorage.get("userDetails").school.name;
+                        NavigationService.setUserSchool($scope.schoolName);
                     }
                 }
 
@@ -5493,7 +5498,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
     })
 
     //Athletes-Selection
-    .controller('AthletesSelectionCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    .controller('AthletesSelectionCtrl', function ($scope, TemplateService, NavigationService, $stateParams, $timeout) {
         //Used to name the .html file
 
         $scope.template = TemplateService.changecontent("selectathletes");
@@ -5501,6 +5506,84 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         TemplateService.header = "views/header2.html";
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
+        $scope.ageGroup = [];
+        $scope.maleAgeGrp = [];
+        $scope.femaleAgeGrp = [];
+        $scope.constraints = {};
+        $scope.constraints._id = $stateParams.id;
+        $scope.getAthletePerSchoolObj = {};
+        $scope.getAthletePerSchoolObj.sfaid = '';
+        $scope.getAthletePerSchoolObj.page = '1';
+        if ($.jStorage.get("schoolName") != null) {
+            $scope.getAthletePerSchoolObj.school = $.jStorage.get("schoolName");
+        }
+        $scope.getAthletePerSchool = function (constraints) {
+            NavigationService.getOneSport(constraints, function (data) {
+                console.log(data, "data");
+                if (data.value) {
+                    $scope.showMsg = true
+                    $scope.getAthletePerSchoolObj.sport = data.data.sport;
+
+                    console.log($scope.getAthletePerSchoolObj, "$scope.getAthletePerSchoolObj");
+                    NavigationService.getAthletePerSchool($scope.getAthletePerSchoolObj, function (data) {
+                        console.log(data, "data");
+                        if (data.value) {
+                            $scope.isLoading = false;
+                            $scope.selectAthlete = data.data;
+                        }
+                    })
+                }
+            })
+
+        }
+        $scope.goToAge = function (ageId) {
+            $scope.isLoading = true;
+            $scope.constraints.age = ageId;
+            $scope.getAthletePerSchoolObj.age = ageId;
+            console.log($scope.constraints.age, "$scope.constraints.age");
+            $scope.getAthletePerSchool($scope.constraints);
+        }
+        $scope.loadMore = function () {
+
+        }
+        // $scope.filterData = function () {
+        //     $scope.selectAthlete = [];
+        //     $scope.getAthletePerSchoolObj.page = '1'
+        //     NavigationService.getAthletePerSchool($scope.getAthletePerSchoolObj, function (data) {
+        //         console.log(data, "data");
+        //         if (data.value) {
+        //             $scope.isLoading = false;
+        //             $scope.selectAthlete = data.data;
+        //         }
+        //     })
+
+        // }
+
+        $scope.showAgeGrp = function (gender) {
+            console.log("gender", gender);
+            if (gender == "female") {
+                $scope.ageGroup = [];
+                $scope.ageGroup = $scope.femaleAgeGrp;
+                $scope.constraints.gender = gender;
+                $scope.getAthletePerSchoolObj.gender = gender;
+            } else {
+                console.log("im in else");
+                $scope.ageGroup = [];
+                $scope.ageGroup = $scope.maleAgeGrp;
+                $scope.constraints.gender = gender;
+                $scope.getAthletePerSchoolObj.gender = gender;
+
+            }
+        }
+
+        if ($stateParams.id) {
+            NavigationService.getSports($stateParams.id, function (data) {
+                $scope.getSports = data.data;
+                $scope.maleAgeGrp = _.cloneDeep($scope.getSports.male);
+                $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.female);
+                $scope.showAgeGrp('male');
+            })
+        }
 
         $scope.selectAthlete = [{
             firstName: 'Harshit',
@@ -5574,7 +5657,12 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             sfaId: '45211',
             photograph: 'img/noimage.png'
 
-        }]
+        }];
+
+
+
+
+
     })
 
     //Sports-Confirm-Team

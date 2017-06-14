@@ -522,6 +522,9 @@ var navigationservice = angular.module('navigationservice', [])
             setUserType: function (data) {
                 $.jStorage.set("userType", data);
             },
+            setUserSchool: function (schoolName) {
+                $.jStorage.set("schoolName", schoolName);
+            },
             //Forgot password api calling
             forgotPassword: function (request, url, callback) {
                 $http({
@@ -556,6 +559,30 @@ var navigationservice = angular.module('navigationservice', [])
                     data: data
                 }).success(callback);
             },
+            getSports: function (id, callback) {
+                var data = {
+                    _id: id
+                }
+                $http({
+                    url: adminurl2 + 'SportsListSubCategory/getSports',
+                    method: 'POST',
+                    data: data
+                }).success(callback);
+            },
+            getOneSport: function (data, callback) {
+                $http({
+                    url: adminurl2 + 'SportsListSubCategory/getOneSport',
+                    method: 'POST',
+                    data: data
+                }).success(callback);
+            },
+            getAthletePerSchool: function (request, callback) {
+                $http({
+                    url: adminurl2 + 'sport/getAthletePerSchool',
+                    method: 'POST',
+                    data: request
+                }).success(callback);
+            }
 
 
         };
