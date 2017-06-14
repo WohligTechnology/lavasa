@@ -65,7 +65,10 @@
     }
 
     @media (max-width:$screen-sm-max) {
-      //start athletes-selection
+      // start athletes-selection
+      .selectAthletes .separateTwoBox .school-sec .stu-check .checkbox-custom input[type="checkbox"]+label {
+        width: 170px;
+      }
       .selectAthletes .separateTwoBox .scroll-div .scrollbar {
         margin-right: -6px;
         clear: both;
@@ -1070,10 +1073,16 @@
       .dis-inline {
         width: 32.3%;
       }
+      .selectAthletes .separateTwoBox .school-sec .stu-check .checkbox-custom input[type="checkbox"]+label {
+        width: 342px;
+      }
     }
 
     @media (max-width:480px) {
       //start athlete-selection
+      .selectAthletes .separateTwoBox .school-sec .stu-check .checkbox-custom input[type="checkbox"]+label {
+        width: 296px;
+      }
       .readSchoolName {
         .iconinfo {
           margin-left: -170px;
@@ -2117,6 +2126,9 @@
 
     @media (max-width:400px) {
       //start athlete-selection
+      .selectAthletes .separateTwoBox .school-sec .stu-check .checkbox-custom input[type="checkbox"]+label {
+        width: 136px;
+      }
       .selectAthletes .separateTwoBox .kind-select {
         font-size: 12px;
       } //end
