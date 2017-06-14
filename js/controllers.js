@@ -737,6 +737,7 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         }
 
     })
+
     .controller('KnockoutQualifyCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
         //Used to name the .html file
 
@@ -757,6 +758,90 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
         TemplateService.title = $scope.menutitle;
         $scope.navigation = NavigationService.getnav();
 
+        $scope.changeitSchoolId = function (err, data) {
+            console.log(err, data);
+            if (err) {
+                $scope.errorMsgpan = err;
+                if (err == 'Please Upload File Size Upto 1 MB') {
+                    $scope.openUploadSizeModal();
+                    $timeout(function () {
+                        $scope.uploadSizeInstances.close();
+                    }, 2000);
+                }
+                if (err == 'Please upload png or jpg.') {
+                    $scope.openUploadTypeModal();
+                    $timeout(function () {
+                        $scope.uploadTypeInstances.close();
+                    }, 2000);
+                }
+            } else {
+                $scope.errorMsgpan = " ";
+                // $scope.errorMsgpan = "Successfully uploaded";
+            }
+        }
+        $scope.changeitPhotograph = function (err, data) {
+            console.log(err, data);
+            if (err) {
+                $scope.errorMsgpan = err;
+                if (err == 'Please Upload File Size Upto 1 MB') {
+                    $scope.openUploadSizeModal();
+                    $timeout(function () {
+                        $scope.uploadSizeInstances.close();
+                    }, 2000);
+                }
+                if (err == 'Please upload png or jpg.') {
+                    $scope.openUploadTypeModal();
+                    $timeout(function () {
+                        $scope.uploadTypeInstances.close();
+                    }, 2000);
+                }
+            } else {
+                $scope.errorMsgpan = " ";
+                // $scope.errorMsgpan = "Successfully uploaded";
+            }
+        }
+        $scope.changeitBirthImage = function (err, data) {
+            console.log(err, data);
+            if (err) {
+                $scope.errorMsgpan = err;
+                if (err == 'Please Upload File Size Upto 1 MB') {
+                    $scope.openUploadSizeModal();
+                    $timeout(function () {
+                        $scope.uploadSizeInstances.close();
+                    }, 2000);
+                }
+                if (err == 'Please upload png or jpg.') {
+                    $scope.openUploadTypeModal();
+                    $timeout(function () {
+                        $scope.uploadTypeInstances.close();
+                    }, 2000);
+                }
+            } else {
+                $scope.errorMsgpan = " ";
+                // $scope.errorMsgpan = "Successfully uploaded";
+            }
+        }
+        $scope.changeitPhotoImage = function (err, data) {
+            console.log(err, data);
+            if (err) {
+                $scope.errorMsgpan = err;
+                if (err == 'Please Upload File Size Upto 1 MB') {
+                    $scope.openUploadSizeModal();
+                    $timeout(function () {
+                        $scope.uploadSizeInstances.close();
+                    }, 2000);
+                }
+                if (err == 'Please upload png or jpg.') {
+                    $scope.openUploadTypeModal();
+                    $timeout(function () {
+                        $scope.uploadTypeInstances.close();
+                    }, 2000);
+                }
+            } else {
+                $scope.errorMsgpan = " ";
+                // $scope.errorMsgpan = "Successfully uploaded";
+            }
+        }
 
         $scope.formData = {};
         $scope.formData.parentDetails = [];
@@ -1318,12 +1403,75 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
             });
         };
 
+        $scope.openUploadSizeModal = function () {
+            $scope.uploadSizeInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/errorUploadSize.html"
+            });
+        };
+
+        $scope.openUploadTypeModal = function () {
+            $scope.uploadTypeInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/errorUploadType.html"
+            });
+        };
 
     })
 
     // this controller is for fromregis
     .controller('FormregisCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
         //Used to name the .html file
+        $scope.changeitSchoolLogo = function (err, data) {
+            console.log(err, data);
+            if (err) {
+                $scope.errorMsgpan = err;
+                if (err == 'Please Upload File Size Upto 1 MB') {
+                    $scope.openUploadSizeModal();
+                    $timeout(function () {
+                        $scope.uploadSizeInstances.close();
+                    }, 2000);
+                }
+                if (err == 'Please upload png or jpg.') {
+                    $scope.openUploadTypeModal();
+                    $timeout(function () {
+                        $scope.uploadTypeInstances.close();
+                    }, 2000);
+                }
+            } else {
+                $scope.errorMsgpan = " ";
+                // $scope.errorMsgpan = "Successfully uploaded";
+            }
+        }
+        $scope.changeitPhotograph = function (err, data) {
+            console.log(err, data);
+            if (err) {
+                $scope.errorMsgpan = err;
+                if (err == 'Please Upload File Size Upto 1 MB') {
+                    $scope.openUploadSizeModal();
+                    $timeout(function () {
+                        $scope.uploadSizeInstances.close();
+                    }, 2000);
+                }
+                if (err == 'Please upload png or jpg.') {
+                    $scope.openUploadTypeModal();
+                    $timeout(function () {
+                        $scope.uploadTypeInstances.close();
+                    }, 2000);
+                }
+            } else {
+                $scope.errorMsgpan = " ";
+                // $scope.errorMsgpan = "Successfully uploaded";
+            }
+        }
         $scope.formData = {}
         $scope.formData.sportsDepartment = [];
         $scope.sportDepart = {
@@ -1750,6 +1898,28 @@ angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navig
                 size: size,
                 windowClass: "test-modal"
 
+            });
+        };
+
+        $scope.openUploadSizeModal = function () {
+            $scope.uploadSizeInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/errorUploadSize.html"
+            });
+        };
+
+        $scope.openUploadTypeModal = function () {
+            $scope.uploadTypeInstances = $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                // size: 'sm',
+                templateUrl: "views/modal/errorUploadType.html"
             });
         };
 

@@ -132,8 +132,8 @@
                         <div class="col-md-9 col-sm-9 col-xs-12" ng-init="show=0">
                             <!--<a class="btn btn-default myupload">Upload </a>-->
                             <div class="dirctive-op pl13">
-                                <upload-image2 class="up-img schoolLogo ng-isolate-scope" ng-disabled="type.disabled" ng-model="formData.schoolLogo" ng-click="show=1"
-                                    no-view></upload-image2>
+                                <upload-image2 class="up-img schoolLogo ng-isolate-scope" file-types="'image/jpeg,image/png'" ng-disabled="type.disabled"
+                                    ng-callback="changeitSchoolLogo" ng-model="formData.schoolLogo" ng-click="show=1" no-view></upload-image2>
                             </div>
                             <div class="display-inline padd-l38">
                                 <div class="w150" ng-if="show==1 && formData.schoolLogo != ''">
@@ -434,7 +434,8 @@
                                     <!--<upload-image2 class="up-img" no-view required ng-model="x.photo"></upload-image2>-->
                                     <!--<a class="btn btn-default myupload">Upload </a>-->
                                     <div class="dirctive-op pl13">
-                                        <upload-image2 class="up-img arrayPhoto ng-isolate-scope" ng-model="x.photograph" ng-click="show=1" no-view></upload-image2>
+                                        <upload-image2 class="up-img arrayPhoto ng-isolate-scope" ng-model="x.photograph" file-types="'image/jpeg,image/png'" ng-click="show=1"
+                                            ng-callback="changeitPhotograph" no-view></upload-image2>
                                     </div>
                                     <div class="display-inline padd-l38">
                                         <div class="w150" ng-if="show==1 && x.photograph != ''">

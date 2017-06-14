@@ -143,12 +143,12 @@
                         <div class="col-md-5 col-sm-7 col-xs-12" ng-init="show=0">
                             <!--<a class="btn btn-default myupload">Upload </a>-->
                             <div class="dirctive-op pl13">
-                                <upload-image2 class="up-img schoolId ng-isolate-scope" ng-model="formData.atheleteSchoolIdImage" ng-disabled="type.disabled"
-                                    ng-click="show=1" no-view></upload-image2>
+                                <upload-image2 class="up-img schoolId ng-isolate-scope" ng-model="formData.atheleteSchoolIdImage" file-types="'image/jpeg,image/png'"
+                                    ng-disabled="type.disabled" ng-click="show=1" ng-callback="changeitSchoolId" no-view></upload-image2>
                             </div>
                             <div class="display-inline padd-l38">
                                 <div class="w150" ng-if="show==1 && formData.atheleteSchoolIdImage != ''">
-                                    <img src="{{formData.atheleteSchoolIdImage |serverimage2}}" class="img-resopnsive
+                                    <img src="{{formData.atheleteSchoolIdImage |serverimage2}}" class="img-responsive
                 w100">
                                 </div>
                             </div>
@@ -251,8 +251,8 @@
                         <div class="col-md-9 col-sm-9 col-xs-12" ng-init="show=0">
                             <!--<a class="btn btn-default myupload">Upload </a>-->
                             <div class="dirctive-op pl13">
-                                <upload-image2 class="up-img photoGraph ng-isolate-scope" ng-model="formData.photograph" ng-click="show=1" ng-disabled="type.disabled"
-                                    no-view></upload-image2>
+                                <upload-image2 class="up-img photoGraph ng-isolate-scope" ng-model="formData.photograph" file-types="'image/jpeg,image/png'"
+                                    ng-disabled="type.disabled" ng-click="show=1" ng-callback="changeitPhotograph" no-view></upload-image2>
                             </div>
                             <div class="display-inline padd-l38">
                                 <div class="w150" ng-if="show==1 && formData.photograph">
@@ -296,11 +296,13 @@
                             </select>
                             <!--<a class="btn btn-default myupload upload4">Upload</a>-->
                             <div class="dirctive-op upload5 Upload-Age">
-                                <upload-image2 class="up-img birthImg ng-isolate-scope" ng-model="formData.birthImage" no-view ng-disabled="type.disabled"></upload-image2>
+                                <upload-image2 class="up-img birthImg ng-isolate-scope" ng-model="formData.birthImage" no-view file-types="'image/jpeg,image/png'"
+                                    ng-disabled="type.disabled" ng-callback="changeitBirthImage"></upload-image2>
                             </div>
                             <!--<a class="btn btn-default myupload upload6" ng-show="formData.ageProof=='hello'" ng-click="show=1">Upload </a>-->
                             <div class="dirctive-op upload7 Upload-Age" ng-show="formData.ageProof=='hello'">
-                                <upload-image2 class="up-img photoImg ng-isolate-scope" ng-disabled="type.disabled" no-view ng-model="formData.photoImage">
+                                <upload-image2 class="up-img photoImg ng-isolate-scope" file-types="'image/jpeg,image/png'" ng-disabled="type.disabled" ng-callback="changeitPhotoImage"
+                                    no-view ng-model="formData.photoImage">
                                 </upload-image2>
                             </div>
                             <!--<label class=" myupload2">  <upload-image2 class="up-img" no-view></upload-image2></label>-->
