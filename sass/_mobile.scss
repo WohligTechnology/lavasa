@@ -73,7 +73,7 @@
       .readSchoolName {
         .iconinfo {
           margin-left: -160px;
-          margin-top: 22px;
+          margin-top: 10px;
         }
       }
       .mob-bottom {
@@ -411,7 +411,7 @@
         padding: 8px;
       }
       .icon-msrl {
-        margin-left: 16px;
+        margin-left: 16px !important;
       }
       .iconinfo3 {
         width: 422px;
@@ -1074,9 +1074,11 @@
 
     @media (max-width:480px) {
       //start athlete-selection
-      .iconinfo {
-        margin-left: -170px;
-        width: 250px;
+      .readSchoolName {
+        .iconinfo {
+          margin-left: -170px;
+          width: 250px;
+        }
       }
       .para2 {
         font-size: 14px;

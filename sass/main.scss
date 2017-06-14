@@ -6841,6 +6841,13 @@ input {
 //end sports-confirmteam
 //start select-athletes
 .selectAthletes {
+    .form-horizontal {
+        .readSchoolName {
+            .para2 {
+                line-height: 24.167px;
+            }
+        }
+    }
     .separateTwoBox {
         border: 1px solid #091a71;
         width: 100%;
