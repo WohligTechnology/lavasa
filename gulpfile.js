@@ -27,7 +27,8 @@ var jsArray = [
     './bower_components/jStorage/jstorage.min.js',
     './js/app.js',
     './js/language.js',
-    './js/controllers.js',
+    './js/controllers/controllers.js',
+    './js/controllers/sportscontrollers.js',
     './js/templateservice.js',
     './js/navigation.js',
 

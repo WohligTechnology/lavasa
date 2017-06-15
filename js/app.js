@@ -2,14 +2,21 @@
 var firstapp = angular.module('firstapp', [
     'ui.select',
     'ui.router',
-    'phonecatControllers',
     'templateservicemod',
     'navigationservice',
     'pascalprecht.translate',
     'angulartics',
     'angulartics.google.analytics',
     'imageupload',
-    'ui.date'
+    'ui.date',
+    'ui.bootstrap',
+    'ngAnimate',
+    'ngSanitize',
+    'angular-flexslider',
+    'angular-loading-bar',
+    'ordinal',
+    'wt.responsive',
+    'toastr'
 ]);
 
 firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, cfpLoadingBarProvider) {
