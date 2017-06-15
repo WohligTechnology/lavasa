@@ -16,7 +16,9 @@ var firstapp = angular.module('firstapp', [
     'angular-loading-bar',
     'ordinal',
     'wt.responsive',
-    'toastr'
+    'toastr',
+    'infinite-scroll'
+
 ]);
 
 firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, cfpLoadingBarProvider) {

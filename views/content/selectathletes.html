@@ -13,9 +13,9 @@
                                         <!--control-label-->
                                         <label for="inputEmail3" class="specialColPadding col-md-2 col-sm-3 col-xs-12 para2">Select Gender</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="radio" ng-model="formData.gender" id="radio04" name="radio1" value="male" ng-checked="true" required ng-change="showAgeGrp('male');">
+                                            <input type="radio" ng-model="formData.gender" id="radio04" name="radioMale" value="male" ng-checked="true" required ng-change="showAgeGrp('male');">
                                             <label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
-                                            <input type="radio" ng-model="formData.gender" id="radio03" name="radio1" value="female" required ng-change="showAgeGrp('female');">
+                                            <input type="radio" ng-model="formData.gender" id="radio03" name="radioFemale" value="female" required ng-change="showAgeGrp('female');">
                                             <label for="radio03" class="padd-lr sf-list"><span></span>Female</label>
                                         </div>
                                     </div>
@@ -25,7 +25,7 @@
                                     <div class="readSchoolName">
                                         <!--control-label-->
                                         <label for="inputEmail3" class="specialColPadding col-md-2 col-sm-3 col-xs-12 para2">Select Age Group</label>
-                                        <div class="col-md-10 col-sm-9 col-xs-12">
+                                        <!--<div class="col-md-10 col-sm-9 col-xs-12">
                                             <div class="display-inline" ng-repeat="data in ageGroup track by $index" ng-if="ageGroup.length>0">
                                                 <input type="radio" id="{{data.ageData._id}}" name="radio2" value="{{data.ageData._id}}" required ng-click="goToAge(data.ageData._id);">
                                                 <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
@@ -33,14 +33,43 @@
                                             <div ng-if="!ageGroup">
                                                 No age group found
                                             </div>
+                                        </div>-->
+
+
+
+                                        <!--for male -->
+
+                                        <div class="col-md-10 col-sm-9 col-xs-12" ng-if="showMale && maleAgeGrp.length>0">
+                                            <div class="display-inline" ng-repeat="data in maleAgeGrp track by $index">
+                                                <input type="radio" id="{{data.ageData._id}}" name="radio1" value="{{data.ageData._id}}" required ng-click="filterAge(data.ageData._id);">
+                                                <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
+                                            </div>
+                                            <div ng-if="!maleAgeGrp">
+                                                No age group found
+                                            </div>
                                         </div>
+
+
+                                        <!--for female-->
+
+                                        <div class="col-md-10 col-sm-9 col-xs-12" ng-if="showFemale && femaleAgeGrp.length>0">
+                                            <div class="display-inline" ng-repeat="data in femaleAgeGrp track by $index">
+                                                <input type="radio" id="{{data.ageData._id}}" name="radio2" value="{{data.ageData._id}}" required ng-click="filterAge(data.ageData._id);">
+                                                <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
+                                            </div>
+                                            <div ng-if="!femaleAgeGrp">
+                                                No age group found
+                                            </div>
+                                        </div>
+
+
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div ng-if="isLoading" class="text-center">Loading...</div>
-                    <div ng-if="showMsg">
+                    <div ng-if="showMsg && selectAthlete.length>0">
                         <div class="row">
                             <div class="col-md-7">
                                 <div class="separateTwoBox">
@@ -50,7 +79,7 @@
                                                 <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12">-->
                                                 <label for="inputEmail3" class="col-md-4 col-sm-2 col-xs-12 control-label para2" placeholder="Enter SFA ID">SFA ID:</label>
                                                 <div class="col-md-6 col-sm-8 col-xs-9">
-                                                    <input type="text" class="form-control" ng-model="getAthletePerSchoolObj.sfaid" id="inputEmail3" ng-change="filterData();">
+                                                    <input type="text" class="form-control" ng-model="getAthletePerSchoolObj.sfaid" id="inputEmail3" ng-change="filterDataBysfaId();">
                                                 </div>
                                                 <div class="hover-img margin0 pt7 col-md-2 col-sm-2 col-xs-3">
                                                     <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
@@ -77,7 +106,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12 mob-bottom ">
-                                                    <input type="text" class="form-control" ng-model="formData.schoolName" id="inputEmail3">
+                                                    <input type="text" class="form-control" ng-model="getAthletePerSchoolObj.sfaid" id="inputEmail3" ng-change="filterDataBysfaId();">
                                                 </div>
                                             </div>
                                         </div>
@@ -170,6 +199,14 @@
                             </div>
                         </div>
                     </div>
+
+                    <!--Loading more data-->
+                    <div ng-if="showMsg && selectAthlete.length>0" infinite-scroll-disabled='busy' infinite-scroll='loadMOre();'>
+
+                    </div>
+                    <!--Loading more data-->
+
+
                 </div>
             </div>
         </div>

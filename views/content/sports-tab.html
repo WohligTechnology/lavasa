@@ -29,20 +29,15 @@
         <p>Athletes need to register themselves via to be available</p>
         <p>for selection in a team. Kindly ensure all the athletes are registered to form your team.</p>
       </div>
-      <div class="sp-row-tab" ng-repeat="data in allSportsListSubCatArr">
+      <div ng-if="!allSportsListSubCatArr">No Sports Found</div>
+      <div class="sp-row-tab" ng-repeat="data in allSportsListSubCatArr" ng-if="allSportsListSubCatArr.length>0">
         <h5>{{data.sportName}}</h5>
         <!--<h5>Team Sports</h5>-->
         <ul class="list-inline">
           <li ng-repeat="value in data.tempArr">
             <button class="btn btn-default " type="button" ui-sref="sports-rules({id:value._id})">{{value.name}}</button>
           </li>
-          <!--<li><button class="btn btn-default " type="submit">Football</button></li>
-          <li><button class="btn btn-default " type="submit">Handball</button></li>
-          <li><button class="btn btn-default " type="submit">Hockey</button></li>
-          <li><button class="btn btn-default " type="submit">Kabaddi</button></li>
-          <li><button class="btn btn-default " type="submit">Kho Kho</button></li>
-          <li><button class="btn btn-default " type="submit">Throwball</button></li>
-          <li><button class="btn btn-default " type="submit">Volleyball</button></li>-->
+
         </ul>
       </div>
 

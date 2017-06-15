@@ -569,7 +569,7 @@ var navigationservice = angular.module('navigationservice', [])
                     data: data
                 }).success(callback);
             },
-            getOneSport: function (data, callback) {
+            getOneSportForRegistration: function (data, callback) {
                 $http({
                     url: adminurl2 + 'SportsListSubCategory/getOneSport',
                     method: 'POST',

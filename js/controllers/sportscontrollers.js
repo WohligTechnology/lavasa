@@ -1588,6 +1588,7 @@ firstapp.controller('AthletesSelectionCtrl', function ($scope, TemplateService, 
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.ageGroup = [];
+    $scope.selectAthlete = [];
     $scope.maleAgeGrp = [];
     $scope.femaleAgeGrp = [];
     $scope.constraints = {};
@@ -1595,62 +1596,72 @@ firstapp.controller('AthletesSelectionCtrl', function ($scope, TemplateService, 
     $scope.getAthletePerSchoolObj = {};
     $scope.getAthletePerSchoolObj.sfaid = '';
     $scope.getAthletePerSchoolObj.page = '1';
+    $scope.busy = false;
     if ($.jStorage.get("schoolName") != null) {
         $scope.getAthletePerSchoolObj.school = $.jStorage.get("schoolName");
     }
-    $scope.getAthletePerSchool = function (constraints) {
-        NavigationService.getOneSport(constraints, function (data) {
+    $scope.athletePerSchool = function (getAthletePerSchoolObj) {
+        if ($scope.busy) return;
+        $scope.busy = true;
+        NavigationService.getAthletePerSchool(getAthletePerSchoolObj, function (data) {
             console.log(data, "data");
             if (data.value) {
                 $scope.showMsg = true
-                $scope.getAthletePerSchoolObj.sport = data.data.sport;
-
-                console.log($scope.getAthletePerSchoolObj, "$scope.getAthletePerSchoolObj");
-                NavigationService.getAthletePerSchool($scope.getAthletePerSchoolObj, function (data) {
-                    console.log(data, "data");
-                    if (data.value) {
-                        $scope.isLoading = false;
-                        $scope.selectAthlete = data.data;
-                    }
+                $scope.isLoading = false;
+                // $scope.selectAthlete = data.data;
+                _.each(data.data.data, function (value) {
+                    $scope.selectAthlete.push(value);
+                    $scope.busy = false;
                 })
+            }
+        })
+    }
+    $scope.getSportId = function (constraints) {
+        NavigationService.getOneSportForRegistration(constraints, function (data) {
+            console.log(data, "data");
+            if (data.value) {
+                // $scope.showMsg = true
+                $scope.getAthletePerSchoolObj.sport = data.data.sport;
+                console.log($scope.getAthletePerSchoolObj, "$scope.getAthletePerSchoolObj");
+                $scope.athletePerSchool($scope.getAthletePerSchoolObj);
             }
         })
 
     }
-    $scope.goToAge = function (ageId) {
+    $scope.filterAge = function (ageId) {
         $scope.isLoading = true;
         $scope.constraints.age = ageId;
         $scope.getAthletePerSchoolObj.age = ageId;
         console.log($scope.constraints.age, "$scope.constraints.age");
-        $scope.getAthletePerSchool($scope.constraints);
+        $scope.getSportId($scope.constraints);
     }
-    $scope.loadMore = function () {
+
+    $scope.filterDataBysfaId = function () {
+        $scope.selectAthlete = [];
+        $scope.getAthletePerSchoolObj.page = '1'
+        $scope.athletePerSchool($scope.getAthletePerSchoolObj);
+    }
+    $scope.loadMOre = function () {
+        $scope.getAthletePerSchoolObj.page++;
+        console.log("$scope.getAthletePerSchoolObj", $scope.getAthletePerSchoolObj);
+        $scope.athletePerSchool($scope.getAthletePerSchoolObj);
 
     }
-    // $scope.filterData = function () {
-    //     $scope.selectAthlete = [];
-    //     $scope.getAthletePerSchoolObj.page = '1'
-    //     NavigationService.getAthletePerSchool($scope.getAthletePerSchoolObj, function (data) {
-    //         console.log(data, "data");
-    //         if (data.value) {
-    //             $scope.isLoading = false;
-    //             $scope.selectAthlete = data.data;
-    //         }
-    //     })
-
-    // }
-
     $scope.showAgeGrp = function (gender) {
         console.log("gender", gender);
         if (gender == "female") {
-            $scope.ageGroup = [];
-            $scope.ageGroup = $scope.femaleAgeGrp;
+            $scope.showFemale = true;
+            $scope.showMale = false;
+            // $scope.ageGroup = [];
+            // $scope.ageGroup = $scope.femaleAgeGrp;
             $scope.constraints.gender = gender;
             $scope.getAthletePerSchoolObj.gender = gender;
         } else {
-            console.log("im in else");
-            $scope.ageGroup = [];
-            $scope.ageGroup = $scope.maleAgeGrp;
+            $scope.showMale = true;
+            $scope.showFemale = false;
+            // console.log("im in else");
+            // $scope.ageGroup = [];
+            // $scope.ageGroup = $scope.maleAgeGrp;
             $scope.constraints.gender = gender;
             $scope.getAthletePerSchoolObj.gender = gender;
 
@@ -1666,79 +1677,79 @@ firstapp.controller('AthletesSelectionCtrl', function ($scope, TemplateService, 
         })
     }
 
-    $scope.selectAthlete = [{
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+    // $scope.selectAthletess = [{
+    //     firstName: 'Harshit',
+    //     lastName: 'Shah',
+    //     sfaId: '45211',
+    //     photograph: 'img/noimage.png'
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+    // }, {
+    //     firstName: 'Harshit',
+    //     lastName: 'Shah',
+    //     sfaId: '45211',
+    //     photograph: 'img/noimage.png'
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+    // }, {
+    //     firstName: 'Harshit',
+    //     lastName: 'Shah',
+    //     sfaId: '45211',
+    //     photograph: 'img/noimage.png'
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+    // }, {
+    //     firstName: 'Harshit',
+    //     lastName: 'Shah',
+    //     sfaId: '45211',
+    //     photograph: 'img/noimage.png'
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+    // }, {
+    //     firstName: 'Harshit',
+    //     lastName: 'Shah',
+    //     sfaId: '45211',
+    //     photograph: 'img/noimage.png'
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+    // }, {
+    //     firstName: 'Harshit',
+    //     lastName: 'Shah',
+    //     sfaId: '45211',
+    //     photograph: 'img/noimage.png'
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+    // }, {
+    //     firstName: 'Harshit',
+    //     lastName: 'Shah',
+    //     sfaId: '45211',
+    //     photograph: 'img/noimage.png'
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+    // }, {
+    //     firstName: 'Harshit',
+    //     lastName: 'Shah',
+    //     sfaId: '45211',
+    //     photograph: 'img/noimage.png'
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+    // }, {
+    //     firstName: 'Harshit',
+    //     lastName: 'Shah',
+    //     sfaId: '45211',
+    //     photograph: 'img/noimage.png'
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+    // }, {
+    //     firstName: 'Harshit',
+    //     lastName: 'Shah',
+    //     sfaId: '45211',
+    //     photograph: 'img/noimage.png'
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+    // }, {
+    //     firstName: 'Harshit',
+    //     lastName: 'Shah',
+    //     sfaId: '45211',
+    //     photograph: 'img/noimage.png'
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+    // }, {
+    //     firstName: 'Harshit',
+    //     lastName: 'Shah',
+    //     sfaId: '45211',
+    //     photograph: 'img/noimage.png'
 
-    }];
+    // }];
 
 })
 
