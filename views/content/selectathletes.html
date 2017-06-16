@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-offset-1 col-md-10 col-sm-12 col-xs-12">
                 <h1 class="text-center school-sports spt-m">Sports Registration Form</h1>
-                <div class="step5">Basketball</div>
+                <div class="step5">{{sportTitle}}</div>
                 <div class="box-padd-term mb91">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -13,9 +13,9 @@
                                         <!--control-label-->
                                         <label for="inputEmail3" class="specialColPadding col-md-2 col-sm-3 col-xs-12 para2">Select Gender</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="radio" ng-model="formData.gender" id="radio04" name="radioMale" value="male" ng-checked="true" required ng-change="showAgeGrp('male');">
+                                            <input type="radio" ng-model="formData.gender" id="radio04" name="radioMale" value="male" ng-checked="true" required ng-change="sortGenderWise('male');">
                                             <label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
-                                            <input type="radio" ng-model="formData.gender" id="radio03" name="radioFemale" value="female" required ng-change="showAgeGrp('female');">
+                                            <input type="radio" ng-model="formData.gender" id="radio03" name="radioFemale" value="female" required ng-change="sortGenderWise('female');">
                                             <label for="radio03" class="padd-lr sf-list"><span></span>Female</label>
                                         </div>
                                     </div>
@@ -25,18 +25,6 @@
                                     <div class="readSchoolName">
                                         <!--control-label-->
                                         <label for="inputEmail3" class="specialColPadding col-md-2 col-sm-3 col-xs-12 para2">Select Age Group</label>
-                                        <!--<div class="col-md-10 col-sm-9 col-xs-12">
-                                            <div class="display-inline" ng-repeat="data in ageGroup track by $index" ng-if="ageGroup.length>0">
-                                                <input type="radio" id="{{data.ageData._id}}" name="radio2" value="{{data.ageData._id}}" required ng-click="goToAge(data.ageData._id);">
-                                                <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
-                                            </div>
-                                            <div ng-if="!ageGroup">
-                                                No age group found
-                                            </div>
-                                        </div>-->
-
-
-
                                         <!--for male -->
 
                                         <div class="col-md-10 col-sm-9 col-xs-12" ng-if="showMale && maleAgeGrp.length>0">
@@ -68,10 +56,11 @@
                             </form>
                         </div>
                     </div>
-                    <div ng-if="isLoading" class="text-center">Loading...</div>
-                    <!--<div ng-if="showMsg && selectAthlete.length == 0" class="text-center">No Data Found.</div>-->
+                    <div ng-if="isLoading" class="text-center">Loading..</div>
+
+
                     <div ng-if="showMsg">
-                        <!--<div>-->
+
                         <div class="row">
                             <div class="col-md-7">
                                 <div class="separateTwoBox">
@@ -81,7 +70,7 @@
                                                 <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12">-->
                                                 <label for="inputEmail3" class="col-md-4 col-sm-2 col-xs-12 control-label para2" placeholder="Enter SFA ID">SFA ID:</label>
                                                 <div class="col-md-6 col-sm-8 col-xs-9">
-                                                    <input type="text" class="form-control" ng-model="getAthletePerSchoolObj.sfaid" id="inputEmail3" ng-change="filterDataBysfaId();">
+                                                    <input type="text" class="form-control" ng-model="getAthletePerSchoolObj.sfaid" id="inputEmail3" ng-change="searchaBysfaId(getAthletePerSchoolObj.sfaid);">
                                                 </div>
                                                 <div class="hover-img margin0 pt7 col-md-2 col-sm-2 col-xs-3">
                                                     <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
@@ -104,19 +93,21 @@
                                                 <div class="hover-img margin0 col-xs-4 ">
                                                     <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon pull-right">
                                                     <div class="iconinfo sf-list">
-                                                        <p>Only registered athletes from your school as per the selected gender
-                                                            and age group will be displayed below</p>
+                                                        <p>Only athlete which have registered for sfa mumbai 2017 from your
+                                                            school as per the selected gender and age group will be displayed
+                                                            below
+                                                        </p>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12 mob-bottom ">
-                                                    <input type="text" class="form-control" ng-model="getAthletePerSchoolObj.sfaid" id="inputEmail3" ng-change="filterDataBysfaId();">
+                                                    <input type="text" class="form-control" ng-model="getAthletePerSchoolObj.sfaid" id="inputEmail3" ng-change="searchaBysfaId();">
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                     <div class="scroll-div">
                                         <div class="scrollbar style-1">
-                                            <div ng-if="selectAthlete.length==0" class="text-center">No Data Found..</div>
+                                            <div class="text-center" ng-if="selectAthlete.length==0">No Athlete Found</div>
                                             <div class="col-md-4 col-sm-4 col-xs-12 mb15" ng-repeat="checked in selectAthlete track by $index">
                                                 <div class="school-sec">
                                                     <div class="stu-img">
@@ -131,7 +122,7 @@
                                                     <div class="stu-name text-center">
                                                         <h4 class="color-orange text-up font-semi">{{checked.firstName}} {{checked.lastName}}</h4>
                                                     </div>
-                                                    <div class="stu-id text-center">
+                                                    <div class="stu-id text-center" ng-if="checked.sfaId">
                                                         <h4 class="color-blue">SFA ID: {{checked.sfaId}}</h4>
                                                     </div>
                                                 </div>
@@ -139,7 +130,7 @@
                                         </div>
                                     </div>
                                     <!--Loading more data-->
-                                    <div ng-if="showMsg && selectAthlete.length>0" infinite-scroll-disabled='busy' infinite-scroll='loadMOre();'>
+                                    <div ng-if="showMsg && selectAthlete.length>0" infinite-scroll-disabled='busy' infinite-scroll='loadMore();'>
 
                                     </div>
 
@@ -209,14 +200,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!--Loading more data-->
-                    <!-- <div ng-if="showMsg && selectAthlete.length>0" infinite-scroll-disabled='busy' infinite-scroll='loadMOre();'>
-
-               </div> -->
-                    <!--Loading more data-->
-
-
                 </div>
             </div>
         </div>

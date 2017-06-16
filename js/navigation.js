@@ -24,6 +24,12 @@ var navigationservice = angular.module('navigationservice', [])
             getnav: function () {
                 return navigation;
             },
+            setUserType: function (data) {
+                $.jStorage.set("userType", data);
+            },
+            setUserSchool: function (schoolName) {
+                $.jStorage.set("schoolName", schoolName);
+            },
             makeactive: function (menuname) {
                 for (var i = 0; i < navigation.length; i++) {
                     if (navigation[i].name == menuname) {
@@ -498,6 +504,80 @@ var navigationservice = angular.module('navigationservice', [])
                 }).success(callback);
             },
 
+            //Set Jstorage for User
+            setUser: function (data) {
+                $.jStorage.set("userDetails", data);
+            },
+            loginget: function (callback) {
+
+                var getj = $.jStorage.get("userDetails");
+                var getData = {};
+                if (getj != null) {
+                    getData.isLoggedIn = true;
+                    if ($.jStorage.get("userType") == "school") {
+                        getData.sfaIdObj = getj.sfaID;
+                        getData.schoolName = getj.schoolName;
+                    } else {
+                        getData.sfaIdObj = getj.sfaId;
+                        if (getj.atheleteSchoolName) {
+                            getData.schoolName = getj.atheleteSchoolName;
+                            this.setUserSchool(getData.schoolName);
+                        } else {
+                            if (getj.school) {
+                                getData.schoolName = getj.school.name;
+                                this.setUserSchool(getData.schoolName);
+                            }
+                        }
+                    }
+                } else {
+                    getData.isLoggedIn = false;
+                }
+                callback(getData)
+            },
+
+            logoutCommomFun: function (logdata, callback) {
+                var returnObj = '';
+                this.logout(logdata, function (data) {
+                    if (data.value) {
+                        // toastr.success('Successfully Logged Out', 'Logout Message');
+                        returnObj = false;
+                        console.log("*******************", returnObj);
+                        callback(returnObj);
+
+                        // $state.go('sports-registration');
+                    } else {
+                        returnObj = true;
+                        callback(returnObj);
+                        // toastr.error('Something went wrong', 'Logout Message');
+                    }
+                });
+                // callback(returnObj);
+            },
+
+            logoutCandidate: function (callback) {
+                var requestObjUserType = {};
+                var xyz = {};
+                if ($.jStorage.get("userType") != null && $.jStorage.get("userDetails") != null) {
+                    if ($.jStorage.get("userType") == "school") {
+                        requestObjUserType.schoolToken = $.jStorage.get("userDetails").accessToken;
+                        // this.logoutCommomFun(requestObjUserType);
+                        xyz.isLoggedIn = this.logoutCommomFun(requestObjUserType, function (data) {
+                            xyz.isLoggedIn = data;
+                            callback(xyz);
+                        });
+                        // console.log(xyz);
+                    } else {
+                        requestObjUserType.athleteToken = $.jStorage.get("userDetails").accessToken;
+                        xyz.isLoggedIn = this.logoutCommomFun(requestObjUserType, function (data) {
+                            xyz.isLoggedIn = data;
+                            callback(xyz);
+                        });
+                        // console.log(xyz);
+                    }
+                }
+
+            },
+
             //Sports Registration api calling
             login: function (request, callback) {
                 $http({
@@ -514,16 +594,6 @@ var navigationservice = angular.module('navigationservice', [])
                     method: 'POST',
                     data: request
                 }).success(callback);
-            },
-            //Set Jstorage for User
-            setUser: function (data) {
-                $.jStorage.set("userDetails", data);
-            },
-            setUserType: function (data) {
-                $.jStorage.set("userType", data);
-            },
-            setUserSchool: function (schoolName) {
-                $.jStorage.set("schoolName", schoolName);
             },
             //Forgot password api calling
             forgotPassword: function (request, url, callback) {

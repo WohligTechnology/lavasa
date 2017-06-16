@@ -1207,12 +1207,31 @@ firstapp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.termsandCondition = "This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports.The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports.The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports.The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.This is a one-time registration process. Completion of this process will allow you to register using your SFA ID for all future SFA Events. This also enables us to create a personalized sporting experience for your school on our website www.sfanow.in to highlight your performances in sport by way of profiles, records maintenance, match videos, statistics and reports. The annual school registration fee for SFA Mumbai 2017 is Rs. 12,000 (Inclusive of all applicable taxes) Click here to view registered school benefits for SFA Mumbai 2017.";
+    NavigationService.loginget(function (data) {
+        $scope.schoolName = data.schoolName;
+        $scope.isLoggedIn = data.isLoggedIn;
+        $scope.sfaIdObj = data.sfaIdObj;
+    });
+    if ($.jStorage.get("userDetails") == null) {
+        $state.go('sports-registration');
+    }
+    $scope.logoutCandidate = function () {
+        NavigationService.logoutCandidate(function (data) {
+            console.log('logout', data);
+            if (data.isLoggedIn == false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $scope.isLoggedIn = data.isLoggedIn;
+                $state.go('sports-registration');
+            } else {
+                $scope.isLoggedIn = data.isLoggedIn;
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    }
     if ($stateParams.id) {
         NavigationService.getSportsRules($stateParams.id, function (data) {
-            console.log("dataa", data);
             if (data.value) {
                 $scope.sportsRulesAndRegulation = data.data;
-                console.log($scope.sportsRulesAndRegulation, "data");
             } else {
                 console.log("no data found");
             }
@@ -1220,13 +1239,10 @@ firstapp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
         })
     }
     $scope.goTotermsCheck = function (val, id) {
-        console.log("imin", val);
         if (val == undefined) {
             toastr.error('Please Accept Terms And Conditions');
             $scope.errorMsg = true;
-
         } else {
-            console.log("id", id);
             if (val == true) {
                 $state.go('athletes-selection');
                 $state.go('athletes-selection', {
@@ -1250,7 +1266,27 @@ firstapp.controller('SportsCongratsCtrl', function ($scope, TemplateService, Nav
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-
+    NavigationService.loginget(function (data) {
+        $scope.schoolName = data.schoolName;
+        $scope.isLoggedIn = data.isLoggedIn;
+        $scope.sfaIdObj = data.sfaIdObj;
+    });
+    if ($.jStorage.get("userDetails") == null) {
+        $state.go('sports-registration');
+    }
+    $scope.logoutCandidate = function () {
+        NavigationService.logoutCandidate(function (data) {
+            console.log('logout', data);
+            if (data.isLoggedIn == false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $scope.isLoggedIn = data.isLoggedIn;
+                $state.go('sports-registration');
+            } else {
+                $scope.isLoggedIn = data.isLoggedIn;
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    }
 })
 //Sports-Selection
 firstapp.controller('SportsSelectionCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state) {
@@ -1267,72 +1303,82 @@ firstapp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
     $scope.classinactive = '';
     $scope.sptabchange = function (data) {
         if (data == 1) {
-            console.log('value', 'data')
             $scope.sportsschool = true;
             $scope.sportsregistered = false;
-            console.log('school');
         } else {
             $scope.sportsschool = false;
             $scope.sportsregistered = true;
-            console.log('register');
         }
     };
 
+    // if ($.jStorage.get("userDetails") != null) {
+    //     $scope.isLoggedIn = true;
+    //     if ($.jStorage.get("userType") == "school") {
+    //         $scope.sfaIdObj = $.jStorage.get("userDetails").sfaID;
+    //         $scope.schoolName = $.jStorage.get("userDetails").schoolName;
 
-    if ($.jStorage.get("userDetails") != null) {
-        $scope.isLoggedIn = true;
-        if ($.jStorage.get("userType") == "school") {
-            $scope.sfaIdObj = $.jStorage.get("userDetails").sfaID;
-            $scope.schoolName = $.jStorage.get("userDetails").schoolName;
+    //     } else {
+    //         $scope.sfaIdObj = $.jStorage.get("userDetails").sfaId;
+    //         if ($.jStorage.get("userDetails").atheleteSchoolName) {
+    //             $scope.schoolName = $.jStorage.get("userDetails").atheleteSchoolName;
+    //             NavigationService.setUserSchool($scope.schoolName);
+    //         } else {
+    //             if ($.jStorage.get("userDetails").school) {
+    //                 $scope.schoolName = $.jStorage.get("userDetails").school.name;
+    //                 NavigationService.setUserSchool($scope.schoolName);
+    //             }
+    //         }
+    //     }
+    // } else {
 
-        } else {
-            $scope.sfaIdObj = $.jStorage.get("userDetails").sfaId;
-            if ($.jStorage.get("userDetails").atheleteSchoolName) {
-                $scope.schoolName = $.jStorage.get("userDetails").atheleteSchoolName;
-                NavigationService.setUserSchool($scope.schoolName);
-            } else {
-                if ($.jStorage.get("userDetails").school) {
-                    $scope.schoolName = $.jStorage.get("userDetails").school.name;
-                    NavigationService.setUserSchool($scope.schoolName);
-                }
-            }
-
-
-        }
-    } else {
-
-        $scope.isLoggedIn = false;
-    }
+    //     $scope.isLoggedIn = false;
+    // }
+    NavigationService.loginget(function (data) {
+        $scope.schoolName = data.schoolName;
+        $scope.isLoggedIn = data.isLoggedIn;
+        $scope.sfaIdObj = data.sfaIdObj;
+    });
     if ($.jStorage.get("userDetails") == null) {
         $state.go('sports-registration');
     }
-    $scope.requestObjUserType = {};
-    $scope.logoutCommomFun = function (requestObjUserType) {
-        NavigationService.logout(requestObjUserType, function (data) {
-            console.log("data", data);
-            if (data.value) {
+    $scope.logoutCandidate = function () {
+        NavigationService.logoutCandidate(function (data) {
+            console.log('logout', data);
+            if (data.isLoggedIn == false) {
                 toastr.success('Successfully Logged Out', 'Logout Message');
-                $scope.isLoggedIn = false;
+                $scope.isLoggedIn = data.isLoggedIn;
                 $state.go('sports-registration');
             } else {
+                $scope.isLoggedIn = data.isLoggedIn;
                 toastr.error('Something went wrong', 'Logout Message');
             }
         });
     }
-    $scope.logoutCandidate = function () {
-        if ($.jStorage.get("userType") != null && $.jStorage.get("userDetails") != null) {
-            if ($.jStorage.get("userType") == "school") {
-                $scope.requestObjUserType.schoolToken = $.jStorage.get("userDetails").accessToken;
-                console.log($scope.requestObjUserType, "$scope.requestObjUserType");
-                $scope.logoutCommomFun($scope.requestObjUserType);
+    // $scope.requestObjUserType = {};
+    // $scope.logoutCommomFun = function (requestObjUserType) {
+    //     NavigationService.logout(requestObjUserType, function (data) {
+    //         if (data.value) {
+    //             toastr.success('Successfully Logged Out', 'Logout Message');
+    //             $scope.isLoggedIn = false;
+    //             $state.go('sports-registration');
+    //         } else {
+    //             toastr.error('Something went wrong', 'Logout Message');
+    //         }
+    //     });
+    // }
+    // $scope.logoutCandidate = function () {
+    //     if ($.jStorage.get("userType") != null && $.jStorage.get("userDetails") != null) {
+    //         if ($.jStorage.get("userType") == "school") {
+    //             $scope.requestObjUserType.schoolToken = $.jStorage.get("userDetails").accessToken;
+    //             $scope.logoutCommomFun($scope.requestObjUserType);
 
-            } else {
-                $scope.requestObjUserType.athleteToken = $.jStorage.get("userDetails").accessToken;
-                console.log($scope.requestObjUserType, "$scope.requestObjUserType");
-                $scope.logoutCommomFun($scope.requestObjUserType);
-            }
-        }
-    }
+    //         } else {
+    //             $scope.requestObjUserType.athleteToken = $.jStorage.get("userDetails").accessToken;
+    //             console.log($scope.requestObjUserType, "$scope.requestObjUserType");
+    //             $scope.logoutCommomFun($scope.requestObjUserType);
+    //         }
+    //     }
+    // }
 
     // ==========getAllSportsListSubCategory==============
     $scope.allSportsListSubCatArr = [];
@@ -1356,7 +1402,7 @@ firstapp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
 })
 
 //Athletes-Selection
-firstapp.controller('AthletesSelectionCtrl', function ($scope, TemplateService, NavigationService, $stateParams, $timeout) {
+firstapp.controller('AthletesSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("selectathletes");
@@ -1374,16 +1420,39 @@ firstapp.controller('AthletesSelectionCtrl', function ($scope, TemplateService, 
     $scope.getAthletePerSchoolObj.sfaid = '';
     $scope.getAthletePerSchoolObj.page = '1';
     $scope.busy = false;
+    NavigationService.loginget(function (data) {
+        $scope.schoolName = data.schoolName;
+        $scope.isLoggedIn = data.isLoggedIn;
+        $scope.sfaIdObj = data.sfaIdObj;
+    });
+    if ($.jStorage.get("userDetails") == null) {
+        $state.go('sports-registration');
+    }
+    $scope.logoutCandidate = function () {
+        NavigationService.logoutCandidate(function (data) {
+            console.log('logout', data);
+            if (data.isLoggedIn == false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $scope.isLoggedIn = data.isLoggedIn;
+                $state.go('sports-registration');
+            } else {
+                $scope.isLoggedIn = data.isLoggedIn;
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    }
     if ($.jStorage.get("schoolName") != null) {
         $scope.getAthletePerSchoolObj.school = $.jStorage.get("schoolName");
     }
-    $scope.athletePerSchool = function (getAthletePerSchoolObj) {
+    // *****FOR GETTING ATHLETES *****
+    $scope.athletePerSchool = function (getAthletePerSchoolObj, search) {
         if ($scope.busy) return;
         $scope.busy = true;
         NavigationService.getAthletePerSchool(getAthletePerSchoolObj, function (data) {
             console.log(data, "data++++++++++++");
             if (data.value) {
                 $scope.isLoading = false;
+                console.log(data.data.length, "data.data.length");
                 console.log("data.data.total ", data.data.total);
                 console.log("$scope.getAthletePerSchoolObj.page", $scope.getAthletePerSchoolObj.page);
                 if (data.data.total >= $scope.getAthletePerSchoolObj.page) {
@@ -1394,26 +1463,27 @@ firstapp.controller('AthletesSelectionCtrl', function ($scope, TemplateService, 
                         $scope.busy = false;
                     })
                 }
-
             }
         })
     }
+
+    // *****FOR GETTING SPORT ID*****
     $scope.getSportId = function (constraints) {
         NavigationService.getOneSportForRegistration(constraints, function (data) {
             console.log(data, "data");
             if (data.value) {
-                $scope.showMsg = true
+                $scope.showMsg = true;
                 $scope.selectAthlete = [];
                 $scope.getAthletePerSchoolObj.sport = data.data.sport;
                 console.log($scope.getAthletePerSchoolObj, "$scope.getAthletePerSchoolObj");
                 $scope.getAthletePerSchoolObj.page = '1';
                 $scope.busy = false;
                 $scope.athletePerSchool($scope.getAthletePerSchoolObj);
-                console.log("im **********");
             }
         })
-
     }
+
+    //***** FOR FILTERING AGE GROUP *****
     $scope.filterAge = function (ageId) {
         $scope.isLoading = true;
         $scope.busy = false;
@@ -1423,22 +1493,21 @@ firstapp.controller('AthletesSelectionCtrl', function ($scope, TemplateService, 
         $scope.getSportId($scope.constraints);
     }
 
-    $scope.filterDataBysfaId = function () {
+    // *****SEARCH BY SFAID *****
+    $scope.searchaBysfaId = function (serach) {
         $scope.selectAthlete = [];
         $scope.busy = false;
-        $scope.getAthletePerSchoolObj.page = '1'
+        $scope.getAthletePerSchoolObj.page = '1';
         $scope.athletePerSchool($scope.getAthletePerSchoolObj);
-
-
     }
-    $scope.loadMOre = function () {
-        // $scope.busy = false;
+    // *****FOR LOADING MORE DATA *****
+    $scope.loadMore = function () {
         $scope.getAthletePerSchoolObj.page++;
         console.log("$scope.getAthletePerSchoolObj", $scope.getAthletePerSchoolObj);
         $scope.athletePerSchool($scope.getAthletePerSchoolObj);
-
     }
-    $scope.showAgeGrp = function (gender) {
+    //    *****SORTING AGE GENDERWISE*****
+    $scope.sortGenderWise = function (gender) {
         console.log("gender", gender);
         if (gender == "female") {
             $scope.showFemale = true;
@@ -1458,13 +1527,14 @@ firstapp.controller('AthletesSelectionCtrl', function ($scope, TemplateService, 
 
         }
     }
-
+    //  *****GETTING ALL AGE GROUP ***** 
     if ($stateParams.id) {
         NavigationService.getSports($stateParams.id, function (data) {
-            $scope.getSports = data.data;
+            $scope.getSports = data.data.results;
+            $scope.sportTitle = data.data.sportName;
             $scope.maleAgeGrp = _.cloneDeep($scope.getSports.male);
             $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.female);
-            $scope.showAgeGrp('male');
+            $scope.sortGenderWise('male');
         })
     }
 
@@ -1553,4 +1623,25 @@ firstapp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    NavigationService.loginget(function (data) {
+        $scope.schoolName = data.schoolName;
+        $scope.isLoggedIn = data.isLoggedIn;
+        $scope.sfaIdObj = data.sfaIdObj;
+    });
+    if ($.jStorage.get("userDetails") == null) {
+        $state.go('sports-registration');
+    }
+    $scope.logoutCandidate = function () {
+        NavigationService.logoutCandidate(function (data) {
+            console.log('logout', data);
+            if (data.isLoggedIn == false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $scope.isLoggedIn = data.isLoggedIn;
+                $state.go('sports-registration');
+            } else {
+                $scope.isLoggedIn = data.isLoggedIn;
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    }
 })
