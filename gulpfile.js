@@ -30,6 +30,7 @@ var jsArray = [
     './js/app.js',
     './js/language.js',
     './js/controllers/controllers.js',
+    './js/controllers/logincontrollers.js',
     './js/controllers/sportscontrollers.js',
     './js/templateservice.js',
     './js/navigation.js',
