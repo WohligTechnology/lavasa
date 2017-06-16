@@ -17,7 +17,8 @@ var firstapp = angular.module('firstapp', [
     'ordinal',
     'wt.responsive',
     'toastr',
-    'infinite-scroll'
+    'infinite-scroll',
+    'angularPromiseButtons'
 
 ]);
 

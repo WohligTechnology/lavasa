@@ -26,6 +26,7 @@ var jsArray = [
     './bower_components/angular-toastr/dist/angular-toastr.tpls.js',
     './bower_components/jStorage/jstorage.min.js',
     './bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js',
+    './bower_components/angular-promise-buttons/dist/angular-promise-buttons.min.js',
     './js/app.js',
     './js/language.js',
     './js/controllers/controllers.js',
