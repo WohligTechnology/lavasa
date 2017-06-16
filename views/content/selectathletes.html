@@ -69,7 +69,9 @@
                         </div>
                     </div>
                     <div ng-if="isLoading" class="text-center">Loading...</div>
-                    <div ng-if="showMsg && selectAthlete.length>0">
+                    <!--<div ng-if="showMsg && selectAthlete.length == 0" class="text-center">No Data Found.</div>-->
+                    <div ng-if="showMsg">
+                        <!--<div>-->
                         <div class="row">
                             <div class="col-md-7">
                                 <div class="separateTwoBox">
@@ -92,6 +94,7 @@
                                             </div>
                                         </div>
                                     </form>
+
                                     <form class="visible-xs">
                                         <div class="form-group">
                                             <div class="readSchoolName">
@@ -113,6 +116,7 @@
                                     </form>
                                     <div class="scroll-div">
                                         <div class="scrollbar style-1">
+                                            <div ng-if="selectAthlete.length==0" class="text-center">No Data Found..</div>
                                             <div class="col-md-4 col-sm-4 col-xs-12 mb15" ng-repeat="checked in selectAthlete track by $index">
                                                 <div class="school-sec">
                                                     <div class="stu-img">
@@ -134,6 +138,12 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!--Loading more data-->
+                                    <div ng-if="showMsg && selectAthlete.length>0" infinite-scroll-disabled='busy' infinite-scroll='loadMOre();'>
+
+                                    </div>
+
+                                    <!--Loading more data-->
                                 </div>
                             </div>
                             <div class="col-md-5">
@@ -201,9 +211,9 @@
                     </div>
 
                     <!--Loading more data-->
-                    <div ng-if="showMsg && selectAthlete.length>0" infinite-scroll-disabled='busy' infinite-scroll='loadMOre();'>
+                    <!-- <div ng-if="showMsg && selectAthlete.length>0" infinite-scroll-disabled='busy' infinite-scroll='loadMOre();'>
 
-                    </div>
+               </div> -->
                     <!--Loading more data-->
 
 
