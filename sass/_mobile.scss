@@ -475,6 +475,13 @@
           }
         }
       }
+      .hover-img.place-img {
+        margin-left: 20px;
+      }
+      .iconinfo.iconplace {
+        margin-left: 16px;
+        padding: 8px;
+      }
       .sp-reg .step2 {
         width: 156px;
       }
@@ -2147,6 +2154,11 @@
       //sports-registration-form
       .sp-reg .step2 {
         width: 95px;
+      }
+      .iconinfo.iconplace {
+        margin-left: 16px;
+        width: 230px;
+        padding: 8px;
       }
       .sp-reg .block-custom {
         // float: right;

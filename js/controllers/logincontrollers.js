@@ -1,7 +1,4 @@
-//school-registrationForm
 firstapp.controller('SportsRegistrationCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, $rootScope) {
-    //Used to name the .html file
-
     $scope.template = TemplateService.changecontent("sports-registration");
     $scope.menutitle = NavigationService.makeactive("Sports Registration");
     TemplateService.header = "views/header2.html";
@@ -16,9 +13,11 @@ firstapp.controller('SportsRegistrationCtrl', function ($scope, TemplateService,
     }
     if ($.jStorage.get("userType") != null) {
         if ($.jStorage.get("userType") == "athlete") {
+            $scope.formData.type = "athlete";
             $scope.ath = true;
             $scope.sch = false;
         } else {
+            $scope.formData.type = "school";
             $scope.ath = false;
             $scope.sch = true;
         }
@@ -45,19 +44,6 @@ firstapp.controller('SportsRegistrationCtrl', function ($scope, TemplateService,
 
     }
 
-    $scope.loginFunction = function (formData) {
-        NavigationService.login(formData, function (data) {
-            console.log("data", data);
-            if (data.value) {
-                NavigationService.setUser(data.data);
-                toastr.success('Successfully Logged In.', 'Login Message');
-                $state.go('sports-selection');
-            } else {
-                $scope.isDisabled = false;
-                toastr.error('Please Enter Valid SFA Id And Password.', 'Login Message');
-            }
-        });
-    }
     $scope.isDisabled = false;
     $scope.login = function (formData, formsports) {
         console.log(formData);
@@ -74,9 +60,6 @@ firstapp.controller('SportsRegistrationCtrl', function ($scope, TemplateService,
                     }
 
                 }
-                console.log('everything is alright');
-                // $scope.isDisabled = true;
-                console.log("formData", formData);
                 if (formData.sfaid.charAt(1) == "S" && formData.type == "school") {
                     $scope.isDisabled = true;
                     $scope.loginFunction(formData);
@@ -88,15 +71,25 @@ firstapp.controller('SportsRegistrationCtrl', function ($scope, TemplateService,
                 }
 
             }
-
         } else {
             $scope.isDisabled = false;
             toastr.error('Please Enter All Fields.', 'Login Message');
         }
-
     };
 
-
+    $scope.loginFunction = function (formData) {
+        NavigationService.login(formData, function (data) {
+            console.log("data", data);
+            if (data.value) {
+                NavigationService.setUser(data.data);
+                toastr.success('Successfully Logged In.', 'Login Message');
+                $state.go('sports-selection');
+            } else {
+                $scope.isDisabled = false;
+                toastr.error('Please Enter Valid SFA Id And Password.', 'Login Message');
+            }
+        });
+    }
 })
 
 //Forgot-password
@@ -168,6 +161,9 @@ firstapp.controller('ChangePasswordCtrl', function ($scope, TemplateService, Nav
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    if ($.jStorage.get("userDetails") == null) {
+        $state.go('sports-registration');
+    }
     $scope.data = {};
     $scope.formchange = {};
     $scope.isDisabled = false;

@@ -4,15 +4,22 @@
       <h1 class="text-center school-sports spt-m">Sports Registration Form</h1>
     </div>
   </div>
-  <div class="col-md-offset-1 col-md-10">
+  <div class="col-md-offset-1 col-md-10 col-sm-12 col-xs-12">
     <div class="pull-right mb25 sp-tab-right ">
-      <p class="mb0">SFA ID:&nbsp;{{sfaIdObj}}</p>
-      <p class="mb0">School Name:&nbsp;{{schoolName}}</p>
+      <div class="">
+        <div class="display-inline">
+          <p class="mb0">SFA ID:</p>
+          <p class="mb0">School Name:</p>
+        </div>
+        <div class="display-inline">
+          <p class="mb0">&nbsp;{{sfaIdObj}}</p>
+          <p class="mb0">&nbsp;{{schoolName}}</p>
+        </div>
+      </div>
       <ul class="list-inline">
-        <li ui-sref="change-password">Change Password</li>
-        <li ng-click="logoutCandidate();" ng-if="isLoggedIn">Logout</li>
+        <li ui-sref="change-password"><a>Change Password</a></li>
+        <li ng-click="logoutCandidate();" ng-if="isLoggedIn"><a>Logout</a></li>
       </ul>
-      <!--<p><a>Logout</a></p>-->
     </div>
   </div>
   <div class="col-md-offset-1 col-md-10 col-sm-12 col-xs-12 sp-main-tab">
@@ -20,21 +27,26 @@
       <div class="display-inline mob-mr mob-mr" style="margin-right: 50px" ng-click="sptabchange('1')" ng-class="{'blue-active':sportsschool==true}">
         <div class="step4  ">Sports</div>
       </div>
-      <div class="display-inline" ng-click="sptabchange('2')" ng-class="{'blue-active':sportsregistered==true}">
-        <div class="step4 "> Registered Sports</div>
+      <div class="display-inline hide" ng-click="sptabchange('2')" ng-class="{'blue-active':sportsregistered==true}">
+        <div class="step4">Registered Sports</div>
       </div>
     </div>
     <div class="box-padd mb-50">
-      <div class="sp-head-tab">
+      <div class="sp-head-tab" ng-if="allSportsListSubCatArr.length>0">
         <p>Athletes need to register themselves via to be available</p>
         <p>for selection in a team. Kindly ensure all the athletes are registered to form your team.</p>
       </div>
-      <div ng-if="!allSportsListSubCatArr">No Sports Found</div>
-      <div class="sp-row-tab" ng-repeat="data in allSportsListSubCatArr" ng-if="allSportsListSubCatArr.length>0">
-        <h5>{{data.sportName}}</h5>
-        <!--<h5>Team Sports</h5>-->
+      <div class="text-center sp-head-tab" ng-if="allSportsListSubCatArr.length == 0">
+        <h3>No Sports List Found For Selection.
+        </h3>
+      </div>
+      <div class="text-center sp-head-tab" ng-if="allSportsListSubCatArr.length == undefined">
+        <h3>Loading...</h3>
+      </div>
+      <div class="sp-row-tab" ng-repeat="data in allSportsListSubCatArr track by $index" ng-if="allSportsListSubCatArr.length>0">
+        <h5>{{data.sportName}} Sports</h5>
         <ul class="list-inline">
-          <li ng-repeat="value in data.tempArr">
+          <li ng-repeat="value in data.tempArr track by $index">
             <button class="btn btn-default " type="button" ui-sref="sports-rules({id:value._id})">{{value.name}}</button>
           </li>
 
