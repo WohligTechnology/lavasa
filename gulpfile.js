@@ -30,6 +30,7 @@ var jsArray = [
     './js/app.js',
     './js/language.js',
     './js/controllers/controllers.js',
+    './js/controllers/formcontrollers.js',
     './js/controllers/logincontrollers.js',
     './js/controllers/sportscontrollers.js',
     './js/templateservice.js',
@@ -65,7 +66,7 @@ var connect = require("gulp-connect");
 
 
 
-var templateCacheBootstrap = "firstapp.run(['$templateCache', function($templateCache) {";
+var templateCacheBootstrap = "firstApp.run(['$templateCache', function($templateCache) {";
 
 gulp.task('imagemin', function () {
 

@@ -1,6 +1,6 @@
 // angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select', 'ordinal', 'wt.responsive', 'ui.date', 'toastr'])
 
-firstapp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval) {
+firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("SPORTS FOR ALL | PROFESSIONAL SCHOOL & COLLEGE SPORTING SYSTEM");
@@ -17,7 +17,7 @@ firstapp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
         for (var i = index - 1, j = 1; i >= 0; i--) {
             $scope.game[i].class = "near-" + (j++);
         }
-        for (var i = index + 1, j = 1; i < $scope.game.length; i++) {
+        for (i = index + 1, j = 1; i < $scope.game.length; i++) {
             $scope.game[i].class = "near-" + (j++);
         }
     };
@@ -265,8 +265,8 @@ firstapp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
     ];
 
 
-})
-firstapp.controller('AboutUsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('AboutUsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("about-us");
@@ -277,8 +277,8 @@ firstapp.controller('AboutUsCtrl', function ($scope, TemplateService, Navigation
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-})
-firstapp.controller('VenueCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('VenueCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("venue");
@@ -287,9 +287,9 @@ firstapp.controller('VenueCtrl', function ($scope, TemplateService, NavigationSe
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-})
+});
 
-firstapp.controller('PaymentSuccessCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+firstApp.controller('PaymentSuccessCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("paymentSuccess");
@@ -306,9 +306,9 @@ firstapp.controller('PaymentSuccessCtrl', function ($scope, TemplateService, Nav
 
     }, 10000);
 
-})
+});
 
-firstapp.controller('SorryAtheleteCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+firstApp.controller('SorryAtheleteCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("sorryAthelete");
@@ -325,9 +325,9 @@ firstapp.controller('SorryAtheleteCtrl', function ($scope, TemplateService, Navi
 
     }, 5000);
 
-})
+});
 
-firstapp.controller('PaymentFailureCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+firstApp.controller('PaymentFailureCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("paymentFailure");
@@ -342,9 +342,9 @@ firstapp.controller('PaymentFailureCtrl', function ($scope, TemplateService, Nav
 
     }, 5000);
 
-})
+});
 
-firstapp.controller('CertificateCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+firstApp.controller('CertificateCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("certificate");
@@ -360,10 +360,10 @@ firstapp.controller('CertificateCtrl', function ($scope, TemplateService, Naviga
     }, {
         name: "Swimming",
         index: "2"
-    }]
+    }];
 
-})
-firstapp.controller('DownloadScheduleCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('DownloadScheduleCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("download-schedule");
@@ -372,8 +372,8 @@ firstapp.controller('DownloadScheduleCtrl', function ($scope, TemplateService, N
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-})
-firstapp.controller('MerchandiseApparelsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('MerchandiseApparelsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("merchandise-apparels");
@@ -382,8 +382,8 @@ firstapp.controller('MerchandiseApparelsCtrl', function ($scope, TemplateService
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-})
-firstapp.controller('WorkshopClinicCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('WorkshopClinicCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("workshop-clinic");
@@ -392,8 +392,8 @@ firstapp.controller('WorkshopClinicCtrl', function ($scope, TemplateService, Nav
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-})
-firstapp.controller('SponserCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('SponserCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("sponser-partner");
@@ -407,7 +407,7 @@ firstapp.controller('SponserCtrl', function ($scope, TemplateService, Navigation
         'img/sp2.jpg',
         'img/sp3.jpg',
         'img/sp4.jpg'
-    ]
+    ];
 
     $scope.games = // JavaScript Document
         [{
@@ -497,7 +497,7 @@ firstapp.controller('SponserCtrl', function ($scope, TemplateService, Navigation
     }, {
         "img": "img/sports/Kabaddi.jpg",
         "name": "KABADDI"
-    }]
+    }];
 
     $scope.racquet = [{
         "img": "img/sports/Badminton.jpg",
@@ -511,7 +511,7 @@ firstapp.controller('SponserCtrl', function ($scope, TemplateService, Navigation
     }, {
         "img": "img/sports/Squash.jpg",
         "name": "SQUASH"
-    }]
+    }];
     $scope.combat = [{
         "img": "img/sports/Judo.jpg",
         "name": "JUDO"
@@ -530,7 +530,7 @@ firstapp.controller('SponserCtrl', function ($scope, TemplateService, Navigation
     }, {
         "img": "img/sports/MMA.jpg",
         "name": "SPORT MIXED MARTIAL ARTS"
-    }]
+    }];
     $scope.indi = [{
         "img": "img/sports/Carrom.jpg",
         "name": "CARROM"
@@ -540,24 +540,24 @@ firstapp.controller('SponserCtrl', function ($scope, TemplateService, Navigation
     }, {
         "img": "img/sports/Athletics.jpg",
         "name": "ATHLETICS"
-    }]
+    }];
     $scope.target = [{
         "img": "img/sports/Shooting.jpg",
         "name": "SHOOTING"
     }, {
         "img": "img/sports/Archery.jpg",
         "name": "ARCHERY"
-    }]
+    }];
     $scope.aqua = [{
         "img": "img/sports/SWIMMING.jpg",
         "name": "SHOOTING"
     }, {
         "img": "img/sports/WATER POLO.jpg",
         "name": "ARCHERY"
-    }]
+    }];
 
-})
-firstapp.controller('FormSubmitCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state) {
+});
+firstApp.controller('FormSubmitCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("form-submit");
@@ -623,8 +623,8 @@ firstapp.controller('FormSubmitCtrl', function ($scope, TemplateService, Navigat
         });
     };
 
-})
-firstapp.controller('LeagueKnockoutCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
+});
+firstApp.controller('LeagueKnockoutCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("league-knockout");
@@ -736,9 +736,9 @@ firstapp.controller('LeagueKnockoutCtrl', function ($scope, TemplateService, Nav
         });
     }
 
-})
+});
 
-firstapp.controller('KnockoutQualifyCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+firstApp.controller('KnockoutQualifyCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("knockout-qualify");
@@ -747,9 +747,9 @@ firstapp.controller('KnockoutQualifyCtrl', function ($scope, TemplateService, Na
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-})
+});
 
-firstapp.controller('AfterFormCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state) {
+firstApp.controller('AfterFormCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $filter, $state) {
 
     $scope.template = TemplateService.changecontent("after-form");
     $scope.template.header = "";
@@ -811,8 +811,8 @@ firstapp.controller('AfterFormCtrl', function ($scope, TemplateService, Navigati
         });
     };
 
-})
-firstapp.controller('ResultCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state) {
+});
+firstApp.controller('ResultCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state) {
 
     $scope.template = TemplateService.changecontent("result");
     $scope.menutitle = NavigationService.makeactive("Result");
@@ -885,8 +885,8 @@ firstapp.controller('ResultCtrl', function ($scope, TemplateService, NavigationS
         });
     };
 
-})
-firstapp.controller('SchoolRankingCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('SchoolRankingCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("school-ranking");
@@ -905,8 +905,8 @@ firstapp.controller('SchoolRankingCtrl', function ($scope, TemplateService, Navi
     };
     $scope.rankingByYear();
 
-})
-firstapp.controller('BlogCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('BlogCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("blog");
@@ -944,8 +944,8 @@ firstapp.controller('BlogCtrl', function ($scope, TemplateService, NavigationSer
 
     }];
 
-})
-firstapp.controller('DrawScheduleCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+});
+firstApp.controller('DrawScheduleCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("draw-schedule");
@@ -1002,8 +1002,8 @@ firstapp.controller('DrawScheduleCtrl', function ($scope, TemplateService, Navig
     };
     $scope.getSportList();
 
-})
-firstapp.controller('BlogDetailCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('BlogDetailCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("blog-detail");
@@ -1012,8 +1012,8 @@ firstapp.controller('BlogDetailCtrl', function ($scope, TemplateService, Navigat
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-})
-firstapp.controller('SwissCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('SwissCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("swiss");
@@ -1022,8 +1022,8 @@ firstapp.controller('SwissCtrl', function ($scope, TemplateService, NavigationSe
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-})
-firstapp.controller('MediaGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+});
+firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("media-gallery");
@@ -1126,8 +1126,8 @@ firstapp.controller('MediaGalleryCtrl', function ($scope, TemplateService, Navig
                 // console.log("No data found");
                 $scope.folders = [];
             }
-        })
-    }
+        });
+    };
     $scope.loadMedia = function () {
         $scope.mediaArr = undefined;
         NavigationService.getLimitedMedia($scope.filter, function (response) {
@@ -1138,7 +1138,7 @@ firstapp.controller('MediaGalleryCtrl', function ($scope, TemplateService, Navig
                 console.log("No data found");
                 $scope.mediaArr.data = [];
             }
-        })
+        });
     };
     //console.log($stateParams);
     if (!$stateParams.type && !$stateParams.folder) {
@@ -1179,9 +1179,9 @@ firstapp.controller('MediaGalleryCtrl', function ($scope, TemplateService, Navig
         'img/m3.jpg'
 
     ];
-})
+});
 
-firstapp.controller('FaqCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+firstApp.controller('FaqCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("faq");
@@ -1197,8 +1197,8 @@ firstapp.controller('FaqCtrl', function ($scope, TemplateService, NavigationServ
         isFirstDisabled: false
     };
 
-})
-firstapp.controller('ContactCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('ContactCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("contact");
@@ -1207,8 +1207,8 @@ firstapp.controller('ContactCtrl', function ($scope, TemplateService, Navigation
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-})
-firstapp.controller('RegistrationCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('RegistrationCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("registration");
@@ -1217,8 +1217,8 @@ firstapp.controller('RegistrationCtrl', function ($scope, TemplateService, Navig
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-})
-firstapp.controller('TermsConditionCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('TermsConditionCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("terms-condition");
@@ -1228,8 +1228,8 @@ firstapp.controller('TermsConditionCtrl', function ($scope, TemplateService, Nav
     $scope.navigation = NavigationService.getnav();
 
 
-})
-firstapp.controller('SpecialAwardsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('SpecialAwardsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("special");
@@ -1238,8 +1238,8 @@ firstapp.controller('SpecialAwardsCtrl', function ($scope, TemplateService, Navi
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-})
-firstapp.controller('medicalAidCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('medicalAidCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("medical-aid");
@@ -1248,8 +1248,8 @@ firstapp.controller('medicalAidCtrl', function ($scope, TemplateService, Navigat
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-})
-firstapp.controller('foodAndEntertainmentCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('foodAndEntertainmentCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("food-and-entertainment");
@@ -1258,8 +1258,8 @@ firstapp.controller('foodAndEntertainmentCtrl', function ($scope, TemplateServic
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-})
-firstapp.controller('specialDaysCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('specialDaysCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("special-days");
@@ -1268,8 +1268,8 @@ firstapp.controller('specialDaysCtrl', function ($scope, TemplateService, Naviga
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-})
-firstapp.controller('TraininDevelopmentCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+firstApp.controller('TraininDevelopmentCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("training-development");
@@ -1280,9 +1280,9 @@ firstapp.controller('TraininDevelopmentCtrl', function ($scope, TemplateService,
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-})
+});
 
-firstapp.controller('DrawCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams, $filter) {
+firstApp.controller('DrawCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams, $filter) {
 
     $scope.template = TemplateService.changecontent("draw");
     $scope.menutitle = NavigationService.makeactive("Draw");
@@ -1414,14 +1414,14 @@ firstapp.controller('DrawCtrl', function ($scope, TemplateService, NavigationSer
                     pseudoRound = [];
                     for (i = 0; i <= maxOrder; i++) {
                         if (_.findIndex(value, function (single) {
-                                return single.order == i
+                                return single.order == i;
                             }) === -1) {
                             pseudoRound.push({
                                 order: -999
                             });
                         } else {
                             pseudoRound.push(_.find(value, function (knock) {
-                                return knock.order == i
+                                return knock.order == i;
                             }));
                         }
                     }
@@ -1454,9 +1454,9 @@ firstapp.controller('DrawCtrl', function ($scope, TemplateService, NavigationSer
     if ($stateParams.id) {
         $scope.getSportRoundKnockout();
     }
-})
+});
 
-firstapp.controller('StudentBioCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
+firstApp.controller('StudentBioCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
     //Used to name the .html file
 
     console.log("Testing Consoles");
@@ -1652,9 +1652,9 @@ firstapp.controller('StudentBioCtrl', function ($scope, TemplateService, Navigat
         });
     };
     $scope.changeYear();
-})
+});
 
-firstapp.controller('SportCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
     $scope.template = TemplateService.changecontent("sport");
     // $scope.menutitle = NavigationService.makeactive($stateParams.name);
     TemplateService.header = "views/header2.html";
@@ -2012,12 +2012,12 @@ firstapp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
                 console.log("No data found");
                 $scope.mediaArr = {};
             }
-        })
+        });
     };
 
-})
+});
 
-firstapp.controller('SchoolBioCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $stateParams) {
+firstApp.controller('SchoolBioCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $stateParams) {
     //Used to name the .html file
 
 
@@ -2158,9 +2158,9 @@ firstapp.controller('SchoolBioCtrl', function ($scope, TemplateService, Navigati
         });
     };
     $scope.getSchoolProfile();
-})
+});
 
-firstapp.controller('ChampionsCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state) {
+firstApp.controller('ChampionsCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
     console.log("Testing Consoles");
     $scope.template = TemplateService.changecontent("champions");
@@ -2234,9 +2234,9 @@ firstapp.controller('ChampionsCtrl', function ($scope, TemplateService, Navigati
     };
     $scope.getSportList();
 
-})
+});
 
-firstapp.controller('SchoolCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+firstApp.controller('SchoolCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("school");
     $scope.menutitle = NavigationService.makeactive("School");
@@ -2343,9 +2343,9 @@ firstapp.controller('SchoolCtrl', function ($scope, TemplateService, NavigationS
     };
     $scope.filter.year = "top20";
     $scope.changeYear();
-})
+});
 
-firstapp.controller('SchoolProfileCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
+firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("school-profile");
     $scope.menutitle = NavigationService.makeactive("School Profile");
@@ -2652,9 +2652,9 @@ firstapp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
             }
         });
     };
-})
+});
 
-firstapp.controller('StudentsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+firstApp.controller('StudentsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("students");
     $scope.menutitle = NavigationService.makeactive("Students");
@@ -2705,9 +2705,9 @@ firstapp.controller('StudentsCtrl', function ($scope, TemplateService, Navigatio
             }
         });
     };
-})
+});
 
-firstapp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateService, NavigationService, $timeout, $stateParams, $state, $window) {
+firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateService, NavigationService, $timeout, $stateParams, $state, $window) {
     //Used to name the .html file
     // $scope.exportCertificate = function(data) {
     //     if (data) {
@@ -2719,14 +2719,14 @@ firstapp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
     // };
 
 
-    $scope.abc;
+    // $scope.abc;
 
     $scope.SPORTDATA = {};
     $scope.medalData = {};
     console.log("PARAMS", $state.params.id);
     var student_id = {
         _id: $state.params.id
-    }
+    };
     NavigationService.getMedal(student_id, function (data) {
         $scope.medalData = data;
         console.log("MEDAL DATA", data);
@@ -3096,9 +3096,9 @@ firstapp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
 
     $scope.filter.year = "2016";
     $scope.changeYear();
-})
+});
 
-firstapp.controller('HeatsCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+firstApp.controller('HeatsCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("heats");
     $scope.menutitle = NavigationService.makeactive("Heats");
@@ -3185,8 +3185,9 @@ firstapp.controller('HeatsCtrl', function ($scope, TemplateService, NavigationSe
         });
     };
     $scope.getSportRoundHeat();
-})
-firstapp.controller('TeamCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+
+firstApp.controller('TeamCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("team");
     $scope.menutitle = NavigationService.makeactive("Team");
@@ -3245,9 +3246,9 @@ firstapp.controller('TeamCtrl', function ($scope, TemplateService, NavigationSer
         });
     };
 
-})
+});
 
-firstapp.controller('QualifyCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+firstApp.controller('QualifyCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("qualify");
     $scope.menutitle = NavigationService.makeactive("Qualify");
@@ -3297,8 +3298,9 @@ firstapp.controller('QualifyCtrl', function ($scope, TemplateService, Navigation
             }
         });
     }
-})
-firstapp.controller('TeamDetailCtrl', function ($scope, TemplateService, NavigationService, $stateParams, $timeout) {
+});
+
+firstApp.controller('TeamDetailCtrl', function ($scope, TemplateService, NavigationService, $stateParams, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("team-detail");
     $scope.menutitle = NavigationService.makeactive("Team Detail");
@@ -3477,9 +3479,9 @@ firstapp.controller('TeamDetailCtrl', function ($scope, TemplateService, Navigat
             }
         });
     };
-})
+});
 
-firstapp.controller('RoundRobinCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("round-robin");
     $scope.menutitle = NavigationService.makeactive("Round Robin");
@@ -3698,9 +3700,9 @@ firstapp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         });
     };
     $scope.getSportRoundLeague();
-})
+});
 
-firstapp.controller('KnockoutCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+firstApp.controller('KnockoutCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("knockout");
     $scope.menutitle = NavigationService.makeactive("Knockout");
@@ -3852,8 +3854,9 @@ firstapp.controller('KnockoutCtrl', function ($scope, TemplateService, Navigatio
         }]
     }];
 
-})
-firstapp.controller('ChampionshipCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+});
+
+firstApp.controller('ChampionshipCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("championship");
@@ -3862,8 +3865,9 @@ firstapp.controller('ChampionshipCtrl', function ($scope, TemplateService, Navig
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-})
-firstapp.controller('RegisterCtrl', function ($scope, $uibModal, TemplateService, NavigationService, $timeout) {
+});
+
+firstApp.controller('RegisterCtrl', function ($scope, $uibModal, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("register");
@@ -3916,9 +3920,9 @@ firstapp.controller('RegisterCtrl', function ($scope, $uibModal, TemplateService
         $(".side-menu1").addClass("menu-out");
         $scope.closeAge = false;
     };
-})
+});
 
-firstapp.controller('headerctrl', function ($scope, TemplateService, $rootScope) {
+firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope) {
     $scope.template = TemplateService;
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
@@ -4008,9 +4012,9 @@ firstapp.controller('headerctrl', function ($scope, TemplateService, $rootScope)
             "game": "Event Partner "
         }];
 
-})
+});
 
-firstapp.controller('languageCtrl', function ($scope, TemplateService, $translate, $rootScope) {
+firstApp.controller('languageCtrl', function ($scope, TemplateService, $translate, $rootScope) {
 
     $scope.changeLanguage = function () {
         console.log("Language CLicked");

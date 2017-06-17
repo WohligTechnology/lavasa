@@ -10,6 +10,25 @@
     </div>
     <div class="row">
       <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12">
+        <div class="pull-right sp-tab-right">
+          <div class="">
+            <div class="display-inline">
+              <p class="mb0">SFA ID:</p>
+              <p class="mb0">School Name:</p>
+            </div>
+            <div class="display-inline">
+              <p class="mb0">&nbsp;{{detail.sfaIdObj}}</p>
+              <p class="mb0">&nbsp;{{detail.schoolName}}</p>
+            </div>
+          </div>
+          <ul class="list-inline">
+            <li ng-click="logoutCandidate();" ng-if="detail.isLoggedIn"><a>Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12">
         <div class="row">
           <div class="box-padd mb91">
             <div class="confirmForm">
@@ -18,7 +37,7 @@
                   <div class="form-group" ng-init="formData.schoolName = 'D.A.V Public School'">
                     <div class="readSchoolName">
                       <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12">
-                        <label for="inputEmail3" class="col-md-4 col-sm-4 col-xs-12 control-label para2">School Name:</label>
+                        <label for="inputEmail3" class="col-md-4 col-sm-4 col-xs-12 control-label para3">School Name:</label>
                         <div class="col-md-7 col-sm-7 col-xs-12">
                           <input type="text" class="form-control" ng-model="formData.schoolName" id="inputEmail3" readonly>
                         </div>

@@ -16,13 +16,12 @@
                 <p class="mb0">School Name:</p>
               </div>
               <div class="display-inline">
-                <p class="mb0">&nbsp;{{sfaIdObj}}</p>
-                <p class="mb0">&nbsp;{{schoolName}}</p>
+                <p class="mb0">&nbsp;{{detail.sfaIdObj}}</p>
+                <p class="mb0">&nbsp;{{detail.schoolName}}</p>
               </div>
             </div>
             <ul class="list-inline">
-              <li ui-sref="change-password"><a>Change Password</a></li>
-              <li ng-click="logoutCandidate();" ng-if="isLoggedIn"><a>Logout</a></li>
+              <li ng-click="logoutCandidate();" ng-if="detail.isLoggedIn"><a>Logout</a></li>
             </ul>
           </div>
         </div>
@@ -48,7 +47,7 @@
             <div class="check-term ">
               <input type="checkbox" name="checkIhav" ng-checked="termsCheck(formData.termsAndCondition)" ng-model="formData.termsAndCondition"
                 id="test5" />
-              <label for="test5" class="sf-list custom-a" style="padding-left: 20px;"><span></span> <b>I Agree to terms and conditions above</b></label>
+              <label for="test5" class="sf-list custom-a" style="padding-left: 20px;"><span></span>I Agree that I have read and accepted all rules and regulations. For other terms and conditions of SFA Mumbai 2017, <a ui-sref="terms-condition" target="_blank">click here.</a></label>
               <div class="validate-col" ng-if="errorMsg">Please accept terms and conditions</div>
             </div>
           </div>

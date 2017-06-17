@@ -1,17 +1,17 @@
-firstapp.controller('SportsRegistrationCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, $rootScope) {
+firstApp.controller('SportsRegistrationCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, $rootScope) {
     $scope.template = TemplateService.changecontent("sports-registration");
     $scope.menutitle = NavigationService.makeactive("Sports Registration");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.formData = {};
-    if ($.jStorage.get("userType") == null) {
+    if ($.jStorage.get("userType") === null) {
         NavigationService.setUserType("athlete");
     }
-    if ($.jStorage.get("userDetails") != null) {
+    if ($.jStorage.get("userDetails") !== null) {
         $state.go('sports-selection');
     }
-    if ($.jStorage.get("userType") != null) {
+    if ($.jStorage.get("userType") !== null) {
         if ($.jStorage.get("userType") == "athlete") {
             $scope.formData.type = "athlete";
             $scope.ath = true;
@@ -26,7 +26,7 @@ firstapp.controller('SportsRegistrationCtrl', function ($scope, TemplateService,
     $scope.classb = '';
     $scope.tabchange = function (data) {
         if (data == 1) {
-            console.log('value', 'data')
+            console.log('value', 'data');
             $scope.ath = true;
             $scope.sch = false;
             $scope.formData.type = "athlete";
@@ -42,7 +42,7 @@ firstapp.controller('SportsRegistrationCtrl', function ($scope, TemplateService,
             }
         }
 
-    }
+    };
 
     $scope.isDisabled = false;
     $scope.login = function (formData, formsports) {
@@ -89,11 +89,11 @@ firstapp.controller('SportsRegistrationCtrl', function ($scope, TemplateService,
                 toastr.error('Please Enter Valid SFA Id And Password.', 'Login Message');
             }
         });
-    }
-})
+    };
+});
 
 //Forgot-password
-firstapp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state) {
+firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("forgot-password");
@@ -110,7 +110,7 @@ firstapp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, Nav
             console.log("data", data);
             if (data.value) {
                 $scope.isDisabled = true;
-                toastr.success('Email Is Sent Successfully To Your Registered Email Id.', 'Forgot Password Message');
+                toastr.success('The Password Has Been Sent Successfully To Your Registered Email Id.', 'Forgot Password Message');
                 $state.go('sports-registration');
             } else {
                 $scope.isDisabled = false;
@@ -127,7 +127,7 @@ firstapp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, Nav
 
             }
         });
-    }
+    };
 
     $scope.forgotPassword = function (formData, formsports) {
         console.log(formData);
@@ -151,9 +151,9 @@ firstapp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, Nav
         }
     };
 
-})
+});
 //Change password
-firstapp.controller('ChangePasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state) {
+firstApp.controller('ChangePasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("change-password");
@@ -161,9 +161,24 @@ firstapp.controller('ChangePasswordCtrl', function ($scope, TemplateService, Nav
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    if ($.jStorage.get("userDetails") == null) {
+    if ($.jStorage.get("userDetails") === null) {
         $state.go('sports-registration');
     }
+
+    NavigationService.loginGet(function (data) {
+        $scope.detail = data;
+    });
+
+    $scope.logoutCandidate = function () {
+        NavigationService.logoutCandidate(function (data) {
+            if (data.isLoggedIn === false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $state.go('sports-registration');
+            } else {
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    };
     $scope.data = {};
     $scope.formchange = {};
     $scope.isDisabled = false;
@@ -173,7 +188,7 @@ firstapp.controller('ChangePasswordCtrl', function ($scope, TemplateService, Nav
             $scope.isDisabled = true;
             console.log("disabled is on");
             if (formchange.password == formchange.confirmPassword) {
-                if ($.jStorage.get("userType") != null) {
+                if ($.jStorage.get("userType") !== null) {
                     if ($.jStorage.get("userType") == "school") {
                         formchange.schoolToken = $.jStorage.get("userDetails").accessToken;
                     } else {
@@ -214,4 +229,4 @@ firstapp.controller('ChangePasswordCtrl', function ($scope, TemplateService, Nav
         }
     };
 
-})
+});

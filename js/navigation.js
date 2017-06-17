@@ -50,13 +50,6 @@ var navigationservice = angular.module('navigationservice', [])
                     withCredentials: true
                 }).success(callback);
             },
-            getAllBanner: function (callback) {
-                $http({
-                    url: adminurl + 'banner/getAll',
-                    method: 'POST',
-                    withCredentials: true
-                }).success(callback);
-            },
             getAllEnabledBanner: function (callback) {
                 $http({
                     url: adminurl + 'banner/getAllEnabledBanner',
@@ -508,23 +501,23 @@ var navigationservice = angular.module('navigationservice', [])
             setUser: function (data) {
                 $.jStorage.set("userDetails", data);
             },
-            loginget: function (callback) {
+            loginGet: function (callback) {
 
-                var getj = $.jStorage.get("userDetails");
+                var getJ = $.jStorage.get("userDetails");
                 var getData = {};
-                if (getj != null) {
+                if (getJ !== null) {
                     getData.isLoggedIn = true;
                     if ($.jStorage.get("userType") == "school") {
-                        getData.sfaIdObj = getj.sfaID;
-                        getData.schoolName = getj.schoolName;
+                        getData.sfaIdObj = getJ.sfaID;
+                        getData.schoolName = getJ.schoolName;
                     } else {
-                        getData.sfaIdObj = getj.sfaId;
-                        if (getj.atheleteSchoolName) {
-                            getData.schoolName = getj.atheleteSchoolName;
+                        getData.sfaIdObj = getJ.sfaId;
+                        if (getJ.atheleteSchoolName) {
+                            getData.schoolName = getJ.atheleteSchoolName;
                             this.setUserSchool(getData.schoolName);
                         } else {
-                            if (getj.school) {
-                                getData.schoolName = getj.school.name;
+                            if (getJ.school) {
+                                getData.schoolName = getJ.school.name;
                                 this.setUserSchool(getData.schoolName);
                             }
                         }
@@ -532,7 +525,7 @@ var navigationservice = angular.module('navigationservice', [])
                 } else {
                     getData.isLoggedIn = false;
                 }
-                callback(getData)
+                callback(getData);
             },
 
             logoutCommomFun: function (logdata, callback) {
@@ -557,7 +550,7 @@ var navigationservice = angular.module('navigationservice', [])
             logoutCandidate: function (callback) {
                 var requestObjUserType = {};
                 var xyz = {};
-                if ($.jStorage.get("userType") != null && $.jStorage.get("userDetails") != null) {
+                if ($.jStorage.get("userType") !== null && $.jStorage.get("userDetails") !== null) {
                     if ($.jStorage.get("userType") == "school") {
                         requestObjUserType.schoolToken = $.jStorage.get("userDetails").accessToken;
                         // this.logoutCommomFun(requestObjUserType);
@@ -622,7 +615,7 @@ var navigationservice = angular.module('navigationservice', [])
             getSportsRules: function (id, callback) {
                 var data = {
                     _id: id
-                }
+                };
                 $http({
                     url: adminurl2 + 'SportsListSubCategory/getRules',
                     method: 'POST',
@@ -632,7 +625,7 @@ var navigationservice = angular.module('navigationservice', [])
             getSports: function (id, callback) {
                 var data = {
                     _id: id
-                }
+                };
                 $http({
                     url: adminurl2 + 'SportsListSubCategory/getSports',
                     method: 'POST',
@@ -653,7 +646,5 @@ var navigationservice = angular.module('navigationservice', [])
                     data: request
                 }).success(callback);
             }
-
-
         };
     });

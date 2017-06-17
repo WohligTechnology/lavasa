@@ -1,5 +1,5 @@
 // JavaScript Document
-var firstapp = angular.module('firstapp', [
+var firstApp = angular.module('firstApp', [
     'ui.select',
     'ui.router',
     'templateservicemod',
@@ -22,7 +22,7 @@ var firstapp = angular.module('firstapp', [
 
 ]);
 
-firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, cfpLoadingBarProvider) {
+firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, cfpLoadingBarProvider) {
     // for http request with session
     $httpProvider.defaults.withCredentials = true;
     // cfpLoadingBarProvider.latencyThreshold = 2000;
@@ -311,7 +311,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "views/template.html",
             controller: 'ChangePasswordCtrl'
         })
-        //sportsreg-terms
+        //sports-rules
         .state('sports-rules', {
             url: "/sports-rules/:id",
             templateUrl: "views/template.html",
@@ -323,13 +323,13 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "views/template.html",
             controller: 'SportsCongratsCtrl'
         })
-        //Sports-tab
+        //Sports-selection
         .state('sports-selection', {
             url: "/sports-selection",
             templateUrl: "views/template.html",
             controller: 'SportsSelectionCtrl'
         })
-        //select-athletes
+        //athletes-selection
         .state('athletes-selection', {
             url: "/athletes-selection/:id",
             templateUrl: "views/template.html",
@@ -347,7 +347,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
     $locationProvider.html5Mode(isproduction);
 });
 
-firstapp.directive('mycircle', function ($compile, $parse) {
+firstApp.directive('mycircle', function ($compile, $parse) {
     return {
         restrict: 'EA',
         replace: false,
@@ -374,7 +374,7 @@ firstapp.directive('mycircle', function ($compile, $parse) {
                         var elewidth = $elementli.eq(0).width();
                         //                        console.log(elewidth);
                         var num = amount % elewidth;
-                        if (num == 0 && amount > 0) {
+                        if (num === 0 && amount > 0) {
                             amount = -15;
                             //                            console.log(amount);
                             var $firstelement = $elementli.eq(0);
@@ -404,7 +404,7 @@ firstapp.directive('mycircle', function ($compile, $parse) {
         }
     };
 });
-firstapp.run(function ($window, $rootScope) {
+firstApp.run(function ($window, $rootScope) {
     $rootScope.online = navigator.onLine;
     $window.addEventListener("offline", function () {
         $rootScope.$apply(function () {
@@ -418,7 +418,7 @@ firstapp.run(function ($window, $rootScope) {
         });
     }, false);
 });
-firstapp.directive('giveitmargin', function ($compile, $parse) {
+firstApp.directive('giveitmargin', function ($compile, $parse) {
     return {
         restrict: 'EA',
         replace: false,
@@ -446,7 +446,7 @@ firstapp.directive('giveitmargin', function ($compile, $parse) {
         }
     };
 });
-firstapp.filter('ageYearFilter', function () {
+firstApp.filter('ageYearFilter', function () {
     function calculateAge(birthday) { // birthday is a date
         var ageDifMs = Date.now() - new Date(birthday).getTime();
         var ageDate = new Date(ageDifMs); // miliseconds from epoch
@@ -462,7 +462,7 @@ firstapp.filter('ageYearFilter', function () {
     };
 });
 
-firstapp.filter('uploadpath', function () {
+firstApp.filter('uploadpath', function () {
     return function (input, width, height, style) {
         var other = "";
         if (width && width !== "") {
@@ -484,7 +484,7 @@ firstapp.filter('uploadpath', function () {
     };
 });
 
-firstapp.filter('letterLimit', function () {
+firstApp.filter('letterLimit', function () {
     return function (value, limit) {
         if (value) {
             if (value.length < limit) {
@@ -497,7 +497,7 @@ firstapp.filter('letterLimit', function () {
         }
     };
 });
-firstapp.filter('removeSchool', function () {
+firstApp.filter('removeSchool', function () {
     return function (value, school) {
         if (value) {
             return value.replace(school + " ", "");
@@ -506,7 +506,7 @@ firstapp.filter('removeSchool', function () {
         }
     };
 });
-firstapp.filter('knockoutRoundName', function () {
+firstApp.filter('knockoutRoundName', function () {
     return function (value) {
         if (value) {
             return value.substring(value.indexOf(' ') + 1);
@@ -515,7 +515,7 @@ firstapp.filter('knockoutRoundName', function () {
         }
     };
 });
-firstapp.filter('mediapath', function () {
+firstApp.filter('mediapath', function () {
     return function (value) {
         if (value) {
             return "https://storage.googleapis.com/sportsforall/media%26gallery/" + value;
@@ -525,7 +525,7 @@ firstapp.filter('mediapath', function () {
     };
 });
 
-firstapp.filter('videothumbnail', function () {
+firstApp.filter('videothumbnail', function () {
     return function (value) {
         if (value) {
             return "http://img.youtube.com/vi/" + value + "/hqdefault.jpg";
@@ -535,7 +535,7 @@ firstapp.filter('videothumbnail', function () {
     };
 });
 
-firstapp.filter('lessthan10', function () {
+firstApp.filter('lessthan10', function () {
     return function (value) {
         if (value) {
             if (value < 10) {
@@ -549,7 +549,7 @@ firstapp.filter('lessthan10', function () {
     };
 });
 
-firstapp.filter('ageFilter', function () {
+firstApp.filter('ageFilter', function () {
     return function (birthdate) { // birthday is a date
         var birth = _.clone(birthdate);
         if (birth) {
@@ -587,7 +587,7 @@ firstapp.filter('ageFilter', function () {
         }
     };
 });
-firstapp.directive('giveitmargin', function ($compile, $parse) {
+firstApp.directive('giveitmargin', function ($compile, $parse) {
     return {
         restrict: 'EA',
         replace: false,
@@ -616,7 +616,7 @@ firstapp.directive('giveitmargin', function ($compile, $parse) {
     };
 });
 
-firstapp.directive('img', function ($compile, $parse) {
+firstApp.directive('img', function ($compile, $parse) {
     return {
         restrict: 'E',
         replace: false,
@@ -637,7 +637,7 @@ firstapp.directive('img', function ($compile, $parse) {
     };
 });
 
-firstapp.directive('mychart', function ($compile, $parse) {
+firstApp.directive('mychart', function ($compile, $parse) {
     return {
         restrict: 'C',
         replace: false,
@@ -647,7 +647,7 @@ firstapp.directive('mychart', function ($compile, $parse) {
     };
 });
 
-firstapp.directive('fancyboxBox', function ($document) {
+firstApp.directive('fancyboxBox', function ($document) {
     return {
         restrict: 'EA',
         replace: false,
@@ -672,7 +672,7 @@ firstapp.directive('fancyboxBox', function ($document) {
         }
     };
 });
-firstapp.directive('fancybox', function ($compile, $parse) {
+firstApp.directive('fancybox', function ($compile, $parse) {
     return {
         restrict: 'EA',
         replace: false,
@@ -696,7 +696,7 @@ firstapp.directive('fancybox', function ($compile, $parse) {
         }
     };
 });
-firstapp.directive('hovericon', function ($document) {
+firstApp.directive('hovericon', function ($document) {
     return {
         restrict: 'EA',
         replace: true,
@@ -726,7 +726,7 @@ firstapp.directive('hovericon', function ($document) {
 
     };
 });
-firstapp.directive('scores', function ($document) {
+firstApp.directive('scores', function ($document) {
     return {
         restrict: 'EA',
         replace: true,
@@ -736,7 +736,7 @@ firstapp.directive('scores', function ($document) {
         }
     };
 });
-firstapp.directive('draw', function ($document, $state) {
+firstApp.directive('draw', function ($document, $state) {
     return {
         restrict: 'EA',
         replace: true,
@@ -761,21 +761,21 @@ firstapp.directive('draw', function ($document, $state) {
         }
     };
 });
-firstapp.filter('rawHtml', ['$sce',
+firstApp.filter('rawHtml', ['$sce',
     function ($sce) {
         return function (val) {
             return $sce.trustAsHtml(val);
         };
     }
 ]);
-firstapp.filter('englishNumeralDate', function () {
+firstApp.filter('englishNumeralDate', function () {
     return function (value) {
         if (value) {
             return moment(new Date(value)).format("Do MMMM YYYY");
         }
     };
 });
-firstapp.directive('autoHeight', function ($compile, $parse) {
+firstApp.directive('autoHeight', function ($compile, $parse) {
     return {
         restrict: 'EA',
         replace: false,
@@ -789,7 +789,7 @@ firstapp.directive('autoHeight', function ($compile, $parse) {
         }
     };
 });
-firstapp.directive('fancyboxButton', function ($compile, $parse) {
+firstApp.directive('fancyboxButton', function ($compile, $parse) {
     return {
         restrict: 'EA',
         replace: false,
@@ -814,7 +814,7 @@ firstapp.directive('fancyboxButton', function ($compile, $parse) {
     };
 });
 
-firstapp.directive('uploadImage', function ($http, $filter, $timeout) {
+firstApp.directive('uploadImage', function ($http, $filter, $timeout) {
     return {
         templateUrl: 'views/directive/uploadFile.html',
         scope: {
@@ -894,7 +894,7 @@ firstapp.directive('uploadImage', function ($http, $filter, $timeout) {
                         url: n
                     });
                 });
-            }
+            };
 
             $scope.uploadNow = function (image) {
                 $scope.uploadStatus = "uploading";
@@ -929,7 +929,7 @@ firstapp.directive('uploadImage', function ($http, $filter, $timeout) {
                             $scope.type = "image";
                         }
                         $scope.model = data.data[0];
-                        console.log($scope.model, 'model means blob')
+                        console.log($scope.model, 'model means blob');
 
                     }
                     $timeout(function () {
@@ -942,130 +942,7 @@ firstapp.directive('uploadImage', function ($http, $filter, $timeout) {
     };
 });
 
-// firstapp.directive('uploadImage2', function ($http, $filter, $timeout) {
-//     return {
-//         templateUrl: 'views/directive/uploadFile2.html',
-//         scope: {
-//             model: '=ngModel',
-//             type: "@type",
-//             callback: "&ngCallback"
-//         },
-//         link: function ($scope, element, attrs) {
-//             console.log($scope.model);
-//             $scope.showImage = function () {};
-//             $scope.check = true;
-//             if (!$scope.type) {
-//                 $scope.type = "image";
-//             }
-//             $scope.isMultiple = false;
-//             $scope.inObject = false;
-//             if (attrs.multiple == "true") {
-//                 $scope.isMultiple = true;
-//                 $("#inputImage").attr("multiple", "ADD");
-//             }
-//             if (attrs.noView || attrs.noView === "") {
-//                 $scope.noShow = true;
-//             }
-
-//             $scope.$watch("image", function (newVal, oldVal) {
-//                 console.log(newVal, oldVal);
-//                 isArr = _.isArray(newVal);
-//                 if (!isArr && newVal && newVal.file) {
-//                     $scope.uploadNow(newVal);
-//                 } else if (isArr && newVal.length > 0 && newVal[0].file) {
-
-//                     $timeout(function () {
-//                         console.log(oldVal, newVal);
-//                         console.log(newVal.length);
-//                         _.each(newVal, function (newV, key) {
-//                             if (newV && newV.file) {
-//                                 $scope.uploadNow(newV);
-//                             }
-//                         });
-//                     }, 100);
-
-//                 }
-//             });
-
-//             if ($scope.model) {
-//                 if (_.isArray($scope.model)) {
-//                     $scope.image = [];
-//                     _.each($scope.model, function (n) {
-//                         $scope.image.push({
-//                             url: n
-//                         });
-//                     });
-//                 } else {
-//                     if (_.endsWith($scope.model, ".pdf")) {
-//                         $scope.type = "pdf";
-//                     }
-//                 }
-
-//             }
-//             if (attrs.inobj || attrs.inobj === "") {
-//                 $scope.inObject = true;
-//             }
-//             $scope.clearOld = function () {
-//                 $scope.model = [];
-//                 $scope.uploadStatus = "removed";
-//             };
-//             $scope.removeImage = function (index) {
-//                 $scope.image = [];
-//                 $scope.model.splice(index, 1);
-//                 _.each($scope.model, function (n) {
-//                     $scope.image.push({
-//                         url: n
-//                     });
-//                 });
-//             }
-
-//             $scope.uploadNow = function (image) {
-//                 $scope.uploadStatus = "uploading";
-
-//                 var Template = this;
-//                 image.hide = true;
-//                 var formData = new FormData();
-//                 formData.append('file', image.file, image.file.name);
-//                 $http.post(uploadurl2, formData, {
-//                     headers: {
-//                         'Content-Type': undefined
-//                     },
-//                     transformRequest: angular.identity
-//                 }).then(function (data) {
-//                     data = data.data;
-//                     $scope.uploadStatus = "uploaded";
-//                     if ($scope.isMultiple) {
-//                         if ($scope.inObject) {
-//                             $scope.model.push({
-//                                 "image": data.data[0]
-//                             });
-//                         } else {
-//                             if (!$scope.model) {
-//                                 $scope.clearOld();
-//                             }
-//                             $scope.model.push(data.data[0]);
-//                         }
-//                     } else {
-//                         if (_.endsWith(data.data[0], ".pdf")) {
-//                             $scope.type = "pdf";
-//                         } else {
-//                             $scope.type = "image";
-//                         }
-//                         $scope.model = data.data[0];
-//                         console.log($scope.model, 'model means blob')
-
-//                     }
-//                     $timeout(function () {
-//                         $scope.callback();
-//                     }, 100);
-
-//                 });
-//             };
-//         }
-//     };
-// });
-
-firstapp.directive('imageonload', function () {
+firstApp.directive('imageonload', function () {
     return {
         restrict: 'A',
         link: function (scope, element, attrs) {
@@ -1076,7 +953,7 @@ firstapp.directive('imageonload', function () {
     };
 });
 
-firstapp.directive('uploadImage2', function ($http, $filter) {
+firstApp.directive('uploadImage2', function ($http, $filter) {
     // console.log(file-types);
     return {
         templateUrl: 'views/directive/uploadFile2.html',
@@ -1132,7 +1009,7 @@ firstapp.directive('uploadImage2', function ($http, $filter) {
                         url: $filter("serverimage2")(n)
                     });
                 });
-            }
+            };
             $scope.upload = function (image) {
                 // console.log(filetype);
                 if (_.findIndex($scope.types, function (key) {
@@ -1186,14 +1063,14 @@ firstapp.directive('uploadImage2', function ($http, $filter) {
     };
 });
 
-firstapp.config(function ($translateProvider) {
+firstApp.config(function ($translateProvider) {
     $translateProvider.translations('en', LanguageEnglish);
     $translateProvider.translations('hi', LanguageHindi);
     $translateProvider.preferredLanguage('en');
 });
 
 
-firstapp.directive('onlyDigits', function () {
+firstApp.directive('onlyDigits', function () {
     return {
         require: 'ngModel',
         restrict: 'A',
@@ -1222,7 +1099,7 @@ firstapp.directive('onlyDigits', function () {
     };
 });
 
-firstapp.filter('serverimage', function () {
+firstApp.filter('serverimage', function () {
     return function (image) {
         if (image && image !== null) {
             console.log("adminurl--", adminurl);
@@ -1230,10 +1107,10 @@ firstapp.filter('serverimage', function () {
         } else {
             return undefined;
         }
-    }
+    };
 });
 
-firstapp.filter('serverimage2', function () {
+firstApp.filter('serverimage2', function () {
     return function (image) {
         if (image && image !== null) {
             console.log("adminurl--", adminurl);
@@ -1241,10 +1118,10 @@ firstapp.filter('serverimage2', function () {
         } else {
             return undefined;
         }
-    }
+    };
 });
 
-// firstapp.directive('onlyDigits', function () {
+// firstApp.directive('onlyDigits', function () {
 //     return {
 //         require: 'ngModel',
 //         restrict: 'A',
@@ -1273,7 +1150,7 @@ firstapp.filter('serverimage2', function () {
 //     };
 // });
 
-firstapp.filter('propsFilter', function () {
+firstApp.filter('propsFilter', function () {
     return function (items, props) {
         var out = [];
 
@@ -1305,7 +1182,7 @@ firstapp.filter('propsFilter', function () {
     };
 });
 
-firstapp.directive('inputDate', function ($compile, $parse) {
+firstApp.directive('inputDate', function ($compile, $parse) {
     return {
         restrict: 'E',
         replace: false,
@@ -1333,7 +1210,7 @@ firstapp.directive('inputDate', function ($compile, $parse) {
         }
     };
 });
-firstapp.directive('onlyAlpha', function () {
+firstApp.directive('onlyAlpha', function () {
     return {
         require: 'ngModel',
         link: function (scope, element, attr, ngModelCtrl) {
@@ -1350,7 +1227,7 @@ firstapp.directive('onlyAlpha', function () {
     };
 });
 
-firstapp.directive('alphaSpecial', function () {
+firstApp.directive('alphaSpecial', function () {
     return {
         require: 'ngModel',
         link: function (scope, element, attr, ngModelCtrl) {
@@ -1366,26 +1243,26 @@ firstapp.directive('alphaSpecial', function () {
         }
     };
 });
-firstapp.directive('touppercase', function () {
+firstApp.directive('touppercase', function () {
     return {
         require: 'ngModel',
         link: function (scope, element, attrs, modelCtrl) {
             var capitalize = function (inputValue) {
-                if (inputValue == undefined) inputValue = '';
+                if (inputValue === undefined) inputValue = '';
                 var capitalized = inputValue.toUpperCase();
                 if (capitalized !== inputValue) {
                     modelCtrl.$setViewValue(capitalized);
                     modelCtrl.$render();
                 }
                 return capitalized;
-            }
+            };
             modelCtrl.$parsers.push(capitalize);
             capitalize(scope[attrs.ngModel]); // capitalize initial value
         }
     };
 });
 
-firstapp.directive('capitalize', function ($parse) {
+firstApp.directive('capitalize', function ($parse) {
     return {
         require: 'ngModel',
         link: function (scope, element, attrs, modelCtrl) {
@@ -1400,7 +1277,7 @@ firstapp.directive('capitalize', function ($parse) {
                     modelCtrl.$render();
                 }
                 return capitalized;
-            }
+            };
             modelCtrl.$parsers.push(capitalize);
             capitalize($parse(attrs.ngModel)(scope)); // capitalize initial value
         }

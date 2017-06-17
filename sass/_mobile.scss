@@ -65,19 +65,18 @@
     }
 
     @media (max-width:$screen-sm-max) {
-      // start athletes-selection
+      .para3 {
+        font-size: 16px;
+      } // start athletes-selection
       .selectAthletes .separateTwoBox .school-sec .stu-check .checkbox-custom input[type="checkbox"]+label {
         width: 170px;
+      }
+      .w10 {
+        width: 12%;
       }
       .selectAthletes .separateTwoBox .scroll-div .scrollbar {
         margin-right: -6px;
         clear: both;
-      }
-      .readSchoolName {
-        .iconinfo {
-          margin-left: -160px;
-          margin-top: 10px;
-        }
       }
       .mob-bottom {
         margin-bottom: 15px;
@@ -350,43 +349,41 @@
       }
       .school-registration {
         margin: 55px 57px 0 42px;
-      }
-      .school-registration .btn-school .school-icon {
-        // left: 259px;
-      }
-      .green-btn:after {
-        // right: -153px;
-        // width: 143px;
-      }
-      .green-btn:before {
-        // left: -153px;
-        // width: 143px;
-      }
-      .athletes .athlets-btn .athlets-icon {
-        // left: 259px;
-      }
+      } // .school-registration .btn-school .school-icon {
+      //   // left: 259px;
+      // }
+      // .green-btn:after {
+      //   // right: -153px;
+      //   // width: 143px;
+      // }
+      // .green-btn:before {
+      //   // left: -153px;
+      //   // width: 143px;
+      // }
+      // .athletes .athlets-btn .athlets-icon {
+      //   // left: 259px;
+      // }
       .athletes {
         margin: 110px 59px 0 42px;
-      }
-      .orange:before {
-        // left: -150px;
-        // width: 138px;
-      }
-      .orange:after {
-        // right: -150px;
-        // width: 138px;
-      }
-      .sport-registration .btn-sport .sport-icon {
-        // left: 244px 
-      }
-      .blue-light:before {
-        // width: 110px;
-        // left: -121px;
-      }
-      .blue-light:after {
-        // width: 110px;
-        // right: -121px;
-      }
+      } // .orange:before {
+      //   // left: -150px;
+      //   // width: 138px;
+      // }
+      // .orange:after {
+      //   // right: -150px;
+      //   // width: 138px;
+      // }
+      // .sport-registration .btn-sport .sport-icon {
+      //   // left: 244px 
+      // }
+      // .blue-light:before {
+      //   // width: 110px;
+      //   // left: -121px;
+      // }
+      // .blue-light:after {
+      //   // width: 110px;
+      //   // right: -121px;
+      // }
       .sport-sec {
         margin: 60px 55px 0px 55px;
       }
@@ -422,6 +419,15 @@
     }
 
     @media (max-width:$screen-xs-max) {
+      .w10 {
+        width: 15%;
+      }
+      .readSchoolName {
+        .iconinfo {
+          margin-left: -142px;
+          margin-top: 20px;
+        }
+      }
       .tab-register {
         top: 70%;
       } //start confirmTeam
@@ -845,10 +851,9 @@
       .border-right-2 {
         padding: 0 6px;
         font-size: 12px;
-      }
-      .sf-list {
-        // font-size: 12px;
-      }
+      } // .sf-list {
+      //   // font-size: 12px;
+      // }
       .table {
         tr {
           th {
@@ -1087,6 +1092,9 @@
 
     @media (max-width:480px) {
       //start athlete-selection
+      .w10 {
+        width: 18%;
+      }
       .selectAthletes .separateTwoBox .school-sec .stu-check .checkbox-custom input[type="checkbox"]+label {
         width: 296px;
       }
@@ -1098,6 +1106,9 @@
       }
       .para2 {
         font-size: 14px;
+      }
+      .para3 {
+        font-size: 16px;
       }
       label.padd-lr.sf-list {
         font-size: 12px;
@@ -1114,6 +1125,7 @@
       }
       .sp-row-tab ul li button {
         width: 125px;
+        margin: 5px 0;
       }
       .sp-tab-right {
         float: left !important;
@@ -1128,17 +1140,17 @@
         font-size: 11px;
       }
       .step4 {
-        width: 120px;
+        width: 95px;
         height: 35px;
         padding: 11px 0px;
-        font-size: 12.75px;
+        font-size: 11.75px;
       }
       .step4:before {
         border-top: 35px solid transparent;
-        right: 120px;
+        right: 95px;
       }
       .step4:after {
-        border-top: 36px solid transparent;
+        border-top: 35px solid transparent;
       }
       .sp-main-tab .blue-active .step4:before {
         border-top: 35px solid transparent;
@@ -1668,10 +1680,9 @@
             font-size: 12px;
           }
         }
-      }
-      .sf-list {
-        // font-size: 12px;
-      }
+      } // .sf-list {
+      //   // font-size: 12px;
+      // }
       .border-right-2 {
         padding: 0 6px;
         font-size: 12px;
@@ -1766,10 +1777,9 @@
       }
       .curve2 {
         margin-top: -70px;
-      }
-      .home-slider {
-        // margin-top: 33px;
-      }
+      } // .home-slider {
+      //   // margin-top: 33px;
+      // }
       .home-btn .btn-group {
         padding: 0 10px;
       }
@@ -1984,39 +1994,35 @@
         padding: 19px 17px 10px;
       }
       .school-registration {
-        margin: 80px 20px 0 20px;
-        .green-btn:after {
-          // right: -17px;
-          // width: 13px;
-        }
-        .green-btn:before {
-          // left: -17px;
-          // width: 13px;
-        }
+        margin: 80px 20px 0 20px; // .green-btn:after {
+        //   // right: -17px;
+        //   // width: 13px;
+        // }
+        // .green-btn:before {
+        //   // left: -17px;
+        //   // width: 13px;
+        // }
       }
       .school-registration .btn-school .school-icon {
         top: -70px; // left: 96px;
-      }
-      .date-venue li {
-        // display: none;
-      }
+      } // .date-venue li {
+      //   // display: none;
+      // }
       .category-padding-athelet {
         padding: 19px 15px 30px;
       }
       .athletes {
-        margin: 110px 20px 0 20px;
-        .orange:before {
-          // left: -15px;
-          // width: 12px;
-        }
-        .orange:after {
-          // right: -15px;
-          // width: 12px;
-        }
-      }
-      .athletes .athlets-btn .athlets-icon {
-        // left: 94px;
-      }
+        margin: 110px 20px 0 20px; // .orange:before {
+        //   // left: -15px;
+        //   // width: 12px;
+        // }
+        // .orange:after {
+        //   // right: -15px;
+        //   // width: 12px;
+        // }
+      } // .athletes .athlets-btn .athlets-icon {
+      //   // left: 94px;
+      // }
       .tab-register {
         .tab-img {
           left: -15px;
@@ -2026,21 +2032,19 @@
         padding: 25px 15px 25px;
       }
       .sport-sec {
-        margin: 50px 20px 0px 20px;
-        .sport-registration .btn-sport .sport-icon {
-          // left: 94px;
-        }
+        margin: 50px 20px 0px 20px; // .sport-registration .btn-sport .sport-icon {
+        //   // left: 94px;
+        // }
         .store-padding {
           padding: 0px 35px 0px 17px;
-        }
-        .blue-light:before {
-          // left: -62px;
-          // width: 56px;
-        }
-        .blue-light:after {
-          // right: -62px;
-          // width: 56px;
-        }
+        } // .blue-light:before {
+        //   // left: -62px;
+        //   // width: 56px;
+        // }
+        // .blue-light:after {
+        //   // right: -62px;
+        //   // width: 56px;
+        // }
       }
       .store-for-you {
         padding: 25px 0px;
@@ -2136,6 +2140,9 @@
       .selectAthletes .separateTwoBox .school-sec .stu-check .checkbox-custom input[type="checkbox"]+label {
         width: 136px;
       }
+      .w10 {
+        width: 24%;
+      }
       .selectAthletes .separateTwoBox .kind-select {
         font-size: 12px;
       } //end
@@ -2189,7 +2196,4 @@
           font-size: 7px;
         }
       }
-    } // //navin
-    // drop-cust {
-    //   width: 300px;
-    // }
+    }

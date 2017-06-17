@@ -12,22 +12,23 @@
           <p class="mb0">School Name:</p>
         </div>
         <div class="display-inline">
-          <p class="mb0">&nbsp;{{sfaIdObj}}</p>
-          <p class="mb0">&nbsp;{{schoolName}}</p>
+          <p class="mb0">&nbsp;{{detail.sfaIdObj}}</p>
+          <p class="mb0">&nbsp;{{detail.schoolName}}</p>
         </div>
       </div>
       <ul class="list-inline">
         <li ui-sref="change-password"><a>Change Password</a></li>
-        <li ng-click="logoutCandidate();" ng-if="isLoggedIn"><a>Logout</a></li>
+        <li ng-click="logoutCandidate();" ng-if="detail.isLoggedIn"><a>Logout</a></li>
       </ul>
     </div>
   </div>
   <div class="col-md-offset-1 col-md-10 col-sm-12 col-xs-12 sp-main-tab">
     <div class="text-center">
       <div class="display-inline mob-mr mob-mr" style="margin-right: 50px" ng-click="sptabchange('1')" ng-class="{'blue-active':sportsschool==true}">
-        <div class="step4  ">Sports</div>
+        <div class="step4">Sports</div>
       </div>
-      <div class="display-inline hide" ng-click="sptabchange('2')" ng-class="{'blue-active':sportsregistered==true}">
+      <!--<div class="display-inline" ng-click="sptabchange('2')" ng-class="{'blue-active':sportsregistered==true}">-->
+      <div class="display-inline">
         <div class="step4">Registered Sports</div>
       </div>
     </div>

@@ -189,8 +189,7 @@ a {
 
 .mt-min-38 {
     margin-top: -38px;
-    display: inline-block;
-    float: right;
+    display: inline-block; // float: right;
 }
 
 .margin0 {
@@ -609,15 +608,13 @@ a {
 
 .emailclass {
     width: 80%;
-    display: inline-block;
-    float: left;
+    display: inline-block; // float: left;
     background: #1a34c0;
     border: none;
 }
 
 .newslettersubmit {
-    display: inline-block;
-    float: right;
+    display: inline-block; // float: right;
 }
 
 .news-letter {
@@ -1010,8 +1007,7 @@ hr {
 
 .mt-min-30 {
     margin-top: -80px;
-    display: inline-block;
-    float: right;
+    display: inline-block; // float: right;
 }
 
 .mt-min-18 {
@@ -1404,8 +1400,7 @@ img.fancybox-image {
     ul {
         display: block;
         list-style: none;
-        text-align: center;
-        vertical-align: middle;
+        text-align: center; // vertical-align: middle;
         padding: 0;
         li {
             display: inline-block;
@@ -1651,8 +1646,6 @@ img.fancybox-image {
     margin-top: 80px;
 }
 
-.result-list {}
-
 .cm-pad {
     margin: 0 8px;
     vertical-align: top;
@@ -1770,8 +1763,7 @@ img.fancybox-image {
     display: inline-block;
     width: 300px;
     padding-left: 15px;
-    padding-right: 15px;
-    float: left;
+    padding-right: 15px; // float: left;
     .first-sec {
         &:first-child {
             padding-bottom: 100px;
@@ -1904,10 +1896,9 @@ img.fancybox-image {
     text-align: right;
 }
 
-.fancybox-inner {
-    // overflow: hidden !important;
-}
-
+// .fancybox-inner {
+//     // overflow: hidden !important;
+// }
 .main-pos {
     left: 38%;
     top: 50%;
@@ -2436,9 +2427,6 @@ img.fancybox-image {
 .faq-tables {
     table {
         border: 1px solid #000;
-        tbody {
-            //  text-align: center;
-        }
     }
     .upperthead {
         background-color: #ef7700;
@@ -2695,14 +2683,13 @@ img.fancybox-image {
     margin-top: 0 !important;
 }
 
-.short {
-    //   width: 180px;
-    // white-space: nowrap;
-    // overflow: hidden !important;
-    // text-overflow: ellipsis;
-    // display: block;
-}
-
+// .short {
+//     //   width: 180px;
+//     // white-space: nowrap;
+//     // overflow: hidden !important;
+//     // text-overflow: ellipsis;
+//     // display: block;
+// }
 .on-mouse-hover {
     position: absolute;
     z-index: 99;
@@ -3395,6 +3382,7 @@ a.color-yellow1:hover {
 
 .cl-nt {
     -webkit-column-count: 3;
+    column-count: 3;
 }
 
 .all-l {
@@ -3716,7 +3704,6 @@ ul.dropdown-menu.sf-absulate.blue-menus li a {
 
 .hp-sl-rec {
     .btn {
-        .caret {}
         &:active {
             &:focus {
                 outline: 0;
@@ -4156,12 +4143,13 @@ iframe#twitter-widget-0 {
 }
 
 .para2 {
-    font-family: 'Titillium Web Regular';
-    color: #646464;
-    font-size: 16px;
+    @extend .para;
     font-weight: 400;
-    line-height: 29.167px; // text-align: left;
-    // padding-left: 20px;
+}
+
+.para3 {
+    @extend .para2;
+    font-size: 17px;
 }
 
 .blue {
@@ -4472,10 +4460,6 @@ iframe#twitter-widget-0 {
     border-color: lightgray;
 }
 
-.bor-t {
-    // border-top: none;
-}
-
 .pb10 {
     padding-bottom: 10px;
 }
@@ -4674,10 +4658,6 @@ label:hover:before {
     margin-left: 19px;
 }
 
-.sfa4 {
-    // width: 150px;
-}
-
 .age {
     width: 158px;
 }
@@ -4867,10 +4847,6 @@ input[type="radio"]+label span {
     border-radius: 50%;
 }
 
-input[type="radio"]:checked+label span {
-    // background-color: #f47321;
-}
-
 input[type="radio"]+label span,
 input[type="radio"]:checked+label span {
     -webkit-transition: background-color 0.4s linear;
@@ -4987,10 +4963,6 @@ input[type="radio"]:checked+label span {
 
 .right27 {
     right: 27px;
-}
-
-.sfa434 {
-    //width: 434px;
 }
 
 .myicon3 {
@@ -6387,9 +6359,6 @@ input {
                 font-size: 18px; // background: #dcdbdb;
                 padding: 10px 0px;
                 color: white;
-                &:hover {
-                    // color: $brand-primary;
-                }
                 &:focus {
                     color: $brand-primary;
                 }
@@ -6536,6 +6505,13 @@ h1.forgot-space {
         color: #091a71;
         font-size: 14px;
         font-family: Titillium Web Regular;
+        a {
+            color: #091a71;
+            line-height: 1.42857;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
     .spt-para {
         text-align: justify;
@@ -6596,12 +6572,9 @@ h1.forgot-space {
     overflow-y: auto; // overflow-y: scroll; // margin-bottom: 25px;
 }
 
-.scrollbar::-webkit-scrollbar-thumb {
-    // height: 10px;
-}
-
 .style-1::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important; // border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important; // border-radius: 10px;
     background-color: #969696 !important;
 }
 
@@ -6614,6 +6587,7 @@ h1.forgot-space {
     // border-radius: 10px;
     min-height: 10px !important;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     background-color: #555 !important;
 }
 
@@ -6628,7 +6602,7 @@ h1.forgot-space {
 }
 
 .spc-inside-box {
-    border: 1px solid;
+    border: 1px solid #091a71;
     border-radius: 14px;
     padding: 30px 0px 60px 0px;
     font-size: 15px;
@@ -6744,6 +6718,7 @@ h1.forgot-space {
                 background-color: white;
                 border-color: #091a71;
                 width: 154px;
+                margin: 8px 0;
                 &:hover {
                     background-color: white;
                     border-color: #091a71;
@@ -6761,8 +6736,7 @@ h1.forgot-space {
         margin-top: -5px;
         span {
             color: #091a71;
-            text-decoration: underline;
-            text-decoration-color: #091a71;
+            text-decoration: underline; // text-decoration-color: #091a71;
             font-size: 29px;
         }
     }
@@ -6776,6 +6750,7 @@ h1.forgot-space {
         margin: 0px;
         font-weight: 600;
         line-height: 29.167px;
+        letter-spacing: 1px;
     }
     .form-control[disabled],
     .form-control[readonly],
@@ -6814,6 +6789,7 @@ h1.forgot-space {
             text-align: center;
             background: #091a71;
             border: 1px solid #091a71;
+            letter-spacing: 1px;
         }
         th:nth-of-type(1) {
             background: transparent;
@@ -6878,6 +6854,10 @@ h1.forgot-space {
 
 //end sports-confirmteam
 //start select-athletes
+.w10 {
+    width: 10%;
+}
+
 .selectAthletes {
     .form-horizontal {
         .readSchoolName {
@@ -6968,10 +6948,12 @@ h1.forgot-space {
                 margin-left: 5px; // float: left;
                 height: 481px; // width: 65px;
                 // background: #F5F5F5;
-                overflow-y: scroll; // margin-bottom: 25px;
+                overflow-y: auto;
+                width: 100%; // overflow-y: scroll; // margin-bottom: 25px;
             }
             .style-1::-webkit-scrollbar-track {
-                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important; // border-radius: 10px;
+                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+                box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important; // border-radius: 10px;
                 background-color: #969696 !important;
             }
             .style-1::-webkit-scrollbar {
@@ -6982,6 +6964,7 @@ h1.forgot-space {
                 // border-radius: 10px;
                 min-height: 10px !important;
                 -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+                box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
                 background-color: #555 !important;
             }
             .style-1::-webkit-scrollbar-track-piece {
