@@ -293,55 +293,56 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "views/template.html",
             controller: 'PaymentFailureCtrl'
         })
-        //School-registerform
+
+        //SPORTS REGISTRATION MODULE
+
         .state('sports-registration', {
             url: "/sports-registration",
             templateUrl: "views/template.html",
             controller: 'SportsRegistrationCtrl'
         })
-        //forgot-password
+
         .state('forgot-password', {
             url: "/forgot-password",
             templateUrl: "views/template.html",
             controller: 'ForgotPasswordCtrl'
         })
-        //Change-password
+
         .state('change-password', {
             url: "/change-password",
             templateUrl: "views/template.html",
             controller: 'ChangePasswordCtrl'
         })
-        //sports-rules
+
         .state('sports-rules', {
             url: "/sports-rules/:id",
             templateUrl: "views/template.html",
             controller: 'SportsRulesCtrl'
         })
-        //Sports-congrats
+
         .state('sports-congrats', {
             url: "/sports-congrats",
             templateUrl: "views/template.html",
             controller: 'SportsCongratsCtrl'
         })
-        //Sports-selection
+
         .state('sports-selection', {
             url: "/sports-selection",
             templateUrl: "views/template.html",
             controller: 'SportsSelectionCtrl'
         })
-        //athletes-selection
+
         .state('athletes-selection', {
             url: "/athletes-selection/:id",
             templateUrl: "views/template.html",
             controller: 'AthletesSelectionCtrl'
         })
-        //confirmteam
+
         .state('confirmteam', {
             url: "/confirmteam",
             templateUrl: "views/template.html",
             controller: 'ConfirmTeamCtrl'
         });
-
 
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);

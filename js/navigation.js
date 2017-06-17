@@ -24,12 +24,6 @@ var navigationservice = angular.module('navigationservice', [])
             getnav: function () {
                 return navigation;
             },
-            setUserType: function (data) {
-                $.jStorage.set("userType", data);
-            },
-            setUserSchool: function (schoolName) {
-                $.jStorage.set("schoolName", schoolName);
-            },
             makeactive: function (menuname) {
                 for (var i = 0; i < navigation.length; i++) {
                     if (navigation[i].name == menuname) {
@@ -497,12 +491,30 @@ var navigationservice = angular.module('navigationservice', [])
                 }).success(callback);
             },
 
-            //Set Jstorage for User
+
+            //**********NEW MODULE SPORTS REGISTRATION***********//
+
+            login: function (request, callback) {
+                $http({
+                    url: adminurl2 + 'login/login',
+                    method: 'POST',
+                    data: request
+                }).success(callback);
+            },
+
             setUser: function (data) {
                 $.jStorage.set("userDetails", data);
             },
-            loginGet: function (callback) {
 
+            setUserType: function (data) {
+                $.jStorage.set("userType", data);
+            },
+
+            setUserSchool: function (schoolName) {
+                $.jStorage.set("schoolName", schoolName);
+            },
+
+            loginGet: function (callback) {
                 var getJ = $.jStorage.get("userDetails");
                 var getData = {};
                 if (getJ !== null) {
@@ -528,58 +540,39 @@ var navigationservice = angular.module('navigationservice', [])
                 callback(getData);
             },
 
-            logoutCommomFun: function (logdata, callback) {
-                var returnObj = '';
-                this.logout(logdata, function (data) {
-                    if (data.value) {
-                        // toastr.success('Successfully Logged Out', 'Logout Message');
-                        returnObj = false;
-                        console.log("*******************", returnObj);
-                        callback(returnObj);
-
-                        // $state.go('sports-registration');
-                    } else {
-                        returnObj = true;
-                        callback(returnObj);
-                        // toastr.error('Something went wrong', 'Logout Message');
-                    }
-                });
-                // callback(returnObj);
-            },
-
             logoutCandidate: function (callback) {
                 var requestObjUserType = {};
-                var xyz = {};
+                var logoutObj = {};
                 if ($.jStorage.get("userType") !== null && $.jStorage.get("userDetails") !== null) {
                     if ($.jStorage.get("userType") == "school") {
                         requestObjUserType.schoolToken = $.jStorage.get("userDetails").accessToken;
-                        // this.logoutCommomFun(requestObjUserType);
-                        xyz.isLoggedIn = this.logoutCommomFun(requestObjUserType, function (data) {
-                            xyz.isLoggedIn = data;
-                            callback(xyz);
+                        this.logoutCommonFun(requestObjUserType, function (data) {
+                            logoutObj.isLoggedIn = data;
+                            callback(logoutObj);
                         });
-                        // console.log(xyz);
                     } else {
                         requestObjUserType.athleteToken = $.jStorage.get("userDetails").accessToken;
-                        xyz.isLoggedIn = this.logoutCommomFun(requestObjUserType, function (data) {
-                            xyz.isLoggedIn = data;
-                            callback(xyz);
+                        this.logoutCommonFun(requestObjUserType, function (data) {
+                            logoutObj.isLoggedIn = data;
+                            callback(logoutObj);
                         });
-                        // console.log(xyz);
                     }
                 }
-
             },
 
-            //Sports Registration api calling
-            login: function (request, callback) {
-                $http({
-                    url: adminurl2 + 'login/login',
-                    method: 'POST',
-                    data: request
-                }).success(callback);
+            logoutCommonFun: function (logData, callback) {
+                var returnObj = '';
+                this.logout(logData, function (data) {
+                    if (data.value) {
+                        returnObj = false;
+                        callback(returnObj);
+                    } else {
+                        returnObj = true;
+                        callback(returnObj);
+                    }
+                });
             },
-            //logout api calling
+
             logout: function (request, callback) {
                 $.jStorage.flush();
                 $http({
@@ -588,7 +581,7 @@ var navigationservice = angular.module('navigationservice', [])
                     data: request
                 }).success(callback);
             },
-            //Forgot password api calling
+
             forgotPassword: function (request, url, callback) {
                 $http({
                     url: adminurl2 + url,
@@ -597,7 +590,7 @@ var navigationservice = angular.module('navigationservice', [])
                     data: request
                 }).success(callback);
             },
-            //Change password api calling
+
             changePassword: function (request, callback) {
                 $http({
                     url: adminurl2 + 'login/changePassword',
@@ -605,13 +598,14 @@ var navigationservice = angular.module('navigationservice', [])
                     data: request
                 }).success(callback);
             },
-            //SportsListSubCategory
+
             getAllSportsListSubCategory: function (callback) {
                 $http({
                     url: adminurl2 + 'SportsListSubCategory/getAll',
                     method: 'POST'
                 }).success(callback);
             },
+
             getSportsRules: function (id, callback) {
                 var data = {
                     _id: id
@@ -622,6 +616,7 @@ var navigationservice = angular.module('navigationservice', [])
                     data: data
                 }).success(callback);
             },
+
             getSports: function (id, callback) {
                 var data = {
                     _id: id
@@ -632,6 +627,7 @@ var navigationservice = angular.module('navigationservice', [])
                     data: data
                 }).success(callback);
             },
+
             getOneSportForRegistration: function (data, callback) {
                 $http({
                     url: adminurl2 + 'SportsListSubCategory/getOneSport',
@@ -639,6 +635,7 @@ var navigationservice = angular.module('navigationservice', [])
                     data: data
                 }).success(callback);
             },
+
             getAthletePerSchool: function (request, callback) {
                 $http({
                     url: adminurl2 + 'sport/getAthletePerSchool',
