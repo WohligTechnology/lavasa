@@ -212,7 +212,6 @@ firstApp.factory('NavigationService', function ($http, $window) {
         },
 
         getSchoolByYear: function (request, callback) {
-            console.log('form data: ', request);
             $http({
                 url: adminUrl + 'school/getSchoolByYear',
                 method: 'POST',
@@ -339,7 +338,6 @@ firstApp.factory('NavigationService', function ($http, $window) {
         },
 
         getStudentMedalCount: function (request, callback) {
-            //console.log('request data: ', request);
             $http({
                 url: adminUrl + 'medal/countOneStudentMedal',
                 method: 'POST',
@@ -349,7 +347,6 @@ firstApp.factory('NavigationService', function ($http, $window) {
         },
 
         getWinners: function (request, callback) {
-            //console.log('request data: ', request);
             $http({
                 url: adminUrl + 'medal/getMedalsBySport',
                 method: 'POST',
@@ -359,7 +356,6 @@ firstApp.factory('NavigationService', function ($http, $window) {
         },
 
         getStatsForStudent: function (request, callback) {
-            //console.log('request data: ', request);
             $http({
                 url: adminUrl + 'studentstats/getStudentStatByFilters',
                 method: 'POST',
@@ -369,7 +365,6 @@ firstApp.factory('NavigationService', function ($http, $window) {
         },
 
         getStatsForSchool: function (request, callback) {
-            //console.log('request data: ', request);
             $http({
                 url: adminUrl + 'studentstats/getSchoolStatByFilters',
                 method: 'POST',
@@ -379,7 +374,6 @@ firstApp.factory('NavigationService', function ($http, $window) {
         },
 
         getStatsForTeam: function (request, callback) {
-            //console.log('request data: ', request);
             $http({
                 url: adminUrl + 'studentstats/getTeamStatByFilters',
                 method: 'POST',
@@ -466,7 +460,6 @@ firstApp.factory('NavigationService', function ($http, $window) {
         },
 
         apiCallWithData: function (url, formData, callback) {
-            console.log("inside nav");
             $http.post(adminUrl2 + url, formData).then(function (data) {
                 data = data.data;
                 callback(data);
@@ -489,17 +482,12 @@ firstApp.factory('NavigationService', function ($http, $window) {
         pdfGenerate: function (formData, callback) {
             $http.post(adminUrl + 'student/generatePdf', formData).then(function (data) {
                 data = data.data;
-                console.log("THE PDF ARRAY", data.data);
                 _.each(data.data, function (n) {
                     window.open(n);
 
                 });
-
-                // console.log(callback);
-                // console.log("URLURL NS", data.url);
                 // window.open(data.url);
             });
-            // console.log(callback);
             //   $window.open(data.url);
         },
 
@@ -543,30 +531,29 @@ firstApp.factory('NavigationService', function ($http, $window) {
 
         //**********NEW MODULE SPORTS REGISTRATION***********//
 
-        // intermediateStep: function (tempData, callback) {
-        //     console.log('error', tempData);
-        //     $http({
-        //         url: tempData.url,
-        //         method: 'POST',
-        //         data: tempData
-        //     }).then(callback);
-        // },
-
-        // login: function (request, callback) {
-        //     var copyRequest = request;
-        //     copyRequest.url = adminUrl2 + 'login/login';
-        //     this.intermediateStep(copyRequest, function (data) {
-        //         console.log('value', data);
-        //         // var tempObj = data;
-        //         this.errorCode(data, function (data1) {
-        //             console.log('value after error', data1);
-        //         });
-        //     });
-        // },
-
-        // errorCode: function (received, callback) {
-        //     console.log('error data received', received);
-        // },
+        errorCode: function (received, callback) {
+            var errorObj = {};
+            errorObj = received;
+            if (errorObj.status == 200) {
+                callback(errorObj.data);
+            } else if (errorObj.status == 500) {
+                errorObj = {};
+                errorObj.message = 'Error while processing your request. Try again.';
+                callback(errorObj);
+            } else if (errorObj.status == 502) {
+                errorObj = {};
+                errorObj.message = 'Internet error. Check network and try again.';
+                callback(errorObj);
+            } else if (errorObj.status == 404) {
+                errorObj = {};
+                errorObj.message = 'Not found. Reload and Try again.';
+                callback(errorObj);
+            } else {
+                errorObj = {};
+                errorObj.message = 'Something went wrong. Try again.';
+                callback(errorObj);
+            }
+        },
 
         login: function (request, callback) {
             $http({
@@ -669,6 +656,7 @@ firstApp.factory('NavigationService', function ($http, $window) {
             $http({
                 url: adminUrl2 + 'login/changePassword',
                 method: 'POST',
+                withCredentials: true,
                 data: request
             }).then(callback);
         },
@@ -677,7 +665,7 @@ firstApp.factory('NavigationService', function ($http, $window) {
             $http({
                 url: adminUrl2 + 'SportsListSubCategory/getAll',
                 method: 'POST'
-            }).success(callback);
+            }).then(callback);
         },
 
         getSportsRules: function (id, callback) {
@@ -688,7 +676,7 @@ firstApp.factory('NavigationService', function ($http, $window) {
                 url: adminUrl2 + 'SportsListSubCategory/getRules',
                 method: 'POST',
                 data: data
-            }).success(callback);
+            }).then(callback);
         },
 
         getSports: function (id, callback) {
@@ -699,7 +687,7 @@ firstApp.factory('NavigationService', function ($http, $window) {
                 url: adminUrl2 + 'SportsListSubCategory/getSports',
                 method: 'POST',
                 data: data
-            }).success(callback);
+            }).then(callback);
         },
 
         getOneSportForRegistration: function (data, callback) {
@@ -707,7 +695,7 @@ firstApp.factory('NavigationService', function ($http, $window) {
                 url: adminUrl2 + 'SportsListSubCategory/getOneSport',
                 method: 'POST',
                 data: data
-            }).success(callback);
+            }).then(callback);
         },
 
         getAthletePerSchool: function (request, callback) {
@@ -715,7 +703,7 @@ firstApp.factory('NavigationService', function ($http, $window) {
                 url: adminUrl2 + 'sport/getAthletePerSchool',
                 method: 'POST',
                 data: request
-            }).success(callback);
+            }).then(callback);
         }
     };
 });
