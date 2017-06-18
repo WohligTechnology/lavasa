@@ -543,6 +543,31 @@ firstApp.factory('NavigationService', function ($http, $window) {
 
         //**********NEW MODULE SPORTS REGISTRATION***********//
 
+        // intermediateStep: function (tempData, callback) {
+        //     console.log('error', tempData);
+        //     $http({
+        //         url: tempData.url,
+        //         method: 'POST',
+        //         data: tempData
+        //     }).then(callback);
+        // },
+
+        // login: function (request, callback) {
+        //     var copyRequest = request;
+        //     copyRequest.url = adminUrl2 + 'login/login';
+        //     this.intermediateStep(copyRequest, function (data) {
+        //         console.log('value', data);
+        //         // var tempObj = data;
+        //         this.errorCode(data, function (data1) {
+        //             console.log('value after error', data1);
+        //         });
+        //     });
+        // },
+
+        // errorCode: function (received, callback) {
+        //     console.log('error data received', received);
+        // },
+
         login: function (request, callback) {
             $http({
                 url: adminUrl2 + 'login/login',
@@ -637,7 +662,7 @@ firstApp.factory('NavigationService', function ($http, $window) {
                 method: 'POST',
                 withCredentials: true,
                 data: request
-            }).success(callback);
+            }).then(callback);
         },
 
         changePassword: function (request, callback) {
@@ -645,7 +670,7 @@ firstApp.factory('NavigationService', function ($http, $window) {
                 url: adminUrl2 + 'login/changePassword',
                 method: 'POST',
                 data: request
-            }).success(callback);
+            }).then(callback);
         },
 
         getAllSportsListSubCategory: function (callback) {

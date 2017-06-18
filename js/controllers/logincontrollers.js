@@ -26,7 +26,6 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, TemplateService,
     $scope.classb = '';
     $scope.tabchange = function (data) {
         if (data == 1) {
-            console.log('value', 'data');
             $scope.ath = true;
             $scope.sch = false;
             $scope.formData.type = "athlete";
@@ -45,9 +44,8 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, TemplateService,
     };
 
     $scope.isDisabled = false;
-    $scope.login = function (formData, formsports) {
-        console.log(formData);
-        if (formsports.$valid) {
+    $scope.login = function (formData, formSports) {
+        if (formSports.$valid) {
             if (formData) {
                 formData.type = $.jStorage.get("userType");
                 if (formData.sfaid) {
@@ -78,27 +76,31 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, TemplateService,
     };
 
     $scope.loginFunction = function (formData) {
-        NavigationService.login(formData, function (data) {
-            console.log("data", data);
-            // if (data.status == 200) {}
-
-            // if (data.value) {
-            //     NavigationService.setUser(data.data);
-            //     toastr.success('Successfully Logged In.', 'Login Message');
-            //     $state.go('sports-selection');
-            // } else {
-            //     $scope.isDisabled = false;
-            //     toastr.error('Please Enter Valid SFA Id And Password.', 'Login Message');
-            // }
+        NavigationService.login(formData, function (allData) {
+            if (allData.status == 200) {
+                var data = allData.data;
+                if (data.value) {
+                    NavigationService.setUser(data.data);
+                    toastr.success('Successfully Logged In.', 'Login Message');
+                    $state.go('sports-selection');
+                } else {
+                    $scope.isDisabled = false;
+                    toastr.error('Please Enter Valid SFA Id And Password.', 'Login Message');
+                }
+            } else if (allData.status == 500) {
+                toastr.error('Error while processing your request. Try again.', 'Error Message');
+            } else if (allData.status == 502) {
+                toastr.error('Internet error. Check network and try again.', 'Error Message');
+            } else if (allData.status == 404) {
+                toastr.error('Not found. Reload and Try again.', 'Error Message');
+            } else {
+                toastr.error('Something went wrong. Try again.', 'Error Message');
+            }
         });
     };
-    $scope.loginFunction({});
 });
 
-//Forgot-password
 firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state) {
-    //Used to name the .html file
-
     $scope.template = TemplateService.changecontent("forgot-password");
     $scope.menutitle = NavigationService.makeactive("Forgot password");
     TemplateService.header = "views/header2.html";
@@ -108,34 +110,39 @@ firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, Nav
     $scope.formData = {};
     $scope.formData.type = $.jStorage.get("userType");
     $scope.forgotPasswordFunction = function (formData, url) {
-        console.log("formData", formData);
-        NavigationService.forgotPassword(formData, url, function (data) {
-            console.log("data", data);
-            if (data.value) {
-                $scope.isDisabled = true;
-                toastr.success('The Password Has Been Sent Successfully To Your Registered Email Id.', 'Forgot Password Message');
-                $state.go('sports-registration');
-            } else {
-                $scope.isDisabled = false;
-                if (data.error == "Incorrect Type") {
-                    if ($scope.formData.type == 'athlete') {
-                        toastr.error('Only Athlete Can Apply From Here For Forgot Password. Please Check You Are School Or Athlete, Please Try Again.', 'Forgot Password Message');
-                    } else {
-                        toastr.error('Only School Can Apply From Here For Forgot Password. Please Check You Are School Or Athlete, Please Try Again.', 'Forgot Password Message');
-                    }
+        NavigationService.forgotPassword(formData, url, function (allData) {
+            if (allData.status == 200) {
+                var data = allData.data;
+                if (data.value) {
+                    $scope.isDisabled = true;
+                    toastr.success('The Password Has Been Sent Successfully To Your Registered Email Id.', 'Forgot Password Message');
+                    $state.go('sports-registration');
                 } else {
-                    toastr.error('Please Enter Valid  SFA Id And Email Id, Please Try Again.', 'Forgot Password Message');
+                    $scope.isDisabled = false;
+                    if (data.error == "Incorrect Type") {
+                        if ($scope.formData.type == 'athlete') {
+                            toastr.error('Only Athlete Can Apply From Here For Forgot Password. Please Check You Are School Or Athlete, Please Try Again.', 'Forgot Password Message');
+                        } else {
+                            toastr.error('Only School Can Apply From Here For Forgot Password. Please Check You Are School Or Athlete, Please Try Again.', 'Forgot Password Message');
+                        }
+                    } else {
+                        toastr.error('Please Enter Valid  SFA Id And Email Id, Please Try Again.', 'Forgot Password Message');
+                    }
                 }
-
-
+            } else if (allData.status == 500) {
+                toastr.error('Error while processing your request. Try again.', 'Error Message');
+            } else if (allData.status == 502) {
+                toastr.error('Internet error. Check network and try again.', 'Error Message');
+            } else if (allData.status == 404) {
+                toastr.error('Not found. Reload and Try again.', 'Error Message');
+            } else {
+                toastr.error('Something went wrong. Try again.', 'Error Message');
             }
         });
     };
 
-    $scope.forgotPassword = function (formData, formsports) {
-        console.log(formData);
-        if (formsports.$valid) {
-            console.log("submit is active");
+    $scope.forgotPassword = function (formData, formSports) {
+        if (formSports.$valid) {
             $scope.isDisabled = true;
             if (formData.type) {
                 if (formData.type == "school") {
@@ -148,17 +155,14 @@ firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, Nav
             }
 
         } else {
-            console.log('submit is false');
             $scope.isDisabled = false;
             toastr.error("Please Enter All Fields", 'Forgot Password Message');
         }
     };
 
 });
-//Change password
-firstApp.controller('ChangePasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state) {
-    //Used to name the .html file
 
+firstApp.controller('ChangePasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state) {
     $scope.template = TemplateService.changecontent("change-password");
     $scope.menutitle = NavigationService.makeactive("Change Password");
     TemplateService.header = "views/header2.html";
@@ -183,41 +187,45 @@ firstApp.controller('ChangePasswordCtrl', function ($scope, TemplateService, Nav
         });
     };
     $scope.data = {};
-    $scope.formchange = {};
+    $scope.formChange = {};
     $scope.isDisabled = false;
-    $scope.changePassword = function (formsports, formchange) {
-        console.log("formchange", formchange);
-        if (formsports.$valid) {
+    $scope.changePassword = function (formSports, formChange) {
+        if (formSports.$valid) {
             $scope.isDisabled = true;
-            console.log("disabled is on");
-            if (formchange.password == formchange.confirmPassword) {
+            if (formChange.password == formChange.confirmPassword) {
                 if ($.jStorage.get("userType") !== null) {
                     if ($.jStorage.get("userType") == "school") {
-                        formchange.schoolToken = $.jStorage.get("userDetails").accessToken;
+                        formChange.schoolToken = $.jStorage.get("userDetails").accessToken;
                     } else {
-                        formchange.athleteToken = $.jStorage.get("userDetails").accessToken;
+                        formChange.athleteToken = $.jStorage.get("userDetails").accessToken;
                     }
-                    console.log("formchange", formchange);
-                    NavigationService.changePassword(formchange, function (data) {
-                        console.log("data", data);
-                        if (data.value) {
-                            $scope.isDisabled = true;
-                            toastr.success("Password Is Sucessfully changed.", "Change Password Message");
-                            $timeout(function () {
-                                $state.go('sports-selection');
-                            }, 2000);
-
-                        } else {
-                            console.log("im ele");
-                            $scope.isDisabled = false;
-                            if (data.error == "Incorrect Old Password") {
-                                toastr.error("Enter Vaild Old Password.", "Change Password Message");
+                    NavigationService.changePassword(formChange, function (allData) {
+                        if (allData.status == 200) {
+                            var data = allData.data;
+                            if (data.value) {
+                                $scope.isDisabled = true;
+                                toastr.success("Password Is Sucessfully changed.", "Change Password Message");
+                                $timeout(function () {
+                                    $state.go('sports-selection');
+                                }, 2000);
                             } else {
-                                if (data.error == "Password match or Same password exist") {
-                                    console.log("imin");
-                                    toastr.error("The New Password Is Similar To The Old Password.", "Change Password Message");
+                                $scope.isDisabled = false;
+                                if (data.error == "Incorrect Old Password") {
+                                    toastr.error("Enter Valid Old Password.", "Change Password Message");
+                                } else {
+                                    if (data.error == "Password match or Same password exist") {
+                                        toastr.error("The New Password Is Similar To The Old Password.", "Change Password Message");
+                                    }
                                 }
                             }
+                        } else if (allData.status == 500) {
+                            toastr.error('Error while processing your request. Try again.', 'Error Message');
+                        } else if (allData.status == 502) {
+                            toastr.error('Internet error. Check network and try again.', 'Error Message');
+                        } else if (allData.status == 404) {
+                            toastr.error('Not found. Reload and Try again.', 'Error Message');
+                        } else {
+                            toastr.error('Something went wrong. Try again.', 'Error Message');
                         }
                     });
                 }
