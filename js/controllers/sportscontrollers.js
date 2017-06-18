@@ -41,10 +41,9 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
             $scope.errorMsg = true;
         } else {
             if (val === true) {
-                $state.go('athletes-selection');
-                $state.go('athletes-selection', {
+                // $state.go('school-selection');
+                $state.go('school-selection', {
                     id: id
-
                 });
             }
         }
@@ -145,9 +144,9 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
 });
 
 
-firstApp.controller('AthletesSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, toastr, $timeout) {
-    $scope.template = TemplateService.changecontent("athletes-selection");
-    $scope.menutitle = NavigationService.makeactive("Athletes Selection");
+firstApp.controller('SchoolSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, toastr, $timeout) {
+    $scope.template = TemplateService.changecontent("school-selection");
+    $scope.menutitle = NavigationService.makeactive("School Selection");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
@@ -167,9 +166,7 @@ firstApp.controller('AthletesSelectionCtrl', function ($scope, TemplateService, 
 
     if ($.jStorage.get("userDetails") === null) {
         $state.go('sports-registration');
-    }
-
-    if ($stateParams.id === '') {
+    } else if ($stateParams.id === '') {
         $state.go('sports-selection');
     }
 
@@ -281,6 +278,114 @@ firstApp.controller('AthletesSelectionCtrl', function ($scope, TemplateService, 
             $scope.sortGenderWise('male');
         });
     }
+});
+
+
+firstApp.controller('AthleteSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, toastr, $timeout) {
+    $scope.template = TemplateService.changecontent("athlete-selection");
+    $scope.menutitle = NavigationService.makeactive("Athlete Selection");
+    TemplateService.header = "views/header2.html";
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+    NavigationService.loginGet(function (data) {
+        $scope.detail = data;
+    });
+
+    if ($.jStorage.get("userDetails") === null) {
+        $state.go('sports-registration');
+    } else if ($stateParams.id === '') {
+        $state.go('sports-selection');
+    }
+
+    $scope.logoutCandidate = function () {
+        NavigationService.logoutCandidate(function (data) {
+            if (data.isLoggedIn === false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $state.go('sports-registration');
+            } else {
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    };
+
+    if ($.jStorage.get("schoolName") !== null) {
+        $scope.getAthletePerSchoolObj.school = $.jStorage.get("schoolName");
+    }
+
+    $scope.selectAthlete = [{
+        firstName: 'Harshit',
+        lastName: 'Shah',
+        sfaId: '45211',
+        photograph: 'img/noimage.png'
+
+    }, {
+        firstName: 'Harshit',
+        lastName: 'Shah',
+        sfaId: '45211',
+        photograph: 'img/noimage.png'
+
+    }, {
+        firstName: 'Harshit',
+        lastName: 'Shah',
+        sfaId: '45211',
+        photograph: 'img/noimage.png'
+
+    }, {
+        firstName: 'Harshit',
+        lastName: 'Shah',
+        sfaId: '45211',
+        photograph: 'img/noimage.png'
+
+    }, {
+        firstName: 'Harshit',
+        lastName: 'Shah',
+        sfaId: '45211',
+        photograph: 'img/noimage.png'
+
+    }, {
+        firstName: 'Harshit',
+        lastName: 'Shah',
+        sfaId: '45211',
+        photograph: 'img/noimage.png'
+
+    }, {
+        firstName: 'Harshit',
+        lastName: 'Shah',
+        sfaId: '45211',
+        photograph: 'img/noimage.png'
+
+    }, {
+        firstName: 'Harshit',
+        lastName: 'Shah',
+        sfaId: '45211',
+        photograph: 'img/noimage.png'
+
+    }, {
+        firstName: 'Harshit',
+        lastName: 'Shah',
+        sfaId: '45211',
+        photograph: 'img/noimage.png'
+
+    }, {
+        firstName: 'Harshit',
+        lastName: 'Shah',
+        sfaId: '45211',
+        photograph: 'img/noimage.png'
+
+    }, {
+        firstName: 'Harshit',
+        lastName: 'Shah',
+        sfaId: '45211',
+        photograph: 'img/noimage.png'
+
+    }, {
+        firstName: 'Harshit',
+        lastName: 'Shah',
+        sfaId: '45211',
+        photograph: 'img/noimage.png'
+
+    }];
 });
 
 

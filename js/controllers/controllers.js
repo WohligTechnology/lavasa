@@ -289,61 +289,6 @@ firstApp.controller('VenueCtrl', function ($scope, TemplateService, NavigationSe
 
 });
 
-firstApp.controller('PaymentSuccessCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
-
-    $scope.template = TemplateService.changecontent("paymentSuccess");
-    $scope.menutitle = NavigationService.makeactive("paymentSuccess");
-    TemplateService.header = "views/header2.html";
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-
-
-    window.setTimeout(function () {
-
-        // Move to a new location or you can do something else
-        window.location.href = adminUrl + "/register";
-
-    }, 10000);
-
-});
-
-firstApp.controller('SorryAtheleteCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
-
-    $scope.template = TemplateService.changecontent("sorryAthelete");
-    $scope.menutitle = NavigationService.makeactive("sorryAthelete");
-    TemplateService.header = "views/header2.html";
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-
-
-    window.setTimeout(function () {
-
-        // Move to a new location or you can do something else
-        window.location.href = adminUrl + "/formathlete";
-
-    }, 5000);
-
-});
-
-firstApp.controller('PaymentFailureCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
-
-    $scope.template = TemplateService.changecontent("paymentFailure");
-    $scope.menutitle = NavigationService.makeactive("paymentFailure");
-    TemplateService.header = "views/header2.html";
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-
-    window.setTimeout(function () {
-        // Move to a new location or you can do something else
-        window.location.href = adminUrl + "/formregis";
-
-    }, 5000);
-
-});
-
 firstApp.controller('CertificateCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
 
@@ -2712,7 +2657,7 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
     // $scope.exportCertificate = function(data) {
     //     if (data) {
     //         console.log("data", data);
-    //         window.open(adminurl + 'Config/generatePdf' + data, '_blank');
+    //         window.open(adminUrl + 'Config/generatePdf' + data, '_blank');
     //         // window.close();
     //     }
     //

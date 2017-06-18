@@ -80,16 +80,19 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, TemplateService,
     $scope.loginFunction = function (formData) {
         NavigationService.login(formData, function (data) {
             console.log("data", data);
-            if (data.value) {
-                NavigationService.setUser(data.data);
-                toastr.success('Successfully Logged In.', 'Login Message');
-                $state.go('sports-selection');
-            } else {
-                $scope.isDisabled = false;
-                toastr.error('Please Enter Valid SFA Id And Password.', 'Login Message');
-            }
+            // if (data.status == 200) {}
+
+            // if (data.value) {
+            //     NavigationService.setUser(data.data);
+            //     toastr.success('Successfully Logged In.', 'Login Message');
+            //     $state.go('sports-selection');
+            // } else {
+            //     $scope.isDisabled = false;
+            //     toastr.error('Please Enter Valid SFA Id And Password.', 'Login Message');
+            // }
         });
     };
+    $scope.loginFunction({});
 });
 
 //Forgot-password

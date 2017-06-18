@@ -27,14 +27,24 @@ var jsArray = [
     './bower_components/jStorage/jstorage.min.js',
     './bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js',
     './bower_components/angular-promise-buttons/dist/angular-promise-buttons.min.js',
+
     './js/app.js',
-    './js/language.js',
+
+    './js/languages/language.js',
+
+    './js/directives/directive.js',
+
+    './js/filters/filter.js',
+
+    './js/services/templateService.js',
+    './js/services/selectService.js',
+
+    './js/factories/navigation.js',
+
     './js/controllers/controllers.js',
-    './js/controllers/formcontrollers.js',
-    './js/controllers/logincontrollers.js',
-    './js/controllers/sportscontrollers.js',
-    './js/templateservice.js',
-    './js/navigation.js',
+    './js/controllers/formControllers.js',
+    './js/controllers/loginControllers.js',
+    './js/controllers/sportsControllers.js',
 
     //please do not change it
     './w/js/templates.js',
