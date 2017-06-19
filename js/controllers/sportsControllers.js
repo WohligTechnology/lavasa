@@ -1,4 +1,4 @@
-firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, errorService) {
+firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, errorService, loginService) {
     $scope.template = TemplateService.changecontent("sports-selection");
     $scope.menutitle = NavigationService.makeactive("Sports Selection");
     TemplateService.header = "views/header2.html";
@@ -19,7 +19,7 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
     };
 
 
-    NavigationService.loginGet(function (data) {
+    loginService.loginGet(function (data) {
         $scope.detail = data;
     });
 
@@ -46,28 +46,33 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
         console.log('all detail', data);
         errorService.errorCode(data, function (allData) {
             console.log('detail', allData);
-            if (allData.value) {
-                $scope.allSportsListSubCat = allData.data;
-                _.each($scope.allSportsListSubCat, function (key, value) {
-                    console.log(key, "key",
-                        value);
-                    tempObj.sportName = value;
-                    tempObj.tempArr = _.cloneDeep(key);
-                    $scope.allSportsListSubCatArr.push(tempObj);
-                    tempObj = {};
-                });
+            if (!allData.message) {
+                if (allData.value) {
+                    $scope.allSportsListSubCat = allData.data;
+                    _.each($scope.allSportsListSubCat, function (key, value) {
+                        console.log(key, "key",
+                            value);
+                        tempObj.sportName = value;
+                        tempObj.tempArr = _.cloneDeep(key);
+                        $scope.allSportsListSubCatArr.push(tempObj);
+                        tempObj = {};
+                    });
+                }
+            } else {
+                $scope.isDisabled = false;
+                toastr.error(allData.message, 'Error Message');
             }
         });
     });
 });
 
-firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state, NavigationService, toastr, $timeout, $stateParams, errorService) {
+firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state, NavigationService, toastr, $timeout, $stateParams, errorService, loginService) {
     $scope.template = TemplateService.changecontent("sports-rules");
     $scope.menutitle = NavigationService.makeactive("Sports Rules And Regulations");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    NavigationService.loginGet(function (data) {
+    loginService.loginGet(function (data) {
         $scope.detail = data;
     });
 
@@ -91,10 +96,15 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
             console.log('all detail', data);
             errorService.errorCode(data, function (allData) {
                 console.log('detail', allData);
-                if (allData.value) {
-                    $scope.sportsRulesAndRegulation = allData.data;
+                if (!allData.message) {
+                    if (allData.value) {
+                        $scope.sportsRulesAndRegulation = allData.data;
+                    } else {
+                        console.log("no data found");
+                    }
                 } else {
-                    console.log("no data found");
+                    $scope.isDisabled = false;
+                    toastr.error(allData.message, 'Error Message');
                 }
             });
         });
@@ -115,7 +125,7 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
 
 });
 
-firstApp.controller('SchoolSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, toastr, $timeout, errorService) {
+firstApp.controller('SchoolSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, toastr, $timeout, errorService, loginService) {
     $scope.template = TemplateService.changecontent("school-selection");
     $scope.menutitle = NavigationService.makeactive("School Selection");
     TemplateService.header = "views/header2.html";
@@ -131,7 +141,7 @@ firstApp.controller('SchoolSelectionCtrl', function ($scope, TemplateService, $s
     $scope.getAthletePerSchoolObj.sfaid = '';
     $scope.getAthletePerSchoolObj.page = '1';
     $scope.busy = false;
-    NavigationService.loginGet(function (data) {
+    loginService.loginGet(function (data) {
         $scope.detail = data;
     });
 
@@ -164,19 +174,24 @@ firstApp.controller('SchoolSelectionCtrl', function ($scope, TemplateService, $s
             console.log(data, "data++++++++++++");
             errorService.errorCode(data, function (allData) {
                 console.log('detail', allData);
-                if (allData.value) {
-                    $scope.isLoading = false;
-                    console.log(allData.data.length, "allData.data.length");
-                    console.log("dallData.data.total ", allData.data.total);
-                    console.log("$scope.getAthletePerSchoolObj.page", $scope.getAthletePerSchoolObj.page);
-                    if (allData.data.total >= $scope.getAthletePerSchoolObj.page) {
-                        $scope.showMsg = true;
+                if (!allData.message) {
+                    if (allData.value) {
                         $scope.isLoading = false;
-                        _.each(allData.data.data, function (value) {
-                            $scope.selectAthlete.push(value);
-                            $scope.busy = false;
-                        });
+                        console.log(allData.data.length, "allData.data.length");
+                        console.log("allData.data.total ", allData.data.total);
+                        console.log("$scope.getAthletePerSchoolObj.page", $scope.getAthletePerSchoolObj.page);
+                        if (allData.data.total >= $scope.getAthletePerSchoolObj.page) {
+                            $scope.showMsg = true;
+                            $scope.isLoading = false;
+                            _.each(allData.data.data, function (value) {
+                                $scope.selectAthlete.push(value);
+                                $scope.busy = false;
+                            });
+                        }
                     }
+                } else {
+                    $scope.isDisabled = false;
+                    toastr.error(allData.message, 'Error Message');
                 }
             });
         });
@@ -188,14 +203,19 @@ firstApp.controller('SchoolSelectionCtrl', function ($scope, TemplateService, $s
             console.log(data, "+++++++++++++data++++++++++++");
             errorService.errorCode(data, function (allData) {
                 console.log('detail', allData);
-                if (allData.value) {
-                    $scope.showMsg = true;
-                    $scope.selectAthlete = [];
-                    $scope.getAthletePerSchoolObj.sport = allData.data.sport;
-                    console.log($scope.getAthletePerSchoolObj, "$scope.getAthletePerSchoolObj");
-                    $scope.getAthletePerSchoolObj.page = '1';
-                    $scope.busy = false;
-                    $scope.athletePerSchool($scope.getAthletePerSchoolObj);
+                if (!allData.message) {
+                    if (allData.value) {
+                        $scope.showMsg = true;
+                        $scope.selectAthlete = [];
+                        $scope.getAthletePerSchoolObj.sport = allData.data.sport;
+                        console.log($scope.getAthletePerSchoolObj, "$scope.getAthletePerSchoolObj");
+                        $scope.getAthletePerSchoolObj.page = '1';
+                        $scope.busy = false;
+                        $scope.athletePerSchool($scope.getAthletePerSchoolObj);
+                    }
+                } else {
+                    $scope.isDisabled = false;
+                    toastr.error(allData.message, 'Error Message');
                 }
             });
         });
@@ -251,24 +271,29 @@ firstApp.controller('SchoolSelectionCtrl', function ($scope, TemplateService, $s
             console.log(data, "+++++++++++++data++++++++++++");
             errorService.errorCode(data, function (allData) {
                 console.log('detail', allData);
-                $scope.getSports = allData.data.results;
-                $scope.sportTitle = allData.data.sportName;
-                $scope.maleAgeGrp = _.cloneDeep($scope.getSports.male);
-                $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.female);
-                $scope.sortGenderWise('male');
+                if (!allData.message) {
+                    $scope.getSports = allData.data.results;
+                    $scope.sportTitle = allData.data.sportName;
+                    $scope.maleAgeGrp = _.cloneDeep($scope.getSports.male);
+                    $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.female);
+                    $scope.sortGenderWise('male');
+                } else {
+                    $scope.isDisabled = false;
+                    toastr.error(allData.message, 'Error Message');
+                }
             });
         });
     }
 });
 
-firstApp.controller('AthleteSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, toastr, $timeout) {
+firstApp.controller('AthleteSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, toastr, $timeout, loginService) {
     $scope.template = TemplateService.changecontent("athlete-selection");
     $scope.menutitle = NavigationService.makeactive("Athlete Selection");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-    NavigationService.loginGet(function (data) {
+    loginService.loginGet(function (data) {
         $scope.detail = data;
     });
 
@@ -368,13 +393,13 @@ firstApp.controller('AthleteSelectionCtrl', function ($scope, TemplateService, $
     }];
 });
 
-firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, $stateParams) {
+firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, $stateParams, loginService) {
     $scope.template = TemplateService.changecontent("confirmteam");
     $scope.menutitle = NavigationService.makeactive("Confirm Team");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    NavigationService.loginGet(function (data) {
+    loginService.loginGet(function (data) {
         $scope.detail = data;
     });
 
@@ -394,14 +419,14 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
     };
 });
 
-firstApp.controller('SportsCongratsCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+firstApp.controller('SportsCongratsCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams, loginService) {
     $scope.template = TemplateService.changecontent("sports-congrats");
     $scope.menutitle = NavigationService.makeactive("Sports Congrats");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
-    NavigationService.loginGet(function (data) {
+    loginService.loginGet(function (data) {
         $scope.detail = data;
     });
 

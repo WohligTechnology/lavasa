@@ -531,30 +531,6 @@ firstApp.factory('NavigationService', function ($http, $window) {
 
         //**********NEW MODULE SPORTS REGISTRATION***********//
 
-        // errorCode: function (received, callback) {
-        //     var errorObj = {};
-        //     errorObj = received;
-        //     if (errorObj.status == 200) {
-        //         callback(errorObj.data);
-        //     } else if (errorObj.status == 500) {
-        //         errorObj = {};
-        //         errorObj.message = 'Error while processing your request. Try again.';
-        //         callback(errorObj);
-        //     } else if (errorObj.status == 502) {
-        //         errorObj = {};
-        //         errorObj.message = 'Internet error. Check network and try again.';
-        //         callback(errorObj);
-        //     } else if (errorObj.status == 404) {
-        //         errorObj = {};
-        //         errorObj.message = 'Not found. Reload and Try again.';
-        //         callback(errorObj);
-        //     } else {
-        //         errorObj = {};
-        //         errorObj.message = 'Something went wrong. Try again.';
-        //         callback(errorObj);
-        //     }
-        // },
-
         login: function (request, callback) {
             $http({
                 url: adminUrl2 + 'login/login',
@@ -575,31 +551,31 @@ firstApp.factory('NavigationService', function ($http, $window) {
             $.jStorage.set("schoolName", schoolName);
         },
 
-        loginGet: function (callback) {
-            var getJ = $.jStorage.get("userDetails");
-            var getData = {};
-            if (getJ !== null) {
-                getData.isLoggedIn = true;
-                if ($.jStorage.get("userType") == "school") {
-                    getData.sfaIdObj = getJ.sfaID;
-                    getData.schoolName = getJ.schoolName;
-                } else {
-                    getData.sfaIdObj = getJ.sfaId;
-                    if (getJ.atheleteSchoolName) {
-                        getData.schoolName = getJ.atheleteSchoolName;
-                        this.setUserSchool(getData.schoolName);
-                    } else {
-                        if (getJ.school) {
-                            getData.schoolName = getJ.school.name;
-                            this.setUserSchool(getData.schoolName);
-                        }
-                    }
-                }
-            } else {
-                getData.isLoggedIn = false;
-            }
-            callback(getData);
-        },
+        // loginGet: function (callback) {
+        //     var getJ = $.jStorage.get("userDetails");
+        //     var getData = {};
+        //     if (getJ !== null) {
+        //         getData.isLoggedIn = true;
+        //         if ($.jStorage.get("userType") == "school") {
+        //             getData.sfaIdObj = getJ.sfaID;
+        //             getData.schoolName = getJ.schoolName;
+        //         } else {
+        //             getData.sfaIdObj = getJ.sfaId;
+        //             if (getJ.atheleteSchoolName) {
+        //                 getData.schoolName = getJ.atheleteSchoolName;
+        //                 this.setUserSchool(getData.schoolName);
+        //             } else {
+        //                 if (getJ.school) {
+        //                     getData.schoolName = getJ.school.name;
+        //                     this.setUserSchool(getData.schoolName);
+        //                 }
+        //             }
+        //         }
+        //     } else {
+        //         getData.isLoggedIn = false;
+        //     }
+        //     callback(getData);
+        // },
 
         logoutCandidate: function (callback) {
             var requestObjUserType = {};
