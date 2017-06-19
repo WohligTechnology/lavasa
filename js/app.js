@@ -351,6 +351,16 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             url: "/confirmteam",
             templateUrl: "views/template.html",
             controller: 'ConfirmTeamCtrl'
+        })
+        .state('confirm-individual', {
+            url: "/confirm-individual",
+            templateUrl: "views/template.html",
+            controller: 'ConfirmIndividualCtrl'
+        })
+        .state('confirm-karate', {
+            url: "/confirm-karate",
+            templateUrl: "views/template.html",
+            controller: 'ConfirmKarateCtrl'
         });
 
     $urlRouterProvider.otherwise("/");

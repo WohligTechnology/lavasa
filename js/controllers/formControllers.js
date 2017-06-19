@@ -1248,3 +1248,30 @@ firstApp.controller('PaymentFailureCtrl', function ($scope, TemplateService, Nav
     }, 5000);
 
 });
+
+//Confirm-Individual
+firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+
+    $scope.template = TemplateService.changecontent("confirmindividual");
+    $scope.menutitle = NavigationService.makeactive("Confirm Individual");
+    TemplateService.header = "views/header2.html";
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+
+});
+
+//Confirm-karate
+
+firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+
+    $scope.template = TemplateService.changecontent("confirmkarate");
+    $scope.menutitle = NavigationService.makeactive("Confirm Karate");
+    TemplateService.header = "views/header2.html";
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+
+});
