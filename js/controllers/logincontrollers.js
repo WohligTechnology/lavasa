@@ -76,9 +76,7 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, TemplateService,
 
     $scope.loginFunction = function (formData) {
         NavigationService.login(formData, function (data) {
-            console.log('detail', data);
             NavigationService.errorCode(data, function (allData) {
-                console.log('all detail', allData);
                 if (!allData.message) {
                     if (allData.value) {
                         NavigationService.setUser(allData.data);
@@ -172,7 +170,6 @@ firstApp.controller('ChangePasswordCtrl', function ($scope, TemplateService, Nav
 
     $scope.logoutCandidate = function () {
         NavigationService.logoutCandidate(function (data) {
-            console.log('enter', data);
             if (data.isLoggedIn === false) {
                 toastr.success('Successfully Logged Out', 'Logout Message');
                 $state.go('sports-registration');
