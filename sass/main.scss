@@ -128,9 +128,8 @@ body {
 
 img.loading {
     text-align: center;
-    opacity: 1;
-    width: 32px !important;
-    height: auto;
+    opacity: 1; // width: 32px !important; 
+    // height: auto;
 }
 
 img {
@@ -395,6 +394,10 @@ a {
     margin-top: 25px;
 }
 
+.mt35 {
+    margin-top: 35px;
+}
+
 .mt40 {
     margin-top: 40px;
 }
@@ -483,6 +486,13 @@ a {
     position: relative;
     top: -65px;
     text-align: center;
+}
+
+.school-img.specialImg {
+    top: 0;
+    .loading {
+        width: 32px !important;
+    }
 }
 
 .sigh-img {
@@ -747,7 +757,7 @@ a {
 
 .sf-school-logo {
     width: 204px;
-    height: 204px;
+    height: auto;
     text-align: center;
     margin: 0 auto;
     overflow: hidden;
@@ -759,7 +769,7 @@ a {
 .sf-school-logo2 {
     @extend .sf-school-logo;
     width: 150px;
-    height: 150px;
+    height: auto;
 }
 
 .img-border2 {
@@ -2469,9 +2479,8 @@ img.fancybox-image {
         max-width: 100%;
         margin: 0 auto;
         max-height: 100%;
-        overflow: hidden;
-        height: 130px;
-        width: 130px;
+        overflow: hidden; // height: 130px;
+        // width: 130px;
     }
 }
 
@@ -3531,6 +3540,12 @@ ul.dropdown-menu.sf-absulate.blue-menus li a {
         width: 35px;
         height: 35px;
         border-radius: 50%;
+    }
+}
+
+.round-img.roundSpecial {
+    img {
+        width: auto;
     }
 }
 
@@ -7061,5 +7076,20 @@ h1.forgot-space {
 }
 
 //end select-athletes
+.forMobile {
+    .sfa-mum {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        @include transform(translate(-50%,
+        0));
+        .btn:hover,
+        .btn:focus,
+        .btn.focus {
+            outline: 0;
+        }
+    }
+}
+
 @import "fancybox-override";
 @import "mobile";

@@ -546,14 +546,7 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
     };
     $scope.openModal = function () {
         $timeout(function () {
-            fbq('track', 'Lead', {
-                value: 10.00,
-                currency: 'USD'
-            });
-            fbq('track', 'CompleteRegistration', {
-                value: 25.00,
-                currency: 'USD'
-            });
+            fbq('track', 'CompleteRegistration');
         });
         var modalInstance = $uibModal.open({
             animation: true,

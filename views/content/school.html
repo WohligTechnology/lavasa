@@ -5,13 +5,15 @@
 </section>
 <section class="bottom-padding mt40">
     <div class="container">
-<div class="row">
-  <div class="col-md-12">
-    <div class="text-center">
-      <h4 class="color-grey f-mn">All the schools that have participated in Sports For All’s inter-school tournaments in Mumbai are listed below. The sport profile of each school will give you all the necessary information about the school’s sports status. </h4>
-    </div>
-  </div>
-</div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center">
+                    <h4 class="color-grey f-mn">All the schools that have participated in Sports For All’s inter-school tournaments in Mumbai are listed
+                        below. The sport profile of each school will give you all the necessary information about the school’s
+                        sports status. </h4>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-xs-12">
                 <div class="search-title text-center">
@@ -19,7 +21,8 @@
                 </div>
                 <div class="mt15 text-center border-bottom">
                     <form class="">
-                        <input type="text" class="search-input" name="q" value="Type school name" placeholder="Type school name or ID" ng-change="parseSearch(search.text);" ng-model="search.text">
+                        <input type="text" class="search-input" name="q" value="Type school name" placeholder="Type school name or ID" ng-change="parseSearch(search.text);"
+                            ng-model="search.text">
                         <input type="image" value="Search" src="img/sfa-search.png" class="search-btn" ng-click="submitSearch();">
                     </form>
                 </div>
@@ -51,7 +54,7 @@
                         <a ui-sref="school-profile({id:data.school._id})">
                             <div class="school-box">
                                 <div class="box-header">
-                                    <div class="school-img border-r w130">
+                                    <div class="school-img border-r w130 specialImg">
                                         <img ng-src="{{data.logo | uploadpath}}" alt="" class="margin-auto">
                                         <div class="sigh-img">
                                             <img ng-show="data.school.status" ng-src="img/sf-right-big.png" alt="">
@@ -143,7 +146,7 @@
                                         </div>
                                     </div>
                                     <div class="school-names text-center">
-                                        <h4 class="text-up font-semi color-orange font16">{{data.name |  letterLimit : 25}}</h4>
+                                        <h4 class="text-up font-semi color-orange font16">{{data.name | letterLimit : 25}}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -159,7 +162,8 @@
             <div class="col-md-12">
                 <div class="float-right sf-list">
                     <nav aria-label="Page navigation" ng-if="search.active && pagination.totalpages > 1">
-                        <uib-pagination ng-change="submitSearch()" total-items="pagination.total" ng-model="filter.pagenumber" items-per-page="pagination.pagesize" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination>
+                        <uib-pagination ng-change="submitSearch()" total-items="pagination.total" ng-model="filter.pagenumber" items-per-page="pagination.pagesize"
+                            max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination>
 
                     </nav>
 
