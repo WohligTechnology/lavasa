@@ -28,7 +28,7 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
     }
 
     $scope.logoutCandidate = function () {
-        NavigationService.logoutCandidate(function (data) {
+        loginService.logoutCandidate(function (data) {
             if (data.isLoggedIn === false) {
                 toastr.success('Successfully Logged Out', 'Logout Message');
                 $state.go('sports-registration');
@@ -43,9 +43,7 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
     var tempObj = {};
     tempObj.tempArr = [];
     NavigationService.getAllSportsListSubCategory(function (data) {
-        console.log('all detail', data);
         errorService.errorCode(data, function (allData) {
-            console.log('detail', allData);
             if (!allData.message) {
                 if (allData.value) {
                     $scope.allSportsListSubCat = allData.data;
@@ -81,7 +79,7 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
     }
 
     $scope.logoutCandidate = function () {
-        NavigationService.logoutCandidate(function (data) {
+        loginService.logoutCandidate(function (data) {
             if (data.isLoggedIn === false) {
                 toastr.success('Successfully Logged Out', 'Logout Message');
                 $state.go('sports-registration');
@@ -93,9 +91,7 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
 
     if ($stateParams.id) {
         NavigationService.getSportsRules($stateParams.id, function (data) {
-            console.log('all detail', data);
             errorService.errorCode(data, function (allData) {
-                console.log('detail', allData);
                 if (!allData.message) {
                     if (allData.value) {
                         $scope.sportsRulesAndRegulation = allData.data;
@@ -109,15 +105,22 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
             });
         });
     }
-    $scope.goTotermsCheck = function (val, id) {
+    $scope.goTotermsCheck = function (val, id, isTeam) {
         if (val === undefined) {
             toastr.error('Please Accept Terms And Conditions');
             $scope.errorMsg = true;
         } else {
             if (val === true) {
-                $state.go('school-selection', {
-                    id: id
-                });
+                if (isTeam === true) {
+                    $state.go('team-selection', {
+                        id: id
+                    });
+                } else {
+                    $state.go('individual-selection', {
+                        id: id
+                    });
+                }
+
             }
         }
     };
@@ -125,9 +128,9 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
 
 });
 
-firstApp.controller('SchoolSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, toastr, $timeout, errorService, loginService) {
-    $scope.template = TemplateService.changecontent("school-selection");
-    $scope.menutitle = NavigationService.makeactive("School Selection");
+firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, toastr, $timeout, errorService, loginService) {
+    $scope.template = TemplateService.changecontent("team-selection");
+    $scope.menutitle = NavigationService.makeactive("Team Selection");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
@@ -152,7 +155,7 @@ firstApp.controller('SchoolSelectionCtrl', function ($scope, TemplateService, $s
     }
 
     $scope.logoutCandidate = function () {
-        NavigationService.logoutCandidate(function (data) {
+        loginService.logoutCandidate(function (data) {
             if (data.isLoggedIn === false) {
                 toastr.success('Successfully Logged Out', 'Logout Message');
                 $state.go('sports-registration');
@@ -171,9 +174,7 @@ firstApp.controller('SchoolSelectionCtrl', function ($scope, TemplateService, $s
         if ($scope.busy) return;
         $scope.busy = true;
         NavigationService.getAthletePerSchool(getAthletePerSchoolObj, function (data) {
-            console.log(data, "data++++++++++++");
             errorService.errorCode(data, function (allData) {
-                console.log('detail', allData);
                 if (!allData.message) {
                     if (allData.value) {
                         $scope.isLoading = false;
@@ -200,9 +201,7 @@ firstApp.controller('SchoolSelectionCtrl', function ($scope, TemplateService, $s
     // *****FOR GETTING SPORT ID*****
     $scope.getSportId = function (constraints) {
         NavigationService.getOneSportForRegistration(constraints, function (data) {
-            console.log(data, "+++++++++++++data++++++++++++");
             errorService.errorCode(data, function (allData) {
-                console.log('detail', allData);
                 if (!allData.message) {
                     if (allData.value) {
                         $scope.showMsg = true;
@@ -268,9 +267,7 @@ firstApp.controller('SchoolSelectionCtrl', function ($scope, TemplateService, $s
     //  *****GETTING ALL AGE GROUP ***** 
     if ($stateParams.id) {
         NavigationService.getSports($stateParams.id, function (data) {
-            console.log(data, "+++++++++++++data++++++++++++");
             errorService.errorCode(data, function (allData) {
-                console.log('detail', allData);
                 if (!allData.message) {
                     $scope.getSports = allData.data.results;
                     $scope.sportTitle = allData.data.sportName;
@@ -286,13 +283,22 @@ firstApp.controller('SchoolSelectionCtrl', function ($scope, TemplateService, $s
     }
 });
 
-firstApp.controller('AthleteSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, toastr, $timeout, loginService) {
-    $scope.template = TemplateService.changecontent("athlete-selection");
-    $scope.menutitle = NavigationService.makeactive("Athlete Selection");
+firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, toastr, $timeout, loginService) {
+    $scope.template = TemplateService.changecontent("individual-selection");
+    $scope.menutitle = NavigationService.makeactive("Individual Selection");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-
+    $scope.ageGroup = [];
+    $scope.selectAthlete = [];
+    $scope.maleAgeGrp = [];
+    $scope.femaleAgeGrp = [];
+    $scope.constraints = {};
+    $scope.constraints._id = $stateParams.id;
+    $scope.getAthletePerSchoolObj = {};
+    $scope.getAthletePerSchoolObj.sfaid = '';
+    $scope.getAthletePerSchoolObj.page = '1';
+    $scope.busy = false;
     loginService.loginGet(function (data) {
         $scope.detail = data;
     });
@@ -304,7 +310,7 @@ firstApp.controller('AthleteSelectionCtrl', function ($scope, TemplateService, $
     }
 
     $scope.logoutCandidate = function () {
-        NavigationService.logoutCandidate(function (data) {
+        loginService.logoutCandidate(function (data) {
             if (data.isLoggedIn === false) {
                 toastr.success('Successfully Logged Out', 'Logout Message');
                 $state.go('sports-registration');
@@ -408,7 +414,7 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
     }
 
     $scope.logoutCandidate = function () {
-        NavigationService.logoutCandidate(function (data) {
+        loginService.logoutCandidate(function (data) {
             if (data.isLoggedIn === false) {
                 toastr.success('Successfully Logged Out', 'Logout Message');
                 $state.go('sports-registration');
@@ -435,7 +441,7 @@ firstApp.controller('SportsCongratsCtrl', function ($scope, TemplateService, Nav
     }
 
     $scope.logoutCandidate = function () {
-        NavigationService.logoutCandidate(function (data) {
+        loginService.logoutCandidate(function (data) {
             if (data.isLoggedIn === false) {
                 toastr.success('Successfully Logged Out', 'Logout Message');
                 $state.go('sports-registration');

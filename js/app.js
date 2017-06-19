@@ -335,16 +335,16 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'SportsSelectionCtrl'
         })
 
-        .state('school-selection', {
-            url: "/school-selection/:id",
+        .state('team-selection', {
+            url: "/team-selection/:id",
             templateUrl: "views/template.html",
-            controller: 'SchoolSelectionCtrl'
+            controller: 'TeamSelectionCtrl'
         })
 
-        .state('athlete-selection', {
-            url: "/athlete-selection/:id",
+        .state('individual-selection', {
+            url: "/individual-selection/:id",
             templateUrl: "views/template.html",
-            controller: 'AthleteSelectionCtrl'
+            controller: 'IndividualSelectionCtrl'
         })
 
         .state('confirmteam', {

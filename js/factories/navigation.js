@@ -551,64 +551,38 @@ firstApp.factory('NavigationService', function ($http, $window) {
             $.jStorage.set("schoolName", schoolName);
         },
 
-        // loginGet: function (callback) {
-        //     var getJ = $.jStorage.get("userDetails");
-        //     var getData = {};
-        //     if (getJ !== null) {
-        //         getData.isLoggedIn = true;
+        // logoutCandidate: function (callback) {
+        //     var requestObjUserType = {};
+        //     var logoutObj = {};
+        //     if ($.jStorage.get("userType") !== null && $.jStorage.get("userDetails") !== null) {
         //         if ($.jStorage.get("userType") == "school") {
-        //             getData.sfaIdObj = getJ.sfaID;
-        //             getData.schoolName = getJ.schoolName;
+        //             requestObjUserType.schoolToken = $.jStorage.get("userDetails").accessToken;
+        //             this.logoutCommonFun(requestObjUserType, function (data) {
+        //                 logoutObj.isLoggedIn = data;
+        //                 callback(logoutObj);
+        //             });
         //         } else {
-        //             getData.sfaIdObj = getJ.sfaId;
-        //             if (getJ.atheleteSchoolName) {
-        //                 getData.schoolName = getJ.atheleteSchoolName;
-        //                 this.setUserSchool(getData.schoolName);
-        //             } else {
-        //                 if (getJ.school) {
-        //                     getData.schoolName = getJ.school.name;
-        //                     this.setUserSchool(getData.schoolName);
-        //                 }
-        //             }
+        //             requestObjUserType.athleteToken = $.jStorage.get("userDetails").accessToken;
+        //             this.logoutCommonFun(requestObjUserType, function (data) {
+        //                 logoutObj.isLoggedIn = data;
+        //                 callback(logoutObj);
+        //             });
         //         }
-        //     } else {
-        //         getData.isLoggedIn = false;
         //     }
-        //     callback(getData);
         // },
 
-        logoutCandidate: function (callback) {
-            var requestObjUserType = {};
-            var logoutObj = {};
-            if ($.jStorage.get("userType") !== null && $.jStorage.get("userDetails") !== null) {
-                if ($.jStorage.get("userType") == "school") {
-                    requestObjUserType.schoolToken = $.jStorage.get("userDetails").accessToken;
-                    this.logoutCommonFun(requestObjUserType, function (data) {
-                        logoutObj.isLoggedIn = data;
-                        callback(logoutObj);
-                    });
-                } else {
-                    requestObjUserType.athleteToken = $.jStorage.get("userDetails").accessToken;
-                    this.logoutCommonFun(requestObjUserType, function (data) {
-                        logoutObj.isLoggedIn = data;
-                        callback(logoutObj);
-                    });
-                }
-            }
-        },
-
-        logoutCommonFun: function (logData, callback) {
-            var returnObj = '';
-            this.logout(logData, function (data) {
-                if (data.value) {
-                    returnObj = false;
-                    callback(returnObj);
-                } else {
-                    returnObj = true;
-                    callback(returnObj);
-                }
-            });
-        },
+        // logoutCommonFun: function (logData, callback) {
+        //     var returnObj = '';
+        //     this.logout(logData, function (data) {
+        //         if (data.value) {
+        //             returnObj = false;
+        //             callback(returnObj);
+        //         } else {
+        //             returnObj = true;
+        //             callback(returnObj);
+        //         }
+        //     });
+        // },
 
         logout: function (request, callback) {
             $.jStorage.flush();

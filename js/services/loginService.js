@@ -23,5 +23,39 @@
               getData.isLoggedIn = false;
           }
           callback(getData);
-      };
+      }
+
+      this.logoutCandidate = function (callback) {
+          var requestObjUserType = {};
+          var logoutObj = {};
+          if ($.jStorage.get("userType") !== null && $.jStorage.get("userDetails") !== null) {
+              if ($.jStorage.get("userType") == "school") {
+                  requestObjUserType.schoolToken = $.jStorage.get("userDetails").accessToken;
+                  this.logoutCommonFun(requestObjUserType, function (data) {
+                      logoutObj.isLoggedIn = data;
+                      callback(logoutObj);
+                  });
+              } else {
+                  requestObjUserType.athleteToken = $.jStorage.get("userDetails").accessToken;
+                  this.logoutCommonFun(requestObjUserType, function (data) {
+                      logoutObj.isLoggedIn = data;
+                      callback(logoutObj);
+                  });
+              }
+          }
+      }
+
+      this.logoutCommonFun = function (logData, callback) {
+          var returnObj = '';
+          NavigationService.logout(logData, function (data) {
+              if (data.value) {
+                  returnObj = false;
+                  callback(returnObj);
+              } else {
+                  returnObj = true;
+                  callback(returnObj);
+              }
+          });
+      }
+
   });

@@ -169,7 +169,7 @@ firstApp.controller('ChangePasswordCtrl', function ($scope, TemplateService, Nav
     });
 
     $scope.logoutCandidate = function () {
-        NavigationService.logoutCandidate(function (data) {
+        loginService.logoutCandidate(function (data) {
             if (data.isLoggedIn === false) {
                 toastr.success('Successfully Logged Out', 'Logout Message');
                 $state.go('sports-registration');
