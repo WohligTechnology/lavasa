@@ -60,11 +60,11 @@
                             <th>Goalkeeper</th>
                           </thead>
                           <tbody>
-                            <tr>
+                            <tr ng-repeat="member in teamMembers track by $index">
                               <td>
                                 <div class="mid_cols">Cap</div>
                               </td>
-                              <td>126 - Kunjal Rawal</td>
+                              <td>{{member.firstName}}</td>
                               <td>
                                 <input name="radio" type="radio">
                               </td>
@@ -72,7 +72,7 @@
                                 <input name="radio" type="radio">
                               </td>
                             </tr>
-                            <tr>
+                            <!--<tr>
                               <td>
                                 <div class="mid_cols">1</div>
                               </td>
@@ -95,7 +95,7 @@
                               <td>
                                 <input name="radio" type="radio">
                               </td>
-                            </tr>
+                            </tr>-->
                           </tbody>
                         </table>
                       </div>

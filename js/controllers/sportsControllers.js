@@ -413,17 +413,17 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
     }];
 });
 
-firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, $stateParams, loginService) {
+firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, $stateParams, loginService, selectService) {
     $scope.template = TemplateService.changecontent("confirmteam");
     $scope.menutitle = NavigationService.makeactive("Confirm Team");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.teamMembers = selectService.team;
     loginService.loginGet(function (data) {
         $scope.detail = data;
     });
 
-    alert($stateParams.teamMembers);
 
     if ($.jStorage.get("userDetails") === null) {
         $state.go('sports-registration');
