@@ -138,8 +138,7 @@
                                                             </div>
                                                             <div class="stu-check">
                                                                 <div class="checkbox-custom">
-                                                                    <input type="checkbox" name="checkIhav" value="option{{$index+1}}" id="option{{$index+1}}" ng-click="editTeam()" ng-model="checked.val"
-                                                                    />
+                                                                    <input type="checkbox" name="checkIhav" value="option{{$index+1}}" id="option{{$index+1}}" ng-model="checked.val" />
                                                                     <label for="option{{$index+1}}"><span></span></label>
                                                                 </div>
                                                             </div>
@@ -180,7 +179,7 @@
                                                     <th></th>
                                                 </thead>
                                                 <tbody>
-                                                    <tr ng-repeat="athlete in teamMembers track by $index" ng-if="athlete.val">
+                                                    <tr ng-repeat="athlete in selectAthlete | tp:selectAthlete track by $index" ng-if="athlete.val">
                                                         <td>
                                                             <div class="mid_cols">{{$index+1}}</div>
                                                         </td>

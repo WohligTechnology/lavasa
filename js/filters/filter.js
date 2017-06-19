@@ -212,3 +212,9 @@ firstApp.filter('propsFilter', function () {
         return out;
     };
 });
+
+firstApp.filter('tp', function () {
+    return function (items) {
+        return _.filter(items, ['val', true]);
+    };
+});
