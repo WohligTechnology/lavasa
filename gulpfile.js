@@ -38,6 +38,7 @@ var jsArray = [
 
     './js/services/templateService.js',
     './js/services/selectService.js',
+    './js/services/errorService.js',
 
     './js/factories/navigation.js',
 

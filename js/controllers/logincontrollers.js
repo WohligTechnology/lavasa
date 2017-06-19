@@ -1,4 +1,4 @@
-firstApp.controller('SportsRegistrationCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, $rootScope) {
+firstApp.controller('SportsRegistrationCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, $rootScope, errorService) {
     $scope.template = TemplateService.changecontent("sports-registration");
     $scope.menutitle = NavigationService.makeactive("Sports Registration");
     TemplateService.header = "views/header2.html";
@@ -76,7 +76,7 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, TemplateService,
 
     $scope.loginFunction = function (formData) {
         NavigationService.login(formData, function (data) {
-            NavigationService.errorCode(data, function (allData) {
+            errorService.errorCode(data, function (allData) {
                 if (!allData.message) {
                     if (allData.value) {
                         NavigationService.setUser(allData.data);
@@ -106,7 +106,7 @@ firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, Nav
     $scope.formData.type = $.jStorage.get("userType");
     $scope.forgotPasswordFunction = function (formData, url) {
         NavigationService.forgotPassword(formData, url, function (data) {
-            NavigationService.errorCode(data, function (allData) {
+            errorService.errorCode(data, function (allData) {
                 if (!allData.message) {
                     if (allData.value) {
                         $scope.isDisabled = true;
@@ -192,7 +192,7 @@ firstApp.controller('ChangePasswordCtrl', function ($scope, TemplateService, Nav
                         formChange.athleteToken = $.jStorage.get("userDetails").accessToken;
                     }
                     NavigationService.changePassword(formChange, function (data) {
-                        NavigationService.errorCode(data, function (allData) {
+                        errorService.errorCode(data, function (allData) {
                             if (!allData.message) {
                                 if (allData.value) {
                                     $scope.isDisabled = true;
