@@ -95,7 +95,7 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, TemplateService,
     };
 });
 
-firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state) {
+firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, errorService) {
     $scope.template = TemplateService.changecontent("forgot-password");
     $scope.menutitle = NavigationService.makeactive("Forgot password");
     TemplateService.header = "views/header2.html";
@@ -154,7 +154,7 @@ firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, Nav
 
 });
 
-firstApp.controller('ChangePasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state) {
+firstApp.controller('ChangePasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, errorService) {
     $scope.template = TemplateService.changecontent("change-password");
     $scope.menutitle = NavigationService.makeactive("Change Password");
     TemplateService.header = "views/header2.html";
