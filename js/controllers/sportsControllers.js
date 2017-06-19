@@ -128,7 +128,7 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
 
 });
 
-firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, toastr, $timeout, errorService, loginService) {
+firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, toastr, $timeout, errorService, loginService, selectService) {
     $scope.template = TemplateService.changecontent("team-selection");
     $scope.menutitle = NavigationService.makeactive("Team Selection");
     TemplateService.header = "views/header2.html";
@@ -144,6 +144,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     $scope.getAthletePerSchoolObj.sfaid = '';
     $scope.getAthletePerSchoolObj.page = '1';
     $scope.busy = false;
+    $scope.teamMembers = [];
     loginService.loginGet(function (data) {
         $scope.detail = data;
     });
@@ -280,7 +281,20 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                 }
             });
         });
+    };
+
+    $scope.editTeam = function () {
+        selectService.editTeam($scope.selectAthlete, function (data) {
+            $scope.teamMembers = data;
+        });
+    };
+
+    $scope.next = function () {
+        selectService.next('confirmteam', $scope.teamMembers);
     }
+
+
+
 });
 
 firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, toastr, $timeout, loginService) {
@@ -408,6 +422,8 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
     loginService.loginGet(function (data) {
         $scope.detail = data;
     });
+
+    alert($stateParams.teamMembers);
 
     if ($.jStorage.get("userDetails") === null) {
         $state.go('sports-registration');
