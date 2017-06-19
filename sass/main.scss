@@ -1929,7 +1929,7 @@ img.fancybox-image {
 }
 
 .spon {
-    right: 15%;
+    right: 1%;
     bottom: 15%;
 }
 
@@ -7046,7 +7046,7 @@ h1.forgot-space {
             }
             .stu-img {
                 width: 70px;
-                height: 70px;
+                height: auto;
                 margin: 0 auto;
             }
             .stu-img img {
@@ -7088,6 +7088,13 @@ h1.forgot-space {
         .btn.focus {
             outline: 0;
         }
+    }
+}
+
+.specialSetting {
+    .loading {
+        width: 204px;
+        height: auto;
     }
 }
 
