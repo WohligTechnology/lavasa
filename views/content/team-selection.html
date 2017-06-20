@@ -52,7 +52,7 @@
 
                                             <div class="col-md-10 col-sm-9 col-xs-12" ng-if="showMale && maleAgeGrp.length>0">
                                                 <div class="display-inline w10" ng-repeat="data in maleAgeGrp track by $index">
-                                                    <input type="radio" id="{{data.ageData._id}}" name="radio1" value="{{data.ageData._id}}" required ng-click="filterAge(data.ageData._id);">
+                                                    <input type="radio" id="{{data.ageData._id}}" name="radio1" value="{{data.ageData._id}}" required ng-click="filterAge(data.ageData._id,data.ageData.name);">
                                                     <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
                                                 </div>
                                                 <div ng-if="!maleAgeGrp">
@@ -65,7 +65,7 @@
 
                                             <div class="col-md-10 col-sm-9 col-xs-12" ng-if="showFemale && femaleAgeGrp.length>0">
                                                 <div class="display-inline w10" ng-repeat="data in femaleAgeGrp track by $index">
-                                                    <input type="radio" id="{{data.ageData._id}}" name="radio2" value="{{data.ageData._id}}" required ng-click="filterAge(data.ageData._id);">
+                                                    <input type="radio" id="{{data.ageData._id}}" name="radio2" value="{{data.ageData._id}}" required ng-click="filterAge(data.ageData._id,data.ageData.name);">
                                                     <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
                                                 </div>
                                                 <div ng-if="!femaleAgeGrp">
@@ -162,13 +162,16 @@
                                 <div class="col-md-5">
                                     <div class="separateTwoBox pl15">
                                         <div class="text-center mt15 ">
-                                            <h4 class="player-selected">Basketball Male U-8</h4>
+                                            <h4 class="player-selected">{{sportTitle}} {{constraints.gender|firstcapitalize}} {{showAgeObj}}</h4>
+                                            <!--<h4 class="player-selected">Basketball Male U-8</h4>-->
                                         </div>
                                         <div class="kind-select">
-                                            <p>Kindly select a minimum of 11 players and a maximum of 18 players.</p>
+                                            <p>Kindly select a minimum of {{minPlayer}} players and a maximum of {{maxPlayer}}
+                                                players.
+                                            </p>
                                         </div>
                                         <div class="player-selected">
-                                            <p>Players Selected: 8</p>
+                                            <p>Players Selected: {{teamMembers.length}}</p>
                                         </div>
                                         <div class="selectedTeamTable table-responsive">
                                             <table class="table table-bordered">
@@ -188,7 +191,7 @@
 
 
                                                         <td>
-                                                            <div ng-click="athlete.checked=false">
+                                                            <div ng-click="athlete.checked=false ;editTeam();">
                                                                 <i class="fa fa-lg fa-times-circle pointer"></i>
                                                                 <!--<img src="img/icon/cross.png" alt="logo" class="img-responsive myicon">-->
                                                             </div>
@@ -218,9 +221,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row text-center mt25 mb-50">
+                            <div class="row text-center mt25 mb-50" ng-if="teamMembers.length>0">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <button class="btn btn-default width-86 sub-mit" type="submit" ui-sref="confirmteam">Next</button>
+                                    <button class="btn btn-default width-86 sub-mit" type="button" ui-sref="confirmteam" ng-disabled="disabledNextBtn">Next</button>
                                 </div>
                             </div>
                         </div>

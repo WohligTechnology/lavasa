@@ -208,6 +208,9 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                         $scope.showMsg = true;
                         $scope.selectAthlete = [];
                         $scope.getAthletePerSchoolObj.sport = allData.data.sport;
+                        $scope.minPlayer = allData.data.minplayer;
+                        $scope.maxPlayer = allData.data.maxPlayer;
+
                         console.log($scope.getAthletePerSchoolObj, "$scope.getAthletePerSchoolObj");
                         $scope.getAthletePerSchoolObj.page = '1';
                         $scope.busy = false;
@@ -222,10 +225,12 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     };
 
     //***** FOR FILTERING AGE GROUP *****
-    $scope.filterAge = function (ageId) {
+    $scope.filterAge = function (ageId, ageName) {
+        $scope.showAgeObj = '';
         $scope.isLoading = true;
         $scope.busy = false;
         $scope.constraints.age = ageId;
+        $scope.showAgeObj = ageName;
         $scope.getAthletePerSchoolObj.age = ageId;
         console.log($scope.constraints.age, "$scope.constraints.age");
         $scope.getSportId($scope.constraints);
@@ -237,6 +242,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
         $scope.busy = false;
         $scope.getAthletePerSchoolObj.page = '1';
         $scope.athletePerSchool($scope.getAthletePerSchoolObj);
+        $scope.editTeam();
     };
     // *****FOR LOADING MORE DATA *****
     $scope.loadMore = function () {
@@ -246,6 +252,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     };
     //    *****SORTING AGE GENDERWISE*****
     $scope.sortGenderWise = function (gender) {
+        $scope.showAgeObj = '';
         console.log("gender", gender);
         if (gender == "female") {
             $scope.showFemale = true;
@@ -281,17 +288,24 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                 }
             });
         });
-    };
+    }
+
 
     $scope.editTeam = function () {
         selectService.editTeam($scope.selectAthlete, function (data) {
             $scope.teamMembers = data;
+            // if ($scope.teamMembers.length > $scope.maxPlayer || $scope.teamMembers.length < $scope.minPlayer) {
+            //     $scope.disabledNextBtn = true;
+            //     toastr.error('Kindly select a minimum of' + $scope.minPlayer + ' ' + 'players and a maximum of' + ' ' + $scope.maxPlayer + ' ' + 'players', 'Error Message');
+            // } else {
+            //     $scope.disabledNextBtn = false;
+            // }
         });
     };
 
     $scope.next = function () {
         selectService.next('confirmteam', $scope.teamMembers);
-    }
+    };
 
 
 
@@ -420,10 +434,11 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.teamMembers = selectService.team;
+    $scope.formData = {};
     loginService.loginGet(function (data) {
         $scope.detail = data;
+        $scope.formData.schoolName = $scope.detail.schoolName;
     });
-
 
     if ($.jStorage.get("userDetails") === null) {
         $state.go('sports-registration');
