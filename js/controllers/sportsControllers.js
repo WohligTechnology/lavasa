@@ -456,6 +456,69 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
     };
 });
 
+//Confirm-Individual
+firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+
+    $scope.template = TemplateService.changecontent("confirmindividual");
+    $scope.menutitle = NavigationService.makeactive("Confirm Individual");
+    TemplateService.header = "views/header2.html";
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    loginService.loginGet(function (data) {
+        $scope.detail = data;
+        $scope.formData.schoolName = $scope.detail.schoolName;
+    });
+
+    if ($.jStorage.get("userDetails") === null) {
+        $state.go('sports-registration');
+    }
+
+    $scope.logoutCandidate = function () {
+        loginService.logoutCandidate(function (data) {
+            if (data.isLoggedIn === false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $state.go('sports-registration');
+            } else {
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    };
+
+});
+
+//Confirm-karate
+
+firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+
+    $scope.template = TemplateService.changecontent("confirmkarate");
+    $scope.menutitle = NavigationService.makeactive("Confirm Karate");
+    TemplateService.header = "views/header2.html";
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    loginService.loginGet(function (data) {
+        $scope.detail = data;
+        $scope.formData.schoolName = $scope.detail.schoolName;
+    });
+
+    if ($.jStorage.get("userDetails") === null) {
+        $state.go('sports-registration');
+    }
+
+    $scope.logoutCandidate = function () {
+        loginService.logoutCandidate(function (data) {
+            if (data.isLoggedIn === false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $state.go('sports-registration');
+            } else {
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    };
+
+});
+
 firstApp.controller('SportsCongratsCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams, loginService) {
     $scope.template = TemplateService.changecontent("sports-congrats");
     $scope.menutitle = NavigationService.makeactive("Sports Congrats");
