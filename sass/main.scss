@@ -7091,6 +7091,14 @@ h1.forgot-space {
     }
 }
 
+.sfa-mum-m {
+    .btn:hover,
+    .btn:focus,
+    .btn.focus {
+        outline: 0;
+    }
+}
+
 .specialSetting {
     .loading {
         width: 204px;

@@ -1085,6 +1085,22 @@
       .com-category {
         font-size: 14px;
       }
+      .sfa-mum-m {
+        top: 5px;
+        left: 50%;
+        @include transform(translate(-50%, 0));
+        button {
+          font-size: 12px;
+        }
+      }
+      .mLogoPlacing {
+        left: 20px;
+        right: 0;
+      }
+      .placingDrop {
+        left: 50%;
+        @include transform(translate(-50%, 0));
+      }
     }
 
     @media (max-width:525px) {
@@ -1469,6 +1485,10 @@
       }
       .mr-min {
         right: inherit;
+      }
+      .mLogoPlacing {
+        left: 20px;
+        right: 0;
       }
       .mob-navbar {
         border: 0px solid transparent;
@@ -2144,6 +2164,18 @@
       }
       .sportlevel {
         padding-right: 11px;
+      }
+      .sfa-mum-m {
+        top: 5px;
+        left: 50%;
+        @include transform(translate(-50%, 0));
+        button {
+          font-size: 10px;
+        }
+      }
+      .placingDrop {
+        left: 50%;
+        @include transform(translate(-50%, 0));
       }
     }
 

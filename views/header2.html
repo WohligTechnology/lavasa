@@ -11,7 +11,7 @@
                   <span class="icon-bar"></span>
               </button>
                         <a class="" ui-sref="home"><img src="img/cl-logo.png" alt="logo" class="mr-min hidden-xs hidden-sm"> </a>
-                        <a class="" ui-sref="home"><img src="img/cl-logo2.png" alt="logo" class="mr-min hidden-lg hidden-md w800"> </a>
+                        <a class="" ui-sref="home"><img src="img/cl-logo2.png" alt="logo" class="mr-min hidden-lg hidden-md w800 mLogoPlacing"> </a>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-10">
@@ -124,7 +124,7 @@
               TRAINING &amp; DEVELOPMENT
               </a>
                             </li>
-                            <li class="forMobile dropdown">
+                            <li class="forMobile dropdown hide">
                                 <a class="dropdown-toggle mb25" data-toggle="dropdown">
                                     <div class="sfa-mum">
                                         <button type="button" name="button" class="btn btn-sfatop margin0" ng-mouseenter="optionss=!optionss">SFA Mumbai 2017</button>
@@ -200,8 +200,26 @@
                         <!-- <img src="img/top-pin.png" alt="" ng-mouseenter="optionss=!optionss" ng-model="checkboxs"> -->
                     </div>
                 </div>
-
-                <div class="on-mouse-hover" ng-mouseenter="optionss=true" ng-mouseleave="optionss=false" ng-show="optionss || checkboxs">
+                <div class="visible-xs">
+                    <div class="">
+                        <a class="dropdown-toggle mb25" data-toggle="dropdown">
+                            <div class="sfa-mum sfa-mum-m">
+                                <button type="button" name="button" class="btn btn-sfatop margin0" ng-mouseenter="optionss=!optionss">SFA Mumbai 2017</button>
+                                <!-- <img src="img/top-pin.png" alt="" ng-mouseenter="optionss=!optionss" ng-model="checkboxs"> -->
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu text-center cl-pr placingDrop">
+                            <li>
+                                <a ui-sref="championship">ABOUT CHAMPIONSHIP</a></li>
+                            <li><a ui-sref="register"> REGISTER</a></li>
+                            <li><a ui-sref="faq">FAQs</a></li>
+                        </ul>
+                    </div>
+                    <div class="sfa-mum sfa-mum-m hide">
+                        <button type="button" name="button" class="btn btn-sfatop" ng-mouseenter="optionss=!optionss" ng-model="checkboxs">SFA Mumbai 2017</button>
+                    </div>
+                </div>
+                <div class="on-mouse-hover hidden-xs hidden-sm" ng-mouseenter="optionss=true" ng-mouseleave="optionss=false" ng-show="optionss || checkboxs">
                     <!-- <div class="on-mouse-hover"> -->
 
                     <div class="bg-head curve-head-mum after2 hidden-xs hidden-sm">
