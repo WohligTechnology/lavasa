@@ -1268,3 +1268,15 @@ firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, Navi
 
 
 });
+
+firstApp.controller('ThankYouCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+
+    $scope.template = TemplateService.changecontent("thankyou");
+    $scope.menutitle = NavigationService.makeactive("Thank You");
+    TemplateService.header = "views/header2.html";
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
+
+});

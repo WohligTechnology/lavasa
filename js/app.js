@@ -361,6 +361,11 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             url: "/confirm-karate",
             templateUrl: "views/template.html",
             controller: 'ConfirmKarateCtrl'
+        })
+        .state('thankyou', {
+            url: "/thankyou",
+            templateUrl: "views/template.html",
+            controller: 'ThankYouCtrl'
         });
 
     $urlRouterProvider.otherwise("/");
