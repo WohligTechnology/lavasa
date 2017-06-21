@@ -144,6 +144,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     $scope.getAthletePerSchoolObj.sfaid = '';
     $scope.getAthletePerSchoolObj.page = '1';
     $scope.busy = false;
+    $scope.disabledNextBtn = false;
     $scope.teamMembers = [];
     loginService.loginGet(function (data) {
         $scope.detail = data;
@@ -208,6 +209,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                         $scope.showMsg = true;
                         $scope.selectAthlete = [];
                         $scope.getAthletePerSchoolObj.sport = allData.data.sport;
+                        NavigationService.setSportId(allData.data.sport);
                         $scope.minPlayer = allData.data.minplayer;
                         $scope.maxPlayer = allData.data.maxPlayer;
 
@@ -231,6 +233,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
         $scope.busy = false;
         $scope.constraints.age = ageId;
         $scope.showAgeObj = ageName;
+        NavigationService.setAgeTitle($scope.showAgeObj);
         $scope.getAthletePerSchoolObj.age = ageId;
         console.log($scope.constraints.age, "$scope.constraints.age");
         $scope.getSportId($scope.constraints);
@@ -254,12 +257,13 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     $scope.sortGenderWise = function (gender) {
         $scope.showAgeObj = '';
         console.log("gender", gender);
-        if (gender == "female") {
+        if (gender == "Female") {
             $scope.showFemale = true;
             $scope.showMale = false;
             // $scope.ageGroup = [];
             // $scope.ageGroup = $scope.femaleAgeGrp;
             $scope.constraints.gender = gender;
+            NavigationService.setGender($scope.constraints.gender);
             $scope.getAthletePerSchoolObj.gender = gender;
         } else {
             $scope.showMale = true;
@@ -269,6 +273,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
             // $scope.ageGroup = $scope.maleAgeGrp;
             $scope.constraints.gender = gender;
             $scope.getAthletePerSchoolObj.gender = gender;
+            NavigationService.setGender($scope.constraints.gender);
 
         }
     };
@@ -279,9 +284,10 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                 if (!allData.message) {
                     $scope.getSports = allData.data.results;
                     $scope.sportTitle = allData.data.sportName;
-                    $scope.maleAgeGrp = _.cloneDeep($scope.getSports.male);
-                    $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.female);
-                    $scope.sortGenderWise('male');
+                    NavigationService.setSportTitle($scope.sportTitle);
+                    $scope.maleAgeGrp = _.cloneDeep($scope.getSports.Male);
+                    $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.Female);
+                    $scope.sortGenderWise('Male');
                 } else {
                     $scope.isDisabled = false;
                     toastr.error(allData.message, 'Error Message');
@@ -294,13 +300,18 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     $scope.editTeam = function () {
         selectService.editTeam($scope.selectAthlete, function (data) {
             $scope.teamMembers = data;
-            // if ($scope.teamMembers.length > $scope.maxPlayer || $scope.teamMembers.length < $scope.minPlayer) {
-            //     $scope.disabledNextBtn = true;
-            //     toastr.error('Kindly select a minimum of' + $scope.minPlayer + ' ' + 'players and a maximum of' + ' ' + $scope.maxPlayer + ' ' + 'players', 'Error Message');
-            // } else {
-            //     $scope.disabledNextBtn = false;
-            // }
+            $scope.maxPlayer = 4;
+            $scope.minPlayer = 2;
         });
+    };
+
+    $scope.maxPlayerAllow = function () {
+        if ($scope.teamMembers.length <= $scope.maxPlayer && $scope.teamMembers.length >= $scope.minPlayer) {
+            $scope.disabledNextBtn = true;
+        } else {
+            toastr.info('Kindly select a minimum of' + $scope.minPlayer + ' ' + 'players and a maximum of' + ' ' + $scope.maxPlayer + ' ' + 'players', 'Error Message');
+            $scope.disabledNextBtn = false;
+        }
     };
 
     $scope.next = function () {
@@ -434,11 +445,31 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.teamMembers = selectService.team;
-    // $scope.formData = {};
+    $scope.formData = {};
+    $scope.tempStrArr = [];
+    $scope.confirmTeamObject = {};
+    $scope.ageTitle = $.jStorage.get("ageTitle");
+    $scope.gender = $.jStorage.get("gender");
+    $scope.sportTitle = $.jStorage.get("sportTitle");
+
     loginService.loginGet(function (data) {
         $scope.detail = data;
-        // $scope.formData.schoolName = $scope.detail.schoolName;
+        $scope.formData.schoolName = $scope.detail.schoolName;
     });
+
+    var tempStr1 = $scope.detail.schoolName.replace(/\s+/g, '');
+    $scope.tempStrArr.push(tempStr1, $scope.ageTitle, $scope.gender, $scope.sportTitle);
+    $scope.confirmTeamObject.name = $scope.tempStrArr.join("-");
+    $scope.confirmTeamObject.sport = $.jStorage.get("sportId");
+    $scope.confirmTeamObject.school = $.jStorage.get("userDetails")._id;
+    if ($.jStorage.get("userType") === "school") {
+        $scope.confirmTeamObject.schoolToken = $.jStorage.get("userDetails").accessToken;
+    } else {
+        $scope.confirmTeamObject.athleteToken = $.jStorage.get("userDetails").accessToken;
+    }
+    console.log("$scope.confirmTeamObject", $scope.confirmTeamObject);
+
+
 
     if ($.jStorage.get("userDetails") === null) {
         $state.go('sports-registration');

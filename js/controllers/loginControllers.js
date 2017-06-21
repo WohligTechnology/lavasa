@@ -1,9 +1,10 @@
-firstApp.controller('SportsRegistrationCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, $rootScope, errorService) {
+firstApp.controller('SportsRegistrationCtrl', function ($scope, TemplateService, loginService, NavigationService, $timeout, toastr, $state, $rootScope, errorService) {
     $scope.template = TemplateService.changecontent("sports-registration");
     $scope.menutitle = NavigationService.makeactive("Sports Registration");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
     $scope.formData = {};
     if ($.jStorage.get("userType") === null) {
         NavigationService.setUserType("athlete");
@@ -45,6 +46,7 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, TemplateService,
 
     $scope.isDisabled = false;
     $scope.login = function (formData, formSports) {
+        console.log("im in");
         if (formSports.$valid) {
             if (formData) {
                 formData.type = $.jStorage.get("userType");
@@ -79,6 +81,7 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, TemplateService,
             errorService.errorCode(data, function (allData) {
                 if (!allData.message) {
                     if (allData.value) {
+                        console.log("alldata", allData)
                         NavigationService.setUser(allData.data);
                         toastr.success('Successfully Logged In.', 'Login Message');
                         $state.go('sports-selection');

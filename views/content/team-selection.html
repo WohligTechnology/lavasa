@@ -37,9 +37,9 @@
                                             <!--control-label-->
                                             <label for="inputEmail3" class="col-md-2 col-sm-3 col-xs-12 para2">Select Gender</label>
                                             <div class="col-md-10 col-sm-9 col-xs-12">
-                                                <input type="radio" ng-model="formData.gender" id="radio04" name="radioMale" value="male" ng-checked="true" required ng-change="sortGenderWise('male');">
+                                                <input type="radio" ng-model="formData.gender" id="radio04" name="radioMale" value="Male" ng-checked="true" required ng-change="sortGenderWise('Male');">
                                                 <label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
-                                                <input type="radio" ng-model="formData.gender" id="radio03" name="radioFemale" value="female" required ng-change="sortGenderWise('female');">
+                                                <input type="radio" ng-model="formData.gender" id="radio03" name="radioFemale" value="Female" required ng-change="sortGenderWise('Female');">
                                                 <label for="radio03" class="padd-lr sf-list"><span></span>Female</label>
                                             </div>
                                         </div>
@@ -138,8 +138,8 @@
                                                             </div>
                                                             <div class="stu-check">
                                                                 <div class="checkbox-custom">
-                                                                    <input type="checkbox" name="checkIhav" value="option{{$index+1}}" id="option{{$index+1}}" ng-click="editTeam()" ng-model="checked.checked"
-                                                                    />
+                                                                    <input type="checkbox" name="checkIhav" value="option{{$index+1}}" id="option{{$index+1}}" ng-click="editTeam();maxPlayerAllow();"
+                                                                        ng-model="checked.checked" />
                                                                     <label for="option{{$index+1}}"><span></span></label>
                                                                 </div>
                                                             </div>
@@ -162,7 +162,7 @@
                                 <div class="col-md-5">
                                     <div class="separateTwoBox pl15">
                                         <div class="text-center mt15 ">
-                                            <h4 class="player-selected">{{sportTitle}} {{constraints.gender|firstcapitalize}} {{showAgeObj}}</h4>
+                                            <h4 class="player-selected">{{sportTitle}} {{constraints.gender}} {{showAgeObj}}</h4>
                                             <!--<h4 class="player-selected">Basketball Male U-8</h4>-->
                                         </div>
                                         <div class="kind-select">
@@ -181,13 +181,15 @@
                                                     </th>
                                                     <th>SFA ID-Name</th>
                                                     <th></th>
+
                                                 </thead>
                                                 <tbody>
                                                     <tr ng-repeat="athlete in teamMembers track by $index" ng-if="athlete.checked">
                                                         <td>
                                                             <div class="mid_cols">{{$index+1}}</div>
                                                         </td>
-                                                        <td>{{athlete.firstName}}</td>
+
+                                                        <td>{{athlete.firstName}}&nbsp&nbsp&nbsp&nbsp{{athlete.sfaId}}</td>
 
 
                                                         <td>
@@ -223,7 +225,7 @@
                             </div>
                             <div class="row text-center mt25 mb-50" ng-if="teamMembers.length>0">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <button class="btn btn-default width-86 sub-mit" type="button" ui-sref="confirmteam" ng-disabled="disabledNextBtn">Next</button>
+                                    <button class="btn btn-default width-86 sub-mit" type="button" ui-sref="confirmteam" ng-disabled="!disabledNextBtn">Next</button>
                                 </div>
                             </div>
                         </div>

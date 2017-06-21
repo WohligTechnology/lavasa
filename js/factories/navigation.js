@@ -542,7 +542,18 @@ firstApp.factory('NavigationService', function ($http, $window) {
         setUser: function (data) {
             $.jStorage.set("userDetails", data);
         },
-
+        setSportId: function (data) {
+            $.jStorage.set("sportId", data);
+        },
+        setAgeTitle: function (data) {
+            $.jStorage.set("ageTitle", data);
+        },
+        setGender: function (data) {
+            $.jStorage.set("gender", data);
+        },
+        setSportTitle: function (data) {
+            $.jStorage.set("sportTitle", data);
+        },
         setUserType: function (data) {
             $.jStorage.set("userType", data);
         },

@@ -7,6 +7,7 @@
               if ($.jStorage.get("userType") == "school") {
                   getData.sfaIdObj = getJ.sfaID;
                   getData.schoolName = getJ.schoolName;
+                  NavigationService.setUserSchool(getData.schoolName);
               } else {
                   getData.sfaIdObj = getJ.sfaId;
                   if (getJ.atheleteSchoolName) {
