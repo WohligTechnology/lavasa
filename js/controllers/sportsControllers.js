@@ -434,10 +434,10 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.teamMembers = selectService.team;
-    $scope.formData = {};
+    // $scope.formData = {};
     loginService.loginGet(function (data) {
         $scope.detail = data;
-        $scope.formData.schoolName = $scope.detail.schoolName;
+        // $scope.formData.schoolName = $scope.detail.schoolName;
     });
 
     if ($.jStorage.get("userDetails") === null) {
@@ -457,7 +457,7 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
 });
 
 //Confirm-Individual
-firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("confirmindividual");
@@ -465,9 +465,10 @@ firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, 
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    // $scope.formData = {};
     loginService.loginGet(function (data) {
         $scope.detail = data;
-        $scope.formData.schoolName = $scope.detail.schoolName;
+        // $scope.formData.schoolName = $scope.detail.schoolName;
     });
 
     if ($.jStorage.get("userDetails") === null) {
@@ -489,7 +490,7 @@ firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, 
 
 //Confirm-karate
 
-firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("confirmkarate");
@@ -497,9 +498,10 @@ firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, Navi
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    // $scope.formData = {};
     loginService.loginGet(function (data) {
         $scope.detail = data;
-        $scope.formData.schoolName = $scope.detail.schoolName;
+        // $scope.formData.schoolName = $scope.detail.schoolName;
     });
 
     if ($.jStorage.get("userDetails") === null) {
@@ -519,13 +521,13 @@ firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, Navi
 
 });
 
-firstApp.controller('SportsCongratsCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams, loginService) {
+firstApp.controller('SportsCongratsCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams, loginService, errorService) {
     $scope.template = TemplateService.changecontent("sports-congrats");
     $scope.menutitle = NavigationService.makeactive("Sports Congrats");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-
+    // $scope.formData = {};
     loginService.loginGet(function (data) {
         $scope.detail = data;
     });

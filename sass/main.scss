@@ -7076,6 +7076,30 @@ h1.forgot-space {
 }
 
 //end select-athletes
+//start confirm-karate
+.karate-table {
+    .selectedTeamTable {
+        .table {
+            border-spacing: 5px 5px;
+            td {
+                border: 1px solid #ccc;
+                line-height: 1 !important;
+            }
+            .mid_cols {
+                border: none;
+            }
+            th {
+                &:nth-of-type(1) {
+                    border: 1px solid #091a71;
+                    background: #091a71;
+                    padding: 8px;
+                    line-height: 1;
+                }
+            }
+        }
+    }
+}
+
 .forMobile {
     .sfa-mum {
         position: absolute;
