@@ -40,6 +40,7 @@ var jsArray = [
     './js/services/selectService.js',
     './js/services/errorService.js',
     './js/services/loginService.js',
+    './js/services/GoogleAdWordsService.js',
 
     './js/factories/navigation.js',
 

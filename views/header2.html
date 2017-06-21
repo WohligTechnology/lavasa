@@ -19,8 +19,8 @@
                         <ul class="margin0 padding0 prs hidden-xs ls">
                             <li>
                                 <a ui-sref="about-us">
-                         ABOUT US
-                            </a>
+                             ABOUT US
+                             </a>
                             </li>
                             <li class="sf-relative hide-op2" ng-mouseenter="options=false">
 
@@ -67,11 +67,38 @@
                             TRAINING &amp; DEVELOPMENT
                             </a>
                             </li>
-                            <li class="hidden-md hidden-lg">
-                                <a ng-mouseenter="optionss=!optionss" ng-model="checkboxs">
+                            <!--<li class="hidden-md hidden-lg">-->
+                            <!--<a ng-mouseenter="optionss=!optionss" ng-model="checkboxs">
+                            SFA MUMBAI 2017
+                            </a>-->
+                            <li class="sf-relative hide-op2 hidden-sm hide" ng-mouseenter="options=false">
+
+                                <a class="dropdown-toggle mb25" data-toggle="dropdown">
+                                    <div class="sfa-mum">
+                                        <button type="button" name="button" class="btn btn-sfatop margin0" ng-mouseenter="optionss=false">SFA Mumbai 2017</button>
+                                        <!-- <img src="img/top-pin.png" alt="" ng-mouseenter="optionss=!optionss" ng-model="checkboxs"> -->
+                                    </div>
+                                </a>
+
+                                <ul class="dropdown-menu sf-absulate blue-menus">
+                                    <li>
+                                        <a ui-sref="championship">ABOUT CHAMPIONSHIP</a></li>
+                                    <li><a ui-sref="register"> REGISTER</a></li>
+                                    <li><a ui-sref="faq">FAQs</a></li>
+                                </ul>
+                            </li>
+                            <li class="hidden-md hidden-lg dropdown">
+                                <a class="dropdown-toggle mb25" data-toggle="dropdown" ng-mouseenter="optionss=!optionss" ng-model="checkboxs">
                             SFA MUMBAI 2017
                             </a>
+                                <ul class="dropdown-menu text-center cl-pr forSm">
+                                    <li>
+                                        <a ui-sref="championship">ABOUT CHAMPIONSHIP</a></li>
+                                    <li><a ui-sref="register"> REGISTER</a></li>
+                                    <li><a ui-sref="faq">FAQs</a></li>
+                                </ul>
                             </li>
+                            <!--</li>-->
                         </ul>
 
                         <ul class="margin0 padding0 prs hidden-lg hidden-md hidden-sm mn-list nav navbar-nav">

@@ -1,4 +1,4 @@
-firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $element, NavigationService, $timeout, $uibModal) {
+firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $element, NavigationService, $timeout, $uibModal, GoogleAdWordsService) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("formathlete");
     $scope.menutitle = NavigationService.makeactive("Formathlete");
@@ -547,6 +547,7 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
     $scope.openModal = function () {
         $timeout(function () {
             fbq('track', 'CompleteRegistration');
+            GoogleAdWordsService.sendRegisterCustomerConversion();
         });
         var modalInstance = $uibModal.open({
             animation: true,
@@ -670,7 +671,7 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
 });
 
 //form-regis
-firstApp.controller('FormregisCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+firstApp.controller('FormregisCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, GoogleAdWordsService) {
     //Used to name the .html file
     $scope.changeitSchoolLogo = function (err, data) {
         console.log(err, data);
@@ -741,6 +742,10 @@ firstApp.controller('FormregisCtrl', function ($scope, TemplateService, Navigati
     $scope.formdata = {};
 
     $scope.openModal = function () {
+        $timeout(function () {
+            fbq('track', 'CompleteRegistration');
+            GoogleAdWordsService.sendRegisterCustomerConversion();
+        });
         var modalInstance = $uibModal.open({
             animation: true,
             scope: $scope,
