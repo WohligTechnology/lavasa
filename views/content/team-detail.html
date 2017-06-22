@@ -111,7 +111,9 @@ squad
                                         <td><span class="text-up">{{stat.sport.agegroup.name}} <br> {{stat.sport.gender}}  <br> {{stat.sport.firstcategory.name}}</span></td>
 
                                         <td><span class="text-up" ng-if="teamDetails.sport.drawFormat == 'Knockout'">{{stat.knockout.round}}</span>
-                                            <span class="text-up" ng-if="teamDetails.sport.drawFormat == 'League cum Knockout'">{{stat.leagueknockout.leagueknockoutround}}</span></td>
+                                            <span class="text-up" ng-if="teamDetails.sport.drawFormat == 'League cum Knockout'">{{stat.leagueknockout.leagueknockoutround}}</span>
+
+                                            <span class="text-up" ng-if="teamDetails.sport.drawFormat == 'League cum Knockout' && stat.leagueknockout.leagueknockoutround == 'Final'">{{stat.leagueknockout.round}}</span></td>
                                         <td class="text-up" ng-if="teamDetails.sport.drawFormat == 'Knockout' || teamDetails.sport.drawFormat == 'League cum Knockout'"><img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.opponent.result == 'Won' || stat.opponent.result == 'Bye' || stat.opponent.result == 'Walkover'">{{stat.opponent.detail.name
                                             || '-' | removeSchool:stat.opponent.detail.school.name }}
                                             <p>{{stat.opponent.detail.school.name}}</p>

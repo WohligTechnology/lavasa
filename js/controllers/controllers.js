@@ -2973,58 +2973,30 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
                         _.each($scope.studentStats, function (key) {
                             key.opponent = {};
                             key.self = {};
-                            console.log('LCK', key);
-                            // $scope.getLeagueKnockout = function () {
-                            NavigationService.getLeagueKnockout({
-                                sport: key.sport._id,
-                            }, function (response) {
-                                console.log('response', response);
-                                if (response.value) {
-                                    $scope.leagueknockouts = _.chain(response.data)
-                                        .groupBy("leagueknockoutround")
-                                        .toPairs()
-                                        .map(function (currentItem) {
-                                            currentItem[2] = currentItem[1][0].leagueknockoutorder;
-                                            return _.zipObject(["leagueknockoutround", "leagueknockouts", "leagueknockoutorder"], currentItem);
-                                        })
-                                        .value();
-                                    if (_.findIndex($scope.leagueknockouts, function (key) {
-                                            return key.leagueknockoutround == 'Final';
-                                        }) !== -1) {
-                                        $scope.knockouts = _.remove($scope.leagueknockouts, function (key) {
-                                            return key.leagueknockoutround == 'Final';
-                                        })[0];
-                                    }
-                                    //Standing code real Smart
-                                    $scope.studentStats.participants = [];
-                                    _.each($scope.leagueknockouts, function (lk) {
-                                        $scope.studentStats.participants = [];
-                                        _.each(lk.leagueknockouts, function (key) {
-                                            if (key[key.participantType + '1']) {
-                                                $scope.studentStats.participants.push({
-                                                    participant: key[key.participantType + '1'],
-                                                    point: key.point1,
-                                                    result: key.result1,
-                                                    participantType: key.participantType
-                                                });
-                                            }
-                                            if (key[key.participantType + '2']) {
-                                                $scope.studentStats.participants.push({
-                                                    participant: key[key.participantType + '2'],
-                                                    point: key.point2,
-                                                    result: key.result2,
-                                                    participantType: key.participantType
-                                                });
-                                            }
-                                            // $scope.studentStats.participant = participants;
-                                        });
-                                    });
-
-                                    console.log($scope.studentStats.participants);
-                                    console.log($scope.leagueknockouts, $scope.knockouts);
+                            console.log("layout", key);
+                            if (key.leagueknockout.participantType == 'player') {
+                                console.log("");
+                                if (key.leagueknockout[key.leagueknockout.participantType + '1']._id == $stateParams.id) {
+                                    console.log("here");
+                                    key.opponent.detail = key.leagueknockout[key.leagueknockout.participantType + '2'];
+                                    key.opponent.result = key.leagueknockout["result2"];
+                                    key.self.result = key.leagueknockout["result1"];
+                                } else {
+                                    key.opponent.detail = key.leagueknockout[key.leagueknockout.participantType + '1'];
+                                    key.opponent.result = key.leagueknockout["result1"];
+                                    key.self.result = key.leagueknockout["result2"];
                                 }
-                            });
-                            // };
+                            } else {
+                                if (key.leagueknockout[key.leagueknockout.participantType + '1']._id == key.team._id) {
+                                    key.opponent.detail = key.leagueknockout[key.leagueknockout.participantType + '2'];
+                                    key.opponent.result = key.leagueknockout["result2"];
+                                    key.self.result = key.leagueknockout["result1"];
+                                } else {
+                                    key.opponent.detail = key.leagueknockout[key.leagueknockout.participantType + '1'];
+                                    key.opponent.result = key.leagueknockout["result1"];
+                                    key.self.result = key.leagueknockout["result2"];
+                                }
+                            }
                         });
                     }
                 }
