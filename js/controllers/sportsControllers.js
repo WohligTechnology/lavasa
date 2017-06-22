@@ -217,6 +217,14 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                         $scope.getAthletePerSchoolObj.page = '1';
                         $scope.busy = false;
                         $scope.athletePerSchool($scope.getAthletePerSchoolObj);
+                    } else {
+                        console.log("in else", allData);
+                        $scope.isLoading = false;
+                        $scope.showMsg = false;
+                        if (allData.error === "Max Team Created") {
+                            toastr.info("Maximum Team is Already Created");
+                        }
+
                     }
                 } else {
                     $scope.isDisabled = false;
@@ -438,20 +446,23 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
     }];
 });
 
-firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, $stateParams, loginService, selectService) {
+firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, $stateParams, loginService, selectService, errorService) {
     $scope.template = TemplateService.changecontent("confirmteam");
     $scope.menutitle = NavigationService.makeactive("Confirm Team");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.teamMembers = selectService.team;
-
     $scope.formData = {};
     $scope.tempStrArr = [];
     $scope.confirmTeamObject = {};
-    $scope.isCapt = '';
     $scope.ageTitle = $.jStorage.get("ageTitle");
     $scope.gender = $.jStorage.get("gender");
+    _.each($scope.teamMembers, function (n) {
+        n.isCaptain = false;
+        n.isGoalKeeper = false;
+        n.studentId = n._id;
+    });
     $scope.sportTitle = $.jStorage.get("sportTitle");
     if ($.jStorage.get("userDetails") === null) {
         $state.go('sports-registration');
@@ -472,7 +483,7 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
     };
 
     var tempStr1 = $scope.detail.schoolName.replace(/\s+/g, '');
-    $scope.tempStrArr.push(tempStr1, $scope.ageTitle, $scope.gender, $scope.sportTitle);
+    $scope.tempStrArr.push(tempStr1, $scope.sportTitle, $scope.ageTitle, $scope.gender);
     $scope.confirmTeamObject.name = $scope.tempStrArr.join("-");
     $scope.confirmTeamObject.sport = $.jStorage.get("sportId");
     $scope.confirmTeamObject.school = $.jStorage.get("userDetails")._id;
@@ -481,6 +492,48 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
     } else {
         $scope.confirmTeamObject.athleteToken = $.jStorage.get("userDetails").accessToken;
     }
+    $scope.isCaptainFun = function (index) {
+        _.each($scope.teamMembers, function (key) {
+            key.isCaptain = false;
+        });
+        $scope.teamMembers[index].isCaptain = true;
+    };
+
+    $scope.isGoalKeeperFun = function (index) {
+        _.each($scope.teamMembers, function (key) {
+            key.isGoalKeeper = false;
+        });
+        $scope.teamMembers[index].isGoalKeeper = true;
+    };
+
+    $scope.finalConfirmTeam = function () {
+        var isCapObj = _.find($scope.teamMembers, function (key) {
+            return key.isCaptain === true;
+        });
+        var isGoalKeeperObj = _.find($scope.teamMembers, function (key) {
+            return key.isGoalKeeper === true;
+        });
+        if (isCapObj === undefined || isGoalKeeperObj === undefined) {
+            toastr.error("Please select Captain and GoalKeeper");
+        }
+        if (isCapObj !== undefined && isGoalKeeperObj !== undefined) {
+            $scope.confirmTeamObject.athleteTeam = _.cloneDeep($scope.teamMembers);
+            NavigationService.teamConfirm($scope.confirmTeamObject, function (data) {
+                errorService.errorCode(data, function (allData) {
+                    if (!allData.message) {
+                        if (allData.value) {
+                            toastr.success("Successfully Confirmed", 'Success Message');
+                            NavigationService.setSportId(null);
+                            $state.go("sports-congrats");
+                        }
+                    } else {
+                        toastr.error(allData.message, 'Error Message');
+                    }
+                });
+            });
+        }
+
+    };
 
 
 
@@ -552,7 +605,7 @@ firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, Navi
 
 });
 
-firstApp.controller('SportsCongratsCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams, loginService, errorService) {
+firstApp.controller('SportsCongratsCtrl', function ($scope, TemplateService, toastr, NavigationService, $timeout, $state, $stateParams, loginService, errorService) {
     $scope.template = TemplateService.changecontent("sports-congrats");
     $scope.menutitle = NavigationService.makeactive("Sports Congrats");
     TemplateService.header = "views/header2.html";

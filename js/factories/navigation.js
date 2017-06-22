@@ -666,6 +666,13 @@ firstApp.factory('NavigationService', function ($http, $window) {
                 method: 'POST',
                 data: request
             }).then(callback);
+        },
+        teamConfirm: function (request, callback) {
+            $http({
+                url: adminUrl2 + 'teamSport/teamConfirm',
+                method: 'POST',
+                data: request
+            }).then(callback);
         }
     };
 });
