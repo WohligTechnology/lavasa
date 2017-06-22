@@ -37,9 +37,9 @@
                                             <!--control-label-->
                                             <label for="inputEmail3" class="col-md-2 col-sm-3 col-xs-12 para2">Select Gender</label>
                                             <div class="col-md-10 col-sm-9 col-xs-12">
-                                                <input type="radio" ng-model="formData.gender" id="radio04" name="radioMale" value="Male" ng-checked="true" required ng-change="sortGenderWise('Male');">
+                                                <input type="radio" ng-model="formData.gender" id="radio04" name="radioMale" value="Male" ng-checked="true" required ng-change="sortGenderWise('male');">
                                                 <label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
-                                                <input type="radio" ng-model="formData.gender" id="radio03" name="radioFemale" value="Female" required ng-change="sortGenderWise('Female');">
+                                                <input type="radio" ng-model="formData.gender" id="radio03" name="radioFemale" value="Female" required ng-change="sortGenderWise('female');">
                                                 <label for="radio03" class="padd-lr sf-list"><span></span>Female</label>
                                             </div>
                                         </div>
@@ -162,7 +162,7 @@
                                 <div class="col-md-5">
                                     <div class="separateTwoBox pl15">
                                         <div class="text-center mt15 ">
-                                            <h4 class="player-selected">{{sportTitle}} {{constraints.gender}} {{showAgeObj}}</h4>
+                                            <h4 class="player-selected">{{sportTitle}} {{constraints.gender | firstcapitalize}} {{showAgeObj}}</h4>
                                             <!--<h4 class="player-selected">Basketball Male U-8</h4>-->
                                         </div>
                                         <div class="kind-select">

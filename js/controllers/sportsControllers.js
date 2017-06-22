@@ -257,7 +257,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     $scope.sortGenderWise = function (gender) {
         $scope.showAgeObj = '';
         console.log("gender", gender);
-        if (gender == "Female") {
+        if (gender == "female") {
             $scope.showFemale = true;
             $scope.showMale = false;
             // $scope.ageGroup = [];
@@ -285,9 +285,9 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                     $scope.getSports = allData.data.results;
                     $scope.sportTitle = allData.data.sportName;
                     NavigationService.setSportTitle($scope.sportTitle);
-                    $scope.maleAgeGrp = _.cloneDeep($scope.getSports.Male);
-                    $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.Female);
-                    $scope.sortGenderWise('Male');
+                    $scope.maleAgeGrp = _.cloneDeep($scope.getSports.male);
+                    $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.female);
+                    $scope.sortGenderWise('male');
                 } else {
                     $scope.isDisabled = false;
                     toastr.error(allData.message, 'Error Message');
@@ -445,17 +445,31 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.teamMembers = selectService.team;
+
     $scope.formData = {};
     $scope.tempStrArr = [];
     $scope.confirmTeamObject = {};
+    $scope.isCapt = '';
     $scope.ageTitle = $.jStorage.get("ageTitle");
     $scope.gender = $.jStorage.get("gender");
     $scope.sportTitle = $.jStorage.get("sportTitle");
-
+    if ($.jStorage.get("userDetails") === null) {
+        $state.go('sports-registration');
+    }
     loginService.loginGet(function (data) {
         $scope.detail = data;
         $scope.formData.schoolName = $scope.detail.schoolName;
     });
+    $scope.logoutCandidate = function () {
+        loginService.logoutCandidate(function (data) {
+            if (data.isLoggedIn === false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $state.go('sports-registration');
+            } else {
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    };
 
     var tempStr1 = $scope.detail.schoolName.replace(/\s+/g, '');
     $scope.tempStrArr.push(tempStr1, $scope.ageTitle, $scope.gender, $scope.sportTitle);
@@ -467,24 +481,10 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
     } else {
         $scope.confirmTeamObject.athleteToken = $.jStorage.get("userDetails").accessToken;
     }
-    console.log("$scope.confirmTeamObject", $scope.confirmTeamObject);
 
 
 
-    if ($.jStorage.get("userDetails") === null) {
-        $state.go('sports-registration');
-    }
 
-    $scope.logoutCandidate = function () {
-        loginService.logoutCandidate(function (data) {
-            if (data.isLoggedIn === false) {
-                toastr.success('Successfully Logged Out', 'Logout Message');
-                $state.go('sports-registration');
-            } else {
-                toastr.error('Something went wrong', 'Logout Message');
-            }
-        });
-    };
 });
 
 //Confirm-Individual

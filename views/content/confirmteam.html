@@ -63,14 +63,26 @@
                             <tr ng-repeat="member in teamMembers track by $index">
                               <td>
                                 <div class="mid_cols">{{$index+1}}</div>
+
                               </td>
                               <td>{{member.firstName}}&nbsp&nbsp&nbsp&nbsp{{member.sfaId}}</td>
                               <td>
-                                <input name="radio" type="radio">
+                                <input name="capt" type="radio" value="captain" ng-model="captain">{{captain}}
                               </td>
                               <td>
-                                <input name="radio" type="radio">
+                                <input name="goal" type="radio" value="goalKeeper" ng-model="goalKeeper">
                               </td>
+
+
+
+
+
+
+
+
+
+
+
                             </tr>
                             <!--<tr>
                               <td>

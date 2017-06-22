@@ -542,6 +542,7 @@ firstApp.factory('NavigationService', function ($http, $window) {
         setUser: function (data) {
             $.jStorage.set("userDetails", data);
         },
+
         setSportId: function (data) {
             $.jStorage.set("sportId", data);
         },
