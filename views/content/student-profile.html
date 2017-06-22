@@ -233,8 +233,10 @@ student’s blog
                                         <pre>{{stat.opponent.result}}</pre>-->
                                         <td class="text-up">{{(table.layout == 'Knockout' && stat.knockout.round) || (table.layout == 'Heats'
                                             && stat.heat.round) || (table.layout == 'League' && stat.league.round) || (table.layout
-                                            == 'League cum Knockout' && stat.league.round) || '-'}}</td>
-                                        <td class="text-up" ng-if="table.layout == 'Knockout' || table.layout == 'League'"><img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.opponent.result == 'Won' || stat.opponent.result == 'Bye' || stat.opponent.result == 'Walkover'">{{stat.opponent.detail.name
+                                            == 'League cum Knockout' && stat.leagueknockout.leagueknockoutround == 'Final'
+                                            ? stat.leagueknockout.round : stat.leagueknockout.leagueknockoutround) || '-'}}</td>
+                                        <td class="text-up" ng-if="table.layout == 'Knockout' || table.layout == 'League' || table.layout == 'League cum Knockout'">
+                                            <img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.opponent.result == 'Won' || stat.opponent.result == 'Bye' || stat.opponent.result == 'Walkover'">{{stat.opponent.detail.name
                                             || '-' | removeSchool:stat.opponent.detail.school.name }}
                                             <p>{{stat.opponent.detail.school.name}}</p>
                                         </td>
@@ -242,16 +244,17 @@ student’s blog
                                             <!-- score -->
                                             <div ng-if="table.layout == 'Knockout'">{{stat.knockout.score || '-'}}</div>
                                             <div ng-if="table.layout == 'League'">{{stat.league.score || '-'}}</div>
+                                            <div ng-if="table.layout == 'League cum Knockout'">{{stat.leagueknockout.score || '-'}}</div>
                                             <div ng-if="table.layout == 'Heats'">{{stat.self.timing || '-'}}</div>
                                             <div ng-if="stat.qualifyinground.score">{{stat.qualifyinground.score}}</div>
                                         </td>
                                         <td>
                                             <div class="text-center display-inline ver-mid ">
                                                 <div class="sf-play">
-                                                    <span>{{table.layout == 'Knockout'&& stat.self.result || table.layout == 'Heats' && ((stat.self.standing | ordinal)+' / '+stat.self.timing) || (table.layout == 'League' && stat.self.result) || ""}}</span>
+                                                    <span>{{table.layout == 'Knockout'&& stat.self.result || table.layout == 'Heats' && ((stat.self.standing | ordinal)+' / '+stat.self.timing) || (table.layout == 'League' && stat.self.result) || (table.layout == 'League cum Knockout' && stat.self.result) || ""}}</span>
                                                 </div>
-                                                <div class="replay-img " ng-if="stat.knockout.video || stat.heat.video || stat.league.video">
-                                                    <a class="various fancybox.iframe" href="https://www.youtube.com/embed/{{stat.knockout.video || stat.heat.video || stat.league.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
+                                                <div class="replay-img " ng-if="stat.knockout.video || stat.heat.video || stat.league.video || stat.leagueknockout.video">
+                                                    <a class="various fancybox.iframe" href="https://www.youtube.com/embed/{{stat.knockout.video || stat.heat.video || stat.league.video || stat.leagueknockout.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
                                                         rel="gallery1" fancybox><img src="img/sf-play.png" alt=""></a>
                                                 </div>
                                             </div>
