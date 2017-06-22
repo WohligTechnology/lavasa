@@ -7076,14 +7076,27 @@ h1.forgot-space {
 }
 
 //end select-athletes
-//start confirm-karate
-.karate-table {
+//start confirm-karate ,//individual-table
+.karate-table,
+.individual-table {
     .selectedTeamTable {
         .table {
             border-spacing: 5px 5px;
+            tbody {
+                tr {
+                    td {
+                        &:nth-child(n+4) {
+                            padding: 0px !important;
+                        }
+                    }
+                }
+            }
             td {
                 border: 1px solid #ccc;
                 line-height: 1 !important;
+                select {
+                    border: none;
+                }
             }
             .mid_cols {
                 border: none;
