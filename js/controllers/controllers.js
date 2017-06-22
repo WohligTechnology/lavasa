@@ -3385,35 +3385,40 @@ firstApp.controller('TeamDetailCtrl', function ($scope, TemplateService, Navigat
             if (response.value) {
                 $scope.teamStats = response.data;
                 console.log($scope.teamStats);
+                var drawF = "";
+                if ($scope.teamStats[0].drawFormat == 'Knockout') {
+                    drawF = "knockout";
+                } else {
+                    drawF = "leagueknockout"
+                }
                 if ($scope.teamStats) {
-                    if ($scope.teamStats[0].drawFormat == 'Knockout') {
+                    if ($scope.teamStats[0].drawFormat == 'Knockout' || $scope.teamStats[0].drawFormat == 'League cum Knockout') {
                         _.each($scope.teamStats, function (key) {
                             key.opponent = {};
                             key.self = {};
-                            if (key.knockout.participantType == 'player') {
-                                if (key.knockout[key.knockout.participantType + '1']._id == $stateParams.id) {
-                                    key.opponent.detail = key.knockout[key.knockout.participantType + '2'];
-                                    key.self.detail = key.knockout[key.knockout.participantType + '1'];
-                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '2'];
-                                    key.self.result = key.knockout["result" + key.knockout.participantType + '1'];
+                            if (key[drawF].participantType == 'player') {
+                                if (key[drawF][key[drawF].participantType + '1']._id == $stateParams.id) {
+                                    key.opponent.detail = key[drawF][key[drawF].participantType + '2'];
+                                    key.self.detail = key[drawF][key[drawF].participantType + '1'];
+                                    key.opponent.result = key[drawF]["result" + key[drawF].participantType + '2'];
+                                    key.self.result = drawF == "knockout" ? key[drawF]["result" + key[drawF].participantType + '1'] : key[drawF]["result1"];
                                 } else {
-                                    key.opponent.detail = key.knockout[key.knockout.participantType + '1'];
-                                    key.self.detail = key.knockout[key.knockout.participantType + '2'];
-                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '1'];
-                                    key.self.result = key.knockout["result" + key.knockout.participantType + '2'];
+                                    key.opponent.detail = key[drawF][key[drawF].participantType + '1'];
+                                    key.self.detail = key[drawF][key[drawF].participantType + '2'];
+                                    key.opponent.result = key[drawF]["result" + key[drawF].participantType + '1'];
+                                    key.self.result = drawF == "knockout" ? key[drawF]["result" + key[drawF].participantType + '2'] : key[drawF]["result2"];
                                 }
                             } else {
-                                console.log(key.knockout[key.knockout.participantType + '1']._id, $stateParams.id);
-                                if (key.knockout[key.knockout.participantType + '1']._id == $stateParams.id) {
-                                    key.opponent.detail = key.knockout[key.knockout.participantType + '2'];
-                                    key.self.detail = key.knockout[key.knockout.participantType + '1'];
-                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '2'];
-                                    key.self.result = key.knockout["result" + key.knockout.participantType + '1'];
+                                if (key[drawF][key[drawF].participantType + '1']._id == $stateParams.id) {
+                                    key.opponent.detail = key[drawF][key[drawF].participantType + '2'];
+                                    key.self.detail = key[drawF][key[drawF].participantType + '1'];
+                                    key.opponent.result = key[drawF]["result" + key[drawF].participantType + '2'];
+                                    key.self.result = drawF == "knockout" ? key[drawF]["result" + key[drawF].participantType + '1'] : key[drawF]["result1"];
                                 } else {
-                                    key.opponent.detail = key.knockout[key.knockout.participantType + '1'];
-                                    key.self.detail = key.knockout[key.knockout.participantType + '2'];
-                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '1'];
-                                    key.self.result = key.knockout["result" + key.knockout.participantType + '2'];
+                                    key.opponent.detail = key[drawF][key[drawF].participantType + '1'];
+                                    key.self.detail = key[drawF][key[drawF].participantType + '2'];
+                                    key.opponent.result = key[drawF]["result" + key[drawF].participantType + '1'];
+                                    key.self.result = drawF == "knockout" ? key[drawF]["result" + key[drawF].participantType + '2'] : key[drawF]["result2"];
                                 }
                             }
                         });
