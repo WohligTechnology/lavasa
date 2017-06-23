@@ -1,0 +1,254 @@
+<section class="confirmTeam">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="Heading">
+          <h1 class="text-center school">Sports Registration Form</h1>
+          <h1 class="text-center text-uppercase checkTeam"><span>Check & Confirm Your Team</span></h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12">
+        <div class="pull-right sp-tab-right">
+          <div class="">
+            <div class="display-inline">
+              <p class="mb0">SFA ID:</p>
+              <p class="mb0">School Name:</p>
+            </div>
+            <div class="display-inline">
+              <p class="mb0">&nbsp;{{detail.sfaIdObj}}</p>
+              <p class="mb0">&nbsp;{{detail.schoolName}}</p>
+            </div>
+          </div>
+          <ul class="list-inline">
+            <li ng-click="logoutCandidate();" ng-if="detail.isLoggedIn"><a>Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+        <div class="row">
+          <div class="box-padd mb91">
+            <div class="confirmForm">
+              <div class="">
+                <form class="form-horizontal">
+                  <div class="form-group" ng-init="formData.schoolName = 'D.A.V Public School'">
+                    <div class="readSchoolName">
+                      <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12">
+                        <label for="inputEmail3" class="col-md-4 col-sm-4 col-xs-12 control-label para3">School Name:</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <input type="text" class="form-control" ng-model="formData.schoolName" id="inputEmail3" readonly>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group text-center">
+                    <h4 class="teamHead">U-10 Male Basketball</h4>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+                      <div class="karate-table">
+                        <div class="selectedTeamTable table-responsive">
+
+                          <table class="table table-bordered">
+                            <thead>
+                              <th>
+                                <div class="mid_col">Sr. No.</div>
+                              </th>
+                              <th>SFA ID-Name</th>
+                              <th>Gender</th>
+                              <th>Event 1</th>
+                              <th>Event 2</th>
+                              <th>Weight (Kumite)</th>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <div class="mid_cols">1</div>
+                                </td>
+                                <td>126 - Kunjal Rawal
+                                  <i class="fa fa-lg fa-times-circle pull-right pointer" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                  Male
+                                </td>
+                                <td>
+
+                                  <select class="form-control">
+                                     <option value="u-8">U-8 Karate</option>
+                                    <option value="u-10">U-10 Karate</option>
+                                    <option value="u-12">U-12 Karate</option>
+                                    <option value="u-14">U-14 Karate</option>
+                                  </select>
+                                </td>
+                                <td>
+
+                                  <select class="form-control">
+                                     <option value="u-8">U-8 Kumite</option>
+                                    <option value="u-10">U-10 Kumite</option>
+                                    <option value="u-12">U-12 Kumite</option>
+                                    <option value="u-14">U-14 Kumite</option>
+                                  </select>
+                                </td>
+                                <td>
+
+                                  <select class="form-control">
+                                     <option value="28-kg">-28 kg</option>
+                                    <option value="30-kg">30 kg</option>
+                                    <option value="32-kg">32 kg</option>
+                                    <option value="34-kg">34 kg</option>
+                                  </select>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <div class="mid_cols">2</div>
+                                </td>
+                                <td>126 - Kunjal Rawal
+                                  <i class="fa fa-lg fa-times-circle pull-right pointer" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                  Male
+                                </td>
+                                <td>
+
+                                  <select class="form-control">
+                               <option value="u-8">U-8 Karate</option>
+                                    <option value="u-10">U-10 Karate</option>
+                                    <option value="u-12">U-12 Karate</option>
+                                    <option value="u-14">U-14 Karate</option>
+                                  </select>
+                                </td>
+                                <td>
+
+                                  <select class="form-control">
+                                     <option value="u-8">U-8 Kumite</option>
+                                    <option value="u-10">U-10 Kumite</option>
+                                    <option value="u-12">U-12 Kumite</option>
+                                    <option value="u-14">U-14 Kumite</option>
+                                  </select>
+                                </td>
+                                <td>
+
+                                  <select class="form-control">
+                                     <option value="28-kg">-28 kg</option>
+                                    <option value="30-kg">30 kg</option>
+                                    <option value="32-kg">32 kg</option>
+                                    <option value="34-kg">34 kg</option>
+                                  </select>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <div class="mid_cols">3</div>
+                                </td>
+                                <td>126 - Kunjal Rawal
+                                  <i class="fa fa-lg fa-times-circle pull-right pointer" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                  Male
+                                </td>
+                                <td>
+
+                                  <select class="form-control">
+                                    <option value="u-8">U-8 Karate</option>
+                                    <option value="u-10">U-10 Karate</option>
+                                    <option value="u-12">U-12 Karate</option>
+                                    <option value="u-14">U-14 Karate</option>
+                                  </select>
+                                </td>
+                                <td>
+
+                                  <select class="form-control">
+                                     <option value="u-8">U-8 Kumite</option>
+                                    <option value="u-10">U-10 Kumite</option>
+                                    <option value="u-12">U-12 Kumite</option>
+                                    <option value="u-14">U-14 Kumite</option>
+                                  </select>
+                                </td>
+                                <td>
+
+                                  <select class="form-control">
+                                     <option value="28-kg">-28 kg</option>
+                                    <option value="30-kg">30 kg</option>
+                                    <option value="32-kg">32 kg</option>
+                                    <option value="34-kg">34 kg</option>
+                                  </select>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+                      <div class="selectEvent">
+                        <p class="">Get your match play analysed by top-level coaches using the latest video analysis technology. (Badminton
+                          and Tennis)</p>
+                        <div class="checkbox-custom">
+                          <input type="checkbox" name="checkIhav" ng-model="formData.isVideoAnalysis" id="test5" />
+                          <label for="test5" class="sf-list custom-a" style="padding-left: 20px;"><span></span>Click here to get more details about this service.</label>
+                          <!--<div class="validate-col" ng-show="showTerm">Please accept terms and condition</div>-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+                      <div class="nominate">
+                        <a data-toggle="collapse" role="button" href="#collapseExample">
+                          <p class="">Nominate a fellow sports enthusiast, who’s got what it takes to compete and become an SFA Champion,
+                            NOW!
+                            <i class="fa fa-chevron-down pull-right"></i>
+                          </p>
+                        </a>
+                        <div class="collapse" id="collapseExample">
+                          <div class="">
+                            <div class="form-group">
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" class="form-control" ng-model="nominatedName" placeholder="Enter Athlete Name" name="nominatedName" id="nominatedName">
+                              </div>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" class="form-control" ng-model="nominatedSchoolName" placeholder="Enter Athlete SchoolName" name="nominatedSchoolName"
+                                  id="nominatedSchoolName">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" class="form-control" ng-model="nominatedContactDetails" placeholder="Enter Contact Details" name="nominatedContactDetails"
+                                  id="nominatedContactDetails">
+                              </div>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" class="form-control" ng-model="nominatedEmailId" placeholder="Enter Email Id" name="nominatedEmailId"
+                                  id="nominatedEmailId">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group ">
+                    <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12 ">
+                      <div class="col-md-6 col-sm-6 col-xs-12 ">
+                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="submit ">Edit</button>
+                      </div>
+                      <div class="col-md-6 col-sm-6 col-xs-12 ">
+                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="submit ">Confirm</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

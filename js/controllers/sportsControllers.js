@@ -1,9 +1,10 @@
-firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, errorService, loginService) {
+firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, errorService, loginService, selectService) {
     $scope.template = TemplateService.changecontent("sports-selection");
     $scope.menutitle = NavigationService.makeactive("Sports Selection");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    selectService.reset();
     $scope.sportsschool = true;
     $scope.sportsregistered = false;
     $scope.classactive = 'blue-active';
@@ -135,6 +136,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.selectService = selectService;
+    $scope.selectService.sportId = $stateParams.id;
     $scope.ageGroup = [];
     $scope.selectAthlete = [];
     $scope.maleAgeGrp = [];
@@ -193,6 +195,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                                 $scope.selectAthlete.push(value);
                                 $scope.busy = false;
                             });
+                            $scope.listOfAthelete = $scope.selectService.isAtheleteSelected($scope.selectAthlete);
                         }
                     }
                 } else {
@@ -459,6 +462,7 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.teamMembers = selectService.team;
+    $scope.selectService = selectService;
     // NavigationService.setSportTeamMembers($scope.teamMembers);
     $scope.formData = {};
     $scope.tempStrArr = [];
@@ -557,6 +561,64 @@ firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, Nav
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
+    $scope.fencingtable = [{
+        name: '126 - Kunjal Rawal',
+        gender: 'Male',
+        filterList1: [{
+            name: 'U-12 EPEE'
+        }, {
+            name: 'U-14 EPEE'
+        }, {
+            name: 'U-17 EPEE'
+        }],
+        filterList2: [{
+            name: 'U-12 sparle'
+        }, {
+            name: 'U-14 sparle'
+        }, {
+            name: 'U-17 sparle'
+        }],
+        filterList3: [{
+            name: 'U-12 EPEE'
+        }, {
+            name: 'U-14 EPEE'
+        }, {
+            name: 'U-17 EPEE'
+        }]
+    }, {
+        name: '126 - Kunjal Rawal',
+        gender: 'Female',
+        filterList1: [{
+            name: 'U-12 EPEE'
+        }, {
+            name: 'U-14 EPEE'
+        }, {
+            name: 'U-17 EPEE'
+        }],
+        filterList2: [{
+            name: 'U-12 EPEE'
+        }, {
+            name: 'U-14 EPEE'
+        }, {
+            name: 'U-17 EPEE'
+        }],
+        filterList3: [{
+            name: 'U-12 sparle'
+        }, {
+            name: 'U-14 sparle'
+        }, {
+            name: 'U-17 sparle'
+        }]
+    }]
+    // $scope.filterList = [];
+    // $scope.filterList = [{
+    //     name: 'U-12 EPEE'
+    // }, {
+    //     name: 'U-14 EPEE'
+    // }, {
+    //     name: 'U-17 EPEE'
+    // }]
     // // $scope.formData = {};
     // loginService.loginGet(function (data) {
     //     $scope.detail = data;

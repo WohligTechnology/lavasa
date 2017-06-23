@@ -7078,7 +7078,8 @@ h1.forgot-space {
 //end select-athletes
 //start confirm-karate ,//individual-table
 .karate-table,
-.individual-table {
+.individual-table,
+.fencing-table {
     .selectedTeamTable {
         .table {
             border-spacing: 5px 5px;
@@ -7107,6 +7108,22 @@ h1.forgot-space {
                     background: #091a71;
                     padding: 8px;
                     line-height: 1;
+                }
+            }
+        }
+    }
+}
+
+.fencing-table {
+    .custom-uiselect {
+        .ui-select-multiple {
+            div {
+                width: 100%;
+                overflow-x: auto;
+                overflow-y: hidden;
+                white-space: nowrap;
+                input {
+                    width: auto !important;
                 }
             }
         }
@@ -7150,6 +7167,13 @@ h1.forgot-space {
                 }
             }
         }
+    }
+}
+
+.champions-page {
+    .collapse.in {
+        max-height: 390px;
+        overflow-y: auto;
     }
 }
 
