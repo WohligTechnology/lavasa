@@ -1032,7 +1032,7 @@ hr {
             a {
                 font-size: 18px;
                 background: #dcdbdb;
-                padding: 8px 60px;
+                padding: 8px 30px;
                 &:hover {
                     color: $brand-primary;
                 }
@@ -7113,6 +7113,47 @@ h1.forgot-space {
     }
 }
 
+//rules and regulataion template
+.ruleregulation {
+    ul {
+        li {
+            font-family: "Titillium Web";
+            font-size: 15px;
+        }
+    }
+    h4 {
+        color: #0a1a72;
+        font-weight: bold;
+    }
+    li {
+        a {
+            color: #333333 !important;
+            font-family: "Titillium Web";
+            &:hover {
+                text-decoration: underline !important;
+            }
+        }
+    }
+}
+
+.table-5 {
+    table {
+        tr {
+            th {
+                text-align: center;
+                background: #0a1a72;
+                color: white;
+            }
+            &:nth-child(n+1) {
+                td {
+                    background: white;
+                }
+            }
+        }
+    }
+}
+
+//end
 .forMobile {
     .sfa-mum {
         position: absolute;

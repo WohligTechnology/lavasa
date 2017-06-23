@@ -366,7 +366,7 @@ firstApp.controller('SponserCtrl', function ($scope, TemplateService, Navigation
         }, {
             "img": "img/footer/p4.jpg",
             "href": "",
-            "game": "Energy Drinks Partner"
+            "game": "Hydration partner"
         }, {
             "img": "img/footer/n3.jpg",
             "href": "",
@@ -1857,6 +1857,7 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
     $scope.classb = '';
     $scope.classc = '';
     $scope.classd = '';
+    $scope.classe = '';
     $scope.tabchange = function (tab, a) {
         //        console.log(tab);
         $scope.tab = tab;
@@ -1867,12 +1868,14 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
             $scope.classb = '';
             $scope.classc = '';
             $scope.classd = '';
+            $scope.classe = '';
         } else if (a == 2) {
 
             $scope.classa = '';
             $scope.classb = "active-list";
             $scope.classc = "";
             $scope.classd = "";
+            $scope.classe = '';
 
         } else if (a == 3) {
 
@@ -1880,19 +1883,28 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
             $scope.classc = "active-list";
             $scope.classb = "";
             $scope.classd = "";
+            $scope.classe = '';
             $scope.filter.mediatype = "photo";
             $scope.filter.folder = $stateParams.name;
-            $scope.filter.year = "2015";
+            $scope.filter.year = "2016";
             $scope.filter.pagenumber = 1;
             console.log("filter", $scope.filter);
             $scope.loadMedia();
 
-        } else {
+        } else if (a == 4) {
 
             $scope.classa = '';
             $scope.classb = '';
             $scope.classd = "active-list";
             $scope.classc = "";
+            $scope.classe = '';
+        } else {
+            $scope.classa = '';
+            $scope.classb = '';
+            $scope.classd = "";
+            $scope.classc = "";
+            $scope.classe = 'active-list';
+
         }
     };
     $scope.video = [{
@@ -1917,7 +1929,7 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
     }];
     // $scope.photos = [
     //     'img/m1.jpg',
-    //     'img/m2.jpg',
+    //     'img/m2.jpg', 
     //     'img/m3.jpg',
     //     'img/m1.jpg',
     //     'img/m2.jpg',
@@ -3865,7 +3877,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope)
         }, {
             "img": "img/footer/p4.jpg",
             "href": "",
-            "game": "Energy Drinks Partner"
+            "game": "Hydration partner"
         }, {
             "img": "img/footer/n3.jpg",
             "href": "",
@@ -3889,7 +3901,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope)
         }, {
             "img": "img/footer/p4.jpg",
             "href": "",
-            "game": "Energy Drinks Partner"
+            "game": "Hydration partner"
         }, {
             "img": "img/footer/n3.jpg",
             "href": "",
