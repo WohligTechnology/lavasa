@@ -562,6 +562,9 @@ firstApp.factory('NavigationService', function ($http, $window) {
         setUserSchool: function (schoolName) {
             $.jStorage.set("schoolName", schoolName);
         },
+        setSportTeamMembers: function (teamMember) {
+            $.jStorage.set("sportTeamMember", teamMember);
+        },
 
         // logoutCandidate: function (callback) {
         //     var requestObjUserType = {};
