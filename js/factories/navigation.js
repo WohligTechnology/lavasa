@@ -562,6 +562,9 @@ firstApp.factory('NavigationService', function ($http, $window) {
         setUserSchool: function (schoolName) {
             $.jStorage.set("schoolName", schoolName);
         },
+        setSportTeamMembers: function (teamMember) {
+            $.jStorage.set("sportTeamMember", teamMember);
+        },
 
         // logoutCandidate: function (callback) {
         //     var requestObjUserType = {};
@@ -663,6 +666,13 @@ firstApp.factory('NavigationService', function ($http, $window) {
         getAthletePerSchool: function (request, callback) {
             $http({
                 url: adminUrl2 + 'sport/getAthletePerSchool',
+                method: 'POST',
+                data: request
+            }).then(callback);
+        },
+        teamConfirm: function (request, callback) {
+            $http({
+                url: adminUrl2 + 'teamSport/teamConfirm',
                 method: 'POST',
                 data: request
             }).then(callback);

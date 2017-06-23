@@ -67,22 +67,11 @@
                               </td>
                               <td>{{member.firstName}}&nbsp&nbsp&nbsp&nbsp{{member.sfaId}}</td>
                               <td>
-                                <input name="capt" type="radio" value="member." ng-model="captain">
+                                <input name="capt" type="radio" value="member.isCaptain" ng-model="captain" ng-click="isCaptainFun($index);">
                               </td>
                               <td>
-                                <input name="goal" type="radio" value="goalKeeper" ng-model="goalKeeper">
+                                <input name="goal" type="radio" value="member.isGoalKeeper" ng-model="goalKeeper" ng-click="isGoalKeeperFun($index);">
                               </td>
-
-
-
-
-
-
-
-
-
-
-
                             </tr>
                             <!--<tr>
                               <td>
@@ -164,10 +153,13 @@
                   <div class="form-group ">
                     <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12 ">
                       <div class="col-md-6 col-sm-6 col-xs-12 ">
-                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="submit " ui-sref="team-selection({id:selectService.sportId})">Edit{{selectService.sportId}}</button>
+
+
+                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="button" ui-sref="team-selection">Edit</button>
+
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12 ">
-                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="submit ">Confirm</button>
+                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabledConfirm" type="button" ng-click="finalConfirmTeam();">Confirm</button>
                       </div>
                     </div>
                   </div>

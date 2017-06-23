@@ -1032,7 +1032,7 @@ hr {
             a {
                 font-size: 18px;
                 background: #dcdbdb;
-                padding: 8px 60px;
+                padding: 8px 30px;
                 &:hover {
                     color: $brand-primary;
                 }
@@ -7078,7 +7078,8 @@ h1.forgot-space {
 //end select-athletes
 //start confirm-karate ,//individual-table
 .karate-table,
-.individual-table {
+.individual-table,
+.fencing-table {
     .selectedTeamTable {
         .table {
             border-spacing: 5px 5px;
@@ -7113,6 +7114,70 @@ h1.forgot-space {
     }
 }
 
+.fencing-table {
+    .custom-uiselect {
+        .ui-select-multiple {
+            div {
+                width: 100%;
+                overflow-x: auto;
+                overflow-y: hidden;
+                white-space: nowrap;
+                input {
+                    width: auto !important;
+                }
+            }
+        }
+    }
+}
+
+//rules and regulataion template
+.ruleregulation {
+    ul {
+        li {
+            font-family: "Titillium Web";
+            font-size: 15px;
+        }
+    }
+    h4 {
+        color: #0a1a72;
+        font-weight: bold;
+    }
+    li {
+        a {
+            color: #333333 !important;
+            font-family: "Titillium Web";
+            &:hover {
+                text-decoration: underline !important;
+            }
+        }
+    }
+}
+
+.table-5 {
+    table {
+        tr {
+            th {
+                text-align: center;
+                background: #0a1a72;
+                color: white;
+            }
+            &:nth-child(n+1) {
+                td {
+                    background: white;
+                }
+            }
+        }
+    }
+}
+
+.champions-page {
+    .collapse.in {
+        max-height: 390px;
+        overflow-y: auto;
+    }
+}
+
+//end
 .forMobile {
     .sfa-mum {
         position: absolute;

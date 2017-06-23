@@ -357,15 +357,15 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "views/template.html",
             controller: 'ConfirmIndividualCtrl'
         })
+        .state('confirm-fencing', {
+            url: "/confirm-fencing",
+            templateUrl: "views/template.html",
+            controller: 'ConfirmFencingCtrl'
+        })
         .state('confirm-karate', {
             url: "/confirm-karate",
             templateUrl: "views/template.html",
             controller: 'ConfirmKarateCtrl'
-        })
-        .state('thankyou', {
-            url: "/thankyou",
-            templateUrl: "views/template.html",
-            controller: 'ThankYouCtrl'
         });
 
     $urlRouterProvider.otherwise("/");

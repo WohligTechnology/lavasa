@@ -127,18 +127,18 @@
                                         </form>
                                         <div class="scroll-div">
                                             <div class="scrollbar style-1">
-                                                <div class="text-center mt15" ng-if="selectAthlete.length==0">
+                                                <div class="text-center mt15" ng-if="selectAthlete.length===0">
                                                     <h4>No Athlete Found</h4>
                                                 </div>
                                                 <div class="mt15">
-                                                    <div class="col-md-4 col-sm-4 col-xs-12 mb15" ng-repeat="checked in selectAthlete track by $index">
+                                                    <div class="col-md-4 col-sm-4 col-xs-12 mb15" ng-repeat="checked in listOfAthlete">
                                                         <div class="school-sec">
                                                             <div class="stu-img">
                                                                 <img ng-src="{{checked.atheleteSchoolIdImage | serverimage2 }}" class="img-responsive" alt="">
                                                             </div>
                                                             <div class="stu-check">
                                                                 <div class="checkbox-custom">
-                                                                    <input type="checkbox" name="checkIhav" value="option{{$index+1}}" id="option{{$index+1}}" ng-click="editTeam();maxPlayerAllow();"
+                                                                    <input type="checkbox" name="checkIhav" value="option{{$index+1}}" id="option{{$index+1}}" ng-click="selectService.pushToTeam(checked, checked.checked, listOfAthelete);maxPlayerAllow();"
                                                                         ng-model="checked.checked" />
                                                                     <label for="option{{$index+1}}"><span></span></label>
                                                                 </div>
@@ -184,7 +184,7 @@
 
                                                 </thead>
                                                 <tbody>
-                                                    <tr ng-repeat="athlete in teamMembers track by $index" ng-if="athlete.checked">
+                                                    <tr ng-repeat="athlete in selectService.team track by $index" ng-if="athlete.checked">
                                                         <td>
                                                             <div class="mid_cols">{{$index+1}}</div>
                                                         </td>
@@ -193,7 +193,7 @@
 
 
                                                         <td>
-                                                            <div ng-click="athlete.checked=false ;editTeam();">
+                                                            <div ng-click="selectService.pushToTeam(athlete, athelete.checked, listOfAthelete)">
                                                                 <i class="fa fa-lg fa-times-circle pointer"></i>
                                                                 <!--<img src="img/icon/cross.png" alt="logo" class="img-responsive myicon">-->
                                                             </div>
@@ -223,9 +223,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row text-center mt25 mb-50" ng-if="teamMembers.length>0">
+                            <div class="row text-center mt25 mb-50">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <button class="btn btn-default width-86 sub-mit" type="button" ui-sref="confirmteam" ng-disabled="!disabledNextBtn">Next</button>
+                                    <button class="btn btn-default width-86 sub-mit" type="button" ui-sref="confirmteam" ng-disabled="disabledNextBtn">Next</button>
                                 </div>
                             </div>
                         </div>

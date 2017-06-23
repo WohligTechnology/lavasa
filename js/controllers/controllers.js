@@ -366,7 +366,7 @@ firstApp.controller('SponserCtrl', function ($scope, TemplateService, Navigation
         }, {
             "img": "img/footer/p4.jpg",
             "href": "",
-            "game": "Energy Drinks Partner"
+            "game": "Hydration partner"
         }, {
             "img": "img/footer/n3.jpg",
             "href": "",
@@ -1857,6 +1857,7 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
     $scope.classb = '';
     $scope.classc = '';
     $scope.classd = '';
+    $scope.classe = '';
     $scope.tabchange = function (tab, a) {
         //        console.log(tab);
         $scope.tab = tab;
@@ -1867,12 +1868,14 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
             $scope.classb = '';
             $scope.classc = '';
             $scope.classd = '';
+            $scope.classe = '';
         } else if (a == 2) {
 
             $scope.classa = '';
             $scope.classb = "active-list";
             $scope.classc = "";
             $scope.classd = "";
+            $scope.classe = '';
 
         } else if (a == 3) {
 
@@ -1880,19 +1883,28 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
             $scope.classc = "active-list";
             $scope.classb = "";
             $scope.classd = "";
+            $scope.classe = '';
             $scope.filter.mediatype = "photo";
             $scope.filter.folder = $stateParams.name;
-            $scope.filter.year = "2015";
+            $scope.filter.year = "2016";
             $scope.filter.pagenumber = 1;
             console.log("filter", $scope.filter);
             $scope.loadMedia();
 
-        } else {
+        } else if (a == 4) {
 
             $scope.classa = '';
             $scope.classb = '';
             $scope.classd = "active-list";
             $scope.classc = "";
+            $scope.classe = '';
+        } else {
+            $scope.classa = '';
+            $scope.classb = '';
+            $scope.classd = "";
+            $scope.classc = "";
+            $scope.classe = 'active-list';
+
         }
     };
     $scope.video = [{
@@ -1917,7 +1929,7 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
     }];
     // $scope.photos = [
     //     'img/m1.jpg',
-    //     'img/m2.jpg',
+    //     'img/m2.jpg', 
     //     'img/m3.jpg',
     //     'img/m1.jpg',
     //     'img/m2.jpg',
@@ -2973,58 +2985,30 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
                         _.each($scope.studentStats, function (key) {
                             key.opponent = {};
                             key.self = {};
-                            console.log('LCK', key);
-                            // $scope.getLeagueKnockout = function () {
-                            NavigationService.getLeagueKnockout({
-                                sport: key.sport._id,
-                            }, function (response) {
-                                console.log('response', response);
-                                if (response.value) {
-                                    $scope.leagueknockouts = _.chain(response.data)
-                                        .groupBy("leagueknockoutround")
-                                        .toPairs()
-                                        .map(function (currentItem) {
-                                            currentItem[2] = currentItem[1][0].leagueknockoutorder;
-                                            return _.zipObject(["leagueknockoutround", "leagueknockouts", "leagueknockoutorder"], currentItem);
-                                        })
-                                        .value();
-                                    if (_.findIndex($scope.leagueknockouts, function (key) {
-                                            return key.leagueknockoutround == 'Final';
-                                        }) !== -1) {
-                                        $scope.knockouts = _.remove($scope.leagueknockouts, function (key) {
-                                            return key.leagueknockoutround == 'Final';
-                                        })[0];
-                                    }
-                                    //Standing code real Smart
-                                    $scope.studentStats.participants = [];
-                                    _.each($scope.leagueknockouts, function (lk) {
-                                        $scope.studentStats.participants = [];
-                                        _.each(lk.leagueknockouts, function (key) {
-                                            if (key[key.participantType + '1']) {
-                                                $scope.studentStats.participants.push({
-                                                    participant: key[key.participantType + '1'],
-                                                    point: key.point1,
-                                                    result: key.result1,
-                                                    participantType: key.participantType
-                                                });
-                                            }
-                                            if (key[key.participantType + '2']) {
-                                                $scope.studentStats.participants.push({
-                                                    participant: key[key.participantType + '2'],
-                                                    point: key.point2,
-                                                    result: key.result2,
-                                                    participantType: key.participantType
-                                                });
-                                            }
-                                            // $scope.studentStats.participant = participants;
-                                        });
-                                    });
-
-                                    console.log($scope.studentStats.participants);
-                                    console.log($scope.leagueknockouts, $scope.knockouts);
+                            console.log("layout", key);
+                            if (key.leagueknockout.participantType == 'player') {
+                                console.log("");
+                                if (key.leagueknockout[key.leagueknockout.participantType + '1']._id == $stateParams.id) {
+                                    console.log("here");
+                                    key.opponent.detail = key.leagueknockout[key.leagueknockout.participantType + '2'];
+                                    key.opponent.result = key.leagueknockout["result2"];
+                                    key.self.result = key.leagueknockout["result1"];
+                                } else {
+                                    key.opponent.detail = key.leagueknockout[key.leagueknockout.participantType + '1'];
+                                    key.opponent.result = key.leagueknockout["result1"];
+                                    key.self.result = key.leagueknockout["result2"];
                                 }
-                            });
-                            // };
+                            } else {
+                                if (key.leagueknockout[key.leagueknockout.participantType + '1']._id == key.team._id) {
+                                    key.opponent.detail = key.leagueknockout[key.leagueknockout.participantType + '2'];
+                                    key.opponent.result = key.leagueknockout["result2"];
+                                    key.self.result = key.leagueknockout["result1"];
+                                } else {
+                                    key.opponent.detail = key.leagueknockout[key.leagueknockout.participantType + '1'];
+                                    key.opponent.result = key.leagueknockout["result1"];
+                                    key.self.result = key.leagueknockout["result2"];
+                                }
+                            }
                         });
                     }
                 }
@@ -3385,35 +3369,40 @@ firstApp.controller('TeamDetailCtrl', function ($scope, TemplateService, Navigat
             if (response.value) {
                 $scope.teamStats = response.data;
                 console.log($scope.teamStats);
+                var drawF = "";
+                if ($scope.teamStats[0].drawFormat == 'Knockout') {
+                    drawF = "knockout";
+                } else {
+                    drawF = "leagueknockout"
+                }
                 if ($scope.teamStats) {
-                    if ($scope.teamStats[0].drawFormat == 'Knockout') {
+                    if ($scope.teamStats[0].drawFormat == 'Knockout' || $scope.teamStats[0].drawFormat == 'League cum Knockout') {
                         _.each($scope.teamStats, function (key) {
                             key.opponent = {};
                             key.self = {};
-                            if (key.knockout.participantType == 'player') {
-                                if (key.knockout[key.knockout.participantType + '1']._id == $stateParams.id) {
-                                    key.opponent.detail = key.knockout[key.knockout.participantType + '2'];
-                                    key.self.detail = key.knockout[key.knockout.participantType + '1'];
-                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '2'];
-                                    key.self.result = key.knockout["result" + key.knockout.participantType + '1'];
+                            if (key[drawF].participantType == 'player') {
+                                if (key[drawF][key[drawF].participantType + '1']._id == $stateParams.id) {
+                                    key.opponent.detail = key[drawF][key[drawF].participantType + '2'];
+                                    key.self.detail = key[drawF][key[drawF].participantType + '1'];
+                                    key.opponent.result = key[drawF]["result" + key[drawF].participantType + '2'];
+                                    key.self.result = drawF == "knockout" ? key[drawF]["result" + key[drawF].participantType + '1'] : key[drawF]["result1"];
                                 } else {
-                                    key.opponent.detail = key.knockout[key.knockout.participantType + '1'];
-                                    key.self.detail = key.knockout[key.knockout.participantType + '2'];
-                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '1'];
-                                    key.self.result = key.knockout["result" + key.knockout.participantType + '2'];
+                                    key.opponent.detail = key[drawF][key[drawF].participantType + '1'];
+                                    key.self.detail = key[drawF][key[drawF].participantType + '2'];
+                                    key.opponent.result = key[drawF]["result" + key[drawF].participantType + '1'];
+                                    key.self.result = drawF == "knockout" ? key[drawF]["result" + key[drawF].participantType + '2'] : key[drawF]["result2"];
                                 }
                             } else {
-                                console.log(key.knockout[key.knockout.participantType + '1']._id, $stateParams.id);
-                                if (key.knockout[key.knockout.participantType + '1']._id == $stateParams.id) {
-                                    key.opponent.detail = key.knockout[key.knockout.participantType + '2'];
-                                    key.self.detail = key.knockout[key.knockout.participantType + '1'];
-                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '2'];
-                                    key.self.result = key.knockout["result" + key.knockout.participantType + '1'];
+                                if (key[drawF][key[drawF].participantType + '1']._id == $stateParams.id) {
+                                    key.opponent.detail = key[drawF][key[drawF].participantType + '2'];
+                                    key.self.detail = key[drawF][key[drawF].participantType + '1'];
+                                    key.opponent.result = key[drawF]["result" + key[drawF].participantType + '2'];
+                                    key.self.result = drawF == "knockout" ? key[drawF]["result" + key[drawF].participantType + '1'] : key[drawF]["result1"];
                                 } else {
-                                    key.opponent.detail = key.knockout[key.knockout.participantType + '1'];
-                                    key.self.detail = key.knockout[key.knockout.participantType + '2'];
-                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '1'];
-                                    key.self.result = key.knockout["result" + key.knockout.participantType + '2'];
+                                    key.opponent.detail = key[drawF][key[drawF].participantType + '1'];
+                                    key.self.detail = key[drawF][key[drawF].participantType + '2'];
+                                    key.opponent.result = key[drawF]["result" + key[drawF].participantType + '1'];
+                                    key.self.result = drawF == "knockout" ? key[drawF]["result" + key[drawF].participantType + '2'] : key[drawF]["result2"];
                                 }
                             }
                         });
@@ -3888,7 +3877,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope)
         }, {
             "img": "img/footer/p4.jpg",
             "href": "",
-            "game": "Energy Drinks Partner"
+            "game": "Hydration partner"
         }, {
             "img": "img/footer/n3.jpg",
             "href": "",
@@ -3912,7 +3901,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope)
         }, {
             "img": "img/footer/p4.jpg",
             "href": "",
-            "game": "Energy Drinks Partner"
+            "game": "Hydration partner"
         }, {
             "img": "img/footer/n3.jpg",
             "href": "",
