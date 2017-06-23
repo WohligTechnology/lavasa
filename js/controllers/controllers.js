@@ -2556,6 +2556,16 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
 
                         });
 
+                    } else if ($scope.schoolStats[0].drawFormat == 'Heats') {
+                        _.each($scope.schoolStats, function (key) {
+                            key.self = {};
+                            _.each(key.heat.heats, function (single) {
+                                var schoolid = single.player ? single.player.school._id : single.team.school._id;
+                                if (schoolid == $stateParams.id) {
+                                    key.self = single;
+                                }
+                            });
+                        });
                     }
                     console.log($scope.schoolStats);
                 }
