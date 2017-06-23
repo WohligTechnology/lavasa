@@ -216,7 +216,8 @@ student’s blog
                                             <span>OPPONENT NAME</span>
                                         </th>
                                         <th>
-                                            <span>score</span>
+                                            <span>{{table.layout == 'Heats' ? 'Timing' : 'Score'}}</span>
+
                                         </th>
                                         <th>
                                             <span>result</span>
@@ -251,7 +252,7 @@ student’s blog
                                         <td>
                                             <div class="text-center display-inline ver-mid ">
                                                 <div class="sf-play">
-                                                    <span>{{table.layout == 'Knockout'&& stat.self.result || table.layout == 'Heats' && ((stat.self.standing | ordinal)+' / '+stat.self.timing) || (table.layout == 'League' && stat.self.result) || (table.layout == 'League cum Knockout' && stat.self.result) || ""}}</span>
+                                                    <span>{{table.layout == 'Knockout'&& stat.self.result || table.layout == 'Heats' && ((stat.self.standing || ordinal)+' / '+stat.self.result) || (table.layout == 'League' && stat.self.result) || (table.layout == 'League cum Knockout' && stat.self.result) || ""}}</span>
                                                 </div>
                                                 <div class="replay-img " ng-if="stat.knockout.video || stat.heat.video || stat.league.video || stat.leagueknockout.video">
                                                     <a class="various fancybox.iframe" href="https://www.youtube.com/embed/{{stat.knockout.video || stat.heat.video || stat.league.video || stat.leagueknockout.video}}?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1"
