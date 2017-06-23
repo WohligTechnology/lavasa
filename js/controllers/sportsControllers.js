@@ -139,8 +139,9 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.selectService = selectService;
-    $scope.selectService.sportId = $stateParams.id;
+    $scope.selectService.sportsId = $stateParams.id;
     $scope.ageGroup = [];
+    $scope.formData = {};
     $scope.selectAthlete = [];
     $scope.maleAgeGrp = [];
     $scope.femaleAgeGrp = [];
@@ -334,9 +335,10 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
         }
     };
 
-    $scope.next = function () {
-        selectService.next('confirmteam', $scope.teamMembers);
-    };
+    if ($scope.selectService && $scope.selectService.ageGroup) {
+        $scope.constraints.gender = $scope.selectService.gender;
+        $scope.filterAge($scope.selectService.ageGroup);
+    }
 
 
 
