@@ -2517,39 +2517,55 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
             if (response.value) {
                 $scope.schoolStats = response.data;
                 // console.log($scope.schoolStats);
+                var drawF = "";
+                if ($scope.schoolStats[0].drawFormat == 'Knockout') {
+                    drawF = "knockout";
+                } else {
+                    drawF = "leagueknockout"
+                }
                 if ($scope.schoolStats) {
-                    if ($scope.schoolStats[0].drawFormat == 'Knockout') {
+                    if ($scope.schoolStats[0].drawFormat == 'Knockout' || $scope.schoolStats[0].drawFormat == 'League cum Knockout') {
                         _.each($scope.schoolStats, function (key) {
                             key.opponent = {};
                             key.self = {};
-                            if (key.knockout.participantType == 'player') {
-                                if (key.knockout[key.knockout.participantType + '1'] && key.knockout[key.knockout.participantType + '1'].school._id == $stateParams.id) {
-                                    key.opponent.detail = key.knockout[key.knockout.participantType + '2'];
-                                    key.self.detail = key.knockout[key.knockout.participantType + '1'];
-                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '2'];
-                                    key.self.result = key.knockout["result" + key.knockout.participantType + '1'];
+                            if (key[drawF].participantType == 'player') {
+                                if (key[drawF][key[drawF].participantType + '1'] && key[drawF][key[drawF].participantType + '1'].school._id == $stateParams.id) {
+                                    key.opponent.detail = key[drawF][key[drawF].participantType + '2'];
+                                    key.self.detail = key[drawF][key[drawF].participantType + '1'];
+                                    key.opponent.result = drawF == "knockout" ? key[drawF]["result" + key[drawF].participantType + '2'] : key[drawF]["result2"];
+                                    key.self.result = drawF == "knockout" ? key[drawF]["result" + key[drawF].participantType + '1'] : key[drawF]["result1"];
                                 } else {
-                                    key.opponent.detail = key.knockout[key.knockout.participantType + '1'];
-                                    key.self.detail = key.knockout[key.knockout.participantType + '2'];
-                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '1'];
-                                    key.self.result = key.knockout["result" + key.knockout.participantType + '2'];
+                                    key.opponent.detail = key[drawF][key[drawF].participantType + '1'];
+                                    key.self.detail = key[drawF][key[drawF].participantType + '2'];
+                                    key.opponent.result = drawF == "knockout" ? key[drawF]["result" + key[drawF].participantType + '1'] : key[drawF]["result1"];
+                                    key.self.result = drawF == "knockout" ? key[drawF]["result" + key[drawF].participantType + '2'] : key[drawF]["result2"];
                                 }
                             } else {
-                                if (key.knockout[key.knockout.participantType + '1'] && key.knockout[key.knockout.participantType + '1'].school._id == key.team.school._id) {
-                                    key.opponent.detail = key.knockout[key.knockout.participantType + '2'];
-                                    key.self.detail = key.knockout[key.knockout.participantType + '1'];
-                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '2'];
-                                    key.self.result = key.knockout["result" + key.knockout.participantType + '1'];
+                                if (key[drawF][key[drawF].participantType + '1'] && key[drawF][key[drawF].participantType + '1'].school._id == key.team.school._id) {
+                                    key.opponent.detail = key[drawF][key[drawF].participantType + '2'];
+                                    key.self.detail = key[drawF][key[drawF].participantType + '1'];
+                                    key.opponent.result = drawF == "knockout" ? key[drawF]["result" + key[drawF].participantType + '2'] : key[drawF]["result2"];
+                                    key.self.result = drawF == "knockout" ? key[drawF]["result" + key[drawF].participantType + '1'] : key[drawF]["result1"];
                                 } else {
-                                    key.opponent.detail = key.knockout[key.knockout.participantType + '1'];
-                                    key.self.detail = key.knockout[key.knockout.participantType + '2'];
-                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '1'];
-                                    key.self.result = key.knockout["result" + key.knockout.participantType + '2'];
+                                    key.opponent.detail = key[drawF][key[drawF].participantType + '1'];
+                                    key.self.detail = key[drawF][key[drawF].participantType + '2'];
+                                    key.opponent.result = drawF == "knockout" ? key[drawF]["result" + key[drawF].participantType + '1'] : key[drawF]["result1"];
+                                    key.self.result = drawF == "knockout" ? key[drawF]["result" + key[drawF].participantType + '2'] : key[drawF]["result2"];
                                 }
                             }
 
                         });
 
+                    } else if ($scope.schoolStats[0].drawFormat == 'Heats') {
+                        _.each($scope.schoolStats, function (key) {
+                            key.self = {};
+                            _.each(key.heat.heats, function (single) {
+                                var schoolid = single.player ? single.player.school._id : single.team.school._id;
+                                if (schoolid == $stateParams.id) {
+                                    key.self = single;
+                                }
+                            });
+                        });
                     }
                     console.log($scope.schoolStats);
                 }
