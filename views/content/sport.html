@@ -14,7 +14,7 @@
                         <div class="tab-list sf-list text-up mob-tb">
                             <ul class="padding0 margin0">
                                 <li><a href="" ng-click="tabchange('rules',5)" class="{{classe}} font16">
-Rules and Regulation
+Rules and Regulations
 </a></li>
                                 <li><a href="" ng-click="tabchange('2016',1);getWinners('2016')" class="{{classa}} font16">
 sfa mumbai 2016 <span ng-if="winners['2016'].length > 0">winners</span>
@@ -683,6 +683,17 @@ sport’s bio
 
     </div> -->
                     </div>
+                    <div class="bio" ng-show="tab=='rules'">
+                        <div class="row">
+                            <div class="text-center">
+                                <h3 class="color-blue text-up font-semi f18-m">{{sport.sportid.name}} Rules And Regulations</h3>
+                            </div>
+                            <!--<div class="col-md-12 col-sm-12 col-xs-12">-->
+                            <rules class="ruleDirective" ng-repeat="items in ruleArray track by $index" value="items">
+                            </rules>
+                            <!--</div>-->
+                        </div>
+                    </div>
                     <div class="gallery" ng-show="tab=='gallerys'">
                         <div class="row">
                             <div class="text-center">
@@ -704,11 +715,11 @@ sport’s bio
                                 <div class="tab-list sf-list text-up oth-m">
                                     <ul class="padding0 margin0">
                                         <li><a href="" ng-click="media('photo',1)" class="{{classes.classp}}">
-          photos
-          </a></li>
+                        photos
+                        </a></li>
                                         <li><a href="" ng-click="media('video',1)" class="{{classes.classv}}">
-          match videos
-          </a></li>
+                        match videos
+                        </a></li>
                                     </ul>
                                 </div>
                                 <hr class="hr-padding" ng-if="mediaArr.data.length > 0">

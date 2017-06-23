@@ -32,7 +32,9 @@
           <div class="scrollbar style-1" ng-if="sportsRulesAndRegulation.rules.rulesAndRegulation || sportsRulesAndRegulation.rules.rulesAndRegulation !== ''">
             <div class="spt-para">
               <!--<p ng-bind-html="termsandCondition"></p>-->
-              <p ng-bind-html="sportsRulesAndRegulation.rules.rulesAndRegulation"></p>
+              <!--<p ng-bind-html="sportsRulesAndRegulation.rules.rulesAndRegulation"></p>-->
+              <rules class="ruleDirective" ng-repeat="items in ruleArray track by $index" value="items">
+              </rules>
             </div>
           </div>
           <div class="text-center" ng-if="!sportsRulesAndRegulation.rules.rulesAndRegulation">

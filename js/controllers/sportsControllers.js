@@ -96,6 +96,9 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
                 if (!allData.message) {
                     if (allData.value) {
                         $scope.sportsRulesAndRegulation = allData.data;
+                        $scope.ruleArray = [];
+                        $scope.ruleArray.push(allData.data.rules);
+                        console.log('temp', $scope.ruleArray);
                     } else {
                         console.log("no data found");
                     }

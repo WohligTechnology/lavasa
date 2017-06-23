@@ -701,6 +701,20 @@ firstApp.directive('capitalize', function ($parse) {
     };
 });
 
+firstApp.directive('rules', function ($document, $uibModal, $state, toastr) {
+    return {
+        restrict: 'E',
+        replace: false,
+        templateUrl: "views/directive/rules.html",
+        scope: {
+            items: "=value"
+        },
+        link: function (scope, element, attr) {
+            console.log('enter');
+
+        }
+    };
+});
 // firstApp.directive('onlyDigits', function () {
 //     return {
 //         require: 'ngModel',

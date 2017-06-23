@@ -644,6 +644,17 @@ firstApp.factory('NavigationService', function ($http, $window) {
             }).then(callback);
         },
 
+        getOneRuleBySportsName: function (name, callback) {
+            var data = {
+                sportName: name
+            };
+            $http({
+                url: adminUrl2 + 'SportsListSubCategory/getOneRuleBySportsName',
+                method: 'POST',
+                data: data
+            }).then(callback);
+        },
+
         getSports: function (id, callback) {
             var data = {
                 _id: id
