@@ -2,7 +2,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state) {
 
     this.team = [];
     this.sportsId = null;
-    this.gender = null;
+    this.gender = 'male';
     this.ageGroup = null;
 
     //make .checked to true if already selected
@@ -29,7 +29,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state) {
             var temp = _.find(listOfAthlete, ['_id', obj._id]);
             temp.checked = false;
         }
-    }
+    };
 
     this.modifyDataIfInTeam = function (obj) {
         alert();
@@ -41,21 +41,35 @@ firstApp.service('selectService', function ($http, TemplateService, $state) {
     this.getAgeGroupByAthelete = function (athelete, sports) {
         // athlete birthdate
         // _.filter(sports,between athlete birthdate and filter by gender as well);
-    }
+    };
 
     this.getSportFromFilters = function (filter, sports) {
         // filter to find sports list for all
-    }
+    };
 
     this.formatDataForSending = function () {
         // _.map();
-    }
+    };
+
+    this.goNext = function (state, gender, age) {
+        console.log(state, gender, age, "---------Gonext service----------");
+        this.gender = gender;
+        this.ageGroup = age;
+        $state.go(state);
+    };
+
+    this.editTeam = function (state) {
+        console.log(state, this.sportsId, "---------editTeam service----------");
+        $state.go(state, {
+            'id': this.sportsId
+        });
+    };
 
     this.reset = function () {
         this.team = [];
         this.sportsId = null;
-        this.gender = null;
+        this.gender = 'male';
         this.ageGroup = null;
-    }
+    };
 
 });

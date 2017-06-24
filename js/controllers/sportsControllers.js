@@ -139,8 +139,9 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.selectService = selectService;
-    $scope.selectService.sportId = $stateParams.id;
+    $scope.selectService.sportsId = $stateParams.id;
     $scope.ageGroup = [];
+    $scope.formData = {};
     $scope.selectAthlete = [];
     $scope.maleAgeGrp = [];
     $scope.femaleAgeGrp = [];
@@ -334,15 +335,19 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
         }
     };
 
-    $scope.next = function () {
-        selectService.next('confirmteam', $scope.teamMembers);
-    };
+    // $scope.next = function () {
+    //     selectService.next('confirmteam', $scope.teamMembers);
+    // };
+    if ($scope.selectService && $scope.selectService.ageGroup) {
+        $scope.constraints.gender = $scope.selectService.gender;
+        $scope.filterAge($scope.selectService.ageGroup);
+    }
 
 
 
 });
 
-firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, toastr, $timeout, loginService) {
+firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService, errorService, $state, NavigationService, $stateParams, toastr, $timeout, loginService) {
     $scope.template = TemplateService.changecontent("individual-selection");
     $scope.menutitle = NavigationService.makeactive("Individual Selection");
     TemplateService.header = "views/header2.html";
@@ -383,6 +388,40 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
         $scope.getAthletePerSchoolObj.school = $.jStorage.get("schoolName");
     }
 
+    $scope.sortGenderWise = function (gender) {
+        $scope.showAgeObj = '';
+        console.log("gender", gender);
+        if (gender == "Female") {
+            $scope.showFemale = true;
+            $scope.showMale = false;
+        } else {
+            $scope.showMale = true;
+            $scope.showFemale = false;
+        }
+    };
+
+    if ($stateParams.id) {
+        NavigationService.getSports($stateParams.id, function (data) {
+
+
+            errorService.errorCode(data, function (allData) {
+                if (!allData.message) {
+                    $scope.getSports = allData.data.results;
+                    $scope.sportTitle = allData.data.sportName;
+                    NavigationService.setSportTitle($scope.sportTitle);
+                    $scope.maleAgeGrp = _.cloneDeep($scope.getSports.Male);
+                    $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.Female);
+                    console.log($scope.maleAgeGrp, "$scope.maleAgeGrp");
+                    console.log("$scope.femaleAgeGrp", $scope.femaleAgeGrp);
+                    $scope.sortGenderWise('Male');
+                } else {
+                    $scope.isDisabled = false;
+                    toastr.error(allData.message, 'Error Message');
+                }
+            });
+
+        });
+    }
     $scope.selectAthlete = [{
         firstName: 'Harshit',
         lastName: 'Shah',
