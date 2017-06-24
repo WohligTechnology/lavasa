@@ -18,9 +18,6 @@
           <p class="mb0">&nbsp;{{detail.schoolName}}</p>
         </div>
       </div>
-      <ul class="list-inline">
-        <li ng-click="logoutCandidate();" ng-if="detail.isLoggedIn"><a>Logout</a></li>
-      </ul>
     </div>
   </div>
 </div>
@@ -37,7 +34,7 @@
               <button class="btn btn-default" type="submit" ui-sref="sports-selection"><b>Register another team or sport</b></button>
             </div>
             <div class="spc-btn">
-              <button class="btn btn-default " type="submit"><b>Log Out</b></button>
+              <button class="btn btn-default" ng-click="logoutCandidate();" type="submit"><b>Log Out</b></button>
             </div>
           </div>
         </div>

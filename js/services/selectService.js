@@ -2,7 +2,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state) {
 
     this.team = [];
     this.sportsId = null;
-    this.gender = 'male';
+    this.gender = null;
     this.ageGroup = null;
 
     //make .checked to true if already selected
@@ -51,22 +51,10 @@ firstApp.service('selectService', function ($http, TemplateService, $state) {
         // _.map();
     }
 
-    this.goNext=function(state,gender,age){
-        console.log(state,gender,age,"---------Gonext service----------"); 
-        this.gender=gender;
-        this.ageGroup=age;       
-        $state.go(state);
-    }
-
-    this.editTeam=function(state){
-        console.log(state,this.sportsId, "---------editTeam service----------");
-        $state.go(state,{'id':this.sportsId});
-    }
-
     this.reset = function () {
         this.team = [];
         this.sportsId = null;
-        this.gender = 'male';
+        this.gender = null;
         this.ageGroup = null;
     }
 

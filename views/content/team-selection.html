@@ -1,4 +1,4 @@
-<section class="selectAthletes" ng-init="formData.gender=(formData.gender!=null || formData.gender!='')?selectService.gender:'male';formData.ageGroup=(formData.ageGroup!=null || formData.ageGroup!='')?selectService.ageGroup:''">
+<section class="selectAthletes">
     <div class="container">
         <div class="row">
             <div class="col-md-offset-1 col-md-10 col-sm-12 col-xs-12">
@@ -37,9 +37,9 @@
                                             <!--control-label-->
                                             <label for="inputEmail3" class="col-md-2 col-sm-3 col-xs-12 para2">Select Gender</label>
                                             <div class="col-md-10 col-sm-9 col-xs-12">
-                                                <input type="radio" ng-model="formData.gender" id="radio04" name="radioMale" value="male" ng-checked="selectService.gender=='male'" required ng-change="sortGenderWise('male');selectService.gender='male'">
+                                                <input type="radio" ng-model="formData.gender" id="radio04" name="radioMale" value="Male" ng-checked="true" required ng-change="sortGenderWise('male');">
                                                 <label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
-                                                <input type="radio" ng-model="formData.gender" id="radio03" name="radioFemale" value="female" required ng-checked="selectService.gender=='female'" ng-change="sortGenderWise('female');selectService.ageGroup='female'">
+                                                <input type="radio" ng-model="formData.gender" id="radio03" name="radioFemale" value="Female" required ng-change="sortGenderWise('female');">
                                                 <label for="radio03" class="padd-lr sf-list"><span></span>Female</label>
                                             </div>
                                         </div>
@@ -52,7 +52,7 @@
 
                                             <div class="col-md-10 col-sm-9 col-xs-12" ng-if="showMale && maleAgeGrp.length>0">
                                                 <div class="display-inline w10" ng-repeat="data in maleAgeGrp track by $index">
-                                                    <input type="radio" id="{{data.ageData._id}}" name="radio1" value="{{data.ageData._id}}" required ng-checked="selectService.ageGroup==data.ageData._id" ng-click="filterAge(data.ageData._id,data.ageData.name);selectService.ageGroup=data.ageData._id"; ng-model='formData.ageGroup'>
+                                                    <input type="radio" id="{{data.ageData._id}}" name="radio1" value="{{data.ageData._id}}" required ng-click="filterAge(data.ageData._id,data.ageData.name);">
                                                     <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
                                                 </div>
                                                 <div ng-if="!maleAgeGrp">
@@ -131,7 +131,7 @@
                                                     <h4>No Athlete Found</h4>
                                                 </div>
                                                 <div class="mt15">
-                                                    <div class="col-md-4 col-sm-4 col-xs-12 mb15" ng-repeat="checked in listOfAthelete">
+                                                    <div class="col-md-4 col-sm-4 col-xs-12 mb15" ng-repeat="checked in listOfAthlete">
                                                         <div class="school-sec">
                                                             <div class="stu-img">
                                                                 <img ng-src="{{checked.atheleteSchoolIdImage | serverimage2 }}" class="img-responsive" alt="">
@@ -171,7 +171,7 @@
                                             </p>
                                         </div>
                                         <div class="player-selected">
-                                            <p>Players Selected: {{selectService.team.length}}</p>
+                                            <p>Players Selected: {{teamMembers.length}}</p>
                                         </div>
                                         <div class="selectedTeamTable table-responsive">
                                             <table class="table table-bordered">
@@ -225,7 +225,7 @@
                             </div>
                             <div class="row text-center mt25 mb-50">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <button class="btn btn-default width-86 sub-mit" type="button" ng-click="selectService.goNext('confirmteam',formData.gender,formData.ageGroup);" ng-disabled="disabledNextBtn">Next{{formData.gender}},{{formData.ageGroup}}</button>
+                                    <button class="btn btn-default width-86 sub-mit" type="button" ui-sref="confirmteam" ng-disabled="disabledNextBtn">Next</button>
                                 </div>
                             </div>
                         </div>
