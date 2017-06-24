@@ -49,8 +49,8 @@
                   </div>
                   <div class="form-group">
                     <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
-                      <div class="karate-table">
-                        <div class="selectedTeamTable table-responsive">
+                      <div class="athswm-table">
+                        <div class="selectedTeamTable table-responsive ">
 
                           <table class="table table-bordered">
                             <thead>
@@ -59,125 +59,45 @@
                               </th>
                               <th>SFA ID-Name</th>
                               <th>Gender</th>
-                              <th>Event 1</th>
-                              <th>Event 2</th>
-                              <th>Weight (Kumite)</th>
+                              <th>Age Group</th>
+                              <th>Event</th>
                             </thead>
                             <tbody>
-                              <tr>
+                              <tr ng-repeat="atswm in swnathTable track by $index">
                                 <td>
-                                  <div class="mid_cols">1</div>
+                                  <div class="mid_cols">{{$index+1}}</div>
                                 </td>
-                                <td>126 - Kunjal Rawal
+                                <td>
+                                  <div>{{atswm.name}}</div>
 
                                 </td>
                                 <td>
-                                  Male
+                                  <div>
+                                    {{atswm.gender}}
+                                  </div>
                                 </td>
                                 <td>
+                                  <div>
+                                    <select ng-model="eventSelected1" class="form-control" ng-options="item.name as item.name for item in atswm.filterList1 track by $index ">
 
-                                  <select class="form-control">
-                                     <option value="u-8">U-8 Karate</option>
-                                    <option value="u-10">U-10 Karate</option>
-                                    <option value="u-12">U-12 Karate</option>
-                                    <option value="u-14">U-14 Karate</option>
                                   </select>
+                                  </div>
                                 </td>
                                 <td>
+                                  <div class="custom-uiselect">
+                                    <ui-select name="selectfilter" multiple="" id="selectfilter" theme="bootstrap" ng-model="formData.event1">
+                                      <ui-select-match placeholder="Enter Filter">
+                                        {{$select.selected[$index].name}}
+                                      </ui-select-match>
+                                      <ui-select-choices repeat="item in atswm.filterList2 | filter:{name:$select.search}">
+                                        <span ng-bind-html="item.name"></span>
+                                      </ui-select-choices>
+                                    </ui-select>
+                                  </div>
 
-                                  <select class="form-control">
-                                     <option value="u-8">U-8 Kumite</option>
-                                    <option value="u-10">U-10 Kumite</option>
-                                    <option value="u-12">U-12 Kumite</option>
-                                    <option value="u-14">U-14 Kumite</option>
-                                  </select>
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                     <option value="28-kg">-28 kg</option>
-                                    <option value="30-kg">30 kg</option>
-                                    <option value="32-kg">32 kg</option>
-                                    <option value="34-kg">34 kg</option>
-                                  </select>
                                 </td>
                               </tr>
-                              <tr>
-                                <td>
-                                  <div class="mid_cols">2</div>
-                                </td>
-                                <td>126 - Kunjal Rawal
 
-                                </td>
-                                <td>
-                                  Male
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                               <option value="u-8">U-8 Karate</option>
-                                    <option value="u-10">U-10 Karate</option>
-                                    <option value="u-12">U-12 Karate</option>
-                                    <option value="u-14">U-14 Karate</option>
-                                  </select>
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                     <option value="u-8">U-8 Kumite</option>
-                                    <option value="u-10">U-10 Kumite</option>
-                                    <option value="u-12">U-12 Kumite</option>
-                                    <option value="u-14">U-14 Kumite</option>
-                                  </select>
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                     <option value="28-kg">-28 kg</option>
-                                    <option value="30-kg">30 kg</option>
-                                    <option value="32-kg">32 kg</option>
-                                    <option value="34-kg">34 kg</option>
-                                  </select>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="mid_cols">3</div>
-                                </td>
-                                <td>126 - Kunjal Rawal
-
-                                </td>
-                                <td>
-                                  Male
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                    <option value="u-8">U-8 Karate</option>
-                                    <option value="u-10">U-10 Karate</option>
-                                    <option value="u-12">U-12 Karate</option>
-                                    <option value="u-14">U-14 Karate</option>
-                                  </select>
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                     <option value="u-8">U-8 Kumite</option>
-                                    <option value="u-10">U-10 Kumite</option>
-                                    <option value="u-12">U-12 Kumite</option>
-                                    <option value="u-14">U-14 Kumite</option>
-                                  </select>
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                     <option value="28-kg">-28 kg</option>
-                                    <option value="30-kg">30 kg</option>
-                                    <option value="32-kg">32 kg</option>
-                                    <option value="34-kg">34 kg</option>
-                                  </select>
-                                </td>
-                              </tr>
                             </tbody>
                           </table>
 

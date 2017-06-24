@@ -73,7 +73,7 @@
 
                             </thead>
                             <tbody>
-                              <tr ng-repeat="member in fencingtable track by $index">
+                              <tr ng-repeat="member in archeryTable track by $index">
                                 <td>
                                   <div class="mid_cols">{{$index+1}}</div>
                                 </td>
@@ -89,42 +89,26 @@
                                 </td>
 
                                 <td>
-                                  <div class="custom-uiselect">
-                                    <ui-select name="selectfilter" multiple="" id="selectfilter" theme="bootstrap" ng-model="formData.event1">
-                                      <ui-select-match placeholder="Enter Filter">
-                                        {{$select.selected[$index].name}}
-                                      </ui-select-match>
-                                      <ui-select-choices repeat="item in member.filterList1 | filter:{name:$select.search}">
-                                        <span ng-bind-html="item.name"></span>
-                                      </ui-select-choices>
-                                    </ui-select>
+                                  <div>
+                                    <select class="form-control" ng-model="eventSelected" ng-options="item.name as item.name for item in member.filterList1 track by $index">
+                                    
+                                  </select>
                                   </div>
+                                </td>
+                                <td>
+                                  <div>
+                                    <select class="form-control" ng-model="eventSelected2" ng-options="item.name as item.name for item in member.filterList2 track by $index">
+                                  </select>
+                                  </div>
+
+
+                                </td>
+                                <!--hidden-->
+                                <td>
+                                  <select class="form-control" ng-model="eventSelected3" ng-options="item.name as item.name for item in member.filterList3 track by $index">
+                                  </select>
                                 </td>
 
-                                <td>
-                                  <div class="custom-uiselect">
-                                    <ui-select name="selectfilter" multiple="" id="selectfilter" theme="bootstrap" ng-model="formData.event2">
-                                      <ui-select-match placeholder="Enter Filter">
-                                        {{$select.selected[$index].name}}
-                                      </ui-select-match>
-                                      <ui-select-choices repeat="item in member.filterList2 | filter:{name:$select.search}">
-                                        <span ng-bind-html="item.name"></span>
-                                      </ui-select-choices>
-                                    </ui-select>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div class="custom-uiselect">
-                                    <ui-select name="selectfilter" multiple="" id="selectfilter" theme="bootstrap" ng-model="formData.event3">
-                                      <ui-select-match placeholder="Enter Filter">
-                                        {{$select.selected[$index].name}}
-                                      </ui-select-match>
-                                      <ui-select-choices repeat="item in member.filterList3 | filter:{name:$select.search}">
-                                        <span ng-bind-html="item.name"></span>
-                                      </ui-select-choices>
-                                    </ui-select>
-                                  </div>
-                                </td>
                                 <!--</tr>
                               <tr>
                                 <td>
@@ -149,7 +133,7 @@
                                     <option value="u-14">U-14 EPEE</option>
                                     <option value="u-17">U-17 EPEE</option>
                                   </select>
-                                  </div>
+                                </div>
                                 </td>
                                 <td>
                                   <div>

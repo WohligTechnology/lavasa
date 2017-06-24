@@ -7079,7 +7079,9 @@ h1.forgot-space {
 //start confirm-karate ,//individual-table
 .karate-table,
 .individual-table,
-.fencing-table {
+.fencing-table,
+.relay-table,
+.athswm-table {
     .selectedTeamTable {
         .table {
             border-spacing: 5px 5px;
@@ -7114,7 +7116,22 @@ h1.forgot-space {
     }
 }
 
-.fencing-table {
+//table-scroll for all confirm-table
+.athswm-table {
+     ::-webkit-scrollbar {
+        // height: 4px;
+        width: 6px;
+    }
+     ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+     ::-webkit-scrollbar-thumb {
+        background-color: #555 !important;
+    }
+}
+
+.fencing-table,
+.athswm-table {
     .selectedTeamTable {
         .table {
             tbody {
@@ -7135,6 +7152,7 @@ h1.forgot-space {
     .custom-uiselect {
          ::-webkit-scrollbar {
             height: 4px;
+            width: 6px;
         }
          ::-webkit-scrollbar-track {
             background-color: transparent;
@@ -7157,6 +7175,9 @@ h1.forgot-space {
 
 .custom-uiselect {
     .ui-select-multiple {
+        .dropdown-menu {
+            left: 0px !important;
+        }
         div {
             width: 100%;
             overflow-x: auto;
