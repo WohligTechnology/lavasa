@@ -143,6 +143,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     $scope.ageGroup = [];
     $scope.formData = {};
     $scope.selectAthlete = [];
+    $scope.listOfAthelete = [];
     $scope.maleAgeGrp = [];
     $scope.femaleAgeGrp = [];
     $scope.constraints = {};
@@ -180,7 +181,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
 
 
 
-    // *****FOR GETTING ATHLETES *****
+    // *****for getting all athletes*****
     $scope.athletePerSchool = function (getAthletePerSchoolObj, search) {
         if ($scope.busy) return;
         $scope.busy = true;
@@ -199,6 +200,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                                 $scope.selectAthlete.push(value);
                                 $scope.busy = false;
                             });
+
                             $scope.listOfAthelete = $scope.selectService.isAtheleteSelected($scope.selectAthlete);
                         }
                     }
@@ -212,7 +214,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
 
 
 
-    // *****FOR GETTING SPORT ID*****
+    // *****for getting one sportId*****
     $scope.getSportId = function (constraints) {
         NavigationService.getOneSportForRegistration(constraints, function (data) {
             errorService.errorCode(data, function (allData) {
@@ -220,6 +222,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                     if (allData.value) {
                         $scope.showMsg = true;
                         $scope.selectAthlete = [];
+                        $scope.listOfAthelete = [];
                         $scope.getAthletePerSchoolObj.sport = allData.data.sport;
                         NavigationService.setSportId(allData.data.sport);
                         $scope.minPlayer = allData.data.minplayer;
@@ -234,7 +237,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                         $scope.isLoading = false;
                         $scope.showMsg = false;
                         if (allData.error === "Max Team Created") {
-                            toastr.info("Maximum Team is Already Created");
+                            toastr.error("Maximum Team is Already Created", 'Error Message');
                         }
 
                     }
@@ -246,7 +249,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
         });
     };
 
-    //***** FOR FILTERING AGE GROUP *****
+    //***** for getting age group *****
     $scope.filterAge = function (ageId, ageName) {
         $scope.showAgeObj = '';
         $scope.isLoading = true;
@@ -259,7 +262,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
         $scope.getSportId($scope.constraints);
     };
 
-    // *****SEARCH BY SFAID *****
+    // *****search by sfaId*****
     $scope.searchaBysfaId = function (serach) {
         $scope.selectAthlete = [];
         $scope.busy = false;
@@ -267,37 +270,38 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
         $scope.athletePerSchool($scope.getAthletePerSchoolObj);
         // $scope.editTeam();
     };
-    // *****FOR LOADING MORE DATA *****
+    // *****for loading more data *****
     $scope.loadMore = function () {
         $scope.getAthletePerSchoolObj.page++;
         console.log("$scope.getAthletePerSchoolObj", $scope.getAthletePerSchoolObj);
         $scope.athletePerSchool($scope.getAthletePerSchoolObj);
     };
-    //    *****SORTING AGE GENDERWISE*****
+    //    *****sorting age genderwise*****
     $scope.sortGenderWise = function (gender) {
         $scope.showAgeObj = '';
         console.log("gender", gender);
         if (gender == "female") {
             $scope.showFemale = true;
             $scope.showMale = false;
-            // $scope.ageGroup = [];
-            // $scope.ageGroup = $scope.femaleAgeGrp;
+            $scope.selectAthlete = [];
+            $scope.listOfAthelete = [];
+            // selectService.team = [];
             $scope.constraints.gender = gender;
             NavigationService.setGender($scope.constraints.gender);
             $scope.getAthletePerSchoolObj.gender = gender;
         } else {
+            // selectService.team = [];
+            $scope.selectAthlete = [];
+            $scope.listOfAthelete = [];
             $scope.showMale = true;
             $scope.showFemale = false;
-            // console.log("im in else");
-            // $scope.ageGroup = [];
-            // $scope.ageGroup = $scope.maleAgeGrp;
             $scope.constraints.gender = gender;
             $scope.getAthletePerSchoolObj.gender = gender;
             NavigationService.setGender($scope.constraints.gender);
 
         }
     };
-    //  *****GETTING ALL AGE GROUP ***** 
+    //  *****getting all age group ***** 
     if ($stateParams.id) {
         NavigationService.getSports($stateParams.id, function (data) {
             errorService.errorCode(data, function (allData) {
@@ -307,6 +311,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                     NavigationService.setSportTitle($scope.sportTitle);
                     $scope.maleAgeGrp = _.cloneDeep($scope.getSports.male);
                     $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.female);
+                    console.log($scope.femaleAgeGrp, "$scope.femaleAgeGrp");
                     $scope.sortGenderWise('male');
                 } else {
                     $scope.isDisabled = false;
@@ -327,12 +332,20 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     // };
 
     $scope.maxPlayerAllow = function () {
-        if ($scope.teamMembers.length <= $scope.maxPlayer && $scope.teamMembers.length >= $scope.minPlayer) {
+        $scope.maxPlayer = 3;
+        $scope.minPlayer = 2;
+
+        console.log("selectService.team", selectService.team.length);
+        if (selectService.team.length >= $scope.minPlayer && selectService.team.length <= $scope.maxPlayer) {
             $scope.disabledNextBtn = true;
         } else {
-            toastr.info('Kindly select a minimum of' + $scope.minPlayer + ' ' + 'players and a maximum of' + ' ' + $scope.maxPlayer + ' ' + 'players', 'Error Message');
             $scope.disabledNextBtn = false;
         }
+        if (selectService.team.length > $scope.maxPlayer) {
+            toastr.error('Kindly select a minimum of' + ' ' + ' ' + $scope.minPlayer + ' ' + 'players and a maximum of' + ' ' + $scope.maxPlayer + ' ' +
+                'players');
+        }
+
     };
 
     // $scope.next = function () {
@@ -392,11 +405,16 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
         $scope.showAgeObj = '';
         console.log("gender", gender);
         if (gender == "Female") {
+            console.log("im im");
             $scope.showFemale = true;
             $scope.showMale = false;
+            $scope.selectAthlete = [];
+            $scope.listOfAthelete = [];
         } else {
             $scope.showMale = true;
             $scope.showFemale = false;
+            $scope.selectAthlete = [];
+            $scope.listOfAthelete = [];
         }
     };
 
@@ -409,11 +427,11 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
                     $scope.getSports = allData.data.results;
                     $scope.sportTitle = allData.data.sportName;
                     NavigationService.setSportTitle($scope.sportTitle);
-                    $scope.maleAgeGrp = _.cloneDeep($scope.getSports.Male);
-                    $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.Female);
+                    $scope.maleAgeGrp = _.cloneDeep($scope.getSports.male);
+                    $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.female);
                     console.log($scope.maleAgeGrp, "$scope.maleAgeGrp");
                     console.log("$scope.femaleAgeGrp", $scope.femaleAgeGrp);
-                    $scope.sortGenderWise('Male');
+                    $scope.sortGenderWise('male');
                 } else {
                     $scope.isDisabled = false;
                     toastr.error(allData.message, 'Error Message');
@@ -550,6 +568,7 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
             key.isCaptain = false;
         });
         $scope.teamMembers[index].isCaptain = true;
+        $scope.teamMembers[index].isCap = 'Capt';
     };
 
     $scope.isGoalKeeperFun = function (index) {
@@ -572,19 +591,19 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
         if (isCapObj !== undefined && isGoalKeeperObj !== undefined) {
             $scope.confirmTeamObject.athleteTeam = _.cloneDeep($scope.teamMembers);
             console.log($scope.confirmTeamObject, "$scope.confirmTeamObject");
-            // NavigationService.teamConfirm($scope.confirmTeamObject, function (data) {
-            //     errorService.errorCode(data, function (allData) {
-            //         if (!allData.message) {
-            //             if (allData.value) {
-            //                 toastr.success("Successfully Confirmed", 'Success Message');
-            //                 NavigationService.setSportId(null);
-            //                 $state.go("sports-congrats");
-            //             }
-            //         } else {
-            //             toastr.error(allData.message, 'Error Message');
-            //         }
-            //     });
-            // });
+            NavigationService.teamConfirm($scope.confirmTeamObject, function (data) {
+                errorService.errorCode(data, function (allData) {
+                    if (!allData.message) {
+                        if (allData.value) {
+                            toastr.success("Successfully Confirmed", 'Success Message');
+                            NavigationService.setSportId(null);
+                            $state.go("sports-congrats");
+                        }
+                    } else {
+                        toastr.error(allData.message, 'Error Message');
+                    }
+                });
+            });
         }
 
     };
@@ -594,7 +613,7 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
 
 });
 
-//Confirm-Individual
+//Confirm-Fencing
 firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService) {
     //Used to name the .html file
 
@@ -604,6 +623,7 @@ firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, Nav
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
+    //fencing-data
     $scope.fencingtable = [{
         name: '126 - Kunjal Rawal',
         gender: 'Male',
@@ -615,18 +635,18 @@ firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, Nav
             name: 'U-17 EPEE'
         }],
         filterList2: [{
-            name: 'U-12 sparle'
+            name: 'U-12 SABER'
         }, {
-            name: 'U-14 sparle'
+            name: 'U-14 SABER'
         }, {
-            name: 'U-17 sparle'
+            name: 'U-17 SABER'
         }],
         filterList3: [{
-            name: 'U-12 EPEE'
+            name: 'U-12 FOIL'
         }, {
-            name: 'U-14 EPEE'
+            name: 'U-14 FOIL'
         }, {
-            name: 'U-17 EPEE'
+            name: 'U-17 FOIL'
         }]
     }, {
         name: '126 - Kunjal Rawal',
@@ -639,28 +659,63 @@ firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, Nav
             name: 'U-17 EPEE'
         }],
         filterList2: [{
-            name: 'U-12 EPEE'
+            name: 'U-12 SABER'
         }, {
-            name: 'U-14 EPEE'
+            name: 'U-14 SABER'
         }, {
-            name: 'U-17 EPEE'
+            name: 'U-17 SABER'
         }],
         filterList3: [{
-            name: 'U-12 sparle'
+            name: 'U-12 FOIL'
         }, {
-            name: 'U-14 sparle'
+            name: 'U-14 FOIL'
         }, {
-            name: 'U-17 sparle'
+            name: 'U-17 FOIL'
         }]
     }]
-    // $scope.filterList = [];
-    // $scope.filterList = [{
-    //     name: 'U-12 EPEE'
-    // }, {
-    //     name: 'U-14 EPEE'
-    // }, {
-    //     name: 'U-17 EPEE'
-    // }]
+    //end fencing
+    //archery-data
+    $scope.archeryTable = [{
+        name: '126 - Kunjal Rawal',
+        gender: 'Male',
+        filterList1: [{
+            name: 'U-10 Indian bow'
+        }, {
+            name: 'U-14 Indian bow'
+        }, {
+            name: 'U-17 Indian bow'
+        }],
+        filterList2: [{
+            name: 'U-14 Recurve bow'
+        }, {
+            name: 'U-17 Recurve bow'
+        }, {
+            name: 'U-14 Compound bow'
+        }, {
+            name: 'U-17 Compound bow'
+        }]
+    }, {
+        name: '126 - Kunjal Rawal',
+        gender: 'Female',
+        filterList1: [{
+            name: 'U-10 Indian bow'
+        }, {
+            name: 'U-14 Indian bow'
+        }, {
+            name: 'U-17 Indian bow'
+        }],
+        filterList2: [{
+            name: 'U-14 Recurve bow'
+        }, {
+            name: 'U-17 Recurve bow'
+        }, {
+            name: 'U-14 Compound bow'
+        }, {
+            name: 'U-17 Compound bow'
+        }]
+    }];
+    //end-archery
+
     // // $scope.formData = {};
     // loginService.loginGet(function (data) {
     //     $scope.detail = data;
