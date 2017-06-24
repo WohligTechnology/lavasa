@@ -7115,16 +7115,55 @@ h1.forgot-space {
 }
 
 .fencing-table {
-    .custom-uiselect {
-        .ui-select-multiple {
-            div {
-                width: 100%;
-                overflow-x: auto;
-                overflow-y: hidden;
-                white-space: nowrap;
-                input {
-                    width: auto !important;
+    .selectedTeamTable {
+        .table {
+            tbody {
+                tr {
+                    td {
+                        &:nth-child(n+4) {
+                            padding: 0px !important;
+                            max-width: 180px;
+                        }
+                    }
                 }
+            }
+        }
+    }
+    .custom-uiselect>div {
+        border: none;
+    }
+    .custom-uiselect {
+         ::-webkit-scrollbar {
+            height: 4px;
+        }
+         ::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+         ::-webkit-scrollbar-thumb {
+            background-color: #555;
+        }
+        .ui-select-multiple>div {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            input[type="search"] {
+                width: auto !important;
+                border: none !important;
+            }
+        }
+    }
+}
+
+.custom-uiselect {
+    .ui-select-multiple {
+        div {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            input {
+                width: auto !important;
             }
         }
     }
