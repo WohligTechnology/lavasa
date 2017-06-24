@@ -686,11 +686,17 @@ sport’s bio
                     <div class="bio" ng-show="tab=='rules'">
                         <div class="row">
                             <div class="text-center">
-                                <h3 class="color-blue text-up font-semi f18-m">{{sport.sportid.name}} Rules And Regulations</h3>
+                                <h3 class="color-blue text-up font-semi f18-m">{{sport.sportid.name}} Rules & Regulations</h3>
                             </div>
                             <!--<div class="col-md-12 col-sm-12 col-xs-12">-->
-                            <rules class="ruleDirective" ng-repeat="items in ruleArray track by $index" value="items">
+                            <rules ng-if="ruleArray.length > 0" class="ruleDirective" ng-repeat="items in ruleArray track by $index" value="items">
                             </rules>
+                            <div class="text-center" ng-if="ruleArray.length <= 0">
+                                <h4 class="color-blue text-up font-semi">{{sport.sportid.name}} Rules & Regulations Updating Soon.</h4>
+                            </div>
+                            <div class="text-center" ng-if="ruleArray.length == undefined">
+                                <h4 class="color-blue text-up font-semi">Loading Data</h4>
+                            </div>
                             <!--</div>-->
                         </div>
                     </div>
