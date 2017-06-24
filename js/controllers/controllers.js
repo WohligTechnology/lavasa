@@ -1599,7 +1599,7 @@ firstApp.controller('StudentBioCtrl', function ($scope, TemplateService, Navigat
     $scope.changeYear();
 });
 
-firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
+firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams, errorService) {
     $scope.template = TemplateService.changecontent("sport");
     // $scope.menutitle = NavigationService.makeactive($stateParams.name);
     TemplateService.header = "views/header2.html";
@@ -1847,17 +1847,33 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
                 TemplateService.title = $scope.menutitle;
                 TemplateService.description = name.Description;
                 TemplateService.keywords = name.Keywords;
+                $scope.ruleArray = [];
+                NavigationService.getOneRuleBySportsName($stateParams.name, function (data) {
+                    console.log('get Sports Data', data);
+                    errorService.errorCode(data, function (allData) {
+                        console.log(allData);
+                        if (!allData.message) {
+                            if (allData.value === true) {
+                                $scope.ruleArray = [];
+                                $scope.ruleArray.push(allData.data.rules);
+                            }
+                        } else {
+                            $scope.isDisabled = false;
+                            toastr.error(allData.message, 'Error Message');
+                        }
+                    });
+                });
             }
         });
     }
     $scope.getSport();
     $scope.oneAtATime = true;
-    $scope.tab = '2016';
-    $scope.classa = 'active-list';
+    $scope.tab = 'rules';
+    $scope.classa = '';
     $scope.classb = '';
     $scope.classc = '';
     $scope.classd = '';
-    $scope.classe = '';
+    $scope.classe = 'active-list';
     $scope.tabchange = function (tab, a) {
         //        console.log(tab);
         $scope.tab = tab;
@@ -1903,7 +1919,7 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
             $scope.classb = '';
             $scope.classd = "";
             $scope.classc = "";
-            $scope.classe = 'active-list';
+            $scope.classe = "active-list";
 
         }
     };

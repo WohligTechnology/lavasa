@@ -7153,6 +7153,20 @@ h1.forgot-space {
     }
 }
 
+.ruleDirective {
+    .faq-tables .table>thead>tr>th.borderRule {
+        letter-spacing: 1px;
+    }
+    .ruleHead {
+        text-transform: uppercase;
+        color: #091a71;
+        font-weight: bold;
+        font-size: 16px;
+        margin: 0 0 0px;
+        letter-spacing: 1px;
+    }
+}
+
 .table-5 {
     table {
         tr {
