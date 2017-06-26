@@ -14,13 +14,16 @@ firstApp.service('selectService', function ($http, TemplateService, $state) {
         });
         return listOfAthlete;
     };
-
-
     // push to Team
     this.pushToTeam = function (obj, bool, listOfAthlete) {
         console.log(obj, bool, listOfAthlete);
         if (bool) {
-            this.team.push(obj);
+            if (obj.isTeamSelected) {
+                toastr.error('This Player has already been Selected');
+            } else {
+                this.team.push(obj);
+            }
+
         } else {
             _.remove(this.team, function (n) {
                 console.log(n._id, obj._id);

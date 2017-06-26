@@ -182,7 +182,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
 
 
     // *****for getting all athletes*****
-    $scope.athletePerSchool = function (getAthletePerSchoolObj, search) {
+    $scope.athletePerSchool = function (getAthletePerSchoolObj) {
         if ($scope.busy) return;
         $scope.busy = true;
         NavigationService.getAthletePerSchool(getAthletePerSchoolObj, function (data) {
@@ -192,8 +192,8 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                         $scope.isLoading = false;
                         console.log(allData.data.length, "allData.data.length");
                         console.log("allData.data.total ", allData.data.total);
-                        console.log("$scope.getAthletePerSchoolObj.page", $scope.getAthletePerSchoolObj.page);
-                        if (allData.data.total >= $scope.getAthletePerSchoolObj.page) {
+                        console.log("$scope.getAthletePerSchoolObj.page", getAthletePerSchoolObj.page);
+                        if (allData.data.total >= getAthletePerSchoolObj.page) {
                             $scope.showMsg = true;
                             $scope.isLoading = false;
                             _.each(allData.data.data, function (value) {
@@ -360,22 +360,34 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
 
 });
 
-firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService, errorService, $state, NavigationService, $stateParams, toastr, $timeout, loginService) {
+firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService, errorService, $state, NavigationService, $stateParams, toastr, $timeout, loginService, selectService) {
     $scope.template = TemplateService.changecontent("individual-selection");
     $scope.menutitle = NavigationService.makeactive("Individual Selection");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.selectService = selectService;
     $scope.ageGroup = [];
+    $scope.listOfAthelete = [];
     $scope.selectAthlete = [];
     $scope.maleAgeGrp = [];
     $scope.femaleAgeGrp = [];
-    $scope.constraints = {};
-    $scope.constraints._id = $stateParams.id;
     $scope.getAthletePerSchoolObj = {};
     $scope.getAthletePerSchoolObj.sfaid = '';
     $scope.getAthletePerSchoolObj.page = '1';
+    $scope.getAthletePerSchoolObj.age = '';
+    $scope.isLoading = true;
     $scope.busy = false;
+    console.log("selectService", selectService);
+    if ($.jStorage.get("schoolName") !== null) {
+        $scope.getAthletePerSchoolObj.school = $.jStorage.get("schoolName");
+    }
+    if ($.jStorage.get("userType") === "school") {
+        $scope.getAthletePerSchoolObj.schoolToken = $.jStorage.get("userDetails").accessToken;
+    } else {
+        $scope.getAthletePerSchoolObj.athleteToken = $.jStorage.get("userDetails").accessToken;
+    }
+
     loginService.loginGet(function (data) {
         $scope.detail = data;
     });
@@ -396,32 +408,8 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
             }
         });
     };
-
-    if ($.jStorage.get("schoolName") !== null) {
-        $scope.getAthletePerSchoolObj.school = $.jStorage.get("schoolName");
-    }
-
-    $scope.sortGenderWise = function (gender) {
-        $scope.showAgeObj = '';
-        console.log("gender", gender);
-        if (gender == "Female") {
-            console.log("im im");
-            $scope.showFemale = true;
-            $scope.showMale = false;
-            $scope.selectAthlete = [];
-            $scope.listOfAthelete = [];
-        } else {
-            $scope.showMale = true;
-            $scope.showFemale = false;
-            $scope.selectAthlete = [];
-            $scope.listOfAthelete = [];
-        }
-    };
-
     if ($stateParams.id) {
         NavigationService.getSports($stateParams.id, function (data) {
-
-
             errorService.errorCode(data, function (allData) {
                 if (!allData.message) {
                     $scope.getSports = allData.data.results;
@@ -437,82 +425,91 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
                     toastr.error(allData.message, 'Error Message');
                 }
             });
-
         });
     }
-    $scope.selectAthlete = [{
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+    $scope.sortGenderWise = function (gender) {
+        $scope.showAgeObj = '';
+        console.log("gender", gender);
+        if (gender == "female") {
+            console.log("im im");
+            $scope.showFemale = true;
+            $scope.showMale = false;
+            $scope.getAthletePerSchoolObj.gender = gender;
+            NavigationService.setGender(gender);
+        } else {
+            $scope.showMale = true;
+            $scope.showFemale = false;
+            $scope.getAthletePerSchoolObj.gender = gender;
+            NavigationService.setGender(gender);
+        }
+    };
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+    $scope.getAllAthletes = function (getAthletePerSchoolObj) {
+        if ($scope.busy) return;
+        $scope.busy = true;
+        NavigationService.getIndividualAthlete(getAthletePerSchoolObj, function (data) {
+            console.log("$scope.getAthletePerSchoolObj", $scope.getAthletePerSchoolObj);
+            console.log("data", data);
+            errorService.errorCode(data, function (allData) {
+                if (!allData.message) {
+                    if (allData.value) {
+                        $scope.isLoading = false;
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+                        if (allData.data.total >= getAthletePerSchoolObj.page) {
+                            _.each(allData.data.data, function (value) {
+                                $scope.selectAthlete.push(value);
+                                $scope.busy = false;
+                            });
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+                            $scope.listOfAthelete = $scope.selectService.isAtheleteSelected($scope.selectAthlete);
+                        }
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+                    }
+                } else {
+                    toastr.error(allData.message, 'Error Message');
+                }
+            });
+        });
+    }
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+    $scope.getAllAthletes($scope.getAthletePerSchoolObj);
+    // *****search by sfaId*****
+    $scope.searchaBysfaId = function (serach) {
+        $scope.selectAthlete = [];
+        $scope.listOfAthelete = [];
+        $scope.busy = false;
+        $scope.getAthletePerSchoolObj.page = '1';
+        $scope.getAllAthletes($scope.getAthletePerSchoolObj);
+    };
+    // *****for loading more data *****
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
+    $scope.loadMore = function () {
+        $scope.getAthletePerSchoolObj.page++;
+        console.log("$scope.getAthletePerSchoolObj", $scope.getAthletePerSchoolObj);
+        $scope.getAllAthletes($scope.getAthletePerSchoolObj);
+    };
+    //***** for getting age group *****
+    $scope.filterAge = function (ageId, ageName) {
+        $scope.getAthletePerSchoolObj.page = 1;
+        $scope.showAgeObj = '';
+        $scope.busy = false;
+        $scope.showAgeObj = ageName;
+        NavigationService.setAgeTitle($scope.showAgeObj);
+        // $scope.getAthletePerSchoolObj.age = ageId;
+        $scope.getAthletePerSchoolObj.age = ageName;
+        $scope.getAllAthletes($scope.getAthletePerSchoolObj);
+        console.log("$scope.getAthletePerSchoolObj", $scope.getAthletePerSchoolObj);
 
-    }, {
-        firstName: 'Harshit',
-        lastName: 'Shah',
-        sfaId: '45211',
-        photograph: 'img/noimage.png'
 
-    }];
+    };
+
+
+
+
 });
 
 firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, $stateParams, loginService, selectService, errorService) {

@@ -681,6 +681,13 @@ firstApp.factory('NavigationService', function ($http, $window) {
                 data: request
             }).then(callback);
         },
+        getIndividualAthlete: function (request, callback) {
+            $http({
+                url: adminUrl2 + 'IndividualSport/getAthletePerSchool',
+                method: 'POST',
+                data: request
+            }).then(callback);
+        },
         teamConfirm: function (request, callback) {
             $http({
                 url: adminUrl2 + 'teamSport/teamConfirm',

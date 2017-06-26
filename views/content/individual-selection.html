@@ -37,9 +37,11 @@
                                             <!--control-label-->
                                             <label for="inputEmail3" class="col-md-2 col-sm-3 col-xs-12 para2">Select Gender</label>
                                             <div class="col-md-10 col-sm-9 col-xs-12">
-                                                <input type="radio" ng-model="formData.gender" id="radio04" name="radioMale" value="Male" ng-checked="true" required ng-change="sortGenderWise('Male');">
+                                                <input type="radio" ng-model="formData.gender" id="radio04" name="radioMale" value="male" ng-checked="selectService.gender =='male'"
+                                                    required ng-change="sortGenderWise('male');selectService.gender='male';selectService.ageGroup=''">
                                                 <label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
-                                                <input type="radio" ng-model="formData.gender" id="radio03" name="radioFemale" value="Female" required ng-change="sortGenderWise('Female');">
+                                                <input type="radio" ng-model="formData.gender" id="radio03" name="radioFemale" value="female" required ng-checked="selectService.gender=='female'"
+                                                    ng-change="sortGenderWise('female');selectService.gender='female';selectService.ageGroup=''">
                                                 <label for="radio03" class="padd-lr sf-list"><span></span>Female</label>
                                             </div>
                                         </div>
@@ -48,20 +50,10 @@
                                         <div class="readSchoolName">
                                             <label for="inputEmail3" class="col-md-2 col-sm-3 col-xs-12 para2">Select Age Group</label>
                                             <!--for male -->
-                                            <!--<div class="col-md-10 col-sm-9 col-xs-12">
-                                                <div class="display-inline w10">
-                                                    <input type="radio" id="option2" name="radio1">
-                                                    <label for="option1" class="padd-lr sf-list"><span></span>U-8</label>
-                                                </div>
-                                            </div>-->
-
                                             <div class="col-md-10 col-sm-9 col-xs-12" ng-if="showMale && maleAgeGrp.length>0">
                                                 <div class="display-inline w10" ng-repeat="data in maleAgeGrp track by $index">
                                                     <input type="radio" id="{{data.ageData._id}}" name="radio1" value="{{data.ageData._id}}" required ng-click="filterAge(data.ageData._id,data.ageData.name);">
                                                     <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
-                                                </div>
-                                                <div ng-if="!maleAgeGrp">
-                                                    No age group found
                                                 </div>
                                             </div>
 
@@ -72,9 +64,6 @@
                                                 <div class="display-inline w10" ng-repeat="data in femaleAgeGrp track by $index">
                                                     <input type="radio" id="{{data.ageData._id}}" name="radio2" value="{{data.ageData._id}}" required ng-click="filterAge(data.ageData._id,data.ageData.name);">
                                                     <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
-                                                </div>
-                                                <div ng-if="!femaleAgeGrp">
-                                                    No age group found
                                                 </div>
                                             </div>
                                         </div>
@@ -90,7 +79,7 @@
                                             <div class="readSchoolName">
                                                 <label for="input3" class="col-md-3 col-sm-3 col-xs-12 control-label para2" placeholder="Enter SFA ID">SFA ID:</label>
                                                 <div class="col-md-7 col-sm-7 col-xs-9">
-                                                    <input type="text" class="form-control" id="input3">
+                                                    <input type="text" class="form-control" id="input3" ng-model="getAthletePerSchoolObj.sfaid" ng-change="searchaBysfaId(getAthletePerSchoolObj.sfaid);">
                                                 </div>
                                                 <div class="hover-img margin0 pt7 col-md-2 col-sm-2 col-xs-3">
                                                     <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
@@ -119,15 +108,20 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12 mob-bottom">
-                                                    <input type="text" class="form-control" id="input4">
+                                                    <input type="text" class="form-control" id="input4" ng-model="getAthletePerSchoolObj.sfaid" ng-change="searchaBysfaId(getAthletePerSchoolObj.sfaid);">
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                     <div class="scroll-div">
                                         <div class="scrollbar style-1">
+                                            <div class="text-center mt15" ng-if="selectAthlete.length===0">
+                                                <h4>No Athlete Found</h4>
+                                            </div>
+
                                             <div class="mt15">
-                                                <div class="col-md-4 col-sm-4 col-xs-12 mb15" ng-repeat="checked in selectAthlete track by $index">
+                                                <!--<div class="col-md-4 col-sm-4 col-xs-12 mb15" ng-repeat="checked in selectAthlete track by $index">-->
+                                                <div class="col-md-4 col-sm-4 col-xs-12 mb15" ng-repeat="checked in listOfAthelete">
                                                     <div class="school-sec">
                                                         <div class="stu-img">
                                                             <img ng-src="{{checked.atheleteSchoolIdImage | serverimage2 }}" class="img-responsive" alt="">
@@ -150,7 +144,7 @@
                                         </div>
                                     </div>
                                     <!--Loading more data-->
-                                    <!--<div ng-if="showMsg && selectAthlete.length>0" infinite-scroll-disabled='busy' infinite-scroll='loadMore();'></div>-->
+                                    <div ng-if="selectAthlete.length>0" infinite-scroll-disabled='busy' infinite-scroll='loadMore();'></div>
                                     <!--Loading more data-->
                                 </div>
                             </div>
