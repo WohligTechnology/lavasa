@@ -457,7 +457,6 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
                 if (!allData.message) {
                     if (allData.value) {
                         $scope.isLoading = false;
-
                         if (allData.data.total >= getAthletePerSchoolObj.page) {
                             _.each(allData.data.data, function (value) {
                                 $scope.selectAthlete.push(value);
@@ -466,17 +465,16 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
 
                             $scope.listOfAthelete = $scope.selectService.isAtheleteSelected($scope.selectAthlete);
                         }
-
-
                     }
                 } else {
                     toastr.error(allData.message, 'Error Message');
                 }
             });
         });
-    }
-
+    };
+    // Initial function
     $scope.getAllAthletes($scope.getAthletePerSchoolObj);
+
     // *****search by sfaId*****
     $scope.searchaBysfaId = function (serach) {
         $scope.selectAthlete = [];
@@ -503,8 +501,6 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
         $scope.getAthletePerSchoolObj.age = ageName;
         $scope.getAllAthletes($scope.getAthletePerSchoolObj);
         console.log("$scope.getAthletePerSchoolObj", $scope.getAthletePerSchoolObj);
-
-
     };
 
 
