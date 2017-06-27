@@ -546,8 +546,8 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
     };
     $scope.openModal = function () {
         $timeout(function () {
-            // fbq('track', 'CompleteRegistration');
-            // GoogleAdWordsService.sendRegisterCustomerConversion();
+            fbq('track', 'CompleteRegistration');
+            GoogleAdWordsService.sendRegisterCustomerConversion();
         });
         var modalInstance = $uibModal.open({
             animation: true,
@@ -743,8 +743,8 @@ firstApp.controller('FormregisCtrl', function ($scope, TemplateService, Navigati
 
     $scope.openModal = function () {
         $timeout(function () {
-            // fbq('track', 'CompleteRegistration');
-            // GoogleAdWordsService.sendRegisterCustomerConversion();
+            fbq('track', 'CompleteRegistration');
+            GoogleAdWordsService.sendRegisterCustomerConversion();
         });
         var modalInstance = $uibModal.open({
             animation: true,
