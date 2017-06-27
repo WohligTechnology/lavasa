@@ -376,6 +376,11 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             url: "/confirm-athleteswim",
             templateUrl: "views/template.html",
             controller: 'ConfirmAthSwmCtrl'
+        })
+        .state('test', {
+            url: "/test",
+            templateUrl: "views/template.html",
+            controller: 'DummyCtrl'
         });
 
     $urlRouterProvider.otherwise("/");
@@ -387,3 +392,51 @@ firstApp.config(function ($translateProvider) {
     $translateProvider.translations('hi', LanguageHindi);
     $translateProvider.preferredLanguage('en');
 });
+
+
+
+firstApp.config(function (angularPromiseButtonsProvider) {
+        angularPromiseButtonsProvider.extendConfig({
+            spinnerTpl: '<span class="btn-spinner"></span>',
+            disableBtn: true,
+            btnLoadingClass: 'is-loading',
+            addClassToCurrentBtnOnly: false,
+            disableCurrentBtnOnly: false,
+            minDuration: false,
+            CLICK_EVENT: 'click',
+            CLICK_ATTR: 'ngClick',
+            SUBMIT_EVENT: 'submit',
+            SUBMIT_ATTR: 'ngSubmit',
+            BTN_SELECTOR: 'button'
+        });
+    })
+
+    .factory('fakeFac', function ($q, $timeout, $log) {
+        var standardDelay = 1000;
+        return {
+            success: function () {
+                var defer = $q.defer();
+                $timeout(function () {
+                    $log.info('resolve');
+                    defer.resolve({
+                        msg: 'SUCCESS'
+                    });
+                }, standardDelay);
+                return defer.promise;
+            }
+            // error: function () {
+            //     var defer = $q.defer();
+            //     $timeout(function () {
+            //         $log.info('error');
+            //         defer.reject({
+            //             msg: 'ERROR'
+            //         });
+            //     }, standardDelay);
+            //     return defer.promise;
+            // },
+            // endless: function () {
+            //     var defer = $q.defer();
+            //     return defer.promise;
+            // }
+        };
+    });

@@ -1,4 +1,4 @@
-firstApp.controller('SportsRegistrationCtrl', function ($scope, TemplateService, loginService, NavigationService, $timeout, toastr, $state, $rootScope, errorService) {
+firstApp.controller('SportsRegistrationCtrl', function ($scope, fakeFac, TemplateService, loginService, NavigationService, $timeout, toastr, $state, $rootScope, errorService) {
     $scope.template = TemplateService.changecontent("sports-registration");
     $scope.menutitle = NavigationService.makeactive("Sports Registration");
     TemplateService.header = "views/header2.html";
@@ -47,33 +47,39 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, TemplateService,
     $scope.isDisabled = false;
     $scope.login = function (formData, formSports) {
         console.log("im in");
-        if (formSports.$valid) {
-            if (formData) {
-                formData.type = $.jStorage.get("userType");
-                if (formData.sfaid) {
-                    if (formData.sfaid.charAt(1) == "S" && formData.type == "athlete") {
-                        toastr.error('Only Athlete Can Log In.', 'Login Message');
+        $scope.yourPromise = fakeFac.success().then(function () {
+            console.log("hi")
+
+            if (formSports.$valid) {
+                if (formData) {
+                    formData.type = $.jStorage.get("userType");
+                    if (formData.sfaid) {
+                        if (formData.sfaid.charAt(1) == "S" && formData.type == "athlete") {
+                            toastr.error('Only Athlete Can Log In.', 'Login Message');
+                        } else {
+                            if (formData.sfaid.charAt(1) == "A" && formData.type == "school") {
+                                toastr.error('Only School Can Log In.', 'Login Message');
+                            }
+                        }
+
+                    }
+                    if (formData.sfaid.charAt(1) == "S" && formData.type == "school") {
+                        // $scope.isDisabled = true;
+                        $scope.loginFunction(formData);
                     } else {
-                        if (formData.sfaid.charAt(1) == "A" && formData.type == "school") {
-                            toastr.error('Only School Can Log In.', 'Login Message');
+                        if (formData.sfaid.charAt(1) == "A" && formData.type == "athlete") {
+                            // $scope.isDisabled = true;
+                            $scope.loginFunction(formData);
                         }
                     }
-
                 }
-                if (formData.sfaid.charAt(1) == "S" && formData.type == "school") {
-                    $scope.isDisabled = true;
-                    $scope.loginFunction(formData);
-                } else {
-                    if (formData.sfaid.charAt(1) == "A" && formData.type == "athlete") {
-                        $scope.isDisabled = true;
-                        $scope.loginFunction(formData);
-                    }
-                }
+            } else {
+                // $scope.isDisabled = false;
+                toastr.error('Please Enter All Fields.', 'Login Message');
             }
-        } else {
-            $scope.isDisabled = false;
-            toastr.error('Please Enter All Fields.', 'Login Message');
-        }
+
+
+        });
     };
 
     $scope.loginFunction = function (formData) {
