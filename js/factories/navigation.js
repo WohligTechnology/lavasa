@@ -695,14 +695,14 @@ firstApp.factory('NavigationService', function ($http, $window) {
                 data: request
             }).then(callback);
         },
-        getEvents: function (id, callback) {
-            var data = {
-                _id: id
-            };
+        getEvents: function (request, callback) {
+            // var data = {
+            //     _id: id
+            // };
             $http({
                 url: adminUrl2 + 'SportsListSubCategory/getEvents',
                 method: 'POST',
-                data: data
+                data: request
             }).then(callback);
         }
     };
