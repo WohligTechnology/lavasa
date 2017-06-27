@@ -58,20 +58,16 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, fakeFac, Templat
                                 toastr.error('Only School Can Log In.', 'Login Message');
                             }
                         }
-
                     }
                     if (formData.sfaid.charAt(1) == "S" && formData.type == "school") {
-                        // 
                         $scope.loginFunction(formData);
                     } else {
                         if (formData.sfaid.charAt(1) == "A" && formData.type == "athlete") {
-                            // 
                             $scope.loginFunction(formData);
                         }
                     }
                 }
             } else {
-                // 
                 toastr.error('Please Enter All Fields.', 'Login Message');
             }
 
@@ -89,11 +85,9 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, fakeFac, Templat
                         toastr.success('Successfully Logged In.', 'Login Message');
                         $state.go('sports-selection');
                     } else {
-
                         toastr.error('Please Enter Valid SFA Id And Password.', 'Login Message');
                     }
                 } else {
-
                     toastr.error(allData.message, 'Error Message');
                 }
             });
@@ -107,7 +101,6 @@ firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, Nav
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    // 
     $scope.formData = {};
     $scope.formData.type = $.jStorage.get("userType");
     $scope.forgotPasswordFunction = function (formData, url) {
@@ -115,11 +108,9 @@ firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, Nav
             errorService.errorCode(data, function (allData) {
                 if (!allData.message) {
                     if (allData.value) {
-                        // 
                         toastr.success('The Password Has Been Sent Successfully To Your Registered Email Id.', 'Forgot Password Message');
                         $state.go('sports-registration');
                     } else {
-                        // 
                         if (allData.error == "Incorrect Type") {
                             if ($scope.formData.type == 'athlete') {
                                 toastr.error('Only Athlete Can Apply From Here For Forgot Password. Please Check You Are School Or Athlete, Please Try Again.', 'Forgot Password Message');
@@ -131,7 +122,6 @@ firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, Nav
                         }
                     }
                 } else {
-                    // 
                     toastr.error(allData.message, 'Error Message');
                 }
 
