@@ -3008,8 +3008,14 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
                         _.each($scope.studentStats, function (key) {
                             key.self = {};
                             _.each(key.heat.heats, function (single) {
-                                if (single.player._id == $stateParams.id) {
-                                    key.self = single;
+                                if (key.heat.participantType == "team") {
+                                    if (key.team._id == single.team._id) {
+                                        key.self = single;
+                                    }
+                                } else {
+                                    if (single.player._id == $stateParams.id) {
+                                        key.self = single;
+                                    }
                                 }
                             });
                         });
@@ -3437,6 +3443,26 @@ firstApp.controller('TeamDetailCtrl', function ($scope, TemplateService, Navigat
                                     key.self.result = drawF == "knockout" ? key[drawF]["result" + key[drawF].participantType + '2'] : key[drawF]["result2"];
                                 }
                             }
+                        });
+                    } else if ($scope.teamStats[0].drawFormat == 'Heats') {
+                        _.each($scope.teamStats, function (key) {
+                            key.self = {};
+                            _.each(key.heat.heats, function (single) {
+                                // var schoolid = single.team._id;
+                                // if (schoolid == $stateParams.id) {
+                                //     key.self = single;
+                                // }
+
+                                if (key.heat.participantType == "team") {
+                                    if (key.team._id == $stateParams.id) {
+                                        key.self = single;
+                                    }
+                                } else {
+                                    if (single.player._id == single.team._id) {
+                                        key.self = single;
+                                    }
+                                }
+                            });
                         });
                     }
                 }
