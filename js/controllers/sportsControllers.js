@@ -49,8 +49,6 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
                 if (allData.value) {
                     $scope.allSportsListSubCat = allData.data;
                     _.each($scope.allSportsListSubCat, function (key, value) {
-                        console.log(key, "key",
-                            value);
                         tempObj.sportName = value;
                         tempObj.tempArr = _.cloneDeep(key);
                         $scope.allSportsListSubCatArr.push(tempObj);
@@ -308,6 +306,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
         NavigationService.getSports($stateParams.id, function (data) {
             errorService.errorCode(data, function (allData) {
                 if (!allData.message) {
+                    console.log("allData", allData);
                     $scope.getSports = allData.data.results;
                     $scope.sportTitle = allData.data.sportName;
                     NavigationService.setSportTitle($scope.sportTitle);
@@ -533,6 +532,7 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
     }
     loginService.loginGet(function (data) {
         $scope.detail = data;
+        console.log("$scope.detail", $scope.detail);
         $scope.formData.schoolName = $scope.detail.schoolName;
     });
     $scope.logoutCandidate = function () {
@@ -615,6 +615,26 @@ firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, Nav
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.formData = {};
+    loginService.loginGet(function (data) {
+        $scope.detail = data;
+        $scope.formData.schoolName = $scope.detail.schoolName;
+    });
+
+    if ($.jStorage.get("userDetails") === null) {
+        $state.go('sports-registration');
+    }
+
+    $scope.logoutCandidate = function () {
+        loginService.logoutCandidate(function (data) {
+            if (data.isLoggedIn === false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $state.go('sports-registration');
+            } else {
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    };
 
     //fencing-data
     $scope.fencingtable = [{
@@ -741,26 +761,26 @@ firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, 
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    // // $scope.formData = {};
-    // loginService.loginGet(function (data) {
-    //     $scope.detail = data;
-    //     // $scope.formData.schoolName = $scope.detail.schoolName;
-    // });
+    $scope.formData = {};
+    loginService.loginGet(function (data) {
+        $scope.detail = data;
+        $scope.formData.schoolName = $scope.detail.schoolName;
+    });
 
-    // if ($.jStorage.get("userDetails") === null) {
-    //     $state.go('sports-registration');
-    // }
+    if ($.jStorage.get("userDetails") === null) {
+        $state.go('sports-registration');
+    }
 
-    // $scope.logoutCandidate = function () {
-    //     loginService.logoutCandidate(function (data) {
-    //         if (data.isLoggedIn === false) {
-    //             toastr.success('Successfully Logged Out', 'Logout Message');
-    //             $state.go('sports-registration');
-    //         } else {
-    //             toastr.error('Something went wrong', 'Logout Message');
-    //         }
-    //     });
-    // };
+    $scope.logoutCandidate = function () {
+        loginService.logoutCandidate(function (data) {
+            if (data.isLoggedIn === false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $state.go('sports-registration');
+            } else {
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    };
 
 });
 
@@ -774,26 +794,26 @@ firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, Navi
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    // // $scope.formData = {};
-    // loginService.loginGet(function (data) {
-    //     $scope.detail = data;
-    //     // $scope.formData.schoolName = $scope.detail.schoolName;
-    // });
+    $scope.formData = {};
+    loginService.loginGet(function (data) {
+        $scope.detail = data;
+        $scope.formData.schoolName = $scope.detail.schoolName;
+    });
 
-    // if ($.jStorage.get("userDetails") === null) {
-    //     $state.go('sports-registration');
-    // }
+    if ($.jStorage.get("userDetails") === null) {
+        $state.go('sports-registration');
+    }
 
-    // $scope.logoutCandidate = function () {
-    //     loginService.logoutCandidate(function (data) {
-    //         if (data.isLoggedIn === false) {
-    //             toastr.success('Successfully Logged Out', 'Logout Message');
-    //             $state.go('sports-registration');
-    //         } else {
-    //             toastr.error('Something went wrong', 'Logout Message');
-    //         }
-    //     });
-    // };
+    $scope.logoutCandidate = function () {
+        loginService.logoutCandidate(function (data) {
+            if (data.isLoggedIn === false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $state.go('sports-registration');
+            } else {
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    };
 
 });
 

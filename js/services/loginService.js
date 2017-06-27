@@ -5,10 +5,14 @@
           if (getJ !== null) {
               getData.isLoggedIn = true;
               if ($.jStorage.get("userType") == "school") {
+                  getData.userType = 'school';
                   getData.sfaIdObj = getJ.sfaID;
                   getData.schoolName = getJ.schoolName;
                   NavigationService.setUserSchool(getData.schoolName);
               } else {
+                  getData.userType = 'athlete';
+                  getData.firstName = getJ.firstName;
+                  getData.surname = getJ.surname;
                   getData.sfaIdObj = getJ.sfaId;
                   if (getJ.atheleteSchoolName) {
                       getData.schoolName = getJ.atheleteSchoolName;
