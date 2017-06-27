@@ -9,6 +9,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state) {
     this.isAtheleteSelected = function (listOfAthlete, team) {
         console.log("aaya");
         var temp = _.intersectionBy(listOfAthlete, this.team, '_id');
+        console.log("team", team);
         _.each(temp, function (n) {
             n.checked = true;
         });

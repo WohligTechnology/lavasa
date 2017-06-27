@@ -37,8 +37,7 @@
                                             <!--control-label-->
                                             <label for="inputEmail3" class="col-md-2 col-sm-3 col-xs-12 para2">Select Gender</label>
                                             <div class="col-md-10 col-sm-9 col-xs-12">
-                                                <input type="radio" ng-model="formData.gender" id="radio04" name="radioMale" value="male" ng-checked="selectService.gender =='male'"
-                                                    required ng-change="sortGenderWise('male');selectService.gender='male';selectService.ageGroup=''">
+                                                <input type="radio" ng-model="formData.gender" id="radio04" name="radioMale" value="male" required ng-change="sortGenderWise('male');selectService.gender='male';selectService.ageGroup=''">
                                                 <label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
                                                 <input type="radio" ng-model="formData.gender" id="radio03" name="radioFemale" value="female" required ng-checked="selectService.gender=='female'"
                                                     ng-change="sortGenderWise('female');selectService.gender='female';selectService.ageGroup=''">
@@ -46,24 +45,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row" ng-if="showAges">
                                         <div class="readSchoolName">
                                             <label for="inputEmail3" class="col-md-2 col-sm-3 col-xs-12 para2">Select Age Group</label>
-                                            <!--for male -->
-                                            <div class="col-md-10 col-sm-9 col-xs-12" ng-if="showMale && maleAgeGrp.length>0">
-                                                <div class="display-inline w10" ng-repeat="data in maleAgeGrp track by $index">
-                                                    <input type="radio" id="{{data.ageData._id}}" name="radio1" value="{{data.ageData._id}}" required ng-click="filterAge(data.ageData._id,data.ageData.name);">
-                                                    <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
-                                                </div>
-                                            </div>
-
-
-                                            <!--for female-->
-
-                                            <div class="col-md-10 col-sm-9 col-xs-12" ng-if="showFemale && femaleAgeGrp.length>0">
-                                                <div class="display-inline w10" ng-repeat="data in femaleAgeGrp track by $index">
-                                                    <input type="radio" id="{{data.ageData._id}}" name="radio2" value="{{data.ageData._id}}" required ng-click="filterAge(data.ageData._id,data.ageData.name);">
-                                                    <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
+                                            <div class="col-md-10 col-sm-9 col-xs-12">
+                                                <div class="display-inline w10" ng-repeat="data in getEvents track by $index">
+                                                    <input type="radio" id="{{data._id}}" name="radio1" value="{{data._id}}" required ng-click="filterAge(data._id);">
+                                                    <label for="{{data._id}}" class="padd-lr sf-list"><span></span>{{data._id}}</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -154,9 +142,9 @@
                                     <div class="text-center mt15 ">
                                         <h4 class="player-selected">{{sportTitle}} Male U-8</h4>
                                     </div>
-                                    <div class="kind-select">
+                                    <!--<div class="kind-select">
                                         <p>Kindly select a minimum of 11 players and a maximum of 18 players.</p>
-                                    </div>
+                                    </div>-->
                                     <div class="player-selected">
                                         <p>Players Selected: {{selectService.team.length}}</p>
                                     </div>
@@ -208,6 +196,7 @@
                         </div>
                         <div class="row text-center mt25 mb-50">
                             <div class="col-md-12 col-sm-12 col-xs-12">
+                                <button class="btn btn-default width-86 sub-mit" type="button" ui-sref="sports-selection">Back</button>
                                 <button class="btn btn-default width-86 sub-mit" type="button" ng-click="selectService.goNext('confirm-individual',formData.gender,formData.ageGroup);">Next</button>
                             </div>
                         </div>

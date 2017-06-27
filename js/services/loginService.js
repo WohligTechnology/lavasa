@@ -24,7 +24,7 @@
               getData.isLoggedIn = false;
           }
           callback(getData);
-      }
+      };
 
       this.logoutCandidate = function (callback) {
           var requestObjUserType = {};

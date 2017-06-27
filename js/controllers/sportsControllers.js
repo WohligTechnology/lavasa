@@ -139,6 +139,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.selectService = selectService;
+    console.log("$scope.selectService", $scope.selectService);
     $scope.selectService.sportsId = $stateParams.id;
     $scope.ageGroup = [];
     $scope.formData = {};
@@ -301,6 +302,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
 
         }
     };
+    $scope.orderedAgeArr = [];
     //  *****getting all age group ***** 
     if ($stateParams.id) {
         NavigationService.getSports($stateParams.id, function (data) {
@@ -311,7 +313,6 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                     NavigationService.setSportTitle($scope.sportTitle);
                     $scope.maleAgeGrp = _.cloneDeep($scope.getSports.male);
                     $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.female);
-                    console.log($scope.femaleAgeGrp, "$scope.femaleAgeGrp");
                     $scope.sortGenderWise('male');
                 } else {
                     $scope.isDisabled = false;
@@ -372,10 +373,12 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
     $scope.selectAthlete = [];
     $scope.maleAgeGrp = [];
     $scope.femaleAgeGrp = [];
+    $scope.getEvents = [];
     $scope.getAthletePerSchoolObj = {};
     $scope.getAthletePerSchoolObj.sfaid = '';
     $scope.getAthletePerSchoolObj.page = '1';
     $scope.getAthletePerSchoolObj.age = '';
+    $scope.getAthletePerSchoolObj.gender = '';
     $scope.isLoading = true;
     $scope.busy = false;
     console.log("selectService", selectService);
@@ -408,40 +411,36 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
             }
         });
     };
-    if ($stateParams.id) {
-        NavigationService.getSports($stateParams.id, function (data) {
-            errorService.errorCode(data, function (allData) {
-                if (!allData.message) {
-                    $scope.getSports = allData.data.results;
-                    $scope.sportTitle = allData.data.sportName;
-                    NavigationService.setSportTitle($scope.sportTitle);
-                    $scope.maleAgeGrp = _.cloneDeep($scope.getSports.male);
-                    $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.female);
-                    console.log($scope.maleAgeGrp, "$scope.maleAgeGrp");
-                    console.log("$scope.femaleAgeGrp", $scope.femaleAgeGrp);
-                    $scope.sortGenderWise('male');
-                } else {
-                    $scope.isDisabled = false;
-                    toastr.error(allData.message, 'Error Message');
-                }
+
+    $scope.getAllAges = function () {
+        if ($stateParams.id) {
+            NavigationService.getEvents($stateParams.id, function (data) {
+                errorService.errorCode(data, function (allData) {
+                    if (!allData.message) {
+                        $scope.getEvents = allData.data;
+                        console.log($scope.getEvents, "$scope.getEvents ");
+                        // $scope.sportTitle = allData.data.sportName;
+                        // NavigationService.setSportTitle($scope.sportTitle);
+                    } else {
+                        $scope.isDisabled = false;
+                        toastr.error(allData.message, 'Error Message');
+                    }
+                });
             });
-        });
-    }
+        }
+
+    };
+    $scope.getAllAges();
 
     $scope.sortGenderWise = function (gender) {
-        $scope.showAgeObj = '';
-        console.log("gender", gender);
-        if (gender == "female") {
-            console.log("im im");
-            $scope.showFemale = true;
-            $scope.showMale = false;
+        $scope.getEvents = [];
+        $scope.getAllAges();
+        if (gender) {
+            $scope.showAges = true;
             $scope.getAthletePerSchoolObj.gender = gender;
             NavigationService.setGender(gender);
         } else {
-            $scope.showMale = true;
-            $scope.showFemale = false;
-            $scope.getAthletePerSchoolObj.gender = gender;
-            NavigationService.setGender(gender);
+            $scope.showAges = false;
         }
     };
 
@@ -491,14 +490,15 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
         $scope.getAllAthletes($scope.getAthletePerSchoolObj);
     };
     //***** for getting age group *****
-    $scope.filterAge = function (ageId, ageName) {
+    $scope.filterAge = function (ageId) {
         $scope.getAthletePerSchoolObj.page = 1;
+        $scope.selectAthlete = [];
+        $scope.listOfAthelete = [];
         $scope.showAgeObj = '';
         $scope.busy = false;
-        $scope.showAgeObj = ageName;
+        $scope.showAgeObj = ageId;
         NavigationService.setAgeTitle($scope.showAgeObj);
-        // $scope.getAthletePerSchoolObj.age = ageId;
-        $scope.getAthletePerSchoolObj.age = ageName;
+        $scope.getAthletePerSchoolObj.age = ageId;
         $scope.getAllAthletes($scope.getAthletePerSchoolObj);
         console.log("$scope.getAthletePerSchoolObj", $scope.getAthletePerSchoolObj);
     };
