@@ -1291,7 +1291,7 @@ firstApp.controller('ConfirmRelayCtrl', function ($scope, TemplateService, Navig
         }, {
             name: 'Medley 400m'
         }]
-    }]
+    }];
 
     $scope.srelayTable = [{
         name: '126 - Kunjal Rawal',
@@ -1311,7 +1311,7 @@ firstApp.controller('ConfirmRelayCtrl', function ($scope, TemplateService, Navig
             name: '4x50m Medley Relay'
         }]
 
-    }]
+    }];
 
 
 });
@@ -1450,7 +1450,7 @@ firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, Navi
         }, {
             name: '3000m'
         }]
-    }]
+    }];
 
     $scope.swnathTable = [{
         name: '126 - Kunjal Rawal',
@@ -1483,5 +1483,5 @@ firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, Navi
         }, {
             name: '200m Individual Medley'
         }]
-    }]
+    }];
 });

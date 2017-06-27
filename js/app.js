@@ -22,9 +22,28 @@ var firstApp = angular.module('firstApp', [
 
 ]);
 
-firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, cfpLoadingBarProvider) {
+firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, cfpLoadingBarProvider, angularPromiseButtonsProvider) {
     // for http request with session
     $httpProvider.defaults.withCredentials = true;
+
+    //PROMISE BUTTON//
+    angularPromiseButtonsProvider.extendConfig({
+        spinnerTpl: '<span class="btn-spinner"></span>',
+        disableBtn: true,
+        btnLoadingClass: 'is-loading',
+        addClassToCurrentBtnOnly: false,
+        disableCurrentBtnOnly: false,
+        minDuration: false,
+        CLICK_EVENT: 'click',
+        CLICK_ATTR: 'ngClick',
+        SUBMIT_EVENT: 'submit',
+        SUBMIT_ATTR: 'ngSubmit',
+        BTN_SELECTOR: 'button'
+    });
+
+
+    //LOADING BAR//
+
     // cfpLoadingBarProvider.latencyThreshold = 2000;
     // cfpLoadingBarProvider.includeBar = true;
     cfpLoadingBarProvider.includeSpinner = false;
@@ -392,51 +411,3 @@ firstApp.config(function ($translateProvider) {
     $translateProvider.translations('hi', LanguageHindi);
     $translateProvider.preferredLanguage('en');
 });
-
-
-
-firstApp.config(function (angularPromiseButtonsProvider) {
-        angularPromiseButtonsProvider.extendConfig({
-            spinnerTpl: '<span class="btn-spinner"></span>',
-            disableBtn: true,
-            btnLoadingClass: 'is-loading',
-            addClassToCurrentBtnOnly: false,
-            disableCurrentBtnOnly: false,
-            minDuration: false,
-            CLICK_EVENT: 'click',
-            CLICK_ATTR: 'ngClick',
-            SUBMIT_EVENT: 'submit',
-            SUBMIT_ATTR: 'ngSubmit',
-            BTN_SELECTOR: 'button'
-        });
-    })
-
-    .factory('fakeFac', function ($q, $timeout, $log) {
-        var standardDelay = 1000;
-        return {
-            success: function () {
-                var defer = $q.defer();
-                $timeout(function () {
-                    $log.info('resolve');
-                    defer.resolve({
-                        msg: 'SUCCESS'
-                    });
-                }, standardDelay);
-                return defer.promise;
-            }
-            // error: function () {
-            //     var defer = $q.defer();
-            //     $timeout(function () {
-            //         $log.info('error');
-            //         defer.reject({
-            //             msg: 'ERROR'
-            //         });
-            //     }, standardDelay);
-            //     return defer.promise;
-            // },
-            // endless: function () {
-            //     var defer = $q.defer();
-            //     return defer.promise;
-            // }
-        };
-    });

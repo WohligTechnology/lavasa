@@ -694,6 +694,46 @@ firstApp.factory('NavigationService', function ($http, $window) {
                 method: 'POST',
                 data: request
             }).then(callback);
+        },
+        getEvents: function (id, callback) {
+            var data = {
+                _id: id
+            };
+            $http({
+                url: adminUrl2 + 'SportsListSubCategory/getEvents',
+                method: 'POST',
+                data: data
+            }).then(callback);
         }
+    };
+});
+
+firstApp.factory('fakeFac', function ($q, $timeout, $log) {
+    var standardDelay = 1000;
+    return {
+        success: function () {
+            var defer = $q.defer();
+            $timeout(function () {
+                $log.info('resolve');
+                defer.resolve({
+                    msg: 'SUCCESS'
+                });
+            }, standardDelay);
+            return defer.promise;
+        }
+        // error: function () {
+        //     var defer = $q.defer();
+        //     $timeout(function () {
+        //         $log.info('error');
+        //         defer.reject({
+        //             msg: 'ERROR'
+        //         });
+        //     }, standardDelay);
+        //     return defer.promise;
+        // },
+        // endless: function () {
+        //     var defer = $q.defer();
+        //     return defer.promise;
+        // }
     };
 });
