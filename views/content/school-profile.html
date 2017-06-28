@@ -188,7 +188,7 @@
                             <a>
                                 <div class="sports-participate text-center">
                                     <img ng-src="{{ sportDetails._id.name !== filter.sport.name && (sportDetails._id.inactiveimage | uploadpath) || (sportDetails._id.image  | uploadpath)}}"
-                                        alt="" class="img-responsive image-width" ng-click="selectSport(sportDetails._id)">
+                                        alt="" class="img-responsive image-width" ng-click="selectSport(sportDetails._id);">
                                     <span class="color-base text-up f16 mt10">{{sportDetails._id.name}}</span>
                                     <div class="combine mt10">
                                         <div class="boy-sec display-inline color-base icon-right">
@@ -512,7 +512,7 @@
                                                         <span>OPPONENT NAME</span>
                                                     </th>
                                                     <th>
-                                                        <span>{{table.layout == 'Heats' ? 'Timing' : 'Score'}}</span>
+                                                        <span>{{table.layout == 'Heats' ? (filter.sport.name == 'Athletics' ? 'Timing/Distance/Height' : 'Timing') : 'Score'}}</span>
 
                                                     </th>
                                                     <th>
