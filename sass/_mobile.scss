@@ -1,7 +1,9 @@
     @media (max-width:1200px) {
       .f-12 li {
         font-size: 12px !important;
-      }
+      } // .sport-registration .category-padding-sport .v-line {
+      //   padding-left: 0px;
+      // }
       .curve-head1 {
         margin-left: 40px;
         margin-right: 40px;
@@ -437,6 +439,9 @@
       .v-line {
         margin-bottom: 0px;
         text-align: left;
+      }
+      .sport-registration .category-padding-sport .v-line.To25 {
+        padding-left: 19px;
       }
       .ver-line {
         border: none;

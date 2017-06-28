@@ -5596,13 +5596,17 @@ input[type="radio"]:checked+label span {
     }
     .category-padding-sport {
         .v-line {
-            padding-left: 20px;
+            padding-left: 10px;
             li {
                 padding-bottom: 5px;
                 font-size: 14px;
             }
         }
-    }
+    } // .f-s {
+    //     p {
+    //         font-size: 14px !important;
+    //     }
+    // }
 }
 
 .ver-line {
