@@ -59,7 +59,7 @@
                             </th>
                             <th>SFA ID-Name</th>
                             <th>Captain</th>
-                            <thng-if="sportTitle === 'Handball' || sportTitle === 'handball' || sportTitle === 'Football' || sportTitle === 'football'
+                            <th ng-if="sportTitle === 'Handball' || sportTitle === 'handball' || sportTitle === 'Football' || sportTitle === 'football'
                                 || sportTitle==='Hockey' ||sportTitle==='hockey' || sportTitle === 'Waterpolo' || sportTitle ==='waterpolo'">Goalkeeper</th>
                           </thead>
                           <tbody>
@@ -167,7 +167,7 @@
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12 ">
 
-                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabledConfirm" type="button" ng-click="finalConfirmTeam();">Confirm</button>
+                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabledConfirm" type="button" ng-click="finalConfirmTeam(sportTitle);">Confirm</button>
                       </div>
                     </div>
                   </div>
