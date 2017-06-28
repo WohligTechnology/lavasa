@@ -8,12 +8,14 @@
                   getData.userType = 'school';
                   getData.sfaIdObj = getJ.sfaID;
                   getData.schoolName = getJ.schoolName;
+                  getData.accessToken = getJ.accessToken;
                   NavigationService.setUserSchool(getData.schoolName);
               } else {
                   getData.userType = 'athlete';
                   getData.firstName = getJ.firstName;
                   getData.surname = getJ.surname;
                   getData.sfaIdObj = getJ.sfaId;
+                  getData.accessToken = getJ.accessToken;
                   if (getJ.atheleteSchoolName) {
                       getData.schoolName = getJ.atheleteSchoolName;
                       NavigationService.setUserSchool(getData.schoolName);
@@ -61,6 +63,6 @@
                   callback(returnObj);
               }
           });
-      }
+      };
 
   });

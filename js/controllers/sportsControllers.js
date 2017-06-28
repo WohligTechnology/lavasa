@@ -146,6 +146,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     $scope.maleAgeGrp = [];
     $scope.femaleAgeGrp = [];
     $scope.constraints = {};
+    // $scope.detail = {};
     $scope.constraints._id = $stateParams.id;
     $scope.getAthletePerSchoolObj = {};
     $scope.getAthletePerSchoolObj.sfaid = '';
@@ -156,6 +157,13 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     loginService.loginGet(function (data) {
         $scope.detail = data;
     });
+
+    if ($scope.detail.userType === "athlete") {
+        $scope.constraints.athleteToken = $scope.detail.accessToken;
+    } else {
+        $scope.constraints.schoolToken = $scope.detail.accessToken;
+    }
+
 
     if ($.jStorage.get("userDetails") === null) {
         $state.go('sports-registration');
@@ -332,10 +340,6 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     // };
 
     $scope.maxPlayerAllow = function () {
-        $scope.maxPlayer = 3;
-        $scope.minPlayer = 2;
-
-        console.log("selectService.team", selectService.team.length);
         if (selectService.team.length >= $scope.minPlayer && selectService.team.length <= $scope.maxPlayer) {
             $scope.disabledNextBtn = true;
         } else {
@@ -374,13 +378,18 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
     $scope.femaleAgeGrp = [];
     $scope.getEvents = [];
     $scope.getAthletePerSchoolObj = {};
+    $scope.getEventObj = {};
     $scope.getAthletePerSchoolObj.sfaid = '';
     $scope.getAthletePerSchoolObj.page = '1';
     $scope.getAthletePerSchoolObj.age = '';
     $scope.getAthletePerSchoolObj.gender = '';
     $scope.isLoading = true;
     $scope.busy = false;
-    console.log("selectService", selectService);
+
+    loginService.loginGet(function (data) {
+        $scope.detail = data;
+    });
+
     if ($.jStorage.get("schoolName") !== null) {
         $scope.getAthletePerSchoolObj.school = $.jStorage.get("schoolName");
     }
@@ -390,9 +399,14 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
         $scope.getAthletePerSchoolObj.athleteToken = $.jStorage.get("userDetails").accessToken;
     }
 
-    loginService.loginGet(function (data) {
-        $scope.detail = data;
-    });
+    if ($stateParams.id) {
+        $scope.getEventObj._id = $stateParams.id;
+        if ($scope.detail.userType === "athlete") {
+            $scope.getEventObj.athleteToken = $scope.detail.accessToken;
+        } else {
+            $scope.getEventObj.schoolToken = $scope.detail.accessToken;
+        }
+    }
 
     if ($.jStorage.get("userDetails") === null) {
         $state.go('sports-registration');
@@ -411,24 +425,23 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
         });
     };
 
-    $scope.getAllAges = function () {
-        if ($stateParams.id) {
-            NavigationService.getEvents($stateParams.id, function (data) {
-                errorService.errorCode(data, function (allData) {
-                    if (!allData.message) {
-                        $scope.getEvents = allData.data;
-                        console.log($scope.getEvents, "$scope.getEvents ");
-                        // $scope.sportTitle = allData.data.sportName;
-                        // NavigationService.setSportTitle($scope.sportTitle);
-                    } else {
-                        $scope.isDisabled = false;
-                        toastr.error(allData.message, 'Error Message');
-                    }
-                });
-            });
-        }
 
+
+    $scope.getAllAges = function () {
+        NavigationService.getEvents($scope.getEventObj, function (data) {
+            errorService.errorCode(data, function (allData) {
+                if (!allData.message) {
+                    $scope.getEvents = allData.data;
+                    // $scope.sportTitle = allData.data.sportName;
+                    // NavigationService.setSportTitle($scope.sportTitle);
+                } else {
+                    $scope.isDisabled = false;
+                    toastr.error(allData.message, 'Error Message');
+                }
+            });
+        });
     };
+
     $scope.getAllAges();
 
     $scope.sortGenderWise = function (gender) {
@@ -470,7 +483,7 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
             });
         });
     };
-    // Initial function
+    // Initial  function call
     $scope.getAllAthletes($scope.getAthletePerSchoolObj);
 
     // *****search by sfaId*****

@@ -1,4 +1,7 @@
     @media (max-width:1200px) {
+      .f-12 li {
+        font-size: 12px !important;
+      }
       .curve-head1 {
         margin-left: 40px;
         margin-right: 40px;
@@ -65,6 +68,12 @@
     }
 
     @media (max-width:$screen-sm-max) {
+      // .ver-line:after {
+      //   right: -80px;
+      // }
+      .f-12 li {
+        font-size: 14px !important;
+      }
       .para3 {
         font-size: 16px;
       } // start athletes-selection
@@ -422,6 +431,16 @@
     }
 
     @media (max-width:$screen-xs-max) {
+      .t-center {
+        text-align: center;
+      }
+      .v-line {
+        margin-bottom: 0px;
+        text-align: left;
+      }
+      .ver-line {
+        border: none;
+      }
       .w10 {
         width: 15%;
       }
@@ -1113,10 +1132,21 @@
       .selectAthletes .separateTwoBox .school-sec .stu-check .checkbox-custom input[type="checkbox"]+label {
         width: 342px;
       }
+      .sport-registration .category-padding-sport .v-line li {
+        font-size: 14px;
+      }
+      .ver-line:after {
+        display: none;
+      }
     }
 
     @media (max-width:480px) {
-      //start athlete-selection
+      .sport-registration .category-padding-sport .v-line li {
+        font-size: 12px;
+      }
+      ul.display-table.list-style.v-line.ver-line.sf-relative {
+        margin-bottom: 0px;
+      } //start athlete-selection
       .w10 {
         width: 18%;
       }
@@ -2137,7 +2167,7 @@
       }
       .btn-category {
         padding: 8px 20px;
-        font-size: 12px;
+        font-size: 11px;
       }
       .com-category {
         font-size: 12px;
@@ -2183,7 +2213,9 @@
     }
 
     @media (max-width:400px) {
-      //start athlete-selection
+      .ver-line:after {
+        display: none;
+      } //start athlete-selection
       .selectAthletes .separateTwoBox .school-sec .stu-check .checkbox-custom input[type="checkbox"]+label {
         width: 136px;
       }

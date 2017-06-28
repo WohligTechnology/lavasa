@@ -241,6 +241,10 @@ a {
     display: inline-block;
 }
 
+.display-table {
+    display: inline-table;
+}
+
 .color-blue {
     color: $brand-primary;
 }
@@ -5509,6 +5513,14 @@ input[type="radio"]:checked+label span {
     }
 }
 
+.sfa-schedule {
+    margin-right: 20px !important;
+}
+
+.cut-off-table {
+    margin: 55px 100px 0 20px;
+}
+
 .sport-sec {
     margin: 90px 55px 0px 55px;
     position: relative;
@@ -5582,6 +5594,30 @@ input[type="radio"]:checked+label span {
             0));
         }
     }
+    .category-padding-sport {
+        .v-line {
+            padding-left: 20px;
+            li {
+                padding-bottom: 5px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.ver-line {
+    border-right: 1px solid gray; // &:after {
+    //     content: '';
+    //     position: absolute;
+    //     border-right: 1px solid gray;
+    //     right: -35px;
+    //     top: 0px;
+    //     height: 100%;
+    // }
+}
+
+.pdt5 {
+    padding-top: 5px !important;
 }
 
 .store-for-you {
@@ -5730,6 +5766,10 @@ input[type="radio"]:checked+label span {
 
 .mb-20 {
     margin-bottom: -20px;
+}
+
+.mb-155 {
+    margin-bottom: 155px;
 }
 
 .pd-left {
@@ -6648,6 +6688,7 @@ h1.forgot-space {
                 line-height: 1.42857;
                 &:hover {
                     text-decoration: underline;
+                    font-weight: 600;
                 }
             }
         }
@@ -7252,6 +7293,11 @@ h1.forgot-space {
 }
 
 //end
+.cus-pd-lr {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
 .forMobile {
     .sfa-mum {
         position: absolute;
