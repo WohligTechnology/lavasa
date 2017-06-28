@@ -311,6 +311,8 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
 
     //***** for getting age group *****
     $scope.filterAge = function (ageId, ageName) {
+        $scope.selectService.team=[];
+        $scope.listOfAthelete=[];
         $scope.showAgeObj = '';
         $scope.isLoading = true;
         $scope.busy = false;
