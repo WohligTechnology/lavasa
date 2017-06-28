@@ -340,10 +340,6 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     // };
 
     $scope.maxPlayerAllow = function () {
-        $scope.maxPlayer = 3;
-        $scope.minPlayer = 2;
-
-        console.log("selectService.team", selectService.team.length);
         if (selectService.team.length >= $scope.minPlayer && selectService.team.length <= $scope.maxPlayer) {
             $scope.disabledNextBtn = true;
         } else {
