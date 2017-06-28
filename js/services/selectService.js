@@ -1,4 +1,4 @@
-firstApp.service('selectService', function ($http, TemplateService, $state) {
+firstApp.service('selectService', function ($http, TemplateService, $state, toastr) {
 
     this.team = [];
     this.sportsId = null;
@@ -36,7 +36,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state) {
     };
 
     this.modifyDataIfInTeam = function (obj) {
-        alert();
+        alert(); 
         // check if this is in team 
         //      if yes status alreadyInTeam
     };

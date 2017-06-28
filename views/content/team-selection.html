@@ -60,7 +60,7 @@
                                                 <div class="display-inline w10" ng-repeat="data in maleAgeGrp track by $index">
                                                     <!--<input type="radio" id="{{data.ageData._id}}" name="radio1" value="{{data.ageData._id}}" required ng-click="filterAge(data.ageData._id,data.ageData.name);">-->
                                                     <input type="radio" id="{{data.ageData._id}}" name="radio1" value="{{data.ageData._id}}" required ng-checked="selectService.ageGroup==data.ageData._id"
-                                                        ng-click="filterAge(data.ageData._id,data.ageData.name);selectService.ageGroup=data.ageData._id"
+                                                        ng-click="filterAge(data.ageData._id,data.ageData.name);selectService.ageGroup=data.ageData._id;"
                                                         ; ng-model='formData.ageGroup'>
                                                     <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
                                                 </div>
@@ -139,7 +139,7 @@
                                                     <div class="col-md-4 col-sm-4 col-xs-12 mb15" ng-repeat="checked in listOfAthelete">
                                                         <div class="school-sec">
                                                             <div class="stu-img">
-                                                                <img ng-src="{{checked.atheleteSchoolIdImage | serverimage2 }}" class="img-responsive" alt="">
+                                                                <img ng-src="{{checked.atheleteSchoolIdImage | serverimage2:70:70:'cover' }}" class="img-responsive" alt="">
                                                             </div>
                                                             <div class="stu-check">
                                                                 <div class="checkbox-custom">
@@ -179,7 +179,8 @@
                                             <!--<p>Players Selected: {{teamMembers.length}}</p>-->
                                             <p>Players Selected: {{selectService.team.length}}</p>
                                         </div>
-                                        <div class="selectedTeamTable table-responsive">
+                                         <div class="scroll-div scroll-height">
+                                    <div class="selectedTeamTable table-responsive scrollbar style-1">
                                             <table class="table table-bordered">
                                                 <thead>
                                                     <th>
@@ -226,6 +227,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
