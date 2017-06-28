@@ -152,6 +152,10 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     $scope.getAthletePerSchoolObj.sfaid = '';
     $scope.getAthletePerSchoolObj.page = '1';
     $scope.busy = false;
+    $scope.scroll = {
+        busy: false,
+        stopCallingApi: false,
+    };
     $scope.disabledNextBtn = false;
     $scope.teamMembers = [];
     loginService.loginGet(function (data) {
