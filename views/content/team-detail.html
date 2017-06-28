@@ -95,7 +95,7 @@ squad
                                             <span>OPPONENT NAME</span>
                                         </th>
                                         <th>
-                                            <span>{{teamDetails.sport.drawFormat == 'Heats' ? 'Timing' : 'Score'}}</span>
+                                            <span>{{teamDetails.sport.drawFormat == 'Heats' ? (teamDetails.sport.name == 'Athletics' ? 'Timing/Distance/Height' : 'Timing') : 'Score'}}</span>
 
                                         </th>
                                         <th>

@@ -2913,7 +2913,9 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
             }
         });
     };
+    $scope.nowSport = {};
     $scope.sportsSelected = function (sport) {
+        $scope.nowSport = sport;
         $scope.activateSports(sport._id);
         $scope.participatedSports = _.groupBy(sport.sports, function (key) {
             return key.year;
@@ -3448,20 +3450,20 @@ firstApp.controller('TeamDetailCtrl', function ($scope, TemplateService, Navigat
                         _.each($scope.teamStats, function (key) {
                             key.self = {};
                             _.each(key.heat.heats, function (single) {
-                                // var schoolid = single.team._id;
-                                // if (schoolid == $stateParams.id) {
-                                //     key.self = single;
-                                // }
-
-                                if (key.heat.participantType == "team") {
-                                    if (key.team._id == $stateParams.id) {
-                                        key.self = single;
-                                    }
-                                } else {
-                                    if (single.player._id == single.team._id) {
-                                        key.self = single;
-                                    }
+                                var schoolid = single.team._id;
+                                if (schoolid == $stateParams.id) {
+                                    key.self = single;
                                 }
+
+                                // if (key.heat.participantType == "team") {
+                                //     if (key.team._id == $stateParams.id) {
+                                //         key.self = single;
+                                //     }
+                                // } else {
+                                //     if (single.player._id == single.team._id) {
+                                //         key.self = single;
+                                //     }
+                                // }
                             });
                         });
                     }

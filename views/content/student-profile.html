@@ -216,7 +216,7 @@ student’s blog
                                             <span>OPPONENT NAME</span>
                                         </th>
                                         <th>
-                                            <span>{{table.layout == 'Heats' ? 'Timing' : 'Score'}}</span>
+                                            <span>{{table.layout == 'Heats' ? (nowSport.name == 'Athletics' ? 'Timing/Distance/Height' : 'Timing') : 'Score'}}</span>
 
                                         </th>
                                         <th>
