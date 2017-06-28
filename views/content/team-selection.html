@@ -131,7 +131,7 @@
                                         </form>
                                         <div class="scroll-div">
                                             <div class="scrollbar style-1">
-                                                <div class="text-center mt15" ng-if="selectAthlete.length===0">
+                                                <div class="text-center mt15" ng-if="noAthletefound">
                                                     <h4>No Athlete Found</h4>
                                                 </div>
                                                 <div class="mt15">
@@ -179,34 +179,34 @@
                                             <!--<p>Players Selected: {{teamMembers.length}}</p>-->
                                             <p>Players Selected: {{selectService.team.length}}</p>
                                         </div>
-                                         <div class="scroll-div scroll-height">
-                                    <div class="selectedTeamTable table-responsive scrollbar style-1">
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <th>
-                                                        <div class="mid_col">Sr. No.</div>
-                                                    </th>
-                                                    <th>SFA ID-Name</th>
-                                                    <th></th>
+                                        <div class="scroll-div scroll-height">
+                                            <div class="selectedTeamTable table-responsive scrollbar style-1">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <th>
+                                                            <div class="mid_col">Sr. No.</div>
+                                                        </th>
+                                                        <th>SFA ID-Name</th>
+                                                        <th></th>
 
-                                                </thead>
-                                                <tbody>
-                                                    <tr ng-repeat="athlete in selectService.team track by $index" ng-if="athlete.checked">
-                                                        <td>
-                                                            <div class="mid_cols">{{$index+1}}</div>
-                                                        </td>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr ng-repeat="athlete in selectService.team track by $index" ng-if="athlete.checked">
+                                                            <td>
+                                                                <div class="mid_cols">{{$index+1}}</div>
+                                                            </td>
 
-                                                        <td>{{athlete.firstName}}&nbsp&nbsp&nbsp&nbsp{{athlete.sfaId}}</td>
+                                                            <td>{{athlete.firstName}}&nbsp&nbsp&nbsp&nbsp{{athlete.sfaId}}</td>
 
 
-                                                        <td>
-                                                            <div ng-click="selectService.pushToTeam(athlete, athelete.checked, listOfAthelete)">
-                                                                <i class="fa fa-lg fa-times-circle pointer"></i>
-                                                                <!--<img src="img/icon/cross.png" alt="logo" class="img-responsive myicon">-->
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <!--<tr>
+                                                            <td>
+                                                                <div ng-click="selectService.pushToTeam(athlete, athelete.checked, listOfAthelete)">
+                                                                    <i class="fa fa-lg fa-times-circle pointer"></i>
+                                                                    <!--<img src="img/icon/cross.png" alt="logo" class="img-responsive myicon">-->
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <!--<tr>
                                                         <td>
                                                             <div class="mid_cols">2</div>
                                                         </td>
@@ -224,10 +224,10 @@
                                                             <i class="fa fa-lg fa-times-circle pointer" aria-hidden="true"></i>
                                                         </td>
                                                     </tr>-->
-                                                </tbody>
-                                            </table>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
-                                    </div>
                                     </div>
                                 </div>
                             </div>

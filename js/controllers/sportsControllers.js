@@ -152,6 +152,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     $scope.getAthletePerSchoolObj.sfaid = '';
     $scope.getAthletePerSchoolObj.page = 1;
     $scope.busy = false;
+    $scope.noAthletefound = false;
     $scope.scroll = {
         scrollBusy: false,
         stopCallingApi: false,
@@ -202,19 +203,30 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                     if (allData.value) {
                         $scope.isLoading = false;
                         console.log(allData.data.data, "allData.data.data");
-                        console.log(allData.data.data.length, "allData.data.length");
-                        console.log("allData.data.total ", allData.data.total);
-                        console.log("$scope.getAthletePerSchoolObj.page", getAthletePerSchoolObj.page);
-                        if (allData.data.total >= getAthletePerSchoolObj.page) {
-                            $scope.showMsg = true;
-                            $scope.isLoading = false;
-                            _.each(allData.data.data, function (value) {
-                                $scope.selectAthlete.push(value);
-                                $scope.busy = false;
-                            });
+                        if (allData.data.data === undefined) {
+                            console.log("No Athletes");
+                            if ($scope.selectAthlete.length === 0) {
+                                $scope.noAthletefound = true;
+                            } else {
+                                $scope.noAthletefound = false;
+                            }
+                        } else {
+                            $scope.noAthletefound = false;
+                            console.log(allData.data.data.length, "allData.data.length");
+                            console.log("total****** ", allData.data.total);
+                            console.log("pageno**********", getAthletePerSchoolObj.page);
+                            if (allData.data.total >= getAthletePerSchoolObj.page) {
+                                $scope.showMsg = true;
+                                $scope.isLoading = false;
+                                _.each(allData.data.data, function (value) {
+                                    $scope.selectAthlete.push(value);
+                                    $scope.busy = false;
+                                });
 
-                            $scope.listOfAthelete = $scope.selectService.isAtheleteSelected($scope.selectAthlete);
+                                $scope.listOfAthelete = $scope.selectService.isAtheleteSelected($scope.selectAthlete);
+                            }
                         }
+
                     }
                 } else {
                     $scope.isDisabled = false;
@@ -283,7 +295,6 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                         NavigationService.setSportId(allData.data.sport);
                         $scope.minPlayer = allData.data.minplayer;
                         $scope.maxPlayer = allData.data.maxPlayer;
-
                         console.log($scope.getAthletePerSchoolObj, "$scope.getAthletePerSchoolObj");
                         $scope.getAthletePerSchoolObj.page = 1;
                         $scope.busy = false;
@@ -299,7 +310,6 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                         if (allData.error === "Max Team Created") {
                             toastr.error("Maximum Team is Already Created", 'Error Message');
                         }
-
                     }
                 } else {
                     $scope.isDisabled = false;
@@ -311,11 +321,12 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
 
     //***** for getting age group *****
     $scope.filterAge = function (ageId, ageName) {
-        $scope.selectService.team=[];
-        $scope.listOfAthelete=[];
+        $scope.selectService.team = [];
+        $scope.listOfAthelete = [];
         $scope.showAgeObj = '';
         $scope.isLoading = true;
         $scope.busy = false;
+        $scope.noAthletefound = false;
         // $scope.scroll = {
         //     scrollBusy: false,
         //     stopCallingApi: false,
@@ -402,9 +413,8 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     //     });
     // };
 
+
     $scope.maxPlayerAllow = function () {
-        $scope.maxPlayer = 2;
-        $scope.minPlayer = 1;
         if (selectService.team.length >= $scope.minPlayer && selectService.team.length <= $scope.maxPlayer) {
             $scope.disabledNextBtn = true;
         } else {
@@ -414,7 +424,6 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
             toastr.error('Kindly select a minimum of' + ' ' + ' ' + $scope.minPlayer + ' ' + 'players and a maximum of' + ' ' + $scope.maxPlayer + ' ' +
                 'players');
         }
-
     };
 
     // $scope.next = function () {
@@ -658,32 +667,31 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
         });
         if (isCapObj === undefined) {
             toastr.error("Please select Captain", 'Error Message');
-        }
-        if (isGoalKeeperObj === undefined && isCapObj !== undefined) {
-            if (sportTitle === 'Handball' || sportTitle === 'handball' || sportTitle === 'Footbahhhll' || sportTitle === 'foohhhtball' || sportTitle === 'Hockey' || sportTitle === 'hockey' || sportTitle === 'Waterpolo' || sportTitle === 'waterpolo') {
-                toastr.error("Please select GoalKeeper", 'Error Message');
+        } else {
+            if (isGoalKeeperObj === undefined && isCapObj !== undefined) {
+                if (sportTitle === 'Handball' || sportTitle === 'handball' || sportTitle === 'Football' || sportTitle === 'football' || sportTitle === 'Hockey' || sportTitle === 'hockey' || sportTitle === 'Waterpolo' || sportTitle === 'waterpolo') {
+                    toastr.error("Please select GoalKeeper", 'Error Message');
+                } else {
+                    $scope.confirmTeamObject.athleteTeam = _.cloneDeep($scope.teamMembers);
+                    console.log($scope.confirmTeamObject, "$scope.confirmTeamObject");
+                    NavigationService.teamConfirm($scope.confirmTeamObject, function (data) {
+                        errorService.errorCode(data, function (allData) {
+                            if (!allData.message) {
+                                if (allData.value) {
+                                    toastr.success("Successfully Confirmed", 'Success Message');
+                                    NavigationService.setSportId(null);
+                                    $state.go("sports-congrats");
+                                }
+                            } else {
+                                toastr.error(allData.message, 'Error Message');
+                            }
+                        });
+                    });
+
+                }
+
             }
-
         }
-
-        if (isCapObj !== undefined && isGoalKeeperObj !== undefined) {
-            $scope.confirmTeamObject.athleteTeam = _.cloneDeep($scope.teamMembers);
-            console.log($scope.confirmTeamObject, "$scope.confirmTeamObject");
-            NavigationService.teamConfirm($scope.confirmTeamObject, function (data) {
-                errorService.errorCode(data, function (allData) {
-                    if (!allData.message) {
-                        if (allData.value) {
-                            toastr.success("Successfully Confirmed", 'Success Message');
-                            NavigationService.setSportId(null);
-                            $state.go("sports-congrats");
-                        }
-                    } else {
-                        toastr.error(allData.message, 'Error Message');
-                    }
-                });
-            });
-        }
-
     };
 
 
