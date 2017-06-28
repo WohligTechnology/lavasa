@@ -171,10 +171,20 @@ firstApp.filter('serverimage', function () {
 });
 
 firstApp.filter('serverimage2', function () {
-    return function (image) {
+    return function (image, width, height, style) {
+        var other = "";
+        if (width && width !== "") {
+            other += "&width=" + width;
+        }
+        if (height && height !== "") {
+            other += "&height=" + height;
+        }
+        if (style && style !== "") {
+            other += "&style=" + style;
+        }
         if (image && image !== null) {
             console.log("adminUrl--", adminUrl);
-            return adminUrl2 + "upload/readFile?file=" + image;
+            return adminUrl2 + "upload/readFile?file=" + image + other;
         } else {
             return undefined;
         }

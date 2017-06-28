@@ -6925,7 +6925,7 @@ h1.forgot-space {
     .separateTwoBox {
         border: 1px solid #091a71;
         width: 100%;
-        height: 561px;
+        height: 630px;
         padding-right: 15px;
         .kind-select {
             font-family: TitilliumWeb;
@@ -7002,7 +7002,7 @@ h1.forgot-space {
             // }
             .scrollbar {
                 margin-left: 5px; // float: left;
-                height: 481px; // width: 65px;
+                max-height: 560px; // width: 65px;
                 // background: #F5F5F5;
                 overflow-y: auto;
                 width: 100%; // overflow-y: scroll; // margin-bottom: 25px;
@@ -7027,6 +7027,12 @@ h1.forgot-space {
                 height: 5px !important;
             }
         }
+        .scroll-height {
+            .scrollbar {
+                margin-left: 5px; // float: left;
+                height: 467px;
+            }
+        }
         .readSchoolName {
             margin-top: 15px;
             .control-label {
@@ -7044,7 +7050,7 @@ h1.forgot-space {
             }
         }
         .school-sec {
-            min-height: 150px;
+            min-height: 168px;
             margin: 0;
             padding: 5px 0;
             h4 {
