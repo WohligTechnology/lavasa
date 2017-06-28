@@ -400,6 +400,11 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             url: "/test",
             templateUrl: "views/template.html",
             controller: 'DummyCtrl'
+        })
+        .state('confirm-shooting', {
+            url: "/confirm-shooting",
+            templateUrl: "views/template.html",
+            controller: 'ConfirmShootingCtrl'
         });
 
     $urlRouterProvider.otherwise("/");

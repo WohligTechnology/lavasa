@@ -1316,6 +1316,27 @@ firstApp.controller('ConfirmRelayCtrl', function ($scope, TemplateService, Navig
 
 });
 
+
+//Confirm-shooting
+
+firstApp.controller('ConfirmShootingCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+    //Used to name the .html file
+
+    $scope.template = TemplateService.changecontent("confirmshooting");
+    $scope.menutitle = NavigationService.makeactive("Confirm Shooting");
+    TemplateService.header = "views/header2.html";
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.shootTable = [{
+        name: '126 - Kunjal Rawal',
+    }, {
+        name: '126 - Kunjal Rawal',
+    }, {
+        name: '126 - Kunjal Rawal',
+    }]
+
+});
+
 //Confirm-athlete-swimming
 
 firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
