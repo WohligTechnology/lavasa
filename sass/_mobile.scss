@@ -73,6 +73,9 @@
       // .ver-line:after {
       //   right: -80px;
       // }
+      .selectAthletes .separateTwoBox .scroll-div .scrollbar {
+        height: 530px;
+      }
       .f-12 li {
         font-size: 14px !important;
       }
@@ -433,6 +436,9 @@
     }
 
     @media (max-width:$screen-xs-max) {
+      .selectAthletes .separateTwoBox .scroll-div .scrollbar {
+        height: 490px;
+      }
       .t-center {
         text-align: center;
       }
@@ -1146,6 +1152,9 @@
     }
 
     @media (max-width:480px) {
+      .selectAthletes .separateTwoBox .scroll-div .scrollbar {
+        height: 490px;
+      }
       .sport-registration .category-padding-sport .v-line li {
         font-size: 12px;
       }
