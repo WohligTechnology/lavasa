@@ -1152,6 +1152,9 @@
     }
 
     @media (max-width:480px) {
+      .ktkSize input[type="radio"]+label {
+        margin-left: -16px;
+      }
       .selectAthletes .separateTwoBox .scroll-div .scrollbar {
         height: 490px;
       }
