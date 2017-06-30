@@ -70,7 +70,7 @@
 
                               </td>
                               <td>{{member.sfaId}}&nbsp&nbsp&nbsp&nbsp{{member.firstName}}</td>
-                              <td>
+                              <td ng-class="{'rightBorder':member.isGoalKeeper == false}">
                                 <input name="capt" type="radio" value="member.isCaptain" ng-model="captain" ng-click="isCaptainFun($index);">
                               </td>
                               <td ng-if="sportTitle === 'Handball' || sportTitle === 'handball' || sportTitle === 'Football' || sportTitle === 'football'
