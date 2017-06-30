@@ -1,4 +1,4 @@
-firstApp.controller('SportsRegistrationCtrl', function ($scope, fakeFac, TemplateService, loginService, NavigationService, $timeout, toastr, $state, $rootScope, errorService) {
+firstApp.controller('SportsRegistrationCtrl', function ($scope, fakeFac, selectService, TemplateService, loginService, NavigationService, $timeout, toastr, $state, $rootScope, errorService) {
     $scope.template = TemplateService.changecontent("sports-registration");
     $scope.menutitle = NavigationService.makeactive("Sports Registration");
     TemplateService.header = "views/header2.html";
@@ -80,7 +80,6 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, fakeFac, Templat
             errorService.errorCode(data, function (allData) {
                 if (!allData.message) {
                     if (allData.value) {
-                        console.log("alldata", allData);
                         NavigationService.setUser(allData.data);
                         toastr.success('Successfully Logged In.', 'Login Message');
                         $state.go('sports-selection');

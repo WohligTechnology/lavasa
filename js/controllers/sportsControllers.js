@@ -150,6 +150,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    // selectService.initialFun();
     $scope.selectService = selectService;
     console.log("$scope.selectService", $scope.selectService);
     $scope.selectService.sportsId = $stateParams.id;
@@ -179,8 +180,10 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
 
     if ($scope.detail.userType === "athlete") {
         $scope.constraints.athleteToken = $scope.detail.accessToken;
+        $scope.getAthletePerSchoolObj.athleteToken = $scope.detail.accessToken;
     } else {
         $scope.constraints.schoolToken = $scope.detail.accessToken;
+        $scope.getAthletePerSchoolObj.schoolToken = $scope.detail.accessToken;
     }
 
 
@@ -317,6 +320,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                         //     stopCallingApi: false,
                         // };
                         $scope.athletePerSchool($scope.getAthletePerSchoolObj);
+                        console.log($scope.getAthletePerSchoolObj, "$scope.getAthletePerSchoolObj");
                     } else {
                         console.log("in else", allData);
                         $scope.isLoading = false;
@@ -335,7 +339,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
 
     //***** for getting age group *****
     $scope.filterAge = function (ageId, ageName) {
-        $scope.selectService.team = [];
+        // $scope.selectService.team = [];
         $scope.listOfAthelete = [];
         $scope.showAgeObj = '';
         $scope.isLoading = true;
@@ -415,7 +419,8 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                         key.orderage = parseInt(key.ageData.name.slice(2));
                     });
 
-                    $scope.sortGenderWise('male');
+                    $scope.sortGenderWise($scope.selectService.gender);
+                    //  $scope.sortGenderWise('male');
                 } else {
                     $scope.isDisabled = false;
                     toastr.error(allData.message, 'Error Message');
@@ -433,17 +438,12 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     // };
 
 
-    // $scope.maxPlayerAllow = function () {
-    //     if (selectService.team.length >= $scope.minPlayer && selectService.team.length <= $scope.maxPlayer) {
-    //         $scope.disabledNextBtn = true;
-    //     } else {
-    //         $scope.disabledNextBtn = false;
-    //     }
-    //     if (selectService.team.length > $scope.maxPlayer) {
-    //         toastr.error('Kindly select a minimum of' + ' ' + ' ' + $scope.minPlayer + ' ' + 'players and a maximum of' + ' ' + $scope.maxPlayer + ' ' +
-    //             'players');
-    //     }
-    // };
+    $scope.maxPlayerAllow = function () {
+        if (selectService.team.length > $scope.maxPlayer) {
+            toastr.error('Kindly select a minimum of' + ' ' + ' ' + $scope.minPlayer + ' ' + 'players and a maximum of' + ' ' + $scope.maxPlayer + ' ' +
+                'players');
+        }
+    };
 
     // $scope.next = function () {
     //     selectService.next('confirmteam', $scope.teamMembers);

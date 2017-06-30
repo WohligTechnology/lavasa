@@ -1,9 +1,25 @@
-firstApp.service('selectService', function ($http, TemplateService, $state, toastr) {
+firstApp.service('selectService', function ($http, TemplateService, $state, toastr, loginService) {
 
     this.team = [];
+    this.detail = null;
     this.sportsId = null;
-    this.gender = 'male';
+    this.gender = null;
     this.ageGroup = null;
+
+    this.initialFun = function () {
+        loginService.loginGet(function (data) {
+            detail = data;
+        });
+        if (detail.userType === 'athlete') {
+            this.gender = detail.gender;
+            console.log(this.gender, "athlete");
+        } else {
+            this.gender = 'male';
+            console.log(this.gender, "school");
+        }
+    };
+
+
 
     //make .checked to true if already selected
     this.isAtheleteSelected = function (listOfAthlete, team) {
@@ -36,7 +52,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
     };
 
     this.modifyDataIfInTeam = function (obj) {
-        alert(); 
+        alert();
         // check if this is in team 
         //      if yes status alreadyInTeam
     };
@@ -69,11 +85,16 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
         });
     };
 
+    this.emptyTeam = function () {
+        this.team = [];
+    };
+
     this.reset = function () {
         this.team = [];
         this.sportsId = null;
-        this.gender = 'male';
         this.ageGroup = null;
+        this.initialFun();
     };
+
 
 });

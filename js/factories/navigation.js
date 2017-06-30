@@ -540,7 +540,9 @@ firstApp.factory('NavigationService', function ($http, $window) {
         },
 
         setUser: function (data) {
-            $.jStorage.set("userDetails", data);
+            $.jStorage.set("userDetails", data, {
+                TTL: 86400000
+            });
         },
 
         setSportId: function (data) {
