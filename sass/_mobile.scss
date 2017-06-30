@@ -76,6 +76,9 @@
       .selectAthletes .separateTwoBox .scroll-div .scrollbar {
         height: 530px;
       }
+      .selectAthletes .separateTwoBox .scroll-div .scrollbar.m-scrollbar {
+        height: 475px;
+      }
       .f-12 li {
         font-size: 14px !important;
       }
@@ -101,7 +104,10 @@
       } //end athletes-selection
       //start sports-tab
       .sp-row-tab ul li button {
-        width: 150px;
+        width: 209px;
+      }
+      .sp-row-tab {
+        text-align: center;
       }
       .step4 {
         width: 158px;
@@ -438,6 +444,9 @@
     @media (max-width:$screen-xs-max) {
       .selectAthletes .separateTwoBox .scroll-div .scrollbar {
         height: 490px;
+      }
+      .selectAthletes .separateTwoBox .scroll-div .scrollbar.m-scrollbar {
+        height: 450px;
       }
       .t-center {
         text-align: center;
@@ -1134,6 +1143,12 @@
         left: 50%;
         @include transform(translate(-50%, 0));
       }
+      .sp-row-tab ul li button {
+        width: 180px;
+      }
+      .sp-row-tab ul li button {
+        font-size: 11px;
+      }
     }
 
     @media (max-width:525px) {
@@ -1157,6 +1172,9 @@
       }
       .selectAthletes .separateTwoBox .scroll-div .scrollbar {
         height: 490px;
+      }
+      .selectAthletes .separateTwoBox .scroll-div .scrollbar.m-scrollbar {
+        height: 455px;
       }
       .sport-registration .category-padding-sport .v-line li {
         font-size: 12px;
@@ -1196,21 +1214,17 @@
         margin-right: 40px !important;
       }
       .sp-row-tab ul li button {
-        width: 125px;
+        // width: 125px;
         margin: 5px 0;
       }
       .sp-tab-right {
         float: left !important;
       }
-      .sp-row-tab {
-        text-align: center;
-      }
       .sp-head-tab p {
         font-size: 12px;
-      }
-      .sp-row-tab ul li button {
-        font-size: 11px;
-      }
+      } // .sp-row-tab ul li button {
+      //   // font-size: 11px;
+      // }
       .step4 {
         width: 95px;
         height: 35px;
@@ -2243,9 +2257,6 @@
         font-size: 12px;
       } //end
       //start sports-tab
-      .sp-row-tab {
-        text-align: center;
-      }
       .mob-mr {
         margin-right: 38px !important;
       } //end sports-tab
