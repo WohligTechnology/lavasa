@@ -7349,5 +7349,11 @@ h1.forgot-space {
     }
 }
 
+// .toast-centered {
+//     top: 50%;
+//     left: 50%;
+//     @include transform(translate(-50%,
+//     -50%));
+// }
 @import "fancybox-override";
 @import "mobile";
