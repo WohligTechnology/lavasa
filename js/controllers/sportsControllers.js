@@ -150,7 +150,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    // selectService.initialFun();
+
     $scope.selectService = selectService;
     console.log("$scope.selectService", $scope.selectService);
     $scope.selectService.sportsId = $stateParams.id;
@@ -160,6 +160,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     $scope.listOfAthelete = [];
     $scope.maleAgeGrp = [];
     $scope.femaleAgeGrp = [];
+    $scope.teamMembers = [];
     $scope.constraints = {};
     // $scope.detail = {};
     $scope.constraints._id = $stateParams.id;
@@ -172,8 +173,8 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
         scrollBusy: false,
         stopCallingApi: false,
     };
-    $scope.disabledNextBtn = false;
-    $scope.teamMembers = [];
+
+
     loginService.loginGet(function (data) {
         $scope.detail = data;
     });
