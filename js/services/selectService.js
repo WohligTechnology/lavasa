@@ -132,30 +132,31 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
     };
 
     this.goNext = function (basicSportDetails, gender, age) {
-        console.log(basicSportDetails, gender, age, "---------Gonext service----------");
+        this.yourPromise = NavigationService.success().then(function () {
+            console.log(basicSportDetails, gender, age, "---------Gonext service----------");
 
-        this.gender = gender;
-        this.ageGroup = age;
+            this.gender = gender;
+            this.ageGroup = age;
 
-        //change state based on sportType [why:coz confiem pages are different for each sports]
-        switch (basicSportDetails.sportType) {
-            case "K":
-                $state.go("confirm-karate");
-                break;
-            case "FA":
-                $state.go("confirm-fencing");
-                break;
-            case "AAS":
-                $state.go("confirm-athleteswim");
-                break;
-            case "I":
-                $state.go("confirm-individual");
-                break;
-            case "CT":
-                $state.go("confirmteam");
-                break;
-        }
-
+            //change state based on sportType [why:coz confiem pages are different for each sports]
+            switch (basicSportDetails.sportType) {
+                case "K":
+                    $state.go("confirm-karate");
+                    break;
+                case "FA":
+                    $state.go("confirm-fencing");
+                    break;
+                case "AAS":
+                    $state.go("confirm-athleteswim");
+                    break;
+                case "I":
+                    $state.go("confirm-individual");
+                    break;
+                case "CT":
+                    $state.go("confirmteam");
+                    break;
+            }
+        });
     };
 
 

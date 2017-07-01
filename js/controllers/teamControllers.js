@@ -306,11 +306,11 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                 'players');
         }
     };
-    $scope.goNext = function (confirmteam, gender, ageGroup) {
-        $scope.yourPromise = NavigationService.success().then(function () {
-            $scope.selectService.goNext(confirmteam, gender, ageGroup);
-        });
-    };
+    // $scope.goNext = function (confirmteam, gender, ageGroup) {
+    //     $scope.yourPromise = NavigationService.success().then(function () {
+    //         $scope.selectService.goNext(confirmteam, gender, ageGroup);
+    //     });
+    // };
     // $scope.next = function () {
     //     selectService.next('confirmteam', $scope.teamMembers);
     // };
