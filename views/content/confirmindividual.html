@@ -47,109 +47,45 @@
                     </div>
                   </div>
                   <div class="form-group text-center">
-                    <h4 class="teamHead">U-10 Male Basketball</h4>
+                    <h4 class="teamHead">U-10 Male Basketball-------------{{ageVar}}|{{weightVar}}</h4>
+                    <p>{{config}}</p>
                   </div>
                   <div class="form-group">
                     <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
                       <div class="karate-table">
                         <div class="selectedTeamTable table-responsive">
 
-                          <table class="table table-bordered">
+                          <table class="table table-bordered" ng-init="st=selectService.sportName;weightIndex">
                             <thead>
                               <th>
                                 <div class="mid_col">Sr. No.</div>
                               </th>
-                              <th>SFA ID-Name</th>
+                              <th>SFA ID-Name---{{ageVar}}</th>
                               <th>Gender</th>
                               <th>Age Group</th>
-                              <th>Weight</th>
+                              <th ng-if="st=='Judo' || st=='Boxing' || st=='Taekwondo' || st=='Sport MMA'">Weight</th>
                             </thead>
+                           
                             <tbody>
-                              <tr>
+                              <tr ng-repeat="athelete in selectService.team track by $index">
                                 <td>
-                                  <div class="mid_cols">1</div>
+                                  <div class="mid_cols">{{$index+1}}||{{ageVar}}</div>
+                                  <p></p>
                                 </td>
-                                <td>126 - Kunjal Rawal
-
-                                </td>
+                                <td>{{athelete.firstName+' '+athelete.surname}}</td>
+                                <td>{{athelete.gender}}</td>
                                 <td>
-                                  Male
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                     <option value="u-8">U-8 </option>
-                                    <option value="u-10">U-10 </option>
-                                    <option value="u-12">U-12 </option>
-                                    <option value="u-14">U-14 </option>
+                                  <!--ageGroup column start-->
+                                  <select class="form-control" ng-model="athelete.sport" ng-options="{{config.selectAgeExpression}}">
                                   </select>
+                                  <!--ageGroup column end-->
                                 </td>
-                                <td>
+                                <td ng-if="st=='Judo' || st=='Boxing' || st=='Taekwondo' || st=='Sport MMA'">
+                                  <!--weights column start-->
 
-                                  <select class="form-control">
-                                     <option value="28-kg">-28 kg</option>
-                                    <option value="30-kg">30 kg</option>
-                                    <option value="32-kg">32 kg</option>
-                                    <option value="34-kg">34 kg</option>
+                                  <select class="form-control" ng-model="athelete.sport1" ng-options="weight.sport as weight.weight for weight in athelete.sport.data">
                                   </select>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="mid_cols">2</div>
-                                </td>
-                                <td>126 - Kunjal Rawal
-
-                                </td>
-                                <td>
-                                  Male
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                     <option value="u-8">U-8 </option>
-                                    <option value="u-10">U-10 </option>
-                                    <option value="u-12">U-12 </option>
-                                    <option value="u-14">U-14 </option>
-                                  </select>
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                     <option value="28-kg">-28 kg</option>
-                                    <option value="30-kg">30 kg</option>
-                                    <option value="32-kg">32 kg</option>
-                                    <option value="34-kg">34 kg</option>
-                                  </select>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="mid_cols">3</div>
-                                </td>
-                                <td>126 - Kunjal Rawal
-
-                                </td>
-                                <td>
-                                  Male
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                     <option value="u-8">U-8 </option>
-                                    <option value="u-10">U-10 </option>
-                                    <option value="u-12">U-12 </option>
-                                    <option value="u-14">U-14 </option>
-                                  </select>
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                     <option value="28-kg">-28 kg</option>
-                                    <option value="30-kg">30 kg</option>
-                                    <option value="32-kg">32 kg</option>
-                                    <option value="34-kg">34 kg</option>
-                                  </select>
+                                  <!--weights column end--> 
                                 </td>
                               </tr>
                             </tbody>
@@ -213,7 +149,7 @@
                         <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="button" ng-click="selectService.editTeam('individual-selection');">Edit</button>
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12 ">
-                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="submit ">Confirm</button>
+                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="button" ng-click="saveIt(selectService.team)">Confirm</button>
                       </div>
                     </div>
                   </div>

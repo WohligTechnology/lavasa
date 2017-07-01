@@ -66,118 +66,43 @@
                               <th>Weight (Kumite)</th>
                             </thead>
                             <tbody>
-                              <tr>
+                              <tr ng-repeat="athelete in selectService.team track by $index">
                                 <td>
                                   <div class="mid_cols">1</div>
                                 </td>
-                                <td>126 - Kunjal Rawal
-
-                                </td>
+                                <td>{{athelete.firstName+' '+athelete.surname}}</td>
+                                <td>{{athelete.gender}}</td>
                                 <td>
-                                  Male
-                                </td>
-                                <td>
-
+                                  <!--avent 1 selection starts-->
                                   <select class="form-control">
                                      <option value="u-8">U-8 Karate</option>
                                     <option value="u-10">U-10 Karate</option>
                                     <option value="u-12">U-12 Karate</option>
                                     <option value="u-14">U-14 Karate</option>
                                   </select>
+                                  <!--avent 1 selection ends-->
+                                  
                                 </td>
                                 <td>
-
+                                  <!--avent 2 selection starts-->
                                   <select class="form-control">
                                      <option value="u-8">U-8 Kumite</option>
                                     <option value="u-10">U-10 Kumite</option>
                                     <option value="u-12">U-12 Kumite</option>
                                     <option value="u-14">U-14 Kumite</option>
                                   </select>
+                                  <!--avent 2 selection ends-->
                                 </td>
                                 <td>
-
+                                  <!--avent 3 selection starts-->                                  
                                   <select class="form-control">
                                      <option value="28-kg">-28 kg</option>
                                     <option value="30-kg">30 kg</option>
                                     <option value="32-kg">32 kg</option>
                                     <option value="34-kg">34 kg</option>
                                   </select>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="mid_cols">2</div>
-                                </td>
-                                <td>126 - Kunjal Rawal
-
-                                </td>
-                                <td>
-                                  Male
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                               <option value="u-8">U-8 Karate</option>
-                                    <option value="u-10">U-10 Karate</option>
-                                    <option value="u-12">U-12 Karate</option>
-                                    <option value="u-14">U-14 Karate</option>
-                                  </select>
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                     <option value="u-8">U-8 Kumite</option>
-                                    <option value="u-10">U-10 Kumite</option>
-                                    <option value="u-12">U-12 Kumite</option>
-                                    <option value="u-14">U-14 Kumite</option>
-                                  </select>
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                     <option value="28-kg">-28 kg</option>
-                                    <option value="30-kg">30 kg</option>
-                                    <option value="32-kg">32 kg</option>
-                                    <option value="34-kg">34 kg</option>
-                                  </select>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="mid_cols">3</div>
-                                </td>
-                                <td>126 - Kunjal Rawal
-
-                                </td>
-                                <td>
-                                  Male
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                    <option value="u-8">U-8 Karate</option>
-                                    <option value="u-10">U-10 Karate</option>
-                                    <option value="u-12">U-12 Karate</option>
-                                    <option value="u-14">U-14 Karate</option>
-                                  </select>
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                     <option value="u-8">U-8 Kumite</option>
-                                    <option value="u-10">U-10 Kumite</option>
-                                    <option value="u-12">U-12 Kumite</option>
-                                    <option value="u-14">U-14 Kumite</option>
-                                  </select>
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                     <option value="28-kg">-28 kg</option>
-                                    <option value="30-kg">30 kg</option>
-                                    <option value="32-kg">32 kg</option>
-                                    <option value="34-kg">34 kg</option>
-                                  </select>
+                                  <!--avent 3 selection ends-->
+                                  
                                 </td>
                               </tr>
                             </tbody>
