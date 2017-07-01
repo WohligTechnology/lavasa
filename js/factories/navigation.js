@@ -7,7 +7,8 @@ var uploadUrl2 = adminUrl2 + "upload/";
 var currentYears = ["2015", "2016"];
 var navigationservice = angular.module('navigationservice', []);
 
-firstApp.factory('NavigationService', function ($http, $window) {
+firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $log) {
+    var standardDelay = 1000;
     var navigation = [{
         name: "Home",
         classis: "active",
@@ -706,13 +707,7 @@ firstApp.factory('NavigationService', function ($http, $window) {
                 method: 'POST',
                 data: request
             }).then(callback);
-        }
-    };
-});
-
-firstApp.factory('fakeFac', function ($q, $timeout, $log) {
-    var standardDelay = 1000;
-    return {
+        },
         success: function () {
             var defer = $q.defer();
             $timeout(function () {

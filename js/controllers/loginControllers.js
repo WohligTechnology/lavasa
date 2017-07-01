@@ -1,4 +1,4 @@
-firstApp.controller('SportsRegistrationCtrl', function ($scope, fakeFac, selectService, TemplateService, loginService, NavigationService, $timeout, toastr, $state, $rootScope, errorService) {
+firstApp.controller('SportsRegistrationCtrl', function ($scope, selectService, TemplateService, loginService, NavigationService, $timeout, toastr, $state, $rootScope, errorService) {
     $scope.template = TemplateService.changecontent("sports-registration");
     $scope.menutitle = NavigationService.makeactive("Sports Registration");
     TemplateService.header = "views/header2.html";
@@ -46,7 +46,7 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, fakeFac, selectS
 
 
     $scope.login = function (formData, formSports) {
-        $scope.yourPromise = fakeFac.success().then(function () {
+        $scope.yourPromise = NavigationService.success().then(function () {
             if (formSports.$valid) {
                 if (formData) {
                     formData.type = $.jStorage.get("userType");
@@ -94,7 +94,7 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, fakeFac, selectS
     };
 });
 
-firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, errorService, fakeFac) {
+firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, errorService) {
     $scope.template = TemplateService.changecontent("forgot-password");
     $scope.menutitle = NavigationService.makeactive("Forgot password");
     TemplateService.header = "views/header2.html";
@@ -129,7 +129,7 @@ firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, Nav
     };
 
     $scope.forgotPassword = function (formData, formSports) {
-        $scope.yourPromise = fakeFac.success().then(function () {
+        $scope.yourPromise = NavigationService.success().then(function () {
             if (formSports.$valid) {
                 if (formData.type) {
                     if (formData.type == "school") {
@@ -149,7 +149,7 @@ firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, Nav
 
 });
 
-firstApp.controller('ChangePasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, errorService, loginService, fakeFac) {
+firstApp.controller('ChangePasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, errorService, loginService) {
     $scope.template = TemplateService.changecontent("change-password");
     $scope.menutitle = NavigationService.makeactive("Change Password");
     TemplateService.header = "views/header2.html";
@@ -177,7 +177,7 @@ firstApp.controller('ChangePasswordCtrl', function ($scope, TemplateService, Nav
     $scope.formChange = {};
 
     $scope.changePassword = function (formSports, formChange) {
-        $scope.yourPromise = fakeFac.success().then(function () {
+        $scope.yourPromise = NavigationService.success().then(function () {
             if (formSports.$valid) {
                 if (formChange.password == formChange.confirmPassword) {
                     if ($.jStorage.get("userType") !== null) {

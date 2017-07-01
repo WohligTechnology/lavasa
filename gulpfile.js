@@ -48,6 +48,8 @@ var jsArray = [
     './js/controllers/formControllers.js',
     './js/controllers/loginControllers.js',
     './js/controllers/sportsControllers.js',
+    './js/controllers/teamControllers.js',
+    './js/controllers/individualControllers.js',
 
     //please do not change it
     './w/js/templates.js',
