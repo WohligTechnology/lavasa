@@ -19,6 +19,12 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
         }
     };
 
+    $scope.redirectTo = function (val) {
+        console.log(val);
+        $.jStorage.set("confirmPageKey", val.sportType);
+        selectService.redirectTo = val.sportType;
+        console.log(selectService.redirectTo);
+    }
 
     loginService.loginGet(function (data) {
         $scope.detail = data;

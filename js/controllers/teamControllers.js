@@ -4,9 +4,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-
     $scope.selectService = selectService;
-    console.log("$scope.selectService", $scope.selectService);
     $scope.selectService.sportsId = $stateParams.id;
     $scope.ageGroup = [];
     $scope.formData = {};

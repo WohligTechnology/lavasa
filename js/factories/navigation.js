@@ -717,7 +717,7 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
                 });
             }, standardDelay);
             return defer.promise;
-        }
+        },
         // error: function () {
         //     var defer = $q.defer();
         //     $timeout(function () {
@@ -732,5 +732,20 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
         //     var defer = $q.defer();
         //     return defer.promise;
         // }
+        //get subCategory Type Basic Details
+        getSportDetails: function (subCategoryId, callback) {
+            $http({
+                url: adminUrl2 + 'SportsListSubCategory/getSportsDeails',
+                method: 'POST',
+                data: subCategoryId
+            }).then(function (data) {
+                console.log(data.data);
+                if (data.data.value) {
+                    callback(data.data);
+                } else {
+                    console.log(data);
+                }
+            });
+        }
     };
 });

@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="step5">{{sportTitle}}</div>
+                    <div class="step5">{{basicSportDetails.sportName}}</div>
                     <div class="box-padd-term mb91">
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -117,7 +117,7 @@
                                                         </div>
                                                         <div class="stu-check">
                                                             <div class="checkbox-custom">
-                                                                <input type="checkbox" name="checkIhav" ng-model="checked.checked" value="option{{$index+1}}" id="option{{$index+1}}" ng-click="selectService.pushToTeam(checked, checked.checked, listOfAthelete);"
+                                                                <input type="checkbox" name="checkIhav" ng-model="checked.checked" value="option{{$index+1}}" id="option{{$index+1}}" ng-click="selectService.pushToTeam(checked, checked.checked, listOfAthelete, getEvents);"
                                                                 />
                                                                 <label for="option{{$index+1}}"><span></span></label>
                                                             </div>
@@ -166,7 +166,7 @@
                                                         </td>
                                                         <td>{{athlete.firstName}}&nbsp&nbsp&nbsp&nbsp{{athlete.sfaId}}</td>
                                                         <td>
-                                                            <div ng-click="selectService.pushToTeam(athlete, athelete.checked, listOfAthelete)">
+                                                            <div ng-click="selectService.pushToTeam(athlete, athelete.checked, listOfAthelete, getEvents)">
                                                                 <i class="fa fa-lg fa-times-circle pointer" aria-hidden="true"></i>
 
                                                             </div>
@@ -200,7 +200,7 @@
                         <div class="row text-center mt25 mb-50">
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <button class="btn btn-default width-86 sub-mit" type="button" ui-sref="sports-selection">Back</button>
-                                <button class="btn btn-default width-86 sub-mit" type="button" ng-click="selectService.goNext('confirm-individual',formData.gender,formData.ageGroup);">Next</button>
+                                <button class="btn btn-default width-86 sub-mit" type="button" ng-click="selectService.goNext(basicSportDetails,formData.gender,formData.ageGroup);">Next</button>
                             </div>
                         </div>
                     </div>

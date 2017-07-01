@@ -5,6 +5,7 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.selectService = selectService;
+    $scope.selectService.sportsId = $stateParams.id;
     $scope.ageGroup = [];
     $scope.listOfAthelete = [];
     $scope.selectAthlete = [];
@@ -41,6 +42,15 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
             $scope.getEventObj.schoolToken = $scope.detail.accessToken;
         }
     }
+
+    NavigationService.getSportDetails({
+        '_id': $stateParams.id
+    }, function (data) {
+        console.log(data);
+        $scope.basicSportDetails = data.data;
+        $scope.selectService.sportName = data.data.sportName;
+        $scope.selectService.sportType = data.data.sportType;
+    });
 
     if ($.jStorage.get("userDetails") === null) {
         $state.go('sports-registration');
@@ -96,8 +106,6 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
         if ($scope.busy) return;
         $scope.busy = true;
         NavigationService.getIndividualAthlete(getAthletePerSchoolObj, function (data) {
-            console.log("$scope.getAthletePerSchoolObj", $scope.getAthletePerSchoolObj);
-            console.log("data", data);
             errorService.errorCode(data, function (allData) {
                 if (!allData.message) {
                     if (allData.value) {
@@ -283,7 +291,7 @@ firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, Nav
 });
 
 //Confirm-Individual
-firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService) {
+firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService, selectService) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("confirmindividual");
@@ -291,6 +299,37 @@ firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, 
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.selectService = selectService;
+    $scope.redirectTo = $.jStorage.get("confirmPageKey");
+    console.log($scope.selectService.team);
+    $scope.config = {
+        'weightsReq': false,
+        'varSet': false,
+        'selectAgeExpression': ''
+    };
+
+
+
+    function configureVariables() {
+        if ($scope.selectService && $scope.selectService.sportName) {
+            var st = $scope.selectService.sportName;
+            if (st == 'Judo' || st == 'Boxing' || st == 'Taekwondo' || st == 'Sport MMA') {
+                $scope.config.weightsReq = true;
+                $scope.config.ageVar = 'athelete.ageSelected';
+                $scope.config.weightVar = 'athelete.sport';
+                $scope.config.selectAgeExpression = "age._id for age in athelete.ageGroups";
+            } else {
+                $scope.config.weightsReq = false;
+                $scope.config.ageVar = 'athelete.sport';
+                $scope.config.weightVar = '';
+                $scope.config.selectAgeExpression = "age.data[0].sport as age._id for age in athelete.ageGroups";
+            }
+        }
+    }
+
+    configureVariables();
+
+
     $scope.formData = {};
     loginService.loginGet(function (data) {
         $scope.detail = data;
@@ -312,11 +351,20 @@ firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, 
         });
     };
 
+    $scope.tp = function (data) {
+        console.log(data);
+    };
+
+    $scope.saveIt = function (team) {
+        console.log(team);
+    }
+
+
 });
 
 //Confirm-karate
 
-firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService) {
+firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService, selectService) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("confirmkarate");
@@ -325,6 +373,7 @@ firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, Navi
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.formData = {};
+    $scope.selectService = selectService;
     loginService.loginGet(function (data) {
         $scope.detail = data;
         $scope.formData.schoolName = $scope.detail.schoolName;
