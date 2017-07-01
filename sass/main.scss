@@ -6777,7 +6777,8 @@ h1.forgot-space {
                 color: #091a71;
                 background-color: white;
                 border-color: #091a71;
-                width: 154px;
+                width: 210px;
+                font-size: 13px;
                 margin: 8px 0;
                 &:hover {
                     background-color: white;
@@ -6880,6 +6881,9 @@ h1.forgot-space {
         }
         td:nth-child(4) {
             border-left: 0;
+        }
+        .rightBorder {
+            border-right: 1px solid #ccc !important;
         }
     }
     .selectEvent {
@@ -7115,6 +7119,17 @@ h1.forgot-space {
     }
 }
 
+.step6 {
+    @extend .step3;
+    width: 264px;
+    height: 40px;
+    text-align: left;
+    padding: 8px 10px;
+    &:after {
+        border-top: 40px solid transparent;
+    }
+}
+
 .step5 {
     @extend .step3;
     width: 180px;
@@ -7342,5 +7357,17 @@ h1.forgot-space {
     padding-left: 8px;
 }
 
+.ktkSize {
+    input[type="radio"]+label {
+        margin-left: -18px;
+    }
+}
+
+// .toast-centered {
+//     top: 50%;
+//     left: 50%;
+//     @include transform(translate(-50%,
+//     -50%));
+// }
 @import "fancybox-override";
 @import "mobile";

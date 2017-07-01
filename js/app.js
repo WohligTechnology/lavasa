@@ -42,6 +42,19 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
     });
 
 
+    //Custom Toastr//  //app.js mention toastrConfig//
+    // angular.extend(toastrConfig, {
+    //     autoDismiss: false,
+    //     containerId: 'toast-container',
+    //     maxOpened: 0,
+    //     newestOnTop: true,
+    //     positionClass: 'toast-centered',
+    //     preventDuplicates: false,
+    //     preventOpenDuplicates: false,
+    //     target: 'body'
+    // });
+
+
     //LOADING BAR//
 
     // cfpLoadingBarProvider.latencyThreshold = 2000;

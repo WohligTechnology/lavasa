@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="step5">{{sportTitle}}</div>
+                    <div class="step6">{{sportTitle}}</div>
                     <div class="box-padd-term mb91">
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -39,13 +39,13 @@
                                             <!--control-label-->
                                             <label for="inputEmail3" class="col-md-2 col-sm-3 col-xs-12 para2">Select Gender</label>
                                             <div class="col-md-10 col-sm-9 col-xs-12">
-                                                <!--<input type="radio" ng-model="formData.gender" id="radio04" name="radioMale" value="Male" ng-checked="true" required ng-change="sortGenderWise('male');">-->
                                                 <input type="radio" ng-model="formData.gender" id="radio04" name="radioMale" value="male" ng-checked="selectService.gender=='male'"
-                                                    required ng-change="sortGenderWise('male');selectService.gender='male';selectService.ageGroup=''">
+                                                    required ng-change="sortGenderWise(formData.gender);selectService.gender='male';selectService.ageGroup=''">
+
+
                                                 <label for="radio04" class="padd-lr sf-list"><span></span>Male</label>
-                                                <!--<input type="radio" ng-model="formData.gender" id="radio03" name="radioFemale" value="Female" required ng-change="sortGenderWise('female');">-->
                                                 <input type="radio" ng-model="formData.gender" id="radio03" name="radioFemale" value="female" required ng-checked="selectService.gender=='female'"
-                                                    ng-change="sortGenderWise('female');selectService.gender='female';selectService.ageGroup=''">
+                                                    ng-change="sortGenderWise(formData.gender);selectService.gender='female';selectService.ageGroup=''">
                                                 <label for="radio03" class="padd-lr sf-list"><span></span>Female</label>
                                             </div>
                                         </div>
@@ -57,10 +57,15 @@
                                             <!--for male -->
 
                                             <div class="col-md-10 col-sm-9 col-xs-12" ng-if="showMale && maleAgeGrp.length>0">
-                                                <div class="display-inline w10" ng-repeat="data in maleAgeGrp track by $index">
-                                                    <!--<input type="radio" id="{{data.ageData._id}}" name="radio1" value="{{data.ageData._id}}" required ng-click="filterAge(data.ageData._id,data.ageData.name);">-->
+                                                <div class="display-inline w10" ng-if="sportTitle != 'Karate Team Kumite'" ng-repeat="data in maleAgeGrp |orderBy:'orderage' track by $index">
                                                     <input type="radio" id="{{data.ageData._id}}" name="radio1" value="{{data.ageData._id}}" required ng-checked="selectService.ageGroup==data.ageData._id"
-                                                        ng-click="filterAge(data.ageData._id,data.ageData.name);selectService.ageGroup=data.ageData._id;"
+                                                        ng-click="filterAge(data.ageData._id,data.ageData.name);selectService.ageGroup=data.ageData._id;selectService.emptyTeam()"
+                                                        ; ng-model='formData.ageGroup'>
+                                                    <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
+                                                </div>
+                                                <div class="display-inline ktkSize" ng-if="sportTitle == 'Karate Team Kumite'" ng-repeat="data in maleAgeGrp |orderBy:'orderage' track by $index">
+                                                    <input type="radio" id="{{data.ageData._id}}" name="radio1" value="{{data.ageData._id}}" required ng-checked="selectService.ageGroup==data.ageData._id"
+                                                        ng-click="filterAge(data.ageData._id,data.ageData.name);selectService.ageGroup=data.ageData._id;selectService.emptyTeam()"
                                                         ; ng-model='formData.ageGroup'>
                                                     <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
                                                 </div>
@@ -70,10 +75,15 @@
                                             <!--for female-->
 
                                             <div class="col-md-10 col-sm-9 col-xs-12" ng-if="showFemale && femaleAgeGrp.length>0">
-                                                <div class="display-inline w10" ng-repeat="data in femaleAgeGrp track by $index">
-                                                    <!--<input type="radio" id="{{data.ageData._id}}" name="radio2" value="{{data.ageData._id}}" required ng-click="filterAge(data.ageData._id,data.ageData.name);">-->
+                                                <div class="display-inline w10" ng-if="sportTitle != 'Karate Team Kumite'" ng-repeat="data in femaleAgeGrp |orderBy:'orderage' track by $index">
                                                     <input type="radio" id="{{data.ageData._id}}" name="radio2" value="{{data.ageData._id}}" required ng-checked="selectService.ageGroup==data.ageData._id"
-                                                        ng-click="filterAge(data.ageData._id,data.ageData.name);selectService.ageGroup=data.ageData._id"
+                                                        ng-click="filterAge(data.ageData._id,data.ageData.name);selectService.ageGroup=data.ageData._id;selectService.emptyTeam()"
+                                                        ; ng-model='formData.ageGroup'>
+                                                    <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
+                                                </div>
+                                                <div class="display-inline ktkSize" ng-if="sportTitle == 'Karate Team Kumite'" ng-repeat="data in femaleAgeGrp |orderBy:'orderage' track by $index">
+                                                    <input type="radio" id="{{data.ageData._id}}" name="radio2" value="{{data.ageData._id}}" required ng-checked="selectService.ageGroup==data.ageData._id"
+                                                        ng-click="filterAge(data.ageData._id,data.ageData.name);selectService.ageGroup=data.ageData._id;selectService.emptyTeam()"
                                                         ; ng-model='formData.ageGroup'>
                                                     <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
                                                 </div>
@@ -180,7 +190,7 @@
                                             <p>Players Selected: {{selectService.team.length}}</p>
                                         </div>
                                         <div class="scroll-div scroll-height">
-                                            <div class="selectedTeamTable table-responsive scrollbar style-1">
+                                            <div class="selectedTeamTable table-responsive scrollbar m-scrollbar style-1">
                                                 <table class="table table-bordered">
                                                     <thead>
                                                         <th>
@@ -206,24 +216,6 @@
                                                                 </div>
                                                             </td>
                                                         </tr>
-                                                        <!--<tr>
-                                                        <td>
-                                                            <div class="mid_cols">2</div>
-                                                        </td>
-                                                        <td>126 - Kunjal Rawal</td>
-                                                        <td>
-                                                            <i class="fa fa-lg fa-times-circle pointer" aria-hidden="true"></i>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="mid_cols">3</div>
-                                                        </td>
-                                                        <td>126 - Kunjal Rawal</td>
-                                                        <td>
-                                                            <i class="fa fa-lg fa-times-circle pointer" aria-hidden="true"></i>
-                                                        </td>
-                                                    </tr>-->
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -235,8 +227,13 @@
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <!--<button class="btn btn-default width-86 sub-mit" type="button" ui-sref="confirmteam" ng-disabled="disabledNextBtn">Next</button>-->
                                     <button class="btn btn-default width-86 sub-mit" type="button" ui-sref="sports-selection">Back</button>
-                                    <button class="btn btn-default width-86 sub-mit" type="button" ng-click="selectService.goNext('confirmteam',formData.gender,formData.ageGroup);"
-                                        ng-disabled="!disabledNextBtn">Next</button>
+
+                                    <button class="btn btn-default width-86 sub-mit" type="button" ng-click="goNext(basicSportDetails,formData.gender,formData.ageGroup);"
+                                        ng-disabled="selectService.team.length < minPlayer || selectService.team.length > maxPlayer"
+                                        promise-btn="yourPromise">Next</button>
+                                    <!--<button class="btn btn-default width-86 sub-mit" type="button" ng-click="selectService.goNext('confirmteam',formData.gender,formData.ageGroup);"
+                                        ng-disabled="selectService.team.length < minPlayer || selectService.team.length > maxPlayer"
+                                        promise-btn="yourPromise">Next</button>-->
 
                                 </div>
                             </div>

@@ -7,7 +7,8 @@ var uploadUrl2 = adminUrl2 + "upload/";
 var currentYears = ["2015", "2016"];
 var navigationservice = angular.module('navigationservice', []);
 
-firstApp.factory('NavigationService', function ($http, $window) {
+firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $log) {
+    var standardDelay = 1000;
     var navigation = [{
         name: "Home",
         classis: "active",
@@ -540,7 +541,9 @@ firstApp.factory('NavigationService', function ($http, $window) {
         },
 
         setUser: function (data) {
-            $.jStorage.set("userDetails", data);
+            $.jStorage.set("userDetails", data, {
+                TTL: 86400000
+            });
         },
 
         setSportId: function (data) {
@@ -704,13 +707,7 @@ firstApp.factory('NavigationService', function ($http, $window) {
                 method: 'POST',
                 data: request
             }).then(callback);
-        }
-    };
-});
-
-firstApp.factory('fakeFac', function ($q, $timeout, $log) {
-    var standardDelay = 1000;
-    return {
+        },
         success: function () {
             var defer = $q.defer();
             $timeout(function () {
@@ -720,7 +717,7 @@ firstApp.factory('fakeFac', function ($q, $timeout, $log) {
                 });
             }, standardDelay);
             return defer.promise;
-        }
+        },
         // error: function () {
         //     var defer = $q.defer();
         //     $timeout(function () {
@@ -735,5 +732,20 @@ firstApp.factory('fakeFac', function ($q, $timeout, $log) {
         //     var defer = $q.defer();
         //     return defer.promise;
         // }
+        //get subCategory Type Basic Details
+        getSportDetails: function (subCategoryId, callback) {
+            $http({
+                url: adminUrl2 + 'SportsListSubCategory/getSportsDeails',
+                method: 'POST',
+                data: subCategoryId
+            }).then(function (data) {
+                console.log(data.data);
+                if (data.data.value) {
+                    callback(data.data);
+                } else {
+                    console.log(data);
+                }
+            });
+        }
     };
 });

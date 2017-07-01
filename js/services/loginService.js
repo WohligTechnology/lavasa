@@ -15,6 +15,7 @@
                   getData.firstName = getJ.firstName;
                   getData.surname = getJ.surname;
                   getData.sfaIdObj = getJ.sfaId;
+                  getData.gender = getJ.gender;
                   getData.accessToken = getJ.accessToken;
                   if (getJ.atheleteSchoolName) {
                       getData.schoolName = getJ.atheleteSchoolName;
