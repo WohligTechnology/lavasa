@@ -1,4 +1,4 @@
-firstApp.service('selectService', function ($http, TemplateService, $state, toastr, loginService) {
+firstApp.service('selectService', function ($http, TemplateService, $state, toastr, NavigationService, loginService) {
 
     this.team = [];
     this.detail = null;
@@ -72,10 +72,12 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
     };
 
     this.goNext = function (state, gender, age) {
+
         console.log(state, gender, age, "---------Gonext service----------");
         this.gender = gender;
         this.ageGroup = age;
         $state.go(state);
+
     };
 
     this.editTeam = function (state) {

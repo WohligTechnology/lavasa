@@ -122,23 +122,25 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
         });
     }
     $scope.goTotermsCheck = function (val, id, isTeam) {
-        if (val === undefined) {
-            toastr.error('Please Accept Terms And Conditions');
-            $scope.errorMsg = true;
-        } else {
-            if (val === true) {
-                if (isTeam === true) {
-                    $state.go('team-selection', {
-                        id: id
-                    });
-                } else {
-                    $state.go('individual-selection', {
-                        id: id
-                    });
-                }
+        $scope.yourPromise = NavigationService.success().then(function () {
+            if (val === undefined) {
+                toastr.error('Please Accept Terms And Conditions');
+                $scope.errorMsg = true;
+            } else {
+                if (val === true) {
+                    if (isTeam === true) {
+                        $state.go('team-selection', {
+                            id: id
+                        });
+                    } else {
+                        $state.go('individual-selection', {
+                            id: id
+                        });
+                    }
 
+                }
             }
-        }
+        });
     };
 
 

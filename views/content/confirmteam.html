@@ -78,30 +78,7 @@
                                 <input name="goal" type="radio" value="member.isGoalKeeper" ng-model="goalKeeper" ng-click="isGoalKeeperFun($index);">
                               </td>
                             </tr>
-                            <!--<tr>
-                              <td>
-                                <div class="mid_cols">1</div>
-                              </td>
-                              <td>126 - Kunjal Rawal</td>
-                              <td>
-                                <input name="radio" type="radio">
-                              </td>
-                              <td>
-                                <input name="radio" type="radio">
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div class="mid_cols">2</div>
-                              </td>
-                              <td>126 - Kunjal Rawal</td>
-                              <td>
-                                <input name="radio" type="radio">
-                              </td>
-                              <td>
-                                <input name="radio" type="radio">
-                              </td>
-                            </tr>-->
+
                           </tbody>
                         </table>
                       </div>
@@ -168,7 +145,8 @@
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12 ">
 
-                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabledConfirm" type="button" ng-click="finalConfirmTeam(sportTitle);">Confirm</button>
+                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabledConfirm||teamMembers.length===0" type="button"
+                          ng-click="finalConfirmTeam(sportTitle);" promise-btn="yourPromise">Confirm</button>
                       </div>
                     </div>
                   </div>

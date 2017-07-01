@@ -299,7 +299,11 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                 'players');
         }
     };
-
+    $scope.goNext = function (confirmteam, gender, ageGroup) {
+        $scope.yourPromise = NavigationService.success().then(function () {
+            $scope.selectService.goNext(confirmteam, gender, ageGroup);
+        });
+    };
     // $scope.next = function () {
     //     selectService.next('confirmteam', $scope.teamMembers);
     // };
@@ -392,29 +396,32 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
         });
     };
     $scope.finalConfirmTeam = function (sportTitle) {
-        $scope.confirmTeamObject.athleteTeam = _.cloneDeep($scope.teamMembers);
-        console.log($scope.confirmTeamObject, "$scope.confirmTeamObject");
-        var isCapObj = _.find($scope.teamMembers, function (key) {
-            return key.isCaptain === true;
-        });
-        var isGoalKeeperObj = _.find($scope.teamMembers, function (key) {
-            return key.isGoalKeeper === true;
-        });
-        if (isCapObj === undefined) {
-            toastr.error("Please select Captain", 'Error Message');
-        } else {
-            if (sportTitle === 'Handball' || sportTitle === 'handball' || sportTitle === 'Football' || sportTitle === 'football' || sportTitle === 'Hockey' || sportTitle === 'hockey' || sportTitle === 'Waterpolo' || sportTitle === 'waterpolo') {
-                if (isGoalKeeperObj === undefined) {
-                    toastr.error("Please select GoalKeeper", 'Error Message');
+        $scope.yourPromise = NavigationService.success().then(function () {
+            $scope.confirmTeamObject.athleteTeam = _.cloneDeep($scope.teamMembers);
+            console.log($scope.confirmTeamObject, "$scope.confirmTeamObject");
+            var isCapObj = _.find($scope.teamMembers, function (key) {
+                return key.isCaptain === true;
+            });
+            var isGoalKeeperObj = _.find($scope.teamMembers, function (key) {
+                return key.isGoalKeeper === true;
+            });
+            if (isCapObj === undefined) {
+                toastr.error("Please select Captain", 'Error Message');
+            } else {
+                if (sportTitle === 'Handball' || sportTitle === 'handball' || sportTitle === 'Football' || sportTitle === 'football' || sportTitle === 'Hockey' || sportTitle === 'hockey' || sportTitle === 'Waterpolo' || sportTitle === 'waterpolo') {
+                    if (isGoalKeeperObj === undefined) {
+                        toastr.error("Please select GoalKeeper", 'Error Message');
+                    } else {
+                        $scope.confirmTeamObject.athleteTeam = _.cloneDeep($scope.teamMembers);
+                        $scope.confirmTeamToGo($scope.confirmTeamObject);
+                    }
                 } else {
                     $scope.confirmTeamObject.athleteTeam = _.cloneDeep($scope.teamMembers);
                     $scope.confirmTeamToGo($scope.confirmTeamObject);
                 }
-            } else {
-                $scope.confirmTeamObject.athleteTeam = _.cloneDeep($scope.teamMembers);
-                $scope.confirmTeamToGo($scope.confirmTeamObject);
             }
-        }
+        });
+
     };
 
 

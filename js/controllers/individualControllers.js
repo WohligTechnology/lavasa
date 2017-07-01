@@ -278,26 +278,7 @@ firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, Nav
     }];
     //end-archery
 
-    // // $scope.formData = {};
-    // loginService.loginGet(function (data) {
-    //     $scope.detail = data;
-    //     // $scope.formData.schoolName = $scope.detail.schoolName;
-    // });
 
-    // if ($.jStorage.get("userDetails") === null) {
-    //     $state.go('sports-registration');
-    // }
-
-    // $scope.logoutCandidate = function () {
-    //     loginService.logoutCandidate(function (data) {
-    //         if (data.isLoggedIn === false) {
-    //             toastr.success('Successfully Logged Out', 'Logout Message');
-    //             $state.go('sports-registration');
-    //         } else {
-    //             toastr.error('Something went wrong', 'Logout Message');
-    //         }
-    //     });
-    // };
 
 });
 
@@ -368,7 +349,7 @@ firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, Navi
 
 //confirm-relay
 
-firstApp.controller('ConfirmRelayCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+firstApp.controller('ConfirmRelayCtrl', function ($scope, TemplateService, NavigationService, loginService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("confirmrelay");
@@ -376,6 +357,27 @@ firstApp.controller('ConfirmRelayCtrl', function ($scope, TemplateService, Navig
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
+    $scope.formData = {};
+    loginService.loginGet(function (data) {
+        $scope.detail = data;
+        $scope.formData.schoolName = $scope.detail.schoolName;
+    });
+
+    if ($.jStorage.get("userDetails") === null) {
+        $state.go('sports-registration');
+    }
+
+    $scope.logoutCandidate = function () {
+        loginService.logoutCandidate(function (data) {
+            if (data.isLoggedIn === false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $state.go('sports-registration');
+            } else {
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    };
 
     $scope.arelayTable = [{
         name: '126 - Kunjal Rawal',
@@ -436,7 +438,7 @@ firstApp.controller('ConfirmRelayCtrl', function ($scope, TemplateService, Navig
 
 //Confirm-athlete-swimming
 
-firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, NavigationService, loginService, $timeout) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("confirmathleteswim");
@@ -444,6 +446,27 @@ firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, Navi
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
+    $scope.formData = {};
+    loginService.loginGet(function (data) {
+        $scope.detail = data;
+        $scope.formData.schoolName = $scope.detail.schoolName;
+    });
+
+    if ($.jStorage.get("userDetails") === null) {
+        $state.go('sports-registration');
+    }
+
+    $scope.logoutCandidate = function () {
+        loginService.logoutCandidate(function (data) {
+            if (data.isLoggedIn === false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $state.go('sports-registration');
+            } else {
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    };
 
     $scope.athswmTable = [{
         name: '126 - Kunjal Rawal',
