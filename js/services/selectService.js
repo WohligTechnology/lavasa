@@ -20,7 +20,6 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
     };
 
 
-
     //make .checked to true if already selected
     this.isAtheleteSelected = function (listOfAthlete, team) {
         var temp = _.intersectionBy(listOfAthlete, this.team, '_id');
@@ -31,6 +30,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
     };
     // push to Team
     this.pushToTeam = function (obj, bool, listOfAthlete, events) {
+        console.log(obj, bool, listOfAthlete, events);
         var confirmPageKey = $.jStorage.get("confirmPageKey");
         //check if added or not and do it accordingly
         if (bool) {
@@ -40,6 +40,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             } else {
                 //get Data for columns accordingly eg:ageGroup
                 obj = this.getAgeGroupByAthelete(obj, confirmPageKey, events);
+                console.log("-----------");
                 this.team.push(obj);
             }
         } else {
@@ -53,6 +54,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
     };
 
     this.getAgeGroupByAthelete = function (athelete, confirmPageKey, events) {
+        console.log(athelete, confirmPageKey, events);
         var birthdate = moment(athelete.dob);
         var st = this.sportName;
 
@@ -117,12 +119,6 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
         }
         return athelete;
 
-        // athlete birthdate
-        // _.filter(sports,between athlete birthdate and filter by gender as well);
-    };
-
-
-    this.getAgeGroupByAthelete = function (athelete, sports) {
         // athlete birthdate
         // _.filter(sports,between athlete birthdate and filter by gender as well);
     };

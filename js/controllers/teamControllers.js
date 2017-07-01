@@ -26,6 +26,15 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
         stopCallingApi: false,
     };
 
+    NavigationService.getSportDetails({
+        '_id': $stateParams.id
+    }, function (data) {
+        console.log(data);
+        $scope.basicSportDetails = data.data;
+        $scope.selectService.sportName = data.data.sportName;
+        $scope.selectService.sportType = data.data.sportType;
+    });
+
 
     loginService.loginGet(function (data) {
         $scope.detail = data;
