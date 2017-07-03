@@ -81,6 +81,14 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
             $scope.uploadSizeInstances.close();
         }, 8000);
     };
+    $scope.registerSport = [{
+        type: 'single',
+        name: 'Athlethics'
+    }, {
+        type: 'team',
+        name: 'Football Boys U-14 ‘A’',
+        teamId: 'MUFB161401'
+    }];
 });
 
 firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state, NavigationService, toastr, $timeout, $stateParams, errorService, loginService) {
@@ -155,6 +163,60 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
 firstApp.controller('SportsCongratsCtrl', function ($scope, TemplateService, toastr, NavigationService, $timeout, $state, $stateParams, loginService, errorService) {
     $scope.template = TemplateService.changecontent("sports-congrats");
     $scope.menutitle = NavigationService.makeactive("Sports Congrats");
+    TemplateService.header = "views/header2.html";
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    // $scope.formData = {};
+    loginService.loginGet(function (data) {
+        $scope.detail = data;
+    });
+
+    if ($.jStorage.get("userDetails") === null) {
+        $state.go('sports-registration');
+    }
+
+    $scope.logoutCandidate = function () {
+        loginService.logoutCandidate(function (data) {
+            if (data.isLoggedIn === false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $state.go('sports-registration');
+            } else {
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    };
+});
+
+firstApp.controller('SportIndividualCtrl', function ($scope, TemplateService, toastr, NavigationService, $timeout, $state, $stateParams, loginService, errorService) {
+    $scope.template = TemplateService.changecontent("sport-individualdetail");
+    $scope.menutitle = NavigationService.makeactive("Registered Individual Detail");
+    TemplateService.header = "views/header2.html";
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    // $scope.formData = {};
+    loginService.loginGet(function (data) {
+        $scope.detail = data;
+    });
+
+    if ($.jStorage.get("userDetails") === null) {
+        $state.go('sports-registration');
+    }
+
+    $scope.logoutCandidate = function () {
+        loginService.logoutCandidate(function (data) {
+            if (data.isLoggedIn === false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $state.go('sports-registration');
+            } else {
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    };
+});
+
+firstApp.controller('SportTeamCtrl', function ($scope, TemplateService, toastr, NavigationService, $timeout, $state, $stateParams, loginService, errorService) {
+    $scope.template = TemplateService.changecontent("sport-teamdetail");
+    $scope.menutitle = NavigationService.makeactive("Registered Team Detail");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();

@@ -69,7 +69,8 @@
                                 <div class="mid_cols" ng-if="member.isCaptain">{{member.isCap}}</div>
 
                               </td>
-                              <td>{{member.sfaId}}&nbsp&nbsp&nbsp&nbsp{{member.firstName}}</td>
+                              <td ng-if="member.middleName">{{member.sfaId}} - {{member.firstName}}&nbsp;{{member.middleName}}&nbsp;{{member.surname}}</td>
+                              <td ng-if="!member.middleName">{{member.sfaId}} - {{member.firstName}}&nbsp;{{member.surname}}</td>
                               <td ng-class="{'rightBorder':member.isGoalKeeper == false}">
                                 <input name="capt" type="radio" value="member.isCaptain" ng-model="captain" ng-click="isCaptainFun($index);">
                               </td>

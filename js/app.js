@@ -418,6 +418,16 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             url: "/confirm-shooting",
             templateUrl: "views/template.html",
             controller: 'ConfirmShootingCtrl'
+        })
+        .state('sport-individualdetail', {
+            url: "/sport-individualdetail",
+            templateUrl: "views/template.html",
+            controller: 'SportIndividualCtrl'
+        })
+        .state('sport-teamdetail', {
+            url: "/sport-teamdetail",
+            templateUrl: "views/template.html",
+            controller: 'SportTeamCtrl'
         });
 
     $urlRouterProvider.otherwise("/");
