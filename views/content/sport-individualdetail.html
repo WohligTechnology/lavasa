@@ -1,0 +1,96 @@
+<div class="sport-detailpage">
+  <div class="container">
+    <div class="row">
+      <!-- LOGIN DETAILS -->
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="pull-right mb25 sp-tab-right ">
+          <div class="">
+            <div class="display-inline">
+              <p class="mb0">SFA ID:</p>
+              <p class="mb0" ng-if="detail.userType === 'school'">School Name:</p>
+              <p class="mb0" ng-if="detail.userType === 'athlete'">Athlete Name:</p>
+            </div>
+            <div class="display-inline">
+              <p class="mb0">&nbsp;{{detail.sfaIdObj}}</p>
+              <p class="mb0" ng-if="detail.userType === 'school'">&nbsp;{{detail.schoolName}}</p>
+              <p class="mb0" ng-if="detail.userType === 'athlete'">&nbsp;{{detail.firstName}}&nbsp&nbsp{{detail.surname}}</p>
+            </div>
+          </div>
+          <ul class="list-inline">
+            <li ui-sref="change-password" hidden><a>Change Password</a></li>
+            <li ng-click="logoutCandidate();" ng-if="detail.isLoggedIn"><a>Logout</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- LOGIN DETAILS END -->
+
+      <!-- SPORT DETAIL HEADER -->
+      <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="para2">
+          <button class="btn btn-default " type="button" ui-sref="sports-selection">Back</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-6">
+        <div class="para2 text-center sportdetail-header mb25">
+          <h3>Athlethics</h3>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <div class="para2 text-right sportsdetail-download">
+          <button class="btn btn-default " type="button">Download</button>
+        </div>
+      </div>
+      <!-- SPORT DETAIL HEADER END -->
+
+      <!-- DETAILS TABLE -->
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="sportdetail-table" ng-repeat="sport in selection track by $index">
+          <div class="step3">{{sport.name}}</div>
+          <div class="box-padd">
+            <div class="selectedTeamTable sport-individualtable table-responsive scrollbar style-1">
+              <table class="table table-bordered">
+                  <thead>
+                      <th>
+                          <div class="mid_col sportdetail-th">Sr. No.</div>
+                      </th>
+                      <th>
+                        <div class="sportdetail-th">SFA ID-Name</div>
+                      </th>
+                      <th>
+                        <div class="sportdetail-th">Name</div>
+                      </th>
+                      <th>
+                        <div class="sportdetail-th">Gender</div>
+                      </th>
+                      <th>
+                        <div class="sportdetail-th">Age Category</div>
+                      </th>
+                  </thead>
+                  <tbody>
+                      <tr ng-repeat="athlete in sport.team track by $index">
+                          <td>
+                              <div class="mid_cols sportdetail-td">{{index+1}}</div>
+                          </td>
+                          <td>
+                            <div class="sportdetail-td">{{athlete.id}}</div>
+                          </td>
+                          <td>
+                            <div class="sportdetail-td">{{athlete.name}}</div>
+                          </td>
+                          <td>
+                            <div class="sportdetail-td">{{athlete.gender}}</div>
+                          </td>
+                          <td>
+                            <div class="sportdetail-td">{{athlete.ageCat}}</div>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- DETAILS TABLE END -->
+    </div>
+  </div>
+</div>
