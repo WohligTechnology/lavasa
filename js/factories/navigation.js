@@ -659,13 +659,10 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
         },
 
         getSports: function (id, callback) {
-            var data = {
-                _id: id
-            };
             $http({
                 url: adminUrl2 + 'SportsListSubCategory/getSports',
                 method: 'POST',
-                data: data
+                data: id
             }).then(callback);
         },
 

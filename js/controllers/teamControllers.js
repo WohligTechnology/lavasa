@@ -26,14 +26,6 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
         stopCallingApi: false,
     };
 
-    NavigationService.getSportDetails({
-        '_id': $stateParams.id
-    }, function (data) {
-        console.log(data);
-        $scope.basicSportDetails = data.data;
-        $scope.selectService.sportName = data.data.sportName;
-        $scope.selectService.sportType = data.data.sportType;
-    });
 
 
     loginService.loginGet(function (data) {
@@ -47,7 +39,17 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
         $scope.constraints.schoolToken = $scope.detail.accessToken;
         $scope.getAthletePerSchoolObj.schoolToken = $scope.detail.accessToken;
     }
-
+    $scope.getSportDetails = function () {
+        // $scope.constraints._id = $stateParams.id;
+        NavigationService.getSportDetails($scope.constraints,
+            function (data) {
+                console.log(data);
+                $scope.basicSportDetails = data.data;
+                $scope.selectService.sportName = data.data.sportName;
+                $scope.selectService.sportType = data.data.sportType;
+            });
+    };
+    $scope.getSportDetails();
 
     if ($.jStorage.get("userDetails") === null) {
         $state.go('sports-registration');
@@ -264,32 +266,35 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     };
     $scope.orderedAgeArr = [];
     //  *****getting all age group ***** 
-    if ($stateParams.id) {
-        NavigationService.getSports($stateParams.id, function (data) {
-            errorService.errorCode(data, function (allData) {
-                if (!allData.message) {
-                    console.log("allData", allData);
-                    $scope.getSports = allData.data.results;
-                    $scope.sportTitle = allData.data.sportName;
-                    NavigationService.setSportTitle($scope.sportTitle);
-                    $scope.maleAgeGrp = _.cloneDeep($scope.getSports.male);
-                    $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.female);
-                    _.each($scope.maleAgeGrp, function (key) {
-                        key.orderage = parseInt(key.ageData.name.slice(2));
-                    });
-                    _.each($scope.femaleAgeGrp, function (key) {
-                        key.orderage = parseInt(key.ageData.name.slice(2));
-                    });
+    $scope.sportGet = function () {
+        if ($stateParams.id) {
+            NavigationService.getSports($scope.constraints, function (data) {
+                errorService.errorCode(data, function (allData) {
+                    if (!allData.message) {
+                        console.log("allData", allData);
+                        $scope.getSports = allData.data.results;
+                        $scope.sportTitle = allData.data.sportName;
+                        NavigationService.setSportTitle($scope.sportTitle);
+                        $scope.maleAgeGrp = _.cloneDeep($scope.getSports.male);
+                        $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.female);
+                        _.each($scope.maleAgeGrp, function (key) {
+                            key.orderage = parseInt(key.ageData.name.slice(2));
+                        });
+                        _.each($scope.femaleAgeGrp, function (key) {
+                            key.orderage = parseInt(key.ageData.name.slice(2));
+                        });
 
-                    $scope.sortGenderWise($scope.selectService.gender);
-                    //  $scope.sortGenderWise('male');
-                } else {
-                    $scope.isDisabled = false;
-                    toastr.error(allData.message, 'Error Message');
-                }
+                        $scope.sortGenderWise($scope.selectService.gender);
+                        //  $scope.sortGenderWise('male');
+                    } else {
+                        $scope.isDisabled = false;
+                        toastr.error(allData.message, 'Error Message');
+                    }
+                });
             });
-        });
-    }
+        }
+    };
+    $scope.sportGet();
 
 
     // $scope.editTeam = function () {
