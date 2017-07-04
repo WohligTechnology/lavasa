@@ -37,6 +37,7 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
 
     if ($stateParams.id) {
         $scope.getEventObj._id = $stateParams.id;
+        $scope.getAthletePerSchoolObj._id = $stateParams.id;
         if ($scope.detail.userType === "athlete") {
             $scope.getEventObj.athleteToken = $scope.detail.accessToken;
         } else {
@@ -376,9 +377,24 @@ firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, 
         console.log(data);
     };
 
-    $scope.saveIt = function (team) {
-        console.log(team);
-    }
+    // $scope.saveIt = function (team) {
+    //     console.log(team);
+    //     $scope.confirmTeamToGo = function (confirmTeamObject) {
+    //         NavigationService.individualConfirm(confirmTeamObject, function (data) {
+    //             errorService.errorCode(data, function (allData) {
+    //                 if (!allData.message) {
+    //                     if (allData.value) {
+    //                         toastr.success("Successfully Confirmed", 'Success Message');
+    //                         NavigationService.setSportId(null);
+    //                         $state.go("sports-congrats");
+    //                     }
+    //                 } else {
+    //                     toastr.error(allData.message, 'Error Message');
+    //                 }
+    //             });
+    //         });
+    //     };
+    // };
 
 
 });

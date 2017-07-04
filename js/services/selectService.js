@@ -1,4 +1,4 @@
-firstApp.service('selectService', function ($http, TemplateService, $state, toastr, NavigationService, loginService) {
+firstApp.service('selectService', function ($http, TemplateService, $state, toastr, NavigationService, loginService, errorService) {
 
     this.team = [];
     this.detail = null;
@@ -39,6 +39,8 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             //add athelete
             if (obj.isTeamSelected) {
                 toastr.error('This Player has already been Selected');
+            } else if (obj.isIndividualSelected) {
+                toastr.error('This Player has already been Registered');
             } else {
                 //get Data for columns accordingly eg:ageGroup
                 obj = this.getAgeGroupByAthelete(obj, confirmPageKey, events);
@@ -112,7 +114,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             });
 
             return athelete;
-        };
+        }
 
         // for fencing
         function filterFencing(events) {
@@ -226,9 +228,9 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             this.showMissingFields = false;
         } else {
             this.showMissingFields = true;
-            alert("please enter all the fields");
+            toastr.error("Please select all the fields", "Confirm Message");
         }
-    }
+    };
 
     this.confirmSelection = function () {
         console.log(this.team);
@@ -292,8 +294,17 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             'method': 'POST',
             'url': adminUrl2 + 'individualSport/saveInIndividual',
             'data': obj
-        }).success(function (data) {
-            console.log(data);
+        }).then(function (data) {
+            errorService.errorCode(data, function (allData) {
+                if (!allData.message) {
+                    if (allData.value) {
+                        toastr.success("Successfully Confirmed", 'Success Message');
+                        $state.go("sports-congrats");
+                    }
+                } else {
+                    toastr.error(allData.message, 'Error Message');
+                }
+            });
         });
     };
 

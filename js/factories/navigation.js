@@ -695,6 +695,13 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
                 data: request
             }).then(callback);
         },
+        individualConfirm: function (request, callback) {
+            $http({
+                url: adminUrl2 + 'individualSport/saveInIndividual',
+                method: 'POST',
+                data: request
+            }).then(callback);
+        },
         getEvents: function (request, callback) {
             // var data = {
             //     _id: id
