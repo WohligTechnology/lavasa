@@ -54,7 +54,7 @@
                       <div class="fencing-table">
                         <div class="selectedTeamTable table-responsive scrollbar style-1">
 
-                          <table class="table table-bordered">
+                          <table class="table table-bordered" ng-init="st=selectService.sportName;">
                             <thead>
                               <th>
                                 <div class="mid_col">Sr. No.</div>
@@ -64,7 +64,7 @@
 
                               <th>Event 1</th>
                               <th>Event 2</th>
-                              <th>Event 3</th>
+                              <th ng-if="st=='Fencing'">Event 3</th>
                               <!--
                               <div class="hover-img">
                                 <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
@@ -75,133 +75,49 @@
 
                             </thead>
                             <tbody>
-                              <tr ng-repeat="member in archeryTable track by $index">
+                              <tr ng-repeat="athelete in selectService.team track by $index">
                                 <td>
-                                  <div class="mid_cols">{{$index+1}}</div>
+
+                                  <div class="mid_cols relate">
+                                    <span>{{$index+1}}|{{athelete.isValidSelection}}</span>
+                                    <span class="missing-fields" ng-if="selectService.showMissingFields && !athelete.isValidSelection">*</span>
+                                  </div>
                                 </td>
                                 <td>
-                                  <div>{{member.name}}
+                                  <div>{{athelete.firstName}} {{athelete.surname}}
                                   </div>
                                 </td>
                                 <td>
                                   <div>
-                                    {{member.gender}}
+                                    {{athelete.gender}}
                                   </div>
 
                                 </td>
 
                                 <td>
                                   <div>
-                                    <select class="form-control" ng-model="eventSelected" ng-options="item.name as item.name for item in member.filterList1 track by $index">
-                                    
+                                    <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.sport[0]" ng-required=""
+                                      ng-options="epee.data[0].sport as epee._id | formatEvent:'Epee' for epee in athelete.eventEpee"
+                                      ng-change="selectService.isValidSelection(athelete)">
                                   </select>
                                   </div>
                                 </td>
                                 <td>
                                   <div>
-                                    <select class="form-control" ng-model="eventSelected2" ng-options="item.name as item.name for item in member.filterList2 track by $index">
+                                    <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.sport[1]" ng-required=""
+                                      ng-options="sabre.data[0].sport as sabre._id | formatEvent:'Sabre' for sabre in athelete.eventSabre"
+                                      ng-change="selectService.isValidSelection(athelete)">
                                   </select>
                                   </div>
 
 
                                 </td>
                                 <!--hidden-->
-                                <td>
-                                  <select class="form-control" ng-model="eventSelected3" ng-options="item.name as item.name for item in member.filterList3 track by $index">
-                                  </select>
+                                <td ng-if="st=='Fencing'">
+                                  <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.sport[2]" ng-required=""
+                                    ng-options="foil.data[0].sport as foil._id | formatEvent:'Foil' for foil in athelete.eventFoil"
+                                    ng-change="selectService.isValidSelection(athelete)" </select>
                                 </td>
-
-                                <!--</tr>
-                              <tr>
-                                <td>
-                                  <div class="mid_cols">2</div>
-                                </td>
-                                <td>
-                                  <div>
-                                    126 - Kunjal Rawal
-                                    <i class="fa fa-lg fa-times-circle pull-right pointer" aria-hidden="true"></i>
-                                  </div>
-
-                                </td>
-                                <td>
-
-                                  <div>Male</div>
-                                </td>
-                                <td>
-                                  <div>
-                                    <select class="form-control">
-                                     
-                                    <option value="u-12">U-12 EPEE</option>
-                                    <option value="u-14">U-14 EPEE</option>
-                                    <option value="u-17">U-17 EPEE</option>
-                                  </select>
-                                </div>
-                                </td>
-                                <td>
-                                  <div>
-                                    <select class="form-control">
-                                    
-                                    <option value="u-12">U-12 SABRE</option>
-                                    <option value="u-14">U-14 SABRE</option>
-                                    <option value="u-17">U-17 SABRE</option>
-                                  </select>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div>
-                                    <select class="form-control">
-                                     <option value="u-12">U-12 FOIL</option>
-                                    <option value="u-14">U-14 FOIL</option>
-                                    <option value="u-17">U-17 FOIL</option>
-                                    
-                                  </select>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div class="mid_cols">3</div>
-                                </td>
-                                <td>
-                                  <div>
-                                    126 - Kunjal Rawal
-                                    <i class="fa fa-lg fa-times-circle pull-right pointer" aria-hidden="true"></i>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div>
-                                    Male
-                                  </div>
-                                </td>
-                                <td>
-                                  <div>
-                                    <select class="form-control">
-                                     
-                                    <option value="u-12">U-12 EPEE</option>
-                                    <option value="u-14">U-14 EPEE</option>
-                                    <option value="u-17">U-17 EPEE</option>
-                                  </select>
-                                  </div>
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                    
-                                    <option value="u-12">U-12 SABRE</option>
-                                    <option value="u-14">U-14 SABRE</option>
-                                    <option value="u-17">U-17 SABRE</option>
-                                  </select>
-                                </td>
-                                <td>
-
-                                  <select class="form-control">
-                                     <option value="u-12">U-12 FOIL</option>
-                                    <option value="u-14">U-14 FOIL</option>
-                                    <option value="u-17">U-17 FOIL</option>
-                                    
-                                  </select>
-                                </td>
-                              </tr>-->
                             </tbody>
                           </table>
 
@@ -260,10 +176,11 @@
                   <div class="form-group ">
                     <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12 ">
                       <div class="col-md-6 col-sm-6 col-xs-12 ">
-                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="submit ">Edit</button>
+                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true" type="submit ">Edit</button>
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12 ">
-                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="submit " promise-btn="yourPromise">Confirm</button>
+                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true" type="button" promise-btn="yourPromise"
+                          ng-click="selectService.confirmSelection()">Confirm</button>
                       </div>
                     </div>
                   </div>

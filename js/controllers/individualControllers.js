@@ -5,6 +5,7 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.selectService = selectService;
+    $.jStorage.set("sportsId", $stateParams.id);
     $scope.selectService.sportsId = $stateParams.id;
     $scope.ageGroup = [];
     $scope.listOfAthelete = [];
@@ -164,7 +165,7 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
 
 
 //Confirm-Fencing
-firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService) {
+firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService, selectService) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("confirmfencing");
@@ -172,6 +173,7 @@ firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, Nav
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.selectService = selectService;
     $scope.formData = {};
     loginService.loginGet(function (data) {
         $scope.detail = data;
@@ -244,6 +246,11 @@ firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, Nav
         }]
     }]
     //end fencing
+
+    $scope.tp = function (event) {
+        console.log(event);
+    };
+
     //archery-data
     $scope.archeryTable = [{
         name: '126 - Kunjal Rawal',
@@ -308,8 +315,6 @@ firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, 
         'selectAgeExpression': ''
     };
 
-
-
     function configureVariables() {
         if ($scope.selectService && $scope.selectService.sportName) {
             var st = $scope.selectService.sportName;
@@ -326,6 +331,22 @@ firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, 
             }
         }
     }
+    // function configureVariables() {
+    //     if ($scope.selectService && $scope.selectService.sportName) {
+    //         var st = $scope.selectService.sportName;
+    //         if (st == 'Judo' || st == 'Boxing' || st == 'Taekwondo' || st == 'Sport MMA') {
+    //             $scope.config.weightsReq = true;
+    //             $scope.config.ageVar = 'athelete.ageSelected';
+    //             $scope.config.weightVar = 'athelete.sport';
+    //             $scope.config.selectAgeExpression = "age._id for age in athelete.ageGroups";
+    //         } else {
+    //             $scope.config.weightsReq = false;
+    //             $scope.config.ageVar = 'athelete.sport';
+    //             $scope.config.weightVar = '';
+    //             $scope.config.selectAgeExpression = "{'sport[0]':age.data[0].sport,'_id':age._id} as age._id for age in athelete.ageGroups";
+    //         }
+    //     }
+    // }
 
     configureVariables();
 
@@ -487,7 +508,7 @@ firstApp.controller('ConfirmRelayCtrl', function ($scope, TemplateService, Navig
 
 //Confirm-athlete-swimming
 
-firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, NavigationService, loginService, $timeout) {
+firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, NavigationService, loginService, $timeout, selectService) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("confirmathleteswim");
@@ -495,6 +516,7 @@ firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, Navi
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.selectService = selectService;
 
     $scope.formData = {};
     loginService.loginGet(function (data) {
@@ -515,6 +537,10 @@ firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, Navi
                 toastr.error('Something went wrong', 'Logout Message');
             }
         });
+    };
+
+    $scope.tp = function (team) {
+        console.log(team);
     };
 
     $scope.athswmTable = [{

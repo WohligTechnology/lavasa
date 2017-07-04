@@ -68,40 +68,34 @@
                             <tbody>
                               <tr ng-repeat="athelete in selectService.team track by $index">
                                 <td>
-                                  <div class="mid_cols">1</div>
+                                  <div class="mid_cols relate">
+                                    <span>{{$index+1}}|{{athelete.isValidSelection}}</span>
+                                    <span class="missing-fields" ng-if="selectService.showMissingFields && !athelete.isValidSelection">*</span>
+                                  </div>
                                 </td>
                                 <td>{{athelete.firstName+' '+athelete.surname}}</td>
                                 <td>{{athelete.gender}}</td>
                                 <td>
-                                  <!--avent 1 selection starts-->
-                                  <select class="form-control">
-                                     <option value="u-8">U-8 Karate</option>
-                                    <option value="u-10">U-10 Karate</option>
-                                    <option value="u-12">U-12 Karate</option>
-                                    <option value="u-14">U-14 Karate</option>
+                                  <!--event 1 selection starts-->
+                                  <!--athelete.sport[athelete.sport.length]-->
+                                  <!--ng-init="athelete.sport[0]=athelete.eventKata[1].sport"-->
+                                  <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.sport[0]" ng-options="event1.data[0].sport as event1._id | formatEvent:'Kata'  for event1 in athelete.eventKata track by event1._id" ng-change="selectService.isValidSelection(athelete)">
                                   </select>
-                                  <!--avent 1 selection ends-->
+                                  <!--event 1 selection ends-->
                                   
+                                </td> 
+                                <td>
+                                  <!--event 2 selection starts-->
+                                  <!--ng-init="athelete.event2Weights=athelete.eventKumite[0]"-->
+                                  <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.event2Weights" ng-options="event2.data as event2._id | formatEvent:'Kumite' for event2 in athelete.eventKumite track by event2._id"  ng-change="selectService.isValidSelection(athelete)">
+                                  </select>
+                                  <!--event 2 selection ends-->
                                 </td>
                                 <td>
-                                  <!--avent 2 selection starts-->
-                                  <select class="form-control">
-                                     <option value="u-8">U-8 Kumite</option>
-                                    <option value="u-10">U-10 Kumite</option>
-                                    <option value="u-12">U-12 Kumite</option>
-                                    <option value="u-14">U-14 Kumite</option>
+                                  <!--weight selection starts-->                                  
+                                  <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.sport[1]" ng-options="weights.sport as weights.weight for weights in athelete.event2Weights"  ng-change="selectService.isValidSelection(athelete)">
                                   </select>
-                                  <!--avent 2 selection ends-->
-                                </td>
-                                <td>
-                                  <!--avent 3 selection starts-->                                  
-                                  <select class="form-control">
-                                     <option value="28-kg">-28 kg</option>
-                                    <option value="30-kg">30 kg</option>
-                                    <option value="32-kg">32 kg</option>
-                                    <option value="34-kg">34 kg</option>
-                                  </select>
-                                  <!--avent 3 selection ends-->
+                                  <!--weight selection ends-->
                                   
                                 </td>
                               </tr>
@@ -163,10 +157,10 @@
                   <div class="form-group ">
                     <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12 ">
                       <div class="col-md-6 col-sm-6 col-xs-12 ">
-                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="submit ">Edit</button>
+                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="button" ng-click="selectService.editTeam('individual-selection');">Edit</button>
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12 ">
-                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="submit ">Confirm</button>
+                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="button" promise-btn="yourPromise" ng-click="selectService.confirmSelection()">Confirm</button>
                       </div>
                     </div>
                   </div>
