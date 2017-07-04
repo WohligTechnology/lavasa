@@ -7364,10 +7364,20 @@ h1.forgot-space {
 }
 
 .missing-fields {
-    position: absolute;
-    left: -7px;
-    top: 4px;
-    color: red;
+    background-color: #e1e1e1 !important;
+    select {
+        background-color: #e1e1e1;
+        border-radius: 0;
+    } // position: absolute;
+    // left: -7px;
+    // top: 4px;
+    // color: red;
+    // position: absolute;
+    // left: 0;
+    // top: 0;
+    // border: 1px solid red;
+    // height: 100%;
+    // width: 100%;
 }
 
 // .toast-centered {
