@@ -4,7 +4,10 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+
     $scope.selectService = selectService;
+
+
     $scope.selectService.sportsId = $stateParams.id;
     $scope.ageGroup = [];
     $scope.formData = {};
@@ -25,12 +28,24 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
         scrollBusy: false,
         stopCallingApi: false,
     };
-
+    $scope.counter = 1;
 
 
     loginService.loginGet(function (data) {
         $scope.detail = data;
     });
+    if ($.jStorage.get("userDetails") !== null) {
+        if ($scope.detail.userType === 'athlete') {
+            if ($.jStorage.get("userDetails").gender !== null) {
+                $scope.selectService.gender = $.jStorage.get("userDetails").gender;
+            }
+        } else {
+            $scope.selectService.gender = 'male';
+
+        }
+
+
+    }
 
     if ($scope.detail.userType === "athlete") {
         $scope.constraints.athleteToken = $scope.detail.accessToken;
@@ -76,6 +91,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
 
     // *****for getting all athletes*****
     $scope.athletePerSchool = function (getAthletePerSchoolObj) {
+        $scope.setDisabled = false;
         if ($scope.busy) return;
         $scope.busy = true;
         NavigationService.getAthletePerSchool(getAthletePerSchoolObj, function (data) {
@@ -105,6 +121,42 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                                 });
 
                                 $scope.listOfAthelete = $scope.selectService.isAtheleteSelected($scope.selectAthlete);
+                                if ($scope.detail.userType === 'athlete') {
+
+                                    var indexOfAthlete = _.findIndex($scope.listOfAthelete, ['sfaId', $scope.detail.sfaIdObj]);
+
+                                    if (indexOfAthlete >= 0) {
+                                        if ($scope.counter === 1) {
+                                            $scope.listOfAthelete[indexOfAthlete].checked = true;
+                                            $scope.listOfAthelete[indexOfAthlete].setDisabled = true;
+                                            if ($scope.listOfAthelete[indexOfAthlete].isTeamSelected === true) {
+                                                toastr.error("This Athlete is alreday in other game");
+                                                $scope.setDisabled = true;
+                                                $scope.busy = true;
+
+
+                                            } else {
+                                                $scope.setDisabled = false;
+                                                if (selectService.team.length === 0) {
+                                                    console.log("selectService.team", selectService.team);
+                                                    selectService.pushToTeam($scope.listOfAthelete[indexOfAthlete], $scope.listOfAthelete[indexOfAthlete].checked, $scope.listOfAthelete);
+                                                }
+                                                // $scope.listOfAthelete[indexOfAthlete].checked = true;
+
+
+
+                                            }
+                                            ++$scope.counter;
+                                            console.log($scope.counter, "counter");
+                                        }
+
+
+
+                                    }
+                                    $scope.listOfAthelete = _.uniq($scope.listOfAthelete);
+                                }
+
+
                             }
                         }
 
@@ -208,6 +260,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
         $scope.showAgeObj = '';
         $scope.isLoading = true;
         $scope.busy = false;
+        $scope.counter = 1;
         $scope.noAthletefound = false;
         // $scope.scroll = {
         //     scrollBusy: false,
