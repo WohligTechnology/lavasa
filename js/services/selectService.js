@@ -112,7 +112,6 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
                     'sport': null
                 }]
             });
-
             return athelete;
         }
 
@@ -238,10 +237,21 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
         switch (this.sportType) {
             case "K":
                 this.findOverAllFormValidation();
+                _.each(formData, function (n, index) {
+                    if (index == 0 && n.sport[0]) {
+                        //    n.sport[0]=n.sport[0].data[0].sport;
+                    } else if (index == 1 && n.sport[1]) {
+                        // n.sport[1]=n.sport[1].sport;
+                    }
+                });
+                console.log(formData);
                 break;
             case "FA":
                 if (this.sportName == 'Fencing') {
                     this.findOverAllFormValidation();
+                    _.each(formData, function (n) {
+                        n.sport = _.compact(n.sport);
+                    });
                 } else if (this.sport == 'Archery') {
 
                 }
@@ -290,6 +300,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
         } else {
             obj.athleteToken = accessToken;
         }
+        console.log(formData);
         $http({
             'method': 'POST',
             'url': adminUrl2 + 'individualSport/saveInIndividual',
@@ -312,21 +323,12 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
         console.log(this.sportsId, this.sportType);
         switch (this.sportType) {
             case "K":
-
                 var arr = _.compact(athelete.sport);
                 var weights = _.compact(athelete.event2Weights);
                 weights = _.reject(athelete.event2Weights, {
                     'sport': null
                 });
-                console.log("arr", arr);
-                console.log(" weights", weights);
-                console.log("athelete.sport[0]", athelete.sport[0]);
-                console.log("weights && weights[0] && weights[0].sport!=null", weights && weights[0] && weights[0].sport != null);
-                console.log("athelete.sport[1]", athelete.sport[1]);
-                // athelete.isValidSelection = (arr.length > 0)?(athelete.sport[0]!=''||athelete.sport[0]!=null)?true:(athelete.sport[1]!=''||athelete.sport[1]!=null)?(weights>0)?true:false:false:false;
-                // partially working                // athelete.isValidSelection = athelete.sport[0] ? (athelete.sport[1]) ? true : (weights && weights[0] && weights[0].sport != null) ? false : true : (athelete.sport[1]) ? true : (weights && weights[0] && weights[0].sport != null) ? false : true;
                 athelete.isValidSelection = (arr.length == 0 && weights.length == 0) ? false : (weights.length == 0 && athelete.sport[0]) ? true : (weights.length != 0 && athelete.sport[1]) ? true : false;
-
                 break;
             case "FA":
                 if (this.sportName == 'Fencing') {
@@ -338,14 +340,13 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
                 break;
             case "AAS":
                 var arr = _.compact(athelete.sport);
-                console.log(arr);
-                athelete.isValidSelection = (arr.length > 0) && (arr.length < 0);
+                console.log(arr, (arr.length > 0) && (arr.length < 0));
+                athelete.isValidSelection = (arr.length > 0) && (arr.length < 3);
                 break;
             case "I":
                 var st = this.sportName;
                 if (st == 'Judo' || st == 'Boxing' || st == 'Taekwondo' || st == 'Sport MMA') {
                     athelete.isValidSelection = (athelete.sport && athelete.sport[1] && athelete.sport[1] != '') ? true : false;
-                    console.log(athelete.isValidSelection);
                 } else {
                     var arr = _.compact(athelete.sport);
                     athelete.isValidSelection = arr.length > 0;

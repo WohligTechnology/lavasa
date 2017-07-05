@@ -7370,7 +7370,8 @@ h1.forgot-space {
 
 .missing-fields {
     background-color: #e1e1e1 !important;
-    select {
+    select,
+    .ui-select-container {
         background-color: #e1e1e1;
         border-radius: 0;
     } // position: absolute;

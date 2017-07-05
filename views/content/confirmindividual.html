@@ -76,7 +76,7 @@
                                 <td ng-if="athelete.middleName">{{athelete.sfaId+' - '+athelete.firstName+' '+athelete.middleName+' '+athelete.surname}}</td>
                                 <td ng-if="!athelete.middleName">{{athelete.sfaId+' - '+athelete.firstName+' '+athelete.surname}}</td>
                                 <td>{{athelete.gender | firstcapitalize}}</td>
-                                <td class="relate">
+                                <td>
                                   <!--ageGroup column start-->
                                   <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.sport[0]" ng-options="{{config.selectAgeExpression}}"
                                     ng-change="selectService.isValidSelection(athelete)">
@@ -85,7 +85,6 @@
                                 </td>
                                 <td ng-if="st=='Judo' || st=='Boxing' || st=='Taekwondo' || st=='Sport MMA'">
                                   <!--weights column start-->
-
                                   <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.sport[1]" ng-options="weight.sport as weight.weight for weight in athelete.sport[0].data"
                                     ng-change="selectService.isValidSelection(athelete)">
                                   </select>
@@ -153,7 +152,6 @@
                       <div class="col-md-6 col-sm-6 col-xs-12 ">
                         <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="button" ng-click="selectService.confirmSelection()"
                           promise-btn="yourPromise">Confirm</button>
-
                         <!--ng-click="saveIt(selectService.team)"-->
                       </div>
                     </div>

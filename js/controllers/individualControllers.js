@@ -377,24 +377,9 @@ firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, 
         console.log(data);
     };
 
-    // $scope.saveIt = function (team) {
-    //     console.log(team);
-    //     $scope.confirmTeamToGo = function (confirmTeamObject) {
-    //         NavigationService.individualConfirm(confirmTeamObject, function (data) {
-    //             errorService.errorCode(data, function (allData) {
-    //                 if (!allData.message) {
-    //                     if (allData.value) {
-    //                         toastr.success("Successfully Confirmed", 'Success Message');
-    //                         NavigationService.setSportId(null);
-    //                         $state.go("sports-congrats");
-    //                     }
-    //                 } else {
-    //                     toastr.error(allData.message, 'Error Message');
-    //                 }
-    //             });
-    //         });
-    //     };
-    // };
+    $scope.saveIt = function (team) {
+        console.log(team);
+    }
 
 
 });

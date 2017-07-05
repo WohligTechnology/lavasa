@@ -235,5 +235,17 @@ firstApp.filter('firstcapitalize', function () {
         return (!!input) ? input.replace(reg, function (txt) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         }) : '';
-    }
+    };
+});
+
+firstApp.filter('formatEvent', function () {
+    return function (age, event) {
+        return age + '-' + event;
+    };
+});
+
+firstApp.filter('isValidSelection', function () {
+    return function (age, event) {
+        return age + '-' + event;
+    };
 });
