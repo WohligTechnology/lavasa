@@ -341,7 +341,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             case "AAS":
                 var arr = _.compact(athelete.sport);
                 console.log(arr, (arr.length > 0) && (arr.length < 0));
-                athelete.isValidSelection = (arr.length > 0) && (arr.length < 3);
+                athelete.isValidSelection = (arr.length >= 1);
                 break;
             case "I":
                 var st = this.sportName;

@@ -81,25 +81,24 @@
                                 <td>
                                   <div>
                                     <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.metresSwim" ng-options="age._id for age in athelete.ageGroups"
-                                      ng-change="selectService.isValidSelection(athelete)">
+                                      ng-change="selectService.isValidSelection(athelete);athelete.sport=[]">
                                   </select>
                                   </div>
                                 </td>
-                                <td ng-init="validate=(selectService.sportName=='Athletics')?'athelete.sport.length>1':false">
+                                <td ng-init="validate=(selectService.sportName=='Athletics')?true:false">
                                   <div class="custom-uiselect">
                                     <ui-select name="selectfilter" multiple="" id="selectfilter" theme="bootstrap" ng-model="athelete.sport" ng-change="selectService.isValidSelection(athelete)"
                                       ng-init="selectService.isValidSelection(athelete)">
                                       <ui-select-match placeholder="Enter Filter">
                                         {{$item.eventName}}
                                       </ui-select-match>
-                                      <ui-select-choices repeat="metre.sport as metre in athelete.metresSwim.data | filter:{eventName:$select.search}" ui-disable-choice="{{validate}}">
+                                      <ui-select-choices repeat="metre.sport as metre in athelete.metresSwim.data | filter:{eventName:$select.search}" ui-disable-choice="validate && athelete.sport.length>=2">
                                         <span ng-bind-html="metre.eventName"></span>
                                       </ui-select-choices>
                                     </ui-select>
                                   </div>
                                 </td>
                               </tr>
-
                             </tbody>
                           </table>
 
