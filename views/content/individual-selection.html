@@ -116,7 +116,7 @@
                                                 <div class="col-md-4 col-sm-4 col-xs-12 mb15" ng-repeat="checked in listOfAthelete">
                                                     <div class="school-sec">
                                                         <div class="selectedPlayer" ng-if="checked.isIndividualSelected === true">
-                                                            <h4 class="">Player has been already selected</h4>
+                                                            <h4 class="">Player has been already registered</h4>
                                                         </div>
                                                         <div class="stu-img">
                                                             <img ng-src="{{checked.atheleteSchoolIdImage | serverimage2:70:70:'cover' }}" class="img-responsive" alt="">
@@ -157,7 +157,7 @@
                                             <p>Players Selected: {{selectService.team.length}}</p>
                                         </div>
                                     </div>
-                                    <div class="scroll-div scroll-height">
+                                    <div class="scroll-div scroll-height scroll-height-I">
                                         <div class="selectedTeamTable table-responsive scrollbar style-1">
                                             <table class="table table-bordered">
                                                 <thead>
@@ -172,7 +172,7 @@
                                                         <td>
                                                             <div class="mid_cols">{{$index+1}}</div>
                                                         </td>
-                                                        <td>{{athlete.firstName}}&nbsp&nbsp&nbsp&nbsp{{athlete.sfaId}}</td>
+                                                        <td>{{athlete.sfaId}} - {{athlete.firstName}}</td>
                                                         <td>
                                                             <div ng-click="selectService.pushToTeam(athlete, athelete.checked, listOfAthelete, getEvents)">
                                                                 <i class="fa fa-lg fa-times-circle pointer" aria-hidden="true"></i>
@@ -208,8 +208,7 @@
                         <div class="row text-center mt25 mb-50">
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <button class="btn btn-default width-86 sub-mit" type="button" ui-sref="sports-selection">Back</button>
-                                <button class="btn btn-default width-86 sub-mit" type="button" ng-click="selectService.goNext(basicSportDetails,formData.gender,formData.ageGroup);"
-                                    promise-btn="selectService.yourPromise">Next</button>
+                                <button class="btn btn-default width-86 sub-mit" type="button" ng-click="selectService.goNext(basicSportDetails,formData.gender,formData.ageGroup);">Next</button>
                             </div>
                         </div>
                     </div>

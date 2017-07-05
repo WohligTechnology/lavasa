@@ -9,26 +9,18 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
     $scope.sportsregistered = false;
     $scope.classactive = 'blue-active';
     $scope.classinactive = '';
-    $scope.sptabchange = function (data) {
-        if (data == 1) {
-            $scope.sportsschool = true;
-            $scope.sportsregistered = false;
-        } else {
-            $scope.sportsschool = false;
-            $scope.sportsregistered = true;
-        }
-    };
-
-    $scope.redirectTo = function (val) {
-        console.log(val);
-        $.jStorage.set("confirmPageKey", val.sportType);
-        selectService.redirectTo = val.sportType;
-        console.log(selectService.redirectTo);
-    }
+    $scope.constraints = {};
 
     loginService.loginGet(function (data) {
         $scope.detail = data;
+        console.log(data);
     });
+
+    if ($.jStorage.get("userType") === "school") {
+        $scope.constraints.schoolToken = $.jStorage.get("userDetails").accessToken;
+    } else {
+        $scope.constraints.athleteToken = $.jStorage.get("userDetails").accessToken;
+    }
 
     if ($.jStorage.get("userDetails") === null) {
         $state.go('sports-registration');
@@ -45,6 +37,23 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
         });
     };
 
+    $scope.sptabchange = function (data) {
+        if (data == 1) {
+            $scope.sportsschool = true;
+            $scope.sportsregistered = false;
+        } else {
+            $scope.sportsschool = false;
+            $scope.sportsregistered = true;
+            $scope.getAllRegisteredSport();
+        }
+    };
+
+    $scope.redirectTo = function (val) {
+        console.log(val);
+        $.jStorage.set("confirmPageKey", val.sportType);
+        selectService.redirectTo = val.sportType;
+        console.log(selectService.redirectTo);
+    };
     // ==========getAllSportsListSubCategory==============
     $scope.allSportsListSubCatArr = [];
     var tempObj = {};
@@ -81,14 +90,29 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
             $scope.uploadSizeInstances.close();
         }, 8000);
     };
-    $scope.registerSport = [{
-        type: 'single',
-        name: 'Athlethics'
-    }, {
-        type: 'team',
-        name: 'Football Boys U-14 ‘A’',
-        teamId: 'MUFB161401'
-    }];
+
+    $scope.getAllRegisteredSport = function () {
+        $scope.registerSport = undefined;
+        NavigationService.getAllRegisteredSport($scope.constraints, function (data) {
+            errorService.errorCode(data, function (allData) {
+                if (allData.value) {
+                    if (_.isEmpty(allData.data)) {
+                        $scope.registerSport = [];
+                    } else {
+                        $scope.registerSport = allData.data;
+                        // $scope.registerSportTeam = allData.data[0];
+                        // $scope.registerSportIndividual = allData.data[1];
+                        // _.each($scope.registerSportTeam, function (n) {
+                        //     $scope.registerSport.push(n);
+                        // });
+                        // _.each($scope.registerSportIndividual, function (n) {
+                        //     $scope.registerSport.push(n);
+                        // });
+                    }
+                }
+            });
+        });
+    };
 });
 
 firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state, NavigationService, toastr, $timeout, $stateParams, errorService, loginService) {
@@ -160,33 +184,6 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
 
 });
 
-firstApp.controller('SportsCongratsCtrl', function ($scope, TemplateService, toastr, NavigationService, $timeout, $state, $stateParams, loginService, errorService) {
-    $scope.template = TemplateService.changecontent("sports-congrats");
-    $scope.menutitle = NavigationService.makeactive("Sports Congrats");
-    TemplateService.header = "views/header2.html";
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    // $scope.formData = {};
-    loginService.loginGet(function (data) {
-        $scope.detail = data;
-    });
-
-    if ($.jStorage.get("userDetails") === null) {
-        $state.go('sports-registration');
-    }
-
-    $scope.logoutCandidate = function () {
-        loginService.logoutCandidate(function (data) {
-            if (data.isLoggedIn === false) {
-                toastr.success('Successfully Logged Out', 'Logout Message');
-                $state.go('sports-registration');
-            } else {
-                toastr.error('Something went wrong', 'Logout Message');
-            }
-        });
-    };
-});
-
 firstApp.controller('SportIndividualCtrl', function ($scope, TemplateService, toastr, NavigationService, $timeout, $state, $stateParams, loginService, errorService) {
     $scope.template = TemplateService.changecontent("sport-individualdetail");
     $scope.menutitle = NavigationService.makeactive("Registered Individual Detail");
@@ -194,6 +191,7 @@ firstApp.controller('SportIndividualCtrl', function ($scope, TemplateService, to
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     // $scope.formData = {};
+    $scope.constraints = {};
     loginService.loginGet(function (data) {
         $scope.detail = data;
     });
@@ -212,6 +210,36 @@ firstApp.controller('SportIndividualCtrl', function ($scope, TemplateService, to
             }
         });
     };
+
+    if ($.jStorage.get("userType") === "school") {
+        $scope.constraints.schoolToken = $.jStorage.get("userDetails").accessToken;
+    } else {
+        $scope.constraints.athleteToken = $.jStorage.get("userDetails").accessToken;
+    }
+
+    if ($stateParams.id) {
+        console.log($stateParams.id);
+        $scope.constraints.sportsListSubCategory = $stateParams.id;
+        $scope.constraints.type = 'Individual';
+    }
+
+    $scope.getDetailRegisteredSport = function () {
+        $scope.getIndividualDetails = undefined;
+        NavigationService.getDetailRegisteredSport($scope.constraints, function (data) {
+            errorService.errorCode(data, function (allData) {
+                if (allData.value) {
+                    if (_.isEmpty(allData.data)) {
+                        $scope.getIndividualDetails = [];
+                        console.log('enter');
+                    } else {
+                        $scope.getIndividualDetails = allData.data;
+                        console.log($scope.getIndividualDetails);
+                    }
+                }
+            });
+        });
+    };
+    $scope.getDetailRegisteredSport();
 });
 
 firstApp.controller('SportTeamCtrl', function ($scope, TemplateService, toastr, NavigationService, $timeout, $state, $stateParams, loginService, errorService) {
@@ -221,6 +249,7 @@ firstApp.controller('SportTeamCtrl', function ($scope, TemplateService, toastr, 
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     // $scope.formData = {};
+    $scope.constraints = {};
     loginService.loginGet(function (data) {
         $scope.detail = data;
     });
@@ -239,4 +268,32 @@ firstApp.controller('SportTeamCtrl', function ($scope, TemplateService, toastr, 
             }
         });
     };
+
+    if ($.jStorage.get("userType") === "school") {
+        $scope.constraints.schoolToken = $.jStorage.get("userDetails").accessToken;
+    } else {
+        $scope.constraints.athleteToken = $.jStorage.get("userDetails").accessToken;
+    }
+
+    if ($stateParams.id) {
+        console.log($stateParams.id);
+        $scope.constraints.sportsListSubCategory = $stateParams.id;
+        $scope.constraints.type = 'Team';
+    }
+
+    $scope.getDetailRegisteredSport = function () {
+        $scope.getTeamDetails = undefined;
+        NavigationService.getDetailRegisteredSport($scope.constraints, function (data) {
+            errorService.errorCode(data, function (allData) {
+                if (allData.value) {
+                    if (_.isEmpty(allData.data)) {
+                        $scope.getTeamDetails = [];
+                    } else {
+                        $scope.getTeamDetails = allData.data;
+                    }
+                }
+            });
+        });
+    };
+    $scope.getDetailRegisteredSport();
 });

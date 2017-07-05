@@ -702,3 +702,30 @@ firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, Navi
         }]
     }];
 });
+
+firstApp.controller('IndividualCongratsCtrl', function ($scope, TemplateService, toastr, NavigationService, $timeout, $state, $stateParams, loginService, errorService) {
+    $scope.template = TemplateService.changecontent("individual-congrats");
+    $scope.menutitle = NavigationService.makeactive("Individual Congrats");
+    TemplateService.header = "views/header2.html";
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    // $scope.formData = {};
+    loginService.loginGet(function (data) {
+        $scope.detail = data;
+    });
+
+    if ($.jStorage.get("userDetails") === null) {
+        $state.go('sports-registration');
+    }
+
+    $scope.logoutCandidate = function () {
+        loginService.logoutCandidate(function (data) {
+            if (data.isLoggedIn === false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $state.go('sports-registration');
+            } else {
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    };
+});

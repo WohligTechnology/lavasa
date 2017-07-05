@@ -17,7 +17,6 @@
             </div>
           </div>
           <ul class="list-inline">
-            <li ui-sref="change-password" hidden><a>Change Password</a></li>
             <li ng-click="logoutCandidate();" ng-if="detail.isLoggedIn"><a>Logout</a></li>
           </ul>
         </div>
@@ -44,47 +43,48 @@
 
       <!-- DETAILS TABLE -->
       <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="sportdetail-table" ng-repeat="sport in selection track by $index">
-          <div class="step3">{{sport.name}}</div>
+        <div class="sportdetail-table" ng-repeat="sport in getTeamDetails track by $index">
+          <div class="step3">{{sport._id}}</div>
           <div class="box-padd">
             <div class="selectedTeamTable sport-individualtable table-responsive scrollbar style-1">
               <table class="table table-bordered">
-                  <thead>
-                      <th>
-                          <div class="mid_col sportdetail-th">Sr. No.</div>
-                      </th>
-                      <th>
-                        <div class="sportdetail-th">SFA ID-Name</div>
-                      </th>
-                      <th>
-                        <div class="sportdetail-th">Name</div>
-                      </th>
-                      <th>
-                        <div class="sportdetail-th">Gender</div>
-                      </th>
-                      <th>
-                        <div class="sportdetail-th">Age Category</div>
-                      </th>
-                  </thead>
-                  <tbody>
-                      <tr ng-repeat="athlete in sport.team track by $index">
-                          <td>
-                              <div class="mid_cols sportdetail-td">{{index+1}}</div>
-                          </td>
-                          <td>
-                            <div class="sportdetail-td">{{athlete.id}}</div>
-                          </td>
-                          <td>
-                            <div class="sportdetail-td">{{athlete.name}}</div>
-                          </td>
-                          <td>
-                            <div class="sportdetail-td">{{athlete.gender}}</div>
-                          </td>
-                          <td>
-                            <div class="sportdetail-td">{{athlete.ageCat}}</div>
-                          </td>
-                      </tr>
-                  </tbody>
+                <thead>
+                  <th>
+                    <div class="mid_col sportdetail-th">Sr. No.</div>
+                  </th>
+                  <th>
+                    <div class="sportdetail-th">Name</div>
+                  </th>
+                  <th>
+                    <div class="sportdetail-th">SFA ID-Name</div>
+                  </th>
+                  <th>
+                    <div class="sportdetail-th">Gender</div>
+                  </th>
+                  <th>
+                    <div class="sportdetail-th">Age Category</div>
+                  </th>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="athlete in sport.info track by $index">
+                    <td>
+                      <div class="mid_cols sportdetail-td">{{$index+1}}</div>
+                    </td>
+                    <td>
+                      <div class="sportdetail-td">{{athlete.sportName}}</div>
+                    </td>
+                    <td>
+                      <div class="sportdetail-td" ng-if="athlete.middlename">{{athlete.sfaid}} - {{athlete.firstname}}&nbsp;{{athlete.middlename}}&nbsp;{{athlete.lastname}}</div>
+                      <div class="sportdetail-td" ng-if="!athlete.middlename">{{athlete.sfaid}} - {{athlete.firstname}}&nbsp;{{athlete.lastname}}</div>
+                    </td>
+                    <td>
+                      <div class="sportdetail-td">{{athlete.gender | firstcapitalize}}</div>
+                    </td>
+                    <td>
+                      <div class="sportdetail-td">{{athlete.agegroup}}</div>
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>

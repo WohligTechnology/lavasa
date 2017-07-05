@@ -355,10 +355,16 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'SportsRulesCtrl'
         })
 
-        .state('sports-congrats', {
-            url: "/sports-congrats",
+        .state('team-congrats', {
+            url: "/team-congrats",
             templateUrl: "views/template.html",
-            controller: 'SportsCongratsCtrl'
+            controller: 'TeamCongratsCtrl'
+        })
+
+        .state('individual-congrats', {
+            url: "/individual-congrats",
+            templateUrl: "views/template.html",
+            controller: 'IndividualCongratsCtrl'
         })
 
         .state('sports-selection', {
@@ -420,12 +426,12 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'ConfirmShootingCtrl'
         })
         .state('sport-individualdetail', {
-            url: "/sport-individualdetail",
+            url: "/sport-individualdetail/:id",
             templateUrl: "views/template.html",
             controller: 'SportIndividualCtrl'
         })
         .state('sport-teamdetail', {
-            url: "/sport-teamdetail",
+            url: "/sport-teamdetail/:id",
             templateUrl: "views/template.html",
             controller: 'SportTeamCtrl'
         });

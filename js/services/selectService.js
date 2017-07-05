@@ -310,7 +310,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
                 if (!allData.message) {
                     if (allData.value) {
                         toastr.success("Successfully Confirmed", 'Success Message');
-                        $state.go("sports-congrats");
+                        $state.go("individual-congrats");
                     }
                 } else {
                     toastr.error(allData.message, 'Error Message');

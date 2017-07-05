@@ -19,7 +19,6 @@
         </div>
       </div>
       <ul class="list-inline">
-        <li ui-sref="change-password"><a>Change Password</a></li>
         <li ng-click="logoutCandidate();" ng-if="detail.isLoggedIn"><a>Logout</a></li>
       </ul>
     </div>
@@ -59,21 +58,27 @@
     </div>
     <!-- REGISTERED SPORTS TAB -->
     <div class="box-padd mb-50" ng-show="sportsregistered">
-      <div class="registeredsport-tab">
+      <div class="registeredsport-tab" ng-if="registerSport.length > 0">
         <ul class="list-unstyled registeredsport-list">
-          <li class="registersport-lists" ng-repeat="sport in registerSport track by $index">
+          <li class="registersport-lists" ng-repeat="sport in registerSport | orderBy:'_id.sportName' track by $index">
             <div class="list-sportregistered">
               <div class="clearfix sportregistered-title para2">
-                <div class="pull-right" ng-if="sport.type=='team'">
-                  <p>{{sport.teamId}}</p>
-                </div>
-                <p>{{sport.name}}</p>
+                <!--<div class="pull-right" ng-if="sport._id.type=='team'">
+                  <p>{{sport._id.teamId}}</p>
+                </div>-->
+                <p>{{sport._id.sportName}}</p>
               </div>
-              <a ui-sref="sport-individualdetail" ng-if="sport.type=='single'" class="sportregistered-viewbtn para2">View Details</a>
-              <a ui-sref="sport-teamdetail" ng-if="sport.type=='team'" class="sportregistered-viewbtn para2">View Details</a>
+              <a ui-sref="sport-individualdetail({id:sport._id.sportsListSubCategory})" ng-if="sport._id.type!='Team'" class="sportregistered-viewbtn para2">View Details</a>
+              <a ui-sref="sport-teamdetail({id:sport._id.sportsListSubCategory})" ng-if="sport._id.type=='Team'" class="sportregistered-viewbtn para2">View Details</a>
             </div>
           </li>
         </ul>
+      </div>
+      <div class="text-center sp-head-tab" ng-if="registerSport.length == 0">
+        <h3>No Registered Sports Found.</h3>
+      </div>
+      <div class="text-center sp-head-tab" ng-if="registerSport.length == undefined">
+        <h3>Loading...</h3>
       </div>
     </div>
     <!-- REGISTERED SPORTS TAB END -->

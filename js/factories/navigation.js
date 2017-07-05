@@ -750,6 +750,20 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
                     console.log(data);
                 }
             });
+        },
+        getAllRegisteredSport: function (request, callback) {
+            $http({
+                url: adminUrl2 + 'RegisteredSports/getAllRegisteredSport',
+                method: 'POST',
+                data: request
+            }).then(callback);
+        },
+        getDetailRegisteredSport: function (request, callback) {
+            $http({
+                url: adminUrl2 + 'RegisteredSports/getDetailRegisteredSport',
+                method: 'POST',
+                data: request
+            }).then(callback);
         }
     };
 });

@@ -436,7 +436,7 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
                     if (allData.value) {
                         toastr.success("Successfully Confirmed", 'Success Message');
                         NavigationService.setSportId(null);
-                        $state.go("sports-congrats");
+                        $state.go("team-congrats");
                     }
                 } else {
                     toastr.error(allData.message, 'Error Message');
@@ -476,4 +476,31 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
 
 
 
+});
+
+firstApp.controller('TeamCongratsCtrl', function ($scope, TemplateService, toastr, NavigationService, $timeout, $state, $stateParams, loginService, errorService) {
+    $scope.template = TemplateService.changecontent("team-congrats");
+    $scope.menutitle = NavigationService.makeactive("Team Congrats");
+    TemplateService.header = "views/header2.html";
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    // $scope.formData = {};
+    loginService.loginGet(function (data) {
+        $scope.detail = data;
+    });
+
+    if ($.jStorage.get("userDetails") === null) {
+        $state.go('sports-registration');
+    }
+
+    $scope.logoutCandidate = function () {
+        loginService.logoutCandidate(function (data) {
+            if (data.isLoggedIn === false) {
+                toastr.success('Successfully Logged Out', 'Logout Message');
+                $state.go('sports-registration');
+            } else {
+                toastr.error('Something went wrong', 'Logout Message');
+            }
+        });
+    };
 });

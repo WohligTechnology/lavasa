@@ -168,7 +168,7 @@
                                                         <div class="col-md-4 col-sm-4 col-xs-12 mb15" ng-repeat="checked in listOfAthelete">
                                                             <div class="school-sec">
                                                                 <div class="selectedPlayer" ng-if="checked.isTeamSelected === true && setDisabled === false">
-                                                                    <h4 class="">Player has been already selected</h4>
+                                                                    <h4 class="">Player has been already registered</h4>
                                                                 </div>
                                                                 <div class="stu-img">
                                                                     <img ng-src="{{checked.atheleteSchoolIdImage | serverimage2:70:70:'cover' }}" class="img-responsive" alt="">
@@ -230,7 +230,7 @@
                                                                 <div class="mid_cols">{{$index+1}}</div>
                                                             </td>
 
-                                                            <td>{{athlete.firstName}}&nbsp&nbsp&nbsp&nbsp{{athlete.sfaId}}</td>
+                                                            <td>{{athlete.sfaId}} - {{athlete.firstName}}</td>
 
 
                                                             <td>
@@ -253,8 +253,7 @@
                                     <button class="btn btn-default width-86 sub-mit" type="button" ui-sref="sports-selection">Back</button>
 
                                     <button class="btn btn-default width-86 sub-mit" type="button" ng-click="selectService.goNext(basicSportDetails,formData.gender,formData.ageGroup);"
-                                        ng-disabled="selectService.team.length < minPlayer || selectService.team.length > maxPlayer"
-                                        promise-btn="selectService.yourPromise">Next</button>
+                                        ng-disabled="selectService.team.length < minPlayer || selectService.team.length > maxPlayer">Next</button>
                                     <!--<button class="btn btn-default width-86 sub-mit" type="button" ng-click="selectService.goNext('confirmteam',formData.gender,formData.ageGroup);"
                                         ng-disabled="selectService.team.length < minPlayer || selectService.team.length > maxPlayer"
                                         promise-btn="yourPromise">Next</button>-->
