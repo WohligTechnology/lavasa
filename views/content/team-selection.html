@@ -159,7 +159,7 @@
                                         </form>
                                         <div class="scroll-div">
                                             <div class="scrollbar style-1">
-                                                <div class="text-center mt15" ng-if="noAthletefound">
+                                                <div class="text-center mt15" ng-if="listOfAthelete.length <= 0">
                                                     <h4>No Athlete Found</h4>
                                                 </div>
                                                 <div class="mt15">
@@ -167,6 +167,9 @@
                                                     <fieldset ng-disabled="setDisabled">
                                                         <div class="col-md-4 col-sm-4 col-xs-12 mb15" ng-repeat="checked in listOfAthelete">
                                                             <div class="school-sec">
+                                                                <div class="selectedPlayer" ng-if="checked.isTeamSelected === true && setDisabled === false">
+                                                                    <h4 class="">Player has been already selected</h4>
+                                                                </div>
                                                                 <div class="stu-img">
                                                                     <img ng-src="{{checked.atheleteSchoolIdImage | serverimage2:70:70:'cover' }}" class="img-responsive" alt="">
                                                                 </div>
