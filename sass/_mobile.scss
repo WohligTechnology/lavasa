@@ -67,12 +67,26 @@
       .f50 {
         font-size: 30px;
       }
+      .selectAthletes .separateTwoBox .school-sec .stu-check .checkbox-custom input[type="checkbox"]+label {
+        width: 97px;
+      }
+      .selectAthletes .separateTwoBox .school-sec {
+        min-height: 183px;
+      }
     }
 
     @media (max-width:$screen-sm-max) {
       // .ver-line:after {
       //   right: -80px;
       // }
+      .selectAthletes .separateTwoBox .school-sec {
+        min-height: 168px;
+      }
+      .confirmTeam .scrollbar {
+        height: auto;
+        max-height: 400px;
+        overflow-y: auto;
+      }
       .selectAthletes .separateTwoBox .scroll-div .scrollbar {
         height: 530px;
       }
@@ -86,7 +100,7 @@
         font-size: 16px;
       } // start athletes-selection
       .selectAthletes .separateTwoBox .school-sec .stu-check .checkbox-custom input[type="checkbox"]+label {
-        width: 170px;
+        width: 182px;
       }
       .w10 {
         width: 12%;
@@ -442,6 +456,9 @@
     }
 
     @media (max-width:$screen-xs-max) {
+      .selectAthletes .separateTwoBox .school-sec .stu-check .checkbox-custom input[type="checkbox"]+label {
+        width: 388px;
+      }
       .selectAthletes .separateTwoBox .scroll-div .scrollbar {
         height: 490px;
       }
@@ -1186,7 +1203,7 @@
         width: 18%;
       }
       .selectAthletes .separateTwoBox .school-sec .stu-check .checkbox-custom input[type="checkbox"]+label {
-        width: 296px;
+        width: 262px;
       }
       .readSchoolName {
         .iconinfo {
@@ -2248,7 +2265,7 @@
         display: none;
       } //start athlete-selection
       .selectAthletes .separateTwoBox .school-sec .stu-check .checkbox-custom input[type="checkbox"]+label {
-        width: 136px;
+        width: 182px;
       }
       .w10 {
         width: 26%;

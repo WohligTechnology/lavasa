@@ -40,7 +40,7 @@
                     <div class="readSchoolName">
                       <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12">
                         <label for="inputEmail3" class="col-md-4 col-sm-4 col-xs-12 control-label para3">School Name:</label>
-                        <div class="col-md-7 col-sm-7 col-xs-12">
+                        <div class="col-md-7 col-sm-8 col-xs-12">
                           <input type="text" class="form-control" ng-model="formData.schoolName" id="inputEmail3" readonly>
                         </div>
                       </div>
@@ -81,7 +81,8 @@
                                 </td>
                                 <td>
                                   <div>
-                                    <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.metresSwim" ng-options="age._id for age in athelete.ageGroups" ng-change="selectService.isValidSelection(athelete)">
+                                    <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.metresSwim" ng-options="age._id for age in athelete.ageGroups"
+                                      ng-change="selectService.isValidSelection(athelete)">
                                   </select>
                                   </div>
                                 </td>
@@ -91,7 +92,9 @@
                                       <ui-select-match placeholder="Enter Filter">
                                         {{$item.eventName}}
                                       </ui-select-match>
-                                      <ui-select-choices ng-init="selectService.isValidSelection(athelete)" refresh="selectService.isValidSelection(athelete)" repeat="metre.sport as metre in athelete.metresSwim.data | filter:{eventName:$select.search}" ui-disable-choice="{{validate}}">
+                                      <ui-select-choices ng-init="selectService.isValidSelection(athelete)" refresh="selectService.isValidSelection(athelete)"
+                                        repeat="metre.sport as metre in athelete.metresSwim.data | filter:{eventName:$select.search}"
+                                        ui-disable-choice="{{validate}}">
                                         <span ng-bind-html="metre.eventName"></span>
                                       </ui-select-choices>
                                     </ui-select>
@@ -154,13 +157,14 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-group "> 
+                  <div class="form-group ">
                     <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12 ">
                       <div class="col-md-6 col-sm-6 col-xs-12 ">
                         <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="submit ">Edit</button>
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12 ">
-                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="button" promise-btn="yourPromise" ng-click="selectService.confirmSelection()">Confirm</button>
+                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="button" promise-btn="yourPromise"
+                          ng-click="selectService.confirmSelection()">Confirm</button>
                       </div>
                     </div>
                   </div>

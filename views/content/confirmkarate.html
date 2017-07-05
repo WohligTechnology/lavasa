@@ -40,7 +40,7 @@
                     <div class="readSchoolName">
                       <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12">
                         <label for="inputEmail3" class="col-md-4 col-sm-4 col-xs-12 control-label para3">School Name:</label>
-                        <div class="col-md-7 col-sm-7 col-xs-12">
+                        <div class="col-md-7 col-sm-8 col-xs-12">
                           <input type="text" class="form-control" ng-model="formData.schoolName" id="inputEmail3" readonly>
                         </div>
                       </div>
@@ -79,24 +79,27 @@
                                   <!--event 1 selection starts-->
                                   <!--athelete.sport[athelete.sport.length]-->
                                   <!--ng-init="athelete.sport[0]=athelete.eventKata[1].sport"-->
-                                  <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.sport[0]" ng-options="event1.data[0].sport as event1._id | formatEvent:'Kata'  for event1 in athelete.eventKata track by event1._id" ng-change="selectService.isValidSelection(athelete)">
+                                  <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.sport[0]" ng-options="event1.data[0].sport as event1._id | formatEvent:'Kata'  for event1 in athelete.eventKata track by event1._id"
+                                    ng-change="selectService.isValidSelection(athelete)">
                                   </select>
                                   <!--event 1 selection ends-->
-                                  
-                                </td> 
+
+                                </td>
                                 <td>
                                   <!--event 2 selection starts-->
                                   <!--ng-init="athelete.event2Weights=athelete.eventKumite[0]"-->
-                                  <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.event2Weights" ng-options="event2.data as event2._id | formatEvent:'Kumite' for event2 in athelete.eventKumite track by event2._id"  ng-change="selectService.isValidSelection(athelete)">
+                                  <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.event2Weights" ng-options="event2.data as event2._id | formatEvent:'Kumite' for event2 in athelete.eventKumite track by event2._id"
+                                    ng-change="selectService.isValidSelection(athelete)">
                                   </select>
                                   <!--event 2 selection ends-->
                                 </td>
                                 <td>
-                                  <!--weight selection starts-->                                  
-                                  <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.sport[1]" ng-options="weights.sport as weights.weight for weights in athelete.event2Weights"  ng-change="selectService.isValidSelection(athelete)">
+                                  <!--weight selection starts-->
+                                  <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.sport[1]" ng-options="weights.sport as weights.weight for weights in athelete.event2Weights"
+                                    ng-change="selectService.isValidSelection(athelete)">
                                   </select>
                                   <!--weight selection ends-->
-                                  
+
                                 </td>
                               </tr>
                             </tbody>
@@ -160,7 +163,8 @@
                         <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="button" ng-click="selectService.editTeam('individual-selection');">Edit</button>
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12 ">
-                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="button" promise-btn="yourPromise" ng-click="selectService.confirmSelection()">Confirm</button>
+                        <button class="btn btn-default sub-mit form-control " ng-disabled="isDisabled==true " type="button" promise-btn="yourPromise"
+                          ng-click="selectService.confirmSelection()">Confirm</button>
                       </div>
                     </div>
                   </div>

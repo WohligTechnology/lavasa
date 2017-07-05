@@ -108,10 +108,16 @@
                                             <div ng-if="isLoading" class="mt15 text-center">
                                                 <h4>Loading...</h4>
                                             </div>
+                                            <div ng-if="listOfAthelete.length <= 0 && isLoading === false" class="mt15 text-center">
+                                                <h4>No Athlete Found</h4>
+                                            </div>
                                             <div class="mt15">
                                                 <!--<div class="col-md-4 col-sm-4 col-xs-12 mb15" ng-repeat="checked in selectAthlete track by $index">-->
                                                 <div class="col-md-4 col-sm-4 col-xs-12 mb15" ng-repeat="checked in listOfAthelete">
                                                     <div class="school-sec">
+                                                        <div class="selectedPlayer" ng-if="checked.isIndividualSelected === true">
+                                                            <h4 class="">Player has been already selected</h4>
+                                                        </div>
                                                         <div class="stu-img">
                                                             <img ng-src="{{checked.atheleteSchoolIdImage | serverimage2:70:70:'cover' }}" class="img-responsive" alt="">
                                                         </div>
