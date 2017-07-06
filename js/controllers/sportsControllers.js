@@ -240,6 +240,15 @@ firstApp.controller('SportIndividualCtrl', function ($scope, TemplateService, to
         });
     };
     $scope.getDetailRegisteredSport();
+
+    // function for printing..
+    $scope.printFunction = function (printSectionId) {
+        var innerContents = document.getElementById(printSectionId).innerHTML;
+        var popupWinindow = window.open('', '_blank', 'width=600,height=700,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
+        popupWinindow.document.open();
+        popupWinindow.document.write('<html><head><link rel="stylesheet" type="text/css" href="../../sass/main.scss" /></head><body onload="window.print()">' + innerContents + '</html>');
+        popupWinindow.document.close();
+    }
 });
 
 firstApp.controller('SportTeamCtrl', function ($scope, TemplateService, toastr, NavigationService, $timeout, $state, $stateParams, loginService, errorService) {
@@ -290,10 +299,23 @@ firstApp.controller('SportTeamCtrl', function ($scope, TemplateService, toastr, 
                         $scope.getTeamDetails = [];
                     } else {
                         $scope.getTeamDetails = allData.data;
+                        $scope.sportTitle = $scope.getTeamDetails[0].info[0].sportName;
+
                     }
                 }
             });
         });
     };
     $scope.getDetailRegisteredSport();
+
+    // function for printing..
+    $scope.printFunction = function (printSectionId) {
+        var innerContents = document.getElementById(printSectionId).innerHTML;
+        var popupWinindow = window.open('', '_blank', 'width=600,height=700,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
+        popupWinindow.document.open();
+        popupWinindow.document.write('<html><head><link rel="stylesheet" type="text/css" href="../../sass/main.scss" /></head><body onload="window.print()">' + innerContents + '</html>');
+        popupWinindow.document.close();
+    }
+
+
 });

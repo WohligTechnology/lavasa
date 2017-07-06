@@ -31,18 +31,20 @@
       </div>
       <div class="col-md-6 col-sm-6 col-xs-6">
         <div class="para2 text-center sportdetail-header mb25">
-          <h3>Football</h3>
+          <h3>{{sportTitle}}</h3>
         </div>
       </div>
       <div class="col-md-3 col-sm-3 col-xs-6">
         <div class="para2 text-right sportsdetail-download">
-          <button class="btn btn-default " type="button">Download Full List</button>
+          <button class="btn btn-default " type="button" ng-click="printFunction('printSectionId')">Print</button>
+
+
         </div>
       </div>
       <!-- SPORT DETAIL HEADER END -->
 
       <!-- DETAILS TABLE -->
-      <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="col-md-12 col-sm-12 col-xs-12" id="printSectionId">
         <div class="sportdetail-table" ng-repeat="sport in getTeamDetails track by $index">
           <div class="step3">{{sport._id}}</div>
           <div class="box-padd">
@@ -53,17 +55,27 @@
                     <div class="mid_col sportdetail-th">Sr. No.</div>
                   </th>
                   <th>
-                    <div class="sportdetail-th">Name</div>
+                    <div class="sportdetail-th">Sport Name</div>
                   </th>
                   <th>
                     <div class="sportdetail-th">SFA ID-Name</div>
                   </th>
                   <th>
+                    <div class="sportdetail-th">Captain</div>
+                  </th>
+                  <th ng-if="sportTitle === 'Handball' || sportTitle === 'handball' || sportTitle === 'Football' || sportTitle === 'football'
+                                || sportTitle==='Hockey' ||sportTitle==='hockey' || sportTitle === 'Waterpolo' || sportTitle ==='waterpolo'">
+                    <div class="sportdetail-th">GoalKeeper</div>
+                  </th>
+                  <th>
+                    <div class="sportdetail-th">Created By</div>
+                  </th>
+                  <!--<th>
                     <div class="sportdetail-th">Gender</div>
                   </th>
                   <th>
                     <div class="sportdetail-th">Age Category</div>
-                  </th>
+                  </th>-->
                 </thead>
                 <tbody>
                   <tr ng-repeat="athlete in sport.info track by $index">
@@ -71,18 +83,27 @@
                       <div class="mid_cols sportdetail-td">{{$index+1}}</div>
                     </td>
                     <td>
-                      <div class="sportdetail-td">{{athlete.sportName}}</div>
+                      <div class="sportdetail-td">{{athlete.name}}</div>
                     </td>
                     <td>
                       <div class="sportdetail-td" ng-if="athlete.middlename">{{athlete.sfaid}} - {{athlete.firstname}}&nbsp;{{athlete.middlename}}&nbsp;{{athlete.lastname}}</div>
                       <div class="sportdetail-td" ng-if="!athlete.middlename">{{athlete.sfaid}} - {{athlete.firstname}}&nbsp;{{athlete.lastname}}</div>
                     </td>
                     <td>
-                      <div class="sportdetail-td">{{athlete.gender | firstcapitalize}}</div>
+                      <div class="sportdetail-td" ng-if="athlete.isCaptain">Yes</div>
+                      <div class="sportdetail-td" ng-if="!athlete.isCaptain">-</div>
+                    </td>
+
+                    <td ng-if="sportTitle === 'Handball' || sportTitle === 'handball' || sportTitle === 'Football' || sportTitle === 'football'
+                                || sportTitle==='Hockey' ||sportTitle==='hockey' || sportTitle === 'Waterpolo' || sportTitle ==='waterpolo'">
+                      <div class="sportdetail-td" ng-if="athlete.isGoalKeeper">Yes</div>
+                      <div class="sportdetail-td" ng-if="!athlete.isGoalKeeper">-</div>
                     </td>
                     <td>
-                      <div class="sportdetail-td">{{athlete.agegroup}}</div>
+                      <div class="sportdetail-td">{{athlete.createdBy}}</div>
+
                     </td>
+
                   </tr>
                 </tbody>
               </table>

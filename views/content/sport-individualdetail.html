@@ -31,20 +31,20 @@
       </div>
       <div class="col-md-6 col-sm-6 col-xs-6">
         <div class="para2 text-center sportdetail-header mb25">
-          <h3>Athlethics</h3>
+          <h3>{{getIndividualDetails[0].info[0].sportName}}</h3>
         </div>
       </div>
       <div class="col-md-3 col-sm-3 col-xs-6">
         <div class="para2 text-right sportsdetail-download">
-          <button class="btn btn-default " type="button">Download</button>
+          <button class="btn btn-default " type="button" ng-click="printFunction('printSectionId')">Print</button>
         </div>
       </div>
       <!-- SPORT DETAIL HEADER END -->
 
       <!-- DETAILS TABLE -->
-      <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="col-md-12 col-sm-12 col-xs-12" id="printSectionId">
         <div class="sportdetail-table" ng-repeat="sport in getIndividualDetails track by $index">
-          <div class="step3">{{sport.name}}</div>
+          <div class="step3">{{sport._id}}</div>
           <div class="box-padd">
             <div class="selectedTeamTable sport-individualtable table-responsive scrollbar style-1">
               <table class="table table-bordered">
@@ -81,7 +81,7 @@
                       <div class="sportdetail-td">{{athlete.gender | firstcapitalize}}</div>
                     </td>
                     <td>
-                      <div class="sportdetail-td">{{athlete.agegroup}}</div>
+                      <div class="sportdetail-td">{{athlete.age}}</div>
                     </td>
                   </tr>
                 </tbody>
