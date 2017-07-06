@@ -462,6 +462,11 @@
     }
 
     @media (max-width:$screen-xs-max) {
+      .wt-resonsive-table {
+        overflow-x: auto;
+        min-height: auto; // min-height: 0.01%;
+        // width: 100%;
+      }
       .selectAthletes .separateTwoBox .school-sec .stu-check .checkbox-custom input[type="checkbox"]+label {
         width: 388px;
       }

@@ -313,9 +313,9 @@ firstApp.controller('SportTeamCtrl', function ($scope, TemplateService, toastr, 
         var innerContents = document.getElementById(printSectionId).innerHTML;
         var popupWinindow = window.open('', '_blank', 'width=600,height=700,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
         popupWinindow.document.open();
-        popupWinindow.document.write('<html><head><link rel="stylesheet" type="text/css" href="../../sass/main.scss" /></head><body onload="window.print()">' + innerContents + '</html>');
+        popupWinindow.document.write('<html><head><link rel="stylesheet" type="text/css" href="../../css/main.css" /></head><body onload="window.print()">' + innerContents + '</html>');
         popupWinindow.document.close();
-    }
+    };
 
 
 });

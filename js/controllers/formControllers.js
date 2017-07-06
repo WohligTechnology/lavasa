@@ -1,4 +1,4 @@
-firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $element, NavigationService, $timeout, $uibModal, GoogleAdWordsService) {
+firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $element, NavigationService, $timeout, $uibModal, GoogleAdWordsService, $location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("formathlete");
     $scope.menutitle = NavigationService.makeactive("Formathlete");
@@ -213,12 +213,23 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
         formdata.sfaId = $scope.sfaId;
         formdata.age = $scope.age;
         formdata.school = $scope.schoolname;
+        if (_.isEmpty($location.search())) {
+            $scope.extras = {};
+        } else {
+            $scope.extras = $location.search();
+            console.log($scope.extras);
+            formdata.utm_medium = $scope.extras.utm_medium;
+            formdata.utm_source = $scope.extras.utm_source;
+            console.log(formdata);
+        }
 
         $scope.url = "Athelete/saveAthelete";
         console.log($scope.url);
+        console.log(formdata);
         if (formAthlete.$valid && $scope.showTerm === false) {
             if ($scope.showEmailOtpSuccess === false && $scope.showMobileOtpSuccess === false) {
                 $scope.isDisabled = true;
+                console.log('google', formdata);
                 NavigationService.apiCallWithData($scope.url, formdata, function (data) {
                     if (data.value === true) {
                         console.log("registrationFee", data.data[0].registrationFee);
@@ -671,7 +682,7 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
 });
 
 //form-regis
-firstApp.controller('FormregisCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, GoogleAdWordsService) {
+firstApp.controller('FormregisCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, GoogleAdWordsService, $location) {
     //Used to name the .html file
     $scope.changeitSchoolLogo = function (err, data) {
         console.log(err, data);
@@ -891,6 +902,14 @@ firstApp.controller('FormregisCtrl', function ($scope, TemplateService, Navigati
             $scope.showTerm = true;
         } else {
             $scope.showTerm = false;
+        }
+        if (_.isEmpty($location.search())) {
+            $scope.extras = {};
+        } else {
+            $scope.extras = $location.search();
+            console.log($scope.extras);
+            formdata.utm_medium = $scope.extras.utm_medium;
+            formdata.utm_source = $scope.extras.utm_source;
         }
 
         $scope.url = "registration/saveRegistrationForm";

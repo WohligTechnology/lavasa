@@ -231,7 +231,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
         }
     };
 
-    this.confirmSelection = function () {
+    this.confirmSelection = function (data) {
         console.log(this.team);
         var formData = _.cloneDeep(this.team);
         switch (this.sportType) {
@@ -285,22 +285,40 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
                 n.athleteId = n._id
                 formData[i] = _.pick(n, ['sport', 'sportsListSubCategory', 'athleteId']);
             });
-            this.saveData(formData);
+            this.saveData(formData, data);
         } else {
             console.log("Some Fields are Missing");
         }
     };
 
-    this.saveData = function (formData) {
+    this.saveData = function (formData, data) {
         var accessToken = $.jStorage.get('userDetails').accessToken;
         var obj = {};
+        _.each(formData, function (n) {
+            if (data.nominatedContactDetails) {
+                n.nominatedContactDetails = data.nominatedContactDetails;
+            }
+            if (data.nominatedEmailId) {
+                n.nominatedEmailId = data.nominatedEmailId;
+            }
+            if (data.nominatedSchoolName) {
+                n.nominatedSchoolName = data.nominatedSchoolName;
+            }
+            if (data.nominatedName) {
+                n.nominatedName = data.nominatedSchoolName;
+            }
+            if (data.isVideoAnalysis) {
+                n.isVideoAnalysis = data.isVideoAnalysis;
+            }
+        });
         obj.individual = formData;
+
         if ($.jStorage.get('userType') == 'school') {
             obj.schoolToken = accessToken;
         } else {
             obj.athleteToken = accessToken;
         }
-        console.log(formData);
+
         $http({
             'method': 'POST',
             'url': adminUrl2 + 'individualSport/saveInIndividual',
