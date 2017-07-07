@@ -2536,11 +2536,13 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
                 var drawF = "";
                 if ($scope.schoolStats[0].drawFormat == 'Knockout') {
                     drawF = "knockout";
+                } else if ($scope.schoolStats[0].drawFormat == "Swiss League") {
+                    drawF = "swissleague"
                 } else {
                     drawF = "leagueknockout"
                 }
                 if ($scope.schoolStats) {
-                    if ($scope.schoolStats[0].drawFormat == 'Knockout' || $scope.schoolStats[0].drawFormat == 'League cum Knockout') {
+                    if ($scope.schoolStats[0].drawFormat == 'Knockout' || $scope.schoolStats[0].drawFormat == 'League cum Knockout' || $scope.schoolStats[0].drawFormat == 'Swiss League') {
                         _.each($scope.schoolStats, function (key) {
                             key.opponent = {};
                             key.self = {};
@@ -2948,33 +2950,42 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
             if (response.value) {
                 $scope.studentStats = response.data;
                 console.log($scope.studentStats);
+                var drawf = "";
+                if ($scope.studentStats[0].drawFormat == 'Knockout') {
+                    drawF = "knockout";
+                } else if ($scope.studentStats[0].drawFormat == "Swiss League") {
+                    drawf = "swissleague"
+                } else {
+                    drawf = "leagueknockout"
+                }
                 if ($scope.studentStats) {
-                    if ($scope.studentStats[0].drawFormat == 'Knockout') {
+                    if ($scope.studentStats[0].drawFormat == 'Knockout' || $scope.studentStats[0].drawFormat == 'Swiss League') {
                         _.each($scope.studentStats, function (key) {
                             key.opponent = {};
+                            //jagruti
                             key.self = {};
-                            console.log("layout", key);
-                            if (key.knockout.participantType == 'player') {
+                            console.log("layout", key[drawf]);
+                            if (key[drawf].participantType == 'player') {
                                 console.log("");
-                                if (key.knockout[key.knockout.participantType + '1']._id == $stateParams.id) {
+                                if (key[drawf][key[drawf].participantType + '1']._id == $stateParams.id) {
                                     console.log("here");
-                                    key.opponent.detail = key.knockout[key.knockout.participantType + '2'];
-                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '2'];
-                                    key.self.result = key.knockout["result" + key.knockout.participantType + '1'];
+                                    key.opponent.detail = key[drawf][key[drawf].participantType + '2'];
+                                    key.opponent.result = drawf == "knockout" ? key[drawf]["result" + key[drawf].participantType + '2'] : key[drawf]["result2"];
+                                    key.self.result = drawf == "knockout" ? key[drawf]["result" + key[drawf].participantType + '1'] : key[drawf]["result1"];
                                 } else {
-                                    key.opponent.detail = key.knockout[key.knockout.participantType + '1'];
-                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '1'];
-                                    key.self.result = key.knockout["result" + key.knockout.participantType + '2'];
+                                    key.opponent.detail = key[drawf][key[drawf].participantType + '1'];
+                                    key.opponent.result = drawf == "knockout" ? key[drawf]["result" + key[drawf].participantType + '1'] : key[drawf]["result1"];
+                                    key.self.result = drawf == "knockout" ? key[drawf]["result" + key[drawf].participantType + '2'] : key[drawf]["result2"];
                                 }
                             } else {
-                                if (key.knockout[key.knockout.participantType + '1']._id == key.team._id) {
-                                    key.opponent.detail = key.knockout[key.knockout.participantType + '2'];
-                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '2'];
-                                    key.self.result = key.knockout["result" + key.knockout.participantType + '1'];
+                                if (key[drawf][key[drdrawfawf].participantType + '1']._id == key.team._id) {
+                                    key.opponent.detail = key[drawf][key[drawf].participantType + '2'];
+                                    key.opponent.result = drawf == "knockout" ? key[drawf]["result" + key[drawf].participantType + '2'] : key[drawf]["result2"];
+                                    key.self.result = drawf == "knockout" ? key[drawf]["result" + key[drawf].participantType + '1'] : key[drawf]["result1"];
                                 } else {
-                                    key.opponent.detail = key.knockout[key.knockout.participantType + '1'];
-                                    key.opponent.result = key.knockout["result" + key.knockout.participantType + '1'];
-                                    key.self.result = key.knockout["result" + key.knockout.participantType + '2'];
+                                    key.opponent.detail = key[drawf][key[drawf].participantType + '1'];
+                                    key.opponent.result = drawf == "knockout" ? key[drawf]["result" + key[drawf].participantType + '1'] : key[drawf]["result1"];
+                                    key.self.result = drawf == "knockout" ? key[drawf]["result" + key[drawf].participantType + '2'] : key[drawf]["result2"];
                                 }
                             }
                         });
