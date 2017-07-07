@@ -2584,6 +2584,45 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
                                 }
                             });
                         });
+                    } else if ($scope.schoolStats[0].drawFormat == 'Qualifying Knockout') {
+                        _.each($scope.schoolStats, function (key) {
+                            key.opponent = {};
+                            key.self = {};
+                            if (key.qualifyingknockout.heats.length == 0) {
+                                if (key.qualifyingknockout.participantType == 'player') {
+                                    console.log("");
+                                    if (key.qualifyingknockout[key.qualifyingknockout.participantType + '1']._id == $stateParams.id) {
+                                        console.log("here");
+                                        key.opponent.detail = key.qualifyingknockout[key.qualifyingknockout.participantType + '2'];
+                                        key.opponent.result = key.qualifyingknockout["result2"];
+                                        key.self.result = key.qualifyingknockout["result1"];
+                                    } else {
+                                        key.opponent.detail = key.qualifyingknockout[key.qualifyingknockout.participantType + '1'];
+                                        key.opponent.result = key.qualifyingknockout["result1"];
+                                        key.self.result = key.qualifyingknockout["result2"];
+                                    }
+                                } else {
+                                    if (key.qualifyingknockout[key.qualifyingknockout.participantType + '1']._id == key.team._id) {
+                                        key.opponent.detail = key.qualifyingknockout[key.qualifyingknockout.participantType + '2'];
+                                        key.opponent.result = key.qualifyingknockout["result2"];
+                                        key.self.result = key.qualifyingknockout["result1"];
+                                    } else {
+                                        key.opponent.detail = key.qualifyingknockout[key.qualifyingknockout.participantType + '1'];
+                                        key.opponent.result = key.qualifyingknockout["result1"];
+                                        key.self.result = key.qualifyingknockout["result2"];
+                                    }
+                                }
+                            } else {
+
+                                _.each(key.qualifyingknockout.heats, function (single) {
+                                    var schoolid = single.player ? single.player.school._id : single.team.school._id;
+                                    if (schoolid == $stateParams.id) {
+                                        key.self = single;
+                                    }
+                                });
+
+                            }
+                        });
                     }
                     console.log($scope.schoolStats);
                 }
@@ -2955,8 +2994,8 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
                     drawF = "knockout";
                 } else if ($scope.studentStats[0].drawFormat == "Swiss League") {
                     drawf = "swissleague"
-                } else {
-                    drawf = "leagueknockout"
+                } else if ($scope.studentStats[0].drawFormat == "Qualifying Knockout") {
+                    drawf = "qualifyingknockout"
                 }
                 if ($scope.studentStats) {
                     if ($scope.studentStats[0].drawFormat == 'Knockout' || $scope.studentStats[0].drawFormat == 'Swiss League') {
@@ -3059,6 +3098,48 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
                                     key.opponent.result = key.leagueknockout["result1"];
                                     key.self.result = key.leagueknockout["result2"];
                                 }
+                            }
+                        });
+                    } else if ($scope.studentStats[0].drawFormat == 'Qualifying Knockout') {
+                        _.each($scope.studentStats, function (key) {
+                            key.opponent = {};
+                            key.self = {};
+                            if (key[drawf].heats.length == 0) {
+                                if (key.qualifyingknockout.participantType == 'player') {
+                                    console.log("");
+                                    if (key.qualifyingknockout[key.qualifyingknockout.participantType + '1']._id == $stateParams.id) {
+                                        console.log("here");
+                                        key.opponent.detail = key.qualifyingknockout[key.qualifyingknockout.participantType + '2'];
+                                        key.opponent.result = key.qualifyingknockout["result2"];
+                                        key.self.result = key.qualifyingknockout["result1"];
+                                    } else {
+                                        key.opponent.detail = key.qualifyingknockout[key.qualifyingknockout.participantType + '1'];
+                                        key.opponent.result = key.qualifyingknockout["result1"];
+                                        key.self.result = key.qualifyingknockout["result2"];
+                                    }
+                                } else {
+                                    if (key.qualifyingknockout[key.qualifyingknockout.participantType + '1']._id == key.team._id) {
+                                        key.opponent.detail = key.qualifyingknockout[key.qualifyingknockout.participantType + '2'];
+                                        key.opponent.result = key.qualifyingknockout["result2"];
+                                        key.self.result = key.qualifyingknockout["result1"];
+                                    } else {
+                                        key.opponent.detail = key.qualifyingknockout[key.qualifyingknockout.participantType + '1'];
+                                        key.opponent.result = key.qualifyingknockout["result1"];
+                                        key.self.result = key.qualifyingknockout["result2"];
+                                    }
+                                }
+                            } else {
+                                _.each(key[drawf].heats, function (single) {
+                                    if (key[drawf].participantType == "team") {
+                                        if (key.team._id == single.team._id) {
+                                            key.self = single;
+                                        }
+                                    } else {
+                                        if (single.player._id == $stateParams.id) {
+                                            key.self = single;
+                                        }
+                                    }
+                                });
                             }
                         });
                     }
@@ -3423,11 +3504,13 @@ firstApp.controller('TeamDetailCtrl', function ($scope, TemplateService, Navigat
                 var drawF = "";
                 if ($scope.teamStats[0].drawFormat == 'Knockout') {
                     drawF = "knockout";
-                } else {
+                } else if ($scope.teamStats[0].drawFormat == 'League cum Knockout') {
                     drawF = "leagueknockout"
+                } else if ($scope.teamStats[0].drawFormat == 'Qualifying Knockout') {
+                    drawF = "qualifyingknockout"
                 }
                 if ($scope.teamStats) {
-                    if ($scope.teamStats[0].drawFormat == 'Knockout' || $scope.teamStats[0].drawFormat == 'League cum Knockout') {
+                    if ($scope.teamStats[0].drawFormat == 'Knockout' || $scope.teamStats[0].drawFormat == 'League cum Knockout' || $scope.teamStats[0].drawFormat == 'Qualifying Knockout') {
                         _.each($scope.teamStats, function (key) {
                             key.opponent = {};
                             key.self = {};
