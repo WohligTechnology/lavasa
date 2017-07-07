@@ -3504,11 +3504,13 @@ firstApp.controller('TeamDetailCtrl', function ($scope, TemplateService, Navigat
                 var drawF = "";
                 if ($scope.teamStats[0].drawFormat == 'Knockout') {
                     drawF = "knockout";
-                } else {
+                } else if ($scope.teamStats[0].drawFormat == 'League cum Knockout') {
                     drawF = "leagueknockout"
+                } else if ($scope.teamStats[0].drawFormat == 'Qualifying Knockout') {
+                    drawF = "qualifyingknockout"
                 }
                 if ($scope.teamStats) {
-                    if ($scope.teamStats[0].drawFormat == 'Knockout' || $scope.teamStats[0].drawFormat == 'League cum Knockout') {
+                    if ($scope.teamStats[0].drawFormat == 'Knockout' || $scope.teamStats[0].drawFormat == 'League cum Knockout' || $scope.teamStats[0].drawFormat == 'Qualifying Knockout') {
                         _.each($scope.teamStats, function (key) {
                             key.opponent = {};
                             key.self = {};
