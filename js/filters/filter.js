@@ -237,6 +237,18 @@ firstApp.filter('firstcapitalize', function () {
         }) : '';
     };
 });
+firstApp.filter('shorten', function () {
+    return function (value, limit) {
+        if (value)
+            if (value.length < limit) {
+                return value;
+            } else {
+                return value.slice(0, limit) + "...";
+
+            }
+
+    };
+});
 
 firstApp.filter('formatEvent', function () {
     return function (age, event) {

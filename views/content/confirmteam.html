@@ -58,9 +58,9 @@
                               <div class="mid_col">Sr. No.</div>
                             </th>
                             <th>SFA ID-Name</th>
-                            <th>Captain</th>
+                            <th ng-if="sportTitle === 'Basketball' || sportTitle === 'basketball' || sportTitle === 'Football' || sportTitle === 'football' || sportTitle === 'Handball' || sportTitle === 'Hockey' || sportTitle === 'hockey' || sportTitle === 'Kabaddi' || sportTitle === 'kabaddi' || sportTitle === 'Kho Kho' || sportTitle === 'kho kho' || sportTitle === 'Throwball' || sportTitle === 'throwball' || sportTitle === 'Volleyball' || sportTitle === 'volleyball' || sportTitle === 'Water Polo' || sportTitle === 'water polo'">Captain</th>
                             <th ng-if="sportTitle === 'Handball' || sportTitle === 'handball' || sportTitle === 'Football' || sportTitle === 'football'
-                                || sportTitle==='Hockey' ||sportTitle==='hockey' || sportTitle === 'Waterpolo' || sportTitle ==='waterpolo'">Goalkeeper</th>
+                                || sportTitle==='Hockey' ||sportTitle==='hockey' || sportTitle === 'Water Polo' || sportTitle ==='water polo'">Goalkeeper</th>
                           </thead>
                           <tbody>
                             <tr ng-repeat="member in teamMembers track by $index">
@@ -71,11 +71,15 @@
                               </td>
                               <td ng-if="member.middleName">{{member.sfaId}} - {{member.firstName}}&nbsp;{{member.middleName}}&nbsp;{{member.surname}}</td>
                               <td ng-if="!member.middleName">{{member.sfaId}} - {{member.firstName}}&nbsp;{{member.surname}}</td>
-                              <td ng-class="{'rightBorder':member.isGoalKeeper == false}">
+                              <td ng-class="{'rightBorder':member.isGoalKeeper == false}" ng-if="sportTitle === 'Basketball' || sportTitle === 'basketball' 
+                              || sportTitle === 'Football' || sportTitle === 'football' || sportTitle === 'Handball' || sportTitle === 'Hockey' || sportTitle === 'hockey' 
+                              || sportTitle === 'Kabaddi' || sportTitle === 'kabaddi' || sportTitle === 'Kho Kho' || sportTitle === 'kho kho' || sportTitle === 'Throwball' 
+                              || sportTitle === 'throwball' || sportTitle === 'Volleyball' || sportTitle === 'volleyball' || sportTitle === 'Water Polo'
+                               || sportTitle === 'water polo'">
                                 <input name="capt" type="radio" value="member.isCaptain" ng-model="captain" ng-click="isCaptainFun($index);">
                               </td>
                               <td ng-if="sportTitle === 'Handball' || sportTitle === 'handball' || sportTitle === 'Football' || sportTitle === 'football'
-                                || sportTitle==='Hockey' ||sportTitle==='hockey' || sportTitle === 'Waterpolo' || sportTitle ==='waterpolo'">
+                                || sportTitle==='Hockey' ||sportTitle==='hockey' || sportTitle === 'Water Polo' || sportTitle ==='water polo'">
                                 <input name="goal" type="radio" value="member.isGoalKeeper" ng-model="goalKeeper" ng-click="isGoalKeeperFun($index);">
                               </td>
                             </tr>

@@ -55,13 +55,15 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
         console.log(selectService.redirectTo);
     };
     // ==========getAllSportsListSubCategory==============
-    $scope.allSportsListSubCatArr = [];
+
     var tempObj = {};
     tempObj.tempArr = [];
     NavigationService.getAllSportsListSubCategory(function (data) {
+        $scope.allSportsListSubCatArr = undefined;
         errorService.errorCode(data, function (allData) {
             if (!allData.message) {
                 if (allData.value) {
+                    $scope.allSportsListSubCatArr = [];
                     $scope.allSportsListSubCat = allData.data;
                     _.each($scope.allSportsListSubCat, function (key, value) {
                         tempObj.sportName = value;
@@ -311,8 +313,8 @@ firstApp.controller('SportTeamCtrl', function ($scope, TemplateService, toastr, 
     // function for printing..
     $scope.printFunction = function (printSectionId) {
         var innerContents = document.getElementById(printSectionId).innerHTML;
-        var popupWinindow = window.open('', '_blank', 'width=600,height=700,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
-        popupWinindow.document.open();
+        var popupWinindow = window.open('width=600,height=700,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
+        // popupWinindow.document.open();
         popupWinindow.document.write('<html><head><link rel="stylesheet" type="text/css" href="../../css/main.css" /></head><body onload="window.print()">' + innerContents + '</html>');
         popupWinindow.document.close();
     };

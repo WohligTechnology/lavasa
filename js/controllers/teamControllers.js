@@ -8,6 +8,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     $scope.selectService = selectService;
 
 
+
     $scope.selectService.sportsId = $stateParams.id;
 
     $scope.ageGroup = [];
@@ -114,6 +115,8 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                                 $scope.showMsg = true;
                                 $scope.isLoading = false;
                                 _.each(allData.data.data, function (value) {
+                                    console.log("value", value);
+                                    value.fullNameWithsfaId = value.sfaId + " - " + value.firstName + "   " + value.surname;
                                     $scope.selectAthlete.push(value);
                                     $scope.busy = false;
                                 });
@@ -125,7 +128,6 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                                     if (indexOfAthlete >= 0) {
                                         $scope.listOfAthelete[indexOfAthlete].checked = true;
                                         $scope.listOfAthelete[indexOfAthlete].setDisabled = true;
-
                                         if (selectService.team.length === 0) {
                                             if ($scope.listOfAthelete[indexOfAthlete].isTeamSelected === true) {
                                                 toastr.error("This Athlete is alreday in other game");
@@ -150,6 +152,8 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
             });
         });
     };
+
+
 
 
     // $scope.athletePerSchool = function (getAthletePerSchoolObj) {
@@ -341,6 +345,8 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
 
 
     $scope.maxPlayerAllow = function () {
+
+
         if (selectService.team.length > $scope.maxPlayer) {
             toastr.error('Kindly select a minimum of' + ' ' + ' ' + $scope.minPlayer + ' ' + 'players and a maximum of' + ' ' + $scope.maxPlayer + ' ' +
                 'players');
@@ -454,10 +460,25 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
             var isGoalKeeperObj = _.find($scope.teamMembers, function (key) {
                 return key.isGoalKeeper === true;
             });
-            if (isCapObj === undefined) {
-                toastr.error("Please select Captain", 'Error Message');
+
+            if (sportTitle === 'Basketball' || sportTitle === 'basketball' || sportTitle === 'Football' || sportTitle === 'football' || sportTitle === 'Handball' || sportTitle === 'Hockey' || sportTitle === 'hockey' || sportTitle === 'Kabaddi' || sportTitle === 'kabaddi' || sportTitle === 'Kho Kho' || sportTitle === 'kho kho' || sportTitle === 'Throwball' || sportTitle === 'throwball' || sportTitle === 'Volleyball' || sportTitle === 'volleyball' || sportTitle === 'Water Polo' || sportTitle === 'water polo') {
+                if (isCapObj === undefined) {
+                    toastr.error("Please select Captain", 'Error Message');
+                } else {
+                    if (sportTitle === 'Handball' || sportTitle === 'handball' || sportTitle === 'Football' || sportTitle === 'football' || sportTitle === 'Hockey' || sportTitle === 'hockey' || sportTitle === 'Water Polo' || sportTitle === 'water polo ') {
+                        if (isGoalKeeperObj === undefined) {
+                            toastr.error("Please select GoalKeeper", 'Error Message');
+                        } else {
+                            $scope.confirmTeamObject.athleteTeam = _.cloneDeep($scope.teamMembers);
+                            $scope.confirmTeamToGo($scope.confirmTeamObject);
+                        }
+                    } else {
+                        $scope.confirmTeamObject.athleteTeam = _.cloneDeep($scope.teamMembers);
+                        $scope.confirmTeamToGo($scope.confirmTeamObject);
+                    }
+                }
             } else {
-                if (sportTitle === 'Handball' || sportTitle === 'handball' || sportTitle === 'Football' || sportTitle === 'football' || sportTitle === 'Hockey' || sportTitle === 'hockey' || sportTitle === 'Waterpolo' || sportTitle === 'waterpolo') {
+                if (sportTitle === 'Handball' || sportTitle === 'handball' || sportTitle === 'Football' || sportTitle === 'football' || sportTitle === 'Hockey' || sportTitle === 'hockey' || sportTitle === 'Water Polo' || sportTitle === 'water polo ') {
                     if (isGoalKeeperObj === undefined) {
                         toastr.error("Please select GoalKeeper", 'Error Message');
                     } else {
@@ -469,6 +490,7 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
                     $scope.confirmTeamToGo($scope.confirmTeamObject);
                 }
             }
+
         });
 
     };

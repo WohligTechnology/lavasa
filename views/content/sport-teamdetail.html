@@ -44,6 +44,11 @@
       <!-- SPORT DETAIL HEADER END -->
 
       <!-- DETAILS TABLE -->
+
+      <div class="text-center sp-head-tab" ng-if="getTeamDetails.length === undefined">
+        <h3>Loading...</h3>
+      </div>
+
       <div class="col-md-12 col-sm-12 col-xs-12" id="printSectionId">
         <div class="sportdetail-table" ng-repeat="sport in getTeamDetails track by $index">
           <div class="step3">{{sport._id}}</div>
