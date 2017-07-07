@@ -184,6 +184,26 @@ firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, Nav
     if ($.jStorage.get("userDetails") === null) {
         $state.go('sports-registration');
     }
+    $scope.config = {};
+
+    function configureVariables() {
+        if ($scope.selectService && $scope.selectService.sportName) {
+            var st = $scope.selectService.sportName;
+            if (st == 'Fencing') {
+                // $scope.config.weightsReq = true;
+                $scope.config.event1Expression = "epee.data[0].sport as epee._id | formatEvent:'Epee' for epee in athelete.eventEpee";
+                $scope.config.event2Expression = "sabre.data[0].sport as sabre._id | formatEvent:'Sabre' for sabre in athelete.eventSabre";
+                $scope.config.event3Expression = "foil.data[0].sport as foil._id | formatEvent:'Foil' for foil in athelete.eventFoil";
+
+            } else {
+                // $scope.config.weightsReq = false;
+                $scope.config.event1Expression = "event1 as event1._id | formatEvent:event1.eventName for event1 in athelete.allEvents";
+                $scope.config.event2Expression = "event2 as event2._id | formatEvent:event2.eventName for event2 in athelete.optionalEvents";
+            }
+        }
+    }
+
+    configureVariables();
 
     $scope.logoutCandidate = function () {
         loginService.logoutCandidate(function (data) {
@@ -509,7 +529,7 @@ firstApp.controller('ConfirmRelayCtrl', function ($scope, TemplateService, Navig
 
 //Confirm-athlete-swimming
 
-firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, NavigationService, loginService, $timeout, selectService) {
+firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, NavigationService, loginService, $timeout, $state, selectService) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("confirmathleteswim");
@@ -702,7 +722,6 @@ firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, Navi
         }]
     }];
 });
-
 firstApp.controller('IndividualCongratsCtrl', function ($scope, TemplateService, toastr, NavigationService, $timeout, $state, $stateParams, loginService, errorService) {
     $scope.template = TemplateService.changecontent("individual-congrats");
     $scope.menutitle = NavigationService.makeactive("Individual Congrats");

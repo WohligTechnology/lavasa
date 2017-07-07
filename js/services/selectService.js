@@ -45,7 +45,6 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
                 //get Data for columns accordingly eg:ageGroup
                 obj = this.getAgeGroupByAthelete(obj, confirmPageKey, events);
                 this.team.push(obj);
-                console.log("sport in obj", obj.sport);
             }
         } else {
             //remove athelete
@@ -75,7 +74,6 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
                         return false;
                     }
                 });
-                console.log("event h bhai", i.data);
             });
             event = _.reject(event, function (n) {
                 return n.data.length == 0;
@@ -109,7 +107,8 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             athelete.eventKumite.unshift({
                 '_id': 'Opt Out',
                 'data': [{
-                    'sport': null
+                    'sport': null,
+                    'weight': 'First Select Kumite'
                 }]
             });
             return athelete;
@@ -162,12 +161,39 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             return athelete;
         }
 
+        function filterArchery(events) {
+            athelete.allEvents = [];
+            _.each(events, function (m, i) {
+                _.each(m.data, function (n) {
+                    n._id = m._id;
+                    athelete.allEvents.push(n);
+                });
+                delete m._id;
+            });
+
+            athelete.groupByEventName = _.groupBy(athelete.allEvents, 'eventName');
+            // _.each(events, function (n) {
+            //     _.each(n.data, function (m) {
+            //         archerEvents.push(m);
+            //     });
+            // });
+            console.log(athelete.groupByEventName);
+            athelete.optionalEvents = _.union(athelete.groupByEventName['Compound Bow'], athelete.groupByEventName['Recurve Bow'])
+            console.log(athelete.allEvents, athelete.optionalEvents);
+        }
+
         switch (confirmPageKey) {
             case "K":
                 athelete = filterEventWise(events);
                 break;
             case "FA":
-                athelete = filterFencing(events);
+                athelete.sport = [];
+                if (this.sportName == 'Fencing') {
+                    athelete = filterFencing(events);
+                } else if (this.sportName == 'Archery') {
+                    athelete.ageGroups = getAgeGroups(events);
+                    filterArchery(athelete.ageGroups);
+                }
                 break;
             case "AAS":
                 athelete.ageGroups = getAgeGroups(events);
@@ -237,22 +263,29 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
         switch (this.sportType) {
             case "K":
                 this.findOverAllFormValidation();
-                _.each(formData, function (n, index) {
-                    if (index == 0 && n.sport[0]) {
-                        //    n.sport[0]=n.sport[0].data[0].sport;
-                    } else if (index == 1 && n.sport[1]) {
-                        // n.sport[1]=n.sport[1].sport;
-                    }
+                _.each(formData, function (m) {
+                    _.each(m.sport, function (n, index) {
+                        console.log(index, index == 0 && n.data[0]);
+                        if (index == 0 && n && n.data[0]) {
+                            m.sport[0] = n.data[0].sport;
+                        } else if (index == 1 && n && n.sport) {
+                            m.sport[1] = n.sport;
+                        }
+                    });
+                    m.sport = _.compact(m.sport);
                 });
-                console.log(formData);
                 break;
             case "FA":
+                this.findOverAllFormValidation();
                 if (this.sportName == 'Fencing') {
-                    this.findOverAllFormValidation();
                     _.each(formData, function (n) {
                         n.sport = _.compact(n.sport);
                     });
-                } else if (this.sport == 'Archery') {
+                } else if (this.sportName == 'Archery') {
+                    console.log(formData);
+                    _.each(formData, function (m, i) {
+                        formData[i].sport = _.map(m.sport, 'sport');
+                    });
 
                 }
                 console.log(this.isValidForm);
@@ -277,7 +310,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             case "CT":
                 break;
         }
-
+        //check if form is valid and then send data
         if (this.isValidForm) {
             console.log("isValid");
             _.each(formData, function (n, i) {
@@ -312,13 +345,12 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             }
         });
         obj.individual = formData;
-
         if ($.jStorage.get('userType') == 'school') {
             obj.schoolToken = accessToken;
         } else {
             obj.athleteToken = accessToken;
         }
-
+        console.log(formData);
         $http({
             'method': 'POST',
             'url': adminUrl2 + 'individualSport/saveInIndividual',
@@ -338,27 +370,36 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
     };
 
     this.isValidSelection = function (athelete) {
-        console.log(this.sportsId, this.sportType);
         switch (this.sportType) {
             case "K":
-                var arr = _.compact(athelete.sport);
-                var weights = _.compact(athelete.event2Weights);
-                weights = _.reject(athelete.event2Weights, {
-                    'sport': null
-                });
-                athelete.isValidSelection = (arr.length == 0 && weights.length == 0) ? false : (weights.length == 0 && athelete.sport[0]) ? true : (weights.length != 0 && athelete.sport[1]) ? true : false;
+                var arr = athelete.sport;
+                var weights = athelete.event2Weights;
+                // weights = _.reject(athelete.event2Weights, {
+                //     'data[0].sport': null
+                // });
+                console.log(athelete);
+                console.log('arr', arr);
+                console.log('weights', weights);
+                console.log('athelete.event2Weights', athelete.event2Weights);
+                // athelete.isValidSelection = (arr.length == 0 && (!weights || weights.length == 0)) ? false : (weights && weights.length == 0 && athelete.sport[0]) ? true : (weights.length != 0 && athelete.sport[1]) ? true : false;
+                // athelete.isValidSelection = (arr.length == 0 && (!weights || (weights.length == 0))) ? false : ((arr.length >= 1 && arr[0].data[0].sport!=null) && (!weights || weights.length == 0)) ? true : ((arr.length >= 1 && arr[0].data[0].sport==null) && weights && weights.length!= 0 && weights.data[0].sport!=null && athelete.sport[1]) ? true : false;
+                athelete.isValidSelection = ((arr.length == 0 || arr[0] && arr[0].data && arr[0].data[0].sport == null) && (!weights || (weights.length == 0))) ? false : (((arr.length >= 1 && arr[0].data[0].sport != null) && (!weights || weights.length == 0 || weights.data[0].sport == null)) || ((arr.length >= 1 && arr[0].data[0].sport == null) && weights && weights.length != 0 && weights.data[0].sport != null && athelete.sport[1]) || ((arr.length >= 1 && arr[0].data[0].sport != null) && weights && weights.length != 0 && weights.data[0].sport != null && athelete.sport[1])) ? true : false;
+                // athelete.isValidSelection = ((arr.length == 0 || arr[0] && arr[0].data && arr[0].data[0].sport==null || arr[0] && arr[0].sport==null) && (!weights || (weights.length == 0))) ? false : (((arr.length >= 1 && arr[0].data[0].sport!=null) && (!weights || weights.length == 0 || weights.data[0].sport==null)) || ((arr.length >= 1 && (arr[0] && arr[0].data && arr[0].data[0].sport!=null || arr[0] && arr[0].sport!=null)) && weights && weights.length!= 0 && weights.data[0].sport!=null && athelete.sport[1]) || ((arr.length >= 1 && (arr[0] && arr[0].data && arr[0].data[0].sport!=null || arr[0] && arr[0].sport!=null)) && weights && weights.length!= 0 && weights.data[0].sport!=null && athelete.sport[1]))? true :false;   
+
+                //    by properlogic // athelete.isValidSelection=((arr && arr.length>=1 && arr[0].data[0].sport!=null) ||((arr && arr.length>=1 && arr[1] && arr[1].sport!=null)&&(weights && weights.length>=1 && weights.data[0] && weights.data[0].sport!=null)))?true:false;
                 break;
             case "FA":
                 if (this.sportName == 'Fencing') {
                     var arr = _.compact(athelete.sport);
                     athelete.isValidSelection = arr.length > 0;
-                } else if (this.sport == 'Archery') {
-
+                } else if (this.sportName == 'Archery') {
+                    // alert();
+                    athelete.disableEvent2 = (athelete && athelete.sport && athelete.sport[0] && athelete.sport[0].eventName != 'Indian Bow') ? true : false;
+                    athelete.isValidSelection = ((athelete.sport && athelete.sport[0]) || (athelete.sport && athelete.sport[1])) ? true : false
                 }
                 break;
             case "AAS":
                 var arr = _.compact(athelete.sport);
-                console.log(arr, (arr.length > 0) && (arr.length < 0));
                 athelete.isValidSelection = (arr.length >= 1);
                 break;
             case "I":

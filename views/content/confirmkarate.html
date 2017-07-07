@@ -68,7 +68,6 @@
                             <tbody>
                               <tr ng-class="{'missing-fields':selectService.showMissingFields && !athelete.isValidSelection}" ng-repeat="athelete in selectService.team track by $index">
                                 <td>
-
                                   <div class="mid_cols">
                                     <span>{{$index+1}}</span>
                                     <!--<span class="missing-fields" ng-if="selectService.showMissingFields && !athelete.isValidSelection">*</span>-->
@@ -81,7 +80,7 @@
                                   <!--event 1 selection starts-->
                                   <!--athelete.sport[athelete.sport.length]-->
                                   <!--ng-init="athelete.sport[0]=athelete.eventKata[1].sport"-->
-                                  <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.sport[0]" ng-options="event1.data[0].sport as event1._id | formatEvent:'Kata'  for event1 in athelete.eventKata track by event1._id"
+                                  <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.sport[0]" ng-options="event1 as event1._id | formatEvent:'Kata'  for event1 in athelete.eventKata track by event1._id"
                                     ng-change="selectService.isValidSelection(athelete)">
                                   </select>
                                   <!--event 1 selection ends-->
@@ -90,14 +89,14 @@
                                 <td>
                                   <!--event 2 selection starts-->
                                   <!--ng-init="athelete.event2Weights=athelete.eventKumite[0]"-->
-                                  <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.event2Weights" ng-options="event2.data as event2._id | formatEvent:'Kumite' for event2 in athelete.eventKumite track by event2._id"
+                                  <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.event2Weights" ng-options="event2 as event2._id | formatEvent:'Kumite' for event2 in athelete.eventKumite track by event2._id"
                                     ng-change="selectService.isValidSelection(athelete)">
                                   </select>
                                   <!--event 2 selection ends-->
                                 </td>
                                 <td>
                                   <!--weight selection starts-->
-                                  <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.sport[1]" ng-options="weights.sport as weights.weight for weights in athelete.event2Weights"
+                                  <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.sport[1]" ng-options="weights as weights.weight for weights in athelete.event2Weights.data"
                                     ng-change="selectService.isValidSelection(athelete)">
                                   </select>
                                   <!--weight selection ends-->

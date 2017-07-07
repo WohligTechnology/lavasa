@@ -47,7 +47,6 @@
                     </div>
                   </div>
                   <div class="form-group text-center">
-                    <!--<h4 class="teamHead">U-10 Male Basketball</h4>-->
                     <h4 class="teamHead">{{selectService.sportName}}</h4>
                   </div>
                   <div class="form-group">
@@ -86,6 +85,7 @@
                                   </div>
                                 </td>
                                 <td ng-init="validate=(selectService.sportName=='Athletics')?true:false">
+                                  <!--||{{validate}}||{{validate && athelete.sport.length>=2}}-->
                                   <div class="custom-uiselect">
                                     <ui-select name="selectfilter" multiple="" id="selectfilter" theme="bootstrap" ng-model="athelete.sport" ng-change="selectService.isValidSelection(athelete)"
                                       ng-init="selectService.isValidSelection(athelete)">
