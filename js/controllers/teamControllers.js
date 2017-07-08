@@ -383,6 +383,13 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
     $scope.formData = {};
     $scope.tempStrArr = [];
     $scope.confirmTeamObject = {};
+    $scope.isBoth = false;
+    // $scope.isCap = false;
+    // $scope.isGoal = false;
+    // if ($scope.isCap === false &&
+    //     $scope.isGoal === false) {
+    //     $scope.isBoth = true;
+    // }
     $scope.ageTitle = $.jStorage.get("ageTitle");
     $scope.gender = $.jStorage.get("gender");
     _.each($scope.teamMembers, function (n) {
@@ -409,6 +416,19 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
         });
     };
 
+    if ($scope.sportTitle === 'Basketball' || $scope.sportTitle === 'basketball' || $scope.sportTitle === 'Football' || $scope.sportTitle === 'football' || $scope.sportTitle === 'Handball' || $scope.sportTitle === 'handball' || $scope.sportTitle === 'Hockey' || $scope.sportTitle === 'hockey' || $scope.sportTitle === 'Kabaddi' || $scope.sportTitle === 'kabaddi' || $scope.sportTitle === 'Kho Kho' || $scope.sportTitle === 'kho kho' || $scope.sportTitle === 'Throwball' || $scope.sportTitle === 'throwball' || $scope.sportTitle === 'Volleyball' || $scope.sportTitle === 'volleyball' || $scope.sportTitle === 'Water Polo' || $scope.sportTitle === 'water polo') {
+        $scope.isCap = true;
+        $scope.isBoth = false;
+        $scope.isGoal = false;
+    }
+    if ($scope.sportTitle !== 'Basketball' && $scope.sportTitle !== 'basketball' && $scope.sportTitle !== 'Football' && $scope.sportTitle !== 'football' && $scope.sportTitle !== 'Handball' && $scope.sportTitle !== 'handball' && $scope.sportTitle !== 'Hockey' && $scope.sportTitle !== 'hockey' && $scope.sportTitle !== 'Kabaddi' && $scope.sportTitle !== 'kabaddi' && $scope.sportTitle !== 'Kho Kho' && $scope.sportTitle !== 'kho kho' && $scope.sportTitle !== 'Throwball' && $scope.sportTitle !== 'throwball' && $scope.sportTitle !== 'Volleyball' && $scope.sportTitle !== 'volleyball' && $scope.sportTitle !== 'Water Polo' && $scope.sportTitle !== 'water polo') {
+        console.log('enter', $scope.sportTitle);
+        $scope.isBoth = true;
+    }
+    if ($scope.sportTitle === 'Handball' || $scope.sportTitle === 'handball' || $scope.sportTitle === 'Football' || $scope.sportTitle === 'football' || $scope.sportTitle === 'Hockey' || $scope.sportTitle === 'hockey' || $scope.sportTitle === 'Water Polo' || $scope.sportTitle === 'water polo ') {
+        $scope.isGoal = true;
+        $scope.isBoth = false;
+    }
 
     var tempStr1 = $scope.detail.schoolName;
     $scope.gender = $filter('firstcapitalize')($scope.gender);
@@ -462,6 +482,7 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
             });
 
             if (sportTitle === 'Basketball' || sportTitle === 'basketball' || sportTitle === 'Football' || sportTitle === 'football' || sportTitle === 'Handball' || sportTitle === 'Hockey' || sportTitle === 'hockey' || sportTitle === 'Kabaddi' || sportTitle === 'kabaddi' || sportTitle === 'Kho Kho' || sportTitle === 'kho kho' || sportTitle === 'Throwball' || sportTitle === 'throwball' || sportTitle === 'Volleyball' || sportTitle === 'volleyball' || sportTitle === 'Water Polo' || sportTitle === 'water polo') {
+                $scope.isCap = true;
                 if (isCapObj === undefined) {
                     toastr.error("Please select Captain", 'Error Message');
                 } else {

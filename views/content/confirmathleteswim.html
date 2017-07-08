@@ -49,6 +49,20 @@
                   <div class="form-group text-center">
                     <h4 class="teamHead">{{selectService.sportName}}</h4>
                   </div>
+                  <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+                    <div class="col-md-1 col-sm-1 col-xs-12">
+                      <p class="note note-size"><strong>Note:</strong></p>
+                    </div>
+                    <div class="col-md-11 col-sm-11 col-xs-12">
+                      <p class="note" ng-if="selectService.sportName == 'Athletics' || selectService.sportName == 'athletics'">1. An athlete can select a maximum of 2 events.</p>
+                      <p class="note" ng-if="selectService.sportName == 'Shooting' || selectService.sportName == 'shooting'">1. Can participate in all events.</p>
+                      <p class="note" ng-if="selectService.sportName == 'Swimming' || selectService.sportName == 'swimming'">1. Can select any or all events from the list, and in case of relay kindly register for different type
+                        of swimming relay separately.</p>
+                      <p class="note">2. An athlete can participate in an age category as per the cut-off dates mentioned in the rules and
+                        regulations.
+                      </p>
+                    </div>
+                  </div>
                   <div class="form-group">
                     <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
                       <div class="athswm-table">
@@ -164,6 +178,19 @@
                           </div>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                  <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+                    <div class="col-md-1 col-sm-1 col-xs-12">
+                      <p class="note note-size"><strong>Note:</strong></p>
+                    </div>
+                    <div class="col-md-11 col-sm-11 col-xs-12" ng-if="detail.userType === 'school'">
+                      <p class="note">Click ‘Confirm’ to register your athlete entry/entries. If you wish to make a change click ‘Edit’.
+                        Please note all registered athletes will be notified via email and SMS on successful sports registration.</p>
+                    </div>
+                    <div class="col-md-11 col-sm-11 col-xs-12" ng-if="detail.userType === 'athlete'">
+                      <p class="note">Click ‘Confirm’ to register your entry. If you wish to make a change click ‘Edit’. Please note you
+                        will be notified via email and SMS on successful sports registration.</p>
                     </div>
                   </div>
                   <div class="form-group ">

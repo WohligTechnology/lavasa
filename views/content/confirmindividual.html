@@ -49,6 +49,24 @@
                   <div class="form-group text-center">
                     <h4 class="teamHead">{{selectService.sportName}}</h4>
                   </div>
+                  <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+                    <div class="col-md-1 col-sm-1 col-xs-12">
+                      <p class="note note-size"><strong>Note:</strong></p>
+                    </div>
+                    <div class="col-md-11 col-sm-11 col-xs-12" ng-if="withWeight">
+                      <p class="note">1. This refers to the weight category that you wish to participate in and does not guarantee participation
+                        in the same. The weighing in process (dates to be announced by 30th October) will determine an athlete’s
+                        eligibility to participate in a specific weight category.</p>
+                      <p class="note">2. An athlete can participate in an age category as per the cut-off dates mentioned in the rules and
+                        regulations.
+                      </p>
+                    </div>
+                    <div class="col-md-11 col-sm-11 col-xs-12" ng-if="!withWeight">
+                      <p class="note">1. An athlete can participate in an age category as per the cut-off dates mentioned in the rules and
+                        regulations.
+                      </p>
+                    </div>
+                  </div>
                   <div class="form-group">
                     <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
                       <div class="karate-table">
@@ -167,6 +185,19 @@
                           </div>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                  <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+                    <div class="col-md-1 col-sm-1 col-xs-12">
+                      <p class="note note-size"><strong>Note:</strong></p>
+                    </div>
+                    <div class="col-md-11 col-sm-11 col-xs-12" ng-if="detail.userType === 'school'">
+                      <p class="note">Click ‘Confirm’ to register your athlete entry/entries. If you wish to make a change click ‘Edit’.
+                        Please note all registered athletes will be notified via email and SMS on successful sports registration.</p>
+                    </div>
+                    <div class="col-md-11 col-sm-11 col-xs-12" ng-if="detail.userType === 'athlete'">
+                      <p class="note">Click ‘Confirm’ to register your entry. If you wish to make a change click ‘Edit’. Please note you
+                        will be notified via email and SMS on successful sports registration.</p>
                     </div>
                   </div>
                   <div class="form-group ">

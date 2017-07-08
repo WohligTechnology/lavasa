@@ -76,7 +76,6 @@
 
                                             </div>
                                         </div>
-
                                     </div>
                                     <div class="row">
                                         <div class="readSchoolName">
@@ -118,6 +117,12 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <p class="note note-size"><strong>Note:</strong>&nbsp;&nbsp;&nbsp;An athlete can participate in an age
+                                                category as per the cut-off dates mentioned in the rules and regulations</p>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -157,7 +162,7 @@
                                                         <div class="iconinfo sf-list">
                                                             <p>Only athlete which have registered for sfa mumbai 2017 from your
                                                                 school as per the selected gender and age group will be displayed
-                                                                below
+                                                                below.
                                                             </p>
                                                         </div>
                                                     </div>
@@ -169,7 +174,14 @@
                                         </form>
                                         <div class="scroll-div">
                                             <div class="scrollbar style-1">
-                                                <div class="text-center mt15" ng-if="listOfAthelete.length <= 0">
+                                                <div ng-if="isLoading" class="mt15 text-center">
+                                                    <h4>Loading...</h4>
+                                                </div>
+                                                <div ng-if="listOfAthelete.length <= 0 && isLoading === false && getAthletePerSchoolObj.sfaid" class="mt15 text-center">
+                                                    <h4>The SFA ID is invalid or Athlete name is not found. Kindly Check if the
+                                                        Athlete is registered for SFA Mumbai 2017.</h4>
+                                                </div>
+                                                <div ng-if="listOfAthelete.length <= 0 && isLoading === false && !getAthletePerSchoolObj.sfaid" class="mt15 text-center">
                                                     <h4>No Athlete Found</h4>
                                                 </div>
                                                 <div class="mt15">

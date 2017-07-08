@@ -69,7 +69,7 @@
                                             <div class="readSchoolName">
                                                 <label for="input3" class="col-md-3 col-sm-3 col-xs-12 control-label para2" placeholder="Enter SFA ID">SFA ID:</label>
                                                 <div class="col-md-7 col-sm-7 col-xs-9">
-                                                    <input type="text" class="form-control" id="input3" ng-model="getAthletePerSchoolObj.sfaid" ng-change="searchaBysfaId(getAthletePerSchoolObj.sfaid);">
+                                                    <input type="text" class="form-control" touppercase id="input3" ng-model="getAthletePerSchoolObj.sfaid" ng-change="searchaBysfaId(getAthletePerSchoolObj.sfaid);">
                                                 </div>
                                                 <div class="hover-img margin0 pt7 col-md-2 col-sm-2 col-xs-3">
                                                     <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
@@ -92,8 +92,7 @@
                                                     <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon pull-right">
                                                     <div class="iconinfo sf-list">
                                                         <p>Only athlete which have registered for sfa mumbai 2017 from your
-                                                            school as per the selected gender and age group will be displayed
-                                                            below
+                                                            school will be displayed below.
                                                         </p>
                                                     </div>
                                                 </div>
@@ -108,7 +107,11 @@
                                             <div ng-if="isLoading" class="mt15 text-center">
                                                 <h4>Loading...</h4>
                                             </div>
-                                            <div ng-if="listOfAthelete.length <= 0 && isLoading === false" class="mt15 text-center">
+                                            <div ng-if="listOfAthelete.length <= 0 && isLoading === false && getAthletePerSchoolObj.sfaid" class="mt15 text-center">
+                                                <h4>The SFA ID is invalid or Athlete name is not found. Kindly Check if the Athlete
+                                                    is registered for SFA Mumbai 2017.</h4>
+                                            </div>
+                                            <div ng-if="listOfAthelete.length <= 0 && isLoading === false && !getAthletePerSchoolObj.sfaid" class="mt15 text-center">
                                                 <h4>No Athlete Found</h4>
                                             </div>
                                             <div class="mt15">

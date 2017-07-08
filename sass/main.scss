@@ -4171,6 +4171,18 @@ iframe#twitter-widget-0 {
     font-size: 17px;
 }
 
+.note {
+    @extend .para2;
+    font-size: 14px;
+    line-height: 1.42857;
+    margin: 0 0 5px;
+}
+
+.note {
+    font-size: 15px;
+    font-weight: 600;
+}
+
 .blue {
     color: #091a71;
     font-size: 16.67px;

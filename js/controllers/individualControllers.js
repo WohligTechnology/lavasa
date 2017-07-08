@@ -239,6 +239,11 @@ firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, 
         'varSet': false,
         'selectAgeExpression': ''
     };
+    if (selectService.sportName === 'Judo' || selectService.sportName === 'judo' || selectService.sportName === 'Boxing' || selectService.sportName === 'boxing' || selectService.sportName === 'Taekwondo' || selectService.sportName === 'taekwondo' || selectService.sportName === 'Sport MMA' || selectService.sportName === 'sport MMA') {
+        $scope.withWeight = true;
+    } else {
+        $scope.withWeight = false;
+    }
 
     function configureVariables() {
         if ($scope.selectService && $scope.selectService.sportName) {
