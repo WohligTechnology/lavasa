@@ -7209,6 +7209,14 @@ h1.forgot-space {
 
 .fencing-table,
 .athswm-table {
+    .ui-select-bootstrap>.ui-select-choices,
+    .ui-select-bootstrap>.ui-select-no-choice {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        overflow-x: hidden;
+        margin-top: -1px;
+    }
     .selectedTeamTable {
         .table {
             tbody {
@@ -7419,15 +7427,6 @@ h1.forgot-space {
         text-align: center;
         color: white;
     }
-}
-
-.ui-select-bootstrap>.ui-select-choices,
-.ui-select-bootstrap>.ui-select-no-choice {
-    width: 100%;
-    height: auto;
-    max-height: 200px;
-    overflow-x: hidden;
-    margin-top: -1px;
 }
 
 @import "fancybox-override";
