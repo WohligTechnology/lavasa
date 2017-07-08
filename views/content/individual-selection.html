@@ -172,7 +172,8 @@
                                                         <td>
                                                             <div class="mid_cols">{{$index+1}}</div>
                                                         </td>
-                                                        <td>{{athlete.sfaId}} - {{athlete.firstName}}</td>
+                                                        <!--<td>{{athlete.sfaId}} - {{athlete.firstName}}</td>-->
+                                                        <td>{{athlete.fullNameWithsfaId |shorten:32}}</td>
                                                         <td>
                                                             <div ng-click="selectService.pushToTeam(athlete, athelete.checked, listOfAthelete, getEvents)">
                                                                 <i class="fa fa-lg fa-times-circle pointer" aria-hidden="true"></i>

@@ -114,6 +114,7 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
                         $scope.isLoading = false;
                         if (allData.data.total >= getAthletePerSchoolObj.page) {
                             _.each(allData.data.data, function (value) {
+                                value.fullNameWithsfaId = value.sfaId + " - " + value.firstName + "   " + value.surname;
                                 $scope.selectAthlete.push(value);
                                 $scope.busy = false;
                             });
@@ -166,7 +167,7 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
 
 
 //Confirm-Fencing
-firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService, selectService) {
+firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService, selectService, toastr) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("confirmfencing");
@@ -216,110 +217,13 @@ firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, Nav
         });
     };
 
-    //fencing-data
-    $scope.fencingtable = [{
-        name: '126 - Kunjal Rawal',
-        gender: 'Male',
-        filterList1: [{
-            name: 'U-12 EPEE'
-        }, {
-            name: 'U-14 EPEE'
-        }, {
-            name: 'U-17 EPEE'
-        }],
-        filterList2: [{
-            name: 'U-12 SABER'
-        }, {
-            name: 'U-14 SABER'
-        }, {
-            name: 'U-17 SABER'
-        }],
-        filterList3: [{
-            name: 'U-12 FOIL'
-        }, {
-            name: 'U-14 FOIL'
-        }, {
-            name: 'U-17 FOIL'
-        }]
-    }, {
-        name: '126 - Kunjal Rawal',
-        gender: 'Female',
-        filterList1: [{
-            name: 'U-12 EPEE'
-        }, {
-            name: 'U-14 EPEE'
-        }, {
-            name: 'U-17 EPEE'
-        }],
-        filterList2: [{
-            name: 'U-12 SABER'
-        }, {
-            name: 'U-14 SABER'
-        }, {
-            name: 'U-17 SABER'
-        }],
-        filterList3: [{
-            name: 'U-12 FOIL'
-        }, {
-            name: 'U-14 FOIL'
-        }, {
-            name: 'U-17 FOIL'
-        }]
-    }]
-    //end fencing
-
     $scope.tp = function (event) {
         console.log(event);
     };
-
-    //archery-data
-    $scope.archeryTable = [{
-        name: '126 - Kunjal Rawal',
-        gender: 'Male',
-        filterList1: [{
-            name: 'U-10 Indian bow'
-        }, {
-            name: 'U-14 Indian bow'
-        }, {
-            name: 'U-17 Indian bow'
-        }],
-        filterList2: [{
-            name: 'U-14 Recurve bow'
-        }, {
-            name: 'U-17 Recurve bow'
-        }, {
-            name: 'U-14 Compound bow'
-        }, {
-            name: 'U-17 Compound bow'
-        }]
-    }, {
-        name: '126 - Kunjal Rawal',
-        gender: 'Female',
-        filterList1: [{
-            name: 'U-10 Indian bow'
-        }, {
-            name: 'U-14 Indian bow'
-        }, {
-            name: 'U-17 Indian bow'
-        }],
-        filterList2: [{
-            name: 'U-14 Recurve bow'
-        }, {
-            name: 'U-17 Recurve bow'
-        }, {
-            name: 'U-14 Compound bow'
-        }, {
-            name: 'U-17 Compound bow'
-        }]
-    }];
-    //end-archery
-
-
-
 });
 
 //Confirm-Individual
-firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService, selectService) {
+firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService, selectService, toastr) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("confirmindividual");
@@ -399,14 +303,14 @@ firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, 
 
     $scope.saveIt = function (team) {
         console.log(team);
-    }
+    };
 
 
 });
 
 //Confirm-karate
 
-firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService, selectService) {
+firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService, selectService, toastr) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("confirmkarate");
@@ -440,7 +344,7 @@ firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, Navi
 
 //confirm-relay
 
-firstApp.controller('ConfirmRelayCtrl', function ($scope, TemplateService, NavigationService, loginService, $timeout) {
+firstApp.controller('ConfirmRelayCtrl', function ($scope, TemplateService, NavigationService, loginService, $timeout, toastr) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("confirmrelay");
@@ -470,66 +374,11 @@ firstApp.controller('ConfirmRelayCtrl', function ($scope, TemplateService, Navig
         });
     };
 
-    $scope.arelayTable = [{
-        name: '126 - Kunjal Rawal',
-        gender: 'Male',
-        filterList1: [{
-            name: '4x50m Relay'
-        }, {
-            name: '4x100m Relay'
-        }, {
-            name: 'Medley 100m'
-        }, {
-            name: 'Medley 200m'
-        }, {
-            name: 'Medley 300m'
-        }, {
-            name: 'Medley 400m'
-        }]
-    }, {
-        name: '126 - Kunjal Rawal',
-        gender: 'Female',
-        filterList1: [{
-            name: '4x50m Relay'
-        }, {
-            name: '4x100m Relay'
-        }, {
-            name: 'Medley 100m'
-        }, {
-            name: 'Medley 200m'
-        }, {
-            name: 'Medley 300m'
-        }, {
-            name: 'Medley 400m'
-        }]
-    }];
-
-    $scope.srelayTable = [{
-        name: '126 - Kunjal Rawal',
-        gender: 'Male',
-        filterList1: [{
-            name: '4x50m Freestyle Relay'
-        }, {
-            name: '4x50m Medley Relay'
-        }]
-
-    }, {
-        name: '126 - Kunjal Rawal',
-        gender: 'Female',
-        filterList1: [{
-            name: '4x50m Freestyle Relay'
-        }, {
-            name: '4x50m Medley Relay'
-        }]
-
-    }];
-
-
 });
 
 //Confirm-athlete-swimming
 
-firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, NavigationService, loginService, $timeout, $state, selectService) {
+firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, NavigationService, loginService, $timeout, $state, selectService, toastr) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("confirmathleteswim");
@@ -563,165 +412,8 @@ firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, Navi
     $scope.tp = function (team) {
         console.log(team);
     };
-
-    $scope.athswmTable = [{
-        name: '126 - Kunjal Rawal',
-        gender: 'Male',
-        filterList1: [{
-            name: 'U-6'
-        }, {
-            name: 'U-8'
-        }, {
-            name: 'U-10'
-        }, {
-            name: 'U-12'
-        }, {
-            name: 'U-14'
-        }, {
-            name: 'U-16'
-        }, {
-            name: 'U-18'
-        }],
-        filterList2: [{
-            name: '50m'
-        }, {
-            name: 'long jump'
-        }, {
-            name: '100m'
-        }, {
-            name: '200m'
-        }, {
-            name: 'shot put (3 kg)'
-        }, {
-            name: '600m'
-        }, {
-            name: 'high jump'
-        }, {
-            name: 'shot put (4 kg)'
-        }, {
-            name: '100m hurdles (91.4cm)'
-        }, {
-            name: '1000m'
-        }, {
-            name: '3000m'
-        }]
-    }, {
-        name: '126 - Kunjal Rawal',
-        gender: 'Male',
-        filterList1: [{
-            name: 'U-6'
-        }, {
-            name: 'U-8'
-        }, {
-            name: 'U-10'
-        }, {
-            name: 'U-12'
-        }, {
-            name: 'U-14'
-        }, {
-            name: 'U-16'
-        }, {
-            name: 'U-18'
-        }],
-        filterList2: [{
-            name: '50m'
-        }, {
-            name: 'long jump'
-        }, {
-            name: '100m'
-        }, {
-            name: '200m'
-        }, {
-            name: 'shot put (3 kg)'
-        }, {
-            name: '600m'
-        }, {
-            name: 'high jump'
-        }, {
-            name: 'shot put (4 kg)'
-        }, {
-            name: '100m hurdles (91.4cm)'
-        }, {
-            name: '1000m'
-        }, {
-            name: '3000m'
-        }]
-    }, {
-        name: '126 - Kunjal Rawal',
-        gender: 'Male',
-        filterList1: [{
-            name: 'U-6'
-        }, {
-            name: 'U-8'
-        }, {
-            name: 'U-10'
-        }, {
-            name: 'U-12'
-        }, {
-            name: 'U-14'
-        }, {
-            name: 'U-16'
-        }, {
-            name: 'U-18'
-        }],
-        filterList2: [{
-            name: '50m'
-        }, {
-            name: 'long jump'
-        }, {
-            name: '100m'
-        }, {
-            name: '200m'
-        }, {
-            name: 'shot put (3 kg)'
-        }, {
-            name: '600m'
-        }, {
-            name: 'high jump'
-        }, {
-            name: 'shot put (4 kg)'
-        }, {
-            name: '100m hurdles (91.4cm)'
-        }, {
-            name: '1000m'
-        }, {
-            name: '3000m'
-        }]
-    }];
-
-    $scope.swnathTable = [{
-        name: '126 - Kunjal Rawal',
-        gender: 'Male',
-        filterList1: [{
-            name: 'U-6'
-        }, {
-            name: 'U-8'
-        }, {
-            name: 'U-10'
-        }, {
-            name: 'U-12'
-        }, {
-            name: 'U-14'
-        }, {
-            name: 'U-16'
-        }, {
-            name: 'U-18'
-        }],
-        filterList2: [{
-            name: '50m Freestyle'
-        }, {
-            name: '50m Backstroke'
-        }, {
-            name: '50m Breaststroke'
-        }, {
-            name: '50m Butterfly'
-        }, {
-            name: '100m Freestyle'
-        }, {
-            name: '200m Individual Medley'
-        }]
-    }];
 });
+
 firstApp.controller('IndividualCongratsCtrl', function ($scope, TemplateService, toastr, NavigationService, $timeout, $state, $stateParams, loginService, errorService) {
     $scope.template = TemplateService.changecontent("individual-congrats");
     $scope.menutitle = NavigationService.makeactive("Individual Congrats");
