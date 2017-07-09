@@ -1,4 +1,46 @@
 // REGISTERED SPORTS
+.step7 {
+    @extend .step3;
+    width: 150px;
+    height: 36px;
+    border: 1px solid #d3d3d3;
+    font-size: 17px;
+    text-align: left;
+    padding: 5px 20px;
+    -webkit-box-shadow: 0px 0px 3px 1px lightgrey;
+    -moz-box-shadow: 0px 0px 3px 1px lightgray;
+    box-shadow: 0px 0px 3px 1px lightgrey;
+    &:after {
+        display: none;
+    }
+}
+
+.btn-default:active:hover,
+.btn-default:active:focus,
+.btn-default:active.focus,
+.btn-default.active:hover,
+.btn-default.active:focus,
+.btn-default.active.focus {
+    color: #333;
+    background-color: transparent;
+    border-color: inherit;
+    outline: 0;
+}
+
+.btn-default:hover {
+    color: #333;
+    background-color: transparent;
+    border-color: inherit;
+}
+
+.btn-default:focus,
+.btn-default.focus {
+    color: #333;
+    background-color: transparent;
+    border-color: inherit;
+    outline: 0;
+}
+
 .list-sportregistered {
     margin: 10px 0;
 }
@@ -10,7 +52,6 @@
     margin-right: 5px;
     border: 1px solid #091a71;
     vertical-align: middle;
-
     p {
         margin: 0;
     }
@@ -24,68 +65,61 @@
     text-align: center;
     vertical-align: middle;
 }
+
 // REGISTERED SPORTS END
 // SPORT DETAIL INDIVIDUAl
-.sport-detailpage{
-  margin: 30px 0;
+.sport-detailpage {
+    margin: 30px 0;
 }
 
 .sportdetail-header {
     color: #f37720;
-
     h3 {
         margin: 10px 0;
     }
 }
 
 .sportdetail-table {
-  padding: 30px 10px;
-  border-top: 2px solid #091a71;
-
-  &:first-child{
-    border-top: none;
-  }
+    padding: 30px 10px;
+    border-top: 2px solid #091a71;
+    &:first-child {
+        border-top: none;
+    }
 }
 
 .sport-individualtable {
-  max-height: 310px;
-  overflow-y: auto;
+    max-height: 310px;
+    overflow-y: auto;
     .table {
         border: none;
-
         tbody {
             border: none;
-
             tr {
                 background-color: transparent;
                 border: none;
-
                 td {
                     padding: 8px;
                     border: none;
                     text-align: left;
                 }
-
                 .sportdetail-td {
                     border: 1px solid #ccc;
                     padding: 5px;
                 }
             }
         }
-
         thead {
             border: none;
-
             th {
                 color: #fff;
                 border: none;
             }
-
-            .sportdetail-th{
-              padding: 8px;
-              background-color: #091a71;
+            .sportdetail-th {
+                padding: 8px;
+                background-color: #091a71;
             }
         }
     }
 }
+
 // SPORT DETAIL INDIVIDUAl END
