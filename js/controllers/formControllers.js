@@ -128,16 +128,14 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
                 }, 3000);
                 // alert("School ID image is not uploaded");
                 // return false;
-            }
-            // else if (!form.photograph) {
-            //     $scope.openPhotoModal();
-            //     $timeout(function () {
-            //         $scope.modalInstances.close();
-            //     }, 1000)
-            //     // alert("Photograph not uploaded");
-            //     // return false;
-            // }
-            else if (!form.birthImage) {
+            } else if (!form.photograph) {
+                $scope.openPhotoModal();
+                $timeout(function () {
+                    $scope.photographInstances.close();
+                }, 3000);
+                // alert("Photograph not uploaded");
+                // return false;
+            } else if (!form.birthImage) {
                 // alert("Birth proof is not uploaded");
                 // return false;
                 $scope.openBirthModal();
@@ -220,6 +218,7 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
             console.log($scope.extras);
             formdata.utm_medium = $scope.extras.utm_medium;
             formdata.utm_source = $scope.extras.utm_source;
+            formdata.utm_campaign = $scope.extras.utm_campaign;
             console.log(formdata);
         }
 
@@ -624,6 +623,17 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
         });
     };
 
+    $scope.openPhotoModal = function () {
+        $scope.photographInstances = $uibModal.open({
+            animation: true,
+            scope: $scope,
+            backdrop: 'static',
+            keyboard: false,
+            // size: 'sm',
+            templateUrl: "views/modal/errorPhoto.html"
+        });
+    };
+
     $scope.openBirthModal = function () {
         $scope.birthInstances = $uibModal.open({
             animation: true,
@@ -910,6 +920,7 @@ firstApp.controller('FormregisCtrl', function ($scope, TemplateService, Navigati
             console.log($scope.extras);
             formdata.utm_medium = $scope.extras.utm_medium;
             formdata.utm_source = $scope.extras.utm_source;
+            formdata.utm_campaign = $scope.extras.utm_campaign;
         }
 
         $scope.url = "registration/saveRegistrationForm";

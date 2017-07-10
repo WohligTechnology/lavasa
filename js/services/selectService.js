@@ -1,5 +1,4 @@
 firstApp.service('selectService', function ($http, TemplateService, $state, toastr, NavigationService, loginService, errorService) {
-
     this.team = [];
     this.detail = null;
     this.sportsId = null; // Req in api For sending data at backend eg:5864..69
@@ -22,7 +21,6 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
         }
     };
 
-
     //make .checked to true if already selected
     this.isAtheleteSelected = function (listOfAthlete, team) {
         var temp = _.intersectionBy(listOfAthlete, this.team, '_id');
@@ -31,8 +29,56 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
         });
         return listOfAthlete;
     };
+
+    this.configAtheleteLoginVar = function () {
+
+    };
+
     // push to Team
     this.pushToTeam = function (obj, bool, listOfAthlete, events) {
+
+        function checkIfApplicable(sT, sN) {
+
+            var isApplicable = true;
+            switch (sT) {
+                case "K":
+                    break;
+                case "FA":
+                    console.log(obj);
+                    if (sN == 'Fencing') {
+                        if (obj.eventEpee.length <= 1 && obj.eventSabre.length <= 1 && obj.eventFoil.length <= 1) {
+                            obj.checked = false;
+                            toastr.error("Not Applicable");
+                            isApplicable = false;
+                        }
+                    } else if (sN == 'Archery') {
+                        if (obj.ageGroups.length == 0) {
+                            obj.checked = false;
+                            toastr.error("Not Applicable");
+                            isApplicable = false;
+                        }
+                    }
+                    break;
+                case "AAS":
+                    if (obj.ageGroups.length == 0) {
+                        obj.checked = false;
+                        toastr.error("Not Applicable");
+                        isApplicable = false;
+                    }
+                    break;
+                case "I":
+                    if (obj.ageGroups.length == 0) {
+                        obj.checked = false;
+                        toastr.error("Not Applicable");
+                        isApplicable = false;
+                    }
+                    break;
+                case "CT":
+                    break;
+            }
+            return isApplicable;
+        }
+
         var confirmPageKey = $.jStorage.get("confirmPageKey");
         //check if added or not and do it accordingly
         if (bool) {
@@ -44,7 +90,10 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             } else {
                 //get Data for columns accordingly eg:ageGroup
                 obj = this.getAgeGroupByAthelete(obj, confirmPageKey, events);
-                this.team.push(obj);
+                console.log(obj);
+                if (checkIfApplicable(this.sportType, this.sportName)) {
+                    this.team.push(obj);
+                }
             }
         } else {
             //remove athelete
@@ -60,7 +109,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
         var birthdate = moment(athelete.dob);
         var st = this.sportName;
 
-        //ageGroup and weights are calculated
+        //Events are filtered as per age and weights
         function getAgeGroups(events) {
             var event = _.cloneDeep(events);
             _.each(event, function (i, key) {
@@ -291,7 +340,6 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
                 console.log(this.isValidForm);
                 break;
             case "AAS":
-
                 this.findOverAllFormValidation();
                 break;
             case "I":
@@ -338,7 +386,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
                 n.nominatedSchoolName = data.nominatedSchoolName;
             }
             if (data.nominatedName) {
-                n.nominatedName = data.nominatedSchoolName;
+                n.nominatedName = data.nominatedName;
             }
             if (data.isVideoAnalysis) {
                 n.isVideoAnalysis = data.isVideoAnalysis;
@@ -374,13 +422,6 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             case "K":
                 var arr = athelete.sport;
                 var weights = athelete.event2Weights;
-                // weights = _.reject(athelete.event2Weights, {
-                //     'data[0].sport': null
-                // });
-                console.log(athelete);
-                console.log('arr', arr);
-                console.log('weights', weights);
-                console.log('athelete.event2Weights', athelete.event2Weights);
                 // athelete.isValidSelection = (arr.length == 0 && (!weights || weights.length == 0)) ? false : (weights && weights.length == 0 && athelete.sport[0]) ? true : (weights.length != 0 && athelete.sport[1]) ? true : false;
                 // athelete.isValidSelection = (arr.length == 0 && (!weights || (weights.length == 0))) ? false : ((arr.length >= 1 && arr[0].data[0].sport!=null) && (!weights || weights.length == 0)) ? true : ((arr.length >= 1 && arr[0].data[0].sport==null) && weights && weights.length!= 0 && weights.data[0].sport!=null && athelete.sport[1]) ? true : false;
                 athelete.isValidSelection = ((arr.length == 0 || arr[0] && arr[0].data && arr[0].data[0].sport == null) && (!weights || (weights.length == 0))) ? false : (((arr.length >= 1 && arr[0].data[0].sport != null) && (!weights || weights.length == 0 || weights.data[0].sport == null)) || ((arr.length >= 1 && arr[0].data[0].sport == null) && weights && weights.length != 0 && weights.data[0].sport != null && athelete.sport[1]) || ((arr.length >= 1 && arr[0].data[0].sport != null) && weights && weights.length != 0 && weights.data[0].sport != null && athelete.sport[1])) ? true : false;
@@ -393,9 +434,11 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
                     var arr = _.compact(athelete.sport);
                     athelete.isValidSelection = arr.length > 0;
                 } else if (this.sportName == 'Archery') {
-                    // alert();
                     athelete.disableEvent2 = (athelete && athelete.sport && athelete.sport[0] && athelete.sport[0].eventName != 'Indian Bow') ? true : false;
                     athelete.isValidSelection = ((athelete.sport && athelete.sport[0]) || (athelete.sport && athelete.sport[1])) ? true : false
+                    if (athelete.sport && athelete.sport[1] && athelete.sport[1] != '' && athelete.sport[0].eventName != 'Indian Bow') {
+                        athelete.sport[1] = {};
+                    }
                 }
                 break;
             case "AAS":
