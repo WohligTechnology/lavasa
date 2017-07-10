@@ -112,6 +112,7 @@
                                   <!--weight selection starts-->
                                   <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.sport[1]" placeholder="Select Kumite First"
                                     ng-options="weights as weights.weight for weights in athelete.event2Weights.data" ng-change="selectService.isValidSelection(athelete)">
+                                    <option selected disabled value="">First Select Kumite</option>
                                   </select>
                                   <!--weight selection ends-->
 
