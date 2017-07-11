@@ -252,12 +252,20 @@ firstApp.filter('shorten', function () {
 
 firstApp.filter('formatEvent', function () {
     return function (age, event) {
-        return age + '-' + event;
+        if (age != 'None') {
+            return age + '-' + event;
+        } else {
+            return age;
+        }
     };
 });
 
 firstApp.filter('isValidSelection', function () {
     return function (age, event) {
-        return age + '-' + event;
+        if (age != 'None') {
+            return age + '-' + event;
+        } else {
+            return age;
+        }
     };
 });

@@ -192,14 +192,14 @@ firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, Nav
             var st = $scope.selectService.sportName;
             if (st == 'Fencing') {
                 // $scope.config.weightsReq = true;
-                $scope.config.event1Expression = "epee.data[0].sport as epee._id | formatEvent:'Epee' for epee in athelete.eventEpee";
-                $scope.config.event2Expression = "sabre.data[0].sport as sabre._id | formatEvent:'Sabre' for sabre in athelete.eventSabre";
-                $scope.config.event3Expression = "foil.data[0].sport as foil._id | formatEvent:'Foil' for foil in athelete.eventFoil";
+                $scope.config.event1Expression = "epee.data[0].sport as epee._id | formatEvent:'Epee' for epee in athelete.eventEpee | orderBy:'_id' track by epee._id";
+                $scope.config.event2Expression = "sabre.data[0].sport as sabre._id | formatEvent:'Sabre' for sabre in athelete.eventSabre | orderBy:'_id' track by sabre._id";
+                $scope.config.event3Expression = "foil.data[0].sport as foil._id | formatEvent:'Foil' for foil in athelete.eventFoil | orderBy:'_id' track by foil._id";
 
             } else {
                 // $scope.config.weightsReq = false;
-                $scope.config.event1Expression = "event1 as event1._id | formatEvent:event1.eventName for event1 in athelete.allEvents";
-                $scope.config.event2Expression = "event2 as event2._id | formatEvent:event2.eventName for event2 in athelete.optionalEvents";
+                $scope.config.event1Expression = "event1 as event1._id | formatEvent:event1.eventName for event1 in athelete.allEvents | orderBy:'_id' track by event1._id";
+                $scope.config.event2Expression = "event2 as event2._id | formatEvent:event2.eventName for event2 in athelete.optionalEvents | orderBy:'_id' track by event2._id";
             }
         }
     }
@@ -252,12 +252,12 @@ firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, 
                 $scope.config.weightsReq = true;
                 $scope.config.ageVar = 'athelete.ageSelected';
                 $scope.config.weightVar = 'athelete.sport';
-                $scope.config.selectAgeExpression = "age._id for age in athelete.ageGroups";
+                $scope.config.selectAgeExpression = "age._id for age in athelete.ageGroups | orderBy:'_id' track by age._id";
             } else {
                 $scope.config.weightsReq = false;
                 $scope.config.ageVar = 'athelete.sport';
                 $scope.config.weightVar = '';
-                $scope.config.selectAgeExpression = "age.data[0].sport as age._id for age in athelete.ageGroups";
+                $scope.config.selectAgeExpression = "age.data[0].sport as age._id for age in athelete.ageGroups | orderBy:'_id'  track by age._id";
             }
         }
     }

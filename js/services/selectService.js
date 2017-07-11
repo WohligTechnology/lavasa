@@ -148,13 +148,13 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             athelete.eventKumite = getAgeGroups(kumite);
             athelete.sport = [];
             athelete.eventKata.unshift({
-                '_id': 'Opt Out',
+                '_id': 'None',
                 'data': [{
                     'sport': null
                 }]
             });
             athelete.eventKumite.unshift({
-                '_id': 'Opt Out',
+                '_id': 'None',
                 'data': [{
                     'sport': null,
                     'weight': 'First Select Kumite'
@@ -175,7 +175,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             });
             athelete.eventEpee = getAgeGroups(epee);
             athelete.eventEpee.unshift({
-                '_id': 'Opt Out',
+                '_id': 'None',
                 'data': [{
                     'sport': null
                 }]
@@ -187,7 +187,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             });
             athelete.eventSabre = getAgeGroups(sabre);
             athelete.eventSabre.unshift({
-                '_id': 'Opt Out',
+                '_id': 'None',
                 'data': [{
                     'sport': null
                 }]
@@ -199,7 +199,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             });
             athelete.eventFoil = getAgeGroups(foil);
             athelete.eventFoil.unshift({
-                '_id': 'Opt Out',
+                '_id': 'None',
                 'data': [{
                     'sport': null
                 }]

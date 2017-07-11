@@ -93,7 +93,7 @@
                                 </td>
                                 <td>
                                   <div>
-                                    <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.metresSwim" ng-options="age._id for age in athelete.ageGroups"
+                                    <select class="form-control" ng-init="selectService.isValidSelection(athelete)" ng-model="athelete.metresSwim" ng-options="age._id for age in athelete.ageGroups |orderBy:'_id' track by age._id"
                                       ng-change="selectService.isValidSelection(athelete);athelete.sport=[]">
                                   </select>
                                   </div>

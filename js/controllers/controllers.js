@@ -2991,7 +2991,7 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
                 console.log($scope.studentStats);
                 var drawf = "";
                 if ($scope.studentStats[0].drawFormat == 'Knockout') {
-                    drawF = "knockout";
+                    drawf = "knockout";
                 } else if ($scope.studentStats[0].drawFormat == "Swiss League") {
                     drawf = "swissleague"
                 } else if ($scope.studentStats[0].drawFormat == "Qualifying Knockout") {
@@ -3003,7 +3003,7 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
                             key.opponent = {};
                             //jagruti
                             key.self = {};
-                            console.log("layout", key[drawf]);
+                            console.log("layout", key);
                             if (key[drawf].participantType == 'player') {
                                 console.log("");
                                 if (key[drawf][key[drawf].participantType + '1']._id == $stateParams.id) {
