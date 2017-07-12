@@ -51,8 +51,8 @@
           <li ng-repeat="value in data.tempArr | orderBy: 'name'  track by $index">
             <button class="btn btn-default " ng-if="value.name != 'Tennis Mixed Doubles'" type="button" ng-click="redirectTo(value)"
               ui-sref="sports-rules({id:value._id})">{{value.name}}</button>
-            <button class="btn btn-default " ng-if="value.name == 'Tennis Mixed Doubles'" type="button" ng-click="messageForTennisMixedDoubles()">{{value.name}}</button>
-            <!--<button class="btn btn-default " ng-if="value.name == 'Tennis Mixed Doubles'" type="button" ui-sref="sports-rules({id:value._id})">{{value.name}}</button>-->
+            <!--<button class="btn btn-default " ng-if="value.name == 'Tennis Mixed Doubles'" type="button" ng-click="messageForTennisMixedDoubles()">{{value.name}}</button>-->
+            <button class="btn btn-default " ng-if="value.name == 'Tennis Mixed Doubles'" type="button" ui-sref="sports-rules({id:value._id})">{{value.name}}</button>
           </li>
 
         </ul>

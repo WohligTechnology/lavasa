@@ -35,9 +35,9 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <form class="">
                                     <div class="row">
-                                        <div class="readSchoolName" ng-if="detail.userType=='athlete'">
+                                        <div class="readSchoolName" ng-if="detail.userType=='athlete'&& visibleDiv">
                                             <!--control-label-->
-                                            <label for="inputEmail3" class="col-md-2 col-sm-3 col-xs-12 para2">Select Gender</label>
+                                            <label for="inputEmail3" class="col-md-2 col-sm-3 col-xs-12 para2" ng-if="sportTitle!='Tennis Mixed Doubles'">Select Gender</label>
                                             <div class="col-md-10 col-sm-9 col-xs-12">
                                                 <input type="radio" ng-model="formData.gender" id="radio01" name="radioMale" value="male" ng-if="sportTitle!='Tennis Mixed Doubles'"
                                                     ng-checked="selectService.gender=='male'" required ng-change="sortGenderWise(formData.gender);selectService.gender='male';selectService.ageGroup=''"
@@ -49,16 +49,16 @@
                                                     ng-disabled="selectService.gender=='male'">
                                                 <label for="radio02" class="padd-lr sf-list" ng-if="sportTitle!='Tennis Mixed Doubles'"><span></span>Female</label>
 
-                                                <input type="radio" ng-model="formData.gender" id="radio03" name="both" value="male&female" ng-if="sportTitle ==='Tennis Mixed Doubles'"
-                                                    required ng-checked=" ">
-                                                <label for="radio03" class="padd-lr sf-list" ng-if="sportTitle==='Tennis Mixed Doubles'"><span></span>Male & Female</label>
+                                                <!--<input type="radio" ng-model="formData.gender" id="radio03" name="both" value="male&female" ng-if="sportTitle ==='Tennis Mixed Doubles'"
+                                                    required ng-value="true">
+                                                <label for="radio03" class="padd-lr sf-list" ng-if="sportTitle==='Tennis Mixed Doubles'"><span></span>Male & Female</label>-->
 
 
                                             </div>
                                         </div>
-                                        <div class="readSchoolName" ng-if="detail.userType=='school'">
+                                        <div class="readSchoolName" ng-if="detail.userType=='school'&& visibleDiv">
                                             <!--control-label-->
-                                            <label for="inputEmail3" class="col-md-2 col-sm-3 col-xs-12 para2">Select Gender</label>
+                                            <label for="inputEmail3" class="col-md-2 col-sm-3 col-xs-12 para2" ng-if="sportTitle!='Tennis Mixed Doubles'">Select Gender</label>
                                             <div class="col-md-10 col-sm-9 col-xs-12">
                                                 <input type="radio" ng-model="formData.gender" id="radio04" name="radioMale" value="male" ng-if="sportTitle!='Tennis Mixed Doubles'"
                                                     ng-checked="selectService.gender=='male'" required ng-change="sortGenderWise(formData.gender);selectService.gender='male';selectService.ageGroup=''">
@@ -69,9 +69,9 @@
                                                     required ng-checked="selectService.gender=='female'" ng-change="sortGenderWise(formData.gender);selectService.gender='female';selectService.ageGroup=''">
                                                 <label for="radio05" class="padd-lr sf-list" ng-if="sportTitle!='Tennis Mixed Doubles'"><span></span>Female</label>
 
-                                                <input type="radio" ng-model="formData.gender" id="radio06" name="both" value="male&female" ng-if="sportTitle ==='Tennis Mixed Doubles'"
-                                                    required ng-checked="">
-                                                <label for="radio06" class="padd-lr sf-list" ng-if="sportTitle ==='Tennis Mixed Doubles'"><span></span>Male & Female</label>
+                                                <!--<input type="radio" ng-model="formData.gender" id="radio06" name="both" value="both" ng-if="sportTitle ==='Tennis Mixed Doubles'"
+                                                    checked="checked" ng-change="sortGenderWise(formData.gender);selectService.gender='both';selectService.ageGroup=''">
+                                                <label for="radio06" class="padd-lr sf-list" ng-if="sportTitle ==='Tennis Mixed Doubles'"><span></span>Male & Female</label>-->
 
 
                                             </div>
@@ -80,7 +80,7 @@
                                     <div class="row">
                                         <div class="readSchoolName">
                                             <!--control-label-->
-                                            <label for="inputEmail3" class="col-md-2 col-sm-3 col-xs-12 para2">Select Age Group</label>
+                                            <label for="inputEmail3" class="col-md-2 col-sm-3 col-xs-12 para2" ng-if="visibleDiv">Select Age Group</label>
                                             <!--for male -->
 
                                             <div class="col-md-10 col-sm-9 col-xs-12" ng-if="showMale && maleAgeGrp.length>0">
@@ -98,7 +98,6 @@
                                                 </div>
                                             </div>
 
-
                                             <!--for female-->
 
                                             <div class="col-md-10 col-sm-9 col-xs-12" ng-if="showFemale && femaleAgeGrp.length>0">
@@ -115,12 +114,34 @@
                                                     <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
                                                 </div>
                                             </div>
+                                            <!--both-->
+                                            <div class="col-md-10 col-sm-9 col-xs-12" ng-if="showBoth && maleAndFemale.length>0">
+                                                <div class="display-inline w10" ng-repeat="data in maleAndFemale |orderBy:'orderage' track by $index">
+                                                    <input type="radio" id="{{data.ageData._id}}" name="radio1" value="{{data.ageData._id}}" required ng-checked="selectService.ageGroup==data.ageData._id"
+                                                        ng-click="filterAge(data.ageData._id,data.ageData.name);selectService.ageGroup=data.ageData._id;selectService.emptyTeam()"
+                                                        ; ng-model='formData.ageGroup'>
+                                                    <label for="{{data.ageData._id}}" class="padd-lr sf-list"><span></span>{{data.ageData.name}}</label>
+                                                </div>
+
+                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="col-md-12 col-sm-12 col-xs-12" ng-if="sportTitle != 'Shooting Air Pistol Team' && sportTitle != 'Shooting Air Rifle Open Team' && sportTitle != 'Shooting Air Rifle Peep Team' && sportTitle != 'shooting air pistol team' && sportTitle != 'shooting air rifle open team' && sportTitle != 'shooting air rifle peep team'">
                                             <p class="note note-size"><strong>Note:</strong>&nbsp;&nbsp;&nbsp;An athlete can participate in an age
                                                 category as per the cut-off dates mentioned in the rules and regulations</p>
+                                        </div>
+                                        <div class="" ng-if="sportTitle == 'Shooting Air Pistol Team' || sportTitle == 'Shooting Air Rifle Open Team' || sportTitle == 'Shooting Air Rifle Peep Team' || sportTitle == 'shooting air pistol team' || sportTitle == 'shooting air rifle open team' || sportTitle == 'shooting air rifle peep team'">
+                                            <div class="col-md-1 col-sm-1 col-xs-12">
+                                                <p class="note note-size"><strong>Note:</strong></p>
+                                            </div>
+                                            <div class="col-md-11 col-sm-11 col-xs-12">
+                                                <p class="note">1. Only those athlete registered in shooting will be able to register as
+                                                    a shooting team.</p>
+                                                <p class="note">2. An athlete can participate in an age category as per the cut-off dates
+                                                    mentioned in the rules and regulations.</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
@@ -192,14 +213,25 @@
                                                                 <div class="selectedPlayer" ng-if="checked.isTeamSelected === true && setDisabled === false">
                                                                     <h4 class="">Player has been already registered</h4>
                                                                 </div>
+                                                                <div class="selectedPlayer" ng-if="checked.disableGender === true && checked.gender=== 'male' && setDisabled === false">
+                                                                    <h4 class="">Male Player is already Selected</h4>
+                                                                </div>
+                                                                <div class="selectedPlayer" ng-if="checked.disableGender === true && checked.gender=== 'female' && setDisabled === false">
+                                                                    <h4 class="">Female Player is already Selected</h4>
+                                                                </div>
                                                                 <div class="stu-img">
                                                                     <img ng-src="{{checked.atheleteSchoolIdImage | serverimage2:70:70:'cover' }}" class="img-responsive" alt="">
                                                                 </div>
                                                                 <div class="stu-check">
                                                                     <div class="checkbox-custom">
-                                                                        <input type="checkbox" name="checkIhav" value="option{{$index+1}}" id="option{{$index+1}}" ng-click="selectService.pushToTeam(checked, checked.checked, listOfAthelete);maxPlayerAllow();"
+                                                                        <!--<input type="checkbox" name="checkIhav" value="option{{$index+1}}" id="option{{$index+1}}" ng-click="selectService.pushToTeam(checked, checked.checked, listOfAthelete);maxPlayerAllow();"
+                                                                            ng-model="checked.checked" ng-disabled="checked.setDisabled"
+                                                                        />-->
+
+                                                                        <input type="checkbox" name="checkIhav" value="option{{$index+1}}" id="option{{$index+1}}" ng-click="pushToTeam(checked, checked.checked, listOfAthelete);maxPlayerAllow($index);"
                                                                             ng-model="checked.checked" ng-disabled="checked.setDisabled"
                                                                         />
+
                                                                         <label for="option{{$index+1}}"><span></span></label>
                                                                     </div>
                                                                 </div>
@@ -212,6 +244,8 @@
                                                             </div>
                                                         </div>
                                                     </fieldset>
+
+
                                                 </div>
                                             </div>
                                         </div>
@@ -257,7 +291,7 @@
 
 
                                                             <td>
-                                                                <div ng-if="!athlete.setDisabled" ng-click="selectService.pushToTeam(athlete, athelete.checked, listOfAthelete)">
+                                                                <div ng-if="!athlete.setDisabled" ng-click="selectService.pushToTeam(athlete, athelete.checked, listOfAthelete);deselectCheckbx();">
                                                                     <i class="fa fa-lg fa-times-circle pointer"></i>
                                                                     <!--<img src="img/icon/cross.png" alt="logo" class="img-responsive myicon">-->
                                                                 </div>

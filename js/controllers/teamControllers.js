@@ -1,4 +1,4 @@
-firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, toastr, $timeout, errorService, loginService, selectService) {
+firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $state, NavigationService, $stateParams, toastr, $timeout, errorService, loginService, selectService, $rootScope) {
     $scope.template = TemplateService.changecontent("team-selection");
     $scope.menutitle = NavigationService.makeactive("Team Selection");
     TemplateService.header = "views/header2.html";
@@ -6,11 +6,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     $scope.navigation = NavigationService.getnav();
 
     $scope.selectService = selectService;
-
-
-
     $scope.selectService.sportsId = $stateParams.id;
-
     $scope.ageGroup = [];
     $scope.formData = {};
     $scope.selectAthlete = [];
@@ -19,32 +15,21 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     $scope.femaleAgeGrp = [];
     $scope.teamMembers = [];
     $scope.constraints = {};
-    // $scope.detail = {};
     $scope.constraints._id = $stateParams.id;
     $scope.getAthletePerSchoolObj = {};
     $scope.getAthletePerSchoolObj.sfaid = '';
     $scope.getAthletePerSchoolObj.page = 1;
     $scope.busy = false;
     $scope.noAthletefound = false;
+    $rootScope.rootSportTitle = '';
     $scope.scroll = {
         scrollBusy: false,
         stopCallingApi: false,
     };
 
-
-
     loginService.loginGet(function (data) {
         $scope.detail = data;
     });
-    if ($.jStorage.get("userDetails") !== null) {
-        if ($scope.detail.userType === 'athlete') {
-            if ($.jStorage.get("userDetails").gender !== null) {
-                $scope.selectService.gender = $.jStorage.get("userDetails").gender;
-            }
-        } else {
-            $scope.selectService.gender = 'male';
-        }
-    }
 
     if ($scope.detail.userType === "athlete") {
         $scope.constraints.athleteToken = $scope.detail.accessToken;
@@ -71,6 +56,8 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
         $state.go('sports-selection');
     }
 
+
+
     $scope.logoutCandidate = function () {
         loginService.logoutCandidate(function (data) {
             if (data.isLoggedIn === false) {
@@ -85,8 +72,6 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     if ($.jStorage.get("schoolName") !== null) {
         $scope.getAthletePerSchoolObj.school = $.jStorage.get("schoolName");
     }
-
-
 
     // *****for getting all athletes*****
     $scope.athletePerSchool = function (getAthletePerSchoolObj) {
@@ -115,7 +100,6 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                                 $scope.showMsg = true;
                                 $scope.isLoading = false;
                                 _.each(allData.data.data, function (value) {
-                                    console.log("value", value);
                                     value.fullNameWithsfaId = value.sfaId + " - " + value.firstName + "   " + value.surname;
                                     $scope.selectAthlete.push(value);
                                     $scope.busy = false;
@@ -130,15 +114,16 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                                         $scope.listOfAthelete[indexOfAthlete].setDisabled = true;
                                         if (selectService.team.length === 0) {
                                             if ($scope.listOfAthelete[indexOfAthlete].isTeamSelected === true) {
-                                                toastr.error("This Athlete is alreday in other game");
+                                                toastr.error("Already registered for this sports.");
                                                 $scope.setDisabled = true;
                                                 $scope.busy = true;
                                             } else {
                                                 $scope.setDisabled = false;
                                                 selectService.pushToTeam($scope.listOfAthelete[indexOfAthlete], $scope.listOfAthelete[indexOfAthlete].checked, $scope.listOfAthelete);
-
                                             }
                                         }
+                                    } else {
+                                        // $scope.setDisabled = true;
                                     }
                                 }
                             }
@@ -152,9 +137,6 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
             });
         });
     };
-
-
-
 
     // $scope.athletePerSchool = function (getAthletePerSchoolObj) {
     //     if (scroll.scrollBusy) {
@@ -242,7 +224,6 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     //***** for getting age group *****
     $scope.filterAge = function (ageId, ageName) {
         $scope.listOfAthelete = [];
-        // $scope.showAgeObj = '';
         $scope.isLoading = true;
         $scope.busy = false;
         $scope.noAthletefound = false;
@@ -278,29 +259,57 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
         // console.log("$scope.getAthletePerSchoolObj", $scope.getAthletePerSchoolObj);
         $scope.athletePerSchool($scope.getAthletePerSchoolObj);
     };
+
     //    *****sorting age genderwise*****
     $scope.sortGenderWise = function (gender) {
-        // $scope.showAgeObj = '';
-        console.log("gender", gender);
-        if (gender == "female") {
-            $scope.showFemale = true;
-            $scope.showMale = false;
-            $scope.selectAthlete = [];
-            $scope.listOfAthelete = [];
-            // selectService.team = [];
-            $scope.constraints.gender = gender;
-            NavigationService.setGender($scope.constraints.gender);
-            $scope.getAthletePerSchoolObj.gender = gender;
-        } else {
-            // selectService.team = [];
-            $scope.selectAthlete = [];
-            $scope.listOfAthelete = [];
-            $scope.showMale = true;
+        if (gender == 'both') {
+            console.log("gender", gender);
             $scope.showFemale = false;
+            $scope.showMale = false;
+            $scope.showBoth = true;
             $scope.constraints.gender = gender;
             $scope.getAthletePerSchoolObj.gender = gender;
             NavigationService.setGender($scope.constraints.gender);
+        } else {
+            $scope.showBoth = false;
+            if (gender == "female") {
+                $scope.showFemale = true;
+                $scope.showMale = false;
+                $scope.selectAthlete = [];
+                $scope.listOfAthelete = [];
+                // selectService.team = [];
+                $scope.constraints.gender = gender;
+                NavigationService.setGender($scope.constraints.gender);
+                $scope.getAthletePerSchoolObj.gender = gender;
+            } else {
+                // selectService.team = [];
+                $scope.selectAthlete = [];
+                $scope.listOfAthelete = [];
+                $scope.showMale = true;
+                $scope.showFemale = false;
+                $scope.constraints.gender = gender;
+                $scope.getAthletePerSchoolObj.gender = gender;
+                NavigationService.setGender($scope.constraints.gender);
 
+            }
+        }
+
+    };
+
+    $scope.specifyGender = function (sportTitle) {
+        if (sportTitle === 'Tennis Mixed Doubles') {
+            $scope.selectService.gender = 'both';
+        } else {
+            if ($.jStorage.get("userDetails") !== null) {
+                if ($scope.detail.userType === 'athlete') {
+                    if ($.jStorage.get("userDetails").gender !== null) {
+                        $scope.selectService.gender = $.jStorage.get("userDetails").gender;
+                        console.log($scope.selectService.gender, "$scope.selectService.gender");
+                    }
+                } else {
+                    $scope.selectService.gender = 'male';
+                }
+            }
         }
     };
 
@@ -311,20 +320,35 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                 errorService.errorCode(data, function (allData) {
                     if (!allData.message) {
                         console.log("allData", allData);
-                        $scope.getSports = allData.data.results;
-                        $scope.sportTitle = allData.data.sportName;
-                        NavigationService.setSportTitle($scope.sportTitle);
-                        $scope.maleAgeGrp = _.cloneDeep($scope.getSports.male);
-                        $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.female);
-                        _.each($scope.maleAgeGrp, function (key) {
-                            key.orderage = parseInt(key.ageData.name.slice(2));
-                        });
-                        _.each($scope.femaleAgeGrp, function (key) {
-                            key.orderage = parseInt(key.ageData.name.slice(2));
-                        });
+                        if (allData.value === true) {
+                            $scope.visibleDiv = true;
+                            $scope.getSports = allData.data.results;
+                            $scope.sportTitle = allData.data.sportName;
+                            $scope.specifyGender($scope.sportTitle);
+                            NavigationService.setSportTitle($scope.sportTitle);
+                            $scope.maleAgeGrp = _.cloneDeep($scope.getSports.male);
+                            $scope.femaleAgeGrp = _.cloneDeep($scope.getSports.female);
+                            $scope.maleAndFemale = _.cloneDeep($scope.getSports.both);
+                            _.each($scope.maleAndFemale, function (key) {
+                                key.orderage = parseInt(key.ageData.name.slice(2));
+                            });
+                            _.each($scope.maleAgeGrp, function (key) {
+                                key.orderage = parseInt(key.ageData.name.slice(2));
+                            });
+                            _.each($scope.femaleAgeGrp, function (key) {
+                                key.orderage = parseInt(key.ageData.name.slice(2));
+                            });
 
-                        $scope.sortGenderWise($scope.selectService.gender);
-                        //  $scope.sortGenderWise('male');
+                            $scope.sortGenderWise($scope.selectService.gender);
+                            //  $scope.sortGenderWise('male');
+                        } else {
+                            console.log("im in false");
+                            $scope.visibleDiv = false;
+                            if (allData.error === "Sports Category Not Found") {
+                                toastr.error('You are not Eligible for this Sport', 'Error Message');
+                                $state.go('sports-selection');
+                            }
+                        }
                     } else {
                         $scope.isDisabled = false;
                         toastr.error(allData.message, 'Error Message');
@@ -333,8 +357,62 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
             });
         }
     };
+
     $scope.sportGet();
 
+
+
+
+
+    $scope.pushToTeam = function (checked, bool, listOfAthelete) {
+        if ($.jStorage.get("sportTitle") === "Tennis Mixed Doubles") {
+            $scope.selectService.pushToTeam(checked, bool, listOfAthelete);
+            $scope.selectService.team = _.uniqBy($scope.selectService.team, 'gender');
+            if (bool) {
+                var indexOfAthlete = _.findIndex($scope.selectService.team, ['sfaId', checked.sfaId]);
+                if (indexOfAthlete < 0) {
+                    var findIndex = _.findIndex($scope.listOfAthelete, ['sfaId', checked.sfaId]);
+                    if (findIndex >= 0) {
+                        $scope.listOfAthelete[findIndex].disableGender = true;
+                        $scope.listOfAthelete[findIndex].checked = false;
+                    } else {
+                        console.log("im in false");
+                    }
+                } else {
+                    console.log("im***********");
+                }
+            }
+
+            if ($scope.selectService.team.length === 2) {
+                $scope.setDisabled = true;
+            } else {
+                $scope.setDisabled = false;
+            }
+            if ($scope.selectService.team.length === 0) {
+                _.each($scope.listOfAthelete, function (key) {
+                    if (key.disableGender) {
+                        key.disableGender = false;
+                    }
+                });
+            }
+        } else {
+            $scope.selectService.pushToTeam(checked, bool, listOfAthelete);
+        }
+
+    };
+
+    $scope.deselectCheckbx = function () {
+        if ($.jStorage.get("sportTitle") === "Tennis Mixed Doubles") {
+            $scope.setDisabled = false;
+            console.log("immin");
+            _.each($scope.listOfAthelete, function (key) {
+                if (key.disableGender) {
+                    key.disableGender = false;
+                    key.checked = false;
+                }
+            });
+        }
+    };
 
     // $scope.editTeam = function () {
     //     selectService.editTeam($scope.selectAthlete, function (data) {
@@ -344,8 +422,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     // };
 
 
-    $scope.maxPlayerAllow = function () {
-
+    $scope.maxPlayerAllow = function (index) {
 
         if (selectService.team.length > $scope.maxPlayer) {
             toastr.error('Kindly select a minimum of' + ' ' + ' ' + $scope.minPlayer + ' ' + 'players and a maximum of' + ' ' + $scope.maxPlayer + ' ' +
