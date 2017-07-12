@@ -21,6 +21,26 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
         }
     };
 
+    this.setBasicSportDetails = function (formData, callback) {
+        $http({
+            url: adminUrl2 + 'SportsListSubCategory/getSportsDeails',
+            method: 'POST',
+            data: formData
+        }).then(function (data) {
+            if (data.data.value) {
+                // console.log(data.data.data.sportName);
+                // this.sportName = data.data.data.sportName;
+                // this.sportType = data.data.data.sportType;
+                // console.log(this.sportName, this.sportType);
+
+                callback(data.data.data);
+
+            } else {
+                console.log(data);
+            }
+        });
+    };
+
     //make .checked to true if already selected
     this.isAtheleteSelected = function (listOfAthlete, team) {
         var temp = _.intersectionBy(listOfAthlete, this.team, '_id');
@@ -30,15 +50,13 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
         return listOfAthlete;
     };
 
-    this.configAtheleteLoginVar = function () {
 
-    };
 
     // push to Team
     this.pushToTeam = function (obj, bool, listOfAthlete, events) {
+        console.log(obj, bool, listOfAthlete, events);
 
         function checkIfApplicable(sT, sN) {
-
             var isApplicable = true;
             switch (sT) {
                 case "K":
@@ -90,9 +108,9 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             } else {
                 //get Data for columns accordingly eg:ageGroup
                 obj = this.getAgeGroupByAthelete(obj, confirmPageKey, events);
-                console.log(obj);
                 if (checkIfApplicable(this.sportType, this.sportName)) {
                     this.team.push(obj);
+                    this.team = _.uniqBy(this.team, '_id');
                 }
             }
         } else {
@@ -116,7 +134,6 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
                 i.data = _.filter(i.data, function (j) {
                     var startDate = moment(j.fromAge);
                     var endDate = moment(j.toAge);
-                    console.log(birthdate.isBetween(startDate, endDate));
                     if ((j.gender == athelete.gender) && birthdate.isBetween(startDate, endDate)) {
                         return true;
                     } else {
@@ -258,14 +275,6 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
         return athelete;
         // athlete birthdate
         // _.filter(sports,between athlete birthdate and filter by gender as well);
-    };
-
-    this.getSportFromFilters = function (filter, sports) {
-        // filter to find sports list for all
-    };
-
-    this.formatDataForSending = function () {
-        // _.map();
     };
 
     this.goNext = function (basicSportDetails, gender, age) {

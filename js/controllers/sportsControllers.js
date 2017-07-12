@@ -47,7 +47,7 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
             $scope.getAllRegisteredSport();
         }
     };
-
+    // ===========removeThis========
     $scope.redirectTo = function (val) {
         console.log(val);
         $.jStorage.set("confirmPageKey", val.sportType);
@@ -55,7 +55,7 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
         console.log(selectService.redirectTo);
     };
     // ==========getAllSportsListSubCategory==============
-
+    // $scope.allSportsListSubCatArr = [];
     var tempObj = {};
     tempObj.tempArr = [];
     NavigationService.getAllSportsListSubCategory(function (data) {
@@ -117,12 +117,22 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
     };
 });
 
-firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state, NavigationService, toastr, $timeout, $stateParams, errorService, loginService) {
+firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state, NavigationService, toastr, $timeout, $stateParams, errorService, loginService, selectService) {
     $scope.template = TemplateService.changecontent("sports-rules");
     $scope.menutitle = NavigationService.makeactive("Sports Rules And Regulations");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.selectService = selectService;
+    $scope.basicSportDetails = {};
+    $scope.selectService.setBasicSportDetails({
+        '_id': $stateParams.id
+    }, function (obj) {
+        $scope.basicSportDetails = obj;
+        $scope.selectService.sportName = obj.sportName;
+        $scope.selectService.sportType = obj.sportType;
+        console.log($scope.basicSportDetails);
+    });
     loginService.loginGet(function (data) {
         $scope.detail = data;
     });
@@ -142,7 +152,10 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
         });
     };
 
+
+
     if ($stateParams.id) {
+        $.jStorage.set("sportsId", $stateParams.id);
         NavigationService.getSportsRules($stateParams.id, function (data) {
             errorService.errorCode(data, function (allData) {
                 if (!allData.message) {
@@ -150,7 +163,6 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
                         $scope.sportsRulesAndRegulation = allData.data;
                         $scope.ruleArray = [];
                         $scope.ruleArray.push(allData.data.rules);
-                        console.log('temp', $scope.ruleArray);
                     } else {
                         console.log("no data found");
                     }
@@ -160,6 +172,23 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
                 }
             });
         });
+        if ($.jStorage.get('userType') == 'athlete') {
+            NavigationService.getEvents({
+                'athleteToken': $.jStorage.get('userDetails').accessToken,
+                '_id': $stateParams.id
+            }, function (data) {
+                errorService.errorCode(data, function (allData) {
+                    if (!allData.message) {
+                        $scope.getEvents = allData.data;
+                        $scope.selectService.pushToTeam($.jStorage.get('userDetails'), true, [], $scope.getEvents);
+                    } else {
+                        $scope.isDisabled = false;
+                        toastr.error(allData.message, 'Error Message');
+                    }
+                });
+            });
+        }
+
     }
     $scope.goTotermsCheck = function (val, id, isTeam) {
         $scope.yourPromise = NavigationService.success().then(function () {
@@ -173,9 +202,15 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
                             id: id
                         });
                     } else {
-                        $state.go('individual-selection', {
-                            id: id
-                        });
+                        if ($.jStorage.get('userType') == 'school') {
+                            $state.go('individual-selection', {
+                                id: id
+                            });
+                        } else if ($.jStorage.get('userType') == 'athlete') {
+                            console.log($scope.basicSportDetails);
+                            $scope.selectService.goNext($scope.basicSportDetails, null, null);
+                        }
+
                     }
 
                 }
@@ -313,6 +348,8 @@ firstApp.controller('SportTeamCtrl', function ($scope, TemplateService, toastr, 
     // function for printing..
     $scope.printFunction = function (printSectionId) {
         var innerContents = document.getElementById(printSectionId).innerHTML;
+        // var popupWinindow = window.open('', '_blank', 'width=600,height=700,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
+        // popupWinindow.document.open();
         var popupWinindow = window.open('width=600,height=700,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
         // popupWinindow.document.open();
         popupWinindow.document.write('<html><head><link rel="stylesheet" type="text/css" href="../../css/main.css" /></head><body onload="window.print()">' + innerContents + '</html>');

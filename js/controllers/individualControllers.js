@@ -52,6 +52,7 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
         $scope.basicSportDetails = data.data;
         $scope.selectService.sportName = data.data.sportName;
         $scope.selectService.sportType = data.data.sportType;
+        $.jStorage.set("confirmPageKey", data.data.sportType);
     });
 
     if ($.jStorage.get("userDetails") === null) {
