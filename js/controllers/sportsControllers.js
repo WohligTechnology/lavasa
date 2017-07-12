@@ -131,7 +131,7 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
         $scope.basicSportDetails = obj;
         $scope.selectService.sportName = obj.sportName;
         $scope.selectService.sportType = obj.sportType;
-        $scope.selectService.isTeam=obj.isTeam;
+        $scope.selectService.isTeam = obj.isTeam;
 
     });
     loginService.loginGet(function (data) {
@@ -282,11 +282,13 @@ firstApp.controller('SportIndividualCtrl', function ($scope, TemplateService, to
     // function for printing..
     $scope.printFunction = function (printSectionId) {
         var innerContents = document.getElementById(printSectionId).innerHTML;
-        var popupWinindow = window.open('', '_blank', 'width=600,height=700,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
-        popupWinindow.document.open();
-        popupWinindow.document.write('<html><head><link rel="stylesheet" type="text/css" href="../../sass/main.scss" /></head><body onload="window.print()">' + innerContents + '</html>');
+        // var popupWinindow = window.open('', '_blank', 'width=600,height=700,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
+        // popupWinindow.document.open();
+        var popupWinindow = window.open('width=600,height=700,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
+        // popupWinindow.document.open();
+        popupWinindow.document.write('<html><head><link rel="stylesheet" type="text/css" href="../../css/main.css" /></head><body onload="window.print()">' + innerContents + '</html>');
         popupWinindow.document.close();
-    }
+    };
 });
 
 firstApp.controller('SportTeamCtrl', function ($scope, TemplateService, toastr, NavigationService, $timeout, $state, $stateParams, loginService, errorService) {

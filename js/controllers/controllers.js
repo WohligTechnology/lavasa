@@ -3017,7 +3017,7 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
                                     key.self.result = drawf == "knockout" ? key[drawf]["result" + key[drawf].participantType + '2'] : key[drawf]["result2"];
                                 }
                             } else {
-                                if (key[drawf][key[drdrawfawf].participantType + '1']._id == key.team._id) {
+                                if (key[drawf][key[drawf].participantType + '1']._id == key.team._id) {
                                     key.opponent.detail = key[drawf][key[drawf].participantType + '2'];
                                     key.opponent.result = drawf == "knockout" ? key[drawf]["result" + key[drawf].participantType + '2'] : key[drawf]["result2"];
                                     key.self.result = drawf == "knockout" ? key[drawf]["result" + key[drawf].participantType + '1'] : key[drawf]["result1"];

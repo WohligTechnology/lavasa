@@ -84,6 +84,18 @@
     &:first-child {
         border-top: none;
     }
+    .table {
+        th {
+            background: #091a71;
+            color: #fff;
+        }
+        tr {
+            background: transparent;
+            td {
+                text-align: left;
+            }
+        }
+    }
 }
 
 .sport-individualtable {

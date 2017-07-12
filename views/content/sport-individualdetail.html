@@ -21,82 +21,138 @@
           </ul>
         </div>
       </div>
-      <!-- LOGIN DETAILS END -->
+    </div>
+    <!-- LOGIN DETAILS END -->
 
-      <!-- SPORT DETAIL HEADER -->
+    <!-- SPORT DETAIL HEADER -->
+    <div class="row">
       <div class="col-md-3 col-sm-3 col-xs-12">
         <div class="para2">
           <button class="btn btn-default " type="button" ui-sref="sports-selection">Back</button>
         </div>
       </div>
       <div class="col-md-6 col-sm-6 col-xs-6">
-        <div class="para2 text-center sportdetail-header mb25">
+        <!-- <div class="para2 text-center sportdetail-header mb25">
           <h3>{{getIndividualDetails[0].info[0].sportName}}</h3>
-        </div>
+        </div> -->
       </div>
       <div class="col-md-3 col-sm-3 col-xs-6">
         <div class="para2 text-right sportsdetail-download">
           <button class="btn btn-default " type="button" ng-click="printFunction('printSectionId')">Print</button>
         </div>
       </div>
-      <!-- SPORT DETAIL HEADER END -->
+    </div>
+    <!-- SPORT DETAIL HEADER END -->
 
-      <!-- DETAILS TABLE -->
+    <!-- DETAILS TABLE -->
 
 
-      <div class="text-center sp-head-tab" ng-if="getIndividualDetails.length === undefined">
-        <h3>Loading...</h3>
+    <div class="text-center sp-head-tab" ng-if="getIndividualDetails.length === undefined">
+      <h3>Loading...</h3>
+    </div>
+    <div class="" id="printSectionId">
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+          <div class="para2 text-center sportdetail-header mb25">
+            <h3>{{detail.schoolName}}-{{getIndividualDetails[0].info[0].sportName}}</h3>
+          </div>
+        </div>
       </div>
-
-      <div class="col-md-12 col-sm-12 col-xs-12" id="printSectionId">
-        <div class="sportdetail-table" ng-repeat="sport in getIndividualDetails track by $index">
-          <div class="step7">{{sport._id}}</div>
-          <div class="box-padd">
-            <div class="selectedTeamTable sport-individualtable table-responsive scrollbar style-1">
-              <table class="table table-bordered">
-                <thead>
-                  <th>
-                    <div class="mid_col sportdetail-th">Sr. No.</div>
-                  </th>
-                  <th>
-                    <div class="sportdetail-th">Sport Name</div>
-                  </th>
-                  <th>
-                    <div class="sportdetail-th">SFA ID-Name</div>
-                  </th>
-                  <th>
-                    <div class="sportdetail-th">Gender</div>
-                  </th>
-                  <th>
-                    <div class="sportdetail-th">Age Category</div>
-                  </th>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="athlete in sport.info track by $index">
-                    <td>
-                      <div class="mid_cols sportdetail-td">{{$index+1}}</div>
-                    </td>
-                    <td>
-                      <div class="sportdetail-td">{{athlete.sportName}}</div>
-                    </td>
-                    <td>
-                      <div class="sportdetail-td" ng-if="athlete.middlename">{{athlete.sfaid}} - {{athlete.firstname}}&nbsp;{{athlete.middlename}}&nbsp;{{athlete.lastname}}</div>
-                      <div class="sportdetail-td" ng-if="!athlete.middlename">{{athlete.sfaid}} - {{athlete.firstname}}&nbsp;{{athlete.lastname}}</div>
-                    </td>
-                    <td>
-                      <div class="sportdetail-td">{{athlete.gender | firstcapitalize}}</div>
-                    </td>
-                    <td>
-                      <div class="sportdetail-td">{{athlete.age}}</div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+          <div class="sportdetail-table" ng-repeat="sport in getIndividualDetails track by $index">
+            <div class="step7">{{sport._id}}</div>
+            <div class="box-padd">
+              <div class="row">
+                <div class="col-md-10 col-sm-10 col-xs-12">
+                  <div class="pl5">
+                    <h4 ng-if="detail.userType === 'athlete'">
+                      <div class="sportdetail-td" ng-if="sport.info[0].middlename">{{sport.info[0].sfaid}} - {{sport.info[0].firstname}}&nbsp;{{sport.info[0].middlename}}&nbsp;{{sport.info[0].lastname}}</div>
+                      <div class="sportdetail-td" ng-if="!sport.info[0].middlename">{{sport.info[0].sfaid}} - {{sport.info[0].firstname}}&nbsp;{{sport.info[0].lastname}}</div>
+                    </h4>
+                    <h4>Created By: {{sport.info[0].createdBy}}</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="margin: 0 0px 0 -15px;">
+                <div class="col-md-10 col-sm-10 col-xs-12">
+                  <div class="selectedTeamTable table-responsive scrollbar style-1">
+                    <table class="table table-bordered">
+                      <thead>
+                        <th>
+                          <div class="mid_col sportdetail-th">Sr. No.</div>
+                        </th>
+                        <th ng-if="detail.userType === 'school'">
+                          <div class="sportdetail-th">SFA ID-Name</div>
+                        </th>
+                        <th ng-if="detail.userType === 'school'">
+                          <div class="sportdetail-th">Gender</div>
+                        </th>
+                        <th>
+                          <div class="sportdetail-th">Age Category</div>
+                        </th>
+                        <th ng-if="athlete.weight">
+                          <div class="sportdetail-th">Weight</div>
+                        </th>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="athlete in sport.info track by $index">
+                          <td>
+                            <div class="mid_cols sportdetail-td">{{$index+1}}</div>
+                          </td>
+                          <td ng-if="detail.userType === 'school'">
+                            <div class="sportdetail-td" ng-if="athlete.middlename">{{athlete.sfaid}} - {{athlete.firstname}}&nbsp;{{athlete.middlename}}&nbsp;{{athlete.lastname}}</div>
+                            <div class="sportdetail-td" ng-if="!athlete.middlename">{{athlete.sfaid}} - {{athlete.firstname}}&nbsp;{{athlete.lastname}}</div>
+                          </td>
+                          <td ng-if="detail.userType === 'school'">
+                            <div class="sportdetail-td">{{athlete.gender | firstcapitalize}}</div>
+                          </td>
+                          <td>
+                            <div class="sportdetail-td">{{athlete.age}}</div>
+                          </td>
+                          <td ng-if="athlete.weight">
+                            <div class="sportdetail-td">{{athlete.weight}}</div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- <table class="table table-bordered">
+                      <thead>
+                        <th>
+                          <div class="mid_col sportdetail-th">Sr. No.</div>
+                        </th>
+                        <th>
+                          <div class="sportdetail-th">SFA ID-Name</div>
+                        </th>
+                        <th>
+                          <div class="sportdetail-th">Role</div>
+                        </th>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="athlete in sport.info track by $index">
+                          <td>
+                            <div class="mid_cols sportdetail-td">{{$index+1}}</div>
+                          </td>
+                          <td>
+                            <div class="sportdetail-td" ng-if="athlete.middlename">{{athlete.sfaid}} - {{athlete.firstname}}&nbsp;{{athlete.middlename}}&nbsp;{{athlete.lastname}}</div>
+                            <div class="sportdetail-td" ng-if="!athlete.middlename">{{athlete.sfaid}} - {{athlete.firstname}}&nbsp;{{athlete.lastname}}</div>
+                          </td>
+                          <td ng-if="sportTitle === 'Basketball' || sportTitle === 'basketball' || sportTitle === 'Football' || sportTitle === 'football' || sportTitle === 'Handball' || sportTitle === 'Hockey' || sportTitle === 'hockey' || sportTitle === 'Kabaddi' || sportTitle === 'kabaddi' || sportTitle === 'Kho Kho' || sportTitle === 'kho kho' || sportTitle === 'Throwball' || sportTitle === 'throwball' || sportTitle === 'Volleyball' || sportTitle === 'volleyball' || sportTitle === 'Water Polo' || sportTitle === 'water polo'">
+                            <div class="sportdetail-td" ng-if="athlete.isCaptain && !athlete.isGoalKeeper">Captain</div>
+                            <div class="sportdetail-td" ng-if="athlete.isCaptain && athlete.isGoalKeeper">Captain , Goalkeeper</div>
+                            <div class="sportdetail-td" ng-if="!athlete.isCaptain">-</div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>-->
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- DETAILS TABLE END -->
     </div>
+    <!-- DETAILS TABLE END -->
   </div>
 </div>
