@@ -9,6 +9,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
     this.sportType = null; // eg:F,K,AAS,ST,I
     this.isValidForm = true;
     this.showMissingFields = false;
+    this.disableNextOnRules=false;
 
     this.initialFun = function () {
         loginService.loginGet(function (data) {
@@ -60,6 +61,11 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             var isApplicable = true;
             switch (sT) {
                 case "K":
+                    if (obj.eventKata.length <= 1 && obj.eventKumite.length <= 1) {
+                        obj.checked = false;
+                        toastr.error("Not Applicable");
+                        isApplicable = false;
+                    }
                     break;
                 case "FA":
                     console.log(obj);
@@ -111,6 +117,10 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
                 if (checkIfApplicable(this.sportType, this.sportName)) {
                     this.team.push(obj);
                     this.team = _.uniqBy(this.team, '_id');
+                }else{
+                    if($.jStorage.get('userType')=='athlete'){
+                        this.disableNextOnRules=true;
+                    }
                 }
             }
         } else {

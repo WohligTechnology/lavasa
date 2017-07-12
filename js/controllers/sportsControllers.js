@@ -131,7 +131,8 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
         $scope.basicSportDetails = obj;
         $scope.selectService.sportName = obj.sportName;
         $scope.selectService.sportType = obj.sportType;
-        console.log($scope.basicSportDetails);
+        $scope.selectService.isTeam=obj.isTeam;
+
     });
     loginService.loginGet(function (data) {
         $scope.detail = data;
