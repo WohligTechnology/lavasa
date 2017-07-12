@@ -199,8 +199,8 @@ firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, Nav
 
             } else {
                 // $scope.config.weightsReq = false;
-                $scope.config.event1Expression = "event1 as event1._id | formatEvent:event1.eventName for event1 in athelete.allEvents | orderBy:'_id' track by event1._id";
-                $scope.config.event2Expression = "event2 as event2._id | formatEvent:event2.eventName for event2 in athelete.optionalEvents | orderBy:'_id' track by event2._id";
+                $scope.config.event1Expression = "event1 as event1._id | formatEvent:event1.eventName for event1 in athelete.allEvents";
+                $scope.config.event2Expression = "event2 as event2._id | formatEvent:event2.eventName for event2 in athelete.optionalEvents";
             }
         }
     }
