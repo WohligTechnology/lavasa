@@ -62,9 +62,12 @@
             <div class="box-padd">
               <div class="row">
                 <div class="col-md-10 col-sm-10 col-xs-12">
-                  <div class="pl5">
-                    <h4>{{sport.info[0].gender | firstcapitalize}}-{{sport.info[0].age}}</h4>
+                  <div class="pl5 pull-left">
+                    <h4>{{sport.info[0].gender | firstcapitalize}} {{" "+sport.info[0].age}}</h4>
                     <h4>Created By: {{sport.info[0].createdBy}}</h4>
+                  </div>
+                  <div class="pull-right" ng-if="detail.userType == (sport.info[0].createdBy).toLowerCase() && detail.mixAccess" style="margin-right: 15px;">
+                    <a class="btn btn-default" href="">Edit</a>
                   </div>
                 </div>
               </div>
@@ -79,7 +82,7 @@
                         <th>
                           <div class="sportdetail-th">SFA ID-Name</div>
                         </th>
-                        <th>
+                        <th ng-if="sportTitle === 'Basketball' || sportTitle === 'basketball' || sportTitle === 'Football' || sportTitle === 'football' || sportTitle === 'Handball' || sportTitle === 'Hockey' || sportTitle === 'hockey' || sportTitle === 'Kabaddi' || sportTitle === 'kabaddi' || sportTitle === 'Kho Kho' || sportTitle === 'kho kho' || sportTitle === 'Throwball' || sportTitle === 'throwball' || sportTitle === 'Volleyball' || sportTitle === 'volleyball' || sportTitle === 'Water Polo' || sportTitle === 'water polo'">
                           <div class="sportdetail-th">Role</div>
                         </th>
                       </thead>

@@ -10,20 +10,22 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, $stateParams, $loca
     $scope.classactive = 'blue-active';
     $scope.classinactive = '';
     $scope.constraints = {};
+    $scope.userBySfa = {};
 
     console.log("****************", $stateParams.id);
     console.log("****************", $stateParams.userType);
     $scope.getOneDetails = function (parameterId) {
         var count = 1;
         NavigationService.editDetails(parameterId, function (data) {
-
             errorService.errorCode(data, function (allData) {
 
                 if (!allData.message) {
 
                     if (allData.value) {
                         console.log("**************", allData.data);
-                        NavigationService.setUser(allData.data.data);
+                        $scope.userBySfa = allData.data.data;
+                        $scope.userBySfa.mixAccess = allData.data.mixAccess;
+                        NavigationService.setUser($scope.userBySfa);
                         loginService.loginGet(function (data) {
                             $scope.detail = data;
                             console.log(data);
@@ -51,7 +53,6 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, $stateParams, $loca
             $scope.parameterId.athleteId = $stateParams.id;
             $scope.getOneDetails($scope.parameterId);
         }
-
     } else {
         if ($.jStorage.get("userDetails") === null) {
             $state.go('sports-registration');
@@ -341,6 +342,7 @@ firstApp.controller('SportIndividualCtrl', function ($scope, TemplateService, to
                     } else {
                         $scope.getIndividualDetails = allData.data;
                         console.log($scope.getIndividualDetails);
+                        $scope.sportBy = $scope.getIndividualDetails[0].info[0].createdBy.toLowerCase();
                     }
                 }
             });
@@ -409,6 +411,7 @@ firstApp.controller('SportTeamCtrl', function ($scope, TemplateService, toastr, 
                     } else {
                         $scope.getTeamDetails = allData.data;
                         $scope.sportTitle = $scope.getTeamDetails[0].info[0].sportName;
+                        $scope.sportBy = $scope.getTeamDetails[0].info[0].createdBy;
 
                     }
                 }
