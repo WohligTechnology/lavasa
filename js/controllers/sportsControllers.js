@@ -1,4 +1,4 @@
-firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, errorService, loginService, selectService, $uibModal) {
+firstApp.controller('SportsSelectionCtrl', function ($scope, $stateParams, $location, TemplateService, NavigationService, $timeout, toastr, $state, errorService, loginService, selectService, $uibModal) {
     $scope.template = TemplateService.changecontent("sports-selection");
     $scope.menutitle = NavigationService.makeactive("Sports Selection");
     TemplateService.header = "views/header2.html";
@@ -11,20 +11,67 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
     $scope.classinactive = '';
     $scope.constraints = {};
 
+    console.log("****************", $stateParams.id);
+    console.log("****************", $stateParams.userType);
+    $scope.getOneDetails = function (parameterId) {
+        var count = 1;
+        NavigationService.editDetails(parameterId, function (data) {
+
+            errorService.errorCode(data, function (allData) {
+
+                if (!allData.message) {
+
+                    if (allData.value) {
+                        console.log("**************", allData.data);
+                        NavigationService.setUser(allData.data.data);
+                        loginService.loginGet(function (data) {
+                            $scope.detail = data;
+                            console.log(data);
+                        });
+
+                    } else {
+
+                    }
+                } else {
+                    toastr.error(allData.message, 'Error Message');
+                }
+            });
+        });
+    };
+
+    if ($stateParams.id) {
+        // $.jStorage.flush();
+        $scope.parameterId = {};
+        if ($stateParams.userType === 'school') {
+            NavigationService.setUserType('school');
+            $scope.parameterId.schoolId = $stateParams.id;
+            $scope.getOneDetails($scope.parameterId);
+        } else {
+            NavigationService.setUserType('athlete');
+            $scope.parameterId.athleteId = $stateParams.id;
+            $scope.getOneDetails($scope.parameterId);
+        }
+
+    } else {
+        if ($.jStorage.get("userDetails") === null) {
+            $state.go('sports-registration');
+        }
+    }
+
     loginService.loginGet(function (data) {
         $scope.detail = data;
         console.log(data);
     });
-
-    if ($.jStorage.get("userType") === "school") {
-        $scope.constraints.schoolToken = $.jStorage.get("userDetails").accessToken;
-    } else {
-        $scope.constraints.athleteToken = $.jStorage.get("userDetails").accessToken;
+    if ($.jStorage.get("userType") !== null && $.jStorage.get("userDetails") !== null) {
+        if ($.jStorage.get("userType") === "school") {
+            $scope.constraints.schoolToken = $.jStorage.get("userDetails").accessToken;
+        } else {
+            $scope.constraints.athleteToken = $.jStorage.get("userDetails").accessToken;
+        }
     }
 
-    if ($.jStorage.get("userDetails") === null) {
-        $state.go('sports-registration');
-    }
+
+
 
     $scope.logoutCandidate = function () {
         loginService.logoutCandidate(function (data) {

@@ -764,6 +764,14 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
                 method: 'POST',
                 data: request
             }).then(callback);
-        }
+        },
+        editDetails: function (id, callback) {
+            $http({
+                url: adminUrl2 + 'Login/editAccess',
+                method: 'POST',
+                data: id
+            }).then(callback);
+        },
+
     };
 });

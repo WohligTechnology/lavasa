@@ -26,6 +26,7 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
         $scope.detail = data;
     });
 
+
     if ($scope.detail.userType === "athlete") {
         $scope.constraints.athleteToken = $scope.detail.accessToken;
         $scope.getAthletePerSchoolObj.athleteToken = $scope.detail.accessToken;

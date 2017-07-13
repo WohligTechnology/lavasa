@@ -372,6 +372,11 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "views/template.html",
             controller: 'SportsSelectionCtrl'
         })
+        .state('sports-selection-', {
+            url: "/sports-selection/:userType/:id",
+            templateUrl: "views/template.html",
+            controller: 'SportsSelectionCtrl'
+        })
 
         .state('team-selection', {
             url: "/team-selection/:id",
