@@ -37,11 +37,14 @@
               <div class="">
                 <form class="form-horizontal">
                   <div class="form-group">
-                    <div class="readSchoolName">
+                    <div class="readSchoolName selectDefault">
                       <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12">
                         <label for="inputEmail3" class="col-md-4 col-sm-4 col-xs-12 control-label para3">School Name:</label>
                         <div class="col-md-7 col-sm-8 col-xs-12">
-                          <input type="text" class="form-control" ng-model="formData.schoolName" id="inputEmail3" readonly>
+                          <!-- <input type="text" class="form-control" ng-model="formData.schoolName" id="inputEmail3" readonly> -->
+                          <select class="form-control changeBorder" id="inputEmail3">
+                            <option value="">{{formData.schoolName}}</option>
+                          </select>
                         </div>
                       </div>
                     </div>

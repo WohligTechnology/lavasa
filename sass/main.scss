@@ -7289,6 +7289,17 @@ h1.forgot-space {
             }
         }
     }
+    .form-control {
+        padding: 0;
+    }
+    .ui-select-match {
+        .btn {
+            margin: 5px;
+        }
+        .btn-xs {
+            font-size: 14px;
+        }
+    }
 }
 
 //rules and regulataion template
@@ -7442,6 +7453,23 @@ h1.forgot-space {
         letter-spacing: 1px;
         text-align: center;
         color: white;
+    }
+}
+
+.selectDefault {
+    // select {
+    //     /*for firefox*/
+    //     -moz-appearance: none;
+    //     /*for chrome*/
+    //     -webkit-appearance: none;
+    // }
+    // /*for IE10*/
+    // select::-ms-expand {
+    //     display: none;
+    // }
+    .changeBorder {
+        border-color: #091a71;
+        cursor: pointer;
     }
 }
 

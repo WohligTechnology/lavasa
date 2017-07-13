@@ -76,12 +76,22 @@
       .selectAthletes .separateTwoBox .school-sec {
         min-height: 183px;
       }
+      .spc-inside-box {
+        .form-control {
+          font-size: 11px;
+        }
+      }
     }
 
     @media (max-width:$screen-sm-max) {
       // .ver-line:after {
       //   right: -80px;
       // }
+      .spc-inside-box {
+        .form-control {
+          font-size: 14px;
+        }
+      }
       .mb-191 {
         margin-bottom: 155px;
       }
