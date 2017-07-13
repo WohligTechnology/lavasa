@@ -29,13 +29,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             data: formData
         }).then(function (data) {
             if (data.data.value) {
-                // console.log(data.data.data.sportName);
-                // this.sportName = data.data.data.sportName;
-                // this.sportType = data.data.data.sportType;
-                // console.log(this.sportName, this.sportType);
-
                 callback(data.data.data);
-
             } else {
                 console.log(data);
             }

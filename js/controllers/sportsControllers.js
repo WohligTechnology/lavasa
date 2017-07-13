@@ -53,6 +53,28 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, TemplateService, Na
         $.jStorage.set("confirmPageKey", val.sportType);
         selectService.redirectTo = val.sportType;
         console.log(selectService.redirectTo);
+        if ($.jStorage.get('userType') == 'athlete') {
+            NavigationService.getIndividualAthlete({
+                'athleteToken': $.jStorage.get('userDetails').accessToken,
+                '_id': val._id,
+                'age': '',
+                'gender': '',
+                'page': 1
+            }, function (data) {
+                console.log(data);
+                if (data.data.data._id) {
+                    $state.go('sports-rules', {
+                        id: val._id
+                    })
+                } else {
+                    toastr.error("You are already selected for this sport");
+                }
+            })
+        } else {
+            $state.go('sports-rules', {
+                id: val._id
+            })
+        }
     };
     // ==========getAllSportsListSubCategory==============
     // $scope.allSportsListSubCatArr = [];
