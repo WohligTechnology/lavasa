@@ -386,32 +386,32 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         })
 
         .state('confirmteam', {
-            url: "/confirmteam",
+            url: "/confirm1/:name",
             templateUrl: "views/template.html",
             controller: 'ConfirmTeamCtrl'
         })
         .state('confirm-individual', {
-            url: "/confirm-individual",
+            url: "/confirm2/:name",
             templateUrl: "views/template.html",
             controller: 'ConfirmIndividualCtrl'
         })
         .state('confirm-fencing', {
-            url: "/confirm-fencing",
+            url: "/confirm3/:name",
             templateUrl: "views/template.html",
             controller: 'ConfirmFencingCtrl'
         })
         .state('confirm-karate', {
-            url: "/confirm-karate",
+            url: "/confirm4/:name",
             templateUrl: "views/template.html",
             controller: 'ConfirmKarateCtrl'
         })
-        .state('confirm-relay', {
-            url: "/confirm-relay",
-            templateUrl: "views/template.html",
-            controller: 'ConfirmRelayCtrl'
-        })
+        // .state('confirm-relay', {
+        //     url: "/confirm/:name",
+        //     templateUrl: "views/template.html",
+        //     controller: 'ConfirmRelayCtrl'
+        // })
         .state('confirm-athleteswim', {
-            url: "/confirm-athleteswim",
+            url: "/confirm5/:name",
             templateUrl: "views/template.html",
             controller: 'ConfirmAthSwmCtrl'
         })
@@ -420,11 +420,11 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "views/template.html",
             controller: 'DummyCtrl'
         })
-        .state('confirm-shooting', {
-            url: "/confirm-shooting",
-            templateUrl: "views/template.html",
-            controller: 'ConfirmShootingCtrl'
-        })
+        // .state('confirm-shooting', {
+        //     url: "/confirm-shooting",
+        //     templateUrl: "views/template.html",
+        //     controller: 'ConfirmShootingCtrl'
+        // })
         .state('sport-individualdetail', {
             url: "/sport-individualdetail/:id",
             templateUrl: "views/template.html",

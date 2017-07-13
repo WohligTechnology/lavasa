@@ -9,7 +9,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
     this.sportType = null; // eg:F,K,AAS,ST,I
     this.isValidForm = true;
     this.showMissingFields = false;
-    this.disableNextOnRules=false;
+    this.disableNextOnRules = false;
 
     this.initialFun = function () {
         loginService.loginGet(function (data) {
@@ -111,9 +111,9 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
                 if (checkIfApplicable(this.sportType, this.sportName)) {
                     this.team.push(obj);
                     this.team = _.uniqBy(this.team, '_id');
-                }else{
-                    if($.jStorage.get('userType')=='athlete'){
-                        this.disableNextOnRules=true;
+                } else {
+                    if ($.jStorage.get('userType') == 'athlete') {
+                        this.disableNextOnRules = true;
                     }
                 }
             }
@@ -291,19 +291,29 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             //change state based on sportType [why:coz confiem pages are different for each sports]
             switch (basicSportDetails.sportType) {
                 case "K":
-                    $state.go("confirm-karate");
+                    $state.go("confirm-karate", {
+                        name: basicSportDetails.sportName
+                    });
                     break;
                 case "FA":
-                    $state.go("confirm-fencing");
+                    $state.go("confirm-fencing", {
+                        name: basicSportDetails.sportName
+                    });
                     break;
                 case "AAS":
-                    $state.go("confirm-athleteswim");
+                    $state.go("confirm-athleteswim", {
+                        name: basicSportDetails.sportName
+                    });
                     break;
                 case "I":
-                    $state.go("confirm-individual");
+                    $state.go("confirm-individual", {
+                        name: basicSportDetails.sportName
+                    });
                     break;
                 case "CT":
-                    $state.go("confirmteam");
+                    $state.go("confirmteam", {
+                        name: basicSportDetails.sportName
+                    });
                     break;
             }
         });
