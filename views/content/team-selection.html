@@ -159,7 +159,8 @@
                                                 <div class="readSchoolName">
                                                     <label for="inputEmail3" class="col-md-3 col-sm-3 col-xs-12 control-label para2" placeholder="Enter SFA ID">SFA ID:</label>
                                                     <div class="col-md-7 col-sm-7 col-xs-9">
-                                                        <input type="text" class="form-control" ng-model="getAthletePerSchoolObj.sfaid" id="inputEmail3" touppercase ng-change="searchaBysfaId(getAthletePerSchoolObj.sfaid);">
+                                                        <input type="text" class="form-control" ng-model="getAthletePerSchoolObj.sfaid" id="inputEmail3" ng-model-options="{debounce: 750}"
+                                                            touppercase ng-change="searchaBysfaId(getAthletePerSchoolObj.sfaid);">
                                                     </div>
                                                     <div class="hover-img margin0 pt7 col-md-2 col-sm-2 col-xs-3">
                                                         <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
@@ -188,7 +189,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-12 mob-bottom">
-                                                        <input type="text" class="form-control" ng-model="getAthletePerSchoolObj.sfaid" id="inputEmail3" touppercase ng-change="searchaBysfaId(getAthletePerSchoolObj.sfaid);">
+                                                        <input type="text" class="form-control" ng-model="getAthletePerSchoolObj.sfaid" id="inputEmail3" ng-model-options="{debounce: 750}"
+                                                            touppercase ng-change="searchaBysfaId(getAthletePerSchoolObj.sfaid);">
                                                     </div>
                                                 </div>
                                             </div>
