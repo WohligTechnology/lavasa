@@ -12,6 +12,20 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, $stateParams, $loca
     $scope.constraints = {};
     $scope.userBySfa = {};
 
+    $scope.callLogin = function () {
+        loginService.loginGet(function (data) {
+            $scope.detail = data;
+            console.log(data);
+        });
+        if ($.jStorage.get("userType") !== null && $.jStorage.get("userDetails") !== null) {
+            if ($.jStorage.get("userType") === "school") {
+                $scope.constraints.schoolToken = $.jStorage.get("userDetails").accessToken;
+            } else {
+                $scope.constraints.athleteToken = $.jStorage.get("userDetails").accessToken;
+            }
+        }
+    };
+
     console.log("****************", $stateParams.id);
     console.log("****************", $stateParams.userType);
     $scope.getOneDetails = function (parameterId) {
@@ -55,20 +69,6 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, $stateParams, $loca
         }
         $scope.callLogin();
     }
-
-    $scope.callLogin = function () {
-        loginService.loginGet(function (data) {
-            $scope.detail = data;
-            console.log(data);
-        });
-        if ($.jStorage.get("userType") !== null && $.jStorage.get("userDetails") !== null) {
-            if ($.jStorage.get("userType") === "school") {
-                $scope.constraints.schoolToken = $.jStorage.get("userDetails").accessToken;
-            } else {
-                $scope.constraints.athleteToken = $.jStorage.get("userDetails").accessToken;
-            }
-        }
-    };
 
 
 

@@ -100,8 +100,8 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                                     $scope.selectAthlete.push(value);
                                     $scope.busy = false;
                                 });
-
                                 $scope.listOfAthelete = $scope.selectService.isAtheleteSelected($scope.selectAthlete);
+                                $scope.listOfAthelete = _.uniqBy($scope.listOfAthelete, 'sfaId');
                                 if ($scope.detail.userType === 'athlete') {
                                     var indexOfAthlete = _.findIndex($scope.listOfAthelete, ['sfaId', $scope.detail.sfaIdObj]);
 
