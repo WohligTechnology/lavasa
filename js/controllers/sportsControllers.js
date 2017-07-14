@@ -26,13 +26,9 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, $stateParams, $loca
                         $scope.userBySfa = allData.data.data;
                         $scope.userBySfa.mixAccess = allData.data.mixAccess;
                         NavigationService.setUser($scope.userBySfa);
-                        loginService.loginGet(function (data) {
-                            $scope.detail = data;
-                            console.log(data);
-                        });
-
+                        $scope.callLogin();
                     } else {
-
+                        toastr.error('Something went wrong', 'Error Message');
                     }
                 } else {
                     toastr.error(allData.message, 'Error Message');
@@ -57,19 +53,22 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, $stateParams, $loca
         if ($.jStorage.get("userDetails") === null) {
             $state.go('sports-registration');
         }
+        $scope.callLogin();
     }
 
-    loginService.loginGet(function (data) {
-        $scope.detail = data;
-        console.log(data);
-    });
-    if ($.jStorage.get("userType") !== null && $.jStorage.get("userDetails") !== null) {
-        if ($.jStorage.get("userType") === "school") {
-            $scope.constraints.schoolToken = $.jStorage.get("userDetails").accessToken;
-        } else {
-            $scope.constraints.athleteToken = $.jStorage.get("userDetails").accessToken;
+    $scope.callLogin = function () {
+        loginService.loginGet(function (data) {
+            $scope.detail = data;
+            console.log(data);
+        });
+        if ($.jStorage.get("userType") !== null && $.jStorage.get("userDetails") !== null) {
+            if ($.jStorage.get("userType") === "school") {
+                $scope.constraints.schoolToken = $.jStorage.get("userDetails").accessToken;
+            } else {
+                $scope.constraints.athleteToken = $.jStorage.get("userDetails").accessToken;
+            }
         }
-    }
+    };
 
 
 
