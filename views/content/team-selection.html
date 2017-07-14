@@ -312,7 +312,7 @@
                                     <!--<button class="btn btn-default width-86 sub-mit" type="button" ui-sref="confirmteam" ng-disabled="disabledNextBtn">Next</button>-->
                                     <button class="btn btn-default width-86 sub-mit" type="button" ui-sref="sports-selection">Back</button>
 
-                                    <button class="btn btn-default width-86 sub-mit" type="button" ng-click="selectService.goNext(basicSportDetails,formData.gender,formData.ageGroup);"
+                                    <button class="btn btn-default width-86 sub-mit" type="button" ng-click="selectService.goNext(basicSportDetails,formData.gender,formData.ageGroup,selectService.team.length);"
                                         ng-disabled="selectService.team.length < minPlayer || selectService.team.length > maxPlayer">Next</button>
                                     <!--<button class="btn btn-default width-86 sub-mit" type="button" ng-click="selectService.goNext('confirmteam',formData.gender,formData.ageGroup);"
                                         ng-disabled="selectService.team.length < minPlayer || selectService.team.length > maxPlayer"

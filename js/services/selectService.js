@@ -281,15 +281,15 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
         // _.filter(sports,between athlete birthdate and filter by gender as well);
     };
 
-    this.goNext = function (basicSportDetails, gender, age) {
+    this.goNext = function (basicSportDetails, gender, age, length) {
         this.yourPromise = NavigationService.success().then(function () {
-            console.log(basicSportDetails, gender, age, "---------Gonext service----------");
+            console.log(basicSportDetails, gender, age, length, "---------Gonext service----------");
 
             this.gender = gender;
             this.ageGroup = age;
-
+            // console.log();
             // For individual sportselection ,if team has no members return false with error msg
-            if(!basicSportDetails || !basicSportDetails.isTeam){
+            if (basicSportDetails.isTeam === false && length === 0) {
                 toastr.error("please select atleast one player");
                 return false;
             }
