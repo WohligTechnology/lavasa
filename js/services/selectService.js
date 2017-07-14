@@ -288,6 +288,12 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
             this.gender = gender;
             this.ageGroup = age;
 
+            // For individual sportselection ,if team has no members return false with error msg
+            if(!basicSportDetails || !basicSportDetails.isTeam){
+                toastr.error("please select atleast one player");
+                return false;
+            }
+
             //change state based on sportType [why:coz confiem pages are different for each sports]
             switch (basicSportDetails.sportType) {
                 case "K":
