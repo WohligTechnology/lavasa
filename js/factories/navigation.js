@@ -545,7 +545,9 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
                 TTL: 86400000
             });
         },
-
+        setTeamid: function (id) {
+            $.jStorage.set("teamId", id);
+        },
         setSportId: function (data) {
             $.jStorage.set("sportId", data);
         },
@@ -772,6 +774,12 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
                 data: id
             }).then(callback);
         },
-
+        editTeam: function (id, callback) {
+            $http({
+                url: adminUrl2 + 'teamsport/editTeam',
+                method: 'POST',
+                data: id
+            }).then(callback);
+        },
     };
 });

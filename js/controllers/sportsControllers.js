@@ -368,10 +368,14 @@ firstApp.controller('SportTeamCtrl', function ($scope, TemplateService, toastr, 
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     // $scope.formData = {};
+    $scope.stateId = $stateParams.id;
     $scope.constraints = {};
     loginService.loginGet(function (data) {
         $scope.detail = data;
     });
+    $scope.setTeamid = function (id) {
+        NavigationService.setTeamid(id);
+    };
 
     if ($.jStorage.get("userDetails") === null) {
         $state.go('sports-registration');

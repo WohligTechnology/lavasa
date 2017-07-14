@@ -25,7 +25,16 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     loginService.loginGet(function (data) {
         $scope.detail = data;
     });
-
+    $scope.editTeamFun = function () {
+        if ($.jStorage.get("teamId") !== null) {
+            $scope.teamIdObj = {};
+            $scope.teamIdObj.teamid = $.jStorage.get("teamId");
+            NavigationService.editTeam($scope.teamIdObj, function (data) {
+                console.log(data, "************");
+            });
+        }
+    };
+    $scope.editTeamFun();
 
     if ($scope.detail.userType === "athlete") {
         $scope.constraints.athleteToken = $scope.detail.accessToken;
@@ -155,6 +164,9 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
                     } else {
                         $scope.isLoading = false;
                         $scope.showMsg = false;
+                        if (allData.data === 'No User Found') {
+                            toastr.error("No User Found", 'Error Message');
+                        }
                         if (allData.error === "Max Team Created") {
                             toastr.error("Maximum Team is Already Created", 'Error Message');
                         }
