@@ -278,7 +278,7 @@ firstApp.controller('SportsRulesCtrl', function ($scope, TemplateService, $state
                             });
                         } else if ($.jStorage.get('userType') == 'athlete') {
                             console.log($scope.basicSportDetails);
-                            $scope.selectService.goNext($scope.basicSportDetails, null, null);
+                            $scope.selectService.goNext($scope.basicSportDetails, null, null, null);
                         }
 
                     }
