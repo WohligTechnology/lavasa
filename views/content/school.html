@@ -96,7 +96,6 @@
                 </div>
                 <!-- .alag ui school page -->
                 <div ng-show="school.showAll">
-
                     <div class="col-md-6">
                         <div class="mt15">
                             <div class="sc-name">
@@ -130,47 +129,46 @@
                     </div>
                 </div>
             </div>
-            <div class="row" ng-if="search.active">
-                <div class="text-center mt40">
-                    <h3 class="font-semi color-orange text-up">{{pagination.total || '0'}} Search Results</h3>
-                </div>
-                <div class="col-md-offset-2 col-md-8 col-xs-12">
-                    <div class="">
-                        <div class="col-md-4 mt15 col-sm-4 col-xs-12" ng-repeat="data in schools" ng-if="schools.length > 0">
-                            <a ui-sref="school-profile({id:data._id})">
-                                <div class="school-boxs2">
-                                    <div class="box-headers">
-                                        <div class="school-imgs text-center sf-relative border-r w130">
-                                            <!-- <img src="img/sf-school-grey.png" alt=""> -->
-                                            <img ng-src="{{data.logo|uploadpath}}" alt="">
-                                            <div class="sigh-imgs sf-absulate">
-                                                <img ng-show="data.status" ng-src="img/sf-right.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="school-names text-center">
-                                            <h4 class="text-up font-semi color-orange font16">{{data.name | letterLimit : 25}}</h4>
+        </div>
+        <div class="row" ng-if="search.active">
+            <div class="text-center mt40">
+                <h3 class="font-semi color-orange text-up">{{pagination.total || '0'}} Search Results</h3>
+            </div>
+            <div class="col-md-offset-2 col-md-8 col-xs-12">
+                <div class="">
+                    <div class="col-md-4 mt15 col-sm-4 col-xs-12" ng-repeat="data in schools" ng-if="schools.length > 0">
+                        <a ui-sref="school-profile({id:data._id})">
+                            <div class="school-boxs2">
+                                <div class="box-headers">
+                                    <div class="school-imgs text-center sf-relative border-r w130">
+                                        <!-- <img src="img/sf-school-grey.png" alt=""> -->
+                                        <img ng-src="{{data.logo|uploadpath}}" alt="">
+                                        <div class="sigh-imgs sf-absulate">
+                                            <img ng-show="data.status" ng-src="img/sf-right.png" alt="">
                                         </div>
                                     </div>
+                                    <div class="school-names text-center">
+                                        <h4 class="text-up font-semi color-orange font16">{{data.name | letterLimit : 25}}</h4>
+                                    </div>
                                 </div>
-                            </a>
-                        </div>
-                        <!-- <div ng-if="schools.length <= 0 ">
+                            </div>
+                        </a>
+                    </div>
+                    <!-- <div ng-if="schools.length <= 0 ">
                         <h1 class="text-center">No data found.</h1>
                     </div> -->
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="float-right sf-list">
-                        <nav aria-label="Page navigation" ng-if="search.active && pagination.totalpages > 1">
-                            <uib-pagination ng-change="submitSearch()" total-items="pagination.total" ng-model="filter.pagenumber" items-per-page="pagination.pagesize"
-                                max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination>
-
-                        </nav>
-
-                    </div>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="float-right sf-list">
+                    <nav aria-label="Page navigation" ng-if="search.active && pagination.totalpages > 1">
+                        <uib-pagination ng-change="submitSearch()" total-items="pagination.total" ng-model="filter.pagenumber" items-per-page="pagination.pagesize"
+                            max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
