@@ -99,7 +99,8 @@
                           <td ng-if="sportTitle === 'Basketball' || sportTitle === 'basketball' || sportTitle === 'Football' || sportTitle === 'football' || sportTitle === 'Handball' || sportTitle === 'Hockey' || sportTitle === 'hockey' || sportTitle === 'Kabaddi' || sportTitle === 'kabaddi' || sportTitle === 'Kho Kho' || sportTitle === 'kho kho' || sportTitle === 'Throwball' || sportTitle === 'throwball' || sportTitle === 'Volleyball' || sportTitle === 'volleyball' || sportTitle === 'Water Polo' || sportTitle === 'water polo'">
                             <div class="sportdetail-td" ng-if="athlete.isCaptain && !athlete.isGoalKeeper">Captain</div>
                             <div class="sportdetail-td" ng-if="athlete.isCaptain && athlete.isGoalKeeper">Captain , Goalkeeper</div>
-                            <div class="sportdetail-td" ng-if="!athlete.isCaptain">-</div>
+                            <div class="sportdetail-td" ng-if="!athlete.isCaptain && athlete.isGoalKeeper">Goalkeeper</div>
+                            <div class="sportdetail-td" ng-if="!athlete.isCaptain && !athlete.isGoalKeeper">-</div>
                           </td>
                         </tr>
                       </tbody>
