@@ -1,4 +1,4 @@
-firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $element, NavigationService, $timeout, $uibModal, GoogleAdWordsService, $location) {
+firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $element, NavigationService, $timeout, $uibModal, GoogleAdWordsService, $location, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("formathlete");
     $scope.menutitle = NavigationService.makeactive("Formathlete");
@@ -555,10 +555,10 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
         });
     };
     $scope.openModal = function () {
-        $timeout(function () {
-            fbq('track', 'CompleteRegistration');
-            GoogleAdWordsService.sendRegisterCustomerConversion();
-        });
+        // $timeout(function () {
+        fbq('track', 'CompleteRegistration');
+        GoogleAdWordsService.sendRegisterCustomerConversion();
+        // });
         var modalInstance = $uibModal.open({
             animation: true,
             scope: $scope,
@@ -568,6 +568,13 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
             templateUrl: "views/modal/thankyou.html"
         });
     };
+
+    // $scope.redirectTo = function () {
+    //     $scope.isDisabled1 = true;
+    //     fbq('track', 'CompleteRegistration');
+    //     GoogleAdWordsService.sendRegisterCustomerConversion();
+    //     $state.go('register');
+    // };
 
     $scope.openErrorModal = function () {
         $scope.modalInstances = $uibModal.open({
@@ -692,7 +699,7 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
 });
 
 //form-regis
-firstApp.controller('FormregisCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, GoogleAdWordsService, $location) {
+firstApp.controller('FormregisCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, GoogleAdWordsService, $location, $state) {
     //Used to name the .html file
     $scope.changeitSchoolLogo = function (err, data) {
         console.log(err, data);
@@ -763,10 +770,10 @@ firstApp.controller('FormregisCtrl', function ($scope, TemplateService, Navigati
     $scope.formdata = {};
 
     $scope.openModal = function () {
-        $timeout(function () {
-            fbq('track', 'CompleteRegistration');
-            GoogleAdWordsService.sendRegisterCustomerConversion();
-        });
+        // $timeout(function () {
+        fbq('track', 'CompleteRegistration');
+        GoogleAdWordsService.sendRegisterCustomerConversion();
+        // });
         var modalInstance = $uibModal.open({
             animation: true,
             scope: $scope,
@@ -776,6 +783,12 @@ firstApp.controller('FormregisCtrl', function ($scope, TemplateService, Navigati
             templateUrl: "views/modal/thankyou.html"
         });
     };
+    // $scope.redirectTo = function () {
+    //     $scope.isDisabled1 = true;
+    //     fbq('track', 'CompleteRegistration');
+    //     GoogleAdWordsService.sendRegisterCustomerConversion();
+    //     $state.go('register');
+    // };
 
     $scope.openErrorModal = function () {
         $scope.modalInstances = $uibModal.open({
@@ -1222,7 +1235,7 @@ firstApp.controller('FormregisCtrl', function ($scope, TemplateService, Navigati
 
 });
 
-firstApp.controller('PaymentSuccessCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+firstApp.controller('PaymentSuccessCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("paymentSuccess");
@@ -1231,13 +1244,18 @@ firstApp.controller('PaymentSuccessCtrl', function ($scope, TemplateService, Nav
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
+    fbq('track', 'CompleteRegistration');
+    GoogleAdWordsService.sendRegisterCustomerConversion();
+    // $scope.redirectTo = function () {
+    //     $scope.isDisabled1 = true;
+    //     $state.go('register');
+    // };
+    // window.setTimeout(function () {
 
-    window.setTimeout(function () {
+    //     // Move to a new location or you can do something else
+    //     window.location.href = adminUrl + "/register";
 
-        // Move to a new location or you can do something else
-        window.location.href = adminUrl + "/register";
-
-    }, 10000);
+    // }, 10000);
 
 });
 
