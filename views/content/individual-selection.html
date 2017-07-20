@@ -67,7 +67,7 @@
                                     <form class="form-horizontal hidden-xs">
                                         <div class="mb15">
                                             <div class="readSchoolName">
-                                                <label for="input3" class="col-md-3 col-sm-3 col-xs-12 control-label para2" placeholder="Enter SFA ID">SFA ID:</label>
+                                                <label for="input3" class="col-md-3 col-sm-3 col-xs-12 control-label para2">SEARCH:</label>
                                                 <div class="col-md-7 col-sm-7 col-xs-9">
                                                     <input type="text" class="form-control" touppercase ng-model-options="{debounce: 750}" id="input3" placeholder="SEARCH BY SFAID / FIRSTNAME"
                                                         ng-model="getAthletePerSchoolObj.sfaid" ng-change="searchaBysfaId(getAthletePerSchoolObj.sfaid);">
@@ -87,7 +87,7 @@
                                         <div class="form-group">
                                             <div class="readSchoolName">
                                                 <div class="col-xs-8">
-                                                    <label for="input4" class="para2" placeholder="Enter SFA ID">SFA ID:</label>
+                                                    <label for="input4" class="para2">SEARCH:</label>
                                                 </div>
                                                 <div class="hover-img margin0 col-xs-4">
                                                     <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon pull-right">
@@ -121,7 +121,7 @@
                                                 <div class="col-md-4 col-sm-4 col-xs-12 mb15" ng-repeat="checked in listOfAthelete">
                                                     <div class="school-sec">
                                                         <div class="selectedPlayer" ng-if="checked.isIndividualSelected === true">
-                                                            <h4 class="">Player has been already registered</h4>
+                                                            <h4 class="">Athlete has been already Registered</h4>
                                                         </div>
                                                         <div class="stu-img">
                                                             <img ng-src="{{checked.atheleteSchoolIdImage | serverimage2:70:70:'cover' }}" class="img-responsive" alt="">
@@ -159,7 +159,7 @@
                                     </div>-->
                                     <div class="mt5">
                                         <div class="player-selected">
-                                            <p>Players Selected: {{selectService.team.length}}</p>
+                                            <p>Athletes Selected: {{selectService.team.length}}</p>
                                         </div>
                                     </div>
                                     <div class="scroll-div scroll-height scroll-height-I">

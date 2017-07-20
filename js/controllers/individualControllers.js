@@ -168,11 +168,11 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
 
 
 //Confirm-Fencing
-firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService, selectService, toastr) {
+firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService, selectService, toastr, $stateParams, $filter) {
     //Used to name the .html file
-
+    $scope.sportTab = $filter('firstcapitalize')($stateParams.name);
     $scope.template = TemplateService.changecontent("confirmfencing");
-    $scope.menutitle = NavigationService.makeactive("Confirm Fencing");
+    $scope.menutitle = NavigationService.makeactive("Confirm" + ' ' + $scope.sportTab);
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
@@ -224,11 +224,11 @@ firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, Nav
 });
 
 //Confirm-Individual
-firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService, selectService, toastr) {
+firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService, selectService, toastr, $stateParams, $filter) {
     //Used to name the .html file
-
+    $scope.sportTab = $filter('firstcapitalize')($stateParams.name);
     $scope.template = TemplateService.changecontent("confirmindividual");
-    $scope.menutitle = NavigationService.makeactive("Confirm Individual");
+    $scope.menutitle = NavigationService.makeactive("Confirm" + ' ' + $scope.sportTab);
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
@@ -316,11 +316,11 @@ firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, 
 
 //Confirm-karate
 
-firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService, selectService, toastr) {
+firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, loginService, errorService, selectService, toastr, $stateParams, $filter) {
     //Used to name the .html file
-
+    $scope.sportTab = $filter('firstcapitalize')($stateParams.name);
     $scope.template = TemplateService.changecontent("confirmkarate");
-    $scope.menutitle = NavigationService.makeactive("Confirm Karate");
+    $scope.menutitle = NavigationService.makeactive("Confirm" + ' ' + $scope.sportTab);
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
@@ -348,47 +348,13 @@ firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, Navi
 
 });
 
-//confirm-relay
-
-firstApp.controller('ConfirmRelayCtrl', function ($scope, TemplateService, NavigationService, loginService, $timeout, toastr) {
-    //Used to name the .html file
-
-    $scope.template = TemplateService.changecontent("confirmrelay");
-    $scope.menutitle = NavigationService.makeactive("Confirm Relay");
-    TemplateService.header = "views/header2.html";
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-
-    $scope.formData = {};
-    loginService.loginGet(function (data) {
-        $scope.detail = data;
-        $scope.formData.schoolName = $scope.detail.schoolName;
-    });
-
-    if ($.jStorage.get("userDetails") === null) {
-        $state.go('sports-registration');
-    }
-
-    $scope.logoutCandidate = function () {
-        loginService.logoutCandidate(function (data) {
-            if (data.isLoggedIn === false) {
-                toastr.success('Successfully Logged Out', 'Logout Message');
-                $state.go('sports-registration');
-            } else {
-                toastr.error('Something went wrong', 'Logout Message');
-            }
-        });
-    };
-
-});
-
 //Confirm-athlete-swimming
 
-firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, NavigationService, loginService, $timeout, $state, selectService, toastr) {
+firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, NavigationService, loginService, $timeout, $state, selectService, toastr, $stateParams, $filter) {
     //Used to name the .html file
-
+    $scope.sportTab = $filter('firstcapitalize')($stateParams.name);
     $scope.template = TemplateService.changecontent("confirmathleteswim");
-    $scope.menutitle = NavigationService.makeactive("Confirm Athlete Swimming ");
+    $scope.menutitle = NavigationService.makeactive("Confirm" + ' ' + $scope.sportTab);
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
@@ -419,6 +385,7 @@ firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, Navi
         console.log(team);
     };
 });
+
 
 firstApp.controller('IndividualCongratsCtrl', function ($scope, TemplateService, toastr, NavigationService, $timeout, $state, $stateParams, loginService, errorService) {
     $scope.template = TemplateService.changecontent("individual-congrats");

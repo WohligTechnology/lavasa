@@ -106,7 +106,7 @@
                                   <div class="custom-uiselect">
                                     <ui-select name="selectfilter" multiple="" id="selectfilter" theme="bootstrap" ng-model="athelete.sport" ng-change="selectService.isValidSelection(athelete)"
                                       ng-init="selectService.isValidSelection(athelete)">
-                                      <ui-select-match placeholder="Select Multiple Events">
+                                      <ui-select-match placeholder="Select Events">
                                         {{$item.eventName}}
                                       </ui-select-match>
                                       <ui-select-choices repeat="metre.sport as metre in athelete.metresSwim.data | filter:{eventName:$select.search}" ui-disable-choice="validate && athelete.sport.length>=2">
