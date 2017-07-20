@@ -138,7 +138,7 @@ firstApp.service('selectService', function ($http, TemplateService, $state, toas
                 i.data = _.filter(i.data, function (j) {
                     var startDate = moment(j.fromAge);
                     var endDate = moment(j.toAge);
-                    if ((j.gender == athelete.gender) && birthdate.isBetween(startDate, endDate)) {
+                    if ((j.gender == athelete.gender) && birthdate.isBetween(startDate, endDate, null, '[]')) {
                         return true;
                     } else {
                         return false;
