@@ -11,7 +11,10 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, $stateParams, $loca
     $scope.classinactive = '';
     $scope.constraints = {};
     $scope.userBySfa = {};
-
+    $scope.setTeamIdNull = function () {
+        $.jStorage.set("teamId", null);
+        NavigationService.editTeamId(null);
+    };
     $scope.callLogin = function () {
         loginService.loginGet(function (data) {
             $scope.detail = data;
@@ -39,6 +42,10 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, $stateParams, $loca
                         console.log("**************", allData.data);
                         $scope.userBySfa = allData.data.data;
                         $scope.userBySfa.mixAccess = allData.data.mixAccess;
+                        if ($stateParams.userType === 'athlete') {
+                            $scope.userBySfa = allData.data.data[0];
+                            $scope.userBySfa.mixAccess = allData.data.mixAccess;
+                        }
                         NavigationService.setUser($scope.userBySfa);
                         $scope.callLogin();
                     } else {
@@ -361,13 +368,14 @@ firstApp.controller('SportIndividualCtrl', function ($scope, TemplateService, to
     };
 });
 
-firstApp.controller('SportTeamCtrl', function ($scope, TemplateService, toastr, NavigationService, $timeout, $state, $stateParams, loginService, errorService) {
+firstApp.controller('SportTeamCtrl', function ($scope, TemplateService, toastr, NavigationService, $timeout, $state, $stateParams, loginService, errorService, selectService) {
     $scope.template = TemplateService.changecontent("sport-teamdetail");
     $scope.menutitle = NavigationService.makeactive("Registered Team Detail");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     // $scope.formData = {};
+    $scope.selectService = selectService;
     $scope.stateId = $stateParams.id;
     $scope.constraints = {};
     loginService.loginGet(function (data) {
@@ -375,6 +383,7 @@ firstApp.controller('SportTeamCtrl', function ($scope, TemplateService, toastr, 
     });
     $scope.setTeamid = function (id) {
         NavigationService.setTeamid(id);
+        NavigationService.setVariable(null);
     };
 
     if ($.jStorage.get("userDetails") === null) {

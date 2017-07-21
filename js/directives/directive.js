@@ -7,8 +7,6 @@ firstApp.directive('mycircle', function ($compile, $parse) {
             var amount = 1;
             var myinterval = {};
             $element.ready(function () {
-                console.log("DEMO");
-
                 $element.hover(function () {
                     clearInterval(myinterval);
                 }, function () {

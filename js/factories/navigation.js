@@ -547,6 +547,14 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
         },
         setTeamid: function (id) {
             $.jStorage.set("teamId", id);
+            $.jStorage.set("tempTeamId", id);
+        },
+        setVariable: function (flag) {
+            $.jStorage.set("flag", flag);
+        },
+
+        editTeamId: function (id) {
+            $.jStorage.set("editTeamId", id);
         },
         setSportId: function (data) {
             $.jStorage.set("sportId", data);
@@ -668,17 +676,18 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
             }).then(callback);
         },
 
-        getOneSportForRegistration: function (data, callback) {
+        getOneSportForRegistration: function (data, url, callback) {
             $http({
-                url: adminUrl2 + 'SportsListSubCategory/getOneSport',
+                url: adminUrl2 + url,
                 method: 'POST',
                 data: data
             }).then(callback);
         },
 
-        getAthletePerSchool: function (request, callback) {
+        getAthletePerSchool: function (request, url, callback) {
             $http({
-                url: adminUrl2 + 'sport/getAthletePerSchool',
+                url: adminUrl2 + url,
+                //    url: adminUrl2 + 'sport/getAthletePerSchool',
                 method: 'POST',
                 data: request
             }).then(callback);
@@ -691,8 +700,14 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
             }).then(callback);
         },
         teamConfirm: function (request, callback) {
+            var url = '';
+            if ($.jStorage.get("editTeamId") !== null) {
+                url = 'teamSport/editSaveTeam';
+            } else {
+                url = 'teamSport/teamConfirm';
+            }
             $http({
-                url: adminUrl2 + 'teamSport/teamConfirm',
+                url: adminUrl2 + url,
                 method: 'POST',
                 data: request
             }).then(callback);
@@ -745,7 +760,6 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
                 method: 'POST',
                 data: subCategoryId
             }).then(function (data) {
-                console.log(data.data);
                 if (data.data.value) {
                     callback(data.data);
                 } else {
