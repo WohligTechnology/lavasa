@@ -42,10 +42,10 @@ firstApp.controller('SportsSelectionCtrl', function ($scope, $stateParams, $loca
                         console.log("**************", allData.data);
                         $scope.userBySfa = allData.data.data;
                         $scope.userBySfa.mixAccess = allData.data.mixAccess;
-                        if ($stateParams.userType === 'athlete') {
-                            $scope.userBySfa = allData.data.data[0];
-                            $scope.userBySfa.mixAccess = allData.data.mixAccess;
-                        }
+                        // if ($stateParams.userType === 'athlete') {
+                        //     $scope.userBySfa = allData.data.data[0];
+                        //     $scope.userBySfa.mixAccess = allData.data.mixAccess;
+                        // }
                         NavigationService.setUser($scope.userBySfa);
                         $scope.callLogin();
                     } else {
