@@ -1,38 +1,40 @@
-@media screen and (max-width: 1200px){}
+@media screen and (max-width: 1200px) {}
 
-@media screen and (max-width: 991px){}
+@media screen and (max-width: 991px) {
+  // SFA_VIEDO
+  .sfavideo-content p {
+    font-size: 14px;
+  } // END SFA_VIEDO
+}
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767px) {
   // REGISTERED SPORTS
-  .sportregistered-title{
+  .sportregistered-title {
     display: block;
     width: auto;
     padding: 5px 10px;
     margin-bottom: 5px;
     font-size: 14px;
   }
-  .sportregistered-viewbtn{
+  .sportregistered-viewbtn {
     width: auto;
     padding: 5px 10px;
     font-size: 14px;
   }
-  .list-sportregistered{
+  .list-sportregistered {
     padding: 10px 0;
     margin: 0;
   }
-  .registersport-lists{
+  .registersport-lists {
     border-bottom: 1px solid #ccc;
-    &:last-child{
+    &:last-child {
       border: none;
     }
-  }
-  // REGISTERED SPORTS END
-
+  } // REGISTERED SPORTS END
   // SPORTS DETAIL
-  .sportsdetail-download{
+  .sportsdetail-download {
     margin-top: -40px;
-  }
-  // SPORTS DETAIL END
+  } // SPORTS DETAIL END
 }
 
-@media screen and (max-width: 480px){}
+@media screen and (max-width: 480px) {}

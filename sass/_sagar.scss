@@ -134,3 +134,37 @@
 }
 
 // SPORT DETAIL INDIVIDUAl END
+// CITY-VIDEO
+.modal-container {
+    padding: 15px;
+    video::-internal-media-controls-download-button {
+        display: none;
+    }
+    video::-webkit-media-controls-enclosure {
+        overflow: hidden;
+    }
+    video::-webkit-media-controls-panel {
+        width: calc(100% + 30px);
+        /* Adjust as needed */
+    }
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.sfavideo-content {
+    p {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+    .video-city {
+        background-color: #53bb74;
+        color: #fff;
+        font-family: Titillium Web;
+        font-size: 16.68px;
+        font-weight: 400
+    }
+}
+
+// END CITY-VIDEO
