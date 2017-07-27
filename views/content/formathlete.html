@@ -291,7 +291,7 @@
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list blood-mob"> *Faculty:</label>
                         <!--<input type="text" class="bor-t" required minlength="10" maxlength="10">-->
                         <div class="col-md-4 col-sm-4 col-xs-12">
-                            <select class="sfa-drop2 sfa4 blood-mob2 sf-list form-control" ng-model="formData.faculty" name="faculty">
+                            <select class="sfa-drop2 sfa4 blood-mob2 sf-list form-control" ng-model="formData.faculty" name="faculty" required>
                                 <option style="display:none"></option>
                                 <option>Commerce</option>
                                 <option>Science</option>
@@ -301,27 +301,27 @@
                             <div class="validate-col" ng-if="formAthlete.faculty.$invalid && formAthlete.faculty.$touched">Select Faculty</div>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-12" ng-if="formData.faculty =='Other'">
-                            <input name="faculty" placeholder="Enter Faculty" ng-model="formData.faculties" type="text" class="sfa-drop form-control sfa434"
+                            <input name="faculties" placeholder="Enter Faculty" ng-model="formData.faculties" type="text" class="sfa-drop form-control sfa434"
                                 required>
-                            <div class="validate-col" ng-if="formAthlete.faculty.$invalid && formAthlete.faculty.$touched ">Select Faculty</div>
+                            <div class="validate-col" ng-if="formAthlete.faculties.$invalid && formAthlete.faculties.$touched ">Select Faculty</div>
                         </div>
                     </div>
                     <div class="form-group" ng-if="isCollege==true">
-                        <label class="col-md-3 col-sm-3 col-xs-12 sf-list ">*Degree:</label>
+                        <label class="col-md-3 col-sm-3 col-xs-12 sf-list">*Degree:</label>
                         <div class="col-md-3 col-sm-3 col-xs-12 ">
-                            <select class="sfa-drop2 sfa4 sf-list form-control " name="degree " ng-model="formData.degree " required>
+                            <select class="sfa-drop2 sfa4 sf-list form-control" name="degree" ng-model="formData.degree" required>
                                 <option style="display:none "></option>
                                 <option>Junior College</option>
                                 <option>Undergraduate</option>
                                 <option>Postgraduate</option>
                                 <option>Diploma</option>
                             </select>
-                            <div class="validate-col " ng-if="formAthlete.degree.$invalid && formAthlete.degree.$touched ">Select Degree</div>
+                            <div class="validate-col" ng-if="formAthlete.degree.$invalid && formAthlete.degree.$touched">Select Degree</div>
                         </div>
                         <label class="col-md-2 col-sm-2 col-xs-12 sf-list blood-mob "> *Year:</label>
                         <!--<input type="text " class="bor-t " required minlength="10 " maxlength="10 ">-->
                         <div class="col-md-3 col-sm-3 col-xs-11">
-                            <select class="sfa-drop2 sfa4 blood-mob2 sf-list form-control " name="year " ng-model="formData.year">
+                            <select class="sfa-drop2 sfa4 blood-mob2 sf-list form-control" name="years" ng-model="formData.year" required>
                                 <option style="display:none "></option>
                                 <option>1st Year</option>
                                 <option>2nd Year</option>
@@ -329,8 +329,8 @@
                                 <option>4th Year</option>
                                 <option>5th Year</option>
                             </select>
+                            <div class="validate-col" ng-if="formAthlete.years.$invalid && formAthlete.years.$touched">Select Year</div>
                         </div>
-                        <div class="validate-col " ng-if="formAthlete.year.$invalid && formAthlete.year.$touched ">Select Year</div>
                     </div>
                     <div class="form-group " ng-if="isCollege == true">
                         <label class="col-md-3 col-sm-3 col-xs-12 sf-list blood-mob ">  Blood Group:</label>
