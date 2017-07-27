@@ -1,4 +1,6 @@
 // angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select', 'ordinal', 'wt.responsive', 'ui.date', 'toastr'])
+var globalLinkSchoolRegister = schoolLink + "register";
+var globalLinkCollegeRegister = collegeLink + "register";
 
 firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval) {
     //Used to name the .html file
@@ -9,6 +11,14 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
     TemplateService.keywords = "inter college, inter school, tournament, sport event, tournament for athletes ,athlete bios , match videos";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    // $uibModal.open({
+    //     animation: true,
+    //     scope: $scope,
+    //     backdrop: 'static',
+    //     keyboard: false,
+    //     templateUrl: "views/modal/city-video.html",
+    //     size: 'lg'
+    // });
     $scope.countdown = {};
 
     $scope.changeSlideClass = function (obj, index) {
@@ -3955,62 +3965,7 @@ firstApp.controller('ChampionshipCtrl', function ($scope, TemplateService, Navig
 
 });
 
-firstApp.controller('RegisterCtrl', function ($scope, $uibModal, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
-
-    $scope.template = TemplateService.changecontent("register");
-    $scope.menutitle = NavigationService.makeactive("Register");
-    TemplateService.header = "views/header2.html";
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.menu = "menu-out";
-    $scope.closeAge = false;
-    $scope.closeReg = false;
-    $scope.regisBenModal = function () {
-        $scope.errInstances = $uibModal.open({
-            animation: true,
-            scope: $scope,
-            backdrop: 'static',
-            keyboard: false,
-            templateUrl: "views/modal/registerbenefits.html",
-            size: 'lg'
-        });
-    };
-    $scope.athBenModal = function () {
-        $scope.errInstances = $uibModal.open({
-            animation: true,
-            scope: $scope,
-            backdrop: 'static',
-            keyboard: false,
-            templateUrl: "views/modal/athletebenefits.html",
-            size: 'lg'
-        });
-    };
-    $scope.getMenu = function () {
-        $(".side-menu").addClass("menu-in");
-        $(".side-menu").removeClass("menu-out");
-        $scope.closeReg = true;
-    };
-    $scope.closeMenu = function () {
-        $(".side-menu").removeClass("menu-in");
-        $(".side-menu").addClass("menu-out");
-        $scope.closeReg = false;
-    };
-
-    $scope.getMenu1 = function () {
-        $(".side-menu1").addClass("menu-in1 ");
-        $(".side-menu1").removeClass("menu-out");
-        $scope.closeAge = true;
-    };
-
-    $scope.closeMenu1 = function () {
-        $(".side-menu1").removeClass("menu-in1 ");
-        $(".side-menu1").addClass("menu-out");
-        $scope.closeAge = false;
-    };
-});
-
-firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope) {
+firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope, NavigationService, errorService, toastr) {
     $scope.template = TemplateService;
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
@@ -4019,6 +3974,32 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope)
     $scope.$watch('online', function (newStatus) {
         $scope.variables.online = $rootScope.online;
     });
+    $scope.registerSchool = globalLinkSchoolRegister;
+    $scope.registerCollege = globalLinkCollegeRegister;
+    NavigationService.getDetail(function (data) {
+        errorService.errorCode(data, function (allData) {
+            console.log(allData);
+            if (!allData.message) {
+                if (allData.value === true) {
+                    $scope.city = allData.data.city;
+                    $scope.district = allData.data.district;
+                    $scope.state = allData.data.state;
+                    $scope.year = allData.data.year;
+                    $scope.sfaCity = allData.data.sfaCity;
+                    if (allData.data.type == 'school') {
+                        $scope.isCollege = false;
+                        $scope.type = allData.data.type;
+                    } else {
+                        $scope.isCollege = true;
+                        $scope.type = allData.data.type;
+                    }
+                }
+            } else {
+                toastr.error(allData.message, 'Error Message');
+            }
+        });
+    });
+
     $scope.games = // JavaScript Document
         [{
             "img": "img/footer/n1.jpg",

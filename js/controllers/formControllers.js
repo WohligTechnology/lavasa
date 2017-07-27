@@ -1,4 +1,109 @@
-firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $element, NavigationService, $timeout, $uibModal, GoogleAdWordsService, $location, $state) {
+var globalLinkSchool = schoolLink + "formregis";
+var globalLinkSchoolAthlete = schoolLink + "formathlete";
+var globalLinkCollege = collegeLink + "formregis";
+var globalLinkCollegeAthlete = collegeLink + "formathlete";
+
+firstApp.controller('RegisterCtrl', function ($scope, $uibModal, TemplateService, NavigationService, $timeout, errorService, toastr) {
+    //Used to name the .html file
+
+    $scope.template = TemplateService.changecontent("register");
+    $scope.menutitle = NavigationService.makeactive("Register");
+    TemplateService.header = "views/header2.html";
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    NavigationService.getDetail(function (data) {
+        errorService.errorCode(data, function (allData) {
+            console.log(allData);
+            if (!allData.message) {
+                if (allData.value === true) {
+                    $scope.city = allData.data.city;
+                    $scope.district = allData.data.district;
+                    $scope.state = allData.data.state;
+                    $scope.year = allData.data.year;
+                    $scope.sfaCity = allData.data.sfaCity;
+                    if (allData.data.type == 'school') {
+                        $scope.isCollege = false;
+                        $scope.type = allData.data.type;
+                        $scope.registrationLink = globalLinkSchool;
+                        $scope.athleteLink = globalLinkSchoolAthlete;
+                    } else {
+                        $scope.isCollege = true;
+                        $scope.type = allData.data.type;
+                        $scope.registrationLink = globalLinkCollege;
+                        $scope.athleteLink = globalLinkCollegeAthlete;
+                    }
+                }
+            } else {
+                toastr.error(allData.message, 'Error Message');
+            }
+        });
+    });
+    $scope.menu = "menu-out";
+    $scope.closeAge = false;
+    $scope.closeReg = false;
+    $scope.regisBenModal = function (type, sfaCity, year) {
+        $scope.type = type;
+        $scope.sfaCity = sfaCity;
+        $scope.year = year;
+        if (type == 'school') {
+            $scope.isCollege = false;
+        } else {
+            $scope.isCollege = true;
+        }
+
+        $scope.errInstances = $uibModal.open({
+            animation: true,
+            scope: $scope,
+            backdrop: 'static',
+            keyboard: false,
+            templateUrl: "views/modal/registerbenefits.html",
+            size: 'lg'
+        });
+    };
+    $scope.athBenModal = function (type, sfaCity, year) {
+        $scope.type = type;
+        $scope.sfaCity = sfaCity;
+        $scope.year = year;
+        if (type == 'school') {
+            $scope.isCollege = false;
+        } else {
+            $scope.isCollege = true;
+        }
+        $scope.errInstances = $uibModal.open({
+            animation: true,
+            scope: $scope,
+            backdrop: 'static',
+            keyboard: false,
+            templateUrl: "views/modal/athletebenefits.html",
+            size: 'lg'
+        });
+    };
+    $scope.getMenu = function () {
+        $(".side-menu").addClass("menu-in");
+        $(".side-menu").removeClass("menu-out");
+        $scope.closeReg = true;
+    };
+    $scope.closeMenu = function () {
+        $(".side-menu").removeClass("menu-in");
+        $(".side-menu").addClass("menu-out");
+        $scope.closeReg = false;
+    };
+
+    $scope.getMenu1 = function () {
+        $(".side-menu1").addClass("menu-in1 ");
+        $(".side-menu1").removeClass("menu-out");
+        $scope.closeAge = true;
+    };
+
+    $scope.closeMenu1 = function () {
+        $(".side-menu1").removeClass("menu-in1 ");
+        $(".side-menu1").addClass("menu-out");
+        $scope.closeAge = false;
+    };
+});
+
+
+firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $element, NavigationService, $timeout, $uibModal, GoogleAdWordsService, $location, $state, errorService, toastr) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("formathlete");
     $scope.menutitle = NavigationService.makeactive("Formathlete");
@@ -6,7 +111,31 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
     TemplateService.footer = " ";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-
+    $scope.formData = {};
+    NavigationService.getDetail(function (data) {
+        errorService.errorCode(data, function (allData) {
+            console.log(allData);
+            if (!allData.message) {
+                if (allData.value === true) {
+                    $scope.city = allData.data.city;
+                    $scope.district = allData.data.district;
+                    $scope.state = allData.data.state;
+                    $scope.formData.state = allData.data.state;
+                    $scope.year = allData.data.year;
+                    $scope.sfaCity = allData.data.sfaCity;
+                    if (allData.data.type == 'school') {
+                        $scope.isCollege = false;
+                        $scope.type = allData.data.type;
+                    } else {
+                        $scope.isCollege = true;
+                        $scope.type = allData.data.type;
+                    }
+                }
+            } else {
+                toastr.error(allData.message, 'Error Message');
+            }
+        });
+    });
     $scope.changeitSchoolId = function (err, data) {
         console.log(err, data);
         if (err) {
@@ -115,6 +244,7 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
 
     //saves Athelete to database
     $scope.isDisabled = false;
+
     $scope.saveAthelete = function (formdata, formAthlete) { //formdata is data or body for this url
         console.log("Athlete data: ", formdata);
         // console.log('Value', $scope.isSchoolAdded(formdata));
@@ -222,6 +352,36 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
             console.log(formdata);
         }
 
+        if (formdata.university == 'Other') {
+            if (formdata.universities) {
+                formdata.university = formdata.universities;
+            } else {
+                toastr.error('Please Enter University.');
+            }
+        } else {
+            delete formdata.universities;
+        }
+
+        if (formdata.course == 'Other') {
+            if (formdata.courses) {
+                formdata.course = formdata.courses;
+            } else {
+                toastr.error('Please Enter course.');
+            }
+        } else {
+            delete formdata.courses;
+        }
+
+        if (formdata.faculty == 'Other') {
+            if (formdata.faculties) {
+                formdata.faculty = formdata.faculties;
+            } else {
+                toastr.error('Please Enter Faculty.');
+            }
+        } else {
+            delete formdata.faculties;
+        }
+
         $scope.url = "Athelete/saveAthelete";
         console.log($scope.url);
         console.log(formdata);
@@ -229,35 +389,35 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
             if ($scope.showEmailOtpSuccess === false && $scope.showMobileOtpSuccess === false) {
                 $scope.isDisabled = true;
                 console.log('google', formdata);
-                NavigationService.apiCallWithData($scope.url, formdata, function (data) {
-                    if (data.value === true) {
-                        console.log("registrationFee", data.data[0].registrationFee);
-                        console.log("value", data.value);
-                        if (data.data[0].registrationFee == "online PAYU") {
-                            var id = data.data[0]._id;
-                            console.log("true and in payment", id);
-                            var url = "payU/atheletePayment?id=" + id;
-                            window.location.href = adminUrl2 + url;
-                        } else {
-                            console.log("opening modal");
-                            $scope.openModal();
-                        }
-                    } else {
-                        $scope.isDisabled = false;
-                        if (data.error == 'Athlete Already Exist') {
-                            console.log("User Already Exist");
-                            $scope.openExistModal();
-                            $timeout(function () {
-                                $scope.existInstances.close();
-                            }, 3000);
-                        } else {
-                            $scope.openErrModal();
-                            $timeout(function () {
-                                $scope.errInstances.close();
-                            }, 3000);
-                        }
-                    }
-                });
+                // NavigationService.apiCallWithData($scope.url, formdata, function (data) {
+                //     if (data.value === true) {
+                //         console.log("registrationFee", data.data[0].registrationFee);
+                //         console.log("value", data.value);
+                //         if (data.data[0].registrationFee == "online PAYU") {
+                //             var id = data.data[0]._id;
+                //             console.log("true and in payment", id);
+                //             var url = "payU/atheletePayment?id=" + id;
+                //             window.location.href = adminUrl2 + url;
+                //         } else {
+                //             console.log("opening modal");
+                //             $scope.openModal();
+                //         }
+                //     } else {
+                //         $scope.isDisabled = false;
+                //         if (data.error == 'Athlete Already Exist') {
+                //             console.log("User Already Exist");
+                //             $scope.openExistModal();
+                //             $timeout(function () {
+                //                 $scope.existInstances.close();
+                //             }, 3000);
+                //         } else {
+                //             $scope.openErrModal();
+                //             $timeout(function () {
+                //                 $scope.errInstances.close();
+                //             }, 3000);
+                //         }
+                //     }
+                // });
             }
         } else {
             $scope.isDisabled = false;
@@ -533,7 +693,15 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
 
         });
     };
-    $scope.athBenModal = function () {
+    $scope.athBenModal = function (type, sfaCity, year) {
+        $scope.type = type;
+        $scope.sfaCity = sfaCity;
+        $scope.year = year;
+        if (type == 'school') {
+            $scope.isCollege = false;
+        } else {
+            $scope.isCollege = true;
+        }
         $scope.errInstances = $uibModal.open({
             animation: true,
             scope: $scope,
@@ -699,8 +867,33 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
 });
 
 //form-regis
-firstApp.controller('FormregisCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, GoogleAdWordsService, $location, $state) {
+firstApp.controller('FormregisCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, GoogleAdWordsService, $location, $state, errorService, toastr) {
     //Used to name the .html file
+    $scope.formData = {};
+    NavigationService.getDetail(function (data) {
+        errorService.errorCode(data, function (allData) {
+            console.log(allData);
+            if (!allData.message) {
+                if (allData.value === true) {
+                    $scope.city = allData.data.city;
+                    $scope.district = allData.data.district;
+                    $scope.state = allData.data.state;
+                    $scope.formData.state = allData.data.state;
+                    $scope.year = allData.data.year;
+                    $scope.sfaCity = allData.data.sfaCity;
+                    if (allData.data.type == 'school') {
+                        $scope.isCollege = false;
+                        $scope.type = allData.data.type;
+                    } else {
+                        $scope.isCollege = true;
+                        $scope.type = allData.data.type;
+                    }
+                }
+            } else {
+                toastr.error(allData.message, 'Error Message');
+            }
+        });
+    });
     $scope.changeitSchoolLogo = function (err, data) {
         console.log(err, data);
         if (err) {
@@ -743,7 +936,6 @@ firstApp.controller('FormregisCtrl', function ($scope, TemplateService, Navigati
             // $scope.errorMsgpan = "Successfully uploaded";
         }
     };
-    $scope.formData = {};
     $scope.formData.sportsDepartment = [];
     $scope.sportDepart = {
         name: "",
@@ -811,7 +1003,16 @@ firstApp.controller('FormregisCtrl', function ($scope, TemplateService, Navigati
             templateUrl: "views/modal/err.html"
         });
     };
-    $scope.regisBenModal = function () {
+    $scope.regisBenModal = function (type, sfaCity, year) {
+        $scope.type = type;
+        $scope.sfaCity = sfaCity;
+        $scope.year = year;
+        if (type == 'school') {
+            $scope.isCollege = false;
+        } else {
+            $scope.isCollege = true;
+        }
+
         $scope.errInstances = $uibModal.open({
             animation: true,
             scope: $scope,
@@ -936,8 +1137,19 @@ firstApp.controller('FormregisCtrl', function ($scope, TemplateService, Navigati
             formdata.utm_campaign = $scope.extras.utm_campaign;
         }
 
+        if (formdata.affiliatedBoard == 'Other') {
+            if (formdata.affiliatedBoards) {
+                formdata.affiliatedBoard = formdata.affiliatedBoards;
+            } else {
+                toastr.error('Please Enter Affiliated Board.');
+            }
+        } else {
+            delete formdata.affiliatedBoards;
+        }
+
         $scope.url = "registration/saveRegistrationForm";
         console.log($scope.url);
+        console.log('final data', formdata);
         if (formvalid.$valid && $scope.showTerm === false && $scope.showTeamSports === false) {
             if ($scope.showOtpSuccess === false) {
                 $scope.isDisabled = true;
@@ -1292,25 +1504,5 @@ firstApp.controller('PaymentFailureCtrl', function ($scope, TemplateService, Nav
         window.location.href = adminUrl + "/formregis";
 
     }, 5000);
-
-});
-
-//Confirm-shooting
-
-firstApp.controller('ConfirmShootingCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
-    //Used to name the .html file
-
-    $scope.template = TemplateService.changecontent("confirmshooting");
-    $scope.menutitle = NavigationService.makeactive("Confirm Shooting");
-    TemplateService.header = "views/header2.html";
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
-    $scope.shootTable = [{
-        name: '126 - Kunjal Rawal',
-    }, {
-        name: '126 - Kunjal Rawal',
-    }, {
-        name: '126 - Kunjal Rawal',
-    }]
 
 });

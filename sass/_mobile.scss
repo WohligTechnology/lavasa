@@ -7,6 +7,12 @@
       .mb-191 {
         margin-bottom: 211px;
       }
+      .mb-33 {
+        margin-bottom: 2px;
+      }
+      .custom-a.mb-75 {
+        margin-bottom: 120px;
+      }
       .curve-head1 {
         margin-left: 40px;
         margin-right: 40px;
@@ -81,6 +87,9 @@
           font-size: 11px;
         }
       }
+      .on-mouse-hover.specialCase {
+        right: -54px;
+      }
     }
 
     @media (max-width:$screen-sm-max) {
@@ -94,6 +103,12 @@
       }
       .mb-191 {
         margin-bottom: 155px;
+      }
+      .mb-33 {
+        margin-bottom: 33px;
+      }
+      .custom-a.mb-75 {
+        margin-bottom: 75px;
       }
       .selectAthletes .separateTwoBox .school-sec {
         min-height: 168px;
@@ -466,12 +481,24 @@
       .iconinfo3 {
         width: 422px;
       }
-      .forSm {
-        left: -36px;
+    }
+
+    @media (min-width:858px) and (max-width:951px) {
+      .typePlace {
+        left: -172px;
+      }
+    }
+
+    @media (max-width:857px) {
+      .typePlace {
+        left: -94px;
       }
     }
 
     @media (max-width:$screen-xs-max) {
+      // .typeList:first-child {
+      //   margin: 0 0 20px;
+      // }
       .wt-resonsive-table {
         overflow-x: auto;
         min-height: auto; // min-height: 0.01%;
@@ -1179,6 +1206,7 @@
       }
       .placingDrop {
         left: 50%;
+        top: 46px;
         @include transform(translate(-50%, 0));
       }
       .sp-row-tab ul li button {
@@ -2282,6 +2310,7 @@
       }
       .placingDrop {
         left: 50%;
+        top: 46px;
         @include transform(translate(-50%, 0));
       }
     }

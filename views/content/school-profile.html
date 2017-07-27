@@ -524,7 +524,9 @@
                                                 <!-- DO NOT DELETE -->
                                                 <!-- <tr  ng-repeat="stat in schoolStats"> -->
                                                 <!-- DO NOT DELETE -->
+                                                <pre>{{schoolStats}}</pre>
                                                 <tr class="other-bg" ng-repeat="stat in schoolStats">
+                                                    <pre>{{stat.self.result}}</pre>
                                                     <td><span>{{stat.year}}</span></td>
                                                     <td><span class="text-up">{{stat.sport.agegroup.name}} <br> {{stat.sport.gender}}  <br> {{stat.sport.firstcategory.name}}</span></td>
                                                     <!--<td><span class="text-up" ng-if="table.layout == 'Knockout'">{{stat.knockout.round}}</span></td>-->
@@ -556,6 +558,7 @@
                                                         <div class="text-center display-inline ver-mid main-pos sf-absulate">
                                                             <div class="sf-play">
                                                                 <!-- (table.layout == 'Qualifying Knockout'&& (stat.qualifyingknockout.heats.length == 0 ? stat.self.result : ((stat.self.position || ordinal) ?(stat.self.result?(stat.self.position || ordinal)+' / '+stat.self.result:(stat.self.position || ordinal)):stat.self.result))) -->
+                                                                <pre>{{stat.self.result}}</pre>
                                                                 <span>{{(table.layout == 'Qualifying Knockout'&& (stat.qualifyingknockout.heats.length == 0 ? stat.self.result : ((stat.self.position || ordinal)+' / '+stat.self.result))) || 
 (table.layout == 'Knockout'&& stat.self.result) ||
 (table.layout == 'Swiss League'&& stat.self.result) || (table.layout == 'Heats' && ((stat.self.standing || ordinal) ?(stat.self.result?(stat.self.standing || ordinal)+' / '+stat.self.result:(stat.self.standing || ordinal)):stat.self.result)) ||

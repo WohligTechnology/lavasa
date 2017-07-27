@@ -795,5 +795,11 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
                 data: id
             }).then(callback);
         },
+        getDetail: function (callback) {
+            $http({
+                url: adminUrl2 + 'ConfigProperty/getDetail',
+                method: 'POST'
+            }).then(callback);
+        }
     };
 });

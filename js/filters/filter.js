@@ -237,6 +237,15 @@ firstApp.filter('firstcapitalize', function () {
         }) : '';
     };
 });
+
+firstApp.filter('capitalize', function () {
+    return function (input, all) {
+        var reg = (all) ? /([^\W_]+[^\s-]*) */g : /([^\W_]+[^\s-]*)/;
+        return (!!input) ? input.replace(reg, function (txt) {
+            return txt.toUpperCase();
+        }) : '';
+    };
+});
 firstApp.filter('shorten', function () {
     return function (value, limit) {
         if (value)

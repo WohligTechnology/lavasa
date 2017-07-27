@@ -3533,7 +3533,7 @@ ul.dropdown-menu.sf-absulate.blue-menus li a {
 .cl-pr {
     li {
         a {
-            font-size: 12px;
+            font-size: 11px;
             color: #f47422 !important;
         }
     }
@@ -5788,6 +5788,10 @@ input[type="radio"]:checked+label span {
     margin-bottom: -20px;
 }
 
+.mb-33 {
+    margin-bottom: 33px;
+}
+
 .mb-191 {
     margin-bottom: 201px;
 }
@@ -7485,6 +7489,88 @@ h1.forgot-space {
 .gstLiner {
     line-height: 1.42857;
     margin: 3px 0;
+}
+
+.typePlacing {
+    width: 260px;
+    background-color: #091a71;
+    li {
+        a {
+            color: #fff !important;
+            font-size: 14px !important;
+            font-family: 'Titillium Web Regular';
+        }
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        top: -10px;
+        background: #091a71;
+        left: 50%;
+        transform: translate(-50%, 0);
+        border-right: 10px solid #fff; // border-right: 10px solid rgba(255, 255, 255, 0.6);
+        border-bottom: 10px solid transparent;
+        border-left: 10px solid #fff; // border-left: 10px solid rgba(255, 255, 255, 0.6);
+    }
+}
+
+.typePlace {
+    @extend .typePlacing;
+    width: 304px;
+    left: -94px;
+    .typeList {
+        padding: 0 10px;
+        margin: 0;
+        li {
+            padding: 0 !important;
+            display: block !important;
+            a {
+                font-size: 11px !important;
+            }
+        }
+        li:first-child {
+            a {
+                font-size: 11px !important;
+            }
+        }
+    }
+}
+
+.typeList {
+    padding: 0 20px;
+    margin: 15px 0;
+    list-style-type: none;
+    li:first-child {
+        border-bottom: 1px solid #fff;
+        margin-bottom: 10px;
+        a {
+            font-size: 16px !important;
+            font-family: Titillium Web SemiBold;
+        }
+    }
+}
+
+.curve-head-mum.newList {
+    background: rgba(24, 31, 187, 1);
+    position: relative;
+    padding: 20px 10px 10px 0px;
+    &:after {
+        right: 22%;
+    }
+    .typeList {
+        li:first-child {
+            border-color: #fff;
+        }
+        li {
+            a {
+                border-bottom: 0;
+                padding: 5px 0;
+                cursor: pointer;
+            }
+        }
+    }
 }
 
 @import "fancybox-override";
