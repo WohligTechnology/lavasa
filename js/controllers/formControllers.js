@@ -389,35 +389,35 @@ firstApp.controller('FormathleteCtrl', function ($scope, TemplateService, $eleme
             if ($scope.showEmailOtpSuccess === false && $scope.showMobileOtpSuccess === false) {
                 $scope.isDisabled = true;
                 console.log('google', formdata);
-                // NavigationService.apiCallWithData($scope.url, formdata, function (data) {
-                //     if (data.value === true) {
-                //         console.log("registrationFee", data.data[0].registrationFee);
-                //         console.log("value", data.value);
-                //         if (data.data[0].registrationFee == "online PAYU") {
-                //             var id = data.data[0]._id;
-                //             console.log("true and in payment", id);
-                //             var url = "payU/atheletePayment?id=" + id;
-                //             window.location.href = adminUrl2 + url;
-                //         } else {
-                //             console.log("opening modal");
-                //             $scope.openModal();
-                //         }
-                //     } else {
-                //         $scope.isDisabled = false;
-                //         if (data.error == 'Athlete Already Exist') {
-                //             console.log("User Already Exist");
-                //             $scope.openExistModal();
-                //             $timeout(function () {
-                //                 $scope.existInstances.close();
-                //             }, 3000);
-                //         } else {
-                //             $scope.openErrModal();
-                //             $timeout(function () {
-                //                 $scope.errInstances.close();
-                //             }, 3000);
-                //         }
-                //     }
-                // });
+                NavigationService.apiCallWithData($scope.url, formdata, function (data) {
+                    if (data.value === true) {
+                        console.log("registrationFee", data.data[0].registrationFee);
+                        console.log("value", data.value);
+                        if (data.data[0].registrationFee == "online PAYU") {
+                            var id = data.data[0]._id;
+                            console.log("true and in payment", id);
+                            var url = "payU/atheletePayment?id=" + id;
+                            window.location.href = adminUrl2 + url;
+                        } else {
+                            console.log("opening modal");
+                            $scope.openModal();
+                        }
+                    } else {
+                        $scope.isDisabled = false;
+                        if (data.error == 'Athlete Already Exist') {
+                            console.log("User Already Exist");
+                            $scope.openExistModal();
+                            $timeout(function () {
+                                $scope.existInstances.close();
+                            }, 3000);
+                        } else {
+                            $scope.openErrModal();
+                            $timeout(function () {
+                                $scope.errInstances.close();
+                            }, 3000);
+                        }
+                    }
+                });
             }
         } else {
             $scope.isDisabled = false;
