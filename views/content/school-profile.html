@@ -555,9 +555,9 @@
                                                     <td class="sf-relative">
                                                         <div class="text-center display-inline ver-mid main-pos sf-absulate">
                                                             <div class="sf-play">
-                                                                <span>{{table.layout == 'Qualifying Knockout'&& (stat.qualifyingknockout.heats.length == 0 ? stat.self.result : ((stat.self.position || ordinal)+' / '+stat.self.result)) || 
-                                                                    table.layout == 'Knockout'&& stat.self.result ||
-                                                                     table.layout == 'Swiss League'&& (stat.self.result || table.layout == 'Heats' && ((stat.self.standing || ordinal)+' / '+stat.self.result)) ||
+                                                                <span>{{(table.layout == 'Qualifying Knockout'&& (stat.qualifyingknockout.heats.length == 0 ? stat.self.result : ((stat.self.position || ordinal)+' / '+stat.self.result))) || 
+                                                                    (table.layout == 'Knockout'&& stat.self.result) ||
+                                                                     (table.layout == 'Swiss League'&& stat.self.result) || (table.layout == 'Heats' && ((stat.self.standing || ordinal)+' / '+stat.self.result)) ||
                                                                       (table.layout == 'League' && stat.self.result) || 
                                                                       (table.layout == 'League cum Knockout' && stat.self.result) ||
                                                                        (table.layout == "Qualifying Round" && stat.qualifyinground.result) || ""}}</span>
