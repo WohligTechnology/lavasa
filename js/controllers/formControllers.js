@@ -2,6 +2,8 @@ var globalLinkSchool = schoolLink + "formregis";
 var globalLinkSchoolAthlete = schoolLink + "formathlete";
 var globalLinkCollege = collegeLink + "formregis";
 var globalLinkCollegeAthlete = collegeLink + "formathlete";
+var globalLinkSchoolSportsRegistration = schoolLink + "sports-registration";
+var globalLinkCollegeSportsRegistration = collegeLink + "sports-registration";
 
 firstApp.controller('RegisterCtrl', function ($scope, $uibModal, TemplateService, NavigationService, $timeout, errorService, toastr) {
     //Used to name the .html file
@@ -26,11 +28,13 @@ firstApp.controller('RegisterCtrl', function ($scope, $uibModal, TemplateService
                         $scope.type = allData.data.type;
                         $scope.registrationLink = globalLinkSchool;
                         $scope.athleteLink = globalLinkSchoolAthlete;
+                        $scope.sportsRegistrationLink = globalLinkSchoolSportsRegistration;
                     } else {
                         $scope.isCollege = true;
                         $scope.type = allData.data.type;
                         $scope.registrationLink = globalLinkCollege;
                         $scope.athleteLink = globalLinkCollegeAthlete;
+                        $scope.sportsRegistrationLink = globalLinkCollegeSportsRegistration;
                     }
                 }
             } else {

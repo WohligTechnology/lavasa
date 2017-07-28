@@ -7,13 +7,12 @@
         </div>
       </div>
       <div class="row">
-        <!--<h1 class="text-center school-sports spt-m">Sports Registration Form</h1>-->
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="pull-right mb25 sp-tab-right ">
             <div class="">
               <div class="display-inline">
                 <p class="mb0">SFA ID:</p>
-                <p class="mb0" ng-if="detail.userType === 'school'">School Name:</p>
+                <p class="mb0" ng-if="detail.userType === 'school'">{{type | firstcapitalize}} Name:</p>
                 <p class="mb0" ng-if="detail.userType === 'athlete'">Athlete Name:</p>
               </div>
               <div class="display-inline">

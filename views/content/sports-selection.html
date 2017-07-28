@@ -9,7 +9,7 @@
       <div class="">
         <div class="display-inline">
           <p class="mb0">SFA ID:</p>
-          <p class="mb0" ng-if="detail.userType === 'school'">School Name:</p>
+          <p class="mb0" ng-if="detail.userType === 'school'">{{type | firstcapitalize}} Name:</p>
           <p class="mb0" ng-if="detail.userType === 'athlete'">Athlete Name:</p>
         </div>
         <div class="display-inline">

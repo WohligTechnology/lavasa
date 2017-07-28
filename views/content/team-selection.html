@@ -14,7 +14,7 @@
                             <div class="">
                                 <div class="display-inline">
                                     <p class="mb0">SFA ID:</p>
-                                    <p class="mb0" ng-if="detail.userType === 'school'">School Name:</p>
+                                    <p class="mb0" ng-if="detail.userType === 'school'">{{type | firstcapitalize}} Name:</p>
                                     <p class="mb0" ng-if="detail.userType === 'athlete'">Athlete Name:</p>
                                 </div>
                                 <div class="display-inline">
@@ -167,7 +167,7 @@
                                                     <div class="hover-img margin0 pt7 col-md-2 col-sm-2 col-xs-3">
                                                         <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
                                                         <div class="iconinfo sf-list">
-                                                            <p>Only registered athletes from your school as per the selected
+                                                            <p>Only registered athletes from your {{type}} as per the selected
                                                                 gender and age group will be displayed below</p>
                                                         </div>
                                                     </div>
@@ -185,8 +185,8 @@
                                                         <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon pull-right">
                                                         <div class="iconinfo sf-list">
                                                             <p>Only athlete which have registered for sfa mumbai 2017 from your
-                                                                school as per the selected gender and age group will be displayed
-                                                                below.
+                                                                {{type}} as per the selected gender and age group will be
+                                                                displayed below.
                                                             </p>
                                                         </div>
                                                     </div>

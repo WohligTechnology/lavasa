@@ -4,6 +4,29 @@ firstApp.controller('IndividualSelectionCtrl', function ($scope, TemplateService
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    NavigationService.getDetail(function (data) {
+        errorService.errorCode(data, function (allData) {
+            console.log(allData);
+            if (!allData.message) {
+                if (allData.value === true) {
+                    $scope.city = allData.data.city;
+                    $scope.district = allData.data.district;
+                    $scope.state = allData.data.state;
+                    $scope.year = allData.data.year;
+                    $scope.sfaCity = allData.data.sfaCity;
+                    if (allData.data.type == 'school') {
+                        $scope.isCollege = false;
+                        $scope.type = allData.data.type;
+                    } else {
+                        $scope.isCollege = true;
+                        $scope.type = allData.data.type;
+                    }
+                }
+            } else {
+                toastr.error(allData.message, 'Error Message');
+            }
+        });
+    });
     $scope.selectService = selectService;
     $.jStorage.set("sportsId", $stateParams.id);
     $scope.selectService.sportsId = $stateParams.id;
@@ -176,6 +199,29 @@ firstApp.controller('ConfirmFencingCtrl', function ($scope, TemplateService, Nav
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    NavigationService.getDetail(function (data) {
+        errorService.errorCode(data, function (allData) {
+            console.log(allData);
+            if (!allData.message) {
+                if (allData.value === true) {
+                    $scope.city = allData.data.city;
+                    $scope.district = allData.data.district;
+                    $scope.state = allData.data.state;
+                    $scope.year = allData.data.year;
+                    $scope.sfaCity = allData.data.sfaCity;
+                    if (allData.data.type == 'school') {
+                        $scope.isCollege = false;
+                        $scope.type = allData.data.type;
+                    } else {
+                        $scope.isCollege = true;
+                        $scope.type = allData.data.type;
+                    }
+                }
+            } else {
+                toastr.error(allData.message, 'Error Message');
+            }
+        });
+    });
     $scope.selectService = selectService;
     $scope.formData = {};
     loginService.loginGet(function (data) {
@@ -232,6 +278,29 @@ firstApp.controller('ConfirmIndividualCtrl', function ($scope, TemplateService, 
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    NavigationService.getDetail(function (data) {
+        errorService.errorCode(data, function (allData) {
+            console.log(allData);
+            if (!allData.message) {
+                if (allData.value === true) {
+                    $scope.city = allData.data.city;
+                    $scope.district = allData.data.district;
+                    $scope.state = allData.data.state;
+                    $scope.year = allData.data.year;
+                    $scope.sfaCity = allData.data.sfaCity;
+                    if (allData.data.type == 'school') {
+                        $scope.isCollege = false;
+                        $scope.type = allData.data.type;
+                    } else {
+                        $scope.isCollege = true;
+                        $scope.type = allData.data.type;
+                    }
+                }
+            } else {
+                toastr.error(allData.message, 'Error Message');
+            }
+        });
+    });
     $scope.selectService = selectService;
     $scope.redirectTo = $.jStorage.get("confirmPageKey");
     console.log($scope.selectService.team);
@@ -324,6 +393,29 @@ firstApp.controller('ConfirmKarateCtrl', function ($scope, TemplateService, Navi
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    NavigationService.getDetail(function (data) {
+        errorService.errorCode(data, function (allData) {
+            console.log(allData);
+            if (!allData.message) {
+                if (allData.value === true) {
+                    $scope.city = allData.data.city;
+                    $scope.district = allData.data.district;
+                    $scope.state = allData.data.state;
+                    $scope.year = allData.data.year;
+                    $scope.sfaCity = allData.data.sfaCity;
+                    if (allData.data.type == 'school') {
+                        $scope.isCollege = false;
+                        $scope.type = allData.data.type;
+                    } else {
+                        $scope.isCollege = true;
+                        $scope.type = allData.data.type;
+                    }
+                }
+            } else {
+                toastr.error(allData.message, 'Error Message');
+            }
+        });
+    });
     $scope.formData = {};
     $scope.selectService = selectService;
     loginService.loginGet(function (data) {
@@ -359,7 +451,29 @@ firstApp.controller('ConfirmAthSwmCtrl', function ($scope, TemplateService, Navi
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.selectService = selectService;
-
+    NavigationService.getDetail(function (data) {
+        errorService.errorCode(data, function (allData) {
+            console.log(allData);
+            if (!allData.message) {
+                if (allData.value === true) {
+                    $scope.city = allData.data.city;
+                    $scope.district = allData.data.district;
+                    $scope.state = allData.data.state;
+                    $scope.year = allData.data.year;
+                    $scope.sfaCity = allData.data.sfaCity;
+                    if (allData.data.type == 'school') {
+                        $scope.isCollege = false;
+                        $scope.type = allData.data.type;
+                    } else {
+                        $scope.isCollege = true;
+                        $scope.type = allData.data.type;
+                    }
+                }
+            } else {
+                toastr.error(allData.message, 'Error Message');
+            }
+        });
+    });
     $scope.formData = {};
     loginService.loginGet(function (data) {
         $scope.detail = data;
@@ -393,6 +507,29 @@ firstApp.controller('IndividualCongratsCtrl', function ($scope, TemplateService,
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    NavigationService.getDetail(function (data) {
+        errorService.errorCode(data, function (allData) {
+            console.log(allData);
+            if (!allData.message) {
+                if (allData.value === true) {
+                    $scope.city = allData.data.city;
+                    $scope.district = allData.data.district;
+                    $scope.state = allData.data.state;
+                    $scope.year = allData.data.year;
+                    $scope.sfaCity = allData.data.sfaCity;
+                    if (allData.data.type == 'school') {
+                        $scope.isCollege = false;
+                        $scope.type = allData.data.type;
+                    } else {
+                        $scope.isCollege = true;
+                        $scope.type = allData.data.type;
+                    }
+                }
+            } else {
+                toastr.error(allData.message, 'Error Message');
+            }
+        });
+    });
     // $scope.formData = {};
     loginService.loginGet(function (data) {
         $scope.detail = data;

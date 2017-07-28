@@ -14,7 +14,7 @@
           <div class="">
             <div class="display-inline">
               <p class="mb0">SFA ID:</p>
-              <p class="mb0" ng-if="detail.userType === 'school'">School Name:</p>
+              <p class="mb0" ng-if="detail.userType === 'school'">{{type | firstcapitalize}} Name:</p>
               <p class="mb0" ng-if="detail.userType === 'athlete'">Athlete Name:</p>
             </div>
             <div class="display-inline">
@@ -39,7 +39,7 @@
                   <div class="form-group">
                     <div class="readSchoolName selectDefault">
                       <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12">
-                        <label for="inputEmail3" class="col-md-4 col-sm-4 col-xs-12 control-label para3">School Name:</label>
+                        <label for="inputEmail3" class="col-md-4 col-sm-4 col-xs-12 control-label para3">{{type | firstcapitalize}} Name:</label>
                         <div class="col-md-7 col-sm-8 col-xs-12">
                           <!-- <input type="text" class="form-control" ng-model="formData.schoolName" id="inputEmail3" readonly> -->
                           <select class="form-control changeBorder" id="inputEmail3">

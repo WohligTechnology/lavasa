@@ -15,7 +15,7 @@
           </li>
           <li>
             <div class="" ng-click="tabchange('2')" ng-class="{'active-list':sch==true}">
-              <div class="step2"> <a>I am a School</a></div>
+              <div class="step2"> <a>I am a {{type | firstcapitalize}}</a></div>
             </div>
           </li>
         </ul>
@@ -44,7 +44,7 @@
                 <img src="img/icon/icon.png" alt="logo" class="img-responsive myicon">
                 <div class="iconinfo iconplace sf-list">
                   <p ng-if="formData.type == 'athlete'">Kindly enter the password which had been sent to your registered email ID during athlete registration.</p>
-                  <p ng-if="formData.type == 'school'">Kindly enter the password which had been sent to your registered email ID during school registration.</p>
+                  <p ng-if="formData.type == 'school'">Kindly enter the password which had been sent to your registered email ID during {{type}} registration.</p>
                 </div>
               </div>
             </div>

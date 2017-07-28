@@ -9,13 +9,13 @@
         <thead>
             <tr>
                 <th class="lowerthead borderRule">Age Group & Event</th>
-                <th class="lowerthead borderRule">Weight Categories</th>
+                <th class="lowerthead borderRule" ng-if="items.ageGroupTable[0].weight">Weight Categories</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="value in items.ageGroupTable">
                 <td>{{value.agegroup}}</td>
-                <td>{{value.weight}}</td>
+                <td ng-if="value.weight">{{value.weight}}</td>
             </tr>
         </tbody>
     </table>

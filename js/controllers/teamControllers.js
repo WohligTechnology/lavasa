@@ -4,7 +4,29 @@ firstApp.controller('TeamSelectionCtrl', function ($scope, TemplateService, $sta
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-
+    NavigationService.getDetail(function (data) {
+        errorService.errorCode(data, function (allData) {
+            console.log(allData);
+            if (!allData.message) {
+                if (allData.value === true) {
+                    $scope.city = allData.data.city;
+                    $scope.district = allData.data.district;
+                    $scope.state = allData.data.state;
+                    $scope.year = allData.data.year;
+                    $scope.sfaCity = allData.data.sfaCity;
+                    if (allData.data.type == 'school') {
+                        $scope.isCollege = false;
+                        $scope.type = allData.data.type;
+                    } else {
+                        $scope.isCollege = true;
+                        $scope.type = allData.data.type;
+                    }
+                }
+            } else {
+                toastr.error(allData.message, 'Error Message');
+            }
+        });
+    });
     $scope.selectService = selectService;
     console.log("$scope.selectService", $scope.selectService);
 
@@ -462,6 +484,29 @@ firstApp.controller('ConfirmTeamCtrl', function ($scope, TemplateService, Naviga
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    NavigationService.getDetail(function (data) {
+        errorService.errorCode(data, function (allData) {
+            console.log(allData);
+            if (!allData.message) {
+                if (allData.value === true) {
+                    $scope.city = allData.data.city;
+                    $scope.district = allData.data.district;
+                    $scope.state = allData.data.state;
+                    $scope.year = allData.data.year;
+                    $scope.sfaCity = allData.data.sfaCity;
+                    if (allData.data.type == 'school') {
+                        $scope.isCollege = false;
+                        $scope.type = allData.data.type;
+                    } else {
+                        $scope.isCollege = true;
+                        $scope.type = allData.data.type;
+                    }
+                }
+            } else {
+                toastr.error(allData.message, 'Error Message');
+            }
+        });
+    });
     $scope.teamMembers = selectService.team;
     $scope.selectService = selectService;
     // NavigationService.setSportTeamMembers($scope.teamMembers);
@@ -624,6 +669,29 @@ firstApp.controller('TeamCongratsCtrl', function ($scope, TemplateService, toast
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    NavigationService.getDetail(function (data) {
+        errorService.errorCode(data, function (allData) {
+            console.log(allData);
+            if (!allData.message) {
+                if (allData.value === true) {
+                    $scope.city = allData.data.city;
+                    $scope.district = allData.data.district;
+                    $scope.state = allData.data.state;
+                    $scope.year = allData.data.year;
+                    $scope.sfaCity = allData.data.sfaCity;
+                    if (allData.data.type == 'school') {
+                        $scope.isCollege = false;
+                        $scope.type = allData.data.type;
+                    } else {
+                        $scope.isCollege = true;
+                        $scope.type = allData.data.type;
+                    }
+                }
+            } else {
+                toastr.error(allData.message, 'Error Message');
+            }
+        });
+    });
     // $scope.formData = {};
     loginService.loginGet(function (data) {
         $scope.detail = data;

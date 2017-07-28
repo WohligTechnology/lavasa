@@ -4,7 +4,29 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, selectService, T
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-
+    NavigationService.getDetail(function (data) {
+        errorService.errorCode(data, function (allData) {
+            console.log(allData);
+            if (!allData.message) {
+                if (allData.value === true) {
+                    $scope.city = allData.data.city;
+                    $scope.district = allData.data.district;
+                    $scope.state = allData.data.state;
+                    $scope.year = allData.data.year;
+                    $scope.sfaCity = allData.data.sfaCity;
+                    if (allData.data.type == 'school') {
+                        $scope.isCollege = false;
+                        $scope.type = allData.data.type;
+                    } else {
+                        $scope.isCollege = true;
+                        $scope.type = allData.data.type;
+                    }
+                }
+            } else {
+                toastr.error(allData.message, 'Error Message');
+            }
+        });
+    });
     $scope.formData = {};
     if ($.jStorage.get("userType") === null) {
         NavigationService.setUserType("athlete");
@@ -51,27 +73,52 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, selectService, T
                 if (formData) {
                     formData.type = $.jStorage.get("userType");
                     if (formData.sfaid) {
-                        if (formData.sfaid.charAt(1) == "S" && formData.type == "athlete") {
-                            toastr.error('Only Athlete Can Log In.', 'Login Message');
-                        } else {
-                            if (formData.sfaid.charAt(1) == "A" && formData.type == "school") {
-                                toastr.error('Only School Can Log In.', 'Login Message');
+                        if ($scope.type == 'school') {
+                            console.log('enter school');
+                            if (formData.sfaid.charAt(1) == "S" && formData.type == "athlete") {
+                                toastr.error('Only Athlete Can Log In.', 'Login Message');
+                            } else {
+                                if (formData.sfaid.charAt(1) == "A" && formData.type == "school") {
+                                    toastr.error('Only School Can Log In.', 'Login Message');
+                                } else {
+                                    if (formData.sfaid.charAt(1) == "C" && formData.type == "school") {
+                                        toastr.error('Only School Can Log In.', 'Login Message');
+                                    }
+                                }
                             }
-                        }
-                    }
-                    if (formData.sfaid.charAt(1) == "S" && formData.type == "school") {
-                        $scope.loginFunction(formData);
-                    } else {
-                        if (formData.sfaid.charAt(1) == "A" && formData.type == "athlete") {
-                            $scope.loginFunction(formData);
+                            if (formData.sfaid.charAt(1) == "S" && formData.type == "school") {
+                                $scope.loginFunction(formData);
+                            } else {
+                                if (formData.sfaid.charAt(1) == "A" && formData.type == "athlete") {
+                                    $scope.loginFunction(formData);
+                                }
+                            }
+                        } else {
+                            console.log('enter');
+                            if (formData.sfaid.charAt(1) == "C" && formData.type == "athlete") {
+                                toastr.error('Only Athlete Can Log In.', 'Login Message');
+                            } else {
+                                if (formData.sfaid.charAt(1) == "A" && formData.type == "school") {
+                                    toastr.error('Only College Can Log In.', 'Login Message');
+                                } else {
+                                    if (formData.sfaid.charAt(1) == "S" && formData.type == "school") {
+                                        toastr.error('Only College Can Log In.', 'Login Message');
+                                    }
+                                }
+                            }
+                            if (formData.sfaid.charAt(1) == "C" && formData.type == "school") {
+                                $scope.loginFunction(formData);
+                            } else {
+                                if (formData.sfaid.charAt(1) == "A" && formData.type == "athlete") {
+                                    $scope.loginFunction(formData);
+                                }
+                            }
                         }
                     }
                 }
             } else {
                 toastr.error('Please Enter All Fields.', 'Login Message');
             }
-
-
         });
     };
 
@@ -94,14 +141,38 @@ firstApp.controller('SportsRegistrationCtrl', function ($scope, selectService, T
     };
 });
 
-firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, errorService) {
+firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $state, errorService, $filter) {
     $scope.template = TemplateService.changecontent("forgot-password");
     $scope.menutitle = NavigationService.makeactive("Forgot password");
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    NavigationService.getDetail(function (data) {
+        errorService.errorCode(data, function (allData) {
+            console.log(allData);
+            if (!allData.message) {
+                if (allData.value === true) {
+                    $scope.city = allData.data.city;
+                    $scope.district = allData.data.district;
+                    $scope.state = allData.data.state;
+                    $scope.year = allData.data.year;
+                    $scope.sfaCity = allData.data.sfaCity;
+                    if (allData.data.type == 'school') {
+                        $scope.isCollege = false;
+                        $scope.type = allData.data.type;
+                    } else {
+                        $scope.isCollege = true;
+                        $scope.type = allData.data.type;
+                    }
+                }
+            } else {
+                toastr.error(allData.message, 'Error Message');
+            }
+        });
+    });
     $scope.formData = {};
     $scope.formData.type = $.jStorage.get("userType");
+    $scope.typeFirst = $filter('firstcapitalize', $scope.type);
     $scope.forgotPasswordFunction = function (formData, url) {
         NavigationService.forgotPassword(formData, url, function (data) {
             errorService.errorCode(data, function (allData) {
@@ -112,9 +183,9 @@ firstApp.controller('ForgotPasswordCtrl', function ($scope, TemplateService, Nav
                     } else {
                         if (allData.error == "Incorrect Type") {
                             if ($scope.formData.type == 'athlete') {
-                                toastr.error('Only Athlete Can Apply From Here For Forgot Password. Please Check You Are School Or Athlete, Please Try Again.', 'Forgot Password Message');
+                                toastr.error('Only Athlete Can Apply From Here For Forgot Password. Please Check You Are {{$scope.typeFirst}} Or Athlete, Please Try Again.', 'Forgot Password Message');
                             } else {
-                                toastr.error('Only School Can Apply From Here For Forgot Password. Please Check You Are School Or Athlete, Please Try Again.', 'Forgot Password Message');
+                                toastr.error('Only {{$scope.typeFirst}} Can Apply From Here For Forgot Password. Please Check You Are {{$scope.typeFirst}} Or Athlete, Please Try Again.', 'Forgot Password Message');
                             }
                         } else {
                             toastr.error('Please Try Again By Entering Valid  SFA Id And Email Id.', 'Forgot Password Message');
@@ -155,6 +226,30 @@ firstApp.controller('ChangePasswordCtrl', function ($scope, TemplateService, Nav
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    NavigationService.getDetail(function (data) {
+        errorService.errorCode(data, function (allData) {
+            console.log(allData);
+            if (!allData.message) {
+                if (allData.value === true) {
+                    $scope.city = allData.data.city;
+                    $scope.district = allData.data.district;
+                    $scope.state = allData.data.state;
+                    $scope.formData.state = allData.data.state;
+                    $scope.year = allData.data.year;
+                    $scope.sfaCity = allData.data.sfaCity;
+                    if (allData.data.type == 'school') {
+                        $scope.isCollege = false;
+                        $scope.type = allData.data.type;
+                    } else {
+                        $scope.isCollege = true;
+                        $scope.type = allData.data.type;
+                    }
+                }
+            } else {
+                toastr.error(allData.message, 'Error Message');
+            }
+        });
+    });
     if ($.jStorage.get("userDetails") === null) {
         $state.go('sports-registration');
     }
