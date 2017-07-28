@@ -407,11 +407,17 @@
                                 <input ng-model="formData.schoolPrincipalLandline" only-Digits type="text" class="bor-t" minlength="8" maxlength="11">
                         </div>-->
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" ng-if="isCollege == false">
                             <label class="col-md-3 col-sm-3 col-xs-12">*Email:</label>
                             <div class="col-md-5 col-sm-5 col-xs-12">
                                 <input ng-model="formData.schoolPrincipalEmail" name="schoolPrincipalEma" type="email" class="bor-t form-control" required>
                                 <div class="validate-col" ng-show="formRegister.schoolPrincipalEma.$invalid && formRegister.schoolPrincipalEma.$touched">Please Enter Email*</div>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="isCollege == true">
+                            <label class="col-md-3 col-sm-3 col-xs-12">Email:</label>
+                            <div class="col-md-5 col-sm-5 col-xs-12">
+                                <input ng-model="formData.schoolPrincipalEmail" name="schoolPrincipalEma" type="email" class="bor-t form-control">
                             </div>
                         </div>
                     </div>

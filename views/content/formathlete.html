@@ -521,37 +521,57 @@
                            <option>International</option>
                         </select>
                         </div>
-                        <div class=" ">
+                        <div class=" " ng-if="isCollege == false">
                             <label class="sportlevel sf-list ">Sport:</label>
                             <select class="sfa-drop2 sf-list " ng-model="sportLevel.sport " required>
-                           <option style="display:none "></option>
+                            <option style="display:none "></option>
                             <option>Archery</option>
                             <option>Athletics</option>
-                          
-                           <option>Badminton</option>
+                            <option>Badminton</option>
                             <option>Basketball</option>
-                           <option>Boxing</option>
-                           <option>Carrom</option>
-                           <option>Chess</option>
-                           <option>Fencing</option>
-                           <option>Football</option>
-                           <option>Handball</option>
-                           <option>Hockey</option>
-                           <option>Judo</option>
-                           <option>Kabaddi</option>
-                           <option>Karate</option>
-                           <option>Kho Kho</option>
-                           <option>Shooting</option>
-                           <option>Squash</option>
-                           <option>Sports MMA</option>
-                           <option>Swimming</option>
-                           <option>Table Tennis</option>
-                           <option>Taekwondo</option>
-                           <option>Tennis</option>
-                           <option>Throwball</option>
-                           <option>Volleyball</option>
-                           <option>Waterpolo</option>
-                        </select>
+                            <option>Boxing</option>
+                            <option>Carrom</option>
+                            <option>Chess</option>
+                            <option>Fencing</option>
+                            <option>Football</option>
+                            <option>Handball</option>
+                            <option>Hockey</option>
+                            <option>Judo</option>
+                            <option>Kabaddi</option>
+                            <option>Karate</option>
+                            <option>Kho Kho</option>
+                            <option>Shooting</option>
+                            <option>Squash</option>
+                            <option>Sports MMA</option>
+                            <option>Swimming</option>
+                            <option>Table Tennis</option>
+                            <option>Taekwondo</option>
+                            <option>Tennis</option>
+                            <option>Throwball</option>
+                            <option>Volleyball</option>
+                            <option>Waterpolo</option>
+                          </select>
+                        </div>
+                        <div class=" " ng-if="isCollege == true">
+                            <label class="sportlevel sf-list ">Sport:</label>
+                            <select class="sfa-drop2 sf-list " ng-model="sportLevel.sport " required>
+                            <option style="display:none "></option>
+                            <option>Archery</option>
+                            <option>Boxing</option>
+                            <option>Carrom</option>
+                            <option>Chess</option>
+                            <option>Fencing</option>
+                            <option>Handball</option>
+                            <option>Hockey</option>
+                            <option>Judo</option>
+                            <option>Kabaddi</option>
+                            <option>Shooting</option>
+                            <option>Squash</option>
+                            <option>Swimming</option>
+                            <option>Taekwondo</option>
+                            <option>Tennis</option>
+                            <option>Waterpolo</option>
+                          </select>
                         </div>
                         <div class="plus ">
                             <img src="img/icon/p.png " alt="logo " class="img-responsive " ng-click="addSportLevelForm(sportLevelIndex)

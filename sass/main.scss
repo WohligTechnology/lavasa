@@ -7516,13 +7516,28 @@ h1.forgot-space {
     }
 }
 
+.typeList {
+    padding: 0 20px;
+    margin: 15px 0;
+    list-style-type: none;
+    vertical-align: top;
+    li:first-child {
+        border-bottom: 1px solid #fff;
+        margin-bottom: 10px;
+        a {
+            font-size: 16px !important;
+            font-family: Titillium Web SemiBold;
+        }
+    }
+}
+
 .typePlace {
     @extend .typePlacing;
     width: 304px;
     left: -94px;
     .typeList {
         padding: 0 10px;
-        margin: 0;
+        margin: 0; // vertical-align: top;
         li {
             padding: 0 !important;
             display: block !important;
@@ -7538,20 +7553,6 @@ h1.forgot-space {
     }
 }
 
-.typeList {
-    padding: 0 20px;
-    margin: 15px 0;
-    list-style-type: none;
-    li:first-child {
-        border-bottom: 1px solid #fff;
-        margin-bottom: 10px;
-        a {
-            font-size: 16px !important;
-            font-family: Titillium Web SemiBold;
-        }
-    }
-}
-
 .curve-head-mum.newList {
     background: rgba(24, 31, 187, 1);
     position: relative;
@@ -7560,6 +7561,7 @@ h1.forgot-space {
         right: 22%;
     }
     .typeList {
+        // vertical-align: top;
         li:first-child {
             border-color: #fff;
         }
