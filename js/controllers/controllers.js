@@ -3976,29 +3976,6 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     });
     $scope.registerSchool = globalLinkSchoolRegister;
     $scope.registerCollege = globalLinkCollegeRegister;
-    NavigationService.getDetail(function (data) {
-        errorService.errorCode(data, function (allData) {
-            console.log(allData);
-            if (!allData.message) {
-                if (allData.value === true) {
-                    $scope.city = allData.data.city;
-                    $scope.district = allData.data.district;
-                    $scope.state = allData.data.state;
-                    $scope.year = allData.data.year;
-                    $scope.sfaCity = allData.data.sfaCity;
-                    if (allData.data.type == 'school') {
-                        $scope.isCollege = false;
-                        $scope.type = allData.data.type;
-                    } else {
-                        $scope.isCollege = true;
-                        $scope.type = allData.data.type;
-                    }
-                }
-            } else {
-                toastr.error(allData.message, 'Error Message');
-            }
-        });
-    });
 
     $scope.games = // JavaScript Document
         [{
