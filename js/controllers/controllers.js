@@ -1,6 +1,6 @@
 // angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select', 'ordinal', 'wt.responsive', 'ui.date', 'toastr'])
-var globalLinkSchoolRegister = schoolLink + "register";
-var globalLinkCollegeRegister = collegeLink + "register";
+var globalLinkSchoolRegister = schoolLink;
+var globalLinkCollegeRegister = collegeLink;
 
 firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval) {
     //Used to name the .html file
