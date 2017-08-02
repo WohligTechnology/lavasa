@@ -380,6 +380,15 @@ firstApp.controller('SponserCtrl', function ($scope, TemplateService, Navigation
             "href": "https://www.facebook.com/sportsillustratedindia/",
             "game": "Magazine Partner"
         }];
+    //  {
+    //     "img": "img/footer/na1.jpg",
+    //     "href": "",
+    //     "game": "Sports Equipment Partner"
+    // }, {
+    //     "img": "img/footer/na2.jpg",
+    //     "href": "",
+    //     "game": "Apparel Partner"
+    // },
     $scope.partner = // JavaScript Document
         [{
             "img": "img/footer/p1.jpg",
@@ -389,14 +398,6 @@ firstApp.controller('SponserCtrl', function ($scope, TemplateService, Navigation
             "img": "img/footer/p6.jpg",
             "href": "",
             "game": "Hospital Partner"
-        }, {
-            "img": "img/footer/na1.jpg",
-            "href": "",
-            "game": "Sports Equipment Partner"
-        }, {
-            "img": "img/footer/na2.jpg",
-            "href": "",
-            "game": "Apparel Partner"
         }, {
             "img": "img/footer/na3.jpg",
             "href": "",
