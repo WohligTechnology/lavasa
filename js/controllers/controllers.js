@@ -399,14 +399,6 @@ firstApp.controller('SponserCtrl', function ($scope, TemplateService, Navigation
             "href": "",
             "game": "Hospital Partner"
         }, {
-            "img": "img/footer/na1.jpg",
-            "href": "",
-            "game": "Sports Equipment Partner"
-        }, {
-            "img": "img/footer/na2.jpg",
-            "href": "",
-            "game": "Apparel Partner"
-        }, {
             "img": "img/footer/na3.jpg",
             "href": "",
             "game": "Sports Surface Partner"
@@ -427,6 +419,15 @@ firstApp.controller('SponserCtrl', function ($scope, TemplateService, Navigation
             "href": "",
             "game": "Event Partner "
         }];
+        // {
+        //     "img": "img/footer/na1.jpg",
+        //     "href": "",
+        //     "game": "Sports Equipment Partner"
+        // }, {
+        //     "img": "img/footer/na2.jpg",
+        //     "href": "",
+        //     "game": "Apparel Partner"
+        // }, 
     $scope.teams = [{
         "img": "img/sports/football.jpg",
         "name": "football"
