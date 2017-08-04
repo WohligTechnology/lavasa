@@ -1,6 +1,14 @@
 // angular.module('phonecatControllers', ['ui.select', 'templateservicemod', 'navigationservice', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'angular-flexslider', 'angular-loading-bar', 'ui.select', 'ordinal', 'wt.responsive', 'ui.date', 'toastr'])
 var globalLinkSchoolRegister = schoolLink;
 var globalLinkCollegeRegister = collegeLink;
+var tempLink = "sfanow.in";
+var tempLinks = "www.sfanow.in";
+var tempLink1 = "mumbai.sfanow.in";
+var sublinkTemp = "http://mumbai.sfanow.in";
+var mainLink = "test.sfanow.in";
+var link1 = "testmumbai.sfanow.in";
+var link2 = "testhyderabad.sfanow.in";
+var link3 = "testahmedabad.sfanow.in";
 
 firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval) {
     //Used to name the .html file
@@ -11,16 +19,7 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
     TemplateService.keywords = "inter college, inter school, tournament, sport event, tournament for athletes ,athlete bios , match videos";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    // $uibModal.open({
-    //     animation: true,
-    //     scope: $scope,
-    //     backdrop: 'static',
-    //     keyboard: false,
-    //     templateUrl: "views/modal/city-video.html",
-    //     size: 'lg'
-    // });
     $scope.countdown = {};
-
     $scope.changeSlideClass = function (obj, index) {
         obj.class = "active";
         // console.log("active = ", index);
@@ -3965,11 +3964,95 @@ firstApp.controller('ChampionshipCtrl', function ($scope, TemplateService, Navig
 
 });
 
-firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope, NavigationService, errorService, toastr) {
+firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope, NavigationService, errorService, toastr, $state, $uibModal) {
     $scope.template = TemplateService;
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
+        // $scope.hideBlink = true;
     });
+    $scope.hideBlink = false;
+    if (window.location.host == tempLink || window.location.host == tempLinks) {
+        window.open(sublinkTemp, '_self');
+    } else if (window.location.host == tempLink1) {
+        $scope.sfaCity = 'mumbai';
+        NavigationService.setSfaCity($scope.sfaCity);
+    } else {
+        console.log('enter');
+    }
+
+    // $.jStorage.flush();
+    // $scope.openCity = function (selectedCity) {
+    //     var sublink = '';
+    //     switch (selectedCity) {
+    //         case 'mumbai':
+    //             NavigationService.setSfaCity(selectedCity);
+    //             if ($.jStorage.get("sfaCity")) {
+    //                 sublink = "http://test" + selectedCity + ".sfanow.in";
+    //                 window.open(sublink, '_self');
+    //                 break;
+    //             } else {
+    //                 break;
+    //             }
+    //         case 'hyderabad':
+    //             NavigationService.setSfaCity(selectedCity);
+    //             if ($.jStorage.get("sfaCity")) {
+    //                 sublink = "http://test" + selectedCity + ".sfanow.in";
+    //                 window.open(sublink, '_self');
+    //                 break;
+    //             } else {
+    //                 break;
+    //             }
+    //         case 'ahmedabad':
+    //             NavigationService.setSfaCity(selectedCity);
+    //             if ($.jStorage.get("sfaCity")) {
+    //                 sublink = "http://test" + selectedCity + ".sfanow.in";
+    //                 window.open(sublink, '_self');
+    //                 break;
+    //             } else {
+    //                 break;
+    //             }
+    //         default:
+    //             toastr.error("Something Went Wrong");
+    //             break;
+    //     }
+    // }
+    // if (window.location.host == mainLink && $.jStorage.get("sfaCity") == null) {
+    //     $scope.hideBlink = true;
+    //     if ($state.current.name == 'home') {
+    //         $uibModal.open({
+    //             animation: true,
+    //             scope: $scope,
+    //             backdrop: 'static',
+    //             keyboard: false,
+    //             templateUrl: "views/modal/city-video.html",
+    //             size: 'lg'
+    //         });
+    //     }
+    // } else if (window.location.host == mainLink && $.jStorage.get('sfaCity') != null) {
+    //     $scope.sfaCity = $.jStorage.get('sfaCity');
+    //     var link = "http://test" + $.jStorage.get('sfaCity') + ".sfanow.in";
+    //     window.open(link, '_self');
+    //     $scope.hideBlink = false;
+    // } else if (window.location.host != mainLink) {
+    //     if ($.jStorage.get('sfaCity')) {
+    //         $scope.sfaCity = $.jStorage.get('sfaCity');
+    //     } else {
+    //         if (window.location.host == link1) {
+    //             $scope.sfaCity = 'mumbai';
+    //             NavigationService.setSfaCity($scope.sfaCity);
+    //         } else if (window.location.host == link2) {
+    //             $scope.sfaCity = 'hyderabad';
+    //             NavigationService.setSfaCity($scope.sfaCity);
+    //         } else if (window.location.host == link3) {
+    //             $scope.sfaCity = 'ahmedabad';
+    //             NavigationService.setSfaCity($scope.sfaCity);
+    //         }
+    //     }
+    //     $scope.hideBlink = false;
+    // } else {
+    //     toastr.error("Something went wrong. Please reload and try again.")
+    // }
+
     $scope.variables = {};
     $scope.$watch('online', function (newStatus) {
         $scope.variables.online = $rootScope.online;
@@ -4029,14 +4112,6 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
             "href": "",
             "game": "Hospital Partner"
         }, {
-            "img": "img/footer/na1.jpg",
-            "href": "",
-            "game": "Sports Equipment Partner"
-        }, {
-            "img": "img/footer/na2.jpg",
-            "href": "",
-            "game": "Apparel Partner"
-        }, {
             "img": "img/footer/na3.jpg",
             "href": "",
             "game": "Sports Surface Partner"
@@ -4057,7 +4132,15 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
             "href": "",
             "game": "Event Partner "
         }];
-
+    //  {
+    //             "img": "img/footer/na1.jpg",
+    //             "href": "",
+    //             "game": "Sports Equipment Partner"
+    //         }, {
+    //             "img": "img/footer/na2.jpg",
+    //             "href": "",
+    //             "game": "Apparel Partner"
+    //         },
 });
 
 firstApp.controller('languageCtrl', function ($scope, TemplateService, $translate, $rootScope) {

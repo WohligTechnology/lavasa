@@ -73,16 +73,6 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "views/template.html",
             controller: 'BlogCtrl'
         })
-        .state('championship', {
-            url: "/championship",
-            templateUrl: "views/template.html",
-            controller: 'ChampionshipCtrl'
-        })
-        .state('register', {
-            url: "/register",
-            templateUrl: "views/template.html",
-            controller: 'RegisterCtrl'
-        })
         .state('certificate', {
             url: "/certificate",
             templateUrl: "views/template.html",
@@ -93,7 +83,6 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "views/template.html",
             controller: 'DrawScheduleCtrl'
         })
-
         .state('special-awards', {
             url: "/special-awards",
             templateUrl: "views/template.html",
@@ -108,16 +97,6 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             url: "/venue",
             templateUrl: "views/template.html",
             controller: 'VenueCtrl'
-        })
-        .state('formathlete', {
-            url: "/formathlete",
-            templateUrl: "views/template.html",
-            controller: 'FormathleteCtrl'
-        })
-        .state('formregis', {
-            url: "/formregis",
-            templateUrl: "views/template.html",
-            controller: 'FormregisCtrl'
         })
         .state('workshop-clinic', {
             url: "/workshop-clinic",
@@ -225,11 +204,6 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "views/template.html",
             controller: 'ContactCtrl'
         })
-        .state('faq', {
-            url: "/faq",
-            templateUrl: "views/template.html",
-            controller: 'FaqCtrl'
-        })
         .state('registration', {
             url: "/registration",
             templateUrl: "views/template.html",
@@ -309,137 +283,162 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             url: "/students",
             templateUrl: "views/template.html",
             controller: 'StudentsCtrl'
-        })
-        .state('paymentSuccess', {
-            url: "/paymentSuccess",
-            templateUrl: "views/template.html",
-            controller: 'PaymentSuccessCtrl'
-        })
-        .state('sorryAthelete', {
-            url: "/sorryAthelete",
-            templateUrl: "views/template.html",
-            controller: 'SorryAtheleteCtrl'
-        })
-        .state('paymentFailure', {
-            url: "/paymentFailure",
-            templateUrl: "views/template.html",
-            controller: 'PaymentFailureCtrl'
-        })
-
-
-
-
-        //SPORTS REGISTRATION MODULE
-
-        .state('sports-registration', {
-            url: "/sports-registration",
-            templateUrl: "views/template.html",
-            controller: 'SportsRegistrationCtrl'
-        })
-
-        .state('forgot-password', {
-            url: "/forgot-password",
-            templateUrl: "views/template.html",
-            controller: 'ForgotPasswordCtrl'
-        })
-
-        .state('change-password', {
-            url: "/change-password",
-            templateUrl: "views/template.html",
-            controller: 'ChangePasswordCtrl'
-        })
-
-        .state('sports-rules', {
-            url: "/sports-rules/:id",
-            templateUrl: "views/template.html",
-            controller: 'SportsRulesCtrl'
-        })
-
-        .state('team-congrats', {
-            url: "/team-congrats",
-            templateUrl: "views/template.html",
-            controller: 'TeamCongratsCtrl'
-        })
-
-        .state('individual-congrats', {
-            url: "/individual-congrats",
-            templateUrl: "views/template.html",
-            controller: 'IndividualCongratsCtrl'
-        })
-
-        .state('sports-selection', {
-            url: "/sports-selection",
-            templateUrl: "views/template.html",
-            controller: 'SportsSelectionCtrl'
-        })
-        .state('sports-selection-', {
-            url: "/sports-selection/:userType/:id",
-            templateUrl: "views/template.html",
-            controller: 'SportsSelectionCtrl'
-        })
-
-        .state('team-selection', {
-            url: "/team-selection/:id",
-            templateUrl: "views/template.html",
-            controller: 'TeamSelectionCtrl'
-        })
-
-        .state('individual-selection', {
-            url: "/individual-selection/:id",
-            templateUrl: "views/template.html",
-            controller: 'IndividualSelectionCtrl'
-        })
-
-        .state('confirmteam', {
-            url: "/confirm1/:name",
-            templateUrl: "views/template.html",
-            controller: 'ConfirmTeamCtrl'
-        })
-        .state('confirm-individual', {
-            url: "/confirm2/:name",
-            templateUrl: "views/template.html",
-            controller: 'ConfirmIndividualCtrl'
-        })
-        .state('confirm-fencing', {
-            url: "/confirm3/:name",
-            templateUrl: "views/template.html",
-            controller: 'ConfirmFencingCtrl'
-        })
-        .state('confirm-karate', {
-            url: "/confirm4/:name",
-            templateUrl: "views/template.html",
-            controller: 'ConfirmKarateCtrl'
-        })
-        // .state('confirm-relay', {
-        //     url: "/confirm/:name",
-        //     templateUrl: "views/template.html",
-        //     controller: 'ConfirmRelayCtrl'
-        // })
-        .state('confirm-athleteswim', {
-            url: "/confirm5/:name",
-            templateUrl: "views/template.html",
-            controller: 'ConfirmAthSwmCtrl'
-        })
-        .state('test', {
-            url: "/test",
-            templateUrl: "views/template.html",
-            controller: 'DummyCtrl'
-        })
-        // .state('confirm-shooting', {
-        //     url: "/confirm-shooting",
-        //     templateUrl: "views/template.html",
-        //     controller: 'ConfirmShootingCtrl'
-        // })
-        .state('sport-individualdetail', {
-            url: "/sport-individualdetail/:id",
-            templateUrl: "views/template.html",
-            controller: 'SportIndividualCtrl'
-        })
-        .state('sport-teamdetail', {
-            url: "/sport-teamdetail/:id",
-            templateUrl: "views/template.html",
-            controller: 'SportTeamCtrl'
         });
+    // .state('faq', {
+    //     url: "/faq",
+    //     templateUrl: "views/template.html",
+    //     controller: 'FaqCtrl'
+    // })
+    // .state('championship', {
+    //         url: "/championship",
+    //         templateUrl: "views/template.html",
+    //         controller: 'ChampionshipCtrl'
+    //     })
+    //     .state('register', {
+    //         url: "/register",
+    //         templateUrl: "views/template.html",
+    //         controller: 'RegisterCtrl'
+    //     })
+    //     .state('formathlete', {
+    //         url: "/formathlete",
+    //         templateUrl: "views/template.html",
+    //         controller: 'FormathleteCtrl'
+    //     })
+    //     .state('formregis', {
+    //         url: "/formregis",
+    //         templateUrl: "views/template.html",
+    //         controller: 'FormregisCtrl'
+    //     })
+    // .state('paymentSuccess', {
+    //     url: "/paymentSuccess",
+    //     templateUrl: "views/template.html",
+    //     controller: 'PaymentSuccessCtrl'
+    // })
+    // .state('sorryAthelete', {
+    //     url: "/sorryAthelete",
+    //     templateUrl: "views/template.html",
+    //     controller: 'SorryAtheleteCtrl'
+    // })
+    // .state('paymentFailure', {
+    //     url: "/paymentFailure",
+    //     templateUrl: "views/template.html",
+    //     controller: 'PaymentFailureCtrl'
+    // })
+
+
+
+
+    // //SPORTS REGISTRATION MODULE
+
+    // .state('sports-registration', {
+    //     url: "/sports-registration",
+    //     templateUrl: "views/template.html",
+    //     controller: 'SportsRegistrationCtrl'
+    // })
+
+    // .state('forgot-password', {
+    //     url: "/forgot-password",
+    //     templateUrl: "views/template.html",
+    //     controller: 'ForgotPasswordCtrl'
+    // })
+
+    // .state('change-password', {
+    //     url: "/change-password",
+    //     templateUrl: "views/template.html",
+    //     controller: 'ChangePasswordCtrl'
+    // })
+
+    // .state('sports-rules', {
+    //     url: "/sports-rules/:id",
+    //     templateUrl: "views/template.html",
+    //     controller: 'SportsRulesCtrl'
+    // })
+
+    // .state('team-congrats', {
+    //     url: "/team-congrats",
+    //     templateUrl: "views/template.html",
+    //     controller: 'TeamCongratsCtrl'
+    // })
+
+    // .state('individual-congrats', {
+    //     url: "/individual-congrats",
+    //     templateUrl: "views/template.html",
+    //     controller: 'IndividualCongratsCtrl'
+    // })
+
+    // .state('sports-selection', {
+    //     url: "/sports-selection",
+    //     templateUrl: "views/template.html",
+    //     controller: 'SportsSelectionCtrl'
+    // })
+    // .state('sports-selection-', {
+    //     url: "/sports-selection/:userType/:id",
+    //     templateUrl: "views/template.html",
+    //     controller: 'SportsSelectionCtrl'
+    // })
+
+    // .state('team-selection', {
+    //     url: "/team-selection/:id",
+    //     templateUrl: "views/template.html",
+    //     controller: 'TeamSelectionCtrl'
+    // })
+
+    // .state('individual-selection', {
+    //     url: "/individual-selection/:id",
+    //     templateUrl: "views/template.html",
+    //     controller: 'IndividualSelectionCtrl'
+    // })
+
+    // .state('confirmteam', {
+    //     url: "/confirm1/:name",
+    //     templateUrl: "views/template.html",
+    //     controller: 'ConfirmTeamCtrl'
+    // })
+    // .state('confirm-individual', {
+    //     url: "/confirm2/:name",
+    //     templateUrl: "views/template.html",
+    //     controller: 'ConfirmIndividualCtrl'
+    // })
+    // .state('confirm-fencing', {
+    //     url: "/confirm3/:name",
+    //     templateUrl: "views/template.html",
+    //     controller: 'ConfirmFencingCtrl'
+    // })
+    // .state('confirm-karate', {
+    //     url: "/confirm4/:name",
+    //     templateUrl: "views/template.html",
+    //     controller: 'ConfirmKarateCtrl'
+    // })
+    // .state('confirm-relay', {
+    //     url: "/confirm/:name",
+    //     templateUrl: "views/template.html",
+    //     controller: 'ConfirmRelayCtrl'
+    // })
+    // .state('confirm-athleteswim', {
+    //     url: "/confirm5/:name",
+    //     templateUrl: "views/template.html",
+    //     controller: 'ConfirmAthSwmCtrl'
+    // })
+    // .state('test', {
+    //     url: "/test",
+    //     templateUrl: "views/template.html",
+    //     controller: 'DummyCtrl'
+    // })
+    // .state('confirm-shooting', {
+    //     url: "/confirm-shooting",
+    //     templateUrl: "views/template.html",
+    //     controller: 'ConfirmShootingCtrl'
+    // })
+    // .state('sport-individualdetail', {
+    //     url: "/sport-individualdetail/:id",
+    //     templateUrl: "views/template.html",
+    //     controller: 'SportIndividualCtrl'
+    // })
+    // .state('sport-teamdetail', {
+    //     url: "/sport-teamdetail/:id",
+    //     templateUrl: "views/template.html",
+    //     controller: 'SportTeamCtrl'
+    // });
 
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isProduction);

@@ -1,4 +1,7 @@
     @media (max-width:1200px) {
+      .videoSize {
+        height: 420px;
+      }
       .f-12 li {
         font-size: 12px !important;
       } // .sport-registration .category-padding-sport .v-line {
@@ -96,6 +99,9 @@
       // .ver-line:after {
       //   right: -80px;
       // }
+      .videoSize {
+        height: 320px;
+      }
       .spc-inside-box {
         .form-control {
           font-size: 14px;
@@ -499,6 +505,9 @@
       // .typeList:first-child {
       //   margin: 0 0 20px;
       // }
+      .videoSize {
+        height: 200px;
+      }
       .wt-resonsive-table {
         overflow-x: auto;
         min-height: auto; // min-height: 0.01%;

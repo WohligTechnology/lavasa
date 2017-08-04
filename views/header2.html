@@ -87,9 +87,9 @@
                                     <li><a ui-sref="faq">FAQs</a></li>
                                 </ul>
                             </li>
-                            <li class="hidden-md hidden-lg dropdown">
+                            <li class="hidden-md hidden-lg dropdown" ng-hide="hideBlink == true">
                                 <a class="dropdown-toggle mb25" data-toggle="dropdown" ng-mouseenter="optionss=!optionss" ng-model="checkboxs">
-                            SFA MUMBAI 2017
+                            SFA {{sfaCity | capitalize}} 2017
                             </a>
                                 <ul class="dropdown-menu cl-pr forSm typePlace">
                                     <ul class="display-inline typeList">
@@ -243,17 +243,17 @@
 
 
                 </div>
-                <div class="col-md-2 hidden-xs hidden-sm">
+                <div class="col-md-2 hidden-xs hidden-sm" ng-hide="hideBlink == true">
                     <div class="sfa-mum">
-                        <button type="button" name="button" class="btn btn-sfatop" ng-mouseenter="optionss=!optionss" ng-model="checkboxs">SFA Mumbai 2017</button>
+                        <button type="button" name="button" class="btn btn-sfatop" ng-mouseenter="optionss=!optionss" ng-model="checkboxs">SFA {{sfaCity | capitalize}} 2017</button>
                         <!-- <img src="img/top-pin.png" alt="" ng-mouseenter="optionss=!optionss" ng-model="checkboxs"> -->
                     </div>
                 </div>
-                <div class="visible-xs">
+                <div class="visible-xs" ng-hide="hideBlink == true">
                     <div class="">
                         <a class="dropdown-toggle mb25" data-toggle="dropdown">
                             <div class="sfa-mum sfa-mum-m">
-                                <button type="button" name="button" class="btn btn-sfatop margin0" ng-mouseenter="optionss=!optionss">SFA Mumbai 2017</button>
+                                <button type="button" name="button" class="btn btn-sfatop margin0" ng-mouseenter="optionss=!optionss">SFA {{sfaCity | capitalize}} 2017</button>
                                 <!-- <img src="img/top-pin.png" alt="" ng-mouseenter="optionss=!optionss" ng-model="checkboxs"> -->
                             </div>
                         </a>
