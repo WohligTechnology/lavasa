@@ -263,13 +263,13 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
         // },
         {
             "img": "img/mobweb-2.jpg",
-            "link": "https://sfanow.in/register"
+            "link": "http://mumbaischool.sfanow.in/register"
         }, {
             "img": "img/mobweb-3.jpg",
-            "link": "https://sfanow.in/register"
+            "link": "http://mumbaischool.sfanow.in/register"
         }, {
             "img": "img/mobweb-1.jpg",
-            "link": "https://sfanow.in/register"
+            "link": "http://mumbaischool.sfanow.in/register"
         }
     ];
 
