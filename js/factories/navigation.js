@@ -498,6 +498,9 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
                 method: 'POST',
                 data: request
             }).success(callback);
+        },
+        setSfaCity: function (sfaCity) {
+            $.jStorage.set("sfaCity", sfaCity);
         }
     };
 });
