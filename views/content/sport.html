@@ -684,20 +684,25 @@ sport’s bio
     </div> -->
                     </div>
                     <div class="bio" ng-show="tab=='rules'">
-                        <div class="row" ng-if="ruleArray.length > 0">
-                            <div class="text-center">
-                                <h3 class="color-blue text-up font-semi f18-m">{{sport.sportid.name}} Rules & Regulations</h3>
+                        <div class="hide">
+                            <div class="row" ng-if="ruleArray.length > 0">
+                                <div class="text-center">
+                                    <h3 class="color-blue text-up font-semi f18-m">{{sport.sportid.name}} Rules & Regulations</h3>
+                                </div>
+                                <!--<div class="col-md-12 col-sm-12 col-xs-12">-->
+                                <rules class="ruleDirective" ng-repeat="items in ruleArray track by $index" value="items">
+                                </rules>
+                                <!--</div>-->
                             </div>
-                            <!--<div class="col-md-12 col-sm-12 col-xs-12">-->
-                            <rules class="ruleDirective" ng-repeat="items in ruleArray track by $index" value="items">
-                            </rules>
-                            <!--</div>-->
+                            <div class="text-center" ng-if="ruleArray.length <= 0">
+                                <h4 class="color-blue text-up font-semi">{{sport.sportid.name}} Rules & Regulations Updating Soon.</h4>
+                            </div>
+                            <div class="text-center" ng-if="ruleArray.length == undefined">
+                                <h4 class="color-blue text-up font-semi">Loading Data</h4>
+                            </div>
                         </div>
-                        <div class="text-center" ng-if="ruleArray.length <= 0">
-                            <h4 class="color-blue text-up font-semi">{{sport.sportid.name}} Rules & Regulations Updating Soon.</h4>
-                        </div>
-                        <div class="text-center" ng-if="ruleArray.length == undefined">
-                            <h4 class="color-blue text-up font-semi">Loading Data</h4>
+                        <div class="text-center">
+                            <h4 class="color-blue text-up font-semi">Rules & Regulations Updating Soon.</h4>
                         </div>
                     </div>
                     <div class="gallery" ng-show="tab=='gallerys'">

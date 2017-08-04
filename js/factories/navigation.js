@@ -502,6 +502,16 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
         setSfaCity: function (sfaCity) {
             $.jStorage.set("sfaCity", sfaCity);
         }
+        // getOneRuleBySportsName: function (name, callback) {
+        //     var data = {
+        //         sportName: name
+        //     };
+        //     $http({
+        //         url: adminUrl2 + 'SportsListSubCategory/getOneRuleBySportsName',
+        //         method: 'POST',
+        //         data: data
+        //     }).then(callback);
+        // }
     };
 });
 

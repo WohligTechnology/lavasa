@@ -1857,21 +1857,21 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
                 TemplateService.description = name.Description;
                 TemplateService.keywords = name.Keywords;
                 $scope.ruleArray = [];
-                NavigationService.getOneRuleBySportsName($stateParams.name, function (data) {
-                    console.log('get Sports Data', data);
-                    errorService.errorCode(data, function (allData) {
-                        console.log(allData);
-                        if (!allData.message) {
-                            if (allData.value === true) {
-                                $scope.ruleArray = [];
-                                $scope.ruleArray.push(allData.data.rules);
-                            }
-                        } else {
-                            $scope.isDisabled = false;
-                            toastr.error(allData.message, 'Error Message');
-                        }
-                    });
-                });
+                // NavigationService.getOneRuleBySportsName($stateParams.name, function (data) {
+                //     console.log('get Sports Data', data);
+                //     errorService.errorCode(data, function (allData) {
+                //         console.log(allData);
+                //         if (!allData.message) {
+                //             if (allData.value === true) {
+                //                 $scope.ruleArray = [];
+                //                 $scope.ruleArray.push(allData.data.rules);
+                //             }
+                //         } else {
+                //             $scope.isDisabled = false;
+                //             toastr.error(allData.message, 'Error Message');
+                //         }
+                //     });
+                // });
             }
         });
     }
