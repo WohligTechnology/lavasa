@@ -228,10 +228,6 @@ student’s blog
                                     <tr style="background:transparent;" ng-repeat="stat in studentStats">
                                         <td><span>{{stat.year}}</span></td>
                                         <td class="pointer" ng-click="drawDispatcher(stat.sport.drawFormat,stat.sport._id)"><span class="text-up">{{stat.sport.agegroup.name}} <br> {{stat.sport.gender}}  <br>{{stat.sport.firstcategory.name}}</span></td>
-                                        <!--<pre>{{table}}</pre>
-                                        <pre>{{studentStats}}</pre>
-                                        <pre>{{stat.knockout.round}}</pre>
-                                        <pre>{{stat.opponent.result}}</pre>-->
                                         <td class="text-up">{{(table.layout == 'Qualifying Knockout' && stat.qualifyingknockout.round) || (table.layout
                                             == 'Qualifying Round' && stat.qualifyinground.round) || (table.layout == 'Knockout'
                                             && stat.knockout.round) || (table.layout == 'Swiss League' && stat.swissleague.round)
