@@ -4082,14 +4082,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                 size: 'lg'
             });
         }
-        // $scope.sfaCity = $.jStorage.get('sfaCity');
-        // var link = "http://test" + $.jStorage.get('sfaCity') + ".sfanow.in";
-        // window.open(link, '_self');
-        // $scope.hideBlink = false;
     } else if (window.location.host != mainLink) {
-        // if ($.jStorage.get('sfaCity')) {
-        //     $scope.sfaCity = $.jStorage.get('sfaCity');
-        // } else {
         if (window.location.host == link1) {
             $scope.sfaCity = 'mumbai';
             NavigationService.setSfaCity($scope.sfaCity);
@@ -4100,16 +4093,11 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
             $scope.sfaCity = 'ahmedabad';
             NavigationService.setSfaCity($scope.sfaCity);
         }
-        // }
         $scope.hideBlink = false;
     } else {
         toastr.error("Something went wrong. Please reload and try again.")
     }
 
-    $scope.variables = {};
-    $scope.$watch('online', function (newStatus) {
-        $scope.variables.online = $rootScope.online;
-    });
     if (window.location.host == link1) {
         $scope.selectedCity = 'mumbai';
     } else if (window.location.host == link2) {
@@ -4127,6 +4115,11 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
         $scope.registerSchool = sublink5;
         $scope.registerCollege = sublink6;
     }
+
+    $scope.variables = {};
+    $scope.$watch('online', function (newStatus) {
+        $scope.variables.online = $rootScope.online;
+    });
 
     $scope.games = // JavaScript Document
         [{
