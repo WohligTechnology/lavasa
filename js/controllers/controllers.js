@@ -3995,6 +3995,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
             case 'mumbai':
                 NavigationService.setSfaCity(selectedCity);
                 if ($.jStorage.get("sfaCity")) {
+                    $scope.sfaCity = 'mumbai';
                     sublink = "http://test" + selectedCity + ".sfanow.in";
                     window.open(sublink, '_self');
                     break;
@@ -4004,6 +4005,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
             case 'hyderabad':
                 NavigationService.setSfaCity(selectedCity);
                 if ($.jStorage.get("sfaCity")) {
+                    $scope.sfaCity = 'hyderabad';
                     sublink = "http://test" + selectedCity + ".sfanow.in";
                     window.open(sublink, '_self');
                     break;
@@ -4013,6 +4015,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
             case 'ahmedabad':
                 NavigationService.setSfaCity(selectedCity);
                 if ($.jStorage.get("sfaCity")) {
+                    $scope.sfaCity = 'ahmedabad';
                     sublink = "http://test" + selectedCity + ".sfanow.in";
                     window.open(sublink, '_self');
                     break;
