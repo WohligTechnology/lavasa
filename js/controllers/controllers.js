@@ -4037,10 +4037,22 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
             });
         }
     } else if (window.location.host == mainLink && $.jStorage.get('sfaCity') != null) {
-        $scope.sfaCity = $.jStorage.get('sfaCity');
-        var link = "http://test" + $.jStorage.get('sfaCity') + ".sfanow.in";
-        window.open(link, '_self');
-        $scope.hideBlink = false;
+        $.jStorage.flush();
+        $scope.hideBlink = true;
+        if ($state.current.name == 'home') {
+            $uibModal.open({
+                animation: true,
+                scope: $scope,
+                backdrop: 'static',
+                keyboard: false,
+                templateUrl: "views/modal/city-video.html",
+                size: 'lg'
+            });
+        }
+        // $scope.sfaCity = $.jStorage.get('sfaCity');
+        // var link = "http://test" + $.jStorage.get('sfaCity') + ".sfanow.in";
+        // window.open(link, '_self');
+        // $scope.hideBlink = false;
     } else if (window.location.host != mainLink) {
         if ($.jStorage.get('sfaCity')) {
             $scope.sfaCity = $.jStorage.get('sfaCity');
