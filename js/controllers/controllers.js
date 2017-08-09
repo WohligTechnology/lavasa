@@ -3993,34 +3993,64 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
         var sublink = '';
         switch (selectedCity) {
             case 'mumbai':
-                NavigationService.setSfaCity(selectedCity);
-                if ($.jStorage.get("sfaCity")) {
+                if ($.jStorage.get("sfaCity") == 'mumbai') {
+                    NavigationService.setSfaCity(selectedCity);
                     $scope.sfaCity = 'mumbai';
                     sublink = "http://test" + selectedCity + ".sfanow.in";
                     window.open(sublink, '_self');
                     break;
-                } else {
+                } else if ($.jStorage.get("sfaCity") != 'mumbai') {
+                    $.jStorage.flush();
+                    NavigationService.setSfaCity(selectedCity);
+                    $scope.sfaCity = 'mumbai';
+                    sublink = "http://test" + selectedCity + ".sfanow.in";
+                    window.open(sublink, '_self');
                     break;
+                } else if ($.jStorage.get("sfaCity") == '') {
+                    NavigationService.setSfaCity(selectedCity);
+                    $scope.sfaCity = 'mumbai';
+                    sublink = "http://test" + selectedCity + ".sfanow.in";
+                    window.open(sublink, '_self');
                 }
             case 'hyderabad':
-                NavigationService.setSfaCity(selectedCity);
-                if ($.jStorage.get("sfaCity")) {
+                if ($.jStorage.get("sfaCity") == 'hyderabad') {
+                    NavigationService.setSfaCity(selectedCity);
                     $scope.sfaCity = 'hyderabad';
                     sublink = "http://test" + selectedCity + ".sfanow.in";
                     window.open(sublink, '_self');
                     break;
-                } else {
+                } else if ($.jStorage.get("sfaCity") != 'hyderabad') {
+                    $.jStorage.flush();
+                    NavigationService.setSfaCity(selectedCity);
+                    $scope.sfaCity = 'hyderabad';
+                    sublink = "http://test" + selectedCity + ".sfanow.in";
+                    window.open(sublink, '_self');
                     break;
+                } else if ($.jStorage.get("sfaCity") == '') {
+                    NavigationService.setSfaCity(selectedCity);
+                    $scope.sfaCity = 'hyderabad';
+                    sublink = "http://test" + selectedCity + ".sfanow.in";
+                    window.open(sublink, '_self');
                 }
             case 'ahmedabad':
-                NavigationService.setSfaCity(selectedCity);
-                if ($.jStorage.get("sfaCity")) {
+                if ($.jStorage.get("sfaCity") == 'ahmedabad') {
+                    NavigationService.setSfaCity(selectedCity);
                     $scope.sfaCity = 'ahmedabad';
                     sublink = "http://test" + selectedCity + ".sfanow.in";
                     window.open(sublink, '_self');
                     break;
-                } else {
+                } else if ($.jStorage.get("sfaCity") != 'ahmedabad') {
+                    $.jStorage.flush();
+                    NavigationService.setSfaCity(selectedCity);
+                    $scope.sfaCity = 'ahmedabad';
+                    sublink = "http://test" + selectedCity + ".sfanow.in";
+                    window.open(sublink, '_self');
                     break;
+                } else if ($.jStorage.get("sfaCity") == '') {
+                    NavigationService.setSfaCity(selectedCity);
+                    $scope.sfaCity = 'ahmedabad';
+                    sublink = "http://test" + selectedCity + ".sfanow.in";
+                    window.open(sublink, '_self');
                 }
             default:
                 toastr.error("Something Went Wrong");
