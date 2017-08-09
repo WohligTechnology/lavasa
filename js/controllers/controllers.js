@@ -4087,20 +4087,20 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
         // window.open(link, '_self');
         // $scope.hideBlink = false;
     } else if (window.location.host != mainLink) {
-        if ($.jStorage.get('sfaCity')) {
-            $scope.sfaCity = $.jStorage.get('sfaCity');
-        } else {
-            if (window.location.host == link1) {
-                $scope.sfaCity = 'mumbai';
-                NavigationService.setSfaCity($scope.sfaCity);
-            } else if (window.location.host == link2) {
-                $scope.sfaCity = 'hyderabad';
-                NavigationService.setSfaCity($scope.sfaCity);
-            } else if (window.location.host == link3) {
-                $scope.sfaCity = 'ahmedabad';
-                NavigationService.setSfaCity($scope.sfaCity);
-            }
+        // if ($.jStorage.get('sfaCity')) {
+        //     $scope.sfaCity = $.jStorage.get('sfaCity');
+        // } else {
+        if (window.location.host == link1) {
+            $scope.sfaCity = 'mumbai';
+            NavigationService.setSfaCity($scope.sfaCity);
+        } else if (window.location.host == link2) {
+            $scope.sfaCity = 'hyderabad';
+            NavigationService.setSfaCity($scope.sfaCity);
+        } else if (window.location.host == link3) {
+            $scope.sfaCity = 'ahmedabad';
+            NavigationService.setSfaCity($scope.sfaCity);
         }
+        // }
         $scope.hideBlink = false;
     } else {
         toastr.error("Something went wrong. Please reload and try again.")
