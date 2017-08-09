@@ -293,7 +293,7 @@
         bottom: -78px;
       }
       .w800 {
-        width: 56px;
+        width: 90px;
         top: 0px !important;
       }
       .prs li {
@@ -487,17 +487,33 @@
       .iconinfo3 {
         width: 422px;
       }
-    }
-
-    @media (min-width:858px) and (max-width:951px) {
-      .typePlace {
-        left: -172px;
+      .schedule {
+        .championship-schedule-tablefooter {
+          padding-left: 0px !important;
+        }
+        .championshipschedule-tableholder table {
+          th,
+          td {
+            padding-left: 30px;
+          }
+        }
       }
     }
 
+    @media (min-width:858px) and (max-width:951px) {
+      // .typePlace {
+      //   left: -172px;
+      // }
+    }
+
     @media (max-width:857px) {
-      .typePlace {
-        left: -94px;
+      // .typePlace {
+      //   left: -94px;
+      // }
+      .schedule {
+        .championship-scheduletitle {
+          padding: 120px 0px 30px 0px;
+        }
       }
     }
 
@@ -505,6 +521,11 @@
       // .typeList:first-child {
       //   margin: 0 0 20px;
       // }
+      .schedule {
+        .championship-scheduletitle {
+          padding: 50px 0px 30px 0px;
+        }
+      }
       .videoSize {
         height: 200px;
       }
@@ -1209,8 +1230,11 @@
           font-size: 12px;
         }
       }
+      .w800 {
+        width: 70px;
+      }
       .mLogoPlacing {
-        left: 20px;
+        left: 80px;
         right: 0;
       }
       .placingDrop {
@@ -1631,7 +1655,7 @@
         right: inherit;
       }
       .mLogoPlacing {
-        left: 20px;
+        left: 60px;
         right: 0;
       }
       .mob-navbar {
@@ -2325,6 +2349,13 @@
     }
 
     @media (max-width:400px) {
+      .mLogoPlacing {
+        left: 52px;
+        right: 0;
+      }
+      .w800 {
+        width: 50px;
+      }
       .ver-line:after {
         display: none;
       } //start athlete-selection

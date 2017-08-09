@@ -500,7 +500,9 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
             }).success(callback);
         },
         setSfaCity: function (sfaCity) {
-            $.jStorage.set("sfaCity", sfaCity);
+            $.jStorage.set("sfaCity", sfaCity, {
+                TTL: 86400000
+            });
         }
         // getOneRuleBySportsName: function (name, callback) {
         //     var data = {
