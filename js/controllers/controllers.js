@@ -4065,7 +4065,13 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     $scope.$watch('online', function (newStatus) {
         $scope.variables.online = $rootScope.online;
     });
-
+    if (window.location.host == link1) {
+        $scope.selectedCity = 'mumbai';
+    } else if (window.location.host == link2) {
+        $scope.selectedCity = 'hyderabad';
+    } else if (window.location.host == link3) {
+        $scope.selectedCity = 'ahmedabad';
+    }
     if (window.location.host == link1) {
         $scope.registerSchool = sublink1;
         $scope.registerCollege = sublink2;
