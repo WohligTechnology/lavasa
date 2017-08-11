@@ -1167,7 +1167,23 @@ firstApp.controller('ContactCtrl', function ($scope, TemplateService, Navigation
     TemplateService.header = "views/header2.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-
+    if (window.location.host == link1) {
+        $scope.selectedCity = 'mumbai';
+    } else if (window.location.host == link2) {
+        $scope.selectedCity = 'hyderabad';
+    } else if (window.location.host == link3) {
+        $scope.selectedCity = 'ahmedabad';
+    }
+    if (window.location.host == link1) {
+        $scope.registerSchool = sublink1;
+        $scope.registerCollege = sublink2;
+    } else if (window.location.host == link2) {
+        $scope.registerSchool = sublink3;
+        $scope.registerCollege = sublink4;
+    } else if (window.location.host == link3) {
+        $scope.registerSchool = sublink5;
+        $scope.registerCollege = sublink6;
+    }
 });
 firstApp.controller('RegistrationCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
@@ -1240,6 +1256,23 @@ firstApp.controller('TraininDevelopmentCtrl', function ($scope, TemplateService,
     TemplateService.keywords = "sport training, swimming competition, swimming coaching in Mumbai ,table tennis training, table tennis academy, kids fitness programs";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    if (window.location.host == link1) {
+        $scope.selectedCity = 'mumbai';
+    } else if (window.location.host == link2) {
+        $scope.selectedCity = 'hyderabad';
+    } else if (window.location.host == link3) {
+        $scope.selectedCity = 'ahmedabad';
+    }
+    if (window.location.host == link1) {
+        $scope.registerSchool = sublink1;
+        $scope.registerCollege = sublink2;
+    } else if (window.location.host == link2) {
+        $scope.registerSchool = sublink3;
+        $scope.registerCollege = sublink4;
+    } else if (window.location.host == link3) {
+        $scope.registerSchool = sublink5;
+        $scope.registerCollege = sublink6;
+    }
 
 });
 
