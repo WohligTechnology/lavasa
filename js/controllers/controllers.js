@@ -65,149 +65,17 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
         'minute': 0,
         'seconds': 0
     }));
-    //
-    // $scope.games = // JavaScript Document
-    //     [{
-    //
-    //         "icon2": "img/icon/1_Handball.png",
-    //         "url": "handball",
-    //         "game": "Handball"
-    //     }, {
-    //
-    //         "icon2": "img/icon/2_Basketball.png",
-    //         "url": "basketball",
-    //         "game": "basketball"
-    //     }, {
-    //
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "volleyball"
-    //     }, {
-    //
-    //         "icon2": "img/icon/4_Throwball.png",
-    //         "url": "throwball",
-    //         "game": "throwball"
-    //     }, {
-    //
-    //         "icon2": "img/icon/5_Hockey.png",
-    //         "url": "hockey",
-    //         "game": "hockey"
-    //     }, {
-    //
-    //         "icon2": "img/icon/6_Kho Kho.png",
-    //         "url": "kho-kho",
-    //         "game": "kho-kho"
-    //     }, {
-    //
-    //         "icon2": "img/icon/7_Kabaddi.png",
-    //         "url": "kabaddi",
-    //         "game": "kabaddi"
-    //     }, {
-    //
-    //         "icon2": "img/icon/8_Football.png",
-    //         "url": "football",
-    //         "game": "football"
-    //     }, {
-    //
-    //         "icon2": "img/icon/9_Badminton.png",
-    //         "url": "badminton",
-    //         "game": "badminton"
-    //     }, {
-    //         "icon": "img/icon/blue/Volleyball.png",
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "tennis"
-    //     }, {
-    //         "icon": "img/icon/blue/Volleyball.png",
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "table tennis"
-    //     }, {
-    //         "icon": "img/icon/blue/Volleyball.png",
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "squash"
-    //     }, {
-    //         "icon": "img/icon/blue/Volleyball.png",
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "judo"
-    //     }, {
-    //         "icon": "img/icon/blue/Volleyball.png",
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "taekwondo"
-    //     },{
-    //         "icon": "img/icon/blue/Volleyball.png",
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "boxing"
-    //     },{
-    //         "icon": "img/icon/blue/Volleyball.png",
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "fencing"
-    //     },{
-    //         "icon": "img/icon/blue/Volleyball.png",
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "karate"
-    //     },{
-    //         "icon": "img/icon/blue/Volleyball.png",
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "sport mma"
-    //     },{
-    //         "icon": "img/icon/blue/Volleyball.png",
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "shooting"
-    //     },{
-    //         "icon": "img/icon/blue/Volleyball.png",
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "archery"
-    //     },{
-    //         "icon": "img/icon/blue/Volleyball.png",
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "swimming"
-    //     },{
-    //         "icon": "img/icon/blue/Volleyball.png",
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "water polo"
-    //     },{
-    //         "icon": "img/icon/blue/Volleyball.png",
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "carrom"
-    //     },{
-    //         "icon": "img/icon/blue/Volleyball.png",
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "chess"
-    //     },{
-    //         "icon": "img/icon/blue/Volleyball.png",
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "chess"
-    //     },{
-    //         "icon": "img/icon/blue/Volleyball.png",
-    //         "icon2": "img/icon/3_Volleyball.png",
-    //         "url": "volleyball",
-    //         "game": "athletics"
-    //     }];
 
-    // $scope.mySlides = [
-    //     'img/banner1.jpg',
-    //     'img/banner2.jpg',
-    //     'img/banner1.jpg',
-    //     'img/banner2.jpg'
-    // ];
     NavigationService.getAllEnabledBanner(function (response) {
+        console.log('data', response);
         if (response.value) {
-            $scope.banners = response.data;
+            if (window.location.host == link1) {
+                $scope.banners = response.data.Mumbai;
+            } else if (window.location.host == link2) {
+                $scope.banners = response.data.Hyderabad;
+            } else if (window.location.host == link3) {
+                $scope.banners = response.data.Ahmedabad;
+            }
         } else {
             console.log("Banner not found");
         }
@@ -262,12 +130,8 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
         }
     });
 
-    $scope.bannerss = [
-        //     {
-        //     "img": "img/webresp.jpg",
-        //     "link": "https://sfanow.in/register"
-        // },
-        {
+    if (window.location.host == link1) {
+        $scope.bannerss = [{
             "img": "img/mobweb-2.jpg",
             "link": "http://mumbaischool.sfanow.in/register"
         }, {
@@ -276,8 +140,30 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
         }, {
             "img": "img/mobweb-1.jpg",
             "link": "http://mumbaischool.sfanow.in/register"
-        }
-    ];
+        }];
+    } else if (window.location.host == link2) {
+        $scope.bannerss = [{
+            "img": "img/Hyderabad_4.jpg",
+            "link": "http://hyderabadschool.sfanow.in/register"
+        }, {
+            "img": "img/Hyderabad_5.jpg",
+            "link": "http://hyderabadschool.sfanow.in/register"
+        }, {
+            "img": "img/Hyderabad_6.jpg",
+            "link": "http://hyderabadschool.sfanow.in/register"
+        }];
+    } else if (window.location.host == link3) {
+        $scope.bannerss = [{
+            "img": "img/mobweb-2.jpg",
+            "link": "http://ahmedabadschool.sfanow.in/register"
+        }, {
+            "img": "img/mobweb-3.jpg",
+            "link": "http://ahmedabadschool.sfanow.in/register"
+        }, {
+            "img": "img/mobweb-1.jpg",
+            "link": "http://ahmedabadschool.sfanow.in/register"
+        }];
+    }
 
 
 });
