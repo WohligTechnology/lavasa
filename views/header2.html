@@ -113,8 +113,8 @@
                                 <li><a ui-sref="faq">SPECIAL EVENTS</a></li>
                                 <li><a ui-sref="faq">VENUE</a></li> -->
                                         <li><a href="{{registerSchool}}/faq" target="_blank">FAQs</a></li>
-                                    </ul>
-                                    <ul class="display-inline typeList">
+                                    </ul>"
+                                    <ul class="display-inline typeList" ng-if="sfaCity != 'hyderabad'">
                                         <li>
                                             <a>COLLEGE CHAMPIONSHIP</a></li>
                                         <!-- <li>
@@ -293,7 +293,7 @@
                                 <li><a ui-sref="faq">VENUE</a></li> -->
                                 <li><a href="{{registerSchool}}/faq" target="_blank">FAQs</a></li>
                             </ul>
-                            <ul class="typeList">
+                            <ul class="typeList" ng-if="sfaCity != 'hyderabad'">
                                 <li>
                                     <a>COLLEGE CHAMPIONSHIP</a></li>
                                 <!-- <li>
@@ -342,7 +342,7 @@
                                 <li><a ui-sref="faq">VENUE</a></li> -->
                             <li><a href="{{registerSchool}}/faq" target="_blank">FAQs</a></li>
                         </ul>
-                        <ul class="display-inline typeList">
+                        <ul class="display-inline typeList" ng-if="sfaCity != 'hyderabad'">
                             <li>
                                 <p>COLLEGE CHAMPIONSHIP</p>
                             </li>
