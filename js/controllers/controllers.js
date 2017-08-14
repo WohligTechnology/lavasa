@@ -11,8 +11,8 @@ var sublink3 = "http://testhyderabadschool.sfanow.in";
 var sublink4 = "http://testhyderabadcollege.sfanow.in";
 var sublink5 = "http://testahmedabadschool.sfanow.in";
 var sublink6 = "http://testahmedabadcollege.sfanow.in";
-// var mainLink = "test.sfanow.in";
-var mainLink = "localhost:8080";
+var mainLink = "test.sfanow.in";
+// var mainLink = "localhost:8080";
 
 var link1 = "testmumbai.sfanow.in";
 var link2 = "testhyderabad.sfanow.in";
