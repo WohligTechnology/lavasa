@@ -86,14 +86,17 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
             } else if (window.location.host == link2) {
                 // $scope.banners = response.data.Hyderabad;
                 $scope.banners = [{
+                    city: "Hyderabad",
                     image: "img/Hyderabad_1.jpg",
                     link: "http://hyderabadschool.sfanow.in/register",
                     order: '1'
                 }, {
+                    city: "Hyderabad",
                     image: "img/Hyderabad_2.jpg",
                     link: "http://hyderabadschool.sfanow.in/register",
                     order: '2'
                 }, {
+                    city: "Hyderabad",
                     image: "img/Hyderabad_3.jpg",
                     link: "http://hyderabadschool.sfanow.in/register",
                     order: '3'
