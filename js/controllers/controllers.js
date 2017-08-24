@@ -23,7 +23,8 @@ var sublink3 = "http://hyderabadschool.sfanow.in";
 var sublink4 = "http://hyderabadcollege.sfanow.in";
 var sublink5 = "http://ahmedabadschool.sfanow.in";
 var sublink6 = "http://ahmedabadcollege.sfanow.in";
-var mainLink = "sfanow.in";
+var mainLink = "localhost:8080";
+// var mainLink = "sfanow.in";
 var link1 = "mumbai.sfanow.in";
 var link2 = "hyderabad.sfanow.in";
 var link3 = "ahmedabad.sfanow.in";
@@ -164,10 +165,13 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
             "link": "http://mumbaischool.sfanow.in/register"
         }, {
             "img": "img/mobweb-3.jpg",
-            "link": "http://mumbaischool.sfanow.in/register"
+            "link": "http://mumbaicollege.sfanow.in/register"
         }, {
             "img": "img/mobweb-1.jpg",
             "link": "http://mumbaischool.sfanow.in/register"
+        }, {
+            "img": "img/mobweb-4.jpg",
+            "link": "http://mumbaicollege.sfanow.in/register"
         }];
     } else if (window.location.host == link2) {
         $scope.bannerss = [{
@@ -4080,6 +4084,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                 animation: true,
                 scope: $scope,
                 backdrop: 'static',
+                backdropClass: 'blackOut',
                 keyboard: false,
                 templateUrl: "views/modal/city-video.html",
                 size: 'lg'
@@ -4093,6 +4098,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                 animation: true,
                 scope: $scope,
                 backdrop: 'static',
+                backdropClass: 'blackOut',
                 keyboard: false,
                 templateUrl: "views/modal/city-video.html",
                 size: 'lg'

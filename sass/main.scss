@@ -7650,6 +7650,45 @@ h1.forgot-space {
     float: right;
 }
 
+.video-close-btn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    line-height: 24px;
+    margin: 0 4px;
+    &:active,
+    &:focus,
+    &:hover {
+        outline: 0;
+        &:focus {
+            outline: 0;
+        }
+    }
+}
+
+.video-cross-close-term {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 30px;
+    height: 30px;
+    background: #091a71;
+    border-radius: 100%;
+    border: 1px solid #fff;
+    &:active,
+    &:focus,
+    &:hover {
+        outline: 0;
+        &:focus {
+            outline: 0;
+        }
+    }
+}
+
+.blackOut.in {
+    opacity: 1;
+}
+
 @import "fancybox-override";
 @import "mobile";
 @import "_sagar";
