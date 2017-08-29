@@ -17,13 +17,15 @@
 // var link2 = "testhyderabad.sfanow.in";
 // var link3 = "testahmedabad.sfanow.in";
 
+// var mainLink = "localhost:8080";
+// var link1 = "localhost:8080";
+
 var sublink1 = "http://mumbaischool.sfanow.in";
 var sublink2 = "http://mumbaicollege.sfanow.in";
 var sublink3 = "http://hyderabadschool.sfanow.in";
 var sublink4 = "http://hyderabadcollege.sfanow.in";
 var sublink5 = "http://ahmedabadschool.sfanow.in";
 var sublink6 = "http://ahmedabadcollege.sfanow.in";
-// var mainLink = "localhost:8080";
 var mainLink = "sfanow.in";
 var link1 = "mumbai.sfanow.in";
 var link2 = "hyderabad.sfanow.in";
@@ -1655,6 +1657,7 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
             }
         });
     };
+
     $scope.getSport = function () {
         NavigationService.getSportRuleByName($stateParams, function (response) {
             if (response.value) {
@@ -1669,8 +1672,8 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
 
 
 
-
     if ($stateParams.name) {
+        $scope.typeSelected = 'school';
         var sports2015 = ["basketball", "volleyball", "handball", "table tennis", "tennis", "squash", "badminton", "swimming", "judo"];
         $scope.is2015Sport = false;
         _.each(sports2015, function (key) {
@@ -1805,33 +1808,56 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
             Description: "If you think your child has the intelligence to become a chess player, what are you waiting for? Start teaching them to play at chess tournaments in Mumbai!",
             Keywords: "Chess training, chess tournaments in Mumbai"
         }];
-        _.each(sports2017, function (name) {
-            if (name.sport.toUpperCase() == $stateParams.name.toUpperCase()) {
-                // $scope.is2015Sport = true;
-                // $scope.Description = 'desc' + $stateParams.name;
-                // $scope.Keywords = 'key' + $stateParams.name;
-                $scope.menutitle = NavigationService.makeactive(name.Title);
-                TemplateService.title = $scope.menutitle;
-                TemplateService.description = name.Description;
-                TemplateService.keywords = name.Keywords;
-                $scope.ruleArray = [];
-                // NavigationService.getOneRuleBySportsName($stateParams.name, function (data) {
-                //     console.log('get Sports Data', data);
-                //     errorService.errorCode(data, function (allData) {
-                //         console.log(allData);
-                //         if (!allData.message) {
-                //             if (allData.value === true) {
-                //                 $scope.ruleArray = [];
-                //                 $scope.ruleArray.push(allData.data.rules);
-                //             }
-                //         } else {
-                //             $scope.isDisabled = false;
-                //             toastr.error(allData.message, 'Error Message');
-                //         }
-                //     });
-                // });
+        $scope.getRules = function (constraints) {
+            console.log('............', constraints);
+            _.each(sports2017, function (name) {
+                if (name.sport.toUpperCase() == constraints.sportName.toUpperCase()) {
+                    // $scope.is2015Sport = true;
+                    // $scope.Description = 'desc' + $stateParams.name;
+                    // $scope.Keywords = 'key' + $stateParams.name;
+                    $scope.menutitle = NavigationService.makeactive(name.Title);
+                    TemplateService.title = $scope.menutitle;
+                    TemplateService.description = name.Description;
+                    TemplateService.keywords = name.Keywords;
+                    $scope.ruleArray = [];
+                    // NavigationService.getOneRuleBySportsName(constraints, function (data) {
+                    //     console.log('get Sports Data', data);
+                    //     errorService.errorCode(data, function (allData) {
+                    //         console.log(allData);
+                    //         if (!allData.message) {
+                    //             if (allData.value === true) {
+                    //                 $scope.ruleArray = [];
+                    //                 $scope.ruleArray.push(allData.data.rules);
+                    //             }
+                    //         } else {
+                    //             $scope.isDisabled = false;
+                    //             toastr.error(allData.message, 'Error Message');
+                    //         }
+                    //     });
+                    // });
+                }
+            });
+        }
+        $scope.changeType = function (data) {
+            $scope.constraints = {};
+            if (data) {
+                if (window.location.host == link1) {
+                    $scope.constraints.city = 'mumbai';
+                    $scope.constraints.type = data;
+                    $scope.constraints.sportName = $stateParams.name;
+                } else if (window.location.host == link2) {
+                    $scope.constraints.city = 'hyderabad';
+                    $scope.constraints.type = 'school';
+                    $scope.constraints.sportName = $stateParams.name;
+                } else if (window.location.host == link3) {
+                    $scope.constraints.city = 'ahmedabad';
+                    $scope.constraints.type = 'school';
+                    $scope.constraints.sportName = $stateParams.name;
+                }
+                $scope.getRules($scope.constraints);
             }
-        });
+        }
+        $scope.changeType('school');
     }
     $scope.getSport();
     $scope.oneAtATime = true;

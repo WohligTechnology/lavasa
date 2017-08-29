@@ -685,6 +685,19 @@ sport’s bio
                     </div>
                     <div class="bio" ng-show="tab=='rules'">
                         <div class="hide">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="sfa-select">
+                                        <select ng-change="changeType(typeSelected)" class="select" ng-model="typeSelected">
+                                                      <option selected value="">Select Type</option>
+                                                      <option value="school">School</option>
+                                                      <option value="college">College</option>
+                                        </select>
+                                        <span class="only-border"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class=""></div> -->
                             <div class="row" ng-if="ruleArray.length > 0">
                                 <div class="text-center">
                                     <h3 class="color-blue text-up font-semi f18-m">{{sport.sportid.name}} Rules & Regulations</h3>
