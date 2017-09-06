@@ -4194,22 +4194,6 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
             "img": "img/footer/n4.jpg",
             "href": "https://www.facebook.com/sportsillustratedindia/",
             "game": "Magazine Partner"
-        }, {
-            "img": "img/footer/n1.jpg",
-            "href": "http://madeofgreat.tatamotors.com/tiago/",
-            "game": "Fantastico Partner"
-        }, {
-            "img": "img/footer/n2.jpg",
-            "href": "",
-            "game": "Smartphone Partner"
-        }, {
-            "img": "img/footer/p4.jpg",
-            "href": "",
-            "game": "Hydration partner"
-        }, {
-            "img": "img/footer/n3.jpg",
-            "href": "",
-            "game": "Support Partner"
         }];
     $scope.partner = // JavaScript Document
         [{
@@ -4239,7 +4223,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
         }, {
             "img": "img/footer/na5.jpg",
             "href": "",
-            "game": "Event Partner "
+            "game": "Event Partner"
         }];
 
 
