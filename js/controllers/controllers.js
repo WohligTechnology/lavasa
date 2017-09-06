@@ -13,13 +13,13 @@ var sublink4 = "http://testhyderabadcollege.sfanow.in";
 var sublink5 = "http://testahmedabadschool.sfanow.in";
 var sublink6 = "http://testahmedabadcollege.sfanow.in";
 var mainLink = "test.sfanow.in";
-// var link1 = "testmumbai.sfanow.in";
+var link1 = "testmumbai.sfanow.in";
 var link2 = "testhyderabad.sfanow.in";
 var link3 = "testahmedabad.sfanow.in";
 var eventYear = '2017-18';
 
 // var mainLink = "localhost:8080";
-var link1 = "localhost:8080";
+// var link1 = "localhost:8080";
 
 // var sublink1 = "http://mumbaischool.sfanow.in";
 // var sublink2 = "http://mumbaicollege.sfanow.in";
