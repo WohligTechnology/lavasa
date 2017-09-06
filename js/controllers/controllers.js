@@ -4246,9 +4246,17 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
         "game": "Sports Authority of Telangana"
     }];
     $scope.sponsor_partner = [{
+        "img": "img/footer/p4.jpg",
+        "href": "",
+        "game": "Hydration Partner"
+    }, {
         "img": "img/footer/hyd/wizcraft.png",
         "href": "",
-        "game": "Wizcraft"
+        "game": "Event Partner"
+    }, {
+        "img": "img/footer/hyd/tv5.png",
+        "href": "",
+        "game": "TV Support Partner"
     }];
 });
 

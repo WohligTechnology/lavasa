@@ -1023,6 +1023,12 @@ hr {
     }
 }
 
+.sfa-select.dropArrowChange {
+    &:after {
+        background-color: #091a71;
+    }
+}
+
 .mt-min-30 {
     margin-top: -80px;
     display: inline-block; // float: right;
