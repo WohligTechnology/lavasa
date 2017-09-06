@@ -16,6 +16,7 @@ var mainLink = "test.sfanow.in";
 var link1 = "testmumbai.sfanow.in";
 var link2 = "testhyderabad.sfanow.in";
 var link3 = "testahmedabad.sfanow.in";
+var eventYear = '2017-18';
 
 // var mainLink = "localhost:8080";
 // var link1 = "localhost:8080";
@@ -30,6 +31,7 @@ var link3 = "testahmedabad.sfanow.in";
 // var link1 = "mumbai.sfanow.in";
 // var link2 = "hyderabad.sfanow.in";
 // var link3 = "ahmedabad.sfanow.in";
+// var eventYear = '2017';
 
 firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval) {
     //Used to name the .html file
@@ -1820,21 +1822,19 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
                     TemplateService.description = name.Description;
                     TemplateService.keywords = name.Keywords;
                     $scope.ruleArray = [];
-                    // NavigationService.getOneRuleBySportsName(constraints, function (data) {
-                    //     console.log('get Sports Data', data);
-                    //     errorService.errorCode(data, function (allData) {
-                    //         console.log(allData);
-                    //         if (!allData.message) {
-                    //             if (allData.value === true) {
-                    //                 $scope.ruleArray = [];
-                    //                 $scope.ruleArray.push(allData.data.rules);
-                    //             }
-                    //         } else {
-                    //             $scope.isDisabled = false;
-                    //             toastr.error(allData.message, 'Error Message');
-                    //         }
-                    //     });
-                    // });
+                    NavigationService.getOneRuleBySportsName(constraints, function (data) {
+                        console.log('get Sports Data', data);
+                        if (data.value === true) {
+                            if (_.isEmpty(data.data)) {
+                                $scope.ruleArray = [];
+                            } else {
+                                $scope.ruleArray = [];
+                                $scope.ruleArray.push(data.data);
+                            }
+                        } else {
+                            toastr.error(allData.message, 'Error Message');
+                        }
+                    });
                 }
             });
         }
@@ -1847,11 +1847,11 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
                     $scope.constraints.sportName = $stateParams.name;
                 } else if (window.location.host == link2) {
                     $scope.constraints.city = 'hyderabad';
-                    $scope.constraints.type = 'school';
+                    $scope.constraints.type = data;
                     $scope.constraints.sportName = $stateParams.name;
                 } else if (window.location.host == link3) {
                     $scope.constraints.city = 'ahmedabad';
-                    $scope.constraints.type = 'school';
+                    $scope.constraints.type = data;
                     $scope.constraints.sportName = $stateParams.name;
                 }
                 $scope.getRules($scope.constraints);
@@ -4163,7 +4163,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
         $scope.registerSchool = sublink5;
         $scope.registerCollege = sublink6;
     }
-
+    $scope.eventYear = eventYear;
     $scope.variables = {};
     $scope.$watch('online', function (newStatus) {
         $scope.variables.online = $rootScope.online;
@@ -4241,6 +4241,8 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
             "href": "",
             "game": "Event Partner "
         }];
+
+
     //  {
     //             "img": "img/footer/na1.jpg",
     //             "href": "",
@@ -4250,6 +4252,20 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     //             "href": "",
     //             "game": "Apparel Partner"
     //         },
+    $scope.supportedBy = [{
+        "img": "img/footer/hyd/government.png",
+        "href": "",
+        "game": "Government of Telangana"
+    }, {
+        "img": "img/footer/hyd/authority.png",
+        "href": "",
+        "game": "Sports Authority of Telangana"
+    }];
+    $scope.sponsor_partner = [{
+        "img": "img/footer/hyd/wizcraft.png",
+        "href": "",
+        "game": "Wizcraft"
+    }];
 });
 
 firstApp.controller('languageCtrl', function ($scope, TemplateService, $translate, $rootScope) {

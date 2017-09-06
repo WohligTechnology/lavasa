@@ -503,17 +503,14 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
             $.jStorage.set("sfaCity", sfaCity, {
                 TTL: 86400000
             });
+        },
+        getOneRuleBySportsName: function (name, callback) {
+            $http({
+                url: adminUrl + 'CityRule/getOneRuleBySportsName',
+                method: 'POST',
+                data: name
+            }).success(callback);
         }
-        // getOneRuleBySportsName: function (name, callback) {
-        //     var data = {
-        //         sportName: name
-        //     };
-        //     $http({
-        //         url: adminUrl2 + 'SportsListSubCategory/getOneRuleBySportsName',
-        //         method: 'POST',
-        //         data: data
-        //     }).then(callback);
-        // }
     };
 });
 

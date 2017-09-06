@@ -684,12 +684,12 @@ sport’s bio
     </div> -->
                     </div>
                     <div class="bio" ng-show="tab=='rules'">
-                        <div class="hide">
+                        <div class="">
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="sfa-select">
                                         <select ng-change="changeType(typeSelected)" class="select" ng-model="typeSelected">
-                                                      <option selected value="">Select Type</option>
+                                                      <option selected disabled value="">Select Type</option>
                                                       <option value="school">School</option>
                                                       <option value="college">College</option>
                                         </select>
@@ -714,7 +714,7 @@ sport’s bio
                                 <h4 class="color-blue text-up font-semi">Loading Data</h4>
                             </div>
                         </div>
-                        <div class="text-center">
+                        <div class="text-center hide">
                             <h4 class="color-blue text-up font-semi">Rules & Regulations Updating Soon.</h4>
                         </div>
                     </div>
