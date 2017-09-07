@@ -110,14 +110,15 @@
                 <div class="display-inline">
                     <div class="sfa-select">
                         <select ng-change="changeYear()" class="select" ng-model="filter.year">
-                              <option value="2015">2015</option>
-                              <option value="2016">2016</option>
+                              <option value="2015">{{year15}}</option>
+                              <option value="2016">{{year16}}</option>
                           </select>
                         <span class="only-border"></span>
                     </div>
                 </div>
                 <h4 class="color-blue text-up font-semi mt25">sports participated</h4>
-                <h5 ng-if="!(studentSport.length > 0)" class="mt25">{{studentSport === undefined && 'Loading ..' || 'No Sports Participated in '+filter.year}}</h5>
+                <h5 ng-if="!(studentSport.length > 0) && filter.year == '2015'" class="mt25">{{studentSport === undefined && 'Loading ..' || 'No Sports Participated in '+year15}}</h5>
+                <h5 ng-if="!(studentSport.length > 0) && filter.year == '2016'" class="mt25">{{studentSport === undefined && 'Loading ..' || 'No Sports Participated in '+year16}}</h5>
                 <div class="sf-relative mt15">
                     <div class="sport-icon-list sf-list blue-cat">
                         <ul>
@@ -166,8 +167,8 @@ student’s blog
                         <div class="display-inline">
                             <div class="sfa-select">
                                 <select class="select" ng-change="getStats()" ng-model="filterStatistics.year">
-                                  <option value="2015">2015</option>
-                                  <option value="2016">2016</option>
+                                  <option value="2015">{{year15}}</option>
+                                  <option value="2016">{{year16}}</option>
                               </select>
                                 <span class="only-border"></span>
                             </div>

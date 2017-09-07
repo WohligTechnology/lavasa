@@ -5,15 +5,16 @@
 </section>
 <section class="pb60">
     <div class="text-center mt40">
-        <h2 class="color-orange font-bold text-up display-inline">champions sfa mumbai {{filter.year}}</h2>
+        <h2 class="color-orange font-bold text-up display-inline" ng-if="filter.year == '2015'">champions sfa mumbai {{year15}}</h2>
+        <h2 class="color-orange font-bold text-up display-inline" ng-if="filter.year == '2016'">champions sfa mumbai {{year16}}</h2>
         <h4 class="text-up color-blue display-inline ml25">Year</h4>
         <div class="display-inline">
 
             <div class="sfa-select">
 
                 <select ng-change="getSportList()" class="select" ng-model="filter.year">
-                    <option value="2015">2015</option>
-                    <option value="2016">2016</option>
+                    <option value="2015">{{year15}}</option>
+                    <option value="2016">{{year16}}</option>
                 </select>
                 <span class="only-border"></span>
             </div>

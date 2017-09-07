@@ -15,14 +15,14 @@
                     <div class="col-md-9 col-xs-12 col-sm-8 text-c-m">
                         <div class="sf-school-data text-c-m">
                             <div class="scl-title display-inline ">
-                                <h3 class="color-orange font-semi text-up f18-main pointer"  ui-sref="student-profile({id:studentProfile._id})">{{studentProfile.name}}</h3>
-                                <h4 class="color-white text-up f16-main pointer"  ui-sref="school-profile({id:studentProfile.school._id})">{{studentProfile.school.name}}</h4>
+                                <h3 class="color-orange font-semi text-up f18-main pointer" ui-sref="student-profile({id:studentProfile._id})">{{studentProfile.name}}</h3>
+                                <h4 class="color-white text-up f16-main pointer" ui-sref="school-profile({id:studentProfile.school._id})">{{studentProfile.school.name}}</h4>
                             </div>
                             <!-- <div class="display-inline cup">
                                 <img src="img/sf-cup.png" alt="">
                             </div> -->
                         </div>
-                        <div class="data-list custom-li color-white mt15 display-inline text-c-m mar0-main" >
+                        <div class="data-list custom-li color-white mt15 display-inline text-c-m mar0-main">
                             <ul class="padding0 sf-list-padding">
                                 <li class="border-right-2">
                                     <div class="f16-zero">
@@ -39,7 +39,7 @@
                                 <li class="border-right-2">
                                     <div class="f16-zero">
                                         <p class="text-up color-orange">Age</p>
-                                        <p class="text-up">{{studentProfile.dob | ageYearFilter }} <span ng-if="studentProfile.dob">years</span> </p>
+                                        <p class="text-up">{{studentProfile.dob | ageYearFilter }} <span ng-if="studentProfile.dob">years</span>                                            </p>
                                     </div>
                                 </li>
                                 <li class="border-right-2">
@@ -51,7 +51,7 @@
                             </ul>
                         </div>
                         <div class="sf-list ptop-per">
-                            <span class="text-center text-up color-orange f-mcell-20">Medals Won 2016</span>
+                            <span class="text-center text-up color-orange f-mcell-20">Medals Won {{year16}}</span>
                             <ul class="padd-left padding0 mt5 second-border">
                                 <li>
                                     <div class="medal-num">
@@ -122,15 +122,15 @@ Achievements
         </div>
         <div class="box-content main-over">
 
-      <div class="record" ng-show="tab=='record'">
+            <div class="record" ng-show="tab=='record'">
                 <div class="row mt25 ">
                     <div class="col-md-12 text-center">
                         <h4 class="text-up color-blue display-inline">Year</h4>
                         <div class="display-inline">
                             <div class="sfa-select">
                                 <select class="select" ng-model="filter.year" ng-change="changeYear();">
-                                    <option value="2015">2015</option>
-                                    <option value="2016">2016</option>
+                                    <option value="2015">{{year15}}</option>
+                                    <option value="2016">{{year16}}</option>
                                 </select>
                                 <span class="only-border"></span>
                             </div>
@@ -142,199 +142,200 @@ Achievements
                 <div class="">
 
 
-                <div class="row w700">
-                    <div class="col-md-offset-1 col-md-10 ">
-                        <div class="sport-slider mt40 bg-none ">
-                            <flex-slider class="carousel" ng-if="filter.year == '2015'" flex-slide="sport in studentSport['2015'] track by $index" animation="slide">
-                                <li>
-                                    <div class="record-table mb-min-fn">
-                                        <table class="tables text-up margin-auto">
-                                            <thead class="text-set-cap">
-                                                <tr>
-                                                    <th>
-                                                        sports
-                                                    </th>
-                                                    <th class="color-orange">
-                                                        {{sport.name}}
-                                                    </th>
-                                                    <!-- <th class="color-orange">
+                    <div class="row w700">
+                        <div class="col-md-offset-1 col-md-10 ">
+                            <div class="sport-slider mt40 bg-none ">
+                                <flex-slider class="carousel" ng-if="filter.year == '2015'" flex-slide="sport in studentSport['2015'] track by $index" animation="slide">
+                                    <li>
+                                        <div class="record-table mb-min-fn">
+                                            <table class="tables text-up margin-auto">
+                                                <thead class="text-set-cap">
+                                                    <tr>
+                                                        <th>
+                                                            sports
+                                                        </th>
+                                                        <th class="color-orange">
+                                                            {{sport.name}}
+                                                        </th>
+                                                        <!-- <th class="color-orange">
                                                         aquatics
                                                     </th>
 
                                                     <th class="color-orange">
                                                         basketball
                                                     </th> -->
-                                                </tr>
-                                            </thead>
-                                            <tbody class="text-set-cap">
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-set-cap">
 
 
-                                                <tr>
-                                                    <td>
-                                                        school
-                                                    </td>
-                                                    <td class="short">
-                                                      <a href="">  {{sport.sports[0].school.name}}</a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        age group
-                                                    </td>
-                                                    <td >
-  <span id="abc" ng-repeat="single in sport.sports">{{single.agegroup.name}} <br></span>
+                                                    <tr>
+                                                        <td>
+                                                            school
+                                                        </td>
+                                                        <td class="short">
+                                                            <a href="">  {{sport.sports[0].school.name}}</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            age group
+                                                        </td>
+                                                        <td>
+                                                            <span id="abc" ng-repeat="single in sport.sports">{{single.agegroup.name}} <br></span>
 
-                                                    </td>
+                                                        </td>
 
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        category
-                                                    </td>
-                                                    <td >
-  <span ng-repeat="single in sport.sports">{{single.firstcategory.name}} {{single.secondcategory.name}}<br></span>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            category
+                                                        </td>
+                                                        <td>
+                                                            <span ng-repeat="single in sport.sports">{{single.firstcategory.name}} {{single.secondcategory.name}}<br></span>
 
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        result
-                                                    </td>
-                                                    <td >
-                                                      <a ng-repeat="single in sport.sports" ng-click="getSport(single)">{{single.sportslist.name}} <span ng-if="single.firstcategory"> | {{single.firstcategory.name}}</span><span ng-if="single.secondcategory"> | {{single.secondcategory.name}}</span> | {{single.agegroup.name}}<br></a>
-                                                    </td>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            result
+                                                        </td>
+                                                        <td>
+                                                            <a ng-repeat="single in sport.sports" ng-click="getSport(single)">{{single.sportslist.name}} <span ng-if="single.firstcategory"> | {{single.firstcategory.name}}</span><span ng-if="single.secondcategory"> | {{single.secondcategory.name}}</span> | {{single.agegroup.name}}<br></a>
+                                                        </td>
 
-                                                </tr>
+                                                    </tr>
 
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </li>
-                            </flex-slider>
-                            <flex-slider class="carousel" ng-if="filter.year == '2016'" flex-slide="sport in studentSport['2016'] track by $index" animation="slide">
-                                <li>
-                                    <div class="record-table mb-min-fn">
-                                        <table class="tables text-up margin-auto">
-                                            <thead class="text-set-cap">
-                                                <tr>
-                                                    <th>
-                                                        sports
-                                                    </th>
-                                                    <th class="color-orange">
-                                                        {{sport.name}}
-                                                    </th>
-                                                    <!-- <th class="color-orange">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </li>
+                                </flex-slider>
+                                <flex-slider class="carousel" ng-if="filter.year == '2016'" flex-slide="sport in studentSport['2016'] track by $index" animation="slide">
+                                    <li>
+                                        <div class="record-table mb-min-fn">
+                                            <table class="tables text-up margin-auto">
+                                                <thead class="text-set-cap">
+                                                    <tr>
+                                                        <th>
+                                                            sports
+                                                        </th>
+                                                        <th class="color-orange">
+                                                            {{sport.name}}
+                                                        </th>
+                                                        <!-- <th class="color-orange">
                                                         aquatics
                                                     </th>
 
                                                     <th class="color-orange">
                                                         basketball
                                                     </th> -->
-                                                </tr>
-                                            </thead>
-                                            <tbody class="text-set-cap">
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-set-cap">
 
 
-                                                <tr>
-                                                    <td>
-                                                        school
-                                                    </td>
-                                                    <td class="short">
-                                                      <a href="">  {{sport.sports[0].school.name}}</a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        age group
-                                                    </td>
-                                                    <td >
-  <span ng-repeat="single in sport.sports">{{single.agegroup.name}} <br></span>
+                                                    <tr>
+                                                        <td>
+                                                            school
+                                                        </td>
+                                                        <td class="short">
+                                                            <a href="">  {{sport.sports[0].school.name}}</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            age group
+                                                        </td>
+                                                        <td>
+                                                            <span ng-repeat="single in sport.sports">{{single.agegroup.name}} <br></span>
 
-                                                    </td>
+                                                        </td>
 
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        category
-                                                    </td>
-                                                    <td >
-  <span ng-repeat="single in sport.sports">{{single.firstcategory.name}} {{single.secondcategory.name}}<br></span>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            category
+                                                        </td>
+                                                        <td>
+                                                            <span ng-repeat="single in sport.sports">{{single.firstcategory.name}} {{single.secondcategory.name}}<br></span>
 
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        result
-                                                    </td>
-                                                    <td>
-                                                      <a ng-repeat="single in sport.sports" ng-click="getSport(single)">{{single.sportslist.name}} <span ng-if="single.firstcategory"> | {{single.firstcategory.name}}</span><span ng-if="single.secondcategory"> | {{single.secondcategory.name}}</span> | {{single.agegroup.name}}<br></a>
-                                                    </td>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            result
+                                                        </td>
+                                                        <td>
+                                                            <a ng-repeat="single in sport.sports" ng-click="getSport(single)">{{single.sportslist.name}} <span ng-if="single.firstcategory"> | {{single.firstcategory.name}}</span><span ng-if="single.secondcategory"> | {{single.secondcategory.name}}</span> | {{single.agegroup.name}}<br></a>
+                                                        </td>
 
-                                                </tr>
+                                                    </tr>
 
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </li>
-                            </flex-slider>
-                            <div class="text-center"  ng-if="!(studentSport[filter.year].length > 0)">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </li>
+                                </flex-slider>
+                                <div class="text-center" ng-if="!(studentSport[filter.year].length > 0)">
 
-  <h5>{{studentSport[filter.year] == undefined && 'Loading .. '|| 'No Sport Found.'}}</h5>
-                              </div>
-                        </div>
-                        <div class="text-center">
-                            <div class="total-medals-count">
-                                <div class="display-inline">
-                                    <h4 class="margin0 color-blue text-up">total medals won</h4>
+                                    <h5>{{studentSport[filter.year] == undefined && 'Loading .. '|| 'No Sport Found.'}}</h5>
                                 </div>
-                                <div class="sf-list display-inline stu-data ">
-                                    <ul class="padd-left padding0 mt5">
-                                        <li>
-                                            <div class="medal-num">
-                                                <div class="img-medal display-inline">
-                                                    <img src="img/sf-gold-sec.png" alt="">
-                                                </div>
-                                                <div class="display-inline">
-                                                    <p class="margin0 color-blue text-center f16">{{studentMedal[filter.year].gold || '0'}}</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="total-medals-count">
+                                    <div class="display-inline">
+                                        <h4 class="margin0 color-blue text-up">total medals won</h4>
+                                    </div>
+                                    <div class="sf-list display-inline stu-data ">
+                                        <ul class="padd-left padding0 mt5">
+                                            <li>
+                                                <div class="medal-num">
+                                                    <div class="img-medal display-inline">
+                                                        <img src="img/sf-gold-sec.png" alt="">
+                                                    </div>
+                                                    <div class="display-inline">
+                                                        <p class="margin0 color-blue text-center f16">{{studentMedal[filter.year].gold || '0'}}</p>
 
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="medal-num">
-                                                <div class="img-medal display-inline ">
-                                                    <img src="img/sf-silver-sec.png" alt="">
-                                                </div>
-                                                <div class="display-inline">
-                                                    <p class="margin0 color-blue text-center f16">{{studentMedal[filter.year].silver || '0'}}</p>
+                                            </li>
+                                            <li>
+                                                <div class="medal-num">
+                                                    <div class="img-medal display-inline ">
+                                                        <img src="img/sf-silver-sec.png" alt="">
+                                                    </div>
+                                                    <div class="display-inline">
+                                                        <p class="margin0 color-blue text-center f16">{{studentMedal[filter.year].silver || '0'}}</p>
 
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="medal-num">
-                                                <div class="img-medal display-inline">
-                                                    <img src="img/sf-bronze-sec.png" alt="">
-                                                </div>
-                                                <div class="display-inline">
-                                                    <p class="margin0 color-blue text-center f16">{{studentMedal[filter.year].bronze || '0'}}</p>
+                                            </li>
+                                            <li>
+                                                <div class="medal-num">
+                                                    <div class="img-medal display-inline">
+                                                        <img src="img/sf-bronze-sec.png" alt="">
+                                                    </div>
+                                                    <div class="display-inline">
+                                                        <p class="margin0 color-blue text-center f16">{{studentMedal[filter.year].bronze || '0'}}</p>
 
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-                </div>
             <div class="gallery" ng-show="tab=='gallery'">
-              <div class="mt30 text-center">
-                <h4 class="color-blue">The stories of your sporting endeavours and successes need not be limited to your parents, coaches and close friends. Upload pictures of your experiences with sports right here for the world to see.
-</h4>
-              </div>
+                <div class="mt30 text-center">
+                    <h4 class="color-blue">The stories of your sporting endeavours and successes need not be limited to your parents, coaches and
+                        close friends. Upload pictures of your experiences with sports right here for the world to see.
+                    </h4>
+                </div>
                 <!-- <div class="row">
                     <div class="col-md-offset-3 col-md-3 col-sm-6 col-xs-12 text-c-m">
                         <h4 class="text-up color-blue display-inline">sport</h4>
@@ -410,10 +411,11 @@ match videos
 
             </div>
             <div class="blog" ng-show="tab=='blog'">
-              <div class="mt30 text-center">
-                <h4 class="color-blue">Your accolades in sport are now for the world to view. Bring your sport certificates out of the closet and upload them here to take your sport profile to the next level.
-</h4>
-              </div>
+                <div class="mt30 text-center">
+                    <h4 class="color-blue">Your accolades in sport are now for the world to view. Bring your sport certificates out of the closet
+                        and upload them here to take your sport profile to the next level.
+                    </h4>
+                </div>
                 <!-- <div class="data-box" style="text-align:center;">
                     <p>Sport For All (SFA) cannot be held responsible for the details of the student's achievements in other tournaments. SFA does not guarantee the authenticity of the below mentioned triumphs.</p>
                 </div> -->

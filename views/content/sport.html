@@ -17,10 +17,10 @@
 Rules and Regulations
 </a></li>
                                 <li><a href="" ng-click="tabchange('2016',1);getWinners('2016')" class="{{classa}} font16">
-sfa mumbai 2016 <span ng-if="winners['2016'].length > 0">winners</span>
+sfa mumbai {{year16}} <span ng-if="winners['2016'].length > 0">winners</span>
 </a></li>
                                 <li><a href="" ng-click="tabchange('2015',2);getWinners('2015')" class="{{classb}} font16" ng-if="is2015Sport">
-sfa mumbai 2015
+sfa mumbai {{year15}}
 </a></li>
                                 <li><a href="" ng-click="tabchange('gallerys',3)" class="{{classc}} font16">
 gallery
@@ -728,8 +728,8 @@ sport’s bio
                                     <div class="sfa-select">
                                         <select class="select" ng-change="media(tabs)" ng-model="filter.year">
                                             <!-- <option value="All">All</option> -->
-                                            <option value="2015">2015</option>
-                                            <option value="2016">2016</option>
+                                            <option value="2015">{{year15}}</option>
+                                            <option value="2016">{{year16}}</option>
                                         </select>
                                         <span class="only-border"></span>
                                     </div>

@@ -1,86 +1,84 @@
 <section>
-    <div class="head-banner">
-        <img src="img/sfa-result.png" class="img-responsive img width100 margin-auto">
-    </div>
+  <div class="head-banner">
+    <img src="img/sfa-result.png" class="img-responsive img width100 margin-auto">
+  </div>
 </section>
 <section class="pb60">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-          <div class="box-content">
-            <form name="resultForm" ng-submit="getSport()">
+        <div class="box-content">
+          <form name="resultForm" ng-submit="getSport()">
             <div class="row">
               <div class="col-md-offset-3 col-md-6 cl-box">
-                  <h4 class="text-up color-blue display-inline w95">Year</h4>
+                <h4 class="text-up color-blue display-inline w95">Year</h4>
                 <div class="display-inline">
-                    <div class="sfa-select">
-                        <select class="select" name="year" ng-change="getSportList()" required ng-model="filter.year">
+                  <div class="sfa-select">
+                    <select class="select" name="year" ng-change="getSportList()" required ng-model="filter.year">
                             <option value="">YEAR</option>
-                            <option value="2015">2015</option>
-                            <option value="2016">2016</option>
-
+                            <option value="2015">{{year15}}</option>
+                            <option value="2016">{{year16}}</option>
                         </select>
-                        <span class="only-border"></span>
-                    </div>
+                    <span class="only-border"></span>
+                  </div>
                 </div>
                 <div class="mt15" ng-if="dropdowns.sport.length > 0">
-                    <h4 class="text-up color-blue display-inline w95">Sports</h4>
-                      <div class="display-inline">
+                  <h4 class="text-up color-blue display-inline w95">Sports</h4>
+                  <div class="display-inline">
                     <div class="sfa-select">
-                        <select class="select" ng-model="filter.sport" name="sport" required  ng-change="getSportAgeGroup();getSportCategory();">
+                      <select class="select" ng-model="filter.sport" name="sport" required ng-change="getSportAgeGroup();getSportCategory();">
                             <option value="">SPORT</option>
                             <option ng-repeat="sport in dropdowns.sport" ng-value="sport._id">{{sport.name}}</option>
-
                         </select>
-                        <span class="only-border"></span>
+                      <span class="only-border"></span>
                     </div>
                   </div>
                 </div>
                 <div class="mt15" ng-if="filter.sport">
                   <h4 class="text-up color-blue display-inline w95">Gender</h4>
-                    <div class="display-inline">
+                  <div class="display-inline">
                     <div class="sfa-select">
-                        <select class="select" ng-model="filter.gender" ng-change="getSportCategory()" name="gender" required  ng-change="changeYear()">
+                      <select class="select" ng-model="filter.gender" ng-change="getSportCategory()" name="gender" required ng-change="changeYear()">
                             <option value="">GENDER</option>
                             <option value="Boys">Boys</option>
                             <option value="Girls">Girls</option>
 
                         </select>
-                        <span class="only-border"></span>
+                      <span class="only-border"></span>
                     </div>
                   </div>
                 </div>
 
                 <div class="mt15" ng-if="dropdowns.agegroup.length > 0">
                   <h4 class="text-up color-blue display-inline w95">Age group</h4>
-                    <div class="display-inline">
+                  <div class="display-inline">
                     <div class="sfa-select">
-                        <select class="select" name="agegroup" required ng-model="filter.agegroup" >
+                      <select class="select" name="agegroup" required ng-model="filter.agegroup">
                             <option value="">AGE GROUP</option>
                             <option ng-repeat="agegroup in dropdowns.agegroup"   ng-value="agegroup.name">{{agegroup.name}}</option>
 
                         </select>
-                        <span class="only-border"></span>
+                      <span class="only-border"></span>
                     </div>
                   </div>
                 </div>
 
                 <div class="mt15" ng-if="dropdowns.category.length > 0">
                   <h4 class="text-up color-blue display-inline w95">Event</h4>
-                    <div class="display-inline">
+                  <div class="display-inline">
                     <div class="sfa-select">
-                        <select class="select" name="category" required ng-model="filter.category" >
+                      <select class="select" name="category" required ng-model="filter.category">
                             <option value="">EVENT</option>
                               <option ng-repeat="category in dropdowns.category" ng-value="category.name">{{category.name}}</option>
 
                         </select>
-                        <span class="only-border"></span>
+                      <span class="only-border"></span>
                     </div>
                   </div>
                 </div>
 
                 <div class="text-center mt25">
-  <button type="submit" name="button" class="text-up btn-orange padd-btn pd-450">GET RESULT</button>
+                  <button type="submit" name="button" class="text-up btn-orange padd-btn pd-450">GET RESULT</button>
                 </div>
                 <div class="text-center" ng-if="!doesNotHaveSport">
                   No Sport Found.
@@ -88,7 +86,7 @@
               </div>
             </div>
           </form>
-          </div>
+        </div>
       </div>
     </div>
   </div>

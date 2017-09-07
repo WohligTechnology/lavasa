@@ -26,7 +26,8 @@
                             <ul class="padding0 sf-list-padding">
                                 <li class="border-right-1 f14-zero">
                                     <div class="">
-                                        <span class="">CONTINGENT STRENGTH {{filter.year}}</span>
+                                        <span class="" ng-if="filter.year == '2015'">CONTINGENT STRENGTH {{year15}}</span>
+                                        <span class="" ng-if="filter.year == '2016'">CONTINGENT STRENGTH {{year16}}</span>
                                     </div>
                                     <ul class="padding0 pad-line mt15">
                                         <li>
@@ -48,7 +49,8 @@
                                 </li>
                                 <li class="border-right-1">
                                     <div class="display-inline text-up text-center f14-zero">
-                                        <p>{{filter.year}} rank</p>
+                                        <p ng-if="filter.year == '2015'">{{year15}} rank</p>
+                                        <p ng-if="filter.year == '2016'">{{year16}} rank</p>
                                         <p class="total display-inline mt5"> {{schooldata.rank || 'N.A'}} </p>
                                     </div>
                                     <!-- <div class="stu-data display-inline text-up text-center">
@@ -170,8 +172,8 @@
                     <div class="display-inline">
                         <div class="sfa-select">
                             <select class="select" ng-model="filter.year" ng-change="changeYear()">
-                                <option value="2015">2015</option>
-                                <option value="2016">2016</option>
+                                <option value="2015">{{year15}}</option>
+                                <option value="2016">{{year16}}</option>
 
                             </select>
                             <span class="only-border"></span>
@@ -222,8 +224,11 @@
                             </a>
                         </li>
                     </flex-slider>
-                    <div class="text-center" ng-if="!(sportsStudentGender[filter.year].length > 0)">
-                        {{sportsStudentGender[filter.year] == undefined && 'Loading .. ' || 'No Sports Participated in '+filter.year}}
+                    <div class="text-center" ng-if="!(sportsStudentGender[filter.year].length > 0) && filter.year == '2015'">
+                        {{sportsStudentGender[filter.year] == undefined && 'Loading .. ' || 'No Sports Participated in '+ year15}}
+                    </div>
+                    <div class="text-center" ng-if="!(sportsStudentGender[filter.year].length > 0) && filter.year == '2016'">
+                        {{sportsStudentGender[filter.year] == undefined && 'Loading .. ' || 'No Sports Participated in '+ year16}}
                     </div>
                 </div>
             </div>
@@ -232,7 +237,8 @@
         <div class="row mt40" ng-if="!filterStatistics.sport">
             <div class="col-md-12 ">
                 <div class=" text-center">
-                    <h3 class="font-semi color-blue margin0">CONTINGENT STRENGTH {{filterStatistics.year}}</h3>
+                    <h3 class="font-semi color-blue margin0" ng-if="filterStatistics.year == '2015'">CONTINGENT STRENGTH {{year15}}</h3>
+                    <h3 class="font-semi color-blue margin0" ng-if="filterStatistics.year == '2016'">CONTINGENT STRENGTH {{year16}}</h3>
                     <div class="sf-list">
                         <ul class="padding0 pad-line mt15 ">
                             <li>
@@ -260,8 +266,8 @@
                         <div class="display-inline">
                             <div class="sfa-select">
                                 <select ng-change="onChangeContingentYear()" class="select" ng-model="filterStatistics.year">
-                                <option value="2015">2015</option>
-                                <option value="2016">2016</option>
+                                <option value="2015">{{year15}}</option>
+                                <option value="2016">{{year16}}</option>
                                 </select>
                                 <span class="only-border"></span>
                             </div>
@@ -333,8 +339,10 @@
                                     <h4 class="text-up color-blue display-inline">Year</h4>
                                     <div class="display-inline">
                                         <div class="sfa-select">
-                                            <select class="select" ng-change="callReload();" ng-model="callObject.year" ng-options="item for item in allYears">
-                                            </select>
+                                            <!-- <select class="select" ng-change="callReload();" ng-model="callObject.year" ng-options="item for item in allYears">
+                                            </select> -->
+                                            <select class="select" ng-change="callReload();" ng-model="callObject.year" ng-options="item.year as item.display for item in allYears">
+                                                </select>
                                             <span class="only-border"></span>
                                         </div>
                                     </div>
@@ -394,8 +402,8 @@
                                         <div class="sfa-select">
                                             <select class="select">
                                                 <option value="">All</option>
-                                                <option value="2015">2015</option>
-                                                <option value="2016">2016</option>
+                                                <option value="2015">{{year15}}</option>
+                                                <option value="2016">{{year16}}</option>
                                             </select>
                                             <span class="only-border"></span>
                                         </div>
@@ -453,8 +461,8 @@
                                         <div class="sfa-select">
                                             <select ng-change="getStats()" ng-model="filterStatistics.year" class="select">
                                                 <option value=""></option>
-                                                <option value="2015">2015</option>
-                                                <option value="2016">2016</option>
+                                                <option value="2015">{{year15}}</option>
+                                                <option value="2016">{{year16}}</option>
                                             </select>
                                             <span class="only-border"></span>
                                         </div>

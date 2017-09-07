@@ -15,7 +15,9 @@
                     <div class="col-md-9  col-xs-12 col-sm-9 text-c-m">
                         <div class="sf-school-data">
                             <div class="scl-title display-inline">
-                                <a ui-sref="school-profile({id:school._id})"><h3 class="color-orange font-semi f-mcell-20">{{school.name}}</h3></a>
+                                <a ui-sref="school-profile({id:school._id})">
+                                    <h3 class="color-orange font-semi f-mcell-20">{{school.name}}</h3>
+                                </a>
                             </div>
                             <!-- <div class="display-inline cup">
                                 <img src="img/sf-cup.png" alt="">
@@ -25,7 +27,7 @@
                             <ul class="padding0 sf-list-padding">
                                 <li class="border-right-1 f14-zero">
                                     <div class="">
-                                        <span class="">CONTINGENT STRENGTH 2016</span>
+                                        <span class="">CONTINGENT STRENGTH {{year16}}</span>
                                     </div>
                                     <ul class="padding0 pad-line mt15">
                                         <li>
@@ -40,14 +42,14 @@
                                         </li>
                                         <li>
                                             <div class="sto-pro-list total display-inline">
-                                              {{school.contingent['2016'].Boys + school.contingent['2016'].Girls || '0'}}
+                                                {{school.contingent['2016'].Boys + school.contingent['2016'].Girls || '0'}}
                                             </div>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="border-right-1">
                                     <div class="display-inline text-up text-center f14-zero">
-                                        <p>2016 rank</p>
+                                        <p>{{year16}} rank</p>
                                         <p class="total display-inline mt5">{{school.rank || 'N.A.'}}</p>
                                     </div>
                                     <!-- <div class="stu-data display-inline text-up text-center">
@@ -193,7 +195,7 @@ school’s blog
                                     <p class="text-sort"><span>Address:</span>{{school.address || 'Not Available' }}</p>
                                     <p><span>board:</span>{{school.board || 'Not Available'}}</p>
                                     <p><span>status:</span>{{school.isVerified }}</p>
-                                    <p><span>c. l. 2016:</span>{{school.contingentLeader || 'Not Available'}}</p>
+                                    <p><span>c. l. {{year16}}:</span>{{school.contingentLeader || 'Not Available'}}</p>
                                 </div>
                             </div>
                         </div>
@@ -225,7 +227,7 @@ school’s blog
                                     </div>
                                 </div>
                                 <div class="text-center" ng-if="!(school.departmentSorted['2016'].length > 0)">
-                                 No Sports Department Details Found.
+                                    No Sports Department Details Found.
                                 </div>
                             </div>
                         </div>
@@ -261,9 +263,9 @@ school’s blog
                                                     sports co-ordinator
                                                 </td>
                                                 <td ng-repeat="year in school.year">
-                                                   <span ng-repeat="dept in school.departmentSorted[year]">
+                                                    <span ng-repeat="dept in school.departmentSorted[year]">
                                                      &nbsp;{{dept.name || '-'}}<span ng-if="$index !== school.departmentSorted[year].length-1">,</span>
-                                                   </span>
+                                                    </span>
                                                 </td>
 
                                             </tr>
@@ -284,12 +286,14 @@ school’s blog
                                                         <ul class="padding0 pad-line margin0">
                                                             <li class="pl0">
                                                                 <div class="sto-pro-list">
-                                                                    <img src="img/sf-boys-blue.png" alt="">{{school.contingent[year].Boys || '0'}}
+                                                                    <img src="img/sf-boys-blue.png" alt="">{{school.contingent[year].Boys
+                                                                    || '0'}}
                                                                 </div>
                                                             </li>
                                                             <li>
                                                                 <div class="sto-pro-list display-inline">
-                                                                    <img src="img/sf-girl-blue.png" alt="">{{school.contingent[year].Girls || '0'}}
+                                                                    <img src="img/sf-girl-blue.png" alt="">{{school.contingent[year].Girls
+                                                                    || '0'}}
                                                                 </div>
                                                             </li>
                                                             <li>
@@ -400,8 +404,9 @@ school’s blog
                     </div>
                     <div class="gallery" ng-show="tab=='gallery'">
                         <div class="mt30 text-center">
-                            <h4 class="color-blue">Sport needs an audience and we are here to give you a virtual one. So, upload here the pictures and videos of your students’ participation and victory in sporting tournaments all year round.
-</h4>
+                            <h4 class="color-blue">Sport needs an audience and we are here to give you a virtual one. So, upload here the pictures
+                                and videos of your students’ participation and victory in sporting tournaments all year round.
+                            </h4>
                         </div>
                         <!-- <div class="row">
                             <div class="col-md-offset-3 col-md-3 col-sm-6 col-xs-12 text-c-m">
@@ -485,8 +490,10 @@ match videos
                                 <h3 class="color-blue text-up font-semi">school’s blog</h3>
                             </div>
                             <div class="mt30 text-center">
-                                <h4 class="color-blue">There are champions breeding in your school’s playground who excel in various sports tournaments. Share their achievements and accolades in sport for the world to see. Feel free to upload videos and images along with a write-up.
-</h4>
+                                <h4 class="color-blue">There are champions breeding in your school’s playground who excel in various sports tournaments.
+                                    Share their achievements and accolades in sport for the world to see. Feel free to upload
+                                    videos and images along with a write-up.
+                                </h4>
                             </div>
                         </div>
                         <!-- <hr> -->
