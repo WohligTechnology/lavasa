@@ -5,20 +5,20 @@ var uploadUrl = adminUrl + "upload/";
 // var uploadUrl2 = adminUrl2 + "upload/";
 
 // var currentYears = ["2015", "2016"];
-// var currentYears = [{
-//     year: "2015",
-//     display: "2015"
-// }, {
-//     year: "2016",
-//     display: "2016"
-// }];
 var currentYears = [{
     year: "2015",
-    display: "2015-16"
+    display: "2015"
 }, {
     year: "2016",
-    display: "2016-17"
+    display: "2016"
 }];
+// var currentYears = [{
+//     year: "2015",
+//     display: "2015-16"
+// }, {
+//     year: "2016",
+//     display: "2016-17"
+// }];
 var navigationservice = angular.module('navigationservice', []);
 
 firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $log) {
