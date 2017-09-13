@@ -6,36 +6,36 @@
 // var tempLink1 = "mumbai.sfanow.in";
 // var sublinkTemp = "http://mumbai.sfanow.in";
 
-var sublink1 = "http://testmumbaischool.sfanow.in";
-var sublink2 = "http://testmumbaicollege.sfanow.in";
-var sublink3 = "http://testhyderabadschool.sfanow.in";
-var sublink4 = "http://testhyderabadcollege.sfanow.in";
-var sublink5 = "http://testahmedabadschool.sfanow.in";
-var sublink6 = "http://testahmedabadcollege.sfanow.in";
-var mainLink = "test.sfanow.in";
-var link1 = "testmumbai.sfanow.in";
-var link2 = "testhyderabad.sfanow.in";
-var link3 = "testahmedabad.sfanow.in";
-var eventYear = '2017-18';
-var year15 = '2015-16';
-var year16 = '2016-17';
+// var sublink1 = "http://testmumbaischool.sfanow.in";
+// var sublink2 = "http://testmumbaicollege.sfanow.in";
+// var sublink3 = "http://testhyderabadschool.sfanow.in";
+// var sublink4 = "http://testhyderabadcollege.sfanow.in";
+// var sublink5 = "http://testahmedabadschool.sfanow.in";
+// var sublink6 = "http://testahmedabadcollege.sfanow.in";
+// var mainLink = "test.sfanow.in";
+// var link1 = "testmumbai.sfanow.in";
+// var link2 = "testhyderabad.sfanow.in";
+// var link3 = "testahmedabad.sfanow.in";
+// var eventYear = '2017-18';
+// var year15 = '2015-16';
+// var year16 = '2016-17';
 
 // var mainLink = "localhost:8080";
 // var link1 = "localhost:8080";
 
-// var sublink1 = "http://mumbaischool.sfanow.in";
-// var sublink2 = "http://mumbaicollege.sfanow.in";
-// var sublink3 = "http://hyderabadschool.sfanow.in";
-// var sublink4 = "http://hyderabadcollege.sfanow.in";
-// var sublink5 = "http://ahmedabadschool.sfanow.in";
-// var sublink6 = "http://ahmedabadcollege.sfanow.in";
-// var mainLink = "sfanow.in";
-// var link1 = "mumbai.sfanow.in";
-// var link2 = "hyderabad.sfanow.in";
-// var link3 = "ahmedabad.sfanow.in";
-// var eventYear = '2017';
-// var year15 = '2015';
-// var year16 = '2016';
+var sublink1 = "http://mumbaischool.sfanow.in";
+var sublink2 = "http://mumbaicollege.sfanow.in";
+var sublink3 = "http://hyderabadschool.sfanow.in";
+var sublink4 = "http://hyderabadcollege.sfanow.in";
+var sublink5 = "http://ahmedabadschool.sfanow.in";
+var sublink6 = "http://ahmedabadcollege.sfanow.in";
+var mainLink = "sfanow.in";
+var link1 = "mumbai.sfanow.in";
+var link2 = "hyderabad.sfanow.in";
+var link3 = "ahmedabad.sfanow.in";
+var eventYear = '2017';
+var year15 = '2015';
+var year16 = '2016';
 
 firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval) {
     //Used to name the .html file
@@ -4037,74 +4037,6 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
 
 
     //------------For Multiple City------------//
-    $scope.openCity = function (selectedCity) {
-        var sublink = '';
-        switch (selectedCity) {
-            case 'mumbai':
-                if ($.jStorage.get("sfaCity") == 'mumbai') {
-                    NavigationService.setSfaCity(selectedCity);
-                    $scope.sfaCity = 'mumbai';
-                    sublink = "http://test" + selectedCity + ".sfanow.in";
-                    window.open(sublink, '_self');
-                    break;
-                } else if ($.jStorage.get("sfaCity") != 'mumbai') {
-                    $.jStorage.flush();
-                    NavigationService.setSfaCity(selectedCity);
-                    $scope.sfaCity = 'mumbai';
-                    sublink = "http://test" + selectedCity + ".sfanow.in";
-                    window.open(sublink, '_self');
-                    break;
-                } else if ($.jStorage.get("sfaCity") == '') {
-                    NavigationService.setSfaCity(selectedCity);
-                    $scope.sfaCity = 'mumbai';
-                    sublink = "http://test" + selectedCity + ".sfanow.in";
-                    window.open(sublink, '_self');
-                }
-            case 'hyderabad':
-                if ($.jStorage.get("sfaCity") == 'hyderabad') {
-                    NavigationService.setSfaCity(selectedCity);
-                    $scope.sfaCity = 'hyderabad';
-                    sublink = "http://test" + selectedCity + ".sfanow.in";
-                    window.open(sublink, '_self');
-                    break;
-                } else if ($.jStorage.get("sfaCity") != 'hyderabad') {
-                    $.jStorage.flush();
-                    NavigationService.setSfaCity(selectedCity);
-                    $scope.sfaCity = 'hyderabad';
-                    sublink = "http://test" + selectedCity + ".sfanow.in";
-                    window.open(sublink, '_self');
-                    break;
-                } else if ($.jStorage.get("sfaCity") == '') {
-                    NavigationService.setSfaCity(selectedCity);
-                    $scope.sfaCity = 'hyderabad';
-                    sublink = "http://test" + selectedCity + ".sfanow.in";
-                    window.open(sublink, '_self');
-                }
-            case 'ahmedabad':
-                if ($.jStorage.get("sfaCity") == 'ahmedabad') {
-                    NavigationService.setSfaCity(selectedCity);
-                    $scope.sfaCity = 'ahmedabad';
-                    sublink = "http://test" + selectedCity + ".sfanow.in";
-                    window.open(sublink, '_self');
-                    break;
-                } else if ($.jStorage.get("sfaCity") != 'ahmedabad') {
-                    $.jStorage.flush();
-                    NavigationService.setSfaCity(selectedCity);
-                    $scope.sfaCity = 'ahmedabad';
-                    sublink = "http://test" + selectedCity + ".sfanow.in";
-                    window.open(sublink, '_self');
-                    break;
-                } else if ($.jStorage.get("sfaCity") == '') {
-                    NavigationService.setSfaCity(selectedCity);
-                    $scope.sfaCity = 'ahmedabad';
-                    sublink = "http://test" + selectedCity + ".sfanow.in";
-                    window.open(sublink, '_self');
-                }
-            default:
-                toastr.error("Something Went Wrong");
-                break;
-        }
-    }
     // $scope.openCity = function (selectedCity) {
     //     var sublink = '';
     //     switch (selectedCity) {
@@ -4112,60 +4044,60 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     //             if ($.jStorage.get("sfaCity") == 'mumbai') {
     //                 NavigationService.setSfaCity(selectedCity);
     //                 $scope.sfaCity = 'mumbai';
-    //                 sublink = "http://" + selectedCity + ".sfanow.in";
+    //                 sublink = "http://test" + selectedCity + ".sfanow.in";
     //                 window.open(sublink, '_self');
     //                 break;
     //             } else if ($.jStorage.get("sfaCity") != 'mumbai') {
     //                 $.jStorage.flush();
     //                 NavigationService.setSfaCity(selectedCity);
     //                 $scope.sfaCity = 'mumbai';
-    //                 sublink = "http://" + selectedCity + ".sfanow.in";
+    //                 sublink = "http://test" + selectedCity + ".sfanow.in";
     //                 window.open(sublink, '_self');
     //                 break;
     //             } else if ($.jStorage.get("sfaCity") == '') {
     //                 NavigationService.setSfaCity(selectedCity);
     //                 $scope.sfaCity = 'mumbai';
-    //                 sublink = "http://" + selectedCity + ".sfanow.in";
+    //                 sublink = "http://test" + selectedCity + ".sfanow.in";
     //                 window.open(sublink, '_self');
     //             }
     //         case 'hyderabad':
     //             if ($.jStorage.get("sfaCity") == 'hyderabad') {
     //                 NavigationService.setSfaCity(selectedCity);
     //                 $scope.sfaCity = 'hyderabad';
-    //                 sublink = "http://" + selectedCity + ".sfanow.in";
+    //                 sublink = "http://test" + selectedCity + ".sfanow.in";
     //                 window.open(sublink, '_self');
     //                 break;
     //             } else if ($.jStorage.get("sfaCity") != 'hyderabad') {
     //                 $.jStorage.flush();
     //                 NavigationService.setSfaCity(selectedCity);
     //                 $scope.sfaCity = 'hyderabad';
-    //                 sublink = "http://" + selectedCity + ".sfanow.in";
+    //                 sublink = "http://test" + selectedCity + ".sfanow.in";
     //                 window.open(sublink, '_self');
     //                 break;
     //             } else if ($.jStorage.get("sfaCity") == '') {
     //                 NavigationService.setSfaCity(selectedCity);
     //                 $scope.sfaCity = 'hyderabad';
-    //                 sublink = "http://" + selectedCity + ".sfanow.in";
+    //                 sublink = "http://test" + selectedCity + ".sfanow.in";
     //                 window.open(sublink, '_self');
     //             }
     //         case 'ahmedabad':
     //             if ($.jStorage.get("sfaCity") == 'ahmedabad') {
     //                 NavigationService.setSfaCity(selectedCity);
     //                 $scope.sfaCity = 'ahmedabad';
-    //                 sublink = "http://" + selectedCity + ".sfanow.in";
+    //                 sublink = "http://test" + selectedCity + ".sfanow.in";
     //                 window.open(sublink, '_self');
     //                 break;
     //             } else if ($.jStorage.get("sfaCity") != 'ahmedabad') {
     //                 $.jStorage.flush();
     //                 NavigationService.setSfaCity(selectedCity);
     //                 $scope.sfaCity = 'ahmedabad';
-    //                 sublink = "http://" + selectedCity + ".sfanow.in";
+    //                 sublink = "http://test" + selectedCity + ".sfanow.in";
     //                 window.open(sublink, '_self');
     //                 break;
     //             } else if ($.jStorage.get("sfaCity") == '') {
     //                 NavigationService.setSfaCity(selectedCity);
     //                 $scope.sfaCity = 'ahmedabad';
-    //                 sublink = "http://" + selectedCity + ".sfanow.in";
+    //                 sublink = "http://test" + selectedCity + ".sfanow.in";
     //                 window.open(sublink, '_self');
     //             }
     //         default:
@@ -4173,6 +4105,74 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     //             break;
     //     }
     // }
+    $scope.openCity = function (selectedCity) {
+        var sublink = '';
+        switch (selectedCity) {
+            case 'mumbai':
+                if ($.jStorage.get("sfaCity") == 'mumbai') {
+                    NavigationService.setSfaCity(selectedCity);
+                    $scope.sfaCity = 'mumbai';
+                    sublink = "http://" + selectedCity + ".sfanow.in";
+                    window.open(sublink, '_self');
+                    break;
+                } else if ($.jStorage.get("sfaCity") != 'mumbai') {
+                    $.jStorage.flush();
+                    NavigationService.setSfaCity(selectedCity);
+                    $scope.sfaCity = 'mumbai';
+                    sublink = "http://" + selectedCity + ".sfanow.in";
+                    window.open(sublink, '_self');
+                    break;
+                } else if ($.jStorage.get("sfaCity") == '') {
+                    NavigationService.setSfaCity(selectedCity);
+                    $scope.sfaCity = 'mumbai';
+                    sublink = "http://" + selectedCity + ".sfanow.in";
+                    window.open(sublink, '_self');
+                }
+            case 'hyderabad':
+                if ($.jStorage.get("sfaCity") == 'hyderabad') {
+                    NavigationService.setSfaCity(selectedCity);
+                    $scope.sfaCity = 'hyderabad';
+                    sublink = "http://" + selectedCity + ".sfanow.in";
+                    window.open(sublink, '_self');
+                    break;
+                } else if ($.jStorage.get("sfaCity") != 'hyderabad') {
+                    $.jStorage.flush();
+                    NavigationService.setSfaCity(selectedCity);
+                    $scope.sfaCity = 'hyderabad';
+                    sublink = "http://" + selectedCity + ".sfanow.in";
+                    window.open(sublink, '_self');
+                    break;
+                } else if ($.jStorage.get("sfaCity") == '') {
+                    NavigationService.setSfaCity(selectedCity);
+                    $scope.sfaCity = 'hyderabad';
+                    sublink = "http://" + selectedCity + ".sfanow.in";
+                    window.open(sublink, '_self');
+                }
+            case 'ahmedabad':
+                if ($.jStorage.get("sfaCity") == 'ahmedabad') {
+                    NavigationService.setSfaCity(selectedCity);
+                    $scope.sfaCity = 'ahmedabad';
+                    sublink = "http://" + selectedCity + ".sfanow.in";
+                    window.open(sublink, '_self');
+                    break;
+                } else if ($.jStorage.get("sfaCity") != 'ahmedabad') {
+                    $.jStorage.flush();
+                    NavigationService.setSfaCity(selectedCity);
+                    $scope.sfaCity = 'ahmedabad';
+                    sublink = "http://" + selectedCity + ".sfanow.in";
+                    window.open(sublink, '_self');
+                    break;
+                } else if ($.jStorage.get("sfaCity") == '') {
+                    NavigationService.setSfaCity(selectedCity);
+                    $scope.sfaCity = 'ahmedabad';
+                    sublink = "http://" + selectedCity + ".sfanow.in";
+                    window.open(sublink, '_self');
+                }
+            default:
+                toastr.error("Something Went Wrong");
+                break;
+        }
+    }
     if (window.location.host == mainLink && $.jStorage.get("sfaCity") == null) {
         if (window.location.pathname != '/') {
             $state.go('home');
