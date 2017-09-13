@@ -46,127 +46,131 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
     TemplateService.keywords = "inter college, inter school, tournament, sport event, tournament for athletes ,athlete bios , match videos";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
-    $scope.countdown = {};
-    $scope.changeSlideClass = function (obj, index) {
-        obj.class = "active";
-        // console.log("active = ", index);
-        for (var i = index - 1, j = 1; i >= 0; i--) {
-            $scope.game[i].class = "near-" + (j++);
-        }
-        for (i = index + 1, j = 1; i < $scope.game.length; i++) {
-            $scope.game[i].class = "near-" + (j++);
-        }
-    };
-    $scope.removeSlideClass = function (obj, index) {
-        for (var i = 0; i < $scope.game.length; i++) {
-            $scope.game[i].class = "";
-        }
-        // $scope.$apply();
-    };
-    $scope.refreshTimer = function (eventTime) {
-        eventTime = new Date(eventTime);
-        $scope.rightNow = new Date();
-        $scope.diffTime = eventTime - $scope.rightNow;
-        var duration = moment.duration($scope.diffTime, 'milliseconds');
-
-        $interval(function () {
-            duration = moment.duration(duration - 1000, 'milliseconds');
-            $scope.countdown.months = duration.months();
-            $scope.countdown.days = duration.days();
-            $scope.countdown.hours = duration.hours();
-            $scope.countdown.minutes = duration.minutes();
-            $scope.countdown.seconds = duration.seconds();
-        }, 1000);
-    };
-    $scope.refreshTimer(moment().set({
-        'year': 2016,
-        'month': 10,
-        'date': 28,
-        'hour': 8,
-        'minute': 0,
-        'seconds': 0
-    }));
-
-    NavigationService.getAllEnabledBanner(function (response) {
-        console.log('data', response);
-        if (response.value) {
-            if (window.location.host == link1) {
-                $scope.banners = response.data.Mumbai;
-            } else if (window.location.host == link2) {
-                $scope.banners = response.data.Hyderabad;
-                // $scope.banners = [{
-                //     city: "Hyderabad",
-                //     image: "img/Hyderabad_1.jpg",
-                //     link: "http://hyderabadschool.sfanow.in/register",
-                //     order: '1'
-                // }, {
-                //     city: "Hyderabad",
-                //     image: "img/Hyderabad_2.jpg",
-                //     link: "http://hyderabadschool.sfanow.in/register",
-                //     order: '2'
-                // }, {
-                //     city: "Hyderabad",
-                //     image: "img/Hyderabad_3.jpg",
-                //     link: "http://hyderabadschool.sfanow.in/register",
-                //     order: '3'
-                // }];
-            } else if (window.location.host == link3) {
-                // $scope.banners = response.data.Ahmedabad;
+    if (window.location.host != mainLink) {
+        $scope.hideHome = true;
+        $scope.countdown = {};
+        $scope.changeSlideClass = function (obj, index) {
+            obj.class = "active";
+            // console.log("active = ", index);
+            for (var i = index - 1, j = 1; i >= 0; i--) {
+                $scope.game[i].class = "near-" + (j++);
             }
-        } else {
-            console.log("Banner not found");
-        }
-    });
+            for (i = index + 1, j = 1; i < $scope.game.length; i++) {
+                $scope.game[i].class = "near-" + (j++);
+            }
+        };
+        $scope.removeSlideClass = function (obj, index) {
+            for (var i = 0; i < $scope.game.length; i++) {
+                $scope.game[i].class = "";
+            }
+            // $scope.$apply();
+        };
+        $scope.refreshTimer = function (eventTime) {
+            eventTime = new Date(eventTime);
+            $scope.rightNow = new Date();
+            $scope.diffTime = eventTime - $scope.rightNow;
+            var duration = moment.duration($scope.diffTime, 'milliseconds');
 
-    function twitterReload(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0],
-            p = /^http:/.test(d.location) ? 'http' : 'https';
-        if (!d.getElementById(id)) {
+            $interval(function () {
+                duration = moment.duration(duration - 1000, 'milliseconds');
+                $scope.countdown.months = duration.months();
+                $scope.countdown.days = duration.days();
+                $scope.countdown.hours = duration.hours();
+                $scope.countdown.minutes = duration.minutes();
+                $scope.countdown.seconds = duration.seconds();
+            }, 1000);
+        };
+        $scope.refreshTimer(moment().set({
+            'year': 2016,
+            'month': 10,
+            'date': 28,
+            'hour': 8,
+            'minute': 0,
+            'seconds': 0
+        }));
+
+        NavigationService.getAllEnabledBanner(function (response) {
+            console.log('data', response);
+            if (response.value) {
+                if (window.location.host == link1) {
+                    $scope.banners = response.data.Mumbai;
+                } else if (window.location.host == link2) {
+                    $scope.banners = response.data.Hyderabad;
+                    // $scope.banners = [{
+                    //     city: "Hyderabad",
+                    //     image: "img/Hyderabad_1.jpg",
+                    //     link: "http://hyderabadschool.sfanow.in/register",
+                    //     order: '1'
+                    // }, {
+                    //     city: "Hyderabad",
+                    //     image: "img/Hyderabad_2.jpg",
+                    //     link: "http://hyderabadschool.sfanow.in/register",
+                    //     order: '2'
+                    // }, {
+                    //     city: "Hyderabad",
+                    //     image: "img/Hyderabad_3.jpg",
+                    //     link: "http://hyderabadschool.sfanow.in/register",
+                    //     order: '3'
+                    // }];
+                } else if (window.location.host == link3) {
+                    // $scope.banners = response.data.Ahmedabad;
+                }
+            } else {
+                console.log("Banner not found");
+            }
+        });
+
+        function twitterReload(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                p = /^http:/.test(d.location) ? 'http' : 'https';
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = p + "://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }
+
+        function facebookReload(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            //  if (d.getElementById(id)) return;
             js = d.createElement(s);
             js.id = id;
-            js.src = p + "://platform.twitter.com/widgets.js";
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=1452795161694777";
             fjs.parentNode.insertBefore(js, fjs);
+
         }
-    }
-
-    function facebookReload(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        //  if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=1452795161694777";
-        fjs.parentNode.insertBefore(js, fjs);
-
-    }
-    $timeout(function () {
-        twitterReload(document, "script", "twitter-wjs");
-        facebookReload(document, 'script', 'facebook-jssdk');
-    }, 1000);
-
-    var f, t;
-    f = $interval(function () {
-        if (typeof FB !== undefined) {
-            FB = null;
-            $interval.cancel(f);
+        $timeout(function () {
+            twitterReload(document, "script", "twitter-wjs");
             facebookReload(document, 'script', 'facebook-jssdk');
-        }
-    }, 100);
-    t = $interval(function () {
-        if (typeof twttr !== undefined) {
-            twttr.widgets.load();
-            $interval.cancel(t);
+        }, 1000);
 
-        }
-    }, 100);
+        var f, t;
+        f = $interval(function () {
+            if (typeof FB !== undefined) {
+                FB = null;
+                $interval.cancel(f);
+                facebookReload(document, 'script', 'facebook-jssdk');
+            }
+        }, 100);
+        t = $interval(function () {
+            if (typeof twttr !== undefined) {
+                twttr.widgets.load();
+                $interval.cancel(t);
 
-    NavigationService.getAllSportList(function (response) {
-        if (response.value) {
-            $scope.game = response.data;
-        } else {
-            console.log("Sports List data not found");
-        }
-    });
+            }
+        }, 100);
 
+        NavigationService.getAllSportList(function (response) {
+            if (response.value) {
+                $scope.game = response.data;
+            } else {
+                console.log("Sports List data not found");
+            }
+        });
+    } else {
+        $scope.hideHome = false;
+    }
     if (window.location.host == link1) {
         $scope.bannerss = [{
             "img": "img/mobweb-2.jpg",
@@ -204,7 +208,6 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
             "link": "http://ahmedabadschool.sfanow.in/register"
         }];
     }
-
 
 });
 firstApp.controller('AboutUsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
