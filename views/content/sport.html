@@ -16,10 +16,10 @@
                                 <li><a href="" ng-click="tabchange('rules',5)" class="{{classe}} font16">
 Rules and Regulations
 </a></li>
-                                <li><a href="" ng-click="tabchange('2016',1);getWinners('2016')" class="{{classa}} font16">
+                                <li ng-if="sport.sportid.name != 'Wrestling'"><a href="" ng-click="tabchange('2016',1);getWinners('2016')" class="{{classa}} font16">
 sfa mumbai {{year16}} <span ng-if="winners['2016'].length > 0">winners</span>
 </a></li>
-                                <li><a href="" ng-click="tabchange('2015',2);getWinners('2015')" class="{{classb}} font16" ng-if="is2015Sport">
+                                <li ng-if="sport.sportid.name != 'Wrestling'"><a href="" ng-click="tabchange('2015',2);getWinners('2015')" class="{{classb}} font16" ng-if="is2015Sport">
 sfa mumbai {{year15}}
 </a></li>
                                 <li><a href="" ng-click="tabchange('gallerys',3)" class="{{classc}} font16">
@@ -178,7 +178,7 @@ sport’s bio
                             </div>
                         </div>
                         <!-- //end UI -->
-                        <div ng-if="winners !== undefined && winners['2016'].length == 0">
+                        <div ng-if="winners !== undefined && winners['2016'].length == 0 && sport.sportid.name != 'Wrestling'">
                             <div class="row">
                                 <div class="text-center">
                                     <h3 class="color-blue text-up font-semi f18-m">featured athletes</h3>

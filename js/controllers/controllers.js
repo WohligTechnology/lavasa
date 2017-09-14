@@ -21,7 +21,7 @@
 // var year16 = '2016-17';
 
 // var mainLink = "localhost:8080";
-// var link1 = "localhost:8080";
+// var link2 = "localhost:8080";
 
 var sublink1 = "http://mumbaischool.sfanow.in";
 var sublink2 = "http://mumbaicollege.sfanow.in";
@@ -4321,21 +4321,30 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     }, {
         "img": "img/footer/hyd/authority.png",
         "href": "",
-        "game": "Sports Authority of Telangana"
+        "game": "Under the aegis of SATS"
     }];
     $scope.sponsor_partner = [{
-        "img": "img/footer/p4.jpg",
+        "img": "img/footer/hyd/enerzal.png",
         "href": "",
-        "game": "Hydration Partner"
+        "game": "Energy Drink Partner"
+    }, {
+        "img": "img/footer/hyd/fever.png",
+        "href": "",
+        "game": "Radio Partner"
+    }, {
+        "img": "img/footer/hyd/tv5.png",
+        "href": "",
+        "game": "News Channel Partner"
+    }, {
+        "img": "img/footer/hyd/ibrand.png",
+        "href": "",
+        "game": "Marketing & Strategy Partner"
     }, {
         "img": "img/footer/hyd/wizcraft.png",
         "href": "",
         "game": "Event Partner"
-    }, {
-        "img": "img/footer/hyd/tv5.png",
-        "href": "",
-        "game": "TV Support Partner"
     }];
+    // TV Support Partner
 });
 
 firstApp.controller('languageCtrl', function ($scope, TemplateService, $translate, $rootScope) {
