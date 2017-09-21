@@ -135,6 +135,16 @@
 
 // SPORT DETAIL INDIVIDUAl END
 // CITY-VIDEO
+.sfacity-modal {
+    background: #0a1a72;
+    .img-holder {
+        img {
+            margin: 0 auto;
+            width: 200px;
+        }
+    }
+}
+
 .modal-container {
     padding: 15px;
     video::-internal-media-controls-download-button {
@@ -154,16 +164,31 @@
 }
 
 .sfavideo-content {
+    // p {
+    //     font-size: 20px;
+    //     margin-top: 10px;
+    // }
     p {
-        font-size: 20px;
-        margin-top: 10px;
+        font-size: 18px;
+        margin-bottom: 0;
+        color: #00a9ff;
+    }
+    p:first-child {
+        margin-top: 30px;
+    }
+    p:nth-child(2) {
+        margin-bottom: 30px;
+    }
+    .btn {
+        margin: 0 0 10px;
     }
     .video-city {
         padding: 0;
-        background-color: #53bb74;
+        background-color: transparent; // background-color: #53bb74;
         color: #fff;
         font-family: Titillium Web;
-        font-size: 16.68px;
+        font-size: 14px;
+        padding: 8px 12px; // font-size: 16.68px;
         font-weight: 400
     }
 }

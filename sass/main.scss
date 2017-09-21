@@ -7659,7 +7659,7 @@ h1.forgot-space {
 .video-close-btn {
     background: transparent;
     border: none;
-    color: #fff;
+    color: #091a71;
     line-height: 24px;
     margin: 0 4px;
     &:active,
@@ -7678,9 +7678,9 @@ h1.forgot-space {
     right: -14px;
     width: 30px;
     height: 30px;
-    background: #091a71;
+    background: #fff; // background: #091a71;
     border-radius: 100%;
-    border: 1px solid #fff;
+    border: 1px solid #0a1a72;
     &:active,
     &:focus,
     &:hover {

@@ -5,6 +5,18 @@
   .sfavideo-content p {
     font-size: 14px;
   } // END SFA_VIEDO
+  .sfavideo-content .video-city {
+    font-size: 13px;
+    padding: 6px;
+  }
+  .sfavideo-content {
+    .col-sm-4 {
+      padding: 0;
+    }
+  }
+  .sfacity-modal .img-holder img {
+    width: 175px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -35,6 +47,33 @@
   .sportsdetail-download {
     margin-top: -40px;
   } // SPORTS DETAIL END
+  .sfavideo-content {
+    .btn {
+      width: 100%;
+    }
+  }
+  .sfavideo-content p {
+    font-size: 16px;
+  }
+  .sfavideo-content .video-city {
+    font-size: 16px;
+  }
 }
 
-@media screen and (max-width: 480px) {}
+@media screen and (max-width: 480px) {
+  .sfavideo-content .video-city {
+    font-size: 12px;
+  }
+  .sfavideo-content p:nth-child(2) {
+    margin-bottom: 20px;
+  }
+  .sfavideo-content p:first-child {
+    margin-top: 20px;
+  }
+  .sfavideo-content p {
+    font-size: 11px;
+  }
+  .sfacity-modal .img-holder img {
+    width: 150px;
+  }
+}
