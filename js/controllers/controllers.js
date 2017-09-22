@@ -170,7 +170,7 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
         });
     } else {
         $scope.hideHome = false;
-        TemplateService.header = "";
+        // TemplateService.header = "";
         TemplateService.footer = "";
     }
     if (window.location.host == link1) {
