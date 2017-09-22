@@ -4026,6 +4026,9 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     });
     $rootScope.year15 = year15;
     $rootScope.year16 = year16;
+    if (window.location.host == mainLink) {
+        $scope.hideHeaderContent = false;
+    }
     //----------FOR SINGLE CITY-----------//
     // $scope.hideBlink = false;
     // if (window.location.host == tempLink || window.location.host == tempLinks) {
