@@ -707,13 +707,12 @@ sport’s bio
                                 </rules>
                                 <!--</div>-->
                             </div>
-                            <div class="text-center" ng-if="ruleArray.length <= 0">
+                            <div class="text-center" ng-if="ruleArray.length == 0">
                                 <h4 class="color-blue text-up font-semi mt20">{{sport.sportid.name}} IS NOT PART OF SFA 2017 {{typeSelected}} CHAMPIONSHIP</h4>
                                 <!-- <h4 class="color-blue text-up font-semi">{{sport.sportid.name}} Rules & Regulations Updating Soon.</h4> -->
-
                             </div>
-                            <div class="text-center" ng-if="ruleArray.length == undefined">
-                                <h4 class="color-blue text-up font-semi">Loading Data</h4>
+                            <div class="text-center" ng-if="ruleArray == undefined">
+                                <h4 class="color-blue text-up font-semi">Loading...</h4>
                             </div>
                         </div>
                         <div class="text-center hide">

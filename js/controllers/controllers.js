@@ -1824,7 +1824,7 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
             Keywords: "Chess training, chess tournaments in Mumbai"
         }];
         $scope.getRules = function (constraints) {
-            console.log('............', constraints);
+            $scope.ruleArray = [];
             _.each(sports2017, function (name) {
                 if (name.sport.toUpperCase() == constraints.sportName.toUpperCase()) {
                     // $scope.is2015Sport = true;
@@ -1834,7 +1834,7 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
                     TemplateService.title = $scope.menutitle;
                     TemplateService.description = name.Description;
                     TemplateService.keywords = name.Keywords;
-                    $scope.ruleArray = [];
+                    $scope.ruleArray = undefined;
                     NavigationService.getOneRuleBySportsName(constraints, function (data) {
                         console.log('get Sports Data', data);
                         if (data.value === true) {
