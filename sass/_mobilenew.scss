@@ -2,7 +2,8 @@
 
 @media screen and (max-width: 991px) {
   // SFA_VIEDO
-  .sfavideo-content p {
+  .sfavideo-content p,
+  .sfavideo-content a {
     font-size: 14px;
   } // END SFA_VIEDO
   .sfavideo-content .video-city {
@@ -52,7 +53,8 @@
       width: 100%;
     }
   }
-  .sfavideo-content p {
+  .sfavideo-content p,
+  .sfavideo-content a {
     font-size: 16px;
   }
   .sfavideo-content .video-city {
@@ -70,7 +72,11 @@
   .sfavideo-content p:first-child {
     margin-top: 20px;
   }
-  .sfavideo-content p {
+  .sfavideo-content .mt30 {
+    margin: 10px 0 0;
+  }
+  .sfavideo-content p,
+  .sfavideo-content a {
     font-size: 11px;
   }
   .sfacity-modal .img-holder img {
