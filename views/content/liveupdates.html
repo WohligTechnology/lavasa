@@ -1,0 +1,482 @@
+<div class="liveupdate-page">
+    <!-- HEADER BANNER -->
+    <div class="liveupdate-bannersection">
+        <div class="container-fluid">
+            <div class="row">
+              <div class="liveupdate-bannerswiper">
+                  <!-- <div class="swiper-container">
+                      <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                              <div class="liveupdate-bannerslide"></div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="liveupdate-bannerslide"></div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="liveupdate-bannerslide"></div>
+                          </div>
+                      </div>
+                      <div class="swiper-button-prev liveupdate-bannerprev"></div>
+                      <div class="swiper-button-next liveupdate-bannernext"></div>
+                  </div> -->
+              </div>
+            </div>
+        </div>
+    </div>
+    <!-- HEADER BANNER END -->
+    <!-- RANKING TABLES SECTION -->
+    <div class="liveupdate-rankingstable">
+      <div class="container">
+        <div class="row">
+          <!-- SCHOOL RANKING TABLE  -->
+          <div class="col-md-6 col-sm-6">
+            <div class="liveupdate-schoolranking">
+              <div class="liveupdate-rankingtitle">
+                Top Schools On The Ranking Table
+              </div>
+              <div class="liveupdate-rankingtableholder table-responsive">
+                <div class="liveupdate-tabletime">
+                  Last Updated on 28th September 2017
+                </div>
+                <table class="table table-striped" id="schoolRankTable">
+                  <thead>
+                    <tr>
+                      <th>
+                        <div class="text-uppercase">
+                          rank
+                        </div>
+                      </th>
+                      <th>
+                        <div class="text-uppercase">
+                          school name
+                        </div>
+                      </th>
+                      <th>
+                        <div class="text-uppercase text-center">
+                          <div class="result-tablemedal">
+                            <img ng-src="{{'gold'|medalicon:'white'}}" alt="Gold Medals" class="img-responsive">
+                          </div>
+                        </div>
+                      </th>
+                      <th>
+                        <div class="text-uppercase text-center">
+                          <div class="result-tablemedal">
+                            <img ng-src="{{'silver'|medalicon:'white'}}" alt="Silver Medals" class="img-responsive">
+                          </div>
+                        </div>
+                      </th>
+                      <th>
+                        <div class="text-uppercase text-center">
+                          <div class="result-tablemedal">
+                            <img ng-src="{{'bronze'|medalicon:'white'}}" alt="Bronze Medals" class="img-responsive">
+                          </div>
+                        </div>
+                      </th>
+                      <th>
+                        <div class="text-uppercase text-center">
+                          total points
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="school in rankTable track by $index">
+                      <td>
+                        <div class="">
+                          {{school.rank}}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="text-left">
+                          {{school.school}}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="">
+                          {{school.goldPoints}}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="">
+                          {{school.silverPoints}}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="">
+                          {{school.bronzePoints}}
+                        </div>
+                      </td>
+                      <td ng-click="addMedalDetail($index, school);" class="pointer">
+                        <div class="">
+                          {{school.totalPoints}} <span class="pointer fa " ng-class="{'fa-angle-down': school.rowDetail == false, 'fa-angle-up':school.rowDetail == true }" ></span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="liveupdate-tablefooter">
+                  <div class="pull-right">
+                    <a >View School Ranking Table</a>
+                  </div>
+                  <div class="point-list">
+                    <ul class="list-inline">
+                      <li>
+                        <div class="point-color-box gold-box"></div>
+                        <span class="point-number">5 Points</span>
+                      </li>
+                      <li>
+                        <div class="point-color-box silver-box"></div>
+                        <span class="point-number">3 Points</span>
+                      </li>
+                      <li>
+                        <div class="point-color-box bronze-box"></div>
+                        <span class="point-number">1 Points</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- SCHOOL RANKING TABLE END  -->
+          <!-- COLLEGE RANKING TABLE  -->
+          <div class="col-md-6 col-sm-6">
+            <div class="liveupdate-schoolranking">
+              <div class="liveupdate-rankingtitle">
+                Top College On The Ranking Table
+              </div>
+              <div class="liveupdate-rankingtableholder table-responsive">
+                <div class="liveupdate-tabletime">
+                  Last Updated on 28th September 2017
+                </div>
+                <table class="table table-striped" id="schoolRankTable">
+                  <thead>
+                    <tr>
+                      <th>
+                        <div class="text-uppercase">
+                          rank
+                        </div>
+                      </th>
+                      <th>
+                        <div class="text-uppercase">
+                          school name
+                        </div>
+                      </th>
+                      <th>
+                        <div class="text-uppercase text-center">
+                          <div class="result-tablemedal">
+                            <img ng-src="{{'gold'|medalicon:'white'}}" alt="Gold Medals" class="img-responsive">
+                          </div>
+                        </div>
+                      </th>
+                      <th>
+                        <div class="text-uppercase text-center">
+                          <div class="result-tablemedal">
+                            <img ng-src="{{'silver'|medalicon:'white'}}" alt="Silver Medals" class="img-responsive">
+                          </div>
+                        </div>
+                      </th>
+                      <th>
+                        <div class="text-uppercase text-center">
+                          <div class="result-tablemedal">
+                            <img ng-src="{{'bronze'|medalicon:'white'}}" alt="Bronze Medals" class="img-responsive">
+                          </div>
+                        </div>
+                      </th>
+                      <th>
+                        <div class="text-uppercase text-center">
+                          total points
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="school in rankTable track by $index">
+                      <td>
+                        <div class="">
+                          {{school.rank}}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="text-left">
+                          {{school.school}}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="">
+                          {{school.goldPoints}}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="">
+                          {{school.silverPoints}}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="">
+                          {{school.bronzePoints}}
+                        </div>
+                      </td>
+                      <td ng-click="addMedalDetail($index, school);" class="pointer">
+                        <div class="">
+                          {{school.totalPoints}} <span class="pointer fa " ng-class="{'fa-angle-down': school.rowDetail == false, 'fa-angle-up':school.rowDetail == true }" ></span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="liveupdate-tablefooter">
+                  <div class="pull-right">
+                    <a >View School Ranking Table</a>
+                  </div>
+                  <div class="point-list">
+                    <ul class="list-inline">
+                      <li>
+                        <div class="point-color-box gold-box"></div>
+                        <span class="point-number">5 Points</span>
+                      </li>
+                      <li>
+                        <div class="point-color-box silver-box"></div>
+                        <span class="point-number">3 Points</span>
+                      </li>
+                      <li>
+                        <div class="point-color-box bronze-box"></div>
+                        <span class="point-number">1 Points</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- COLLEGE RANKING TABLE END  -->
+        </div>
+      </div>
+    </div>
+    <!-- RANKING TABLES SECTION -->
+    <!-- LIVE TICKR -->
+    <div class="liveupdate-tickr">
+      <div class="container relate">
+        <div class="tickr-livelabel">LIVE</div>
+        <div class="tickr-content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quas, quasi. Nisi quos a minima sunt, libero atque, ea, ex vel consectetur itaque eos nostrum veniam modi illo nihil quia.</p>
+        </div>
+      </div>
+    </div>
+    <!-- LIVE TICKR END -->
+    <!-- LIVE IMAGE SECTION -->
+    <div class="liveupdate-imagesection">
+      <div class="container">
+        <div class="liveupdate-imagetitile">
+          Live Update from sfa mumbai championship 2017-18
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-sm-6">
+            <div class="liveupdate-album">
+              <div class="liveupdate-albumholder" ng-repeat="rank in rankTable|limitTo:3">
+                <img src="img/bg-draw.jpg" alt="" class="img-responsive">
+                <div class="liveupdate-albumfooter">
+                  <div class="pull-right">
+                    <div class="album-thumbnailholder">
+                      <img src="img/medal-icon/image-thumbnail.png" alt="" class="img-responsive">
+                    </div>
+                    <span><span> 12 </span> Photos</span>
+                  </div>
+                  <div class="albumfooter-title">
+                    Prize distribution
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <div class="liveupdate-photo">
+              <div class="liveupdate-photoholder" ng-repeat="rank in rankTable|limitTo:3">
+                <img src="img/bg-draw.jpg" alt="" class="img-responsive">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- LIVE IMAGE SECTION END -->
+    <!-- DRAWS SCHDULE SECTION -->
+    <div class="liveupdates-draws">
+      <div class="container">
+        <div class="liveupdates-drawholder">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="liveupdates-drawsschedule">
+              <div class="liveupdates-drawstitle">
+                draws, schedules & results
+              </div>
+              <div class="liveupdates-drawscard">
+                  <div class="drawschedule-tabholder">
+                    <ul class="list-inline drawschedule-tablist">
+                      <li class="drawschedule-tab active">school</li>
+                      <li class="drawschedule-tab">college</li>
+                    </ul>
+                  </div>
+                  <a href="">
+                  <form >
+                  <!-- SPORT -->
+                  <div class="form-group">
+                      <div class="display-inline updatedrawsschedule-lable">
+                          <label for="">Sport</label>
+                      </div>
+                      <div class="display-inline updatedraws-dropdown">
+                          <ui-select name="selectsporttype" ng-model="formData.sportId" theme="bootstrap" ng-change="sportName($select.selected.name,formData.sportId)"
+                              required>
+                              <ui-select-match placeholder="Select Sport">{{$select.selected.name}}</ui-select-match>
+                              <ui-select-choices repeat="sport._id as sport in sportList | filter: $select.search">
+                                  <div>
+                                      <p>{{sport.name}}</p>
+                                  </div>
+                              </ui-select-choices>
+                          </ui-select>
+                      </div>
+                  </div>
+                  <!-- SPORT END -->
+                  <!-- EVENT start -->
+                  <div class="form-group">
+                      <div class="display-inline updatedrawsschedule-lable">
+                          <label for="">Event</label>
+                      </div>
+                      <div class="display-inline updatedraws-dropdown">
+                          <ui-select name="eventBySport" ng-model="formData.sportslist" theme="bootstrap" ng-change="sportName($select.selected.name)"
+                              required>
+                              <ui-select-match placeholder="Select Event">{{$select.selected.name}}</ui-select-match>
+                              <ui-select-choices repeat="sport._id as sport in getAllBySport | filter: $select.search">
+                                  <div>
+                                      <p>{{sport.name}}</p>
+                                  </div>
+                              </ui-select-choices>
+                          </ui-select>
+                          <!-- <div class="error-msg" ng-if="championshipDrawsForm.eventBySport.$invalid && championshipDrawsForm.eventBySport.$touched">Please Enter Event Type*</div> -->
+                          <span class="label label-danger pull-right" ng-if="championshipDrawsForm.eventBySport.$invalid && championshipDrawsForm.eventBySport.$touched">Please Enter Event</span>
+                      </div>
+                  </div>
+                  <!-- EVENT end -->
+                  <!-- GENDER -->
+                  <div class="form-group">
+                      <div class="display-inline updatedrawsschedule-lable">
+                          <label for="">Gender</label>
+                      </div>
+                      <div class="display-inline updatedraws-dropdown">
+                          <!-- <ui-select ng-model="item.selected" theme="bootstrap"> -->
+                          <ui-select name="gender" ng-model="formData.gender" theme="bootstrap" required>
+                              <ui-select-match placeholder="Select Gender">{{$select.selected|firstcapitalize}}</ui-select-match>
+                              <ui-select-choices repeat="item in genderList | filter: $select.search">
+                                  <div>
+                                      <p>{{item |firstcapitalize}}</p>
+                                  </div>
+                              </ui-select-choices>
+                          </ui-select>
+                          <span class="label label-danger pull-right" ng-if="championshipDrawsForm.gender.$invalid && championshipDrawsForm.gender.$touched">Please Enter Gender</span>
+                      </div>
+                  </div>
+                  <!-- GENDER END -->
+                  <!-- AGE GROUP -->
+                  <div class="form-group">
+                      <div class="display-inline updatedrawsschedule-lable">
+                          <label for="">Age Group</label>
+                      </div>
+                      <div class="display-inline updatedraws-dropdown">
+                          <ui-select name="agegroup" ng-model="formData.ageGroup" theme="bootstrap" required>
+                              <ui-select-match placeholder="Select Age Group">{{$select.selected.name}}</ui-select-match>
+                              <ui-select-choices repeat="age._id  as age in ageGroups | filter: $select.search">
+                                  <div>
+                                      <p>{{age.name}}</p>
+
+                                  </div>
+
+                              </ui-select-choices>
+                          </ui-select>
+                          <span class="label label-danger pull-right" ng-if="championshipDrawsForm.agegroup.$invalid && championshipDrawsForm.agegroup.$touched">Please Enter Age</span>
+                      </div>
+
+                  </div>
+                  <!-- AGE GROUP END -->
+                  <!-- WEIGHT -->
+                  <div class="form-group" ng-if="showWeight">
+                      <div class="display-inline updatedrawsschedule-lable">
+                          <label for="">Weight</label>
+                      </div>
+                      <div class="display-inline updatedraws-dropdown">
+                          <ui-select name="weight" ng-model="formData.weight" theme="bootstrap" required>
+                              <ui-select-match placeholder="Select Weight">{{$select.selected.name}}</ui-select-match>
+                              <ui-select-choices repeat="weight._id as weight in allWeights | filter: $select.search">
+                                  <div>
+                                      <p>{{weight.name}}</p>
+                                  </div>
+                              </ui-select-choices>
+                          </ui-select>
+                          <span class="label label-danger pull-right" ng-if="championshipDrawsForm.weight.$invalid && championshipDrawsForm.weight.$touched">Please Enter Age</span>
+                      </div>
+
+                  </div>
+                  <!-- WEIGHT END -->
+                </form>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="liveupdates-drawsevents">
+              <div class="liveupdates-drawstitle">
+                upcoming events
+              </div>
+              <div class="liveupdates-eventholder" ng-repeat = "rank in rankTable|limitTo:2">
+                <div class="liveupdate-eventcard">
+                  <div class="event-datebox">
+                    <span class="event-date">31</span> <span class="event-day">Thursday</span>
+                  </div>
+                  <div class="event-detail">
+                    <div class="event-header">
+                      animi sequi laboriosam qui quod?
+                    </div>
+                    <div class="event-content">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officiis numquam magnam quidem temporibus odit alias maxime, assumenda sequi ipsa tempora cumque ducimus sed, quisquam reiciendis.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <!-- DRAWS SCHDULE SECTION END -->
+    <!-- LIVE VIDEO SECTION -->
+    <div class="liveupdate-imagesection">
+      <div class="container">
+        <div class="liveupdate-imagetitile">
+          Live Highlights from the championship
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-sm-6">
+            <div class="liveupdate-album">
+              <div class="liveupdate-albumholder" ng-repeat="rank in rankTable|limitTo:3">
+                <img src="img/bg-draw.jpg" alt="" class="img-responsive">
+                <div class="album-videoicon">
+                  <span class="fa fa-play"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <div class="liveupdate-photo">
+              <div class="liveupdate-photoholder" ng-repeat="rank in rankTable|limitTo:3">
+                <img src="img/bg-draw.jpg" alt="" class="img-responsive">
+                <div class="album-videoicon">
+                  <span class="fa fa-play"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- LIVE VIDEO SECTION END -->
+</div>

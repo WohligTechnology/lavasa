@@ -283,6 +283,11 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             url: "/students",
             templateUrl: "views/template.html",
             controller: 'StudentsCtrl'
+        })
+        .state('liveupdates', {
+            url: "/liveupdates",
+            templateUrl: "views/template.html",
+            controller: 'LiveUpdatesCtrl'
         });
     // .state('faq', {
     //     url: "/faq",

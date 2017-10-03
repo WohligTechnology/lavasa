@@ -27,6 +27,7 @@ var jsArray = [
     './bower_components/jStorage/jstorage.min.js',
     './bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js',
     './bower_components/angular-promise-buttons/dist/angular-promise-buttons.min.js',
+    './bower_components/swiper/dist/js/swiper.jquery.js',
 
     './js/app.js',
 
@@ -50,6 +51,7 @@ var jsArray = [
     './js/controllers/sportsControllers.js',
     './js/controllers/teamControllers.js',
     './js/controllers/individualControllers.js',
+    './js/controllers/liveUpdateController.js',
 
     //please do not change it
     './w/js/templates.js',
