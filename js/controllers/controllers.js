@@ -4042,6 +4042,11 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     // }
 
 
+    $scope.newdate = new Date();
+    $scope.currendate = moment($scope.newdate).format('DD-MMM-YYYY');
+    $scope.closingdate = moment('15-Oct-2017').format('DD-MMM-YYYY')
+    $scope.endday = moment($scope.closingdate).diff($scope.currendate, 'days');
+
     //------------For Multiple City------------//
     $scope.openCity = function (selectedCity, type) {
         var sublink = '';
@@ -4245,10 +4250,6 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                 break;
         }
     }
-    $scope.newdate = new Date();
-    $scope.currendate = moment($scope.newdate).format('YYYY MM DD');
-    $scope.closingdate = moment('Sun Oct 15 2017 12:48:37 GMT+0530 (IST)').format('YYYY MM DD')
-    $scope.endday = moment($scope.closingdate).diff($scope.currendate, 'days');
     // $uibModal.open({
     //     animation: true,
     //     scope: $scope,
