@@ -1,5 +1,4 @@
 $brand-green: #0eda85 !default; //green
-
 // REGISTERED SPORTS
 .step7 {
     @extend .step3;
@@ -146,6 +145,28 @@ $brand-green: #0eda85 !default; //green
             width: 200px;
         }
     }
+    .last-date-holder {
+        h4 {
+            color: #fff;
+        }
+    }
+    .day-header {
+        h2 {
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .sfa-input-modal {
+            width: 55px;
+            padding: 5px 10px;
+            background: transparent;
+            border: 1px solid #00a9ff;
+            border-radius: 3px;
+            color: orange;
+            text-align: center;
+            margin: 0 5px;
+        }
+    }
 }
 
 .modal-container {
@@ -205,27 +226,34 @@ $brand-green: #0eda85 !default; //green
         font-weight: 400
     }
 }
+
 // END CITY-VIDEO
 // LIVE UPDATES PAGE
-.swiper-slide{
-  // width: 100%;
-  height: 300px;
-  border: 1px solid red;
-  background-color: green;
+.swiper-slide {
+    // width: 100%;
+    height: 300px;
+    border: 1px solid red;
+    background-color: green;
 }
-.liveupdate-bannerslide{
-  width: 100%;
-  height: 300px;
+
+.liveupdate-bannerslide {
+    width: 100%;
+    height: 300px;
 }
-.liveupdate-bannerswiper{
-  width: 100%;
-  height: 300px;
-  background-color: $brand-primary;
+
+.liveupdate-bannerswiper {
+    width: 100%;
+    height: 300px;
+    background-color: $brand-primary;
 }
+
 // RANKING TABLES
-.liveupdate-rankingstable, .liveupdate-imagesection, .liveupdates-draws {
+.liveupdate-rankingstable,
+.liveupdate-imagesection,
+.liveupdates-draws {
     margin: 30px 0;
 }
+
 .liveupdate-tabletime {
     color: #fff;
     background: $brand-green;
@@ -235,139 +263,155 @@ $brand-green: #0eda85 !default; //green
     font-size: 12px;
     border-radius: 5px 5px 0 0;
 }
-.liveupdate-rankingtitle, .liveupdate-imagetitile, .liveupdates-drawstitle {
+
+.liveupdate-rankingtitle,
+.liveupdate-imagetitile,
+.liveupdates-drawstitle {
     font-size: 24px;
     margin-bottom: 10px;
     color: #00aaff;
     font-weight: 700;
     text-transform: uppercase;
 }
-.liveupdate-rankingtableholder {
-  .table{
-    margin-bottom: 10px;
-    >thead>tr {
-        background-color: #10259c;
-        color: #fff;
-        >th{
-          border: none;
-          vertical-align: middle;
-        }
-    }
-    >tbody>tr>td{
-      border: none;
-    }
-  }
 
-  .table-striped{
-    >tbody{
-      >tr{
-        &:nth-of-type(odd) {
-            background-color: #e5e5e5;
+.liveupdate-rankingtableholder {
+    .table {
+        margin-bottom: 10px;
+        >thead>tr {
+            background-color: #10259c;
+            color: #fff;
+            >th {
+                border: none;
+                vertical-align: middle;
+            }
         }
-        &:nth-of-type(even) {
-            background-color: #fff;
+        >tbody>tr>td {
+            border: none;
         }
-      }
     }
-  }
-  .result-tablemedal {
+    .table-striped {
+        >tbody {
+            >tr {
+                &:nth-of-type(odd) {
+                    background-color: #e5e5e5;
+                }
+                &:nth-of-type(even) {
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+    .result-tablemedal {
+        width: 15px;
+        margin: 0 auto;
+    }
+}
+
+.point-color-box {
     width: 15px;
-    margin: 0 auto;
-  }
+    height: 15px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
 }
-.point-color-box{
-  width: 15px;
-  height: 15px;
-  margin-right: 5px;
-  display: inline-block;
-  vertical-align: middle;
+
+.gold-box {
+    background-color: #e8c936;
 }
-.gold-box{
-  background-color: #e8c936;
+
+.silver-box {
+    background-color: #c9c9cf;
 }
-.silver-box{
-  background-color: #c9c9cf;
+
+.bronze-box {
+    background-color: #d38936;
 }
-.bronze-box{
-  background-color: #d38936;
+
+.point-number {
+    margin: 0;
+    text-transform: uppercase;
+    vertical-align: middle;
 }
-.point-number{
-  margin: 0;
-  text-transform: uppercase;
-  vertical-align: middle;
-}
+
 // RANKING TABLES END
 // TICKR SECTION
-.liveupdate-tickr{
-  padding: 10px 0;
-  background-color: #5b5b5b;
-  color: #fff;
-  p{
-    margin: 0;
-  }
+.liveupdate-tickr {
+    padding: 10px 0;
+    background-color: #5b5b5b;
+    color: #fff;
+    p {
+        margin: 0;
+    }
 }
+
 .tickr-livelabel {
-  padding: 2px 15px;
-  border-radius: 5px 5px 0 0;
-  position: absolute;
-  top: -26px;
-  left: 0;
-  background: $brand-green;
-  color: #fff;
-  font-size: 12px;
-  line-height: 1;
+    padding: 2px 15px;
+    border-radius: 5px 5px 0 0;
+    position: absolute;
+    top: -26px;
+    left: 0;
+    background: $brand-green;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
 }
+
 // TICKR SECTION END
 // IMAGE SECTION
 .liveupdate-albumholder {
-  width: 50%;
-  padding-right: 10px;
-  margin-bottom: 10px;
-  position: relative;
-  float: left;
-  &:first-child{
-    width: 100%;
-  }
+    width: 50%;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    float: left;
+    &:first-child {
+        width: 100%;
+    }
 }
+
 .liveupdate-albumfooter {
-  width: calc(100% - 10px);
-  padding: 10px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
+    width: calc(100% - 10px);
+    padding: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
 }
+
 .album-thumbnailholder {
-  width: 15px;
-  display: inline-block;
+    width: 15px;
+    display: inline-block;
 }
+
 .liveupdate-photoholder {
-  width: 50%;
-  padding-right: 10px;
-  margin-bottom: 10px;
-  position: relative;
-  float: left;
-  &:last-child{
-    width: 100%;
-  }
+    width: 50%;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    float: left;
+    &:last-child {
+        width: 100%;
+    }
 }
+
 // IMAGE SECTION END
 // VIDEO SECTION
 .album-videoicon {
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  right: 10px;
-  bottom: 0px;
-  background: #d8485a;
-  color: #fff;
-  text-align: center;
-  .fa-play{
-    font-size: 18px;
-    line-height: 30px;
-  }
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    bottom: 0px;
+    background: #d8485a;
+    color: #fff;
+    text-align: center;
+    .fa-play {
+        font-size: 18px;
+        line-height: 30px;
+    }
 }
+
 // VIDEO SECTION END
 // DRAWS SCHEDULE
 .liveupdates-drawholder {
@@ -375,86 +419,103 @@ $brand-green: #0eda85 !default; //green
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
 }
+
 .drawschedule-tabholder {
     border-bottom: 1px solid #ccc;
     margin-bottom: 10px;
 }
-.drawschedule-tablist{
-  margin: 0;
+
+.drawschedule-tablist {
+    margin: 0;
 }
+
 .drawschedule-tab {
     width: 49%;
     padding: 5px;
     text-align: center;
     text-transform: uppercase;
-    &.active, &:hover, &:active, &:focus{
-      border-bottom: 2px solid $brand-success;
+    &.active,
+    &:hover,
+    &:active,
+    &:focus {
+        border-bottom: 2px solid $brand-success;
     }
 }
+
 .liveupdates-drawscard {
     padding: 20px;
     border: 1px solid #ccc;
 }
-.updatedrawsschedule-lable{
-  min-width: 25%;
-  color: #757575;
-  vertical-align: middle;
+
+.updatedrawsschedule-lable {
+    min-width: 25%;
+    color: #757575;
+    vertical-align: middle;
 }
-.updatedraws-dropdown{
-  width: 70%;
-  vertical-align: middle;
+
+.updatedraws-dropdown {
+    width: 70%;
+    vertical-align: middle;
 }
+
 // DRAWS SCHEDULE END
 // EVENTS
 .liveupdates-eventholder {
-  width: 50%;
-  height: 320px;
-  padding: 5px;
-  float: left;
-  ::-webkit-scrollbar{
-    width: 5px;
-    height: 5px;
-  }
-  ::-webkit-scrollbar-thumb{
-    background-color: #fff;
-  }
-  ::-webkit-scrollbar-track{
-    background-color: transparent;
-  }
-  &:nth-of-type(odd) {
-    .liveupdate-eventcard{
-      background-color: $brand-green;
+    width: 50%;
+    height: 320px;
+    padding: 5px;
+    float: left;
+     ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
     }
-  }
-  &:nth-of-type(even) {
-    .liveupdate-eventcard{
-      background-color: $brand-success;
+     ::-webkit-scrollbar-thumb {
+        background-color: #fff;
     }
-  }
+     ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    &:nth-of-type(odd) {
+        .liveupdate-eventcard {
+            background-color: $brand-green;
+        }
+    }
+    &:nth-of-type(even) {
+        .liveupdate-eventcard {
+            background-color: $brand-success;
+        }
+    }
 }
-.liveupdate-eventcard{
-  width: 100%;
-  height: 100%;
-  padding: 20px 30px;
-  color: #fff;
-  overflow-y: auto;
+
+.liveupdate-eventcard {
+    width: 100%;
+    height: 100%;
+    padding: 20px 30px;
+    color: #fff;
+    overflow-y: auto;
 }
+
 .event-date {
     font-size: 48px;
 }
+
 .event-day {
-  border-bottom: 1px solid #fff;
-  font-size: 30px;
+    border-bottom: 1px solid #fff;
+    font-size: 30px;
 }
+
 .event-detail {
     margin: 10px 0;
 }
+
 .event-header {
     font-size: 21px;
     text-transform: uppercase;
 }
+
 .event-content {
     font-size: 16px;
 }
+
 // EVENTS END
 // LIVE UPDATES PAGE END

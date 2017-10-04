@@ -4246,6 +4246,20 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     //             break;
     //     }
     // }
+    $scope.newdate = new Date();
+    $scope.currendate = moment($scope.newdate).format('YYYY MM DD');
+    $scope.closingdate = moment('Sun Oct 15 2017 12:48:37 GMT+0530 (IST)').format('YYYY MM DD')
+    $scope.endday = moment($scope.closingdate).diff($scope.currendate, 'days');
+    $uibModal.open({
+        animation: true,
+        scope: $scope,
+        backdrop: 'static',
+        backdropClass: 'blackOut',
+        keyboard: false,
+        templateUrl: "views/modal/city-video.html",
+        size: 'lg'
+    });
+
     $scope.openCityInHeader = function (selectedCity) {
         var sublink = '';
         switch (selectedCity) {

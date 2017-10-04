@@ -18,6 +18,9 @@
   .sfacity-modal .img-holder img {
     width: 175px;
   }
+  .sfacity-modal .day-header h2 {
+    font-size: 24px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -60,6 +63,12 @@
   .sfavideo-content .video-city {
     font-size: 16px;
   }
+  .sfacity-modal .day-header h2 {
+    font-size: 18px;
+  }
+  .sfacity-modal .last-date-holder h4 {
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -81,5 +90,11 @@
   }
   .sfacity-modal .img-holder img {
     width: 150px;
+  }
+  .sfacity-modal .day-header h2 {
+    font-size: 16px;
+  }
+  .sfacity-modal .last-date-holder h4 {
+    font-size: 14px;
   }
 }
