@@ -6,33 +6,33 @@
 // var tempLink1 = "mumbai.sfanow.in";
 // var sublinkTemp = "http://mumbai.sfanow.in";
 
-// var sublink1 = "http://testmumbaischool.sfanow.in";
-// var sublink2 = "http://testmumbaicollege.sfanow.in";
-// var sublink3 = "http://testhyderabadschool.sfanow.in";
-// var sublink4 = "http://testhyderabadcollege.sfanow.in";
-// var sublink5 = "http://testahmedabadschool.sfanow.in";
-// var sublink6 = "http://testahmedabadcollege.sfanow.in";
-// var mainLink = "test.sfanow.in";
-// var link1 = "testmumbai.sfanow.in";
-// var link2 = "testhyderabad.sfanow.in";
-// var link3 = "testahmedabad.sfanow.in";
+var sublink1 = "http://testmumbaischool.sfanow.in";
+var sublink2 = "http://testmumbaicollege.sfanow.in";
+var sublink3 = "http://testhyderabadschool.sfanow.in";
+var sublink4 = "http://testhyderabadcollege.sfanow.in";
+var sublink5 = "http://testahmedabadschool.sfanow.in";
+var sublink6 = "http://testahmedabadcollege.sfanow.in";
+var mainLink = "test.sfanow.in";
+var link1 = "testmumbai.sfanow.in";
+var link2 = "testhyderabad.sfanow.in";
+var link3 = "testahmedabad.sfanow.in";
 var eventYear = '2017-18';
 var year15 = '2015-16';
 var year16 = '2016-17';
 
-// var mainLink = "localhost:8080";
-// var link2 = "localhost:8080";
+var mainLink = "localhost:8080";
+var link2 = "localhost:8080";
 
-var sublink1 = "http://mumbaischool.sfanow.in";
-var sublink2 = "http://mumbaicollege.sfanow.in";
-var sublink3 = "http://hyderabadschool.sfanow.in";
-var sublink4 = "http://hyderabadcollege.sfanow.in";
-var sublink5 = "http://ahmedabadschool.sfanow.in";
-var sublink6 = "http://ahmedabadcollege.sfanow.in";
-var mainLink = "sfanow.in";
-var link1 = "mumbai.sfanow.in";
-var link2 = "hyderabad.sfanow.in";
-var link3 = "ahmedabad.sfanow.in";
+// var sublink1 = "http://mumbaischool.sfanow.in";
+// var sublink2 = "http://mumbaicollege.sfanow.in";
+// var sublink3 = "http://hyderabadschool.sfanow.in";
+// var sublink4 = "http://hyderabadcollege.sfanow.in";
+// var sublink5 = "http://ahmedabadschool.sfanow.in";
+// var sublink6 = "http://ahmedabadcollege.sfanow.in";
+// var mainLink = "sfanow.in";
+// var link1 = "mumbai.sfanow.in";
+// var link2 = "hyderabad.sfanow.in";
+// var link3 = "ahmedabad.sfanow.in";
 // var eventYear = '2017';
 // var year15 = '2015';
 // var year16 = '2016';
@@ -47,7 +47,7 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
     $scope.navigation = NavigationService.getnav();
     if (window.location.host != mainLink) {
         $scope.hideHome = true;
-        TemplateService.header = "views/header2.html";
+        TemplateService.header = "views/header.html";
         $scope.countdown = {};
         $scope.changeSlideClass = function (obj, index) {
             obj.class = "active";
@@ -170,7 +170,6 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
         });
     } else {
         $scope.hideHome = false;
-        // TemplateService.header = "";
         TemplateService.footer = "";
     }
     if (window.location.host == link1) {
@@ -219,7 +218,7 @@ firstApp.controller('AboutUsCtrl', function ($scope, TemplateService, Navigation
     $scope.menutitle = NavigationService.makeactive("About-Us | SFA");
     TemplateService.description = "SFA brings you excellence in sports activities. Let your child participate in the best interschool competition events, get access to quality resources & excel! ";
     TemplateService.keywords = "best interschool competition, inter school competition, inter school competition events, gymnastics for kids, international sporting events, kids sports activities, sport activities";
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -229,7 +228,7 @@ firstApp.controller('VenueCtrl', function ($scope, TemplateService, NavigationSe
 
     $scope.template = TemplateService.changecontent("venue");
     $scope.menutitle = NavigationService.makeactive("Venue");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -259,7 +258,7 @@ firstApp.controller('DownloadScheduleCtrl', function ($scope, TemplateService, N
 
     $scope.template = TemplateService.changecontent("download-schedule");
     $scope.menutitle = NavigationService.makeactive("Download Schedule Program");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -269,7 +268,7 @@ firstApp.controller('MerchandiseApparelsCtrl', function ($scope, TemplateService
 
     $scope.template = TemplateService.changecontent("merchandise-apparels");
     $scope.menutitle = NavigationService.makeactive("Merchandise Apparels");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -279,7 +278,7 @@ firstApp.controller('WorkshopClinicCtrl', function ($scope, TemplateService, Nav
 
     $scope.template = TemplateService.changecontent("workshop-clinic");
     $scope.menutitle = NavigationService.makeactive("Workshop Clinic");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -289,7 +288,7 @@ firstApp.controller('SponserCtrl', function ($scope, TemplateService, Navigation
 
     $scope.template = TemplateService.changecontent("sponser-partner");
     $scope.menutitle = NavigationService.makeactive("Sponser");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -521,7 +520,7 @@ firstApp.controller('LeagueKnockoutCtrl', function ($scope, TemplateService, Nav
 
     $scope.template = TemplateService.changecontent("league-knockout");
     $scope.menutitle = NavigationService.makeactive("League Cum Knockout");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.oneAtATime = true;
@@ -635,7 +634,7 @@ firstApp.controller('KnockoutQualifyCtrl', function ($scope, TemplateService, Na
 
     $scope.template = TemplateService.changecontent("knockout-qualify");
     $scope.menutitle = NavigationService.makeactive("Knockout Qualify");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -708,7 +707,7 @@ firstApp.controller('ResultCtrl', function ($scope, TemplateService, NavigationS
 
     $scope.template = TemplateService.changecontent("result");
     $scope.menutitle = NavigationService.makeactive("Result");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.dropdowns = {};
@@ -783,7 +782,7 @@ firstApp.controller('SchoolRankingCtrl', function ($scope, TemplateService, Navi
 
     $scope.template = TemplateService.changecontent("school-ranking");
     $scope.menutitle = NavigationService.makeactive("School Ranking");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.filter = {};
@@ -803,7 +802,7 @@ firstApp.controller('BlogCtrl', function ($scope, TemplateService, NavigationSer
 
     $scope.template = TemplateService.changecontent("blog");
     $scope.menutitle = NavigationService.makeactive("Blog");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -842,7 +841,7 @@ firstApp.controller('DrawScheduleCtrl', function ($scope, TemplateService, Navig
 
     $scope.template = TemplateService.changecontent("draw-schedule");
     $scope.menutitle = NavigationService.makeactive("Draw Schedule");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.statuses = {};
@@ -900,7 +899,7 @@ firstApp.controller('BlogDetailCtrl', function ($scope, TemplateService, Navigat
 
     $scope.template = TemplateService.changecontent("blog-detail");
     $scope.menutitle = NavigationService.makeactive("Blog Detail");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -910,7 +909,7 @@ firstApp.controller('SwissCtrl', function ($scope, TemplateService, NavigationSe
 
     $scope.template = TemplateService.changecontent("swiss");
     $scope.menutitle = NavigationService.makeactive("Swiss");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -920,7 +919,7 @@ firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, Navig
 
     $scope.template = TemplateService.changecontent("media-gallery");
     $scope.menutitle = NavigationService.makeactive("Media Gallery");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.flags = {};
@@ -1078,7 +1077,7 @@ firstApp.controller('FaqCtrl', function ($scope, TemplateService, NavigationServ
 
     $scope.template = TemplateService.changecontent("faq");
     $scope.menutitle = NavigationService.makeactive("FAQ");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -1095,7 +1094,7 @@ firstApp.controller('ContactCtrl', function ($scope, TemplateService, Navigation
 
     $scope.template = TemplateService.changecontent("contact");
     $scope.menutitle = NavigationService.makeactive("Contact");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     if (window.location.host == link1) {
@@ -1121,7 +1120,7 @@ firstApp.controller('RegistrationCtrl', function ($scope, TemplateService, Navig
 
     $scope.template = TemplateService.changecontent("registration");
     $scope.menutitle = NavigationService.makeactive("Registration");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -1131,7 +1130,7 @@ firstApp.controller('TermsConditionCtrl', function ($scope, TemplateService, Nav
 
     $scope.template = TemplateService.changecontent("terms-condition");
     $scope.menutitle = NavigationService.makeactive("Terms Condition");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -1142,7 +1141,7 @@ firstApp.controller('SpecialAwardsCtrl', function ($scope, TemplateService, Navi
 
     $scope.template = TemplateService.changecontent("special");
     $scope.menutitle = NavigationService.makeactive("Special Awards");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -1152,7 +1151,7 @@ firstApp.controller('medicalAidCtrl', function ($scope, TemplateService, Navigat
 
     $scope.template = TemplateService.changecontent("medical-aid");
     $scope.menutitle = NavigationService.makeactive("Medical Care");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -1162,7 +1161,7 @@ firstApp.controller('foodAndEntertainmentCtrl', function ($scope, TemplateServic
 
     $scope.template = TemplateService.changecontent("food-and-entertainment");
     $scope.menutitle = NavigationService.makeactive("Food & Entertainment");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -1172,7 +1171,7 @@ firstApp.controller('specialDaysCtrl', function ($scope, TemplateService, Naviga
 
     $scope.template = TemplateService.changecontent("special-days");
     $scope.menutitle = NavigationService.makeactive("Special Days");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -1182,7 +1181,7 @@ firstApp.controller('TraininDevelopmentCtrl', function ($scope, TemplateService,
 
     $scope.template = TemplateService.changecontent("training-development");
     $scope.menutitle = NavigationService.makeactive("Sport Training | Training Academy | SFA");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.description = "Get the best kids fitness programs & sport training and let your child excel in everything from swimming competitions to table tennis with Sports For All!";
     TemplateService.keywords = "sport training, swimming competition, swimming coaching in Mumbai ,table tennis training, table tennis academy, kids fitness programs";
     TemplateService.title = $scope.menutitle;
@@ -1211,7 +1210,7 @@ firstApp.controller('DrawCtrl', function ($scope, TemplateService, NavigationSer
 
     $scope.template = TemplateService.changecontent("draw");
     $scope.menutitle = NavigationService.makeactive("Draw");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -1388,7 +1387,7 @@ firstApp.controller('StudentBioCtrl', function ($scope, TemplateService, Navigat
 
     $scope.template = TemplateService.changecontent("student-bio");
     $scope.menutitle = NavigationService.makeactive("Student Bio");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.studentProfile = {};
@@ -1582,7 +1581,7 @@ firstApp.controller('StudentBioCtrl', function ($scope, TemplateService, Navigat
 firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams, errorService) {
     $scope.template = TemplateService.changecontent("sport");
     // $scope.menutitle = NavigationService.makeactive($stateParams.name);
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     $scope.navigation = NavigationService.getnav();
     $scope.gallery = {};
     $scope.filter = {};
@@ -2002,7 +2001,7 @@ firstApp.controller('SchoolBioCtrl', function ($scope, TemplateService, Navigati
 
     $scope.template = TemplateService.changecontent("school-bio");
     $scope.menutitle = NavigationService.makeactive("School Bio");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.school = {};
@@ -2144,7 +2143,7 @@ firstApp.controller('ChampionsCtrl', function ($scope, TemplateService, Navigati
     console.log("Testing Consoles");
     $scope.template = TemplateService.changecontent("champions");
     $scope.menutitle = NavigationService.makeactive("Champions");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.navigation = NavigationService.getnav();
@@ -2219,7 +2218,7 @@ firstApp.controller('SchoolCtrl', function ($scope, TemplateService, NavigationS
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("school");
     $scope.menutitle = NavigationService.makeactive("School");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.search = {};
@@ -2330,7 +2329,7 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("school-profile");
     $scope.menutitle = NavigationService.makeactive("School Profile");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.callObject = {};
@@ -2715,7 +2714,7 @@ firstApp.controller('StudentsCtrl', function ($scope, TemplateService, Navigatio
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("students");
     $scope.menutitle = NavigationService.makeactive("Students");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.inputs = {};
@@ -2854,7 +2853,7 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
 
     $scope.template = TemplateService.changecontent("student-profile");
     $scope.menutitle = NavigationService.makeactive("Student Profile");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.studentProfile = {};
@@ -3208,7 +3207,7 @@ firstApp.controller('HeatsCtrl', function ($scope, TemplateService, NavigationSe
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("heats");
     $scope.menutitle = NavigationService.makeactive("Heats");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.oneAtATime = true;
@@ -3297,7 +3296,7 @@ firstApp.controller('TeamCtrl', function ($scope, TemplateService, NavigationSer
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("team");
     $scope.menutitle = NavigationService.makeactive("Team");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.oneAtATime = true;
@@ -3358,7 +3357,7 @@ firstApp.controller('QualifyCtrl', function ($scope, TemplateService, Navigation
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("qualify");
     $scope.menutitle = NavigationService.makeactive("Qualify");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.oneAtATime = true;
@@ -3410,7 +3409,7 @@ firstApp.controller('TeamDetailCtrl', function ($scope, TemplateService, Navigat
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("team-detail");
     $scope.menutitle = NavigationService.makeactive("Team Detail");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.filterStatistics = {};
@@ -3636,7 +3635,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("round-robin");
     $scope.menutitle = NavigationService.makeactive("Round Robin");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.oneAtATime = true;
@@ -3857,7 +3856,7 @@ firstApp.controller('KnockoutCtrl', function ($scope, TemplateService, Navigatio
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("knockout");
     $scope.menutitle = NavigationService.makeactive("Knockout");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.oneAtATime = true;
@@ -4012,7 +4011,7 @@ firstApp.controller('ChampionshipCtrl', function ($scope, TemplateService, Navig
 
     $scope.template = TemplateService.changecontent("championship");
     $scope.menutitle = NavigationService.makeactive("Championship");
-    TemplateService.header = "views/header2.html";
+    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
 
@@ -4250,15 +4249,15 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     $scope.currendate = moment($scope.newdate).format('YYYY MM DD');
     $scope.closingdate = moment('Sun Oct 15 2017 12:48:37 GMT+0530 (IST)').format('YYYY MM DD')
     $scope.endday = moment($scope.closingdate).diff($scope.currendate, 'days');
-    $uibModal.open({
-        animation: true,
-        scope: $scope,
-        backdrop: 'static',
-        backdropClass: 'blackOut',
-        keyboard: false,
-        templateUrl: "views/modal/city-video.html",
-        size: 'lg'
-    });
+    // $uibModal.open({
+    //     animation: true,
+    //     scope: $scope,
+    //     backdrop: 'static',
+    //     backdropClass: 'blackOut',
+    //     keyboard: false,
+    //     templateUrl: "views/modal/city-video.html",
+    //     size: 'lg'
+    // });
 
     $scope.openCityInHeader = function (selectedCity) {
         var sublink = '';
@@ -4401,6 +4400,129 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     $scope.$watch('online', function (newStatus) {
         $scope.variables.online = $rootScope.online;
     });
+
+    $scope.games = // JavaScript Document
+        [{
+            "img": "img/footer/n1.jpg",
+            "href": "http://madeofgreat.tatamotors.com/tiago/",
+            "game": "Fantastico Partner"
+        }, {
+            "img": "img/footer/n2.jpg",
+            "href": "",
+            "game": "Smartphone Partner"
+        }, {
+            "img": "img/footer/p4.jpg",
+            "href": "",
+            "game": "Hydration partner"
+        }, {
+            "img": "img/footer/n3.jpg",
+            "href": "",
+            "game": "Support Partner"
+        }, {
+            "img": "img/footer/p7.jpg",
+            "href": "",
+            "game": "Media Partner "
+        }, {
+            "img": "img/footer/n4.jpg",
+            "href": "https://www.facebook.com/sportsillustratedindia/",
+            "game": "Magazine Partner"
+        }];
+    $scope.partner = // JavaScript Document
+        [{
+            "img": "img/footer/p1.jpg",
+            "href": "",
+            "game": "Venue Partner"
+        }, {
+            "img": "img/footer/p6.jpg",
+            "href": "",
+            "game": "Hospital Partner"
+        }, {
+            "img": "img/footer/na3.jpg",
+            "href": "",
+            "game": "Sports Surface Partner"
+        }, {
+            "img": "img/footer/na6.jpg",
+            "href": "",
+            "game": "Sports Mentorship Partner"
+        }, {
+            "img": "img/footer/na4.jpg",
+            "href": "",
+            "game": "Shooting Range Partner"
+        }, {
+            "img": "img/footer/p5.jpg",
+            "href": "",
+            "game": "Medical Partner"
+        }, {
+            "img": "img/footer/na5.jpg",
+            "href": "",
+            "game": "Event Partner"
+        }];
+
+
+    //  {
+    //             "img": "img/footer/na1.jpg",
+    //             "href": "",
+    //             "game": "Sports Equipment Partner"
+    //         }, {
+    //             "img": "img/footer/na2.jpg",
+    //             "href": "",
+    //             "game": "Apparel Partner"
+    //         },
+    $scope.supportedBy = [{
+        "img": "img/footer/hyd/government.png",
+        "href": "",
+        "game": "Government of Telangana"
+    }, {
+        "img": "img/footer/hyd/authority.png",
+        "href": "",
+        "game": "Under the aegis of SATS"
+    }];
+    $scope.sponsor_partner = [{
+        "img": "img/footer/hyd/enerzal.png",
+        "href": "",
+        "game": "Energy Drink Partner"
+    }, {
+        "img": "img/footer/hyd/fever.png",
+        "href": "",
+        "game": "Radio Partner"
+    }, {
+        "img": "img/footer/hyd/tv5.png",
+        "href": "",
+        "game": "News Channel Partner"
+    }, {
+        "img": "img/footer/hyd/ibrand.png",
+        "href": "",
+        "game": "Marketing & Strategy Partner"
+    }, {
+        "img": "img/footer/hyd/wizcraft.png",
+        "href": "",
+        "game": "Event Partner"
+    }];
+    // TV Support Partner
+});
+
+firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope, NavigationService, errorService, toastr, $state, $uibModal, $rootScope) {
+    $scope.template = TemplateService;
+    $rootScope.year15 = year15;
+    $rootScope.year16 = year16;
+    if (window.location.host == link1) {
+        $scope.selectedCity = 'mumbai';
+    } else if (window.location.host == link2) {
+        $scope.selectedCity = 'hyderabad';
+    } else if (window.location.host == link3) {
+        $scope.selectedCity = 'ahmedabad';
+    }
+    if (window.location.host == link1) {
+        $scope.registerSchool = sublink1;
+        $scope.registerCollege = sublink2;
+    } else if (window.location.host == link2) {
+        $scope.registerSchool = sublink3;
+        $scope.registerCollege = sublink4;
+    } else if (window.location.host == link3) {
+        $scope.registerSchool = sublink5;
+        $scope.registerCollege = sublink6;
+    }
+    $scope.eventYear = eventYear;
 
     $scope.games = // JavaScript Document
         [{
