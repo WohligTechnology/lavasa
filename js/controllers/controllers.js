@@ -20,8 +20,8 @@ var eventYear = '2017-18';
 var year15 = '2015-16';
 var year16 = '2016-17';
 
-var mainLink = "localhost:8080";
-var link2 = "localhost:8080";
+// var mainLink = "localhost:8080";
+// var link2 = "localhost:8080";
 
 // var sublink1 = "http://mumbaischool.sfanow.in";
 // var sublink2 = "http://mumbaicollege.sfanow.in";
