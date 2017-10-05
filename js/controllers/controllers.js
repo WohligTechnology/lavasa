@@ -4047,16 +4047,16 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     $scope.closingdate = moment('15-Oct-2017').format('DD-MMM-YYYY')
     $scope.endday = moment($scope.closingdate).diff($scope.currendate, 'days');
 
-    $uibModal.open({
-        animation: true,
-        scope: $scope,
-        backdrop: 'static',
-        backdropClass: 'blackOut',
-        keyboard: false,
-        templateUrl: "views/modal/city-video.html",
-        size: 'lg',
-        windowClass: 'sfacity-selectmodal'
-    });
+    // $uibModal.open({
+    //     animation: true,
+    //     scope: $scope,
+    //     backdrop: 'static',
+    //     backdropClass: 'blackOut',
+    //     keyboard: false,
+    //     templateUrl: "views/modal/city-video.html",
+    //     size: 'lg',
+    //     windowClass: 'sfacity-selectmodal'
+    // });
 
     //------------For Multiple City------------//
     $scope.openCity = function (selectedCity, type) {
@@ -4343,7 +4343,8 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     backdropClass: 'blackOut',
                     keyboard: false,
                     templateUrl: "views/modal/city-video.html",
-                    size: 'lg'
+                    size: 'lg',
+                    windowClass: 'sfacity-selectmodal'
                 });
             }
         }
@@ -4361,7 +4362,8 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     backdropClass: 'blackOut',
                     keyboard: false,
                     templateUrl: "views/modal/city-video.html",
-                    size: 'lg'
+                    size: 'lg',
+                    windowClass: 'sfacity-selectmodal'
                 });
             }
         }
