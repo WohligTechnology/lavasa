@@ -21,6 +21,11 @@
   .sfacity-modal .day-header h2 {
     font-size: 24px;
   }
+  // LIVE UPDATES
+  .liveupdates-drawsevents{
+    margin-top: 10px;
+  }
+  // LIVE UPDATES END
 }
 
 @media screen and (max-width: 767px) {
@@ -69,6 +74,23 @@
   .sfacity-modal .last-date-holder h4 {
     font-size: 14px;
   }
+  // LIVE UPDATES
+  .liveupdate-albumholder{
+    width: auto;
+    float: none;
+  }
+  .liveupdate-photoholder{
+    width: auto;
+    float: none;
+  }
+  .liveupdates-eventholder{
+    width: auto;
+    float: none;
+  }
+  .liveupdate-eventcard{
+    padding: 15px;
+  }
+  // LIVE UPDATES END
 }
 
 @media screen and (max-width: 480px) {
