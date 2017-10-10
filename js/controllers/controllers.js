@@ -6,16 +6,16 @@
 // var tempLink1 = "mumbai.sfanow.in";
 // var sublinkTemp = "http://mumbai.sfanow.in";
 
-// var sublink1 = "http://testmumbaischool.sfanow.in";
-// var sublink2 = "http://testmumbaicollege.sfanow.in";
-// var sublink3 = "http://testhyderabadschool.sfanow.in";
-// var sublink4 = "http://testhyderabadcollege.sfanow.in";
-// var sublink5 = "http://testahmedabadschool.sfanow.in";
-// var sublink6 = "http://testahmedabadcollege.sfanow.in";
-// var mainLink = "test.sfanow.in";
-// var link1 = "testmumbai.sfanow.in";
-// var link2 = "testhyderabad.sfanow.in";
-// var link3 = "testahmedabad.sfanow.in";
+var sublink1 = "http://testmumbaischool.sfanow.in";
+var sublink2 = "http://testmumbaicollege.sfanow.in";
+var sublink3 = "http://testhyderabadschool.sfanow.in";
+var sublink4 = "http://testhyderabadcollege.sfanow.in";
+var sublink5 = "http://testahmedabadschool.sfanow.in";
+var sublink6 = "http://testahmedabadcollege.sfanow.in";
+var mainLink = "test.sfanow.in";
+var link1 = "testmumbai.sfanow.in";
+var link2 = "testhyderabad.sfanow.in";
+var link3 = "testahmedabad.sfanow.in";
 var eventYear = '2017-18';
 var year15 = '2015-16';
 var year16 = '2016-17';
@@ -23,16 +23,16 @@ var year16 = '2016-17';
 // var mainLink = "localhost:8080";
 // var link2 = "localhost:8080";
 
-var sublink1 = "http://mumbaischool.sfanow.in";
-var sublink2 = "http://mumbaicollege.sfanow.in";
-var sublink3 = "http://hyderabadschool.sfanow.in";
-var sublink4 = "http://hyderabadcollege.sfanow.in";
-var sublink5 = "http://ahmedabadschool.sfanow.in";
-var sublink6 = "http://ahmedabadcollege.sfanow.in";
-var mainLink = "sfanow.in";
-var link1 = "mumbai.sfanow.in";
-var link2 = "hyderabad.sfanow.in";
-var link3 = "ahmedabad.sfanow.in";
+// var sublink1 = "http://mumbaischool.sfanow.in";
+// var sublink2 = "http://mumbaicollege.sfanow.in";
+// var sublink3 = "http://hyderabadschool.sfanow.in";
+// var sublink4 = "http://hyderabadcollege.sfanow.in";
+// var sublink5 = "http://ahmedabadschool.sfanow.in";
+// var sublink6 = "http://ahmedabadcollege.sfanow.in";
+// var mainLink = "sfanow.in";
+// var link1 = "mumbai.sfanow.in";
+// var link2 = "hyderabad.sfanow.in";
+// var link3 = "ahmedabad.sfanow.in";
 // var eventYear = '2017';
 // var year15 = '2015';
 // var year16 = '2016';
@@ -4530,61 +4530,72 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
     $scope.eventYear = eventYear;
 
     $scope.games = // JavaScript Document
-        [{
-            "img": "img/footer/n1.jpg",
-            "href": "http://madeofgreat.tatamotors.com/tiago/",
-            "game": "Fantastico Partner"
-        }, {
-            "img": "img/footer/n2.jpg",
-            "href": "",
-            "game": "Smartphone Partner"
-        }, {
-            "img": "img/footer/p4.jpg",
-            "href": "",
-            "game": "Hydration partner"
-        }, {
-            "img": "img/footer/n3.jpg",
-            "href": "",
-            "game": "Support Partner"
-        }, {
-            "img": "img/footer/p7.jpg",
-            "href": "",
-            "game": "Media Partner "
-        }, {
-            "img": "img/footer/n4.jpg",
-            "href": "https://www.facebook.com/sportsillustratedindia/",
-            "game": "Magazine Partner"
-        }];
+        [
+            //     {
+            //     "img": "img/footer/n1.jpg",
+            //     "href": "http://madeofgreat.tatamotors.com/tiago/",
+            //     "game": "Fantastico Partner"
+            // }, 
+            {
+                "img": "img/footer/p4.jpg",
+                "href": "",
+                "game": "Hydration partner"
+            }, {
+                "img": "img/footer/n2.jpg",
+                "href": "",
+                "game": "Smartphone Partner"
+            }, {
+                "img": "img/footer/n9.png",
+                "href": "",
+                "game": "Radio Partner"
+            },
+            {
+                "img": "img/footer/n10.png",
+                "href": "",
+                "game": "Digital Parenting Partner"
+            }
+            //  {
+            //     "img": "img/footer/p7.jpg",
+            //     "href": "",
+            //     "game": "Media Partner "
+            // }, {
+            //     "img": "img/footer/n4.jpg",
+            //     "href": "https://www.facebook.com/sportsillustratedindia/",
+            //     "game": "Magazine Partner"
+            // }
+        ];
     $scope.partner = // JavaScript Document
         [{
-            "img": "img/footer/p1.jpg",
-            "href": "",
-            "game": "Venue Partner"
-        }, {
-            "img": "img/footer/p6.jpg",
-            "href": "",
-            "game": "Hospital Partner"
-        }, {
-            "img": "img/footer/na3.jpg",
-            "href": "",
-            "game": "Sports Surface Partner"
-        }, {
-            "img": "img/footer/na6.jpg",
-            "href": "",
-            "game": "Sports Mentorship Partner"
-        }, {
-            "img": "img/footer/na4.jpg",
-            "href": "",
-            "game": "Shooting Range Partner"
-        }, {
-            "img": "img/footer/p5.jpg",
-            "href": "",
-            "game": "Medical Partner"
-        }, {
-            "img": "img/footer/na5.jpg",
-            "href": "",
-            "game": "Event Partner"
-        }];
+                "img": "img/footer/p1.jpg",
+                "href": "",
+                "game": "Venue Partner"
+            }, {
+                "img": "img/footer/p6.jpg",
+                "href": "",
+                "game": "Hospital Partner"
+            }
+            // {
+            //     "img": "img/footer/na3.jpg",
+            //     "href": "",
+            //     "game": "Sports Surface Partner"
+            // }, {
+            //     "img": "img/footer/na6.jpg",
+            //     "href": "",
+            //     "game": "Sports Mentorship Partner"
+            // }, {
+            //     "img": "img/footer/na4.jpg",
+            //     "href": "",
+            //     "game": "Shooting Range Partner"
+            // }, {
+            //     "img": "img/footer/p5.jpg",
+            //     "href": "",
+            //     "game": "Medical Partner"
+            // }, {
+            //     "img": "img/footer/na5.jpg",
+            //     "href": "",
+            //     "game": "Event Partner"
+            // }
+        ];
 
 
     //  {
