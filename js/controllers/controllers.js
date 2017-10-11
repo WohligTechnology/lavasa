@@ -4548,11 +4548,6 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
                 "img": "img/footer/n9.png",
                 "href": "",
                 "game": "Radio Partner"
-            },
-            {
-                "img": "img/footer/n10.png",
-                "href": "",
-                "game": "Digital Parenting Partner"
             }
             //  {
             //     "img": "img/footer/p7.jpg",
@@ -4566,6 +4561,10 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
         ];
     $scope.partner = // JavaScript Document
         [{
+                "img": "img/footer/n10.png",
+                "href": "",
+                "game": "Digital Parenting Partner"
+            }, {
                 "img": "img/footer/p1.jpg",
                 "href": "",
                 "game": "Venue Partner"
