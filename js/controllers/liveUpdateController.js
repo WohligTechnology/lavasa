@@ -1,4 +1,4 @@
-firstApp.controller('LiveUpdatesCtrl', function($scope, $stateParams, $location, TemplateService, NavigationService, $timeout, toastr, $state, $uibModal) {
+firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location, TemplateService, NavigationService, $timeout, cityService, toastr, $state, $uibModal) {
   $scope.template = TemplateService.changecontent("liveupdates");
   $scope.menutitle = NavigationService.makeactive("Live Updates");
   TemplateService.header = "views/header2.html";
@@ -6,142 +6,198 @@ firstApp.controller('LiveUpdatesCtrl', function($scope, $stateParams, $location,
   $scope.navigation = NavigationService.getnav();
 
   // BANNER SWIPER INIT
-  $scope.initSwiper = function() {
-      $scope.$on('$viewContentLoaded', function() {
-              $timeout(function() {
-                  var liveupdateBanner = new Swiper('.liveupdate-bannerswiper .swiper-container', {
-                      slidesPerView: 1,
-                      direction: 'horizontal',
-                      loop: true,
-                      grabCursor: true,
-                      nextButton: '.liveupdate-bannernext',
-                      prevButton: '.liveupdate-bannerprev',
-                      touchEventsTarget: 'container',
-                  })
-              }, 300);
-          });
-      };
-      $scope.initSwiper();
-      // BANNER SWIPER INIT END
+  $scope.initSwiper = function () {
+    $scope.$on('$viewContentLoaded', function () {
+      $timeout(function () {
+        var liveupdateBanner = new Swiper('.liveupdate-bannerswiper .swiper-container', {
+          slidesPerView: 1,
+          direction: 'horizontal',
+          loop: true,
+          grabCursor: true,
+          nextButton: '.liveupdate-bannernext',
+          prevButton: '.liveupdate-bannerprev',
+          touchEventsTarget: 'container',
+        })
+      }, 300);
+    });
+  };
+  $scope.initSwiper();
+  // BANNER SWIPER INIT END
 
-      // JSONS
-      // SCHOOL RANKING TABLE
-      $scope.rankTable = [{
-        rank: 1,
-        school: 'jamnabai high school jamnabai high school',
-        goldPoints: 20,
-        silverPoints: 20,
-        bronzePoints: 20,
-        totalPoints: 200,
-        details: [{
-          name: 'Athletics',
-          gold: 2,
-          silver: 2,
-          bronze: 2
-        },{
-          name: 'Archery ',
-          gold: 2,
-          silver: 2,
-          bronze: 2
-        },{
-          name: 'Badminton',
-          gold: 2,
-          silver: 2,
-          bronze: 2
-        }]
-      },{
-        rank: 2,
-        school: 'jamnabai high school',
-        goldPoints: 20,
-        silverPoints: 20,
-        bronzePoints: 20,
-        totalPoints: 200,
-        details: [{
-          name: 'Athletics',
-          gold: 2,
-          silver: 2,
-          bronze: 2
-        },{
-          name: 'Archery ',
-          gold: 2,
-          silver: 2,
-          bronze: 2
-        },{
-          name: 'Badminton',
-          gold: 2,
-          silver: 2,
-          bronze: 2
-        }]
-      },{
-        rank: 3,
-        school: 'jamnabai high school',
-        goldPoints: 20,
-        silverPoints: 20,
-        bronzePoints: 20,
-        totalPoints: 200,
-        details: [{
-          name: 'Athletics',
-          gold: 2,
-          silver: 2,
-          bronze: 2
-        },{
-          name: 'Archery ',
-          gold: 2,
-          silver: 2,
-          bronze: 2
-        },{
-          name: 'Badminton',
-          gold: 2,
-          silver: 2,
-          bronze: 2
-        }]
-      },{
-        rank: 4,
-        school: 'jamnabai high school',
-        goldPoints: 20,
-        silverPoints: 20,
-        bronzePoints: 20,
-        totalPoints: 200,
-        details: [{
-          name: 'Athletics',
-          gold: 2,
-          silver: 2,
-          bronze: 2
-        },{
-          name: 'Archery ',
-          gold: 2,
-          silver: 2,
-          bronze: 2
-        },{
-          name: 'Badminton',
-          gold: 2,
-          silver: 2,
-          bronze: 2
-        }]
-      },{
-        rank: 5,
-        school: 'jamnabai high school',
-        goldPoints: 20,
-        silverPoints: 20,
-        bronzePoints: 20,
-        totalPoints: 200,
-        details: [{
-          name: 'Athletics',
-          gold: 2,
-          silver: 2,
-          bronze: 2
-        },{
-          name: 'Archery ',
-          gold: 2,
-          silver: 2,
-          bronze: 2
-        },{
-          name: 'Badminton',
-          gold: 2,
-          silver: 2,
-          bronze: 2
-        }]
-      }];
-      // SCHOOL RANKING TABLE END
-      // JSONS END
+
+  //Rank Table school or College
+  $scope.getRankTable = function () {
+    $scope.url = 'LiveUpdate/getAllRankingTables';
+    NavigationService.getAllLiveUpdatedData($scope.url, function (data) {
+      console.log(data, "data");
+      if (data.value) {
+        if (data.data.length > 0) {
+          $scope.rankTables = _.groupBy(data.data, 'city');
+          $scope.cityMumbai = _.cloneDeep($scope.rankTables.mumbai);
+          $scope.cityHyderabad = _.cloneDeep($scope.rankTables.hyderabad);
+          $scope.cityAhmedabad = _.cloneDeep($scope.rankTables.ahmedabad);
+          $scope.cityMumbai = _.groupBy($scope.cityMumbai, 'institutionType');
+
+          console.log("window.location.host", window.location.host);
+          cityService.getCurrentCity(function (response) {
+            if (window.location.host === response.link1) {
+              //Mumbai
+              if ($scope.cityMumbai.school || $scope.cityMumbai.college) {
+                $scope.mumbaiSchool = _.cloneDeep($scope.cityMumbai.school);
+                $scope.mumbaiCollege = _.cloneDeep($scope.cityMumbai.college);
+                if ($scope.mumbaiSchool) {
+                  $scope.schoolDate = $scope.mumbaiSchool[0].date;
+                  $scope.rankTableSchool = $scope.mumbaiSchool[0].rankingTable;
+                }
+                if ($scope.mumbaiCollege) {
+                  $scope.collegeDate = $scope.mumbaiCollege[0].date;
+                  $scope.rankTableCollege = $scope.mumbaiCollege[0].rankingTable;
+                  console.log("$scope.rankTableCollege ", $scope.rankTableCollege);
+                }
+              }
+
+            } else if (window.location.host == response.link2) {
+              //Hyderabad
+              if ($scope.cityHyderabad.school || $scope.cityHyderabad.college) {
+                $scope.hyderabadSchool = _.cloneDeep($scope.cityHyderabad.school);
+                $scope.hyderabadCollege = _.cloneDeep($scope.cityHyderabad.college);
+                if ($scope.hyderabadSchool) {
+                  $scope.schoolDate = $scope.mumbaiSchool[0].date;
+                  $scope.rankTableSchool = $scope.hyderabadSchool[0].rankingTable;
+                }
+                if ($scope.hyderabadCollege) {
+                  $scope.collegeDate = $scope.mumbaiCollege[0].date;
+                  $scope.rankTableCollege = $scope.hyderabadCollege[0].rankingTable;
+                }
+
+              }
+
+            } else if (window.location.host == response.link3) {
+              //Ahmedabad
+              if ($scope.cityAhmedabad.school || $scope.cityAhmedabad.college) {
+                $scope.ahmedabadSchool = _.cloneDeep($scope.cityAhmedabad.school);
+                $scope.ahmedabadCollege = _.cloneDeep($scope.cityAhmedabad.college);
+                if ($scope.ahmedabadSchool) {
+                  $scope.schoolDate = $scope.mumbaiSchool[0].date;
+                  $scope.rankTableSchool = $scope.ahmedabadSchool[0].rankingTable;
+                }
+                if ($scope.ahmedabadCollege) {
+                  $scope.collegeDate = $scope.mumbaiCollege[0].date;
+                  $scope.rankTableCollege = $scope.ahmedabadCollege[0].rankingTable;
+                }
+
+              }
+
+            }
+          });
+        }
+      }
+    });
+  };
+  $scope.getRankTable();
+
+  //live Videos
+  $scope.getAllVideos = function () {
+    $scope.url = 'LiveVideos/getAll';
+    NavigationService.getAllLiveUpdatedData($scope.url, function (data) {
+      if (data.value) {
+        console.log("data.data", data.data);
+        $scope.allVideos = _.groupBy(data.data, 'city');
+        cityService.getCurrentCity(function (response) {
+          if (window.location.host === response.link1) {
+            // Mumbai
+            $scope.allVideos = _.cloneDeep($scope.allVideos.mumbai);
+
+          } else if (window.location.host === response.link2) {
+            //Hyderabad
+            $scope.allVideos = _.cloneDeep($scope.allVideos.hyderabad);
+          } else if (window.location.host === response.link3) {
+            //     //Ahmedabad
+            $scope.allVideos = _.cloneDeep($scope.allVideos.ahmedabad);
+          }
+
+        });
+        $scope.allVideos = _.chunk($scope.allVideos, 3);
+        $scope.videoArr1 = _.cloneDeep($scope.allVideos[0]);
+        $scope.videoArr2 = _.cloneDeep($scope.allVideos[1]);
+      }
+    });
+  };
+  $scope.getAllVideos();
+  //special Events
+  $scope.getSpecialEvents = function () {
+    $scope.url = 'SpecialEvents/getAllSpecialEvents';
+    NavigationService.getAllLiveUpdatedData($scope.url, function (data) {
+      if (data.value) {
+        $scope.specialEvents = _.groupBy(data.data, 'city');
+        cityService.getCurrentCity(function (response) {
+          if (window.location.host === response.link1) {
+            // Mumbai
+            $scope.specialEvents = _.cloneDeep($scope.specialEvents.mumbai);
+
+          } else if (window.location.host === response.link2) {
+            //Hyderabad
+            $scope.specialEvents = _.cloneDeep($scope.specialEvents.hyderabad);
+          } else if (window.location.host === response.link3) {
+            //     //Ahmedabad
+            $scope.specialEvents = _.cloneDeep($scope.specialEvents.ahmedabad);
+          }
+
+        });
+        console.log($scope.specialEvents, "data");
+      }
+
+    });
+  };
+  $scope.getSpecialEvents();
+  //Photo Album
+  $scope.getPhotoAlbum = function () {
+    $scope.url = 'LiveAlbum/getAllAlbums';
+    NavigationService.getAllLiveUpdatedData($scope.url, function (data) {
+      if (data.value) {
+        $scope.phtoAlbum = _.groupBy(data.data, 'city');
+        cityService.getCurrentCity(function (response) {
+          if (window.location.host === response.link1) {
+            // Mumbai
+            $scope.phtoAlbum = _.cloneDeep($scope.phtoAlbum.mumbai);
+
+          } else if (window.location.host === response.link2) {
+            //Hyderabad
+            $scope.phtoAlbum = _.cloneDeep($scope.phtoAlbum.hyderabad);
+          } else if (window.location.host === response.link3) {
+            //     //Ahmedabad
+            $scope.phtoAlbum = _.cloneDeep($scope.phtoAlbum.ahmedabad);
+          }
+
+        });
+        console.log(" $scope.phtoAlbum", $scope.phtoAlbum);
+      }
+    });
+  };
+  $scope.getPhotoAlbum();
+  //get all Photos
+  $scope.getAllPhotos = function () {
+    $scope.url = 'LivePhotos/getAll';
+    NavigationService.getAllLiveUpdatedData($scope.url, function (data) {
+      if (data.value) {
+        $scope.allphotos = _.groupBy(data.data, 'city');
+        cityService.getCurrentCity(function (response) {
+          if (window.location.host === response.link1) {
+            // Mumbai
+            $scope.allphotos = _.cloneDeep($scope.allphotos.mumbai);
+
+          } else if (window.location.host === response.link2) {
+            //Hyderabad
+            $scope.allphotos = _.cloneDeep($scope.allphotos.hyderabad);
+          } else if (window.location.host === response.link3) {
+            //     //Ahmedabad
+            $scope.allphotos = _.cloneDeep($scope.allphotos.ahmedabad);
+          }
+
+        });
+        console.log($scope.allphotos, "data");
+      }
+    });
+  };
+  $scope.getAllPhotos();
 });

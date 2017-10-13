@@ -268,6 +268,17 @@ firstApp.filter('formatEvent', function () {
         }
     };
 });
+firstApp.filter('linkvideo', function () {
+    return function (input, type) {
+        var videourl;
+        if (type == 'youtube') {
+            videourl = "https://www.youtube.com/embed/" + input + "?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1";
+        } else {
+            videourl = "https://player.vimeo.com/video/" + input + "?autoplay=1&loop=1&autopause=0";
+        }
+        return videourl;
+    }
+})
 
 firstApp.filter('isValidSelection', function () {
     return function (age, event) {
@@ -279,13 +290,13 @@ firstApp.filter('isValidSelection', function () {
     };
 });
 // FILTER MEDALS
-firstApp.filter('medalicon', function(){
-  return function(input, type){
-    var input = input.toLowerCase();
-    var type = type.toLowerCase();
-    var medalImg = "";
-    medalImg = "img/medal-icon/" + input + "-" + type + ".png";
-    return medalImg;
-  }
+firstApp.filter('medalicon', function () {
+    return function (input, type) {
+        var input = input.toLowerCase();
+        var type = type.toLowerCase();
+        var medalImg = "";
+        medalImg = "img/medal-icon/" + input + "-" + type + ".png";
+        return medalImg;
+    }
 })
 // FILTER MEDALS;

@@ -524,7 +524,13 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
                 method: 'POST',
                 data: name
             }).success(callback);
-        }
+        },
+        getAllLiveUpdatedData: function (url, callback) {
+            $http({
+                url: adminUrl + url,
+                method: 'POST'
+            }).success(callback);
+        },
     };
 });
 
