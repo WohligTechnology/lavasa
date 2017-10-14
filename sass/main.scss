@@ -121,6 +121,22 @@ body {
     overflow-x: hidden;
 }
 
+.placingBlock {
+    position: fixed;
+    bottom: 0;
+    left: 5px;
+    z-index: 9999;
+    background: #091a71;
+    color: white;
+    width: 298px;
+    height: auto;
+    margin: 0;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 15px;
+}
+
 .font-titling {
     font-family: 'built titling';
     font-weight: 500;
