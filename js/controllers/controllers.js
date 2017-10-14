@@ -20,7 +20,7 @@ var eventYear = '2017-18';
 var year15 = '2015-16';
 var year16 = '2016-17';
 
-// var mainLink = "localhost:8080";
+var mainLink = "localhost:8080";
 // var link2 = "localhost:8080";
 
 var sublink1 = "http://mumbaischool.sfanow.in";
@@ -29,7 +29,7 @@ var sublink3 = "http://hyderabadschool.sfanow.in";
 var sublink4 = "http://hyderabadcollege.sfanow.in";
 var sublink5 = "http://ahmedabadschool.sfanow.in";
 var sublink6 = "http://ahmedabadcollege.sfanow.in";
-var mainLink = "sfanow.in";
+// var mainLink = "sfanow.in";
 var link1 = "mumbai.sfanow.in";
 var link2 = "hyderabad.sfanow.in";
 var link3 = "ahmedabad.sfanow.in";

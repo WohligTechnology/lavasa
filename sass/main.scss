@@ -7749,12 +7749,14 @@ h1.forgot-space {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     opacity: 1 !important;
+    z-index: 10000 !important;
 }
 
 .sfacity-selectmodal {
     .modal-content {
         background: transparent;
     }
+    z-index: 10001 !important;
 }
 
 // sfacity-selectmodal END

@@ -10,6 +10,9 @@
     font-size: 13px;
     padding: 6px;
   }
+  .sfacity-modal .last-date-holder-text h4 {
+    font-size: 16px;
+  }
   .sfavideo-content {
     .col-sm-4 {
       padding: 0;
@@ -20,12 +23,10 @@
   }
   .sfacity-modal .day-header h2 {
     font-size: 24px;
-  }
-  // LIVE UPDATES
-  .liveupdates-drawsevents{
+  } // LIVE UPDATES
+  .liveupdates-drawsevents {
     margin-top: 10px;
-  }
-  // LIVE UPDATES END
+  } // LIVE UPDATES END
 }
 
 @media screen and (max-width: 767px) {
@@ -74,23 +75,24 @@
   .sfacity-modal .last-date-holder h4 {
     font-size: 14px;
   }
-  // LIVE UPDATES
-  .liveupdate-albumholder{
+  .sfacity-modal .last-date-holder-text h4 {
+    font-size: 14px;
+  } // LIVE UPDATES
+  .liveupdate-albumholder {
     width: auto;
     float: none;
   }
-  .liveupdate-photoholder{
+  .liveupdate-photoholder {
     width: auto;
     float: none;
   }
-  .liveupdates-eventholder{
+  .liveupdates-eventholder {
     width: auto;
     float: none;
   }
-  .liveupdate-eventcard{
+  .liveupdate-eventcard {
     padding: 15px;
-  }
-  // LIVE UPDATES END
+  } // LIVE UPDATES END
 }
 
 @media screen and (max-width: 480px) {
