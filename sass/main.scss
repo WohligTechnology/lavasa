@@ -32,6 +32,11 @@ Arial,
 sans-serif !default;
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @font-face {
+    font-family: 'FjallaOne';
+    src: url("../fonts/FjallaOne-Regular.ttf"); // font-weight: 400;
+}
+
+@font-face {
     font-family: 'Sansation';
     src: url("../fonts/Sansation_Regular.ttf");
     font-weight: 400;
@@ -291,6 +296,10 @@ a {
 
 .font-sansation {
     font-family: 'Sansation';
+}
+
+.font-FjallaOne {
+    font-family: 'FjallaOne';
 }
 
 .text-up {
@@ -7757,6 +7766,33 @@ h1.forgot-space {
         background: transparent;
     }
     z-index: 10001 !important;
+}
+
+.newHead {
+    letter-spacing: 2px;
+    color: #10259c;
+    margin-bottom: 0;
+    font-size: 68px;
+}
+
+.new-head-banner {
+    position: relative;
+}
+
+.newHeadStyle {
+    letter-spacing: 5px;
+    color: #fe9c31;
+    font-size: 130px;
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%,
+    -50%));
+}
+
+.forMedia {
+    font-size: 68px;
 }
 
 // sfacity-selectmodal END

@@ -102,6 +102,19 @@
       .videoSize {
         height: 320px;
       }
+      .newMargin {
+        margin: 47px auto 0;
+      }
+      .newHeadStyle {
+        font-size: 80px;
+      }
+      .forMedia {
+        font-size: 46px;
+      }
+      .newHead {
+        font-size: 52px;
+        margin-top: 110px;
+      }
       .spc-inside-box {
         .form-control {
           font-size: 14px;
@@ -500,10 +513,22 @@
       }
     }
 
+    @media (min-width:951px) and (max-width:961px) {
+      // .typePlace {
+      //   left: -172px;
+      // }
+      .newMargin {
+        margin: 93px auto 0;
+      }
+    }
+
     @media (min-width:858px) and (max-width:951px) {
       // .typePlace {
       //   left: -172px;
       // }
+      .newMargin {
+        margin: 93px auto 0;
+      }
     }
 
     @media (max-width:857px) {
@@ -515,6 +540,9 @@
           padding: 120px 0px 30px 0px;
         }
       }
+      .newMargin {
+        margin: 93px auto 0;
+      }
     }
 
     @media (max-width:$screen-xs-max) {
@@ -525,6 +553,18 @@
         .championship-scheduletitle {
           padding: 50px 0px 30px 0px;
         }
+      }
+      .newHeadStyle {
+        font-size: 50px;
+      }
+      .forMedia {
+        font-size: 27px;
+      }
+      .newMargin {
+        margin: 0 auto;
+      }
+      .newHead {
+        margin-top: 50px;
       }
       .w1200 {
         width: auto;
@@ -1275,11 +1315,23 @@
       .ver-line:after {
         display: none;
       }
+      .forMedia {
+        font-size: 25px;
+      }
     }
 
     @media (max-width:480px) {
       .ktkSize input[type="radio"]+label {
         margin-left: -16px;
+      }
+      .newHeadStyle {
+        font-size: 40px;
+      }
+      .forMedia {
+        font-size: 19px;
+      }
+      .newHead {
+        font-size: 36px;
       }
       .selectAthletes .separateTwoBox .scroll-div .scrollbar {
         height: 490px;
@@ -2364,6 +2416,12 @@
       .mLogoPlacing {
         left: 52px;
         right: 0;
+      }
+      .newHeadStyle {
+        font-size: 30px;
+      }
+      .forMedia {
+        font-size: 13px;
       }
       .placingBlock {
         left: 4px;
