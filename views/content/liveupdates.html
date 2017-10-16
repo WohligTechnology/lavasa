@@ -260,11 +260,11 @@
         <div class="tickr-holder">
           <div class="ticker-wrap">
             <div class="ticker">
-              <div class="ticker__item relate" ng-repeat="rank in rankTable track by $index">
+              <div class="ticker__item relate" ng-repeat="data in tickerData[0].tickerDetails track by $index">
                 <div class="ticker-icon">
                   <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
                 </div>
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium beatae, suscipit tempore vel, doloremque temporibus pariatur nemo qui maiores culpa hic ex!</span>
+                <span ng-bind-html="data.tickerContent"></span>
               </div>
             </div>
           </div>
@@ -281,7 +281,7 @@
           Live Update from sfa mumbai championship 2017-18
         </div>
         <div class="row">
-          <div class="col-md-6 col-sm-6">
+          <div class="col-md-6 col-sm-6" ng-if="!message">
             <div class="liveupdate-album">
               <div class="liveupdate-albumholder" ng-repeat="album in phtoAlbum|limitTo:3">
                 <img src="{{album.albumImages[0].image | uploadpath}}" alt="" class="img-responsive">
@@ -298,6 +298,9 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div ng-if="message">
+            No Album available
           </div>
           <div class="col-md-6 col-sm-6">
             <div class="liveupdate-photo">

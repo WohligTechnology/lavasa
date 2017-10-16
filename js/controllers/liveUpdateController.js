@@ -155,7 +155,13 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
     $scope.url = 'LiveAlbum/getAllAlbums';
     NavigationService.getAllLiveUpdatedData($scope.url, function (data) {
       if (data.value) {
+        if (data.data.length === 0) {
+          $scope.message = true;
+        } else {
+          $scope.message = true;
+        }
         $scope.phtoAlbum = _.groupBy(data.data, 'city');
+
         cityService.getCurrentCity(function (response) {
           if (window.location.host === response.link1) {
             // Mumbai
@@ -200,4 +206,35 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
     });
   };
   $scope.getAllPhotos();
+
+  $scope.getTickers = function () {
+    $scope.url = 'Ticker/getAllTickers';
+    NavigationService.getAllLiveUpdatedData($scope.url, function (data) {
+      if (data.value) {
+        cityService.getCurrentCity(function (response) {
+          if (window.location.host === response.link1) {
+            // Mumbai
+            if (data.data.mumbai) {
+              $scope.tickerData = _.cloneDeep(data.data.mumbai);
+            }
+
+          } else if (window.location.host === response.link2) {
+            //Hyderabad
+            if (data.data.hyderabad) {
+              $scope.tickerData = _.cloneDeep(data.data.hyderabad);
+            }
+
+          } else if (window.location.host === response.link3) {
+            //     //Ahmedabad
+            if (data.data.ahmedabad) {
+              $scope.tickerData = _.cloneDeep(data.data.ahmedabad);
+            }
+
+          }
+
+        });
+      }
+    });
+  };
+  $scope.getTickers();
 });
