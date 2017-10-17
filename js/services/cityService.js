@@ -8,7 +8,8 @@ firstApp.service('cityService', function ($http, TemplateService, $state, toastr
     returnObj.sublink5 = "http://testahmedabadschool.sfanow.in";
     returnObj.sublink6 = "http://testahmedabadcollege.sfanow.in";
     returnObj.mainLink = "test.sfanow.in";
-    returnObj.link1 = "testmumbai.sfanow.in";
+    // returnObj.link1 = "testmumbai.sfanow.in";
+    returnObj.link1 = "localhost:8080";
     returnObj.link2 = "testhyderabad.sfanow.in";
     returnObj.link3 = "testahmedabad.sfanow.in";
     returnObj.eventYear = '2017-18';
@@ -16,7 +17,7 @@ firstApp.service('cityService', function ($http, TemplateService, $state, toastr
     returnObj.year16 = '2016-17';
 
     // var mainLink = "localhost:8080";
-    // var link2 = "localhost:8080";
+    // var link1 = "localhost:8080";
     // returnObj.link1 = "localhost:8080";
 
     // returnObj.sublink1 = "http://mumbaischool.sfanow.in";

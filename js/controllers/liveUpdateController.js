@@ -25,77 +25,82 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
   // BANNER SWIPER INIT END
 
   // BANNERS
-  NavigationService.getAllEnabledBanner(function (response) {
-      console.log('data', response);
-      if (response.value) {
-          if (window.location.host == link1) {
-              $scope.banners = response.data.Mumbai;
-          } else if (window.location.host == link2) {
-              $scope.banners = response.data.Hyderabad;
-              // $scope.banners = [{
-              //     city: "Hyderabad",
-              //     image: "img/Hyderabad_1.jpg",
-              //     link: "http://hyderabadschool.sfanow.in/register",
-              //     order: '1'
-              // }, {
-              //     city: "Hyderabad",
-              //     image: "img/Hyderabad_2.jpg",
-              //     link: "http://hyderabadschool.sfanow.in/register",
-              //     order: '2'
-              // }, {
-              //     city: "Hyderabad",
-              //     image: "img/Hyderabad_3.jpg",
-              //     link: "http://hyderabadschool.sfanow.in/register",
-              //     order: '3'
-              // }];
-          } else if (window.location.host == link3) {
-              // $scope.banners = response.data.Ahmedabad;
-          }
-      } else {
-          console.log("Banner not found");
-      }
+  NavigationService.getAllEnabledBanner(function (responses) {
+    console.log('data', responses);
+    if (responses.value) {
+      cityService.getCurrentCity(function (response) {
+        if (window.location.host == response.link1) {
+          $scope.banners = responses.data.Mumbai;
+        } else if (window.location.host == response.link2) {
+          $scope.banners = responses.data.Hyderabad;
+          // $scope.banners = [{
+          //     city: "Hyderabad",
+          //     image: "img/Hyderabad_1.jpg",
+          //     link: "http://hyderabadschool.sfanow.in/register",
+          //     order: '1'
+          // }, {
+          //     city: "Hyderabad",
+          //     image: "img/Hyderabad_2.jpg",
+          //     link: "http://hyderabadschool.sfanow.in/register",
+          //     order: '2'
+          // }, {
+          //     city: "Hyderabad",
+          //     image: "img/Hyderabad_3.jpg",
+          //     link: "http://hyderabadschool.sfanow.in/register",
+          //     order: '3'
+          // }];
+        } else if (window.location.host == response.link3) {
+          // $scope.banners = response.data.Ahmedabad;
+        }
+      });
+    } else {
+      console.log("Banner not found");
+    }
   });
 
   // MOBILE BANNERS
-  if (window.location.host == link1) {
+
+  cityService.getCurrentCity(function (response) {
+    if (window.location.host == response.link1) {
       $scope.bannerss = [{
-          "img": "img/mobweb-2.jpg",
-          "link": "http://mumbaischool.sfanow.in/register"
+        "img": "img/mobweb-2.jpg",
+        "link": "http://mumbaischool.sfanow.in/register"
       }, {
-          "img": "img/mobweb-3.jpg",
-          "link": "http://mumbaicollege.sfanow.in/register"
+        "img": "img/mobweb-3.jpg",
+        "link": "http://mumbaicollege.sfanow.in/register"
       }, {
-          "img": "img/mobweb-1.jpg",
-          "link": "http://mumbaischool.sfanow.in/register"
+        "img": "img/mobweb-1.jpg",
+        "link": "http://mumbaischool.sfanow.in/register"
       }, {
-          "img": "img/mobweb-4.jpg",
-          "link": "http://mumbaicollege.sfanow.in/register"
+        "img": "img/mobweb-4.jpg",
+        "link": "http://mumbaicollege.sfanow.in/register"
       }];
-  } else if (window.location.host == link2) {
+    } else if (window.location.host == response.link2) {
       $scope.bannerss = [{
-          "img": "img/Hyderabad_4.jpg",
-          "link": "http://hyderabadschool.sfanow.in/register"
+        "img": "img/Hyderabad_4.jpg",
+        "link": "http://hyderabadschool.sfanow.in/register"
       }, {
-          "img": "img/Hyderabad_5.jpg",
-          "link": "http://hyderabadschool.sfanow.in/register"
+        "img": "img/Hyderabad_5.jpg",
+        "link": "http://hyderabadschool.sfanow.in/register"
       }, {
-          "img": "img/Hyderabad_6.jpg",
-          "link": "http://hyderabadschool.sfanow.in/register"
+        "img": "img/Hyderabad_6.jpg",
+        "link": "http://hyderabadschool.sfanow.in/register"
       }];
-  } else if (window.location.host == link3) {
+    } else if (window.location.host == response.link3) {
       $scope.bannerss = [{
-          "img": "img/mobweb-2.jpg",
-          "link": "http://ahmedabadschool.sfanow.in/register"
+        "img": "img/mobweb-2.jpg",
+        "link": "http://ahmedabadschool.sfanow.in/register"
       }, {
-          "img": "img/mobweb-3.jpg",
-          "link": "http://ahmedabadschool.sfanow.in/register"
+        "img": "img/mobweb-3.jpg",
+        "link": "http://ahmedabadschool.sfanow.in/register"
       }, {
-          "img": "img/mobweb-1.jpg",
-          "link": "http://ahmedabadschool.sfanow.in/register"
+        "img": "img/mobweb-1.jpg",
+        "link": "http://ahmedabadschool.sfanow.in/register"
       }];
-  }
-  // MOBILE BANNERS END
-  // BANNERS END
+    }
+    // MOBILE BANNERS END
+    // BANNERS END
+  });
 
 
   //Rank Table school or College
@@ -104,7 +109,7 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
     NavigationService.getAllLiveUpdatedData($scope.url, function (data) {
       console.log(data, "data");
       if (data.value) {
-        if (data.data.length > 0) {
+        if (data.data) {
           $scope.rankTables = _.groupBy(data.data, 'city');
           $scope.cityMumbai = _.cloneDeep($scope.rankTables.mumbai);
           $scope.cityHyderabad = _.cloneDeep($scope.rankTables.hyderabad);
