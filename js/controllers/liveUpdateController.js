@@ -155,11 +155,7 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
     $scope.url = 'LiveAlbum/getAllAlbums';
     NavigationService.getAllLiveUpdatedData($scope.url, function (data) {
       if (data.value) {
-        if (data.data.length === 0) {
-          $scope.message = true;
-        } else {
-          $scope.message = true;
-        }
+
         $scope.phtoAlbum = _.groupBy(data.data, 'city');
 
         cityService.getCurrentCity(function (response) {

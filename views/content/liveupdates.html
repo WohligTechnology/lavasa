@@ -253,7 +253,7 @@
   </section>
   <!-- RANKING TABLES SECTION -->
   <!-- LIVE TICKR -->
-  <section>
+  <section ng-if="tickerData[0].tickerDetails.length>0">
     <div class="liveupdate-tickr">
       <div class="container relate">
         <div class="tickr-livelabel">LIVE</div>
@@ -274,14 +274,15 @@
   </section>
   <!-- LIVE TICKR END -->
   <!-- LIVE IMAGE SECTION -->
-  <section>
+
+  <section ng-if="phtoAlbum.length>0 || allphotos.length>0">
     <div class="liveupdate-imagesection">
       <div class="container">
         <div class="liveupdate-imagetitile">
           Live Update from sfa mumbai championship 2017-18
         </div>
         <div class="row">
-          <div class="col-md-6 col-sm-6" ng-if="!message">
+          <div class="col-md-6 col-sm-6">
             <div class="liveupdate-album">
               <div class="liveupdate-albumholder" ng-repeat="album in phtoAlbum|limitTo:3">
                 <img src="{{album.albumImages[0].image | uploadpath}}" alt="" class="img-responsive">
@@ -299,9 +300,7 @@
               </div>
             </div>
           </div>
-          <div ng-if="message">
-            No Album available
-          </div>
+
           <div class="col-md-6 col-sm-6">
             <div class="liveupdate-photo">
               <div class="liveupdate-photoholder" ng-repeat="photo in allphotos|limitTo:3">
@@ -436,7 +435,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8" ng-if="specialEvents || specialEvents.length>0">
               <div class="liveupdates-drawsevents">
                 <div class="liveupdates-drawstitle">
                   upcoming events
@@ -467,7 +466,7 @@
   </section>
   <!-- DRAWS SCHDULE SECTION END -->
   <!-- LIVE VIDEO SECTION -->
-  <section>
+  <section ng-if="videoArr1.length>0 || videoArr2.length>0 ">
     <div class="liveupdate-imagesection">
       <div class="container">
         <div class="liveupdate-imagetitile">
