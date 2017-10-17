@@ -1,14 +1,14 @@
-<section>
+<!-- <section>
     <div class="head-banner">
         <img src="img/sfa-ath.png" class="img-responsive img width100 margin-auto">
     </div>
-</section>
-<!-- <section>
+</section> -->
+<section>
     <div class="head-banner new-head-banner">
         <img src="img/sfa-ath-new.png" class="img-responsive img width100 margin-auto newMargin">
         <h1 class="text-up font-FjallaOne font-semi newHeadStyle">Athletes</h1>
     </div>
-</section> -->
+</section>
 <section class="bottom-padding mt40">
     <div class="container">
         <div class="row">
@@ -69,10 +69,9 @@
             <div class="col-md-12">
                 <div class="float-right sf-list">
                     <nav aria-label="Page navigation" ng-if="inputs.search && getSearchData.totalpages > 1">
-                        <uib- force-elipses="true" ng-change="doSearch()" total-items="getSearchData.total" ng-model="searchFilter.pagenumber" items-per-page="searchFilter.pagesize"
+                        <uib-pagination ng-change="doSearch()" total-items="getSearchData.total" ng-model="searchFilter.pagenumber" items-per-page="searchFilter.pagesize"
                             class="pagination-sm" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination>
                     </nav>
-
                 </div>
             </div>
         </div>

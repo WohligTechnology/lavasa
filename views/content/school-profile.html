@@ -4,7 +4,7 @@
         <div class="p100 p1002">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xs-12 pointer" ng-click="state.reload()">
+                    <div class="col-md-offset-1 col-md-3 col-sm-3 col-xs-12 pointer" ng-click="state.reload()">
                         <div class="sf-school-logo sf-relative text-center border-r">
                             <img ng-src="{{getSchoolProfile.logo|uploadpath}}" alt="">
                             <!-- <img src="img/sf-school-profile-big.png" alt=""> -->
@@ -13,7 +13,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-9 col-xs-12 col-sm-9 text-c-m">
+                    <div class="col-md-8 col-xs-12 col-sm-9 text-c-m">
                         <div class="sf-school-data">
                             <div class="scl-title display-inline pointer" ng-click="state.reload()">
                                 <h3 class="color-orange font-semi f-mcell-20">{{getSchoolProfile.name}}</h3>
@@ -151,13 +151,13 @@
                 <span class="color-orange text-cap f16 pull-left">Supported by:</span>
                 <span class="onside text-center">
                     <img src="{{ getSchoolProfile.supporterLogo | uploadpath }}">
-<span class="color-white text-cap f16"><h4>{{getSchoolProfile.supporterName }}</h4></span>
+            <span class="color-white text-cap f16"><h4>{{getSchoolProfile.supporterName }}</h4></span>
                 </span>
 
             </div>
         </div>
     </div>
-    </div>
+    <!-- </div> -->
 </section>
 <section class="bottom-padding">
     <div class="container mt40">

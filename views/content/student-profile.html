@@ -1,10 +1,10 @@
 <section>
-    <div class="banner my-banner-student">
+    <div class="banner my-banner-student newMargin">
         <!-- <img src="img/new-banner.png" alt="" class="img-responsive width100"> -->
         <div class="p100">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-4 col-xs-12">
+                    <div class="col-md-offset-2 col-md-3 col-sm-4 col-xs-12">
                         <div class="sf-school-logo sf-relative text-center border-r ">
                             <img ng-src="{{ studentProfile.profilePic | uploadpath:200:200:'cover' }}" alt="" class="img-border img-responsive">
                             <div class="sigh-second sf-absulate l6">
@@ -12,7 +12,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-9 col-xs-12 col-sm-8 text-c-m">
+                    <div class="col-md-7 col-xs-12 col-sm-8 text-c-m">
                         <div class="sf-school-data text-c-m">
                             <div class="scl-title display-inline ">
                                 <h3 class="color-orange font-semi text-up f18-main">{{studentProfile.name}}</h3>
@@ -100,6 +100,26 @@
             </div>
         </div>
     </div>
+</section>
+<section>
+    <div class="container">
+        <div class="text-center">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12">
+                    <div class="head-banner-city">
+                        <div class="box-color-participate">
+                            <h2 class="font-semi font-FjallaOne">Participated at SFA MUMBAI 2015-16 / 2016-17</h2>
+                        </div>
+                        <!-- <div class="box-color-hyderabad">
+                            <h2 class="font-semi font-FjallaOne">Competing at SFA HYDERABAD 2017-18</h2>
+                        </div>
+                        <div class="box-color-mumbai">
+                            <h2 class="font-semi font-FjallaOne">Competing at SFA MUMBAI 2017-18</h2>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 <section class="bottom-padding">

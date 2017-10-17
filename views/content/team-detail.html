@@ -1,5 +1,5 @@
 <section>
-    <div class="banner sf-relative">
+    <div class="banner sf-relative hide">
         <img src="img/sf-default.png" alt="Sports For All" class="img-responsive width100">
         <div class="sf-absulate banner-set">
             <div class="container">
@@ -23,7 +23,30 @@
             </div>
         </div>
     </div>
-
+    <div class="banner my-banner-student newMargin newTeamDetail">
+        <!-- <img src="img/new-banner.png" alt="" class="img-responsive width100"> -->
+        <div class="p100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class="sf-school-logo2 sf-relative text-center border-r">
+                            <img src="{{teamDetails.school.logo | uploadpath }}" alt="" class="img-border2 img-responsive">
+                            <div class="sigh-seconds sf-absulate">
+                                <!-- <img src="img/sf-right-big.png" alt="" class="img-responsive"> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-8 col-xs-12 text-c-m">
+                        <div class="team-dt">
+                            <h1 class="color-orange text-up font-semi f26 m-top-zero">team: {{ teamDetails.name | removeSchool:teamDetails.school.name }} {{teamDetails.year}}</h1>
+                            <h2 class="color-white text-up margin0 f20 m-top-zero">{{ teamDetails.school.name }}</h2>
+                            <h2 class="color-white text-up f20 m-top-zero"><span class="color-orange">SFA ID:</span> {{teamDetails.sfaid}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 <section class="bottom-padding">
     <div class="container">

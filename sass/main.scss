@@ -2598,7 +2598,7 @@ img.fancybox-image {
 }
 
 .my-banner-school {
-    background: url(../img/sf-default.png)center;
+    background: url(../img/sfa-default.png)center; // background: url(../img/sf-default.png)center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
@@ -2606,7 +2606,7 @@ img.fancybox-image {
 }
 
 .my-banner-student {
-    background: url(../img/sf-default.png)center;
+    background: url(../img/sfa-default.png)center; // background: url(../img/sf-default.png)center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
@@ -7793,6 +7793,41 @@ h1.forgot-space {
 
 .forMedia {
     font-size: 68px;
+}
+
+.head-banner-city {
+    .box-color-participate {
+        color: #02b664;
+        border: 1px solid #02b664;
+        border-top: 0;
+        h2 {
+            letter-spacing: 1px;
+            padding: 10px 0;
+            margin: 0;
+        }
+    }
+    .box-color-mumbai {
+        color: #fff;
+        border: 1px solid #00a8ff;
+        background-color: #00a8ff;
+        border-top: 0;
+        h2 {
+            letter-spacing: 1px;
+            padding: 10px 0;
+            margin: 0;
+        }
+    }
+    .box-color-hyderabad {
+        color: #fff;
+        border: 1px solid #02b664;
+        background-color: #02b664;
+        border-top: 0;
+        h2 {
+            letter-spacing: 1px;
+            padding: 10px 0;
+            margin: 0;
+        }
+    }
 }
 
 // sfacity-selectmodal END
