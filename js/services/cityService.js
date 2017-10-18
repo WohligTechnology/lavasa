@@ -15,8 +15,6 @@ firstApp.service('cityService', function ($http, TemplateService, $state, toastr
     returnObj.year15 = '2015-16';
     returnObj.year16 = '2016-17';
 
-    // var mainLink = "localhost:8080";
-    // var link1 = "localhost:8080";
     // returnObj.link1 = "localhost:8080";
 
     // returnObj.sublink1 = "http://mumbaischool.sfanow.in";

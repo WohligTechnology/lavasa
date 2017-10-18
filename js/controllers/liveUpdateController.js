@@ -1,9 +1,28 @@
 firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location, TemplateService, NavigationService, $timeout, cityService, toastr, $state, $uibModal) {
   $scope.template = TemplateService.changecontent("liveupdates");
   $scope.menutitle = NavigationService.makeactive("Live Updates");
-  TemplateService.header = "views/header2.html";
+  // TemplateService.header = "views/header2.html";
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+
+  // ITIALISE VARIABLES
+  $scope.drawObj = {
+    institute: 'school',
+  }
+  cityService.getCurrentCity(function (response) {
+    if (window.location.host == response.link1) {
+      // $scope.drawObj.link = response.data.Mumbai;
+      $scope.drawObj.college = true;
+    } else if (window.location.host == response.link2) {
+      // $scope.drawObj.link = response.data.Hyderabad;
+      $scope.drawObj.college = true;
+    } else if (window.location.host == response.link3) {
+      // $scope.drawObj.link = response.data.Ahmedabad;
+      $scope.drawObj.college = true;
+    }
+    $scope.drawObj.college = false;
+  });
+  // ITIALISE VARIABLES END
 
   // BANNER SWIPER INIT
   $scope.initSwiper = function () {
@@ -33,22 +52,6 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
           $scope.banners = responses.data.Mumbai;
         } else if (window.location.host == response.link2) {
           $scope.banners = responses.data.Hyderabad;
-          // $scope.banners = [{
-          //     city: "Hyderabad",
-          //     image: "img/Hyderabad_1.jpg",
-          //     link: "http://hyderabadschool.sfanow.in/register",
-          //     order: '1'
-          // }, {
-          //     city: "Hyderabad",
-          //     image: "img/Hyderabad_2.jpg",
-          //     link: "http://hyderabadschool.sfanow.in/register",
-          //     order: '2'
-          // }, {
-          //     city: "Hyderabad",
-          //     image: "img/Hyderabad_3.jpg",
-          //     link: "http://hyderabadschool.sfanow.in/register",
-          //     order: '3'
-          // }];
         } else if (window.location.host == response.link3) {
           // $scope.banners = response.data.Ahmedabad;
         }
@@ -311,4 +314,35 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
     });
   };
   $scope.getTickers();
+  // DRAWS LINK
+  $scope.drawSelect = function(institute){
+    switch (institute) {
+      case 'school':
+        $scope.drawObj = {
+          institute: 'school',
+          link: '',
+        }
+      break;
+      case 'college':
+        $scope.drawObj = {
+          institute: 'college',
+          link: '',
+        }
+      break;
+    }
+  }
+  // DRAWS LINK END
+  // SHOW ALBUM VIEW
+  $scope.openAlbumView = function(album){
+    console.log('album', album);
+    $scope.currentAlbum = album;
+    var modalInstance = $uibModal.open({
+        animation: $scope.animationsEnabled,
+        templateUrl: 'views/modal/album-modal.html',
+        size: 'lg',
+        scope: $scope,
+        windowClass: "album-modal"
+    });
+  }
+  // SHOW ALBUM VIEW END
 });
