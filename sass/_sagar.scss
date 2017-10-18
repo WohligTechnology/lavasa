@@ -505,8 +505,17 @@ $brand-green: #0eda85 !default; //green
 }
 .livedraw-formholder{
   padding: 10px 5px;
+  position: relative;
   &:hover{
     box-shadow: 0 0 3px #ccc;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
   }
 }
 // DRAWS SCHEDULE END
