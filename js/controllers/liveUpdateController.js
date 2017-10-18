@@ -9,16 +9,20 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
   $scope.drawObj = {
     institute: 'school',
   }
+  $scope.calenderLink = '';
   cityService.getCurrentCity(function (response) {
     if (window.location.host == response.link1) {
       // $scope.drawObj.link = response.data.Mumbai;
       $scope.drawObj.college = true;
+      $scope.calenderLink = '';
     } else if (window.location.host == response.link2) {
       // $scope.drawObj.link = response.data.Hyderabad;
+      $scope.calenderLink = '';
       $scope.drawObj.college = true;
     } else if (window.location.host == response.link3) {
       // $scope.drawObj.link = response.data.Ahmedabad;
       $scope.drawObj.college = true;
+      $scope.calenderLink = '';
     }
     $scope.drawObj.college = false;
   });

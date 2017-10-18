@@ -13,7 +13,7 @@
   <section class="home-slider hidden-lg hidden-md">
     <flex-slider flex-slide="banner in bannerss track by $index" prev-text="" next-text="">
       <li auto-height>
-        <a href="{{banner.link}}" target="_blank"><img ng-src="{{banner.img}}" class="img-responsive" auto-height onloading="true" slideshow=true></a>
+        <a href="{{banner.link}}" target="_new"><img ng-src="{{banner.img}}" class="img-responsive" auto-height onloading="true" slideshow=true></a>
       </li>
     </flex-slider>
   </section>
@@ -385,7 +385,8 @@
                   upcoming events
                 </div>
                 <div class="liveupdates-eventholder" ng-repeat="event in specialEvents|limitTo:2">
-                  <div class="liveupdate-eventcard">
+                  <a href="{{calenderLink}}" target="_new">
+                    <div class="liveupdate-eventcard">
                     <div class="event-datebox">
                       <span class="event-date">{{event.eventDate|date:'dd'}}</span> <span class="event-day">{{event.eventDay}}</span>
                     </div>
@@ -400,6 +401,7 @@
                       </div>
                     </div>
                   </div>
+                  </a>
                 </div>
               </div>
             </div>
