@@ -189,6 +189,21 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "views/template.html",
             controller: 'MediaGalleryCtrl'
         })
+        .state('media-press', {
+            url: "/media-press",
+            templateUrl: "views/template.html",
+            controller: 'MediaPressCtrl'
+        })
+        .state('media-press-inside', {
+            url: "/media-press/:type/:folder",
+            templateUrl: "views/template.html",
+            controller: 'MediaPressCtrl'
+        })
+        .state('media-press-type', {
+            url: "/media-press/:type",
+            templateUrl: "views/template.html",
+            controller: 'MediaPressCtrl'
+        })
         .state('draw', {
             url: "/draw/:id",
             templateUrl: "views/template.html",

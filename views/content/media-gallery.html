@@ -6,7 +6,7 @@
 <section>
     <div class="head-banner new-head-banner">
         <img src="img/sfa-ath-new.png" class="img-responsive img width100 margin-auto newMargin">
-        <h1 class="text-up font-FjallaOne font-semi newHeadStyle forMedia">Media &amp; Gallery</h1>
+        <h1 class="text-up font-FjallaOne font-semi newHeadStyle">GALLERY</h1>
     </div>
 </section>
 <section class="bottom-padding">
@@ -22,9 +22,9 @@ photos
                             <li><a href="" ui-sref="media-gallery-type({type:'video'})" class="{{classes.classv}}">
 videos
 </a></li>
-                            <li><a href="" ui-sref="media-gallery-inside({type:'press-photo',folder:'press-coverage'})" class="{{classes.classpc}}">
+                            <!-- <li><a href="" ui-sref="media-gallery-inside({type:'press-photo',folder:'press-coverage'})" class="{{classes.classpc}}">
 press coverage
-</a></li>
+</a></li> -->
                             <!-- <li><a href="" class="{{classd}}">
 Press release
 </a></li> -->
@@ -167,7 +167,7 @@ Press release
                             </uib-pagination>
                         </div>
                     </div>
-                    <div class="pht" ng-if="filter.mediatype=='press-photo' || filter.mediatype=='press-video'">
+                    <!-- <div class="pht" ng-if="filter.mediatype=='press-photo' || filter.mediatype=='press-video'">
                         <div class="row">
                             <div class="text-center">
                                 <div class="col-md-12 col-xs-12 col-sm-6 text-c-m">
@@ -190,11 +190,11 @@ Press release
                                     <ul class="padding0 margin0">
                                         <li><a href="" ui-sref="media-gallery-inside({type:'press-photo',folder:'press-coverage'})"
                                                 class="{{classes.classpcp}}">
-photos
-</a></li>
+                        photos
+                        </a></li>
                                         <li><a href="" ui-sref="media-gallery-inside({type:'press-video',folder:'press-coverage'})"
                                                 class="{{classes.classpcv}}">videos
-</a></li>
+                        </a></li>
                                     </ul>
                                 </div>
                                 <hr class="hr-padding" ng-if="mediaArr.data.length > 0">
@@ -233,7 +233,7 @@ photos
                         <uib-pagination ng-if="mediaArr.data.length > 0" ng-change="loadMedia();" total-items="mediaArr.total" ng-model="filter.pagenumber"
                             items-per-page="12">
                         </uib-pagination>
-                    </div>
+                    </div> -->
                     <div class="row" ng-if="tab=='release'">
                         <div class="col-md-8">
                             <div class="white-bg">

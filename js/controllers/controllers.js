@@ -916,6 +916,7 @@ firstApp.controller('SwissCtrl', function ($scope, TemplateService, NavigationSe
     $scope.navigation = NavigationService.getnav();
 
 });
+
 firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
     //Used to name the .html file
 
@@ -1072,6 +1073,106 @@ firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, Navig
         'img/m3.jpg'
 
     ];
+});
+
+firstApp.controller('MediaPressCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+    //Used to name the .html file
+
+    $scope.template = TemplateService.changecontent("media-press");
+    $scope.menutitle = NavigationService.makeactive("Media Press");
+    TemplateService.header = "views/header.html";
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+    $scope.flags = {};
+    $scope.flags.openGallery = false;
+    $scope.flag = {};
+    $scope.classes = {};
+    $scope.filter = {};
+    $scope.folders = [];
+    $scope.flag.openGallerys = false;
+    $scope.tabs = 'press-photo';
+    $scope.classp = 'active-list';
+    $scope.classv = '';
+
+    $scope.tabchanges = function (tabs, a) {
+        $scope.tabs = tabs;
+        console.log(tabs);
+        if (tabs === 'photo') {
+
+            $scope.classes.classp = "active-list";
+            $scope.classes.classv = '';
+            $scope.classes.classpc = '';
+
+        } else if (tabs == 'video') {
+
+            $scope.classes.classp = '';
+            $scope.classes.classv = "active-list";
+            $scope.classes.classpc = '';
+        } else if (tabs == 'press-photo') {
+            $scope.classes.classp = "";
+            $scope.classes.classv = '';
+            $scope.classes.classpc = 'active-list';
+            $scope.classes.classpcp = 'active-list';
+
+        } else if (tabs == 'press-video') {
+            $scope.classes.classp = "";
+            $scope.classes.classv = '';
+            $scope.classes.classpc = 'active-list';
+            $scope.classes.classpcv = 'active-list';
+        }
+
+    };
+    $scope.getMediaFolders = function () {
+        $scope.folders = undefined;
+        NavigationService.getFolders($scope.filter, function (response) {
+            if (response) {
+                console.log(response);
+                $scope.folders = response.data;
+            } else {
+                // console.log("No data found");
+                $scope.folders = [];
+            }
+        });
+    };
+    $scope.loadMedia = function () {
+        $scope.mediaArr = undefined;
+        NavigationService.getLimitedMedia($scope.filter, function (response) {
+            if (response) {
+                console.log("get limited media : ", response);
+                $scope.mediaArr = response.data;
+            } else {
+                console.log("No data found");
+                $scope.mediaArr.data = [];
+            }
+        });
+    };
+    //console.log($stateParams);
+    if (!$stateParams.type && !$stateParams.folder) {
+        $scope.filter.mediatype = "press-photo";
+        $scope.flags.openGallery = true;
+        $scope.filter.year = "2016";
+        $scope.filter.folder = "press-coverage";
+        $scope.filter.pagenumber = 1;
+        $scope.loadMedia();
+        $scope.tabchanges('press-photo', 1);
+    } else {
+        if ($stateParams.type && $stateParams.folder) {
+            $scope.filter.mediatype = $stateParams.type;
+            $scope.filter.folder = $stateParams.folder;
+            $scope.filter.year = "2016";
+            $scope.filter.pagenumber = 1;
+
+            $scope.loadMedia();
+            $scope.tabchanges($scope.filter.mediatype, 1);
+            $scope.flags.openGallery = true;
+        } else if ($stateParams.type) {
+            $scope.filter.mediatype = $stateParams.type;
+            $scope.flags.openGallery = false;
+            $scope.tabchanges($stateParams.type, 1);
+            console.log($scope.filter);
+            $scope.getMediaFolders();
+        }
+    }
 });
 
 firstApp.controller('FaqCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
@@ -4568,10 +4669,6 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
         ];
     $scope.partner = // JavaScript Document
         [{
-                "img": "img/footer/n10.png",
-                "href": "",
-                "game": "Digital Parenting Partner"
-            }, {
                 "img": "img/footer/p1.jpg",
                 "href": "",
                 "game": "Venue Partner"
@@ -4579,6 +4676,10 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
                 "img": "img/footer/p6.jpg",
                 "href": "",
                 "game": "Hospital Partner"
+            }, {
+                "img": "img/footer/n10.png",
+                "href": "",
+                "game": "Digital Parenting Partner"
             }
             // {
             //     "img": "img/footer/na3.jpg",
