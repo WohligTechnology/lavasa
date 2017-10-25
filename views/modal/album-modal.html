@@ -9,9 +9,11 @@
     <div class="albumview-holder">
       <div class="row">
         <div class="col-md-4 col-sm-4 col-xs-6" ng-repeat="pic in currentAlbum.albumImages track by $index">
+          <a class="various" href="{{pic.image|uploadpath}}" rel="gallery.{{currentAlbum._id}}" fancybox>
           <div class="album-picholder">
-            <img src="{{pic.image|uploadpath}}" alt="" class="img-responsive">
-          </div>
+            <img src="{{pic.image|uploadpath}}" alt="Image gallery | {{currentAlbum.albumName}}" class="img-responsive">
+          </div
+          </a>
         </div>
       </div>
     </div>

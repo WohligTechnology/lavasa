@@ -1,4 +1,4 @@
-<div class="liveupdate-page">
+<div class="liveupdate-page opensans-regular">
   <!-- HEADER BANNER -->
   <!-- DESKTOP BANNERS -->
   <section class="home-slider hidden-xs hidden-sm">
@@ -27,7 +27,7 @@
           <!-- SCHOOL RANKING TABLE  -->
           <div class="col-md-6 col-sm-6" ng-if="rankTableSchool">
             <div class="liveupdate-schoolranking">
-              <div class="liveupdate-rankingtitle">
+              <div class="liveupdate-rankingtitle font-FjallaOne">
                 Top Schools On The Ranking Table
               </div>
               <div class="liveupdate-rankingtableholder table-responsive">
@@ -70,14 +70,14 @@
                         </div>
                       </th>
                       <th>
-                        <div class="text-uppercase text-center">
+                        <div class="text-uppercase text-center totalpoint-title">
                           total points
                         </div>
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr ng-repeat="school in rankTableSchool track by $index">
+                    <tr ng-repeat="school in rankTableSchool|orderBy:'rank' |limitTo:5 track by $index">
                       <td>
                         <div class="">
                           {{school.rank}}
@@ -139,7 +139,7 @@
           <!-- COLLEGE RANKING TABLE  -->
           <div class="col-md-6 col-sm-6" ng-if="rankTableCollege">
             <div class="liveupdate-schoolranking">
-              <div class="liveupdate-rankingtitle">
+              <div class="liveupdate-rankingtitle font-FjallaOne">
                 Top College On The Ranking Table
               </div>
               <div class="liveupdate-rankingtableholder table-responsive">
@@ -181,14 +181,14 @@
                         </div>
                       </th>
                       <th>
-                        <div class="text-uppercase text-center">
+                        <div class="text-uppercase text-center totalpoint-title">
                           total points
                         </div>
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr ng-repeat="college in rankTableCollege track by $index">
+                    <tr ng-repeat="college in rankTableCollege|orderBy:'rank' |limitTo:5 track by $index">
                       <td>
                         <div class="">
                           {{college.rank}}
@@ -278,7 +278,7 @@
   <section ng-if="phtoAlbum.length>0 || allphotos.length>0">
     <div class="liveupdate-imagesection">
       <div class="container">
-        <div class="liveupdate-imagetitile">
+        <div class="liveupdate-imagetitle font-FjallaOne">
           Live Update from sfa mumbai championship 2017-18
         </div>
         <div class="row">
@@ -321,7 +321,7 @@
           <div class="row">
             <div class="col-md-4">
               <div class="liveupdates-drawsschedule">
-                <div class="liveupdates-drawstitle">
+                <div class="liveupdates-drawstitle font-FjallaOne">
                   draws, schedules & results
                 </div>
                 <div class="liveupdates-drawscard">
@@ -381,16 +381,16 @@
             </div>
             <div class="col-md-8" ng-if="specialEvents || specialEvents.length>0">
               <div class="liveupdates-drawsevents">
-                <div class="liveupdates-drawstitle">
+                <div class="liveupdates-drawstitle font-FjallaOne">
                   upcoming events
                 </div>
                 <div class="liveupdates-eventholder" ng-repeat="event in specialEvents|limitTo:2">
                   <a href="{{calenderLink}}" target="_new">
                     <div class="liveupdate-eventcard">
-                    <div class="event-datebox">
+                    <div class="event-datebox font-FjallaOne">
                       <span class="event-date">{{event.eventDate|date:'dd'}}</span> <span class="event-day">{{event.eventDay}}</span>
                     </div>
-                    <div class="event-detail">
+                    <div class="event-detail font-FjallaOne">
                       <div class="event-header" ng-bind-html="event.title">
 
                         <!-- animi sequi laboriosam qui quod? -->
@@ -415,7 +415,7 @@
   <section ng-if="videoArr1.length>0 || videoArr2.length>0 ">
     <div class="liveupdate-imagesection">
       <div class="container">
-        <div class="liveupdate-imagetitile">
+        <div class="liveupdate-imagetitle font-FjallaOne">
           Live Highlights from the championship
         </div>
         <div class="row">
@@ -452,4 +452,49 @@
     </div>
   </section>
   <!-- LIVE VIDEO SECTION END -->
+  <!-- SOCIAL FEED SECTION -->
+  <section class="mt80">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-4 col-sm-4 col-xs-12">
+                  <div class="text-center mb25">
+                      <div class="social-logo live-sociallogo livesocial-fb">
+                          <img src="img/fb-logo.png" alt="Sports For All">
+                      </div>
+                      <div class="box-social">
+                          <div class="fb-page" data-href="https://www.facebook.com/sportsforallnow" data-tabs="timeline" data-width="360" data-height="820"
+                              data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                              <blockquote cite="https://www.facebook.com/sportsforallnow" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/sportsforallnow">Sports For All</a></blockquote>
+                          </div>
+                          <div id="fb-root"></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 col-sm-4 col-xs-12">
+                  <div class="text-center mb25">
+                      <div class="social-logo live-sociallogo livesocial-twitter">
+                          <img src="img/tw-logo.png" alt="Sports For All">
+                      </div>
+                      <div class="box-social">
+                          <a class="twitter-timeline" href="https://twitter.com/sfanow" data-widget-id="641859487024869376">Tweets by @sfanow</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 col-sm-4 col-xs-12">
+                  <div class="text-center mb25">
+                      <div class="social-logo live-sociallogo livesocial-insta">
+                          <img src="img/inst-logo.png" alt="Sports For All">
+                      </div>
+                      <div class="box-social">
+                          <div class="fb-set" style="height: 820px;overflow-y: hidden;">
+                              <iframe src="//lightwidget.com/widgets/836f36bbf5d959b8b1e7134bd93bf799.html" id="instansive_554a6dce8a" name="instansive_554a6dce8a"
+                                  scrolling="yes" allowtransparency="true" class="instansive-widget" style="width: 100%;height: 100%; border: 0; overflow: hidden;"></iframe>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- SOCIAL FEED SECTION END -->
 </div>

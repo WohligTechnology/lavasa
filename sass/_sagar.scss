@@ -271,7 +271,7 @@ $brand-green: #0eda85 !default; //green
 }
 
 .liveupdate-rankingtitle,
-.liveupdate-imagetitile,
+.liveupdate-imagetitle,
 .liveupdates-drawstitle {
     font-size: 24px;
     margin-bottom: 10px;
@@ -339,6 +339,9 @@ $brand-green: #0eda85 !default; //green
     vertical-align: middle;
 }
 
+.totalpoint-title{
+  max-width: 100px;
+}
 // RANKING TABLES END
 // TICKR SECTION
 .liveupdate-tickr {
@@ -522,15 +525,16 @@ $brand-green: #0eda85 !default; //green
 // EVENTS
 .liveupdates-eventholder {
     width: 50%;
-    height: 320px;
+    height: 300px;
     padding: 5px;
+    padding-top: 0;
     float: left;
      ::-webkit-scrollbar {
         width: 5px;
         height: 5px;
     }
      ::-webkit-scrollbar-thumb {
-        background-color: #fff;
+        background-color: #ccc;
     }
      ::-webkit-scrollbar-track {
         background-color: transparent;
@@ -550,7 +554,7 @@ $brand-green: #0eda85 !default; //green
 .liveupdate-eventcard {
     width: 100%;
     height: 100%;
-    padding: 20px 30px;
+    padding: 40px 50px 20px;
     color: #fff;
     overflow-y: auto;
 }
@@ -578,6 +582,24 @@ $brand-green: #0eda85 !default; //green
 }
 
 // EVENTS END
+// SOCIAL FEED
+.live-sociallogo{
+  img{
+    border: 5px solid #fff;
+    border-radius: 100%;
+    margin-bottom: -5px;
+  }
+}
+.livesocial-fb{
+  border-bottom: 10px solid #FFBF51;
+}
+.livesocial-twitter{
+  border-bottom: 10px solid #79D3FF;
+}
+.livesocial-insta{
+  border-bottom: 10px solid #A7E919;
+}
+// SOCIAL FEED END
 // CUSTOM TICKER
 .ticker-wrap {
     width: 100%;

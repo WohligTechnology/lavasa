@@ -90,6 +90,15 @@ sans-serif !default;
     font-weight: 500;
 }
 
+@font-face {
+  font-family: "Opensans Semibold";
+  src: url('../fonts/OPENSANS-SEMIBOLD_3.TTF');
+}
+
+@font-face {
+  font-family: "Opensans Regular";
+  src: url('../fonts/OPENSANS-REGULAR_3.TTF');
+}
 
 /* mixing*/
 
@@ -149,7 +158,7 @@ body {
 
 img.loading {
     text-align: center;
-    opacity: 1; // width: 32px !important; 
+    opacity: 1; // width: 32px !important;
     // height: auto;
 }
 
@@ -296,6 +305,18 @@ a {
 
 .font-sansation {
     font-family: 'Sansation';
+}
+
+.opensans-semibold {
+  font-family: "Opensans Semibold";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.opensans-regular {
+  font-family: "Opensans Regular";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .font-FjallaOne {
@@ -4225,7 +4246,7 @@ iframe#twitter-widget-0 {
 }
 
 .d-padd {
-    // padding-left: 20px; 
+    // padding-left: 20px;
     // padding-top: 20px;
     position: relative;
 }
@@ -5881,7 +5902,7 @@ input[type="radio"]:checked+label span {
     border-bottom: 1px solid red;
     top: -4px;
     left: -80px;
-} //scss for modal term 
+} //scss for modal term
 .login-modal {
     padding: 50px;
     text-align: justify;
@@ -6285,7 +6306,7 @@ input {
     }
 } // input {
 //     background-color: transparent;
-// } 
+// }
 //Extra but not waste
 .dummy {
     .ui-select-match {
@@ -6432,7 +6453,7 @@ input {
 
 .resultColor {
     color: $brand-success;
-} //Old SASS ENDED 
+} //Old SASS ENDED
 //New SASS Ended
 //sports-registration-form
 .sp-frget {
@@ -6705,7 +6726,7 @@ h1.forgot-space {
     height: 5px !important;
 }
 
-//end-sportsreg-terms 
+//end-sportsreg-terms
 //start sports-congrats
 .clearfix {
     overflow: auto;
