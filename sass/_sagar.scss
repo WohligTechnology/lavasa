@@ -584,20 +584,41 @@ $brand-green: #0eda85 !default; //green
 // EVENTS END
 // SOCIAL FEED
 .live-sociallogo{
-  img{
-    border: 5px solid #fff;
-    border-radius: 100%;
-    margin-bottom: -5px;
+  width: 75px;
+  height: 75px;
+  border: 5px solid #fff;
+  border-radius: 100%;
+  margin: 0px auto;
+  margin-bottom: -8px;
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  font-size: 42px;
+  line-height: 1;
+}
+.live-social-fb{
+  border-bottom: 10px solid #fe9b30;
+  .live-sociallogo{
+    background-color: #fe9b30;
   }
 }
-.livesocial-fb{
-  border-bottom: 10px solid #FFBF51;
+.live-social-twitter{
+  border-bottom: 10px solid #00a8ff;
+  .live-sociallogo{
+    background-color: #00a8ff;
+  }
 }
-.livesocial-twitter{
-  border-bottom: 10px solid #79D3FF;
+.live-social-insta{
+  border-bottom: 10px solid #0dd984;
+  .live-sociallogo{
+    background-color: #0dd984;
+  }
 }
-.livesocial-insta{
-  border-bottom: 10px solid #A7E919;
+.social-fa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform( translate(-50%, -50%));
 }
 // SOCIAL FEED END
 // CUSTOM TICKER
