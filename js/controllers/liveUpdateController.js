@@ -1,4 +1,4 @@
-firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location, TemplateService, NavigationService, $timeout, cityService, toastr, $state, $uibModal) {
+firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location, TemplateService, NavigationService, $timeout, cityService, toastr, $state, $uibModal, $interval) {
   $scope.template = TemplateService.changecontent("liveupdates");
   $scope.menutitle = NavigationService.makeactive("Live Updates");
   // TemplateService.header = "views/header2.html";
@@ -319,34 +319,76 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
   };
   $scope.getTickers();
   // DRAWS LINK
-  $scope.drawSelect = function(institute){
+  $scope.drawSelect = function (institute) {
     switch (institute) {
       case 'school':
         $scope.drawObj = {
           institute: 'school',
           link: '',
         }
-      break;
+        break;
       case 'college':
         $scope.drawObj = {
           institute: 'college',
           link: '',
         }
-      break;
+        break;
     }
   }
   // DRAWS LINK END
   // SHOW ALBUM VIEW
-  $scope.openAlbumView = function(album){
+  $scope.openAlbumView = function (album) {
     console.log('album', album);
     $scope.currentAlbum = album;
     var modalInstance = $uibModal.open({
-        animation: $scope.animationsEnabled,
-        templateUrl: 'views/modal/album-modal.html',
-        size: 'lg',
-        scope: $scope,
-        windowClass: "album-modal"
+      animation: $scope.animationsEnabled,
+      templateUrl: 'views/modal/album-modal.html',
+      size: 'lg',
+      scope: $scope,
+      windowClass: "album-modal"
     });
   }
   // SHOW ALBUM VIEW END
+
+  //Social Media
+  function twitterReload(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      p = /^http:/.test(d.location) ? 'http' : 'https';
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id = id;
+      js.src = p + "://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }
+  }
+
+  function facebookReload(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    //  if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=1452795161694777";
+    fjs.parentNode.insertBefore(js, fjs);
+
+  }
+  $timeout(function () {
+    twitterReload(document, "script", "twitter-wjs");
+    facebookReload(document, 'script', 'facebook-jssdk');
+  }, 1000);
+
+  var f, t;
+  f = $interval(function () {
+    if (typeof FB !== undefined) {
+      FB = null;
+      $interval.cancel(f);
+      facebookReload(document, 'script', 'facebook-jssdk');
+    }
+  }, 100);
+  t = $interval(function () {
+    if (typeof twttr !== undefined) {
+      twttr.widgets.load();
+      $interval.cancel(t);
+
+    }
+  }, 100);
 });
