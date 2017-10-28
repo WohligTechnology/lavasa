@@ -91,14 +91,15 @@ sans-serif !default;
 }
 
 @font-face {
-  font-family: "Opensans Semibold";
-  src: url('../fonts/OPENSANS-SEMIBOLD_3.TTF');
+    font-family: "Opensans Semibold";
+    src: url('../fonts/OPENSANS-SEMIBOLD_3.TTF');
 }
 
 @font-face {
-  font-family: "Opensans Regular";
-  src: url('../fonts/OPENSANS-REGULAR_3.TTF');
+    font-family: "Opensans Regular";
+    src: url('../fonts/OPENSANS-REGULAR_3.TTF');
 }
+
 
 /* mixing*/
 
@@ -308,15 +309,15 @@ a {
 }
 
 .opensans-semibold {
-  font-family: "Opensans Semibold";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: "Opensans Semibold";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .opensans-regular {
-  font-family: "Opensans Regular";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: "Opensans Regular";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .font-FjallaOne {
@@ -2224,7 +2225,7 @@ img.fancybox-image {
 }
 
 .box-social {
-    margin-top: 22%;
+    margin-top: 5%;
 }
 
 .mb50 {
