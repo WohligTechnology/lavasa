@@ -15,8 +15,6 @@ firstApp.service('cityService', function ($http, TemplateService, $state, toastr
     returnObj.year15 = '2015-16';
     returnObj.year16 = '2016-17';
 
-    returnObj.link1 = "localhost:8080";
-
     // returnObj.sublink1 = "http://mumbaischool.sfanow.in";
     // returnObj.sublink2 = "http://mumbaicollege.sfanow.in";
     // returnObj.sublink3 = "http://hyderabadschool.sfanow.in";
@@ -30,6 +28,9 @@ firstApp.service('cityService', function ($http, TemplateService, $state, toastr
     // var eventYear = '2017';
     // var year15 = '2015';
     // var year16 = '2016';
+    if (window.location.host == 'localhost:8080') {
+      returnObj.link1 = "localhost:8080";
+    }
     callback(returnObj);
   };
 
