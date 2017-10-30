@@ -6,6 +6,11 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
   $scope.navigation = NavigationService.getnav();
 
   // ITIALISE VARIABLES
+  $scope.ticker={
+    scroll: true,
+    duration: 15000,
+    duplicated: true
+  }
   $scope.drawObj = {
     institute: 'school',
   }
@@ -313,6 +318,17 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
 
           }
 
+          // DEMO LOAD
+          $scope.tickrContent = "";
+          _.each($scope.tickerData[0].tickerDetails, function(n, nindex){
+            // console.log("tick.n",n);
+              $scope.tickrContent += '<div class="ticker__item relate" > <div class="ticker-icon">  </div> <span> '+ n.tickerContent +' </span> </div>';
+              // IF IMAGE FILE IS NEEDED UNCOMMENT THE IMG TAG BELOW AND PASTE IN ticker-icon DIV
+              // <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
+            });
+          console.log("ticke", $scope.tickrContent);
+          // DEMO LOAD  END
+
         });
       }
     });
@@ -350,7 +366,7 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
   }
   // SHOW ALBUM VIEW END
 
-  //Social Media
+  //Social Media INIT
   function twitterReload(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0],
       p = /^http:/.test(d.location) ? 'http' : 'https';
@@ -391,4 +407,8 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
 
     }
   }, 100);
+  //Social Media INIT END
+  // TICKER CONTENT INIT
+
+  // TICKER CONTENT INIT END
 });

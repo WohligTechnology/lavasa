@@ -364,7 +364,9 @@ $brand-green: #0eda85 !default; //green
     font-size: 12px;
     line-height: 1;
 }
-
+.tickr-holder{
+  overflow: hidden;
+}
 // TICKR SECTION END
 // IMAGE SECTION
 .liveupdate-albumholder {
@@ -655,9 +657,14 @@ $tickerDuration: 60s;
 
 .ticker-icon {
     width: 30px;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
+    background-image: url("../img/sfa-ringlogo.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 // **************************************************************************

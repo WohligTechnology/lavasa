@@ -263,9 +263,9 @@
     <div class="liveupdate-tickr">
       <div class="container relate">
         <div class="tickr-livelabel">LIVE</div>
-        <div class="tickr-holder">
+        <div class="tickr-holder" hidden>
           <div class="ticker-wrap">
-            <div class="ticker">
+            <div class="ticker" >
               <div class="ticker__item relate" ng-repeat="data in tickerData[0].tickerDetails track by $index">
                 <div class="ticker-icon">
                   <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
@@ -275,6 +275,51 @@
             </div>
           </div>
         </div>
+
+        <!-- lolwa -->
+        <div angular-marquee class="tickr-holder"  scroll="ticker.scroll" duration="ticker.duration" duplicated="duplicated" gap="50">
+
+          <div class="" ng-bind-html = "tickrContent" ></div>
+
+            <!-- <div class="">
+              <div class="ticker__item relate" ng-repeat="data in tickerData[0].tickerDetails track by $index">
+                <div class="ticker-icon">
+                  <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
+                </div>
+                <span ng-bind-html="data.tickerContent"></span>
+              </div>
+            </div> -->
+
+              <!-- <div class="" >
+              <div class="ticker__item relate" >
+                <div class="ticker-icon">
+                  <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
+                </div>
+                <span >1. ticker content theree should be some thing over here and we don't know ahat to pou https://fb.com</span>
+              </div>
+              <div class="ticker__item relate" >
+                <div class="ticker-icon">
+                  <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
+                </div>
+                <span >2. ticker content theree should be some thing over here and we don't know ahat to pou https://fb.com</span>
+              </div>
+              <div class="ticker__item relate" >
+                <div class="ticker-icon">
+                  <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
+                </div>
+                <span >3. ticker content theree should be some thing over here and we don't know ahat to pou https://fb.com</span>
+              </div>
+              <div class="ticker__item relate" >
+                <div class="ticker-icon">
+                  <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
+                </div>
+                <span >4. ticker content theree should be some thing over here and we don't know ahat to pou https://fb.com</span>
+              </div>
+              </div> -->
+
+
+        </div>
+        <!-- lolwa -->
       </div>
     </div>
   </section>

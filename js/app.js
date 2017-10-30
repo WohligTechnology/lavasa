@@ -18,7 +18,8 @@ var firstApp = angular.module('firstApp', [
     'wt.responsive',
     'toastr',
     'infinite-scroll',
-    'angularPromiseButtons'
+    'angularPromiseButtons',
+    'angular-marquee'
 
 ]);
 
