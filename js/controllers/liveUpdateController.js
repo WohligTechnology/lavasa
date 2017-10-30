@@ -8,7 +8,7 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
   // ITIALISE VARIABLES
   $scope.ticker={
     scroll: true,
-    duration: 15000,
+    duration: 20000,
     duplicated: true
   }
   $scope.drawObj = {
@@ -32,25 +32,6 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
     $scope.drawObj.college = false;
   });
   // ITIALISE VARIABLES END
-
-  // BANNER SWIPER INIT
-  $scope.initSwiper = function () {
-    $scope.$on('$viewContentLoaded', function () {
-      $timeout(function () {
-        var liveupdateBanner = new Swiper('.liveupdate-bannerswiper .swiper-container', {
-          slidesPerView: 1,
-          direction: 'horizontal',
-          loop: true,
-          grabCursor: true,
-          nextButton: '.liveupdate-bannernext',
-          prevButton: '.liveupdate-bannerprev',
-          touchEventsTarget: 'container',
-        })
-      }, 300);
-    });
-  };
-  $scope.initSwiper();
-  // BANNER SWIPER INIT END
 
   // BANNERS
   NavigationService.getAllEnabledBanner(function (responses) {
@@ -318,7 +299,7 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
 
           }
 
-          // DEMO LOAD
+          // TICKER CONTENT LOAD
           $scope.tickrContent = "";
           _.each($scope.tickerData[0].tickerDetails, function(n, nindex){
             // console.log("tick.n",n);
@@ -326,8 +307,7 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
               // IF IMAGE FILE IS NEEDED UNCOMMENT THE IMG TAG BELOW AND PASTE IN ticker-icon DIV
               // <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
             });
-          console.log("ticke", $scope.tickrContent);
-          // DEMO LOAD  END
+          // TICKER CONTENT LOAD  END
 
         });
       }
