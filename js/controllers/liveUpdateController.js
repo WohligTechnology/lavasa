@@ -11,6 +11,38 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
     duration: 20000,
     duplicated: true
   }
+  $scope.initSwiper = function(){
+    $timeout(function(){
+      var albumGallery = new Swiper('.albumview-gallery .swiper-container', {
+          slidesPerView: 1,
+          direction: 'horizontal',
+          loop: false,
+          centeredSlides: true,
+          grabCursor: true,
+          nextButton: '.albumview-next',
+          prevButton: '.albumview-prev',
+          touchEventsTarget: 'container',
+        });
+
+      var albumThumbs  = new Swiper('.albumview-thumbs .swiper-container', {
+          slidesPerView: 4,
+          spaceBetween: 10,
+          direction: 'horizontal',
+          loop: false,
+          centeredSlides: true,
+          grabCursor: true,
+          touchEventsTarget: 'container',
+          slideToClickedSlide: true
+        });
+        albumGallery.params.control = albumThumbs;
+        albumThumbs.params.control = albumGallery;
+    }, 300);
+  }
+
+    $scope.$on('$viewContentLoaded', function () {
+      $scope.initSwiper();
+    });
+
   $scope.drawObj = {
     institute: 'school',
   }
@@ -343,6 +375,7 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
       scope: $scope,
       windowClass: "album-modal"
     });
+    $scope.initSwiper();
   }
   // SHOW ALBUM VIEW END
 
