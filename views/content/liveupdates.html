@@ -28,94 +28,217 @@
     <div class="liveupdate-rankingstable">
       <div class="container">
         <div class="row">
+          <!-- ONLY SCHOOLS -->
           <!-- SCHOOL RANKING TABLE  -->
-          <div class="col-md-6 col-sm-6" ng-if="rankTableSchool">
+          <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8" ng-if="!drawObj.college ">
             <div class="liveupdate-schoolranking">
               <div class="liveupdate-rankingtitle font-FjallaOne">
                 Top Schools On The Ranking Table
               </div>
-              <div class="liveupdate-rankingtableholder table-responsive">
+              <p class=" font-FjallaOne" ng-if="!rankTableSchool">Updating Soon</p>
+              <div class="liveupdate-rankingtableholder " ng-if="rankTableSchool">
                 <div class="liveupdate-tabletime">
                   <!-- Last Updated on 28th September 2017  -->
                   Last Updated on {{schoolDate|englishNumeralDate}}
                 </div>
-                <table class="table table-striped" id="schoolRankTable">
-                  <thead>
-                    <tr>
-                      <th>
-                        <div class="text-uppercase">
-                          rank
-                        </div>
-                      </th>
-                      <th>
-                        <div class="text-uppercase">
-                          school name
-                        </div>
-                      </th>
-                      <th>
-                        <div class="text-uppercase text-center">
-                          <div class="result-tablemedal">
-                            <img ng-src="{{'gold'|medalicon:'white'}}" alt="Gold Medals" class="img-responsive">
+                <div class="table-responsive">
+                  <table class="table table-striped" id="schoolRankTable">
+                    <thead>
+                      <tr>
+                        <th>
+                          <div class="text-uppercase">
+                            rank
                           </div>
-                        </div>
-                      </th>
-                      <th>
-                        <div class="text-uppercase text-center">
-                          <div class="result-tablemedal">
-                            <img ng-src="{{'silver'|medalicon:'white'}}" alt="Silver Medals" class="img-responsive">
+                        </th>
+                        <th>
+                          <div class="text-uppercase">
+                            school name
                           </div>
-                        </div>
-                      </th>
-                      <th>
-                        <div class="text-uppercase text-center">
-                          <div class="result-tablemedal">
-                            <img ng-src="{{'bronze'|medalicon:'white'}}" alt="Bronze Medals" class="img-responsive">
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'gold'|medalicon:'white'}}" alt="Gold Medals" class="img-responsive">
+                            </div>
                           </div>
-                        </div>
-                      </th>
-                      <th>
-                        <div class="text-uppercase text-center totalpoint-title">
-                          total points
-                        </div>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr ng-repeat="school in rankTableSchool|orderBy:'rank' |limitTo:5 track by $index">
-                      <td>
-                        <div class="">
-                          {{school.rank}}
-                        </div>
-                      </td>
-                      <td>
-                        <div class="text-left">
-                          {{school.schoolName}}
-                        </div>
-                      </td>
-                      <td>
-                        <div class="">
-                          {{school.goldPoints}}
-                        </div>
-                      </td>
-                      <td>
-                        <div class="">
-                          {{school.silverPoints}}
-                        </div>
-                      </td>
-                      <td>
-                        <div class="">
-                          {{school.bronzePoints}}
-                        </div>
-                      </td>
-                      <td ng-click="addMedalDetail($index, school);" class="pointer">
-                        <div class="">
-                          {{school.totalPoints}}
-                          <span class="pointer fa " ng-class="{'fa-angle-down': school.rowDetail == false, 'fa-angle-up':school.rowDetail == true }"></span>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'silver'|medalicon:'white'}}" alt="Silver Medals" class="img-responsive">
+                            </div>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'bronze'|medalicon:'white'}}" alt="Bronze Medals" class="img-responsive">
+                            </div>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center totalpoint-title">
+                            total points
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="school in rankTableSchool|orderBy:'rank' |limitTo:5 track by $index">
+                        <td>
+                          <div class="">
+                            {{school.rank}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="text-left">
+                            {{school.schoolName}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{school.goldPoints}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{school.silverPoints}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{school.bronzePoints}}
+                          </div>
+                        </td>
+                        <td ng-click="addMedalDetail($index, school);" class="pointer">
+                          <div class="">
+                            {{school.totalPoints}}
+                            <span class="pointer fa " ng-class="{'fa-angle-down': school.rowDetail == false, 'fa-angle-up':school.rowDetail == true }"></span>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="liveupdate-tablefooter">
+                  <div class="pull-right">
+                    <a>View School Ranking Table</a>
+                  </div>
+                  <div class="point-list">
+                    <ul class="list-inline">
+                      <li>
+                        <div class="point-color-box gold-box"></div>
+                        <span class="point-number">5 Points</span>
+                      </li>
+                      <li>
+                        <div class="point-color-box silver-box"></div>
+                        <span class="point-number">3 Points</span>
+                      </li>
+                      <li>
+                        <div class="point-color-box bronze-box"></div>
+                        <span class="point-number">1 Points</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- SCHOOL RANKING TABLE END  -->
+          <!-- ONLY SCHOOLS END -->
+          <!-- SCHOOLS AND COLLEGE -->
+          <!-- SCHOOL RANKING TABLE  -->
+          <div class="col-md-6 col-sm-6 " ng-if="drawObj.college ">
+            <div class="liveupdate-schoolranking">
+              <div class="liveupdate-rankingtitle font-FjallaOne">
+                Top Schools On The Ranking Table
+              </div>
+              <p class=" font-FjallaOne" ng-if="!rankTableSchool">Updating Soon</p>
+              <div class="liveupdate-rankingtableholder " ng-if="rankTableSchool">
+                <div class="liveupdate-tabletime">
+                  <!-- Last Updated on 28th September 2017  -->
+                  Last Updated on {{schoolDate|englishNumeralDate}}
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-striped" id="schoolRankTable">
+                    <thead>
+                      <tr>
+                        <th>
+                          <div class="text-uppercase">
+                            rank
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase">
+                            school name
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'gold'|medalicon:'white'}}" alt="Gold Medals" class="img-responsive">
+                            </div>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'silver'|medalicon:'white'}}" alt="Silver Medals" class="img-responsive">
+                            </div>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'bronze'|medalicon:'white'}}" alt="Bronze Medals" class="img-responsive">
+                            </div>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center totalpoint-title">
+                            total points
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="school in rankTableSchool|orderBy:'rank' |limitTo:5 track by $index">
+                        <td>
+                          <div class="">
+                            {{school.rank}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="text-left">
+                            {{school.schoolName}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{school.goldPoints}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{school.silverPoints}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{school.bronzePoints}}
+                          </div>
+                        </td>
+                        <td ng-click="addMedalDetail($index, school);" class="pointer">
+                          <div class="">
+                            {{school.totalPoints}}
+                            <span class="pointer fa " ng-class="{'fa-angle-down': school.rowDetail == false, 'fa-angle-up':school.rowDetail == true }"></span>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
                 <div class="liveupdate-tablefooter">
                   <div class="pull-right">
                     <a>View School Ranking Table</a>
@@ -142,15 +265,17 @@
           </div>
           <!-- SCHOOL RANKING TABLE END  -->
           <!-- COLLEGE RANKING TABLE  -->
-          <div class="col-md-6 col-sm-6" ng-if="rankTableCollege">
+          <div class="col-md-6 col-sm-6 " ng-if="drawObj.college ">
             <div class="liveupdate-schoolranking">
               <div class="liveupdate-rankingtitle font-FjallaOne">
                 Top Colleges On The Ranking Table
               </div>
-              <div class="liveupdate-rankingtableholder table-responsive">
+              <p class=" font-FjallaOne" ng-if="!rankTableCollege">Updating Soon</p>
+              <div class="liveupdate-rankingtableholder" ng-if="rankTableCollege">
                 <div class="liveupdate-tabletime">
                   Last Updated on {{collegeDate|englishNumeralDate}}
                 </div>
+                <div class="table-responsive">
                 <table class="table table-striped" id="schoolRankTable">
                   <thead>
                     <tr>
@@ -228,6 +353,7 @@
                     </tr>
                   </tbody>
                 </table>
+                </div>
                 <div class="liveupdate-tablefooter">
                   <div class="pull-right">
                     <a>View College Ranking Table</a>
@@ -253,6 +379,8 @@
             </div>
           </div>
           <!-- COLLEGE RANKING TABLE END  -->
+          <!-- SCHOOLS AND COLLEGE END -->
+
         </div>
       </div>
     </div>
@@ -376,59 +504,31 @@
                 <div class="liveupdates-drawstitle font-FjallaOne">
                   draws, schedules & results
                 </div>
-                <div class="liveupdates-drawscard">
-                  <div class="drawschedule-tabholder">
-                    <ul class="list-inline drawschedule-tablist">
-                      <li class="drawschedule-tab" ng-click="drawSelect('school');" ng-class="{'active':drawObj.institute == 'school'}">school</li>
-                      <li class="drawschedule-tab" ng-click="drawSelect('college');" ng-class="{'active':drawObj.institute == 'college'}" ng-if="drawObj.college">college</li>
-                    </ul>
-                  </div>
+                <!-- FOR ONLY SCHOOLS -->
+                <div class="liveupdates-drawscard font-FjallaOne" ng-if="!drawObj.college">
                   <a href="{{drawObj.link}}" target="_blank">
-                    <form class="livedraw-formholder">
-                      <!-- SPORT -->
-                      <div class="form-group">
-                        <div class="display-inline updatedrawsschedule-lable">
-                          <label for="">Sport</label>
-                        </div>
-                        <div class="display-inline updatedraws-dropdown">
-                          <p>Select Sport</p>
-                        </div>
-                      </div>
-                      <!-- SPORT END -->
-                      <!-- EVENT start -->
-                      <div class="form-group">
-                        <div class="display-inline updatedrawsschedule-lable">
-                          <label for="">Event</label>
-                        </div>
-                        <div class="display-inline updatedraws-dropdown">
-                          <p>Select Event</p>
-                        </div>
-                      </div>
-                      <!-- EVENT end -->
-                      <!-- GENDER -->
-                      <div class="form-group">
-                        <div class="display-inline updatedrawsschedule-lable">
-                          <label for="">Gender</label>
-                        </div>
-                        <div class="display-inline updatedraws-dropdown">
-                          <p>Select Gender</p>
-                        </div>
-                      </div>
-                      <!-- GENDER END -->
-                      <!-- AGE GROUP -->
-                      <div class="form-group">
-                        <div class="display-inline updatedrawsschedule-lable">
-                          <label for="">Age Group</label>
-                        </div>
-                        <div class="display-inline updatedraws-dropdown">
-                          <p>Select Age Group</p>
-                        </div>
-
-                      </div>
-                      <!-- AGE GROUP END -->
-                    </form>
+                    <div class="livedraw-text">
+                      <p>School </br> Draws, Schedules & </br> Results</p>
+                    </div>
                   </a>
                 </div>
+                <!-- FOR ONLY SCHOOLS END -->
+                <!-- FOR SCHOOLS AND COLLEGE -->
+                <div class="liveupdates-drawscard liveupdates-draw font-FjallaOne" ng-if="drawObj.college">
+                  <a href="{{drawObj.link}}" target="_blank">
+                    <div class="livedraw-text">
+                      <p>School </br> Draws, Schedules & Results</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="liveupdates-drawscard liveupdates-draw liveupdates-drawcollege font-FjallaOne" ng-if="drawObj.college">
+                  <a href="{{drawObj.link}}" target="_blank">
+                    <div class="livedraw-text">
+                      <p>College </br> Draws, Schedules & Results</p>
+                    </div>
+                  </a>
+                </div>
+                <!-- FOR SCHOOLS AND COLLEGE END -->
               </div>
             </div>
             <div class="col-md-8" ng-if="specialEvents || specialEvents.length>0">

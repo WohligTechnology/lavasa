@@ -54,14 +54,14 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
       $scope.calenderLink = '';
     } else if (window.location.host == response.link2) {
       // $scope.drawObj.link = response.data.Hyderabad;
+      $scope.drawObj.college = false;
       $scope.calenderLink = '';
-      $scope.drawObj.college = true;
     } else if (window.location.host == response.link3) {
       // $scope.drawObj.link = response.data.Ahmedabad;
       $scope.drawObj.college = true;
       $scope.calenderLink = '';
     }
-    $scope.drawObj.college = false;
+    $scope.drawObj.college = true;
   });
   // ITIALISE VARIABLES END
 

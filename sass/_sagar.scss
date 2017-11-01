@@ -503,8 +503,48 @@ $brand-green: #0eda85 !default; //green
 }
 
 .liveupdates-drawscard {
-    padding: 20px;
-    border: 1px solid #ccc;
+  height: 300px;
+  // padding: 20px;
+  // border: 1px solid #ccc;
+  position: relative;
+  background-image: url('../img/medal-icon/bg-drawsschool.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-transform: uppercase;
+}
+
+.livedraw-text{
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  line-height: 1.4;
+  p{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    color: #fff;
+    font-size: 30px;
+    text-decoration: underline;
+    @include transform(translateY(-50%));
+  }
+}
+
+.liveupdates-draw{
+  height: 145px;
+  .livedraw-text{
+    p{
+      font-size: 24px;
+    }
+  }
+}
+
+.liveupdates-drawcollege{
+  margin-top: 10px;
+  background-image: url('../img/medal-icon/bg-drawsschool.jpg');
 }
 
 .updatedrawsschedule-lable {
@@ -543,8 +583,6 @@ $brand-green: #0eda85 !default; //green
 .liveupdates-eventholder {
     width: 50%;
     height: 300px;
-    padding: 5px;
-    padding-top: 0;
     float: left;
      ::-webkit-scrollbar {
         width: 5px;
