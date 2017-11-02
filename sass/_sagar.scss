@@ -271,7 +271,7 @@ $brand-green: #0eda85 !default; //green
     font-size: 24px;
     margin-bottom: 10px;
     color: #00aaff;
-    font-weight: 700;
+    // font-weight: 700;
     text-transform: uppercase;
 }
 
@@ -507,7 +507,7 @@ $brand-green: #0eda85 !default; //green
   // padding: 20px;
   // border: 1px solid #ccc;
   position: relative;
-  background-image: url('../img/medal-icon/bg-drawsschool.jpg');
+  background-image: url('../img/medal-icon/bg-drawschool.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -544,6 +544,10 @@ $brand-green: #0eda85 !default; //green
 
 .liveupdates-drawcollege{
   margin-top: 10px;
+  background-image: url('../img/medal-icon/bg-drawcollege.jpg');
+}
+
+.liveupdates-drawscardbig{
   background-image: url('../img/medal-icon/bg-drawsschool.jpg');
 }
 
