@@ -276,83 +276,83 @@
                   Last Updated on {{collegeDate|englishNumeralDate}}
                 </div>
                 <div class="table-responsive">
-                <table class="table table-striped" id="schoolRankTable">
-                  <thead>
-                    <tr>
-                      <th>
-                        <div class="text-uppercase">
-                          rank
-                        </div>
-                      </th>
-                      <th>
-                        <div class="text-uppercase">
-                          College name
-                        </div>
-                      </th>
-                      <th>
-                        <div class="text-uppercase text-center">
-                          <div class="result-tablemedal">
-                            <img ng-src="{{'gold'|medalicon:'white'}}" alt="Gold Medals" class="img-responsive">
+                  <table class="table table-striped" id="schoolRankTable">
+                    <thead>
+                      <tr>
+                        <th>
+                          <div class="text-uppercase">
+                            rank
                           </div>
-                        </div>
-                      </th>
-                      <th>
-                        <div class="text-uppercase text-center">
-                          <div class="result-tablemedal">
-                            <img ng-src="{{'silver'|medalicon:'white'}}" alt="Silver Medals" class="img-responsive">
+                        </th>
+                        <th>
+                          <div class="text-uppercase">
+                            College name
                           </div>
-                        </div>
-                      </th>
-                      <th>
-                        <div class="text-uppercase text-center">
-                          <div class="result-tablemedal">
-                            <img ng-src="{{'bronze'|medalicon:'white'}}" alt="Bronze Medals" class="img-responsive">
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'gold'|medalicon:'white'}}" alt="Gold Medals" class="img-responsive">
+                            </div>
                           </div>
-                        </div>
-                      </th>
-                      <th>
-                        <div class="text-uppercase text-center totalpoint-title">
-                          total points
-                        </div>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr ng-repeat="college in rankTableCollege|orderBy:'rank' |limitTo:5 track by $index">
-                      <td>
-                        <div class="">
-                          {{college.rank}}
-                        </div>
-                      </td>
-                      <td>
-                        <div class="text-left">
-                          {{college.schoolName}}
-                        </div>
-                      </td>
-                      <td>
-                        <div class="">
-                          {{college.goldPoints}}
-                        </div>
-                      </td>
-                      <td>
-                        <div class="">
-                          {{college.silverPoints}}
-                        </div>
-                      </td>
-                      <td>
-                        <div class="">
-                          {{college.bronzePoints}}
-                        </div>
-                      </td>
-                      <td ng-click="addMedalDetail($index, school);" class="pointer">
-                        <div class="">
-                          {{college.totalPoints}}
-                          <span class="pointer fa " ng-class="{'fa-angle-down': school.rowDetail == false, 'fa-angle-up':school.rowDetail == true }"></span>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'silver'|medalicon:'white'}}" alt="Silver Medals" class="img-responsive">
+                            </div>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'bronze'|medalicon:'white'}}" alt="Bronze Medals" class="img-responsive">
+                            </div>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center totalpoint-title">
+                            total points
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="college in rankTableCollege|orderBy:'rank' |limitTo:5 track by $index">
+                        <td>
+                          <div class="">
+                            {{college.rank}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="text-left">
+                            {{college.schoolName}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{college.goldPoints}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{college.silverPoints}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{college.bronzePoints}}
+                          </div>
+                        </td>
+                        <td ng-click="addMedalDetail($index, school);" class="pointer">
+                          <div class="">
+                            {{college.totalPoints}}
+                            <span class="pointer fa " ng-class="{'fa-angle-down': school.rowDetail == false, 'fa-angle-up':school.rowDetail == true }"></span>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
                 <div class="liveupdate-tablefooter">
                   <div class="pull-right">
@@ -393,7 +393,7 @@
         <div class="tickr-livelabel">LIVE</div>
         <div class="tickr-holder" hidden>
           <div class="ticker-wrap">
-            <div class="ticker" >
+            <div class="ticker">
               <div class="ticker__item relate" ng-repeat="data in tickerData[0].tickerDetails track by $index">
                 <div class="ticker-icon">
                   <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
@@ -405,11 +405,11 @@
         </div>
 
         <!-- lolwa -->
-        <div angular-marquee class="tickr-holder"  scroll="ticker.scroll" duration="ticker.duration" duplicated="duplicated" gap="50">
+        <div angular-marquee class="tickr-holder" scroll="ticker.scroll" duration="ticker.duration" duplicated="duplicated" gap="50">
 
-          <div class="" ng-bind-html = "tickrContent" ></div>
+          <div class="" ng-bind-html="tickrContent"></div>
 
-            <!-- <div class="">
+          <!-- <div class="">
               <div class="ticker__item relate" ng-repeat="data in tickerData[0].tickerDetails track by $index">
                 <div class="ticker-icon">
                   <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
@@ -418,7 +418,7 @@
               </div>
             </div> -->
 
-              <!-- <div class="" >
+          <!-- <div class="" >
               <div class="ticker__item relate" >
                 <div class="ticker-icon">
                   <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
@@ -648,7 +648,11 @@
             </div>
             <div class="box-social">
               <div class="fb-set" style="height: 820px;overflow-y: hidden;">
-                <iframe src="//lightwidget.com/widgets/836f36bbf5d959b8b1e7134bd93bf799.html" id="instansive_554a6dce8a" name="instansive_554a6dce8a"
+                <iframe src="//lightwidget.com/widgets/90ea63f08e305d9d965a5882c2cb9cbf.html" scrolling="yes" allowtransparency="true" class="lightwidget-widget"
+                  style="width: 100%;
+                  height:100%;
+                  border: 0; overflow: hidden;"></iframe>
+                <iframe hidden src="//lightwidget.com/widgets/836f36bbf5d959b8b1e7134bd93bf799.html" id="instansive_554a6dce8a" name="instansive_554a6dce8a"
                   scrolling="yes" allowtransparency="true" class="instansive-widget" style="width: 100%;height: 100%; border: 0; overflow: hidden;"></iframe>
               </div>
             </div>

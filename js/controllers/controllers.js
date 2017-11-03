@@ -4656,6 +4656,10 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
                 "img": "img/footer/n9.png",
                 "href": "",
                 "game": "Radio Partner"
+            }, {
+                "img": "img/footer/n11.png",
+                "href": "",
+                "game": "Health & Togetherness Partner"
             }
             //  {
             //     "img": "img/footer/p7.jpg",
