@@ -3188,17 +3188,33 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
                     } else if ($scope.studentStats[0].drawFormat == 'Heats') {
                         _.each($scope.studentStats, function (key) {
                             key.self = {};
-                            _.each(key.heat.heats, function (single) {
-                                if (key.heat.participantType == "team") {
-                                    if (key.team._id == single.team._id) {
-                                        key.self = single;
+                            if (!_.isEmpty(key.heat.video)) {
+                                _.each(key.heat.heats, function (single) {
+                                    if (key.heat.participantType == "team") {
+                                        if (key.team._id == single.team._id) {
+                                            key.self = single;
+                                        }
+                                    } else {
+                                        if (single.player._id == $stateParams.id) {
+                                            key.self = single;
+                                        }
                                     }
-                                } else {
-                                    if (single.player._id == $stateParams.id) {
-                                        key.self = single;
+                                });
+                            } else {
+                                _.each(key.heat.heats, function (single) {
+                                    if (key.heat.participantType == "team") {
+                                        if (key.team._id == single.team._id) {
+                                            key.self = single;
+                                        }
+                                    } else {
+                                        if (single.player._id == $stateParams.id) {
+                                            key.heat.video = single.video;
+                                            key.self = single;
+                                        }
                                     }
-                                }
-                            });
+                                });
+                            }
+
                         });
                     } else if ($scope.studentStats[0].drawFormat == 'League cum Knockout') {
                         _.each($scope.studentStats, function (key) {
