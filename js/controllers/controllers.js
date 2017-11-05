@@ -4700,6 +4700,10 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
                 "img": "img/footer/n10.png",
                 "href": "",
                 "game": "Digital Parenting Partner"
+            }, {
+                "img": "img/footer/n12.png",
+                "href": "",
+                "game": "Sports Development Partner"
             }
             // {
             //     "img": "img/footer/na3.jpg",
@@ -4763,6 +4767,10 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
         "img": "img/footer/hyd/wizcraft.png",
         "href": "",
         "game": "Event Partner"
+    }, {
+        "img": "img/footer/n12.png",
+        "href": "",
+        "game": "Sports Development Partner"
     }];
     // TV Support Partner
 });
