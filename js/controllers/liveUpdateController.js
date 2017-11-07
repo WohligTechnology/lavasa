@@ -61,7 +61,7 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
       $scope.drawObj.college = true;
       $scope.calenderLink = '';
     }
-    $scope.drawObj.college = true;
+    // $scope.drawObj.college = true;
   });
   // ITIALISE VARIABLES END
 
