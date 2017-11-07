@@ -42,11 +42,54 @@
             </div>
         </div>
     </section>
-    <section class="mt80 m-zeromob">
+
+    <!-- DRAWS SCHEDULE BANNERS -->
+    <section class="mt80">
+      <div class="home-drawsholder">
+        <div class="container">
+          <div class="row">
+            <!-- ONLY SCHOOL BANNER -->
+          <div class="col-md-12 padding0 " ng-if="city == 'hyderabad'">
+            <div class="home-drawscard">
+              <a href="" target="_blank">
+                <div class="livedraw-text">
+                  <p>CHECKOUT YOUR DRAWS & SCHEDULES</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <!-- ONLY SCHOOL BANNER END -->
+          <!-- SCHOOL & COLLEGE BANNER  -->
+          <div class="col-md-6 col-sm-6 pl0" ng-if="city == 'mumbai'">
+            <div class="home-drawscard home-drawscard-school">
+              <a href="" target="_blank">
+                <div class="livedraw-text">
+                  <p>SCHOOL </br>DRAWS & SCHEDULES</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 pr0" ng-if="city == 'mumbai'">
+            <div class="home-drawscard home-drawscard-college">
+              <a href="" target="_blank">
+                <div class="livedraw-text">
+                  <p>COLLEGE </br> DRAWS & SCHEDULES</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <!-- SCHOOL & COLLEGE BANNER END -->
+          </div>
+        </div>
+      </div>
+      <!-- DRAWS SCHEDULE BANNERS END -->
+    </section>
+
+    <section class="mt20 m-zeromob">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 padding0">
-                    <div class="first-box sf-relative hidden-xs hidden-sm" ui-sref="school-ranking">
+                    <div class="first-box sf-relative hidden-xs hidden-sm hide" ui-sref="school-ranking" >
                         <img src="img/sf-big.jpg" alt="" class="img-responsive width100 zm">
                         <div class="stupnames sf-absulate">
                             <h1 class="text-up color-white font-bold b-bttom-1 fr-h1">Results</h1>

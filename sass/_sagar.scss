@@ -756,3 +756,28 @@ $tickerDuration: 60s;
 // **************************************************************************
 // CUSTOM TICKER END
 // LIVE UPDATES PAGE END
+// HOME PAGE
+// DRAWS BANNER
+.pl0{
+  padding-left: 0;
+}
+.pr0{
+  padding-right: 0;
+}
+.home-drawscard{
+  width: 100%;
+  height: 260px;
+  background-image: url('../img/medal-icon/bg-home-drawfull.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.home-drawscard-school{
+  background-image: url('../img/medal-icon/bg-drawschool.jpg');
+}
+
+.home-drawscard-college{
+  background-image: url('../img/medal-icon/bg-drawcollege.jpg');
+}
+// DRAWS BANNER END
+// HOME PAGE  END

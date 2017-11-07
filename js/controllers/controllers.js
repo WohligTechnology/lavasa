@@ -39,7 +39,7 @@ var year16 = '2016-17';
 // var year15 = '2015';
 // var year16 = '2016';
 
-firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval) {
+firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval,cityService) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("SPORTS FOR ALL | PROFESSIONAL SCHOOL & COLLEGE SPORTING SYSTEM");
@@ -90,6 +90,20 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
             'minute': 0,
             'seconds': 0
         }));
+
+        // CITY SERVICE INITIALISATIONS
+        cityService.getCurrentCity(function (response) {
+          if (window.location.host == response.link1) {
+            $scope.city = "mumbai";
+          } else if (window.location.host == response.link2) {
+            $scope.city = "hyderabad";
+          } else if (window.location.host == response.link3) {
+            $scope.city = "ahemdabad";
+          } else{
+            $scope.city = "hyderabad";
+          }
+        });
+        // CITY SERVICE INITIALISATIONS END
 
         NavigationService.getAllEnabledBanner(function (response) {
             console.log('data', response);
@@ -365,7 +379,7 @@ firstApp.controller('SponserCtrl', function ($scope, TemplateService, Navigation
     //     "img": "img/footer/na2.jpg",
     //     "href": "",
     //     "game": "Apparel Partner"
-    // }, 
+    // },
     $scope.teams = [{
         "img": "img/sports/football.jpg",
         "name": "football"
@@ -2053,7 +2067,7 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
     }];
     // $scope.photos = [
     //     'img/m1.jpg',
-    //     'img/m2.jpg', 
+    //     'img/m2.jpg',
     //     'img/m3.jpg',
     //     'img/m1.jpg',
     //     'img/m2.jpg',
@@ -4659,7 +4673,7 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
             //     "img": "img/footer/n1.jpg",
             //     "href": "http://madeofgreat.tatamotors.com/tiago/",
             //     "game": "Fantastico Partner"
-            // }, 
+            // },
             {
                 "img": "img/footer/p4.jpg",
                 "href": "",
