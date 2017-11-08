@@ -39,7 +39,7 @@ var year16 = '2016-17';
 // var year15 = '2015';
 // var year16 = '2016';
 
-firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval,cityService) {
+firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval, cityService) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("SPORTS FOR ALL | PROFESSIONAL SCHOOL & COLLEGE SPORTING SYSTEM");
@@ -93,15 +93,15 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
 
         // CITY SERVICE INITIALISATIONS
         cityService.getCurrentCity(function (response) {
-          if (window.location.host == response.link1) {
-            $scope.city = "mumbai";
-          } else if (window.location.host == response.link2) {
-            $scope.city = "hyderabad";
-          } else if (window.location.host == response.link3) {
-            $scope.city = "ahemdabad";
-          } else{
-            $scope.city = "hyderabad";
-          }
+            if (window.location.host == response.link1) {
+                $scope.city = "mumbai";
+            } else if (window.location.host == response.link2) {
+                $scope.city = "hyderabad";
+            } else if (window.location.host == response.link3) {
+                $scope.city = "ahemdabad";
+            } else {
+                $scope.city = "hyderabad";
+            }
         });
         // CITY SERVICE INITIALISATIONS END
 
@@ -204,15 +204,22 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
         }];
     } else if (window.location.host == link2) {
         $scope.bannerss = [{
-            "img": "img/Hyderabad_4.jpg",
-            "link": "http://hyderabadschool.sfanow.in/register"
+            "img": "img/Hyderabad_7.jpg",
+            "link": "http://hyderabadschool.sfanow.in/championship-schedule"
         }, {
-            "img": "img/Hyderabad_5.jpg",
-            "link": "http://hyderabadschool.sfanow.in/register"
-        }, {
-            "img": "img/Hyderabad_6.jpg",
-            "link": "http://hyderabadschool.sfanow.in/register"
+            "img": "img/Hyderabad_8.jpg",
+            "link": "http://hyderabadschool.sfanow.in/draws-schedule"
         }];
+        // $scope.bannerss = [{
+        //     "img": "img/Hyderabad_4.jpg",
+        //     "link": "http://hyderabadschool.sfanow.in/register"
+        // }, {
+        //     "img": "img/Hyderabad_5.jpg",
+        //     "link": "http://hyderabadschool.sfanow.in/register"
+        // }, {
+        //     "img": "img/Hyderabad_6.jpg",
+        //     "link": "http://hyderabadschool.sfanow.in/register"
+        // }];
     } else if (window.location.host == link3) {
         $scope.bannerss = [{
             "img": "img/mobweb-2.jpg",
@@ -4177,7 +4184,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
 
     $scope.newdate = new Date();
     $scope.currendate = moment($scope.newdate).format('DD-MMM-YYYY');
-    $scope.closingdate = moment('10-Nov-2017').format('DD-MMM-YYYY')
+    $scope.closingdate = moment('15-Nov-2017').format('DD-MMM-YYYY')
     $scope.endday = moment($scope.closingdate).diff($scope.currendate, 'days') + 1;
 
     // $uibModal.open({
@@ -4242,12 +4249,12 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     if (type == 'school') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'hyderabad';
-                        sublink = sublink3 + "/championship-schedule";
+                        sublink = sublink3 + "/draws-schedule";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'hyderabad';
-                        sublink = sublink4 + "/championship-schedule";
+                        sublink = sublink4 + "/draws-schedule";
                         window.open(sublink, '_self');
                     }
                     break;
@@ -4256,12 +4263,12 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     if (type == 'school') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'hyderabad';
-                        sublink = sublink3 + "/championship-schedule";
+                        sublink = sublink3 + "/draws-schedule";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'hyderabad';
-                        sublink = sublink4 + "/championship-schedule";
+                        sublink = sublink4 + "/draws-schedule";
                         window.open(sublink, '_self');
                     }
                     break;
@@ -4269,12 +4276,12 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     if (type == 'school') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'hyderabad';
-                        sublink = sublink3 + "/championship-schedule";
+                        sublink = sublink3 + "/draws-schedule";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'hyderabad';
-                        sublink = sublink4 + "/championship-schedule";
+                        sublink = sublink4 + "/draws-schedule";
                         window.open(sublink, '_self');
                     }
                     break;
