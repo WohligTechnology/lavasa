@@ -28,6 +28,7 @@ var jsArray = [
     './bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js',
     './bower_components/angular-promise-buttons/dist/angular-promise-buttons.min.js',
     './bower_components/swiper/dist/js/swiper.jquery.js',
+    './bower_components/angular-marquee/src/marquee.js',
 
     './js/app.js',
 
