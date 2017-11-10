@@ -52,14 +52,18 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
       // $scope.drawObj.link = response.data.Mumbai;
       $scope.drawObj.college = true;
       $scope.calenderLink = '';
+      $scope.schoolLink = "http://mumbaischool.sfanow.in";
+      $scope.collegeLink = "http://mumbaicollege.sfanow.in";
     } else if (window.location.host == response.link2) {
       // $scope.drawObj.link = response.data.Hyderabad;
       $scope.drawObj.college = false;
+      $scope.schoolLink = "http://hyderabadschool.sfanow.in";
       $scope.calenderLink = '';
     } else if (window.location.host == response.link3) {
       // $scope.drawObj.link = response.data.Ahmedabad;
       $scope.drawObj.college = true;
       $scope.calenderLink = '';
+      $scope.schoolLink = "http://hyderabadschool.sfanow.in";
     }
     // $scope.drawObj.college = true;
   });
