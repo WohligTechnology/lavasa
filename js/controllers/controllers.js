@@ -22,7 +22,9 @@ var year15 = '2015-16';
 var year16 = '2016-17';
 
 // var mainLink = "localhost:8080";
+// var link1 = "localhost:8080";
 // var link2 = "localhost:8080";
+
 
 var type = 'live';
 var sublink1 = "http://mumbaischool.sfanow.in";
@@ -46,6 +48,7 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
     TemplateService.description = "Mumbai’s largest professional sport event & tournament for athletes from Schools & Colleges. Click here for athlete bios & match videos. Register now for SFA MUMBAI 2017";
     TemplateService.keywords = "inter college, inter school, tournament, sport event, tournament for athletes ,athlete bios , match videos";
     TemplateService.title = $scope.menutitle;
+    // TemplateService.header = "views/header1.html";
     $scope.navigation = NavigationService.getnav();
     if (window.location.host != mainLink) {
         $scope.hideHome = true;
@@ -4794,6 +4797,157 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
         "game": "Sports Development Partner"
     }];
     // TV Support Partner
+
+    // FOOTER SPORTS MUMBAI
+    $scope.hyderabadFooter = [{
+        name: 'archery'
+    }, {
+        name: 'athletics'
+    }, {
+        name: 'badminton'
+    }, {
+        name: 'basketball'
+    }, {
+        name: 'boxing'
+    }, {
+        name: 'carrom'
+    }, {
+        name: 'chess'
+    }, {
+        name: 'fencing'
+    }, {
+        name: 'football'
+    }, {
+        name: 'handball'
+    }, {
+        name: 'hockey'
+    }, {
+        name: 'judo'
+    }, {
+        name: 'kabaddi'
+    }, {
+        name: 'karate'
+    }, {
+        name: 'kho kho'
+    }, {
+        name: 'shooting'
+    }, {
+        name: 'swimming'
+    }, {
+        name: 'table tennis'
+    }, {
+        name: 'taekwondo'
+    }, {
+        name: 'tennis'
+    }, {
+        name: 'throwball'
+    }, {
+        name: 'volleyball'
+    }, {
+        name: 'water polo'
+    }]
+
+    $scope.mumbaiFooter = [{
+        name: 'archery'
+    }, {
+        name: 'athletics'
+    }, {
+        name: 'badminton'
+    }, {
+        name: 'basketball'
+    }, {
+        name: 'boxing'
+    }, {
+        name: 'carrom'
+    }, {
+        name: 'chess'
+    }, {
+        name: 'fencing'
+    }, {
+        name: 'football'
+    }, {
+        name: 'handball'
+    }, {
+        name: 'hockey'
+    }, {
+        name: 'judo'
+    }, {
+        name: 'kabaddi'
+    }, {
+        name: 'karate'
+    }, {
+        name: 'kho kho'
+    }, {
+        name: 'sport mma'
+    }, {
+        name: 'shooting'
+    }, {
+        name: 'squash'
+    }, {
+        name: 'swimming'
+    }, {
+        name: 'table tennis'
+    }, {
+        name: 'taekwondo'
+    }, {
+        name: 'tennis'
+    }, {
+        name: 'throwball'
+    }, {
+        name: 'volleyball'
+    }, {
+        name: 'water polo'
+    }, {
+        name: 'wrestling'
+    }]
+    // FOOTER SPORTS END
+
+    // CHAMPIONS JOSN
+    $scope.mumbaiChampion = [{
+        name: 'school championship',
+        champDetail: [{
+            name: 'about championship',
+            link: ''
+        }, {
+            name: 'register',
+            link: ''
+        }, {
+            name: 'championship schedule',
+            link: ''
+        }, {
+            name: 'faqs',
+            link: ''
+        }]
+    }, {
+        name: 'college championship',
+        champDetail: [{
+            name: 'register',
+            link: ''
+        }, {
+            name: 'championship schedule',
+            link: ''
+        }, {
+            name: 'faqs',
+            link: ''
+        }]
+    }]
+    // CHAMPIONS JOSN END
+
+    // MUMBAI PROFILE
+    $scope.sfaProfile = [{
+        name: 'athletes',
+        link: 'students'
+    }, {
+        name: 'school',
+        link: 'school'
+    }, {
+        name: 'college',
+        link: 'school'
+    }, {
+        name: 'teams',
+        link: 'team'
+    }]
+    // MUMBAI PROFILE END
 });
 
 firstApp.controller('languageCtrl', function ($scope, TemplateService, $translate, $rootScope) {

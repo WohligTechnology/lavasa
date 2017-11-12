@@ -1,384 +1,378 @@
 <footer ng-controller="footerctrl">
-    <!-- <div class="footer-slider">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <p class="color-grey2 text-up font-semi text-c">sponsors</p>
-                    <div class="sponser-list sf-list" style="width:100%;overflow:hidden;">
-                        <ul class="padding0 text-c w1200" mycircle style="">
-                            <li class="text-center" ng-repeat="slid in games track by $index">
-                                <a ng-if="slid.href" href="{{slid.href}}" target="_blank">
-                                    <img ng-src="{{slid.img}}" alt="">
-                                </a>
-                                <img ng-if="!slid.href" ng-src="{{slid.img}}" alt="">
-                                <p class="color-grey2 f12 font-bold mt10 text-center text-up">{{slid.game}}</p>
-                            </li>
-                        </ul>
+    <section ng-if="hideFooter">
+        <div class="footer-slider" ng-if="selectedCity != 'hyderabad'">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="color-grey2 text-up font-semi text-c">sponsors</p>
+                        <div class="sponser-list sf-list" style="width:100%;overflow:hidden;">
+                            <!-- mycircle -->
+                            <ul class="padding0 text-c w1200" style="">
+                                <li class="text-center" ng-repeat="slid in games track by $index">
+                                    <a ng-if="slid.href" href="{{slid.href}}" target="_blank">
+                                              <img ng-src="{{slid.img}}" alt="">
+                                          </a>
+                                    <img ng-if="!slid.href" ng-src="{{slid.img}}" alt="">
+                                    <p class="color-grey2 f12 font-bold mt10 text-center text-up">{{slid.game}}</p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <p class="color-grey2 text-up font-semi text-c">partners</p>
-                    <div class="sponser-list sf-list" style="width:100%;overflow:hidden;">
-                        <ul class="padding0 text-c w1200" mycircle>
-                            <li class="text-center" ng-repeat="slid in partner track by $index">
-                                <a ng-if="slid.href" href="{{slid.href}}" target="_blank">
-                                    <img ng-src="{{slid.img}}" alt="">
-                                </a>
-                                <img ng-if="!slid.href" ng-src="{{slid.img}}" alt="">
-                                <p class="color-grey2 f12 font-bold mt10 text-center text-up">{{slid.game}}</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <div class="footer-slider" ng-if="selectedCity != 'hyderabad'">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <p class="color-grey2 text-up font-semi text-c">sponsors</p>
-                    <div class="sponser-list sf-list" style="width:100%;overflow:hidden;">
-                        <!-- mycircle -->
-                        <ul class="padding0 text-c w1200" style="">
-                            <li class="text-center" ng-repeat="slid in games track by $index">
-                                <a ng-if="slid.href" href="{{slid.href}}" target="_blank">
-                                    <img ng-src="{{slid.img}}" alt="">
-                                </a>
-                                <img ng-if="!slid.href" ng-src="{{slid.img}}" alt="">
-                                <p class="color-grey2 f12 font-bold mt10 text-center text-up">{{slid.game}}</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <p class="color-grey2 text-up font-semi text-c">partners</p>
-                    <div class="sponser-list sf-list" style="width:100%;overflow:hidden;">
-                        <!-- mycircle -->
-                        <ul class="padding0 text-c w1200">
-                            <li class="text-center" ng-repeat="slid in partner track by $index">
-                                <a ng-if="slid.href" href="{{slid.href}}" target="_blank">
-                                    <img ng-src="{{slid.img}}" alt="">
-                                </a>
-                                <img ng-if="!slid.href" ng-src="{{slid.img}}" alt="">
-                                <p class="color-grey2 f12 font-bold mt10 text-center text-up">{{slid.game}}</p>
-                            </li>
-                        </ul>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="color-grey2 text-up font-semi text-c">partners</p>
+                        <div class="sponser-list sf-list" style="width:100%;overflow:hidden;">
+                            <!-- mycircle -->
+                            <ul class="padding0 text-c w1200">
+                                <li class="text-center" ng-repeat="slid in partner track by $index">
+                                    <a ng-if="slid.href" href="{{slid.href}}" target="_blank">
+                                              <img ng-src="{{slid.img}}" alt="">
+                                          </a>
+                                    <img ng-if="!slid.href" ng-src="{{slid.img}}" alt="">
+                                    <p class="color-grey2 f12 font-bold mt10 text-center text-up">{{slid.game}}</p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="footer-slider" ng-if="selectedCity == 'hyderabad'">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <p class="color-grey2 text-up font-semi text-c">Supported by:</p>
-                    <div class="sponser-list sf-list" style="width:100%;overflow:hidden;">
-                        <!-- mycircle -->
-                        <ul class="padding0 text-c w1200" style="">
-                            <li class="text-center" ng-repeat="slid in supportedBy track by $index">
-                                <a ng-if="slid.href" href="{{slid.href}}" target="_blank">
-                                    <img ng-src="{{slid.img}}" alt="">
-                                </a>
-                                <img ng-if="!slid.href" ng-src="{{slid.img}}" alt="">
-                                <p class="color-grey2 f12 font-bold mt10 text-center text-up">{{slid.game}}</p>
-                            </li>
-                        </ul>
+        <div class="footer-slider" ng-if="selectedCity == 'hyderabad'">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="color-grey2 text-up font-semi text-c">Supported by:</p>
+                        <div class="sponser-list sf-list" style="width:100%;overflow:hidden;">
+                            <!-- mycircle -->
+                            <ul class="padding0 text-c w1200" style="">
+                                <li class="text-center" ng-repeat="slid in supportedBy track by $index">
+                                    <a ng-if="slid.href" href="{{slid.href}}" target="_blank">
+                                              <img ng-src="{{slid.img}}" alt="">
+                                          </a>
+                                    <img ng-if="!slid.href" ng-src="{{slid.img}}" alt="">
+                                    <p class="color-grey2 f12 font-bold mt10 text-center text-up">{{slid.game}}</p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <p class="color-grey2 text-up font-semi text-c">Sponsors & Partners:</p>
-                    <div class="sponser-list sf-list" style="width:100%;overflow:hidden;">
-                        <!-- mycircle -->
-                        <ul class="padding0 text-c w1200">
-                            <li class="text-center" ng-repeat="slid in sponsor_partner track by $index">
-                                <a ng-if="slid.href" href="{{slid.href}}" target="_blank">
-                                    <img ng-src="{{slid.img}}" alt="">
-                                </a>
-                                <img ng-if="!slid.href" ng-src="{{slid.img}}" alt="">
-                                <p class="color-grey2 f12 font-bold mt10 text-center text-up">{{slid.game}}</p>
-                            </li>
-                        </ul>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="color-grey2 text-up font-semi text-c">Sponsors & Partners:</p>
+                        <div class="sponser-list sf-list" style="width:100%;overflow:hidden;">
+                            <!-- mycircle -->
+                            <ul class="padding0 text-c w1200">
+                                <li class="text-center" ng-repeat="slid in sponsor_partner track by $index">
+                                    <a ng-if="slid.href" href="{{slid.href}}" target="_blank">
+                                              <img ng-src="{{slid.img}}" alt="">
+                                          </a>
+                                    <img ng-if="!slid.href" ng-src="{{slid.img}}" alt="">
+                                    <p class="color-grey2 f12 font-bold mt10 text-center text-up">{{slid.game}}</p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <div class="second-slider">
         <div class="container">
             <div class="row">
+                <!-- SPORTS HOLDER -->
                 <div class="col-md-4">
                     <div class="f-list">
-                        <span class="color-yellow1"> SPORTS</span>
+                        <span class="footer-header-color"> SPORTS</span>
                         <ul class="padding0 cl-nt">
-                            <li>
-                                <a ui-sref="sport({name:'handball'})">
-                                    handball
-                                </a>
+                            <li ng-repeat="sport in mumbaiFooter track by $index" ng-if="selectedCity !== 'hyderabad'">
+                                <a ui-sref="sport({name:'{{sport.name}}'})" target="_new">
+                                          {{sport.name}}
+                      </a>
                             </li>
-                            <li>
-                                <a ui-sref="sport({name:'volleyball'})">
-                                    volleyball
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'throwball'})">
-                                    throwball
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'basketball'})">
-                                    basketball
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'hockey'})">
-                                    hockey
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'kho-kho'})">
-                                    kho-kho
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'kabaddi'})">
-                                    kabaddi
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'football'})">
-                                    football
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'badminton'})">
-                                    badminton
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'tennis'})">
-                                    tennis
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'table tennis'})">
-                                    table tennis
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'squash'})">
-                                    squash
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'judo'})">
-                                    judo
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'taekwondo'})">
-                                    taekwondo
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'boxing'})">
-                                    boxing
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'fencing'})">
-                                    fencing
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'karate'})">
-                                    karate
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'Wrestling'})">
-                                    wrestling
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'  sport mma'})">
-                                    sport mma
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'shooting'})">
-                                    shooting
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'archery'})">
-                                    archery
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'swimming'})">
-                                    swimming
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'water polo'})">
-                                    water polo
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'carrom'})">
-                                    carrom
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'chess'})">
-                                    chess
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="sport({name:'athletics'})">
-                                    athletics
-                                </a>
+                            <li ng-repeat="sport in hyderabadFooter track by $index" ng-if="selectedCity ==='hyderabad'">
+                                <a ui-sref="sport({name:'{{sport.name}}'})" target="_new">
+                                            {{sport.name}}
+                        </a>
                             </li>
                         </ul>
                     </div>
                 </div>
+                <!-- SPORTS HOLDER END -->
+
+                <!-- SFA  2017-18 -->
+                <div class="col-md-3">
+                    <div class="f-list">
+                        <span class="footer-header-color text-uppercase"> SFA {{selectedCity}} {{year16}}</span>
+                        <ul class="padding0">
+                            <li>
+                                <label class="footer-champ-header">school championship</label>
+                                <ul class="padding0">
+                                    <li ng-if="selectedCity==='hyderabad'">
+                                        <a ui-sref="liveupdates"> LIVE UPDATES</a>
+                                    </li>
+                                    <li ng-if="!registerSchool ">
+                                        <a ui-sref="championship"> ABOUT CHAMPIONSHIP</a>
+                                    </li>
+                                    <li ng-if="registerSchool ">
+                                        <a href="{{registerSchool}}/championship " target="_blank "> ABOUT CHAMPIONSHIP</a>
+                                    </li>
+                                    <li ng-if="!registerSchool ">
+                                        <a ui-sref="register "> REGISTER</a>
+                                    </li>
+                                    <li ng-if="registerSchool ">
+                                        <a href="{{registerSchool}}/register " target="_blank "> REGISTER</a>
+                                    </li>
+                                    <li ng-if="!registerSchool ">
+                                        <a ui-sref="championshipschedules ">CHAMPIONSHIP SCHEDULE</a>
+                                    </li>
+                                    <li ng-if="registerSchool ">
+                                        <a href="{{registerSchool}}/championship-schedule " target="_blank ">CHAMPIONSHIP SCHEDULE</a>
+                                    </li>
+                                    <li ng-if="!registerSchool">
+                                        <a ui-sref="championshipschedule">DRAWS &amp; SCHEDULES</a>
+                                    </li>
+                                    <li ng-if="registerSchool">
+                                        <a href="{{registerSchool}}/draws-schedule" target="_blank">DRAWS &amp; SCHEDULES</a>
+                                    </li>
+                                    <li ng-if="!registerSchool">
+                                        <a ui-sref="specialevents">SPECIAL EVENTS</a>
+                                    </li>
+                                    <li ng-if="registerSchool">
+                                        <a href="{{registerSchool}}/specialevents" target="_blank">SPECIAL EVENTS</a>
+                                    </li>
+                                    <li ng-if="!registerSchool ">
+                                        <a ui-sref="faq ">FAQs</a>
+                                    </li>
+                                    <li ng-if="registerSchool ">
+                                        <a href="{{registerSchool}}/faq " target="_blank ">FAQs</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li ng-if="selectedCity==!hyderabad">
+                                <label class="footer-champ-header">College championship</label>
+                                <ul class="padding0">
+                                    <li ng-if="!registerSchool ">
+                                        <a ui-sref="register"> REGISTER</a>
+                                    </li>
+                                    <li ng-if="registerSchool ">
+                                        <a href="{{registerSchool}}/register " target="_blank "> REGISTER</a>
+                                    </li>
+                                    <li ng-if="!registerSchool ">
+                                        <a ui-sref="championshipschedules ">CHAMPIONSHIP SCHEDULE</a>
+                                    </li>
+                                    <li ng-if="registerSchool ">
+                                        <a href="{{registerSchool}}/championship-schedule " target="_blank ">CHAMPIONSHIP SCHEDULE</a>
+                                    </li>
+                                    <li ng-if="!registerSchool">
+                                        <a ui-sref="championshipschedule">DRAWS &amp; SCHEDULES</a>
+                                    </li>
+                                    <li ng-if="registerSchool">
+                                        <a href="{{registerSchool}}/draws-schedule" target="_blank">DRAWS &amp; SCHEDULES</a>
+                                    </li>
+                                    <li ng-if="!registerSchool">
+                                        <a ui-sref="specialevents">SPECIAL EVENTS</a>
+                                    </li>
+                                    <li ng-if="registerSchool">
+                                        <a href="{{registerSchool}}/specialevents" target="_blank">SPECIAL EVENTS</a>
+                                    </li>
+                                    <li ng-if="!registerSchool ">
+                                        <a ui-sref="faq ">FAQs</a>
+                                    </li>
+                                    <li ng-if="registerSchool ">
+                                        <a href="{{registerSchool}}/faq " target="_blank ">FAQs</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- SFA MUMBAI 2017-18 END -->
+
+                <!-- PROFILE -->
                 <div class="col-md-2">
                     <div class="f-list">
-                        <span class="color-yellow1">PROFILE</span>
+                        <span class="footer-header-color">PROFILE</span>
                         <ul class="padding0">
                             <li>
-                                <a ui-sref="students">
-                                    Athletes
-                                </a>
+                                <label class="footer-champ-header">SCHOOL</label>
+                            </li>
+                            <!-- HYDERABAD -->
+                            <li>
+                                <a ng-if="registerSchool" href="{{registerSchool}}/students" target="_blank">
+                          <span>2017</span>
+                          <span>ATHLETES</span>
+                      </a>
+                                <a ng-if="!registerSchool" ui-sref="students">
+                          <span>2017</span>
+                          <span>ATHLETES</span>
+                      </a>
                             </li>
                             <li>
-                                <a ui-sref="school">
-                                    schools
-                                </a>
+                                <a ng-if="registerSchool" href="{{registerSchool}}/school" target="_blank">
+                          <span>2017</span>
+                          <span>SCHOOLS</span>
+                      </a>
+                                <a ng-if="!registerSchool" ui-sref="school">
+                          <span>2017</span>
+                          <span>SCHOOLS</span>
+                      </a>
                             </li>
                             <li>
-                                <a ui-sref="team">
-                                    teams
+                                <a ng-if="registerSchool" href="{{registerSchool}}/team" target="_blank">
+                          <span>2017</span>
+                          <span>TEAMS</span>
+                      </a>
+                                <a ng-if="!registerSchool" ui-sref="team">
+                          <span>2017</span>
+                          <span>TEAMS</span>
+                      </a>
+                            </li>
+                            <li ng-if="selectedCity==='mumbai'">
+                                <a ui-sref="students" target="_blank">
+                                    <p class="m-clear" style="font-size:12px;">VIEW PROFILE FROM PREVIOUS CHAMPIONSHIP</p>
+
                                 </a>
+                            </li>
+                            <!-- HYDERABAD END -->
+                        </ul>
+                        <!-- MUMBAI COLLEGE -->
+                        <ul class="padding0" ng-if="selectedCity==='mumbai'">
+                            <li>
+                                <label class="footer-champ-header">COLLEGE</label>
+                            </li>
+                            <li>
+                                <a ng-if="registerCollege" href="{{registerCollege}}/students" target="_blank">
+                            <span>2017</span>
+                            <span>ATHLETES</span>
+                        </a>
+                                <a ng-if="!registerCollege" ui-sref="students">
+                            <span>2017</span>
+                            <span>ATHLETES</span>
+                        </a>
+                            </li>
+                            <li>
+                                <a ng-if="registerCollege" href="{{registerCollege}}/school" target="_blank">
+                            <span>2017</span>
+                            <span>SCHOOLS</span>
+                        </a>
+                                <a ng-if="!registerCollege" ui-sref="school">
+                            <span>2017</span>
+                            <span>SCHOOLS</span>
+                        </a>
+                            </li>
+                            <li>
+                                <a ng-if="registerCollege" href="{{registerCollege}}/team" target="_blank">
+                            <span>2017</span>
+                            <span>TEAMS</span>
+                        </a>
+                                <a ng-if="!registerCollege" ui-sref="team">
+                            <span>2017</span>
+                            <span>TEAMS</span>
+                        </a>
                             </li>
                         </ul>
+                        <!-- MUMBAI COLLEGE END -->
                     </div>
-                    <div class="f-list mt25">
-                        <span class="color-yellow1">RESULT</span>
-                        <ul class="padding0">
-                            <li>
-                                <a ui-sref="school-ranking">
-                                    school ranking
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="champions">
-                                    champions of sfa
-                                </a>
-                            </li>
-                            <!-- <li>
-                                <a ui-sref="result">
-                sport result
-              </a>
-                            </li> -->
-                        </ul>
-                    </div>
+
                 </div>
+                <!-- PROFILE END -->
+
+
+                <!-- RESULTS -->
                 <div class="col-md-3">
                     <div class="f-list">
-                        <ul class="padding0 hide">
-                            <li>
-                                <a ui-sref="sponser-partner">
-                                    sponsors & partners
-                                </a>
-                            </li>
-                            <!-- <li>
-                                <a href="">
-      sfa management team
-    </a>
-                            </li> -->
-                            <li>
-                                <a ui-sref="faq">
-                                    faq’s
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="mt25 hide">
-                            <a ui-sref="media-gallery" class="color-yellow1 text-up">media &amp; gallery</a>
-                        </div>
-                        <div class="mt25 hide">
-                            <a ui-sref="training-development" class="color-yellow1 text-up">training &amp; development</a>
-                        </div>
-                        <div class="mt25">
-                            <a ui-sref="about-us" class="color-yellow1 text-up">about us</a>
-                        </div>
-                        <div class="mt25">
-                            <a ui-sref="contact" class="color-yellow1 text-up">CONTACT US</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="f-list hide">
-                        <span class="color-yellow1"> SFA MUMBAI {{year16}}</span>
+                        <span class="footer-header-color">RESULTS</span>
+                        <!-- RESULTS HOLDER -->
                         <ul class="padding0">
                             <li>
-                                <a ui-sref="special-days">
-                                    special days
-                                </a>
+                                <a href="{{registerSchool}}/results" target="_blank " ui-sref="school-ranking">
+                          <span>2017</span>
+                          <span>SCHOOL RANKING</span>
+                      </a>>
                             </li>
-                            <li>
-                                <a ui-sref="special-awards">
-                                    special awards
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="workshop-clinic">
-                                    workshop & clinics
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="merchandise-apparels">
-                                    merchandise & apparels
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="food-and-entertainment">
-                                    food & entertainment
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="medical-aid">
-                                    medical aid
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="draw-schedule">
-                                    draws & schedule
-                                </a>
-                            </li>
-                            <li>
-                                <a ui-sref="venue">
-                                    venue
-                                </a>
-                            </li>
-                            <li>
-                                <a href="img/pdf/EventSchedule.pdf" target="_blank">
-                                    download schedule program
-                                </a>
+                            <li ng-if="selectedCity !=='hyderabad'">
+                                <a href="{{registerCollege}}/results" target="_blank ">
+                          <span>2017</span>
+                          <span>COLLEGE RANKING</span>
+                      </a>
                             </li>
                         </ul>
+                        <!-- RESULTS HOLDER -->
+
+                        <!-- GALLERY -->
+                        <div class="mt5">
+                            <a href="{{registerSchool}}/media-gallery" target="_new" class="footer-header-color text-up">gallery</a>
+                        </div>
+                        <!-- GALLERY END -->
+                        <!-- PRESS MEDIA -->
+                        <div class="mt5">
+                            <a href="{{registerSchool}}/media-press" target="_new" class="footer-header-color text-up">PRESS &amp; MEDIA</a>
+                        </div>
+                        <!-- PRESS MEDIA END -->
+                        <!-- SPONSOR  -->
+                        <div class="mt5">
+                            <a href="{{registerSchool}}/sponsors-partner" target="_new" class="footer-header-color text-up">SPONSORS &amp; PARTNERS</a>
+                        </div>
+                        <!-- SPONSOR END -->
+                        <!-- ABOUT US -->
+                        <div class="mt5">
+                            <a ui-sref='about-us' class="footer-header-color text-up">ABOUT US</a>
+                        </div>
+                        <!-- ABOUT US -->
+                        <!-- CONTACT -->
+                        <div class="mt5">
+                            <a ui-sref="contact" target="_new" class="footer-header-color text-up">CONTACT US</a>
+                        </div>
+                    </div>
+                    <!-- RESULTS -->
+                </div>
+
+            </div>
+            <!--SOCIAL MEDIA LOGO -->
+            <div class="row mt25">
+                <div class="col-md-5">
+                    <div class="">
+                        <div class="sf-list">
+                            <ul class="footer-logos">
+                                <li>
+                                    <a href="https://www.facebook.com/sportsforallnow" target="_blank">
+                                              <i class="fa fa-facebook s-l-i"></i>
+                                          </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/sfanow" target="_blank">
+                                              <i class="fa fa-twitter s-l-i"></i>
+                                          </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/channel/UCWoiHFley8hGy0ad_t-0O7w" target="_blank">
+                                              <i class="fa fa-youtube s-l-i"></i>
+                                          </a>
+                                </li>
+                                <li>
+                                    <a href="https://instagram.com/sfanow/" target="_blank">
+                                              <i class="fa fa-instagram s-l-i"></i>
+                                          </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- SOCIAL MEDIA LOGO -->
+            <!-- DISCLAMER -->
+            <div class="row mt25">
+                <div class="col-md-12">
+                    <div class="di">
+                        <p class="color-white m-clear">Disclaimer:</p>
+                        <p class="di-inline color-white"> All material available on this website is intellectual property and copyrighted content of SFA Events
+                            Pvt. Ltd., unless otherwise indicated. Unauthorized use and/or duplication of this material without
+                            written permission from this site’s author and/or owner is strictly prohibited</p>
+                    </div>
+                </div>
+            </div>
+            <!-- DISCLAMER END -->
             <div class="row mt25">
                 <div class="col-md-7">
                     <div class="sf-list all-l">
@@ -388,8 +382,8 @@
                             </li>
                             <li>
                                 <a ui-sref="terms-condition">
-                                    Terms and Conditions
-                                </a>
+                                                Terms and Conditions
+                                            </a>
                             </li>
                             <li>
                                 Disclaimer
@@ -398,44 +392,6 @@
                                 © Copyright - SFA Events Pvt. Ltd
                             </li>
                         </ul>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="pull-right no-float">
-                        <div class="sf-list">
-                            <ul>
-                                <li>
-                                    <a href="https://www.facebook.com/sportsforallnow" target="_blank">
-                                        <i class="fa fa-facebook s-l-i"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://twitter.com/sfanow" target="_blank">
-                                        <i class="fa fa-twitter s-l-i"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.youtube.com/channel/UCWoiHFley8hGy0ad_t-0O7w" target="_blank">
-                                        <i class="fa fa-youtube s-l-i"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://instagram.com/sfanow/" target="_blank">
-                                        <i class="fa fa-instagram s-l-i"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt25">
-                <div class="col-md-12">
-                    <div class="di">
-                        <span class="display-inline color-yellow1">Disclaimer:</span>
-                        <p class="di-inline color-white"> All material available on this website is intellectual property and copyrighted content of SFA Events
-                            Pvt. Ltd., unless otherwise indicated. Unauthorized use and/or duplication of this material without
-                            written permission from this site’s author and/or owner is strictly prohibited</p>
                     </div>
                 </div>
             </div>
