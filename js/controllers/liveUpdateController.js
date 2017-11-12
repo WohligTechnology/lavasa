@@ -68,7 +68,6 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
       $scope.calenderLink = '';
       $scope.schoolLink = "http://hyderabadschool.sfanow.in";
     }
-    // $scope.drawObj.college = true;
   });
   // ITIALISE VARIABLES END
 
@@ -168,18 +167,29 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
 
             } else if (window.location.host == response.link2) {
               //Hyderabad
-              if ($scope.cityHyderabad.school || $scope.cityHyderabad.college) {
-                $scope.hyderabadSchool = _.cloneDeep($scope.cityHyderabad.school);
-                $scope.hyderabadCollege = _.cloneDeep($scope.cityHyderabad.college);
+              // console.log("ahem", $scope.cityHyderabad);
+              // if ($scope.cityHyderabad.school || $scope.cityHyderabad.college) {
+              //   $scope.hyderabadSchool = _.cloneDeep($scope.cityHyderabad.school);
+              //   console.log('yui', $scope.hyderabadSchool);
+              //   $scope.hyderabadCollege = _.cloneDeep($scope.cityHyderabad.college);
+              //   if ($scope.hyderabadSchool) {
+              //     $scope.schoolDate = $scope.mumbaiSchool[0].date;
+              //     $scope.rankTableSchool = $scope.hyderabadSchool[0].rankingTable;
+              //   }
+              //   if ($scope.hyderabadCollege) {
+              //     $scope.collegeDate = $scope.mumbaiCollege[0].date;
+              //     $scope.rankTableCollege = $scope.hyderabadCollege[0].rankingTable;
+              //   }
+              //
+              // }
+
+              if ($scope.cityHyderabad) {
+                $scope.hyderabadSchool = _.cloneDeep($scope.cityHyderabad);
+                // console.log('yui', $scope.hyderabadSchool);
                 if ($scope.hyderabadSchool) {
-                  $scope.schoolDate = $scope.mumbaiSchool[0].date;
+                  $scope.schoolDate = $scope.hyderabadSchool[0].date;
                   $scope.rankTableSchool = $scope.hyderabadSchool[0].rankingTable;
                 }
-                if ($scope.hyderabadCollege) {
-                  $scope.collegeDate = $scope.mumbaiCollege[0].date;
-                  $scope.rankTableCollege = $scope.hyderabadCollege[0].rankingTable;
-                }
-
               }
 
             } else if (window.location.host == response.link3) {
