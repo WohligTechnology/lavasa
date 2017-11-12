@@ -6,42 +6,42 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
   $scope.navigation = NavigationService.getnav();
 
   // ITIALISE VARIABLES
-  $scope.ticker={
+  $scope.ticker = {
     scroll: true,
     duration: 20000,
     duplicated: true
   }
-  $scope.initSwiper = function(){
-    $timeout(function(){
+  $scope.initSwiper = function () {
+    $timeout(function () {
       var albumGallery = new Swiper('.albumview-gallery .swiper-container', {
-          slidesPerView: 1,
-          direction: 'horizontal',
-          loop: false,
-          centeredSlides: true,
-          grabCursor: true,
-          nextButton: '.albumview-next',
-          prevButton: '.albumview-prev',
-          touchEventsTarget: 'container',
-        });
+        slidesPerView: 1,
+        direction: 'horizontal',
+        loop: false,
+        centeredSlides: true,
+        grabCursor: true,
+        nextButton: '.albumview-next',
+        prevButton: '.albumview-prev',
+        touchEventsTarget: 'container',
+      });
 
-      var albumThumbs  = new Swiper('.albumview-thumbs .swiper-container', {
-          slidesPerView: 4,
-          spaceBetween: 10,
-          direction: 'horizontal',
-          loop: false,
-          centeredSlides: true,
-          grabCursor: true,
-          touchEventsTarget: 'container',
-          slideToClickedSlide: true
-        });
-        albumGallery.params.control = albumThumbs;
-        albumThumbs.params.control = albumGallery;
+      var albumThumbs = new Swiper('.albumview-thumbs .swiper-container', {
+        slidesPerView: 4,
+        spaceBetween: 10,
+        direction: 'horizontal',
+        loop: false,
+        centeredSlides: true,
+        grabCursor: true,
+        touchEventsTarget: 'container',
+        slideToClickedSlide: true
+      });
+      albumGallery.params.control = albumThumbs;
+      albumThumbs.params.control = albumGallery;
     }, 300);
   }
 
-    $scope.$on('$viewContentLoaded', function () {
-      $scope.initSwiper();
-    });
+  $scope.$on('$viewContentLoaded', function () {
+    $scope.initSwiper();
+  });
 
   $scope.drawObj = {
     institute: 'school',
@@ -52,16 +52,19 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
       // $scope.drawObj.link = response.data.Mumbai;
       $scope.drawObj.college = true;
       $scope.calenderLink = '';
+      $scope.cityName = 'Mumbai';
       $scope.schoolLink = "http://mumbaischool.sfanow.in";
       $scope.collegeLink = "http://mumbaicollege.sfanow.in";
     } else if (window.location.host == response.link2) {
       // $scope.drawObj.link = response.data.Hyderabad;
       $scope.drawObj.college = false;
+      $scope.cityName = 'Hyderabad';
       $scope.schoolLink = "http://hyderabadschool.sfanow.in";
       $scope.calenderLink = '';
     } else if (window.location.host == response.link3) {
       // $scope.drawObj.link = response.data.Ahmedabad;
       $scope.drawObj.college = true;
+      $scope.cityName = 'Ahmedabad';
       $scope.calenderLink = '';
       $scope.schoolLink = "http://hyderabadschool.sfanow.in";
     }
@@ -337,12 +340,12 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
 
           // TICKER CONTENT LOAD
           $scope.tickrContent = "";
-          _.each($scope.tickerData[0].tickerDetails, function(n, nindex){
+          _.each($scope.tickerData[0].tickerDetails, function (n, nindex) {
             // console.log("tick.n",n);
-              $scope.tickrContent += '<div class="ticker__item relate" > <div class="ticker-icon">  </div> <span> '+ n.tickerContent +' </span> </div>';
-              // IF IMAGE FILE IS NEEDED UNCOMMENT THE IMG TAG BELOW AND PASTE IN ticker-icon DIV
-              // <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
-            });
+            $scope.tickrContent += '<div class="ticker__item relate" > <div class="ticker-icon">  </div> <span> ' + n.tickerContent + ' </span> </div>';
+            // IF IMAGE FILE IS NEEDED UNCOMMENT THE IMG TAG BELOW AND PASTE IN ticker-icon DIV
+            // <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
+          });
           // TICKER CONTENT LOAD  END
 
         });

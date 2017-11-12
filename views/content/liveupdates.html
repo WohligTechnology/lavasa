@@ -458,7 +458,7 @@
     <div class="liveupdate-imagesection">
       <div class="container">
         <div class="liveupdate-imagetitle font-FjallaOne">
-          Live Update from sfa mumbai championship 2017-18
+          Live Update from sfa {{cityName}} championship 2017-18
         </div>
         <div class="row">
           <div class="col-md-6 col-sm-6">
@@ -492,7 +492,10 @@
         <div class="row">
           <div class="col-md-12">
             <div class="text-right">
-              <a href="{{schoolLink}}/media-gallery" class="mlr-5">View <span ng-if="!drawObj.college">More</span> <span ng-if="drawObj.college">School Gallery</span></a>
+              <a href="{{schoolLink}}/media-gallery" class="mlr-5">View
+                <span ng-if="!drawObj.college">More</span>
+                <span ng-if="drawObj.college">School Gallery</span>
+              </a>
               <a href="{{collegeLink}}/media-gallery" ng-if="drawObj.college" class="mlr-5">View College Gallery</a>
             </div>
           </div>
@@ -612,7 +615,10 @@
         <div class="row">
           <div class="col-md-12">
             <div class="text-right">
-              <a href="{{schoolLink}}/media-gallery/video" class="mlr-5">View <span ng-if="!drawObj.college">More</span> <span ng-if="drawObj.college">School Gallery</span></a>
+              <a href="{{schoolLink}}/media-gallery/video" class="mlr-5">View
+                <span ng-if="!drawObj.college">More</span>
+                <span ng-if="drawObj.college">School Gallery</span>
+              </a>
               <a href="{{collegeLink}}/media-gallery/video" ng-if="drawObj.college" class="mlr-5">View College Gallery</a>
             </div>
           </div>
