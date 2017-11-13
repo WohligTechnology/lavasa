@@ -10,8 +10,8 @@
                             <ul class="padding0 text-c w1200" style="">
                                 <li class="text-center" ng-repeat="slid in games track by $index">
                                     <a ng-if="slid.href" href="{{slid.href}}" target="_blank">
-                                              <img ng-src="{{slid.img}}" alt="">
-                                          </a>
+                                        <img ng-src="{{slid.img}}" alt="">
+                                    </a>
                                     <img ng-if="!slid.href" ng-src="{{slid.img}}" alt="">
                                     <p class="color-grey2 f12 font-bold mt10 text-center text-up">{{slid.game}}</p>
                                 </li>
@@ -27,8 +27,8 @@
                             <ul class="padding0 text-c w1200">
                                 <li class="text-center" ng-repeat="slid in partner track by $index">
                                     <a ng-if="slid.href" href="{{slid.href}}" target="_blank">
-                                              <img ng-src="{{slid.img}}" alt="">
-                                          </a>
+                                        <img ng-src="{{slid.img}}" alt="">
+                                    </a>
                                     <img ng-if="!slid.href" ng-src="{{slid.img}}" alt="">
                                     <p class="color-grey2 f12 font-bold mt10 text-center text-up">{{slid.game}}</p>
                                 </li>
@@ -48,8 +48,8 @@
                             <ul class="padding0 text-c w1200" style="">
                                 <li class="text-center" ng-repeat="slid in supportedBy track by $index">
                                     <a ng-if="slid.href" href="{{slid.href}}" target="_blank">
-                                              <img ng-src="{{slid.img}}" alt="">
-                                          </a>
+                                        <img ng-src="{{slid.img}}" alt="">
+                                    </a>
                                     <img ng-if="!slid.href" ng-src="{{slid.img}}" alt="">
                                     <p class="color-grey2 f12 font-bold mt10 text-center text-up">{{slid.game}}</p>
                                 </li>
@@ -65,8 +65,8 @@
                             <ul class="padding0 text-c w1200">
                                 <li class="text-center" ng-repeat="slid in sponsor_partner track by $index">
                                     <a ng-if="slid.href" href="{{slid.href}}" target="_blank">
-                                              <img ng-src="{{slid.img}}" alt="">
-                                          </a>
+                                        <img ng-src="{{slid.img}}" alt="">
+                                    </a>
                                     <img ng-if="!slid.href" ng-src="{{slid.img}}" alt="">
                                     <p class="color-grey2 f12 font-bold mt10 text-center text-up">{{slid.game}}</p>
                                 </li>
@@ -86,14 +86,14 @@
                         <span class="footer-header-color"> SPORTS</span>
                         <ul class="padding0 cl-nt">
                             <li ng-repeat="sport in mumbaiFooter track by $index" ng-if="selectedCity !== 'hyderabad'">
-                                <a ui-sref="sport({name:'{{sport.name}}'})" target="_new">
-                                          {{sport.name}}
-                      </a>
+                                <a ui-sref="sport({name:'{{sport.name | firstcapitalize}}'})" target="_new">
+                                    {{sport.name}}
+                                </a>
                             </li>
                             <li ng-repeat="sport in hyderabadFooter track by $index" ng-if="selectedCity ==='hyderabad'">
-                                <a ui-sref="sport({name:'{{sport.name}}'})" target="_new">
-                                            {{sport.name}}
-                        </a>
+                                <a ui-sref="sport({name:'{{sport.name | firstcapitalize}}'})" target="_new">
+                                    {{sport.name}}
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -200,33 +200,33 @@
                             <!-- HYDERABAD -->
                             <li>
                                 <a ng-if="registerSchool" href="{{registerSchool}}/students" target="_blank">
-                          <span>2017</span>
-                          <span>ATHLETES</span>
-                      </a>
+                                    <span>2017</span>
+                                    <span>ATHLETES</span>
+                                </a>
                                 <a ng-if="!registerSchool" ui-sref="students">
-                          <span>2017</span>
-                          <span>ATHLETES</span>
-                      </a>
+                                    <span>2017</span>
+                                    <span>ATHLETES</span>
+                                </a>
                             </li>
                             <li>
                                 <a ng-if="registerSchool" href="{{registerSchool}}/school" target="_blank">
-                          <span>2017</span>
-                          <span>SCHOOLS</span>
-                      </a>
+                                    <span>2017</span>
+                                    <span>SCHOOLS</span>
+                                </a>
                                 <a ng-if="!registerSchool" ui-sref="school">
-                          <span>2017</span>
-                          <span>SCHOOLS</span>
-                      </a>
+                                    <span>2017</span>
+                                    <span>SCHOOLS</span>
+                                </a>
                             </li>
                             <li>
                                 <a ng-if="registerSchool" href="{{registerSchool}}/team" target="_blank">
-                          <span>2017</span>
-                          <span>TEAMS</span>
-                      </a>
+                                    <span>2017</span>
+                                    <span>TEAMS</span>
+                                </a>
                                 <a ng-if="!registerSchool" ui-sref="team">
-                          <span>2017</span>
-                          <span>TEAMS</span>
-                      </a>
+                                    <span>2017</span>
+                                    <span>TEAMS</span>
+                                </a>
                             </li>
                             <li ng-if="selectedCity==='mumbai'">
                                 <a ui-sref="students" target="_blank">
@@ -243,33 +243,33 @@
                             </li>
                             <li>
                                 <a ng-if="registerCollege" href="{{registerCollege}}/students" target="_blank">
-                            <span>2017</span>
-                            <span>ATHLETES</span>
-                        </a>
+                                    <span>2017</span>
+                                    <span>ATHLETES</span>
+                                </a>
                                 <a ng-if="!registerCollege" ui-sref="students">
-                            <span>2017</span>
-                            <span>ATHLETES</span>
-                        </a>
+                                    <span>2017</span>
+                                    <span>ATHLETES</span>
+                                </a>
                             </li>
                             <li>
                                 <a ng-if="registerCollege" href="{{registerCollege}}/school" target="_blank">
-                            <span>2017</span>
-                            <span>SCHOOLS</span>
-                        </a>
+                                    <span>2017</span>
+                                    <span>SCHOOLS</span>
+                                </a>
                                 <a ng-if="!registerCollege" ui-sref="school">
-                            <span>2017</span>
-                            <span>SCHOOLS</span>
-                        </a>
+                                    <span>2017</span>
+                                    <span>SCHOOLS</span>
+                                </a>
                             </li>
                             <li>
                                 <a ng-if="registerCollege" href="{{registerCollege}}/team" target="_blank">
-                            <span>2017</span>
-                            <span>TEAMS</span>
-                        </a>
+                                    <span>2017</span>
+                                    <span>TEAMS</span>
+                                </a>
                                 <a ng-if="!registerCollege" ui-sref="team">
-                            <span>2017</span>
-                            <span>TEAMS</span>
-                        </a>
+                                    <span>2017</span>
+                                    <span>TEAMS</span>
+                                </a>
                             </li>
                         </ul>
                         <!-- MUMBAI COLLEGE END -->
@@ -287,15 +287,15 @@
                         <ul class="padding0">
                             <li>
                                 <a href="{{registerSchool}}/results" target="_blank " ui-sref="school-ranking">
-                          <span>2017</span>
-                          <span>SCHOOL RANKING</span>
-                      </a>>
+                                    <span>2017</span>
+                                    <span>SCHOOL RANKING</span>
+                                </a>>
                             </li>
                             <li ng-if="selectedCity !=='hyderabad'">
                                 <a href="{{registerCollege}}/results" target="_blank ">
-                          <span>2017</span>
-                          <span>COLLEGE RANKING</span>
-                      </a>
+                                    <span>2017</span>
+                                    <span>COLLEGE RANKING</span>
+                                </a>
                             </li>
                         </ul>
                         <!-- RESULTS HOLDER -->
@@ -337,23 +337,23 @@
                             <ul class="footer-logos">
                                 <li>
                                     <a href="https://www.facebook.com/sportsforallnow" target="_blank">
-                                              <i class="fa fa-facebook s-l-i"></i>
-                                          </a>
+                                        <i class="fa fa-facebook s-l-i"></i>
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="https://twitter.com/sfanow" target="_blank">
-                                              <i class="fa fa-twitter s-l-i"></i>
-                                          </a>
+                                        <i class="fa fa-twitter s-l-i"></i>
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="https://www.youtube.com/channel/UCWoiHFley8hGy0ad_t-0O7w" target="_blank">
-                                              <i class="fa fa-youtube s-l-i"></i>
-                                          </a>
+                                        <i class="fa fa-youtube s-l-i"></i>
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="https://instagram.com/sfanow/" target="_blank">
-                                              <i class="fa fa-instagram s-l-i"></i>
-                                          </a>
+                                        <i class="fa fa-instagram s-l-i"></i>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -382,8 +382,8 @@
                             </li>
                             <li>
                                 <a ui-sref="terms-condition">
-                                                Terms and Conditions
-                                            </a>
+                                    Terms and Conditions
+                                </a>
                             </li>
                             <li>
                                 Disclaimer
