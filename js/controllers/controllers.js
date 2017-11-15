@@ -4187,7 +4187,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
 
     $scope.newdate = new Date();
     $scope.currendate = moment($scope.newdate).format('DD-MMM-YYYY');
-    $scope.closingdate = moment('15-Nov-2017').format('DD-MMM-YYYY')
+    $scope.closingdate = moment('18-Nov-2017').format('DD-MMM-YYYY')
     $scope.endday = moment($scope.closingdate).diff($scope.currendate, 'days') + 1;
 
     // $uibModal.open({
