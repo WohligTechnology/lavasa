@@ -460,8 +460,20 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
     //     templateUrl: "views/template.html",
     //     controller: 'SportTeamCtrl'
     // });
+    if (window.location.origin == "https://mumbai.sfanow.in") {
+        $urlRouterProvider.otherwise("/");
+    } else if (window.location.origin == "https://hyderabad.sfanow.in") {
+        $urlRouterProvider.otherwise("/liveupdates");
+    } else if (window.location.origin == "https://ahmedabad.sfanow.in") {
+        $urlRouterProvider.otherwise("/");
+    } else if (window.location.origin == "http://testmumbai.sfanow.in") {
+        $urlRouterProvider.otherwise("/");
+    } else if (window.location.origin == "http://testhyderabad.sfanow.in") {
+        $urlRouterProvider.otherwise("/liveupdates");
+    } else if (window.location.origin == "http://testahmedabad.sfanow.in") {
+        $urlRouterProvider.otherwise("/");
+    }
 
-    $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isProduction);
 });
 
