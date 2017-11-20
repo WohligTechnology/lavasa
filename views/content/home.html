@@ -9,10 +9,10 @@
         </flex-slider>
     </section>
     <section class="home-slider hidden-lg hidden-md">
-        <flex-slider flex-slide="banner in bannerss track by $index" prev-text="" next-text="">
+        <flex-slider flex-slide="banner in banners track by $index" prev-text="" next-text="">
             <li auto-height>
-                <a href="{{banner.link}}" target="_blank">
-                    <img ng-src="{{banner.img}}" class="img-responsive" auto-height onloading="true" slideshow=true>
+                <a href="{{banner.mobileImgLink}}" target="_blank">
+                    <img ng-src="{{banner.mobileImg | uploadpath }}" class="img-responsive" auto-height onloading="true" slideshow=true>
                 </a>
             </li>
         </flex-slider>
