@@ -4262,7 +4262,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     if (type == 'school') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'hyderabad';
-                        sublink = sublink3 + "/liveupdates";
+                        sublink = "https://" + link2 + "/liveupdates";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
@@ -4276,7 +4276,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     if (type == 'school') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'hyderabad';
-                        sublink = sublink3 + "/liveupdates";
+                        sublink = "https://" + link2 + "/liveupdates";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
@@ -4289,7 +4289,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     if (type == 'school') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'hyderabad';
-                        sublink = sublink3 + "/liveupdates";
+                        sublink = "https://" + link2 + "/liveupdates";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
