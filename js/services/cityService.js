@@ -21,15 +21,16 @@ firstApp.service('cityService', function ($http, TemplateService, $state, toastr
     returnObj.sublink4 = "http://hyderabadcollege.sfanow.in";
     returnObj.sublink5 = "http://ahmedabadschool.sfanow.in";
     returnObj.sublink6 = "http://ahmedabadcollege.sfanow.in";
-    returnObj.mainLink = "sfanow.in";
+    // returnObj.mainLink = "sfanow.in";
     returnObj.link1 = "mumbai.sfanow.in";
-    returnObj.link2 = "hyderabad.sfanow.in";
+    // returnObj.link2 = "hyderabad.sfanow.in";
     returnObj.link3 = "ahmedabad.sfanow.in";
     // var eventYear = '2017';
     // var year15 = '2015';
     // var year16 = '2016';
     if (window.location.host == 'localhost:8080') {
-      returnObj.link1 = "localhost:8080";
+      returnObj.link2 = "localhost:8080";
+      returnObj.mainLink = "localhost:8080";
     }
     callback(returnObj);
   };

@@ -138,7 +138,6 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
   $scope.getRankTable = function () {
     $scope.url = 'LiveUpdate/getAllRankingTables';
     NavigationService.getAllLiveUpdatedData($scope.url, function (data) {
-      console.log(data, "data");
       if (data.value) {
         if (data.data) {
           $scope.rankTables = _.groupBy(data.data, 'city');
@@ -161,7 +160,6 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
                 if ($scope.mumbaiCollege) {
                   $scope.collegeDate = $scope.mumbaiCollege[0].date;
                   $scope.rankTableCollege = $scope.mumbaiCollege[0].rankingTable;
-                  console.log("$scope.rankTableCollege ", $scope.rankTableCollege);
                 }
               }
 
@@ -221,19 +219,21 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
     $scope.url = 'LiveVideos/getAll';
     NavigationService.getAllLiveUpdatedData($scope.url, function (data) {
       if (data.value) {
-        console.log("data.data", data.data);
         $scope.allVideos = _.groupBy(data.data, 'city');
         cityService.getCurrentCity(function (response) {
           if (window.location.host === response.link1) {
             // Mumbai
             $scope.allVideos = _.cloneDeep($scope.allVideos.mumbai);
+            $scope.allVideos = _.shuffle($scope.allVideos);
 
           } else if (window.location.host === response.link2) {
             //Hyderabad
             $scope.allVideos = _.cloneDeep($scope.allVideos.hyderabad);
+            $scope.allVideos = _.shuffle($scope.allVideos);
           } else if (window.location.host === response.link3) {
             //     //Ahmedabad
             $scope.allVideos = _.cloneDeep($scope.allVideos.ahmedabad);
+            $scope.allVideos = _.shuffle($scope.allVideos);
           }
 
         });
@@ -282,13 +282,17 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
           if (window.location.host === response.link1) {
             // Mumbai
             $scope.phtoAlbum = _.cloneDeep($scope.phtoAlbum.mumbai);
+            $scope.phtoAlbum = _.shuffle($scope.phtoAlbum);
 
           } else if (window.location.host === response.link2) {
             //Hyderabad
             $scope.phtoAlbum = _.cloneDeep($scope.phtoAlbum.hyderabad);
+            $scope.phtoAlbum = _.shuffle($scope.phtoAlbum);
+
           } else if (window.location.host === response.link3) {
             //     //Ahmedabad
             $scope.phtoAlbum = _.cloneDeep($scope.phtoAlbum.ahmedabad);
+            $scope.phtoAlbum = _.shuffle($scope.phtoAlbum);
           }
 
         });
@@ -304,16 +308,21 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
       if (data.value) {
         $scope.allphotos = _.groupBy(data.data, 'city');
         cityService.getCurrentCity(function (response) {
+          console.log("response", response.link2);
+          console.log("response host", window.location.host)
           if (window.location.host === response.link1) {
             // Mumbai
             $scope.allphotos = _.cloneDeep($scope.allphotos.mumbai);
+            $scope.allphotos = _.shuffle($scope.allphotos);
 
           } else if (window.location.host === response.link2) {
             //Hyderabad
             $scope.allphotos = _.cloneDeep($scope.allphotos.hyderabad);
+            $scope.allphotos = _.shuffle($scope.allphotos);
           } else if (window.location.host === response.link3) {
             //     //Ahmedabad
             $scope.allphotos = _.cloneDeep($scope.allphotos.ahmedabad);
+            $scope.allphotos = _.shuffle($scope.allphotos);
           }
 
         });
@@ -350,12 +359,15 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
 
           // TICKER CONTENT LOAD
           $scope.tickrContent = "";
-          _.each($scope.tickerData[0].tickerDetails, function (n, nindex) {
-            // console.log("tick.n",n);
-            $scope.tickrContent += '<div class="ticker__item relate" > <div class="ticker-icon">  </div> <span> ' + n.tickerContent + ' </span> </div>';
-            // IF IMAGE FILE IS NEEDED UNCOMMENT THE IMG TAG BELOW AND PASTE IN ticker-icon DIV
-            // <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
-          });
+          if ($scope.tickerData) {
+            _.each($scope.tickerData[0].tickerDetails, function (n, nindex) {
+              // console.log("tick.n",n);
+              $scope.tickrContent += '<div class="ticker__item relate" > <div class="ticker-icon">  </div> <span> ' + n.tickerContent + ' </span> </div>';
+              // IF IMAGE FILE IS NEEDED UNCOMMENT THE IMG TAG BELOW AND PASTE IN ticker-icon DIV
+              // <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
+            });
+          }
+
           // TICKER CONTENT LOAD  END
 
         });
