@@ -4173,6 +4173,16 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     } else {
         $scope.hideHeaderContent = true;
     }
+    $uibModal.open({
+        animation: true,
+        scope: $scope,
+        backdrop: 'static',
+        backdropClass: 'blackOut',
+        keyboard: false,
+        templateUrl: "views/modal/city-video.html",
+        size: 'lg',
+        windowClass: 'sfacity-selectmodal'
+    });
     //----------FOR SINGLE CITY-----------//
     // $scope.hideBlink = false;
     // if (window.location.host == tempLink || window.location.host == tempLinks) {
@@ -4187,7 +4197,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
 
     $scope.newdate = new Date();
     $scope.currendate = moment($scope.newdate).format('DD-MMM-YYYY');
-    $scope.closingdate = moment('20-Nov-2017').format('DD-MMM-YYYY')
+    $scope.closingdate = moment('25-Nov-2017').format('DD-MMM-YYYY')
     $scope.endday = moment($scope.closingdate).diff($scope.currendate, 'days') + 1;
 
     // $uibModal.open({

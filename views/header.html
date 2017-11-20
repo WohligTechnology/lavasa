@@ -10,9 +10,13 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="" ui-sref="home">
+                        <a class="" ng-if="sfaCity !== 'hyderabad'" ui-sref="home">
                             <img src="img/cl-logo.png" alt="logo" class="mr-min hidden-xs hidden-sm"> </a>
-                        <a class="" ui-sref="home">
+                        <a class="" ng-if="sfaCity !== 'hyderabad'" ui-sref="home">
+                            <img src="img/cl-logo2.png" alt="logo" class="mr-min hidden-lg hidden-md w800 mLogoPlacing"> </a>
+                        <a class="" ng-if="sfaCity === 'hyderabad'" ui-sref="liveupdates">
+                            <img src="img/cl-logo.png" alt="logo" class="mr-min hidden-xs hidden-sm"> </a>
+                        <a class="" ng-if="sfaCity === 'hyderabad'" ui-sref="liveupdates">
                             <img src="img/cl-logo2.png" alt="logo" class="mr-min hidden-lg hidden-md w800 mLogoPlacing"> </a>
                     </div>
                 </div>
@@ -251,15 +255,16 @@
                                         <span class="only-border"></span>
                                     </div>
                                 </div>
-                                <a class="dropdown-toggle mb25" data-toggle="dropdown" ng-mouseenter="optionss=!optionss" ng-model="checkboxs">
-                                    <span ng-if="selectedCity==='hyderabad'">LIVE</span> SFA {{sfaCity | capitalize}} {{eventYear}}
+                                <a ng-if="selectedCity!=='hyderabad'" class="dropdown-toggle mb25" data-toggle="dropdown" ng-mouseenter="optionss=!optionss"
+                                    ng-model="checkboxs">
+                                    <span ng-if="selectedCity==='Hyderabad'">LIVE</span> SFA {{sfaCity | capitalize}} {{eventYear}}
                                 </a>
                                 <ul class="dropdown-menu cl-pr forSm typePlace">
                                     <ul class="display-inline typeList">
                                         <li>
                                             <a>SCHOOL CHAMPIONSHIP</a>
                                         </li>
-                                        <li class="live-update-color" ng-if="sfaCity =='hyderabad'">
+                                        <li class="live-update-color" ng-if="sfaCity =='Hyderabad'">
                                             <a href="{{linkForAll}}/liveupdates " style="color:#5aeba4 !important" target="_blank ">LIVE UPDATES</a>
                                         </li>
                                         <li>
@@ -508,20 +513,20 @@
                             <span class="only-border"></span>
                         </div>
                     </div>
-                    <div class="sfa-mum">
+                    <div class="sfa-mum" ng-if="selectedCity!=='hyderabad'">
                         <button type="button" name="button" class="btn btn-sfatop" ng-mouseenter="optionss=!optionss" ng-model="checkboxs">
-                            <span ng-if="selectedCity==='hyderabad'">LIVE</span> SFA {{sfaCity | capitalize}} {{eventYear}}</button>
+                            <span ng-if="selectedCity==='Hyderabad'">LIVE</span> SFA {{sfaCity | capitalize}} {{eventYear}}</button>
                         <!-- <img src="img/top-pin.png" alt="" ng-mouseenter="optionss=!optionss" ng-model="checkboxs"> -->
                     </div>
                 </div>
                 <!-- SELECTED CITY  -->
                 <!-- MOBILE SFA HYD -->
                 <div class="visible-xs" ng-hide="hideBlink == true">
-                    <div class="">
+                    <div class="" ng-if="selectedCity!=='hyderabad'">
                         <a class="dropdown-toggle mb25" data-toggle="dropdown">
                             <div class="sfa-mum sfa-mum-m">
                                 <button type="button" name="button" class="btn btn-sfatop margin0" ng-mouseenter="optionss=!optionss">
-                                    <span ng-if="selectedCity==='hyderabad'">LIVE</span> SFA {{sfaCity | capitalize}} {{eventYear}}</button>
+                                    <span ng-if="selectedCity==='Hyderabad'">LIVE</span> SFA {{sfaCity | capitalize}} {{eventYear}}</button>
                                 <!-- <img src="img/top-pin.png" alt="" ng-mouseenter="optionss=!optionss" ng-model="checkboxs"> -->
                             </div>
                         </a>
@@ -530,7 +535,7 @@
                                 <li>
                                     <a>SCHOOL CHAMPIONSHIP</a>
                                 </li>
-                                <li class="live-update-color" ng-if="sfaCity =='hyderabad'">
+                                <li class="live-update-color" ng-if="sfaCity =='Hyderabad'">
                                     <a ui-sref="liveupdates" style="color:#5aeba4 !important">LIVE UPDATES</a>
                                 </li>
                                 <li>
@@ -601,7 +606,7 @@
                             <li>
                                 <p>SCHOOL CHAMPIONSHIP</p>
                             </li>
-                            <li class="live-update-color" ng-if="sfaCity =='hyderabad'">
+                            <li class="live-update-color" ng-if="sfaCity =='Hyderabad'">
                                 <a ui-sref="liveupdates" style="color:#5aeba4 !important">LIVE UPDATES</a>
                             </li>
                             <li>
