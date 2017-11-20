@@ -4262,12 +4262,12 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     if (type == 'school') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'hyderabad';
-                        sublink = sublink3 + "/draws-schedule";
+                        sublink = sublink3 + "/liveupdates";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'hyderabad';
-                        sublink = sublink4 + "/draws-schedule";
+                        sublink = sublink4 + "/liveupdates";
                         window.open(sublink, '_self');
                     }
                     break;
@@ -4276,12 +4276,12 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     if (type == 'school') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'hyderabad';
-                        sublink = sublink3 + "/draws-schedule";
+                        sublink = sublink3 + "/liveupdates";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'hyderabad';
-                        sublink = sublink4 + "/draws-schedule";
+                        sublink = sublink4 + "/liveupdates";
                         window.open(sublink, '_self');
                     }
                     break;
@@ -4289,12 +4289,12 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     if (type == 'school') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'hyderabad';
-                        sublink = sublink3 + "/draws-schedule";
+                        sublink = sublink3 + "/liveupdates";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'hyderabad';
-                        sublink = sublink4 + "/draws-schedule";
+                        sublink = sublink4 + "/liveupdates";
                         window.open(sublink, '_self');
                     }
                     break;
