@@ -14,7 +14,8 @@
         <div class="row">
             <div class="col-md-12 col-xs-12">
                 <div class="search-title text-center">
-                    <h3 class="color-blue text-up font-semi f162">search from <span class="color-orange">{{count}}</span> teams</h3>
+                    <h3 class="color-blue text-up font-semi f162">search from
+                        <!-- <span class="color-orange">{{count}}</span>  -->teams</h3>
                 </div>
                 <div class="mt15 text-center" ng-class="{'border-bottom':inputs.search}">
                     <form class="">
@@ -29,7 +30,7 @@
         </div>
         <div class="row" ng-if="inputs.search">
             <div class="text-center mt40">
-                <h3 class="font-semi color-orange text-up">{{getSearchData.total || '0'}} Search Results</h3>
+                <h3 class="font-semi color-orange text-up">Search Results</h3>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="data in getSearchData.data" ng-if="getSearchData.data.length > 0">
                 <a ui-sref="team-detail({id:data._id})">

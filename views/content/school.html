@@ -23,7 +23,8 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="search-title text-center">
-                    <h3 class="color-blue text-up font-semi f162">search from <span class="color-orange">{{count}}</span> schools</h3>
+                    <h3 class="color-blue text-up font-semi f162">search from
+                        <!-- <span class="color-orange">{{count}}</span>  -->schools</h3>
                 </div>
                 <div class="mt15 text-center border-bottom">
                     <form class="">
@@ -46,11 +47,11 @@
                         <div class="display-inline">
                             <div class="sfa-select">
                                 <select class="select" ng-model="filter.year" ng-change="changeYear()">
-                                <option value="top20">Top 20 Schools</option>
-                                <option value="2015">SFA MUMBAI {{year15}}</option>
-                                <option value="2016">SFA MUMBAI {{year16}}</option>
-                                <option value="">All schools</option>
-                            </select>
+                                    <option value="top20">Top 20 Schools</option>
+                                    <option value="2015">SFA MUMBAI {{year15}}</option>
+                                    <option value="2016">SFA MUMBAI {{year16}}</option>
+                                    <option value="">All schools</option>
+                                </select>
                                 <span class="only-border"></span>
                             </div>
                         </div>
@@ -108,10 +109,10 @@
                                 <ul>
                                     <li ng-repeat="schools1 in schoolsData[0]">
                                         <a ui-sref="school-profile({id:schools1._id})">
-                                        <span>{{$index + 1}}</span>
-                                        <!-- <span>{{ schools1.sfaid }}</span> -->
-                                        <p>{{schools1.name | letterLimit : 53}}</p>
-                                    </a>
+                                            <span>{{$index + 1}}</span>
+                                            <!-- <span>{{ schools1.sfaid }}</span> -->
+                                            <p>{{schools1.name | letterLimit : 53}}</p>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -124,10 +125,10 @@
                                 <ul>
                                     <li ng-repeat="schools2 in schoolsData[1]">
                                         <a ui-sref="school-profile({id:schools2._id})">
-                                        <span>{{$index + schoolSplit + 1}}</span>
-                                        <!-- <span>{{ schools2.sfaid }}</span> -->
-                                        <p>{{schools2.name | letterLimit : 53}}</p>
-                                    </a>
+                                            <span>{{$index + schoolSplit + 1}}</span>
+                                            <!-- <span>{{ schools2.sfaid }}</span> -->
+                                            <p>{{schools2.name | letterLimit : 53}}</p>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -138,7 +139,7 @@
         </div>
         <div class="row" ng-if="search.active">
             <div class="text-center mt40">
-                <h3 class="font-semi color-orange text-up">{{pagination.total || '0'}} Search Results</h3>
+                <h3 class="font-semi color-orange text-up">Search Results</h3>
             </div>
             <div class="col-md-offset-2 col-md-8 col-xs-12">
                 <div class="">
