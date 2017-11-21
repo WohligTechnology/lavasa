@@ -457,8 +457,11 @@
   <section ng-if="phtoAlbum.length>0 || allphotos.length>0">
     <div class="liveupdate-imagesection">
       <div class="container">
-        <div class="liveupdate-imagetitle font-FjallaOne">
+        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName != 'Hyderabad'">
           Live Update from sfa {{cityName}} championship 2017-18
+        </div>
+        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName=='Hyderabad'">
+          Highlights from sfa {{cityName}} championship 2017-18
         </div>
         <div class="row">
           <div class="col-md-6 col-sm-6">
@@ -579,7 +582,10 @@
   <section ng-if="videoArr1.length>0 || videoArr2.length>0 ">
     <div class="liveupdate-imagesection">
       <div class="container">
-        <div class="liveupdate-imagetitle font-FjallaOne">
+        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName == 'Hyderabad'">
+          Highlights from the championship
+        </div>
+        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName != 'Hyderabad'">
           Live Highlights from the championship
         </div>
         <div class="row">
