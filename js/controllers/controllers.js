@@ -22,7 +22,7 @@ var year15 = '2015-16';
 var year16 = '2016-17';
 
 // var mainLink = "localhost:8080";
-// var link1 = "localhost:8080";
+var link1 = "localhost:8080";
 // var link2 = "localhost:8080";
 
 
@@ -34,9 +34,9 @@ var sublink4 = "http://hyderabadcollege.sfanow.in";
 var sublink5 = "http://ahmedabadschool.sfanow.in";
 var sublink6 = "http://ahmedabadcollege.sfanow.in";
 var mainLink = "sfanow.in";
-var link1 = "mumbai.sfanow.in";
-var link2 = "hyderabad.sfanow.in";
-var link3 = "ahmedabad.sfanow.in";
+// var link1 = "mumbai.sfanow.in";
+// var link2 = "hyderabad.sfanow.in";
+// var link3 = "ahmedabad.sfanow.in";
 // var eventYear = '2017';
 // var year15 = '2015';
 // var year16 = '2016';
@@ -235,6 +235,113 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
             "link": "http://ahmedabadschool.sfanow.in/register"
         }];
     }
+
+    // SPORTS ICONS AS PER THE CITY
+    if ($scope.city === 'mumbai') {
+        $scope.sportIcons = [{
+            name: 'Handball'
+        }, {
+            name: 'Basketball'
+        }, {
+            name: 'Volleyball'
+        }, {
+            name: 'Throwball'
+        }, {
+            name: 'Hockey'
+        }, {
+            name: 'Kho Kho'
+        }, {
+            name: 'Kabaddi'
+        }, {
+            name: 'Football'
+        }, {
+            name: 'Badminton'
+        }, {
+            name: 'Tennis'
+        }, {
+            name: 'Table Tennis'
+        }, {
+            name: 'Squash'
+        }, {
+            name: 'Judo'
+        }, {
+            name: 'Taekwondo'
+        }, {
+            name: 'Boxing'
+        }, {
+            name: 'Fencing'
+        }, {
+            name: 'Karate'
+        }, {
+            name: 'Sport MMA'
+        }, {
+            name: 'Shooting'
+        }, {
+            name: 'Archery'
+        }, {
+            name: 'Swimming'
+        }, {
+            name: 'WaterPolo'
+        }, {
+            name: 'Carrom'
+        }, {
+            name: 'Chess'
+        }, {
+            name: 'Athletics'
+        }, {
+            name: 'Wrestling'
+        }]
+    } else if ($scope.city === 'hyderabad') {
+        $scope.sportIcons = [{
+            name: 'Handball'
+        }, {
+            name: 'Basketball'
+        }, {
+            name: 'Volleyball'
+        }, {
+            name: 'Throwball'
+        }, {
+            name: 'Hockey'
+        }, {
+            name: 'Kho Kho'
+        }, {
+            name: 'Kabaddi'
+        }, {
+            name: 'Football'
+        }, {
+            name: 'Badminton'
+        }, {
+            name: 'Tennis'
+        }, {
+            name: 'Table Tennis'
+        }, {
+            name: 'Judo'
+        }, {
+            name: 'Taekwondo'
+        }, {
+            name: 'Boxing'
+        }, {
+            name: 'Fencing'
+        }, {
+            name: 'Karate'
+        }, {
+            name: 'Shooting'
+        }, {
+            name: 'Archery'
+        }, {
+            name: 'Swimming'
+        }, {
+            name: 'WaterPolo'
+        }, {
+            name: 'Carrom'
+        }, {
+            name: 'Chess'
+        }, {
+            name: 'Athletics'
+        }]
+    }
+    // SPORTS ICONS AS PER THE CITY END
+
 
 });
 firstApp.controller('AboutUsCtrl', function ($scope, TemplateService, NavigationService, $timeout) {

@@ -25,16 +25,16 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="mobile-sports-slider sport-slider">
-                        <h4 class="color-blue text-up text-center font-semi">Sports for sfa mumbai 2017</h4>
-                        <flex-slider flex-slide="banner in game track by $index" prev-text="" next-text="" startAt="0" item-width="70" item-margin="40"
+                        <h4 class="color-blue text-up text-center font-semi">Sports for sfa <span ng-if="city == 'hyderabad'">Hyderabad</span> <span ng-if="city == 'mumbai'">Mumbai</span>                            2017</h4>
+                        <flex-slider flex-slide="icon in sportIcons track by $index" prev-text="" next-text="" startAt="0" item-width="70" item-margin="40"
                             animation="slide" move="1" slideshow=true slideshowSpeed="500" class="mt25">
                             <li class="text-center">
-                                <a ui-sref="sport({name:banner.name})">
+                                <a ui-sref="sport({name:icon.name})">
                                     <figure class="">
-                                        <img ng-src="{{banner.image | uploadpath }}" class="img-responsive iconBlue">
+                                        <img ng-src="img/icons/{{icon.name}}.png" class="img-responsive iconBlue">
                                     </figure>
                                 </a>
-                                <figcaption class="color-blue text-up">{{banner.name}}</figcaption>
+                                <figcaption class="color-blue text-up">{{icon.name}}</figcaption>
                             </li>
                         </flex-slider>
                     </div>
@@ -51,9 +51,9 @@
                     <!-- ONLY SCHOOL BANNER -->
                     <div class="col-md-12 padding0 " ng-if="city == 'hyderabad'">
                         <div class="home-drawscard">
-                            <a href="http://hyderabadschool.sfanow.in/draws-schedule" target="_blank">
+                            <a href="http://hyderabadschool.sfanow.in/results" target="_blank">
                                 <div class="livedraw-text">
-                                    <p>CHECKOUT YOUR DRAWS & SCHEDULES</p>
+                                    <p>CHECKOUT YOUR RESULTS</p>
                                 </div>
                             </a>
                         </div>
