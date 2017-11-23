@@ -281,7 +281,7 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
         }, {
             name: 'Swimming'
         }, {
-            name: 'WaterPolo'
+            name: 'Water Polo'
         }, {
             name: 'Carrom'
         }, {
@@ -331,7 +331,7 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
         }, {
             name: 'Swimming'
         }, {
-            name: 'WaterPolo'
+            name: 'Water Polo'
         }, {
             name: 'Carrom'
         }, {
