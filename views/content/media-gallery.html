@@ -62,15 +62,16 @@ Press release
                                         <div class="text-center">
                                             <h4 class="color-orange text-up font-bold">{{filter.folder}}</h4>
                                         </div>
-                                        <div class="">
+                                        <div class="" ng-if="sfaCity === 'Mumbai'">
                                             <!--mt-min-30 mt-min-40-->
                                             <div class="float-right">
                                                 <h4 class="text-up color-blue display-inline">year</h4>
                                                 <div class="display-inline">
                                                     <div class="sfa-select">
-                                                        <select ng-change="loadMedia()" class="select" ng-model="filter.year">
+                                                        <select ng-change="loadMedia(filter.year)" class="select" ng-model="filter.year">
                                                             <option value="2015">SFA MUMBAI {{year15}}</option>
                                                             <option value="2016">SFA MUMBAI {{year16}}</option>
+                                                            <option value="2017">SFA MUMBAI {{eventYear}}</option>
                                                         </select>
                                                         <span class="only-border"></span>
                                                     </div>
@@ -127,15 +128,16 @@ Press release
                                         <div class="text-center">
                                             <h4 class="color-orange text-up font-bold">{{filter.folder}}</h4>
                                         </div>
-                                        <div class="">
+                                        <div class="" ng-if="sfaCity === 'Mumbai'">
                                             <!--mt-min-30 mt-min-40-->
                                             <div class="float-right">
                                                 <h4 class="text-up color-blue display-inline">year</h4>
                                                 <div class="display-inline">
                                                     <div class="sfa-select">
-                                                        <select ng-change="loadMedia()" class="select" ng-model="filter.year">
+                                                        <select ng-change="loadMedia(filter.year)" class="select" ng-model="filter.year">
                                                             <option value="2015">SFA MUMBAI {{year15}}</option>
                                                             <option value="2016">SFA MUMBAI {{year16}}</option>
+                                                            <option value="2017">SFA MUMBAI {{eventYear}}</option>
                                                         </select>
                                                         <span class="only-border"></span>
                                                     </div>

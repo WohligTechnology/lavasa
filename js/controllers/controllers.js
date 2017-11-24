@@ -17,9 +17,10 @@
 // var link1 = "testmumbai.sfanow.in";
 // var link2 = "testhyderabad.sfanow.in";
 // var link3 = "testahmedabad.sfanow.in";
-var eventYear = '2017-18';
+
 var year15 = '2015-16';
 var year16 = '2016-17';
+var eventYear = '2017-18';
 
 // var mainLink = "localhost:8080";
 // var link1 = "localhost:8080";
@@ -687,8 +688,8 @@ firstApp.controller('LeagueKnockoutCtrl', function ($scope, TemplateService, Nav
                     })
                     .value();
                 if (_.findIndex($scope.leagueknockouts, function (key) {
-                        return key.leagueknockoutround == 'Final';
-                    }) !== -1) {
+                    return key.leagueknockoutround == 'Final';
+                }) !== -1) {
                     $scope.knockouts = _.remove($scope.leagueknockouts, function (key) {
                         return key.leagueknockoutround == 'Final';
                     })[0];
@@ -1048,7 +1049,7 @@ firstApp.controller('SwissCtrl', function ($scope, TemplateService, NavigationSe
 
 });
 
-firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, cityService) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("media-gallery");
@@ -1071,6 +1072,19 @@ firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, Navig
     //     console.log($stateParams);
     //     $scope.flag.openGallerys = true
     // }
+    // CITY SERVICE INITIALISATIONS
+    cityService.getCurrentCity(function (response) {
+        if (window.location.host == response.link1) {
+            $scope.sfaCity = "Mumbai";
+        } else if (window.location.host == response.link2) {
+            $scope.sfaCity = "Hyderabad";
+        } else if (window.location.host == response.link3) {
+            $scope.sfaCity = "Ahemdabad";
+        } else {
+            $scope.sfaCity = "Hyderabad";
+        }
+    });
+    // CITY SERVICE INITIALISATIONS END
 
     $scope.tab = 'photos';
     $scope.classa = 'active-list';
@@ -1153,7 +1167,15 @@ firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, Navig
             }
         });
     };
-    $scope.loadMedia = function () {
+    $scope.loadMedia = function (year) {
+        if (year == '2017') {
+            if ($stateParams.type && $stateParams.folder) {
+                window.open("http://mumbaischool.sfanow.in/#media-gallery/" + $stateParams.type + "/" + $stateParams.folder, '_self');
+            } else {
+                window.open("http://mumbaischool.sfanow.in/#media-gallery", '_self');
+            }
+
+        }
         $scope.mediaArr = undefined;
         NavigationService.getLimitedMedia($scope.filter, function (response) {
             if (response) {
@@ -1206,7 +1228,7 @@ firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, Navig
     ];
 });
 
-firstApp.controller('MediaPressCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams) {
+firstApp.controller('MediaPressCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, cityService) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("media-press");
@@ -1225,6 +1247,20 @@ firstApp.controller('MediaPressCtrl', function ($scope, TemplateService, Navigat
     $scope.classp = 'active-list';
     $scope.classv = '';
 
+    // CITY SERVICE INITIALISATIONS
+    cityService.getCurrentCity(function (response) {
+        if (window.location.host == response.link1) {
+            $scope.sfaCity = "Mumbai";
+        } else if (window.location.host == response.link2) {
+            $scope.sfaCity = "Hyderabad";
+        } else if (window.location.host == response.link3) {
+            $scope.sfaCity = "Ahemdabad";
+        } else {
+            $scope.sfaCity = "Hyderabad";
+        }
+    });
+
+    // CITY SERVICE INITIALISATIONS END
     $scope.tabchanges = function (tabs, a) {
         $scope.tabs = tabs;
         console.log(tabs);
@@ -1265,7 +1301,17 @@ firstApp.controller('MediaPressCtrl', function ($scope, TemplateService, Navigat
             }
         });
     };
-    $scope.loadMedia = function () {
+
+    $scope.loadMedia = function (year) {
+        if (year == '2017') {
+            if ($stateParams.type && $stateParams.folder) {
+                console.log("im", $stateParams.type, $stateParams.folder);
+                window.open("http://mumbaischool.sfanow.in/#media-press/" + $stateParams.type + "/" + $stateParams.folder, '_self');
+            } else {
+                window.open("http://mumbaischool.sfanow.in/#media-press", '_self');
+            }
+
+        }
         $scope.mediaArr = undefined;
         NavigationService.getLimitedMedia($scope.filter, function (response) {
             if (response) {
@@ -1572,8 +1618,8 @@ firstApp.controller('DrawCtrl', function ($scope, TemplateService, NavigationSer
                     pseudoRound = [];
                     for (i = 0; i <= maxOrder; i++) {
                         if (_.findIndex(value, function (single) {
-                                return single.order == i;
-                            }) === -1) {
+                            return single.order == i;
+                        }) === -1) {
                             pseudoRound.push({
                                 order: -999
                             });
@@ -1587,8 +1633,8 @@ firstApp.controller('DrawCtrl', function ($scope, TemplateService, NavigationSer
                     console.log($scope.knockout.rounds);
                 });
                 if (_.findIndex($scope.knockout.rounds, function (key) {
-                        return key === '-1 Third Place';
-                    }) !== -1) {
+                    return key === '-1 Third Place';
+                }) !== -1) {
                     _.remove($scope.knockout.rounds, function (key) {
                         return key === '-1 Third Place';
                     });
@@ -3527,8 +3573,8 @@ firstApp.controller('HeatsCtrl', function ($scope, TemplateService, NavigationSe
                     })
                     .value();
                 if (_.findIndex($scope.heat.heats, function (key) {
-                        return key.round == 'Final';
-                    }) !== -1) {
+                    return key.round == 'Final';
+                }) !== -1) {
                     $scope.heat.final = _.find($scope.heat.heats, function (key) {
                         return key.round == 'Final';
                     }).heats[0];
@@ -3915,7 +3961,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        }, ]
+        },]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -3932,7 +3978,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        }, ]
+        },]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -3949,7 +3995,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        }, ]
+        },]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -3966,7 +4012,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        }, ]
+        },]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -3983,7 +4029,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        }, ]
+        },]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -4000,7 +4046,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        }, ]
+        },]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -4017,7 +4063,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        }, ]
+        },]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -4034,7 +4080,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        }, ]
+        },]
     }];
     $scope.profiles = function (participantType, id) {
         if (participantType == 'player') {
@@ -4275,6 +4321,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     });
     $rootScope.year15 = year15;
     $rootScope.year16 = year16;
+    $rootScope.eventYear = eventYear
     if (window.location.host == mainLink) {
         $scope.hideHeaderContent = false;
     } else {
@@ -4830,22 +4877,22 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
         ];
     $scope.partner = // JavaScript Document
         [{
-                "img": "img/footer/p1.jpg",
-                "href": "",
-                "game": "Venue Partner"
-            }, {
-                "img": "img/footer/p6.jpg",
-                "href": "",
-                "game": "Hospital Partner"
-            }, {
-                "img": "img/footer/n10.png",
-                "href": "",
-                "game": "Digital Parenting Partner"
-            }, {
-                "img": "img/footer/n12.png",
-                "href": "",
-                "game": "Sports Development Partner"
-            }
+            "img": "img/footer/p1.jpg",
+            "href": "",
+            "game": "Venue Partner"
+        }, {
+            "img": "img/footer/p6.jpg",
+            "href": "",
+            "game": "Hospital Partner"
+        }, {
+            "img": "img/footer/n10.png",
+            "href": "",
+            "game": "Digital Parenting Partner"
+        }, {
+            "img": "img/footer/n12.png",
+            "href": "",
+            "game": "Sports Development Partner"
+        }
             // {
             //     "img": "img/footer/na3.jpg",
             //     "href": "",
