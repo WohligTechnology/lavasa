@@ -189,8 +189,8 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
             }
         });
     } else {
-        // $scope.hideHome = false;
-        // TemplateService.footer = "";
+        $scope.hideHome = false;
+        TemplateService.footer = "";
         window.open("https://mumbai.sfanow.in","_self");
     }
     if (window.location.host == link1) {
