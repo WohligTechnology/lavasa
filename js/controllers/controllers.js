@@ -189,8 +189,9 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
             }
         });
     } else {
-        $scope.hideHome = false;
-        TemplateService.footer = "";
+        // $scope.hideHome = false;
+        // TemplateService.footer = "";
+        window.open("https://mumbai.sfanow.in","_self");
     }
     if (window.location.host == link1) {
         $scope.bannerss = [{
@@ -4641,43 +4642,52 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
         }
     }
 
-
+    // if(window.location.host == mainLink){
+    //     window.open("https://mumbai.sfanow.in","_self")
+    // }
+    
     if (window.location.host == mainLink && $.jStorage.get("sfaCity") == null) {
         if (window.location.pathname != '/') {
-            $state.go('home');
-        } else {
-            $scope.hideBlink = true;
-            if ($state.current.name == 'home') {
-                $uibModal.open({
-                    animation: true,
-                    scope: $scope,
-                    backdrop: 'static',
-                    backdropClass: 'blackOut',
-                    keyboard: false,
-                    templateUrl: "views/modal/city-video.html",
-                    size: 'lg',
-                    windowClass: 'sfacity-selectmodal'
-                });
+                $state.go('home');
+            } else {  
+              window.open("https://mumbai.sfanow.in","_self");
             }
-        }
+        // if (window.location.pathname != '/') {
+        //     $state.go('home');
+        // } else {
+        //     $scope.hideBlink = true;
+        //     if ($state.current.name == 'home') {
+        //         $uibModal.open({
+        //             animation: true,
+        //             scope: $scope,
+        //             backdrop: 'static',
+        //             backdropClass: 'blackOut',
+        //             keyboard: false,
+        //             templateUrl: "views/modal/city-video.html",
+        //             size: 'lg',
+        //             windowClass: 'sfacity-selectmodal'
+        //         });
+        //     }
+        // }
     } else if (window.location.host == mainLink && $.jStorage.get('sfaCity') != null) {
         if (window.location.pathname != '/') {
             $state.go('home');
         } else {
-            $.jStorage.flush();
-            $scope.hideBlink = true;
-            if ($state.current.name == 'home') {
-                $uibModal.open({
-                    animation: true,
-                    scope: $scope,
-                    backdrop: 'static',
-                    backdropClass: 'blackOut',
-                    keyboard: false,
-                    templateUrl: "views/modal/city-video.html",
-                    size: 'lg',
-                    windowClass: 'sfacity-selectmodal'
-                });
-            }
+            window.open("https://mumbai.sfanow.in","_self");
+            // $.jStorage.flush();
+            // $scope.hideBlink = true;
+            // if ($state.current.name == 'home') {
+            //     $uibModal.open({
+            //         animation: true,
+            //         scope: $scope,
+            //         backdrop: 'static',
+            //         backdropClass: 'blackOut',
+            //         keyboard: false,
+            //         templateUrl: "views/modal/city-video.html",
+            //         size: 'lg',
+            //         windowClass: 'sfacity-selectmodal'
+            //     });
+            // }
         }
     } else if (window.location.host != mainLink) {
         if (window.location.host == link1) {
@@ -4717,105 +4727,6 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     $scope.$watch('online', function (newStatus) {
         $scope.variables.online = $rootScope.online;
     });
-
-    // $scope.games = // JavaScript Document
-    //     [{
-    //         "img": "img/footer/n1.jpg",
-    //         "href": "http://madeofgreat.tatamotors.com/tiago/",
-    //         "game": "Fantastico Partner"
-    //     }, {
-    //         "img": "img/footer/n2.jpg",
-    //         "href": "",
-    //         "game": "Smartphone Partner"
-    //     }, {
-    //         "img": "img/footer/p4.jpg",
-    //         "href": "",
-    //         "game": "Hydration partner"
-    //     }, {
-    //         "img": "img/footer/n3.jpg",
-    //         "href": "",
-    //         "game": "Support Partner"
-    //     }, {
-    //         "img": "img/footer/p7.jpg",
-    //         "href": "",
-    //         "game": "Media Partner "
-    //     }, {
-    //         "img": "img/footer/n4.jpg",
-    //         "href": "https://www.facebook.com/sportsillustratedindia/",
-    //         "game": "Magazine Partner"
-    //     }];
-    // $scope.partner = // JavaScript Document
-    //     [{
-    //         "img": "img/footer/p1.jpg",
-    //         "href": "",
-    //         "game": "Venue Partner"
-    //     }, {
-    //         "img": "img/footer/p6.jpg",
-    //         "href": "",
-    //         "game": "Hospital Partner"
-    //     }, {
-    //         "img": "img/footer/na3.jpg",
-    //         "href": "",
-    //         "game": "Sports Surface Partner"
-    //     }, {
-    //         "img": "img/footer/na6.jpg",
-    //         "href": "",
-    //         "game": "Sports Mentorship Partner"
-    //     }, {
-    //         "img": "img/footer/na4.jpg",
-    //         "href": "",
-    //         "game": "Shooting Range Partner"
-    //     }, {
-    //         "img": "img/footer/p5.jpg",
-    //         "href": "",
-    //         "game": "Medical Partner"
-    //     }, {
-    //         "img": "img/footer/na5.jpg",
-    //         "href": "",
-    //         "game": "Event Partner"
-    //     }];
-
-
-    // //  {
-    // //             "img": "img/footer/na1.jpg",
-    // //             "href": "",
-    // //             "game": "Sports Equipment Partner"
-    // //         }, {
-    // //             "img": "img/footer/na2.jpg",
-    // //             "href": "",
-    // //             "game": "Apparel Partner"
-    // //         },
-    // $scope.supportedBy = [{
-    //     "img": "img/footer/hyd/government.png",
-    //     "href": "",
-    //     "game": "Government of Telangana"
-    // }, {
-    //     "img": "img/footer/hyd/authority.png",
-    //     "href": "",
-    //     "game": "Under the aegis of SATS"
-    // }];
-    // $scope.sponsor_partner = [{
-    //     "img": "img/footer/hyd/enerzal.png",
-    //     "href": "",
-    //     "game": "Energy Drink Partner"
-    // }, {
-    //     "img": "img/footer/hyd/fever.png",
-    //     "href": "",
-    //     "game": "Radio Partner"
-    // }, {
-    //     "img": "img/footer/hyd/tv5.png",
-    //     "href": "",
-    //     "game": "News Channel Partner"
-    // }, {
-    //     "img": "img/footer/hyd/ibrand.png",
-    //     "href": "",
-    //     "game": "Marketing & Strategy Partner"
-    // }, {
-    //     "img": "img/footer/hyd/wizcraft.png",
-    //     "href": "",
-    //     "game": "Event Partner"
-    // }];
-    // // TV Support Partner
 });
 
 firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope, NavigationService, errorService, toastr, $state, $uibModal, $rootScope) {
