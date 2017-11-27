@@ -42,7 +42,7 @@ var link3 = "ahmedabad.sfanow.in";
 // var year15 = '2015';
 // var year16 = '2016';
 
-firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval, cityService) {
+firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $interval, cityService, $state) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("SPORTS FOR ALL | PROFESSIONAL SCHOOL & COLLEGE SPORTING SYSTEM");
@@ -194,48 +194,10 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
         window.open("https://mumbai.sfanow.in","_self");
     }
     if (window.location.host == link1) {
-        $scope.bannerss = [{
-            "img": "img/mobweb-2.jpg",
-            "link": "http://mumbaischool.sfanow.in/register"
-        }, {
-            "img": "img/mobweb-3.jpg",
-            "link": "http://mumbaicollege.sfanow.in/register"
-        }, {
-            "img": "img/mobweb-1.jpg",
-            "link": "http://mumbaischool.sfanow.in/register"
-        }, {
-            "img": "img/mobweb-4.jpg",
-            "link": "http://mumbaicollege.sfanow.in/register"
-        }];
     } else if (window.location.host == link2) {
-        $scope.bannerss = [{
-            "img": "img/Hyderabad_7.jpg",
-            "link": "http://hyderabadschool.sfanow.in/championship-schedule"
-        }, {
-            "img": "img/Hyderabad_8.jpg",
-            "link": "http://hyderabadschool.sfanow.in/draws-schedule"
-        }];
-        // $scope.bannerss = [{
-        //     "img": "img/Hyderabad_4.jpg",
-        //     "link": "http://hyderabadschool.sfanow.in/register"
-        // }, {
-        //     "img": "img/Hyderabad_5.jpg",
-        //     "link": "http://hyderabadschool.sfanow.in/register"
-        // }, {
-        //     "img": "img/Hyderabad_6.jpg",
-        //     "link": "http://hyderabadschool.sfanow.in/register"
-        // }];
+        $state.go('liveupdates');
     } else if (window.location.host == link3) {
-        $scope.bannerss = [{
-            "img": "img/mobweb-2.jpg",
-            "link": "http://ahmedabadschool.sfanow.in/register"
-        }, {
-            "img": "img/mobweb-3.jpg",
-            "link": "http://ahmedabadschool.sfanow.in/register"
-        }, {
-            "img": "img/mobweb-1.jpg",
-            "link": "http://ahmedabadschool.sfanow.in/register"
-        }];
+        
     }
 
     // SPORTS ICONS AS PER THE CITY
