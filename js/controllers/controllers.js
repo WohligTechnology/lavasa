@@ -191,13 +191,13 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
     } else {
         $scope.hideHome = false;
         TemplateService.footer = "";
-        window.open("https://mumbai.sfanow.in","_self");
+        window.open("https://mumbai.sfanow.in", "_self");
     }
     if (window.location.host == link1) {
     } else if (window.location.host == link2) {
         $state.go('liveupdates');
     } else if (window.location.host == link3) {
-        
+
     }
 
     // SPORTS ICONS AS PER THE CITY
@@ -2577,6 +2577,7 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
     $scope.navigation = NavigationService.getnav();
     $scope.callObject = {};
     var year = new Date();
+    var schoolProfileId = '';
     $scope.filter = {};
     $scope.callObject._id = $stateParams.id;
     $scope.callObject.year = year.getFullYear().toString();
@@ -2688,12 +2689,7 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
             });
         }
     };
-    $scope.contingent = {};
-    $scope.onChangeContingentYear = function () {
-        $scope.filterStatistics.pagenumber = 1;
-        $scope.contingent = {};
-        $scope.contingentStrengthByYear();
-    };
+
     $scope.contingentStrengthByYear = function () {
         $scope.contingent.data = undefined;
 
@@ -2737,6 +2733,8 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
         if (data.value) {
             console.log("school data : ", data.data);
             $scope.getSchoolProfile = data.data;
+            console.log("getSchoolProfile", $scope.getSchoolProfile);
+            schoolProfileId = $scope.getSchoolProfile.sfaid;
             $scope.schoolSports = data.data.sports;
         } else {
             {
@@ -2746,7 +2744,22 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
             }
         }
     });
+    $scope.contingent = {};
+    $scope.onChangeContingentYear = function () {
+        if ($scope.filterStatistics.year == '2017') {
+            window.open("http://mumbaischool.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
+
+        }
+        $scope.filterStatistics.pagenumber = 1;
+        $scope.contingent = {};
+        $scope.contingentStrengthByYear();
+    };
     $scope.changeYear = function () {
+        console.log("getSchoolProfile", $scope.getSchoolProfile);
+        if ($scope.filter.year == '2017') {
+            window.open("http://mumbaischool.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
+
+        }
         $scope.schooldata.Boys = 0;
         $scope.schooldata.Girls = 0;
         $scope.filter.sport = undefined;
@@ -3099,6 +3112,7 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
     TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    var studentProfileId = '';
     $scope.studentProfile = {};
     $scope.tabs = 'photos';
     $scope.classp = 'active-list';
@@ -3162,6 +3176,7 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
         NavigationService.getStudentProfile($stateParams.id, function (data) {
             if (data.value) {
                 $scope.studentProfile = data.data;
+                studentProfileId = $scope.studentProfile.sfaid;
                 if ($scope.studentProfile.gender == "Boys") {
                     $scope.studentProfile.gender = "Male";
                 } else {
@@ -3176,6 +3191,12 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
     $scope.getStudentProfile();
 
     $scope.changeYear = function () {
+        console.log("im in");
+
+        if ($scope.filter.year == '2017') {
+            window.open("http://mumbaischool.sfanow.in/student-profile/" + 'MA16' + studentProfileId, '_self');
+
+        }
         var constraints = {};
         constraints.year = $scope.filter.year;
         constraints.student = $stateParams.id;
@@ -3183,6 +3204,7 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
         $scope.studentStats = [];
         $scope.getStudentSport(constraints);
         $scope.studentMedalCount(constraints);
+
     };
     $scope.getStudentSport = function (constraints) {
         //console.log("constraints : ",constraints);
@@ -4607,13 +4629,13 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     // if(window.location.host == mainLink){
     //     window.open("https://mumbai.sfanow.in","_self")
     // }
-    
+
     if (window.location.host == mainLink && $.jStorage.get("sfaCity") == null) {
         if (window.location.pathname != '/') {
-                $state.go('home');
-            } else {  
-              window.open("https://mumbai.sfanow.in","_self");
-            }
+            $state.go('home');
+        } else {
+            window.open("https://mumbai.sfanow.in", "_self");
+        }
         // if (window.location.pathname != '/') {
         //     $state.go('home');
         // } else {
@@ -4635,7 +4657,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
         if (window.location.pathname != '/') {
             $state.go('home');
         } else {
-            window.open("https://mumbai.sfanow.in","_self");
+            window.open("https://mumbai.sfanow.in", "_self");
             // $.jStorage.flush();
             // $scope.hideBlink = true;
             // if ($state.current.name == 'home') {

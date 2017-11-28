@@ -176,6 +176,7 @@
                             <select class="select" ng-model="filter.year" ng-change="changeYear()">
                                 <option value="2015">{{year15}}</option>
                                 <option value="2016">{{year16}}</option>
+                                <option value="2017">{{eventYear}}</option>
 
                             </select>
                             <span class="only-border"></span>
@@ -270,6 +271,7 @@
                                 <select ng-change="onChangeContingentYear()" class="select" ng-model="filterStatistics.year">
                                     <option value="2015">{{year15}}</option>
                                     <option value="2016">{{year16}}</option>
+                                    <option value="2017">{{eventYear}}</option>
                                 </select>
                                 <span class="only-border"></span>
                             </div>
@@ -559,8 +561,8 @@
                                                         || '-'}}</td>
                                                     <!-- <td class="text-up" ng-if="table.layout == 'Knockout'"><img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.self.result == 'Won' || stat.self.result == 'Bye' || stat.self.result == 'Walkover'">{{stat.student.name}}</td> -->
                                                     <td class="text-up" ng-if="table.layout == 'Knockout' || table.layout == 'Swiss League' || table.layout == 'League' || table.layout == 'League cum Knockout' || table.layout == 'Qualifying Knockout'">
-                                                        <img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.opponent.result == 'Won' || stat.opponent.result == 'Bye' || stat.opponent.result == 'Walkover'">{{stat.opponent.detail.name || '-' | removeSchool:stat.opponent.detail.school.name
-                                                        }}
+                                                        <img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.opponent.result == 'Won' || stat.opponent.result == 'Bye' || stat.opponent.result == 'Walkover'">{{stat.opponent.detail.name
+                                                        || '-' | removeSchool:stat.opponent.detail.school.name }}
                                                         <p>{{stat.opponent.detail.school.name}}</p>
                                                     </td>
                                                     <td ng-if="table.layout != 'Swiss League'">

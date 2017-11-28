@@ -134,6 +134,7 @@
                         <select ng-change="changeYear()" class="select" ng-model="filter.year">
                             <option value="2015">{{year15}}</option>
                             <option value="2016">{{year16}}</option>
+                            <option value="2017">{{eventYear}}</option>
                         </select>
                         <span class="only-border"></span>
                     </div>
@@ -266,8 +267,8 @@ student’s blog
                                             == 'Final' ? stat.leagueknockout.round : stat.leagueknockout.leagueknockoutround)
                                             || '-'}}</td>
                                         <td class="text-up" ng-if="table.layout == 'Qualifying Knockout' || table.layout == 'Knockout' || table.layout == 'League' || table.layout == 'League cum Knockout' || table.layout == 'Swiss League'">
-                                            <img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.opponent.result == 'Won' || stat.opponent.result == 'Bye' || stat.opponent.result == 'Walkover'">{{stat.opponent.detail.name || '-' | removeSchool:stat.opponent.detail.school.name
-                                            }}
+                                            <img src="img/sf-cup-mini.png" alt="" class="table-img" ng-if="stat.opponent.result == 'Won' || stat.opponent.result == 'Bye' || stat.opponent.result == 'Walkover'">{{stat.opponent.detail.name
+                                            || '-' | removeSchool:stat.opponent.detail.school.name }}
                                             <p>{{stat.opponent.detail.school.name}}</p>
                                         </td>
                                         <td ng-if="table.layout != 'Swiss League'">
