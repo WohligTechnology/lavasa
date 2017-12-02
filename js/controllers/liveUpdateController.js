@@ -50,7 +50,7 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
   cityService.getCurrentCity(function (response) {
     if (window.location.host == response.link1) {
       // $scope.drawObj.link = response.data.Mumbai;
-      $scope.drawObj.college = true;
+      $scope.drawObj.college = false;
       $scope.calenderLink = '';
       $scope.cityName = 'Mumbai';
       $scope.schoolLink = "http://mumbaischool.sfanow.in";
