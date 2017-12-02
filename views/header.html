@@ -75,7 +75,7 @@
                                             <p class="m-clear" style="font-size:12px;">PREVIOUS CHAMPIONSHIP</p>
                                         </a>
                                     </li>
-                                    <li ng-if="sfaCity !== 'hyderabad'">
+                                    <li ng-if="sfaCity !== 'hyderabad'" class="hide">
                                         <div class="profile-sub-header text-uppercase text-center">
                                             <label for="">College</label>
                                         </div>
@@ -171,7 +171,7 @@
                                         <a href="{{registerSchool}}/media-gallery " target="_blank ">
                                             <span>SCHOOL</span>
                                         </a>
-                                        <a href="{{registerCollege}}/media-gallery " target="_blank ">
+                                        <a href="{{registerCollege}}/media-gallery " target="_blank " class="hide">
                                             <span>COLLEGE</span>
                                         </a>
                                     </li>
@@ -199,7 +199,7 @@
                                         <a href="{{registerSchool}}/media-press " target="_blank ">
                                             <span>SCHOOL</span>
                                         </a>
-                                        <a href="{{registerCollege}}/media-press " target="_blank ">
+                                        <a href="{{registerCollege}}/media-press " target="_blank " class="hide">
                                             <span>COLLEGE</span>
                                         </a>
                                     </li>
@@ -289,7 +289,7 @@
                                             <a href="{{registerSchool}}/specialevents" target="_blank">SPECIAL EVENTS</a>
                                         </li>
                                     </ul>
-                                    <ul class="display-inline typeList" ng-if="sfaCity != 'hyderabad'">
+                                    <ul class="display-inline typeList hide" ng-if="sfaCity != 'hyderabad'">
                                         <li>
                                             <a>COLLEGE CHAMPIONSHIP</a>
                                         </li>
@@ -352,16 +352,16 @@
                                     <li>
                                         <a href="{{registerSchool}}/team " target="_blank ">2017 TEAMS</a>
                                     </li>
-                                    <li>
+                                    <li class="hide">
                                         <label for="">COLLEGE</label>
                                     </li>
-                                    <li>
+                                    <li class="hide">
                                         <a href="{{registerCollege}}/students " target="_blank "> 2017 ATHLETES</a>
                                     </li>
-                                    <li>
+                                    <li class="hide">
                                         <a href="{{registerCollege}}/school" target="_blank "> 2017 COLLEGE</a>
                                     </li>
-                                    <li>
+                                    <li class="hide">
                                         <a href="{{registerCollege}}/team " target="_blank ">2017 TEAMS</a>
                                     </li>
                                     <!-- <li>
@@ -434,7 +434,7 @@
                                     <li>
                                         <a href="{{registerSchool}}/media-gallery" target="_blank ">SCHOOL</a>
                                     </li>
-                                    <li>
+                                    <li class="hide">
                                         <a href="{{registerCollege}}/media-gallery" target="_blank ">COLLEGE</a>
                                     </li>
                                 </ul>
@@ -461,7 +461,7 @@
                                         <a href="{{registerSchool}}/school" target="_blank " ui-sref="school-ranking">SCHOOL</a>
                                     </li>
                                     <li>
-                                        <a href="{{registerCollege}}/college" target="_blank " ui-sref="champions">COLLEGE</a>
+                                        <a href="{{registerCollege}}/college" target="_blank " class="hide" ui-sref="champions">COLLEGE</a>
                                     </li>
                                 </ul>
                             </li>
@@ -517,62 +517,62 @@
                         <button type="button" name="button" class="btn btn-sfatop" ng-mouseenter="optionss=!optionss" ng-model="checkboxs">
                             <span ng-if="selectedCity==='Hyderabad'">LIVE</span> SFA {{sfaCity | capitalize}} {{eventYear}}</button>
 
-                            <div class="on-mouse-hover hidden-xs hidden-sm specialCase specialCase2" ng-mouseenter="optionss=true" ng-mouseleave="optionss=false"
+                        <div class="on-mouse-hover hidden-xs hidden-sm specialCase specialCase2" ng-mouseenter="optionss=true" ng-mouseleave="optionss=false"
                             ng-show="optionss || checkboxs ">
-                                <!-- <div class="on-mouse-hover"> -->
-            
-                                <div class="bg-head curve-head-mum after2 newList hidden-xs hidden-sm">
-            
-                                    <!-- <ul class="list-unstyled ls"> -->
-                                    <ul class="display-inline typeList">
-                                        <li>
-                                            <p>SCHOOL CHAMPIONSHIP</p>
-                                        </li>
-                                        <li class="live-update-color" ng-if="sfaCity =='Hyderabad'">
-                                            <a ui-sref="liveupdates" style="color:#5aeba4 !important">LIVE UPDATES</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{registerSchool}}/championship" target="_blank">ABOUT CHAMPIONSHIP</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{registerSchool}}/register" target="_blank"> REGISTER</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{registerSchool}}/championship-schedule" target="_blank">CHAMPIONSHIP SCHEDULE</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{registerSchool}}/faq" target="_blank">FAQs</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{registerSchool}}/draws-schedule" target="_blank">DRAWS &amp; SCHEDULES</a>
-                                        </li>
-                                        <li ng-if="sfaCity == 'hyderabad'">
-                                            <a href="{{registerSchool}}/specialevents" target="_blank">SPECIAL EVENTS</a>
-                                        </li>
-                                    </ul>
-                                    <ul class="display-inline typeList" ng-if="sfaCity != 'hyderabad'">
-                                        <li>
-                                            <p>COLLEGE CHAMPIONSHIP</p>
-                                        </li>
-                                        <li>
-                                            <a href="{{registerCollege}}/register" target="_blank"> REGISTER</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{registerCollege}}/championship-schedule" target="_blank">CHAMPIONSHIP SCHEDULE</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{registerCollege}}/faq" target="_blank">FAQs</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{registerCollege}}/draws-schedule" target="_blank">DRAWS &amp; SCHEDULES</a>
-                                        </li>
-                                        <li ng-if="sfaCity == 'hyderabad'">
-                                            <a href="{{registerCollege}}/specialevents" target="_blank">SPECIAL EVENTS</a>
-                                        </li>
-                                    </ul>
-                                </div>
-            
+                            <!-- <div class="on-mouse-hover"> -->
+
+                            <div class="bg-head curve-head-mum after2 newList hidden-xs hidden-sm">
+
+                                <!-- <ul class="list-unstyled ls"> -->
+                                <ul class="display-inline typeList">
+                                    <li>
+                                        <p>SCHOOL CHAMPIONSHIP</p>
+                                    </li>
+                                    <li class="live-update-color" ng-if="sfaCity =='Hyderabad'">
+                                        <a ui-sref="liveupdates" style="color:#5aeba4 !important">LIVE UPDATES</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{registerSchool}}/championship" target="_blank">ABOUT CHAMPIONSHIP</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{registerSchool}}/register" target="_blank"> REGISTER</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{registerSchool}}/championship-schedule" target="_blank">CHAMPIONSHIP SCHEDULE</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{registerSchool}}/faq" target="_blank">FAQs</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{registerSchool}}/draws-schedule" target="_blank">DRAWS &amp; SCHEDULES</a>
+                                    </li>
+                                    <li ng-if="sfaCity == 'hyderabad'">
+                                        <a href="{{registerSchool}}/specialevents" target="_blank">SPECIAL EVENTS</a>
+                                    </li>
+                                </ul>
+                                <ul class="display-inline typeList hide" ng-if="sfaCity != 'hyderabad'">
+                                    <li>
+                                        <p>COLLEGE CHAMPIONSHIP</p>
+                                    </li>
+                                    <li>
+                                        <a href="{{registerCollege}}/register" target="_blank"> REGISTER</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{registerCollege}}/championship-schedule" target="_blank">CHAMPIONSHIP SCHEDULE</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{registerCollege}}/faq" target="_blank">FAQs</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{registerCollege}}/draws-schedule" target="_blank">DRAWS &amp; SCHEDULES</a>
+                                    </li>
+                                    <li ng-if="sfaCity == 'hyderabad'">
+                                        <a href="{{registerCollege}}/specialevents" target="_blank">SPECIAL EVENTS</a>
+                                    </li>
+                                </ul>
                             </div>
+
+                        </div>
                         <!-- <img src="img/top-pin.png" alt="" ng-mouseenter="optionss=!optionss" ng-model="checkboxs"> -->
                     </div>
                 </div>
@@ -614,7 +614,7 @@
                                     <a href="{{registerSchool}}/specialevents" target="_blank">SPECIAL EVENTS</a>
                                 </li>
                             </ul>
-                            <ul class="typeList" ng-if="sfaCity != 'hyderabad'">
+                            <ul class="typeList hide" ng-if="sfaCity != 'hyderabad'">
                                 <li>
                                     <a>COLLEGE CHAMPIONSHIP</a>
                                 </li>

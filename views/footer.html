@@ -149,7 +149,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li ng-if="selectedCity==!hyderabad">
+                            <li ng-if="selectedCity==!hyderabad" class="hide">
                                 <label class="footer-champ-header">College championship</label>
                                 <ul class="padding0">
                                     <li ng-if="!registerSchool ">
@@ -194,7 +194,7 @@
                     <div class="f-list">
                         <span class="footer-header-color">PROFILE</span>
                         <ul class="padding0">
-                            <li>
+                            <li class="hide">
                                 <label class="footer-champ-header">SCHOOL</label>
                             </li>
                             <!-- HYDERABAD -->
@@ -237,7 +237,7 @@
                             <!-- HYDERABAD END -->
                         </ul>
                         <!-- MUMBAI COLLEGE -->
-                        <ul class="padding0" ng-if="selectedCity==='mumbai'">
+                        <ul class="padding0 hide" ng-if="selectedCity==='mumbai'">
                             <li>
                                 <label class="footer-champ-header">COLLEGE</label>
                             </li>
@@ -291,7 +291,7 @@
                                     <span>SCHOOL RANKING</span>
                                 </a>>
                             </li>
-                            <li ng-if="selectedCity !=='hyderabad'">
+                            <li ng-if="selectedCity !=='hyderabad'" class="hide">
                                 <a href="{{registerCollege}}/results" target="_blank ">
                                     <span>2017</span>
                                     <span>COLLEGE RANKING</span>
