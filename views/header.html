@@ -42,7 +42,7 @@
                           <a ui-sref="school">SCHOOLS</a>
                           <a ui-sref="team">TEAMS</a>
                         </li> -->
-                                    <li class="ver-top">
+                                    <li class="ver-top text-center">
                                         <div class="profile-sub-header text-uppercase text-center">
                                             <label for="">School</label>
                                         </div>
@@ -70,9 +70,17 @@
                                             <span>2017</span>
                                             <span>TEAMS</span>
                                         </a>
-                                        <a ui-sref='students' target="_blank" ng-if="sfaCity !== 'hyderabad'">
-                                            <p class="m-clear" style="font-size:12px;">VIEW PROFILE FROM</p>
-                                            <p class="m-clear" style="font-size:12px;">PREVIOUS CHAMPIONSHIP</p>
+                                        <div class="profile-sub-header text-uppercase text-center" ng-if="sfaCity !== 'hyderabad'">
+                                            <label style="font-size:12px;">PREVIOUS PROFILE</label>
+                                        </div>
+                                        <a ui-sref="students" ng-if="sfaCity !== 'hyderabad'">
+                                            <span>ATHLETES</span> 
+                                         </a>
+                                        <a ui-sref="school" ng-if="sfaCity !== 'hyderabad'">
+                                            <span>SCHOOL</span> 
+                                         </a>
+                                        <a ui-sref="team" ng-if="sfaCity !== 'hyderabad'">
+                                            <span>TEAMS</span> 
                                         </a>
                                     </li>
                                     <li ng-if="sfaCity !== 'hyderabad'" class="hide">
@@ -350,6 +358,18 @@
                                     </li>
                                     <li>
                                         <a href="{{registerSchool}}/team " target="_blank ">2017 TEAMS</a>
+                                    </li>
+                                    <li>
+                                        <label for="">VIEW PREVIOUS PROFILE</label>
+                                    </li>
+                                    <li>
+                                        <a ui-sref="students">ATHLETES</a>
+                                    </li>
+                                    <li>
+                                        <a ui-sref="school">SCHOOLS</a>
+                                    </li>
+                                    <li>
+                                        <a ui-sref="team">TEAMS</a>
                                     </li>
                                     <li class="hide">
                                         <label for="">COLLEGE</label>

@@ -228,12 +228,24 @@
                                     <span>TEAMS</span>
                                 </a>
                             </li>
-                            <li ng-if="selectedCity==='mumbai'">
-                                <a ui-sref="students" target="_blank">
-                                    <p class="m-clear" style="font-size:12px;">VIEW PROFILE FROM PREVIOUS CHAMPIONSHIP</p>
-
+                            <span ng-if="selectedCity==='mumbai'" class="footer-header-color">VIEW PREVIOUS PROFILE</span>
+                            <li>
+                                <a ui-sref="students">
+                                    ATHLETES
                                 </a>
                             </li>
+                            <li>
+                                <a ui-sref="school">
+                                    SCHOOLS
+                                </a>
+                            </li>
+                            <li>
+                                <a ui-sref="team">
+                                    TEAMS
+                                </a>
+                            </li>
+
+
                             <!-- HYDERABAD END -->
                         </ul>
                         <!-- MUMBAI COLLEGE -->
