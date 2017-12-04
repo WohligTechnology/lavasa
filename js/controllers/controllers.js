@@ -195,7 +195,7 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
         window.open("https://mumbai.sfanow.in/liveupdates", "_self");
     }
     if (window.location.host == link1) {
-        $state.go('liveupdates');
+        // $state.go('liveupdates');
     } else if (window.location.host == link2) {
         $state.go('liveupdates');
     } else if (window.location.host == link3) {
@@ -452,7 +452,15 @@ firstApp.controller('SponserCtrl', function ($scope, TemplateService, Navigation
         }, {
             "img": "img/footer/na5.jpg",
             "href": "",
-            "game": "Event Partner "
+            "game": "Event Partner"
+        }, {
+            "img": "img/footer/n13.png",
+            "href": "",
+            "game": "Goodwill Partner"
+        }, {
+            "img": "img/footer/n14.png",
+            "href": "",
+            "game": "Online Promotional Partner"
         }];
     // {
     //     "img": "img/footer/na1.jpg",

@@ -1,5 +1,5 @@
 <footer ng-controller="footerctrl">
-    <section ng-if="">
+    <section>
         <div class="footer-slider" ng-if="selectedCity != 'hyderabad'">
             <div class="container">
                 <div class="row">
@@ -111,10 +111,10 @@
                                     <li ng-if="selectedCity==='Hyderabad'">
                                         <a ui-sref="liveupdates"> LIVE UPDATES</a>
                                     </li>
-                                    <li ng-if="selectedCity!=='hyderabad'">
+                                    <li class="hide" ng-if="selectedCity!=='hyderabad'">
                                         <a ui-sref="liveupdates"> LIVE UPDATES</a>
                                     </li>
-                                    <li ng-if="selectedCity!=='hyderabad'">
+                                    <li class="hide" ng-if="selectedCity!=='hyderabad'">
                                         <a ui-sref="livescore"> LIVE SCORES</a>
                                     </li>
                                     <li ng-if="!registerSchool ">
