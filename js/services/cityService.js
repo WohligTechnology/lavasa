@@ -29,7 +29,7 @@ firstApp.service('cityService', function ($http, TemplateService, $state, toastr
     // var year15 = '2015';
     // var year16 = '2016';
     if (window.location.host == 'localhost:8080') {
-      returnObj.link2 = "localhost:8080";
+      returnObj.link1 = "localhost:8080";
       returnObj.mainLink = "localhost:8080";
     }
     callback(returnObj);

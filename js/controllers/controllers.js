@@ -25,6 +25,7 @@ var eventYear = '2017-18';
 // var mainLink = "localhost:8080";
 // var link1 = "localhost:8080";
 // var link2 = "localhost:8080";
+// var link3 = "localhost:8080";
 
 
 var type = 'live';
@@ -191,9 +192,10 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
     } else {
         $scope.hideHome = false;
         TemplateService.footer = "";
-        window.open("https://mumbai.sfanow.in", "_self");
+        window.open("https://mumbai.sfanow.in/liveupdates", "_self");
     }
     if (window.location.host == link1) {
+        $state.go('liveupdates');
     } else if (window.location.host == link2) {
         $state.go('liveupdates');
     } else if (window.location.host == link3) {

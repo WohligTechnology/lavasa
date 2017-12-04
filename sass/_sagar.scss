@@ -525,12 +525,13 @@ $brand-green: #0eda85 !default; //green
   position: relative;
   text-align: center;
   line-height: 1.4;
+  background: rgba(0,0,0,0.3);
   p{
     width: 100%;
     position: absolute;
     top: 50%;
     left: 0;
-    color: #fff;
+    color: #34da83;
     font-size: 30px;
     text-decoration: underline;
     @include transform(translateY(-50%));
