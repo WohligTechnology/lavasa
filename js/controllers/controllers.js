@@ -4746,7 +4746,7 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
             {
                 "img": "img/footer/p4.jpg",
                 "href": "",
-                "game": "Hydration partner"
+                "game": "Energy Drink Partner"
             }, {
                 "img": "img/footer/n2.jpg",
                 "href": "",
