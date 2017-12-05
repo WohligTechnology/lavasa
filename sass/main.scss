@@ -7914,6 +7914,13 @@ h1.forgot-space {
     -webkit-padding-start: 0px;
 }
 
+.home-highlight{
+    a {
+       &:hover{
+           text-decoration: underline;
+       }
+    }
+}
 // FOOTER CSS END
 @import "fancybox-override";
 @import "mobile";
