@@ -30,6 +30,11 @@
 }
 
 @media screen and (max-width: 767px) {
+  //Home Tickr
+ .home-tickr .ticker-icon {
+    top: 3px;
+}
+  //Home Tickr End
   // REGISTERED SPORTS
   .sportregistered-title {
     display: block;

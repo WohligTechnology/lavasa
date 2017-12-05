@@ -202,6 +202,12 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
 
     }
 
+    $scope.ticker = {
+        scroll: true,
+        duration: 15000,
+        duplicated: true
+      };
+
     // SPORTS ICONS AS PER THE CITY
     if ($scope.city === 'mumbai') {
         $scope.sportIcons = [{
@@ -4634,7 +4640,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     break;
             }
         }
-    }
+    } 
 
     // if(window.location.host == mainLink){
     //     window.open("https://mumbai.sfanow.in","_self")

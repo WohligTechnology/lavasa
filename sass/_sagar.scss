@@ -365,6 +365,22 @@ $brand-green: #0eda85 !default; //green
 .tickr-holder{
   overflow: hidden;
 }
+.home-tickr{
+    margin: -20px 0 -40px;
+    .tickr-holder{
+      overflow: hidden;
+      height:40px !important;
+    }
+    .ticker__item {
+        font-size: 18px;
+    }
+    .angular-marquee{
+        padding: 8px 0px;
+    }
+    .ticker-icon {
+        top: 3px;
+    }
+}
 // TICKR SECTION END
 // IMAGE SECTION
 .liveupdate-albumholder {

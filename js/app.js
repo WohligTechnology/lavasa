@@ -472,6 +472,8 @@ firstApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
         $urlRouterProvider.otherwise("/liveupdates");
     } else if (window.location.origin == "http://testahmedabad.sfanow.in") {
         $urlRouterProvider.otherwise("/");
+    } else if (window.location.origin == "http://localhost:8080") {
+        $urlRouterProvider.otherwise("/");
     }
 
     $locationProvider.html5Mode(isProduction);
