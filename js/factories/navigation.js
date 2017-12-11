@@ -179,13 +179,19 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
         },
 
         getSchoolProfile: function (id, callback) {
+            var schoolObj = {};
+            if (id) {
+                if (id.substr(0, 3) == 'Old') {
+                    schoolObj.sfaid = id.substr(7);
+                } else {
+                    schoolObj._id = id;
+                }
+            }
             $http({
                 url: adminUrl + 'school/getOne',
                 method: 'POST',
                 withCredentials: true,
-                data: {
-                    "_id": id
-                }
+                data: schoolObj
             }).success(callback);
         },
 
@@ -262,13 +268,19 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
         },
 
         getStudentProfile: function (id, callback) {
+            var objToSend = {};
+            if (id) {
+                if (id.substr(0, 3) == 'Old') {
+                    objToSend.sfaid = id.substr(7);
+                } else {
+                    objToSend._id = id;
+                }
+            }
             $http({
                 url: adminUrl + 'student/getOne',
                 method: 'POST',
                 withCredentials: true,
-                data: {
-                    "_id": id
-                }
+                data: objToSend
             }).success(callback);
         },
 

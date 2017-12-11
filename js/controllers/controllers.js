@@ -206,7 +206,7 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
         scroll: true,
         duration: 15000,
         duplicated: true
-      };
+    };
 
     // SPORTS ICONS AS PER THE CITY
     if ($scope.city === 'mumbai') {
@@ -1639,6 +1639,7 @@ firstApp.controller('DrawCtrl', function ($scope, TemplateService, NavigationSer
     }
 });
 
+
 firstApp.controller('StudentBioCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state) {
     //Used to name the .html file
 
@@ -2264,8 +2265,6 @@ firstApp.controller('SchoolBioCtrl', function ($scope, TemplateService, Navigati
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     $scope.school = {};
-
-
     $scope.photos = [
         'img/m1.jpg',
         'img/m2.jpg',
@@ -2473,6 +2472,7 @@ firstApp.controller('ChampionsCtrl', function ($scope, TemplateService, Navigati
 
 });
 
+
 firstApp.controller('SchoolCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("school");
@@ -2584,7 +2584,7 @@ firstApp.controller('SchoolCtrl', function ($scope, TemplateService, NavigationS
     $scope.changeYear();
 });
 
-firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, $uibModal) {
+firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, $uibModal, toastr) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("school-profile");
     $scope.menutitle = NavigationService.makeactive("School Profile");
@@ -2595,7 +2595,9 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
     var year = new Date();
     var schoolProfileId = '';
     $scope.filter = {};
-    $scope.callObject._id = $stateParams.id;
+    $scope.filterStatistics = {};
+    $scope.filterStatistics.pagenumber = 1;
+    $scope.filterStatistics.pagesize = 8;
     $scope.callObject.year = year.getFullYear().toString();
     $scope.callObject.gender = "All";
     $scope.callObject.agegroup = "All";
@@ -2606,14 +2608,28 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
     $scope.sportsStudentGender = {};
     $scope.dropdowns = {};
     $scope.dropdowns.category = [];
-    $scope.filterStatistics = {};
-    $scope.filterStatistics.pagenumber = 1;
-    $scope.filterStatistics.pagesize = 8;
-    $scope.filterStatistics.school = $stateParams.id;
+
     $scope.table = {};
     $scope.state = $state;
     $scope.students = {};
     $scope.allYears = NavigationService.getAllYears();
+    if ($stateParams.id) {
+        if ($stateParams.id.substr(0, 3) == 'Old') {
+            NavigationService.getSchoolProfile($stateParams.id, function (data) {
+                if (data.value) {
+                    $scope.callObject._id = data.data._id;
+                    $scope.filterStatistics.school = data.data._id;
+                }
+            });
+
+        } else {
+            $scope.callObject._id = $stateParams.id;
+            $scope.filterStatistics.school = $stateParams.id;
+        }
+
+    }
+
+
 
     $scope.setPage = function (pageNo) {
         $scope.currentPage = pageNo;
@@ -2657,6 +2673,58 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
             }
         });
     };
+
+
+    $scope.contingentStrengthByYear = function () {
+        $scope.contingent.data = undefined;
+
+        //This was to fix the All being sent in year, if you dont understand this fix I am sorry.
+        var constraints = {};
+        constraints = _.cloneDeep($scope.filterStatistics);
+        constraints.year = null;
+        if ($scope.filterStatistics.year == '2015' || $scope.filterStatistics.year == '2016') {
+            constraints.year = $scope.filterStatistics.year;
+        }
+        //end
+        NavigationService.contingentStrengthByYear(constraints, function (response) {
+            if (response.value) {
+                $scope.contingent = response.data;
+            } else {
+                $scope.contingent.data = [];
+            }
+        });
+    };
+    NavigationService.getSchoolProfile($stateParams.id, function (data) {
+        if (data.value) {
+            console.log("school data : ", data.data);
+            $scope.getSchoolProfile = data.data;
+            console.log("getSchoolProfile", $scope.getSchoolProfile);
+            schoolProfileId = $scope.getSchoolProfile.sfaid;
+            $scope.schoolSports = data.data.sports;
+        } else {
+            {
+                $scope.getSchoolProfile = '';
+                $scope.schoolSports = '';
+                console.log("Error while fetching School Profile.");
+                if (!$scope.getSchoolProfile || $scope.getSchoolProfile == 'undefined') {
+                    toastr.error('No School Found');
+                    $state.go('school');
+                }
+            }
+        }
+    });
+    $scope.contingent = {};
+    $scope.onChangeContingentYear = function () {
+        console.log("getSchoolProfile", $scope.getSchoolProfile);
+        if ($scope.filterStatistics.year == '2017') {
+            window.open("http://mumbaischool.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
+
+        }
+        $scope.filterStatistics.pagenumber = 1;
+        $scope.contingent = {};
+        $scope.contingentStrengthByYear();
+    };
+
     $scope.tabchange = function (tab, a) {
         $scope.tab = tab;
         if (a == 1) {
@@ -2705,26 +2773,6 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
             });
         }
     };
-
-    $scope.contingentStrengthByYear = function () {
-        $scope.contingent.data = undefined;
-
-        //This was to fix the All being sent in year, if you dont understand this fix I am sorry.
-        var constraints = {};
-        constraints = _.cloneDeep($scope.filterStatistics);
-        constraints.year = null;
-        if ($scope.filterStatistics.year == '2015' || $scope.filterStatistics.year == '2016') {
-            constraints.year = $scope.filterStatistics.year;
-        }
-        //end
-        NavigationService.contingentStrengthByYear(constraints, function (response) {
-            if (response.value) {
-                $scope.contingent = response.data;
-            } else {
-                $scope.contingent.data = [];
-            }
-        });
-    };
     $scope.video = [{
         icon: "img/m1.jpg",
         name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
@@ -2745,33 +2793,9 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
         icon: "img/m3.jpg",
         name: "girls | u-14 | semi final- Harshit shah VS Manav mehta"
     }];
-    NavigationService.getSchoolProfile($stateParams.id, function (data) {
-        if (data.value) {
-            console.log("school data : ", data.data);
-            $scope.getSchoolProfile = data.data;
-            console.log("getSchoolProfile", $scope.getSchoolProfile);
-            schoolProfileId = $scope.getSchoolProfile.sfaid;
-            $scope.schoolSports = data.data.sports;
-        } else {
-            {
-                $scope.getSchoolProfile = '';
-                $scope.schoolSports = '';
-                console.log("Error while fetching School Profile.");
-            }
-        }
-    });
-    $scope.contingent = {};
-    $scope.onChangeContingentYear = function () {
-        if ($scope.filterStatistics.year == '2017') {
-            window.open("http://mumbaischool.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
 
-        }
-        $scope.filterStatistics.pagenumber = 1;
-        $scope.contingent = {};
-        $scope.contingentStrengthByYear();
-    };
     $scope.changeYear = function () {
-        console.log("getSchoolProfile", $scope.getSchoolProfile);
+
         if ($scope.filter.year == '2017') {
             window.open("http://mumbaischool.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
 
@@ -2782,8 +2806,20 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
         $scope.filterStatistics.sport = undefined;
         var constraints = {};
         constraints.year = $scope.filter.year;
-        constraints._id = $stateParams.id;
-        constraints.school = $stateParams.id;
+        if ($stateParams.id) {
+            if ($stateParams.id.substr(0, 3) == 'Old') {
+                NavigationService.getSchoolProfile($stateParams.id, function (data) {
+                    if (data.value) {
+                        constraints._id = data.data._id;
+                        constraints.school = data.data._id;
+                    }
+                });
+            } else {
+                constraints._id = $stateParams.id;
+                constraints.school = $stateParams.id;
+            }
+        }
+
         $scope.getSportParticipated(constraints);
         $scope.schoolMedalCount(constraints);
         $scope.filterStatistics.year = $scope.filter.year;
@@ -2806,7 +2842,6 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
         $scope.getSportAgeGroup();
     };
     $scope.getStats = function () {
-        $scope.filterStatistics.school = $stateParams.id;
         $scope.schoolStats = undefined;
         NavigationService.getStatsForSchool($scope.filterStatistics, function (response) {
             if (response.value) {
@@ -2910,6 +2945,7 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
             }
         });
     };
+
     $scope.schoolMedalCount = function (constraints) {
         NavigationService.getSchoolMedalCount(constraints, function (data) {
             if (data.value) {
@@ -2920,20 +2956,39 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
             }
         });
     };
-    NavigationService.getAllSchoolRank({
-        year: "2016"
-    }, function (data) {
-        var school = _.find(data, function (school) {
-            return school._id == $stateParams.id;
-        });
-        $scope.schooldata.rank = school.rank;
-    });
+
+    $scope.getSchoolRank = function (statParamsid) {
+        if (statParamsid) {
+            NavigationService.getAllSchoolRank({
+                year: "2016"
+            }, function (data) {
+                var school = _.find(data, function (school) {
+                    return school._id == statParamsid;
+                });
+                $scope.schooldata.rank = school.rank;
+            });
+        }
+    }
+    $scope.getAllSchoolRank = function () {
+        if ($stateParams.id) {
+            if ($stateParams.id.substr(0, 3) == 'Old') {
+                NavigationService.getSchoolProfile($stateParams.id, function (data) {
+                    if (data.value) {
+                        $scope.getSchoolRank(data.data._id);
+                    }
+                });
+
+            } else {
+                $scope.getSchoolRank($stateParams.id);
+            }
+        }
+    }
+    $scope.getAllSchoolRank();
 
 
     $scope.getSportParticipated = function (constraints) {
         $scope.sportsStudentGender[constraints.year] = undefined;
         NavigationService.getSchoolSportByGender(constraints, function (data) {
-
             if (data.value) {
                 $scope.sportsStudentGender[constraints.year] = data.data.sports;
                 $scope.schooldata.gender = data.data.gender;
@@ -3048,17 +3103,38 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
 
 
     // $scope.abc;
+    $scope.template = TemplateService.changecontent("student-profile");
+    $scope.menutitle = NavigationService.makeactive("Student Profile");
+    TemplateService.header = "views/header.html";
+    TemplateService.title = $scope.menutitle;
+    $scope.navigation = NavigationService.getnav();
+
 
     $scope.SPORTDATA = {};
     $scope.medalData = {};
     console.log("PARAMS", $state.params.id);
-    var student_id = {
-        _id: $state.params.id
+
+    // var student_id = {
+    //     _id: $state.params.id
+    // };
+    var student_id = {};
+    $scope.getMedal = function (studenid) {
+        if ($state.params.id.substr(0, 3) == 'Old') {
+            student_id = {
+                _id: studenid
+            };
+
+        } else {
+            student_id = {
+                _id: $state.params.id
+            };
+        }
+
+        NavigationService.getMedal(student_id, function (data) {
+            $scope.medalData = data;
+            console.log("MEDAL DATA", data);
+        });
     };
-    NavigationService.getMedal(student_id, function (data) {
-        $scope.medalData = data;
-        console.log("MEDAL DATA", data);
-    });
 
     $scope.exportCertificate = function (studentProfile, sportName, medalName) {
         studentProfile.ageGroup = $filter('ageFilter')(studentProfile.dob);
@@ -3123,11 +3199,7 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
     };
     console.log("Testing Consoles");
 
-    $scope.template = TemplateService.changecontent("student-profile");
-    $scope.menutitle = NavigationService.makeactive("Student Profile");
-    TemplateService.header = "views/header.html";
-    TemplateService.title = $scope.menutitle;
-    $scope.navigation = NavigationService.getnav();
+
     var studentProfileId = '';
     $scope.studentProfile = {};
     $scope.tabs = 'photos';
@@ -3139,7 +3211,20 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
     $scope.dropdowns = {};
     $scope.table = {};
     $scope.dropdowns.category = [];
-    $scope.studentid = $stateParams.id;
+    if ($stateParams.id) {
+        if ($stateParams.id.substr(0, 3) == 'Old') {
+            NavigationService.getStudentProfile($stateParams.id, function (data) {
+
+                if (data.value) {
+                    $scope.studentid = data.data._id;
+                }
+            })
+        } else {
+            $scope.studentid = $stateParams.id;
+        }
+
+    }
+
     $scope.drawDispatcher = function (drawFormat, id) {
         $state.go(NavigationService.resultDispatcher(drawFormat), {
             id: id
@@ -3192,6 +3277,11 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
         NavigationService.getStudentProfile($stateParams.id, function (data) {
             if (data.value) {
                 $scope.studentProfile = data.data;
+                if ($scope.studentProfile) {
+                    $scope.changeYear();
+                    $scope.getMedal($scope.studentProfile._id);
+                    $scope.getStats($scope.studentProfile._id);
+                }
                 studentProfileId = $scope.studentProfile.sfaid;
                 if ($scope.studentProfile.gender == "Boys") {
                     $scope.studentProfile.gender = "Male";
@@ -3205,23 +3295,41 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
         });
     };
     $scope.getStudentProfile();
-
     $scope.changeYear = function () {
-        console.log("im in");
-
         if ($scope.filter.year == '2017') {
             window.open("http://mumbaischool.sfanow.in/student-profile/" + 'MA16' + studentProfileId, '_self');
 
         }
         var constraints = {};
         constraints.year = $scope.filter.year;
-        constraints.student = $stateParams.id;
+        if ($stateParams.id.substr(0, 3) == 'Old') {
+            constraints.student = $scope.studentProfile._id;
+        } else {
+            constraints.student = $stateParams.id;
+        }
         $scope.filterStatistics.sport = undefined;
         $scope.studentStats = [];
         $scope.getStudentSport(constraints);
         $scope.studentMedalCount(constraints);
 
     };
+
+    // $scope.changeYear = function () {
+    //     console.log("im in");
+
+    //     if ($scope.filter.year == '2017') {
+    //         window.open("http://mumbaischool.sfanow.in/student-profile/" + 'MA16' + studentProfileId, '_self');
+
+    //     }
+    //     var constraints = {};
+    //     constraints.year = $scope.filter.year;
+    //     constraints.student = $stateParams.id;
+    //     $scope.filterStatistics.sport = undefined;
+    //     $scope.studentStats = [];
+    //     $scope.getStudentSport(constraints);
+    //     $scope.studentMedalCount(constraints);
+
+    // };
     $scope.getStudentSport = function (constraints) {
         //console.log("constraints : ",constraints);
         var i = 0;
@@ -3288,8 +3396,12 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
             $scope.getStats();
         });
     };
-    $scope.getStats = function () {
-        $scope.filterStatistics.student = $stateParams.id;
+    $scope.getStats = function (studentId) {
+        if ($state.params.id.substr(0, 3) == 'Old') {
+            $scope.filterStatistics.student = studentId;
+        } else {
+            $scope.filterStatistics.student = $stateParams.id;
+        }
         $scope.studentStats = undefined;
 
         NavigationService.getStatsForStudent($scope.filterStatistics, function (response) {
@@ -3499,6 +3611,8 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
         });
     };
 });
+
+
 
 firstApp.controller('HeatsCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $stateParams) {
     //Used to name the .html file
@@ -4640,7 +4754,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     break;
             }
         }
-    } 
+    }
 
     // if(window.location.host == mainLink){
     //     window.open("https://mumbai.sfanow.in","_self")
