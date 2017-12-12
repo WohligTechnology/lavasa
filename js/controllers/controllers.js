@@ -3090,7 +3090,7 @@ firstApp.controller('StudentsCtrl', function ($scope, TemplateService, Navigatio
     };
 });
 
-firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateService, NavigationService, $timeout, $stateParams, $state, $window, $uibModal) {
+firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateService, NavigationService, $timeout, $stateParams, $state, $window, toastr, $uibModal) {
     //Used to name the .html file
     // $scope.exportCertificate = function(data) {
     //     if (data) {
@@ -3290,6 +3290,10 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
                 }
             } else {
                 $scope.studentProfile = [];
+                if (_.isEmpty($scope.studentProfile)) {
+                    toastr.error('No Student Found');
+                    $state.go('students');
+                }
                 console.log("Error while fetching Student Profile.");
             }
         });
