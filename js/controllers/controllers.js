@@ -192,7 +192,8 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
     } else {
         $scope.hideHome = false;
         TemplateService.footer = "";
-        window.open("https://mumbai.sfanow.in/liveupdates", "_self");
+        window.open("https://hyderabad.sfanow.in/liveupdates", "_self");
+        // window.open("https://mumbai.sfanow.in/liveupdates", "_self");
     }
     if (window.location.host == link1) {
         // $state.go('liveupdates');
@@ -4768,32 +4769,34 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
         if (window.location.pathname != '/') {
             $state.go('home');
         } else {
-            window.open("https://mumbai.sfanow.in", "_self");
+            window.open("https://hyderabad.sfanow.in", "_self");
+            // window.open("https://mumbai.sfanow.in", "_self");
         }
         // if (window.location.pathname != '/') {
-        //     $state.go('home');
-        // } else {
-        //     $scope.hideBlink = true;
-        //     if ($state.current.name == 'home') {
-        //         $uibModal.open({
-        //             animation: true,
-        //             scope: $scope,
-        //             backdrop: 'static',
-        //             backdropClass: 'blackOut',
-        //             keyboard: false,
-        //             templateUrl: "views/modal/city-video.html",
-        //             size: 'lg',
-        //             windowClass: 'sfacity-selectmodal'
-        //         });
-        //     }
-        // }
-    } else if (window.location.host == mainLink && $.jStorage.get('sfaCity') != null) {
-        if (window.location.pathname != '/') {
-            $state.go('home');
-        } else {
-            window.open("https://mumbai.sfanow.in", "_self");
-            // $.jStorage.flush();
-            // $scope.hideBlink = true;
+            //     $state.go('home');
+            // } else {
+                //     $scope.hideBlink = true;
+                //     if ($state.current.name == 'home') {
+                    //         $uibModal.open({
+                        //             animation: true,
+                        //             scope: $scope,
+                        //             backdrop: 'static',
+                        //             backdropClass: 'blackOut',
+                        //             keyboard: false,
+                        //             templateUrl: "views/modal/city-video.html",
+                        //             size: 'lg',
+                        //             windowClass: 'sfacity-selectmodal'
+                        //         });
+                        //     }
+                        // }
+                    } else if (window.location.host == mainLink && $.jStorage.get('sfaCity') != null) {
+                        if (window.location.pathname != '/') {
+                            $state.go('home');
+                        } else {
+                            window.open("https://hyderabad.sfanow.in", "_self");
+                            // window.open("https://mumbai.sfanow.in", "_self");
+                            // $.jStorage.flush();
+                            // $scope.hideBlink = true;
             // if ($state.current.name == 'home') {
             //     $uibModal.open({
             //         animation: true,
