@@ -668,8 +668,8 @@ firstApp.controller('LeagueKnockoutCtrl', function ($scope, TemplateService, Nav
                     })
                     .value();
                 if (_.findIndex($scope.leagueknockouts, function (key) {
-                    return key.leagueknockoutround == 'Final';
-                }) !== -1) {
+                        return key.leagueknockoutround == 'Final';
+                    }) !== -1) {
                     $scope.knockouts = _.remove($scope.leagueknockouts, function (key) {
                         return key.leagueknockoutround == 'Final';
                     })[0];
@@ -1598,8 +1598,8 @@ firstApp.controller('DrawCtrl', function ($scope, TemplateService, NavigationSer
                     pseudoRound = [];
                     for (i = 0; i <= maxOrder; i++) {
                         if (_.findIndex(value, function (single) {
-                            return single.order == i;
-                        }) === -1) {
+                                return single.order == i;
+                            }) === -1) {
                             pseudoRound.push({
                                 order: -999
                             });
@@ -1613,8 +1613,8 @@ firstApp.controller('DrawCtrl', function ($scope, TemplateService, NavigationSer
                     console.log($scope.knockout.rounds);
                 });
                 if (_.findIndex($scope.knockout.rounds, function (key) {
-                    return key === '-1 Third Place';
-                }) !== -1) {
+                        return key === '-1 Third Place';
+                    }) !== -1) {
                     _.remove($scope.knockout.rounds, function (key) {
                         return key === '-1 Third Place';
                     });
@@ -3693,8 +3693,8 @@ firstApp.controller('HeatsCtrl', function ($scope, TemplateService, NavigationSe
                     })
                     .value();
                 if (_.findIndex($scope.heat.heats, function (key) {
-                    return key.round == 'Final';
-                }) !== -1) {
+                        return key.round == 'Final';
+                    }) !== -1) {
                     $scope.heat.final = _.find($scope.heat.heats, function (key) {
                         return key.round == 'Final';
                     }).heats[0];
@@ -4081,7 +4081,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        },]
+        }, ]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -4098,7 +4098,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        },]
+        }, ]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -4115,7 +4115,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        },]
+        }, ]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -4132,7 +4132,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        },]
+        }, ]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -4149,7 +4149,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        },]
+        }, ]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -4166,7 +4166,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        },]
+        }, ]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -4183,7 +4183,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        },]
+        }, ]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -4200,7 +4200,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        },]
+        }, ]
     }];
     $scope.profiles = function (participantType, id) {
         if (participantType == 'player') {
@@ -4767,36 +4767,40 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
 
     if (window.location.host == mainLink && $.jStorage.get("sfaCity") == null) {
         if (window.location.pathname != '/') {
-            $state.go('home');
+            if (window.location.pathname != '/contact') {
+                $state.go('home');
+            }
         } else {
             window.open("https://hyderabad.sfanow.in", "_self");
             // window.open("https://mumbai.sfanow.in", "_self");
         }
         // if (window.location.pathname != '/') {
-            //     $state.go('home');
-            // } else {
-                //     $scope.hideBlink = true;
-                //     if ($state.current.name == 'home') {
-                    //         $uibModal.open({
-                        //             animation: true,
-                        //             scope: $scope,
-                        //             backdrop: 'static',
-                        //             backdropClass: 'blackOut',
-                        //             keyboard: false,
-                        //             templateUrl: "views/modal/city-video.html",
-                        //             size: 'lg',
-                        //             windowClass: 'sfacity-selectmodal'
-                        //         });
-                        //     }
-                        // }
-                    } else if (window.location.host == mainLink && $.jStorage.get('sfaCity') != null) {
-                        if (window.location.pathname != '/') {
-                            $state.go('home');
-                        } else {
-                            window.open("https://hyderabad.sfanow.in", "_self");
-                            // window.open("https://mumbai.sfanow.in", "_self");
-                            // $.jStorage.flush();
-                            // $scope.hideBlink = true;
+        //     $state.go('home');
+        // } else {
+        //     $scope.hideBlink = true;
+        //     if ($state.current.name == 'home') {
+        //         $uibModal.open({
+        //             animation: true,
+        //             scope: $scope,
+        //             backdrop: 'static',
+        //             backdropClass: 'blackOut',
+        //             keyboard: false,
+        //             templateUrl: "views/modal/city-video.html",
+        //             size: 'lg',
+        //             windowClass: 'sfacity-selectmodal'
+        //         });
+        //     }
+        // }
+    } else if (window.location.host == mainLink && $.jStorage.get('sfaCity') != null) {
+        if (window.location.pathname != '/') {
+            if (window.location.pathname != '/contact') {
+                $state.go('home');
+            }
+        } else {
+            window.open("https://hyderabad.sfanow.in", "_self");
+            // window.open("https://mumbai.sfanow.in", "_self");
+            // $.jStorage.flush();
+            // $scope.hideBlink = true;
             // if ($state.current.name == 'home') {
             //     $uibModal.open({
             //         animation: true,
