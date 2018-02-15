@@ -192,7 +192,7 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
     } else {
         $scope.hideHome = false;
         TemplateService.footer = "";
-        if (window.location.pathname != '/contact') {
+        if (window.location.pathname != '/contact' && window.location.pathname != '/about-us') {
             // $state.go('home');
             window.open("https://hyderabad.sfanow.in/liveupdates", "_self");
         } else {
@@ -4448,7 +4448,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     $rootScope.year16 = year16;
     $rootScope.eventYear = eventYear
     if (window.location.host == mainLink) {
-        if (window.location.pathname != '/contact') {
+        if (window.location.pathname != '/contact' && window.location.pathname != '/about-us') {
             $scope.hideHeaderContent = false;
         } else {
             $scope.hideHeaderContent = true;
@@ -4776,7 +4776,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
 
     if (window.location.host == mainLink && $.jStorage.get("sfaCity") == null) {
         if (window.location.pathname != '/') {
-            if (window.location.pathname != '/contact') {
+            if (window.location.pathname != '/contact' && window.location.pathname != '/about-us') {
                 $state.go('home');
             }
         } else {
@@ -4802,7 +4802,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
         // }
     } else if (window.location.host == mainLink && $.jStorage.get('sfaCity') != null) {
         if (window.location.pathname != '/') {
-            if (window.location.pathname != '/contact') {
+            if (window.location.pathname != '/contact' && window.location.pathname != '/about-us') {
                 $state.go('home');
             }
         } else {
