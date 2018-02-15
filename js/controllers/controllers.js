@@ -192,7 +192,12 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
     } else {
         $scope.hideHome = false;
         TemplateService.footer = "";
-        window.open("https://hyderabad.sfanow.in/liveupdates", "_self");
+        if (window.location.pathname != '/contact') {
+            // $state.go('home');
+            window.open("https://hyderabad.sfanow.in/liveupdates", "_self");
+        } else {
+            // do nothing
+        }
         // window.open("https://mumbai.sfanow.in/liveupdates", "_self");
     }
     if (window.location.host == link1) {
