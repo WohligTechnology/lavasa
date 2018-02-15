@@ -4448,7 +4448,11 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     $rootScope.year16 = year16;
     $rootScope.eventYear = eventYear
     if (window.location.host == mainLink) {
-        $scope.hideHeaderContent = false;
+        if (window.location.pathname != '/contact') {
+            $scope.hideHeaderContent = false;
+        } else {
+            $scope.hideHeaderContent = true;
+        }
     } else {
         $scope.hideHeaderContent = true;
     }
