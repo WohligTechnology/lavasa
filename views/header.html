@@ -30,7 +30,7 @@
                                     ABOUT
                                 </a> -->
                                 <a href="https://sfanow.in/about-us">
-                                        ABOUT
+                                    ABOUT
                                 </a>
                             </li>
                             <!-- ABOUT US END -->
@@ -77,13 +77,13 @@
                                             <label style="font-size:12px;">PREVIOUS PROFILE</label>
                                         </div>
                                         <a ui-sref="students" ng-if="sfaCity !== 'hyderabad'">
-                                            <span>ATHLETES</span> 
-                                         </a>
+                                            <span>ATHLETES</span>
+                                        </a>
                                         <a ui-sref="school" ng-if="sfaCity !== 'hyderabad'">
-                                            <span>SCHOOL</span> 
-                                         </a>
+                                            <span>SCHOOL</span>
+                                        </a>
                                         <a ui-sref="team" ng-if="sfaCity !== 'hyderabad'">
-                                            <span>TEAMS</span> 
+                                            <span>TEAMS</span>
                                         </a>
                                     </li>
                                     <li ng-if="sfaCity !== 'hyderabad'" class="hide">
@@ -274,7 +274,8 @@
                                 </div>
                                 <a ng-if="selectedCity!=='hyderabad'" class="dropdown-toggle mb25" data-toggle="dropdown" ng-mouseenter="optionss=!optionss"
                                     ng-model="checkboxs">
-                                    <span ng-if="selectedCity==='Hyderabad'">LIVE</span> <span ng-if="selectedCity!=='Hyderabad'">SFA</span> {{sfaCity | capitalize}} {{eventYear}}
+                                    <span ng-if="selectedCity==='Hyderabad'">LIVE</span>
+                                    <span ng-if="selectedCity!=='Hyderabad'">SFA</span> {{sfaCity | capitalize}} {{eventYear}}
                                 </a>
                                 <ul class="dropdown-menu cl-pr forSm typePlace">
                                     <ul class="display-inline typeList">
@@ -282,8 +283,18 @@
                                             <a>SCHOOL CHAMPIONSHIP</a>
                                         </li>
                                         <li>
+                                            <a href="{{registerSchool}}/aboutchampionship" target="_blank">About Championship</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{registerSchool}}/register/player">Register As a Player</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{registerSchool}}/register/school">Register As a School</a>
+                                        </li>
+                                        <li>
                                             <a href="{{registerSchool}}/faq" target="_blank">FAQs</a>
                                         </li>
+
                                     </ul>
                                     <ul class="display-inline typeList hide">
                                         <li>
@@ -552,7 +563,8 @@
                     </div>
                     <div class="sfa-mum" ng-if="selectedCity!=='hyderabad'">
                         <button type="button" name="button" class="btn btn-sfatop" ng-mouseenter="optionss=!optionss" ng-model="checkboxs">
-                            <span ng-if="selectedCity==='Hyderabad'">LIVE</span> <span ng-if="selectedCity!=='Hyderabad'">SFA</span> {{sfaCity | capitalize}} {{eventYear}}</button>
+                            <span ng-if="selectedCity==='Hyderabad'">LIVE</span>
+                            <span ng-if="selectedCity!=='Hyderabad'">SFA</span> {{sfaCity | capitalize}} {{eventYear}}</button>
 
                         <div class="on-mouse-hover hidden-xs hidden-sm specialCase specialCase2" ng-mouseenter="optionss=true" ng-mouseleave="optionss=false"
                             ng-show="optionss || checkboxs ">
@@ -564,6 +576,15 @@
                                 <ul class="display-inline typeList">
                                     <li>
                                         <p>SCHOOL CHAMPIONSHIP</p>
+                                    </li>
+                                    <li>
+                                        <a href="{{registerSchool}}/aboutchampionship" target="_blank">About Championship</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{registerSchool}}/register/player">Register As a Player</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{registerSchool}}/register/school">Register As a School</a>
                                     </li>
                                     <li>
                                         <a href="{{registerSchool}}/faq" target="_blank">FAQs</a>
@@ -631,7 +652,8 @@
                         <a class="dropdown-toggle mb25" data-toggle="dropdown">
                             <div class="sfa-mum sfa-mum-m">
                                 <button type="button" name="button" class="btn btn-sfatop margin0" ng-mouseenter="optionss=!optionss">
-                                    <span ng-if="selectedCity==='Hyderabad'">LIVE</span> <span ng-if="selectedCity!=='Hyderabad'">SFA</span> {{sfaCity | capitalize}} {{eventYear}}</button>
+                                    <span ng-if="selectedCity==='Hyderabad'">LIVE</span>
+                                    <span ng-if="selectedCity!=='Hyderabad'">SFA</span> {{sfaCity | capitalize}} {{eventYear}}</button>
                                 <!-- <img src="img/top-pin.png" alt="" ng-mouseenter="optionss=!optionss" ng-model="checkboxs"> -->
                             </div>
                         </a>
@@ -639,6 +661,15 @@
                             <ul class="typeList">
                                 <li>
                                     <a>SCHOOL CHAMPIONSHIP</a>
+                                </li>
+                                <li>
+                                    <a href="{{registerSchool}}/aboutchampionship" target="_blank">About Championship</a>
+                                </li>
+                                <li>
+                                    <a href="{{registerSchool}}/register/player">Register As a Player</a>
+                                </li>
+                                <li>
+                                    <a href="{{registerSchool}}/register/school">Register As a School</a>
                                 </li>
                                 <li>
                                     <a href="{{registerSchool}}/faq" target="_blank">FAQs</a>
