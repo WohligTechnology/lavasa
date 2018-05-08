@@ -50,27 +50,27 @@
                                             <label for="">School</label>
                                         </div>
                                         <a ng-if="registerSchool" href="{{registerSchool}}/students" target="_blank">
-                                            <span>2017</span>
+                                            <span>2018</span>
                                             <span>ATHLETES</span>
                                         </a>
                                         <a ng-if="!registerSchool" ui-sref="students">
-                                            <span>2017</span>
+                                            <span>2018</span>
                                             <span>ATHLETES</span>
                                         </a>
                                         <a ng-if="registerSchool" href="{{registerSchool}}/school" target="_blank">
-                                            <span>2017</span>
+                                            <span>2018</span>
                                             <span>SCHOOLS</span>
                                         </a>
                                         <a ng-if="!registerSchool" ui-sref="school">
-                                            <span>2017</span>
+                                            <span>2018</span>
                                             <span>SCHOOLS</span>
                                         </a>
                                         <a ng-if="registerSchool" href="{{registerSchool}}/team" target="_blank">
-                                            <span>2017</span>
+                                            <span>2018</span>
                                             <span>TEAMS</span>
                                         </a>
                                         <a ng-if="!registerSchool" ui-sref="team">
-                                            <span>2017</span>
+                                            <span>2018</span>
                                             <span>TEAMS</span>
                                         </a>
                                         <div class="profile-sub-header text-uppercase text-center" ng-if="sfaCity !== 'hyderabad'">
@@ -91,27 +91,27 @@
                                             <label for="">College</label>
                                         </div>
                                         <a ng-if="registerCollege" href="{{registerCollege}}/students" target="_blank">
-                                            <span>2017</span>
+                                            <span>2018</span>
                                             <span>ATHLETES</span>
                                         </a>
                                         <a ng-if="!registerCollege" ui-sref="students">
-                                            <span>2017</span>
+                                            <span>2018</span>
                                             <span>ATHLETES</span>
                                         </a>
                                         <a ng-if="registerCollege" href="{{registerCollege}}/school" target="_blank">
-                                            <span>2017</span>
+                                            <span>2018</span>
                                             <span>COLLEGES</span>
                                         </a>
                                         <a ng-if="!registerCollege" ui-sref="school">
-                                            <span>2017</span>
+                                            <span>2018</span>
                                             <span>COLLEGES</span>
                                         </a>
                                         <a ng-if="registerCollege" href="{{registerCollege}}/team" target="_blank">
-                                            <span>2017</span>
+                                            <span>2018</span>
                                             <span>TEAMS</span>
                                         </a>
                                         <a ng-if="!registerCollege" ui-sref="team">
-                                            <span>2017</span>
+                                            <span>2018</span>
                                             <span>TEAMS</span>
                                         </a>
                                     </li>
@@ -139,10 +139,10 @@
                                 <ul class="dropdown-menu sf-absulate blue-menus ">
                                     <li class="padding0 ">
                                         <a href="{{registerSchool}}/results/" target="_blank" class="">
-                                            <span>SFA MUMBAI 2017</span>
+                                            <span>SFA MUMBAI 2018</span>
                                         </a>
                                         <a hidden href="{{registerCollege}}/results/" target="_blank " class="hide">
-                                            <span>2017</span>
+                                            <span>2018</span>
                                             <span>COLLEGE RANKING</span>
                                         </a>
                                         <a href="{{linkForAll}}/school-ranking" target="_blank ">
@@ -275,7 +275,8 @@
                                 <a ng-if="selectedCity!=='hyderabad'" class="dropdown-toggle mb25" data-toggle="dropdown" ng-mouseenter="optionss=!optionss"
                                     ng-model="checkboxs">
                                     <span ng-if="selectedCity==='Hyderabad'">LIVE</span>
-                                    <span ng-if="selectedCity!=='Hyderabad'">SFA</span> {{sfaCity | capitalize}} {{eventYear}}
+                                    <!-- <span ng-if="selectedCity!=='Hyderabad'">SFA</span> {{sfaCity | capitalize}} {{eventYear}} -->
+                                    REGISTER NOW
                                 </a>
                                 <ul class="dropdown-menu cl-pr forSm typePlace">
                                     <ul class="display-inline typeList">
@@ -380,13 +381,13 @@
                                         <label for="">SCHOOL</label>
                                     </li>
                                     <li>
-                                        <a href="{{registerSchool}}/students " target="_blank "> 2017 ATHLETES</a>
+                                        <a href="{{registerSchool}}/students " target="_blank "> 2018 ATHLETES</a>
                                     </li>
                                     <li>
-                                        <a href="{{registerSchool}}/school " target="_blank "> 2017 SCHOOLS</a>
+                                        <a href="{{registerSchool}}/school " target="_blank "> 2018 SCHOOLS</a>
                                     </li>
                                     <li>
-                                        <a href="{{registerSchool}}/team " target="_blank ">2017 TEAMS</a>
+                                        <a href="{{registerSchool}}/team " target="_blank ">2018 TEAMS</a>
                                     </li>
                                     <li>
                                         <label for="">VIEW PREVIOUS PROFILE</label>
@@ -404,13 +405,13 @@
                                         <label for="">COLLEGE</label>
                                     </li>
                                     <li class="hide">
-                                        <a href="{{registerCollege}}/students " target="_blank "> 2017 ATHLETES</a>
+                                        <a href="{{registerCollege}}/students " target="_blank "> 2018 ATHLETES</a>
                                     </li>
                                     <li class="hide">
-                                        <a href="{{registerCollege}}/school" target="_blank "> 2017 COLLEGE</a>
+                                        <a href="{{registerCollege}}/school" target="_blank "> 2018 COLLEGE</a>
                                     </li>
                                     <li class="hide">
-                                        <a href="{{registerCollege}}/team " target="_blank ">2017 TEAMS</a>
+                                        <a href="{{registerCollege}}/team " target="_blank ">2018 TEAMS</a>
                                     </li>
                                     <!-- <li>
                                                     <a href="{{linkForAll}}team " target="_blank ">
@@ -428,13 +429,13 @@
                                 </a>
                                 <ul class="dropdown-menu text-center cl-pr">
                                     <li>
-                                        <a href="{{registerSchool}}/students " target="_blank "> 2017 ATHLETES</a>
+                                        <a href="{{registerSchool}}/students " target="_blank "> 2018 ATHLETES</a>
                                     </li>
                                     <li>
-                                        <a href="{{registerSchool}}/school " target="_blank "> 2017 SCHOOLS</a>
+                                        <a href="{{registerSchool}}/school " target="_blank "> 2018 SCHOOLS</a>
                                     </li>
                                     <li>
-                                        <a href="{{registerSchool}}/team " target="_blank ">2017 TEAMS</a>
+                                        <a href="{{registerSchool}}/team " target="_blank ">2018 TEAMS</a>
                                     </li>
                                 </ul>
                             </li>
@@ -450,10 +451,10 @@
                                 </a>
                                 <ul class="dropdown-menu text-center cl-pr ">
                                     <li>
-                                        <a href="{{registerSchool}}/results/" target="_blank ">SFA MUMBAI 2017</a>
+                                        <a href="{{registerSchool}}/results/" target="_blank ">SFA MUMBAI 2018</a>
                                     </li>
                                     <li hidden>
-                                        <a href="{{registerCollege}}/results/" class="hide" target="_blank " ui-sref="champions">2017 COLLEGE RANKING</a>
+                                        <a href="{{registerCollege}}/results/" class="hide" target="_blank " ui-sref="champions">2018 COLLEGE RANKING</a>
                                     </li>
                                     <li>
                                         <a href="{{registerSchool}}/school-ranking " target="_blank " ui-sref="champions">PREVIOUS SCHOOL RANKING</a>
@@ -564,7 +565,8 @@
                     <div class="sfa-mum" ng-if="selectedCity!=='hyderabad'">
                         <button type="button" name="button" class="btn btn-sfatop" ng-mouseenter="optionss=!optionss" ng-model="checkboxs">
                             <span ng-if="selectedCity==='Hyderabad'">LIVE</span>
-                            <span ng-if="selectedCity!=='Hyderabad'">SFA</span> {{sfaCity | capitalize}} {{eventYear}}</button>
+                            <!-- <span ng-if="selectedCity!=='Hyderabad'">SFA</span> {{sfaCity | capitalize}} {{eventYear}} -->
+                            REGISTER NOW</button>
 
                         <div class="on-mouse-hover hidden-xs hidden-sm specialCase specialCase2" ng-mouseenter="optionss=true" ng-mouseleave="optionss=false"
                             ng-show="optionss || checkboxs ">
@@ -653,7 +655,8 @@
                             <div class="sfa-mum sfa-mum-m">
                                 <button type="button" name="button" class="btn btn-sfatop margin0" ng-mouseenter="optionss=!optionss">
                                     <span ng-if="selectedCity==='Hyderabad'">LIVE</span>
-                                    <span ng-if="selectedCity!=='Hyderabad'">SFA</span> {{sfaCity | capitalize}} {{eventYear}}</button>
+                                    <!-- <span ng-if="selectedCity!=='Hyderabad'">SFA</span> {{sfaCity | capitalize}} {{eventYear}} -->
+                                    REGISTER NOW</button>
                                 <!-- <img src="img/top-pin.png" alt="" ng-mouseenter="optionss=!optionss" ng-model="checkboxs"> -->
                             </div>
                         </a>

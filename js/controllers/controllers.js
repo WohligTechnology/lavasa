@@ -20,7 +20,9 @@
 
 var year15 = '2015-16';
 var year16 = '2016-17';
-var eventYear = '2017-18';
+var year17 = '2017-18';
+var year18 = '2018-19';
+var eventYear = '2018-19';
 
 // var mainLink = "localhost:8080";
 // var link1 = "localhost:8080";
@@ -194,7 +196,7 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
         TemplateService.footer = "";
         if (window.location.pathname != '/contact' && window.location.pathname != '/about-us') {
             // $state.go('home');
-            window.open("https://hyderabad.sfanow.in/liveupdates", "_self");
+            // window.open("https://hyderabad.sfanow.in/liveupdates", "_self");
         } else {
             // do nothing
         }
@@ -4445,7 +4447,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
         // $scope.hideBlink = true;
     });
     $rootScope.year15 = year15;
-    $rootScope.year16 = year16;
+    $rootScope.year16 = year18;
     $rootScope.eventYear = eventYear
     if (window.location.host == mainLink) {
         if (window.location.pathname != '/contact' && window.location.pathname != '/about-us') {
@@ -4456,16 +4458,16 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     } else {
         $scope.hideHeaderContent = true;
     }
-    // $uibModal.open({
-    //     animation: true,
-    //     scope: $scope,
-    //     backdrop: 'static',
-    //     backdropClass: 'blackOut',
-    //     keyboard: false,
-    //     templateUrl: "views/modal/city-video.html",
-    //     size: 'lg',
-    //     windowClass: 'sfacity-selectmodal'
-    // });
+    $uibModal.open({
+        animation: true,
+        scope: $scope,
+        backdrop: 'static',
+        backdropClass: 'blackOut',
+        keyboard: false,
+        templateUrl: "views/modal/city-video.html",
+        size: 'lg',
+        windowClass: 'sfacity-selectmodal'
+    });
     //----------FOR SINGLE CITY-----------//
     // $scope.hideBlink = false;
     // if (window.location.host == tempLink || window.location.host == tempLinks) {
@@ -4483,16 +4485,6 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     $scope.closingdate = moment('25-Nov-2017').format('DD-MMM-YYYY')
     $scope.endday = moment($scope.closingdate).diff($scope.currendate, 'days') + 1;
 
-    // $uibModal.open({
-    //     animation: true,
-    //     scope: $scope,
-    //     backdrop: 'static',
-    //     backdropClass: 'blackOut',
-    //     keyboard: false,
-    //     templateUrl: "views/modal/city-video.html",
-    //     size: 'lg',
-    //     windowClass: 'sfacity-selectmodal'
-    // });
 
     //------------For Multiple City------------//
     $scope.openCity = function (selectedCity, type) {
@@ -4503,12 +4495,12 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     if (type == 'school') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
-                        sublink = sublink1 + "/register";
+                        sublink = sublink1 + "/register/player";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
-                        sublink = sublink2 + "/register";
+                        sublink = sublink2 + "/register/player";
                         window.open(sublink, '_self');
                     }
                     break;
@@ -4517,12 +4509,12 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     if (type == 'school') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
-                        sublink = sublink1 + "/register";
+                        sublink = sublink1 + "/register/player";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
-                        sublink = sublink2 + "/register";
+                        sublink = sublink2 + "/register/player";
                         window.open(sublink, '_self');
                     }
                     break;
@@ -4530,12 +4522,12 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     if (type == 'school') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
-                        sublink = sublink1 + "/register";
+                        sublink = sublink1 + "/register/player";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
-                        sublink = sublink2 + "/register";
+                        sublink = sublink2 + "/register/player";
                         window.open(sublink, '_self');
                     }
                     break;
@@ -4780,7 +4772,20 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                 $state.go('home');
             }
         } else {
-            window.open("https://hyderabad.sfanow.in", "_self");
+            $scope.hideBlink = true;
+            if ($state.current.name == 'home') {
+                $uibModal.open({
+                    animation: true,
+                    scope: $scope,
+                    backdrop: 'static',
+                    backdropClass: 'blackOut',
+                    keyboard: false,
+                    templateUrl: "views/modal/city-video.html",
+                    size: 'lg',
+                    windowClass: 'sfacity-selectmodal'
+                });
+            }
+            // window.open("https://hyderabad.sfanow.in", "_self");
             // window.open("https://mumbai.sfanow.in", "_self");
         }
         // if (window.location.pathname != '/') {
@@ -4806,22 +4811,22 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                 $state.go('home');
             }
         } else {
-            window.open("https://hyderabad.sfanow.in", "_self");
+            // window.open("https://hyderabad.sfanow.in", "_self");
             // window.open("https://mumbai.sfanow.in", "_self");
-            // $.jStorage.flush();
-            // $scope.hideBlink = true;
-            // if ($state.current.name == 'home') {
-            //     $uibModal.open({
-            //         animation: true,
-            //         scope: $scope,
-            //         backdrop: 'static',
-            //         backdropClass: 'blackOut',
-            //         keyboard: false,
-            //         templateUrl: "views/modal/city-video.html",
-            //         size: 'lg',
-            //         windowClass: 'sfacity-selectmodal'
-            //     });
-            // }
+            $.jStorage.flush();
+            $scope.hideBlink = true;
+            if ($state.current.name == 'home') {
+                $uibModal.open({
+                    animation: true,
+                    scope: $scope,
+                    backdrop: 'static',
+                    backdropClass: 'blackOut',
+                    keyboard: false,
+                    templateUrl: "views/modal/city-video.html",
+                    size: 'lg',
+                    windowClass: 'sfacity-selectmodal'
+                });
+            }
         }
     } else if (window.location.host != mainLink) {
         if (window.location.host == link1) {
@@ -4866,7 +4871,8 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
 firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope, NavigationService, errorService, toastr, $state, $uibModal, $rootScope) {
     $scope.template = TemplateService;
     $rootScope.year15 = year15;
-    $rootScope.year16 = year16;
+    // $rootScope.year16 = year16;
+    $rootScope.year16 = year18;
     if (window.location.host == link1) {
         $scope.selectedCity = 'mumbai';
     } else if (window.location.host == link2) {
