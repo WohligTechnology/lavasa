@@ -11,7 +11,6 @@
 @import "../bower_components/angular-toastr/dist/angular-toastr.css";
 @import "../bower_components/angular-promise-buttons/src/styles/style.scss";
 @import "../bower_components/swiper/dist/css/swiper.css";
-
 /* Bootstrap Variables Goes Here */
 
 $brand-primary: #0a1a72 !default;
@@ -101,7 +100,6 @@ sans-serif !default;
     src: url('../fonts/OPENSANS-REGULAR_3.TTF');
 }
 
-
 /* mixing*/
 
 @mixin placeholder {
@@ -130,6 +128,12 @@ sans-serif !default;
     -o-transition: $transition;
     -webkit-transition: $transition;
     transition: $transition;
+}
+
+.opensans-semibold {
+    font-family: "Opensans Semibold";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -3890,7 +3894,6 @@ ul.dropdown-menu.sf-absulate.blue-menus li a {
     -webkit-animation: colorchanges 3s infinite;
 }
 
-
 /* Chrome, Safari, Opera */
 
 @-webkit-keyframes colorchanges {
@@ -3901,7 +3904,6 @@ ul.dropdown-menu.sf-absulate.blue-menus li a {
         color: green;
     } // transition: all 0.3s ease;
 }
-
 
 /* Standard syntax */
 
@@ -3914,7 +3916,6 @@ ul.dropdown-menu.sf-absulate.blue-menus li a {
     } // transition: all 0.3s ease;
 }
 
-
 /* Chrome, Safari, Opera */
 
 @-webkit-keyframes colorchange {
@@ -3925,7 +3926,6 @@ ul.dropdown-menu.sf-absulate.blue-menus li a {
         background: green;
     } // transition: all 0.3s ease;
 }
-
 
 /* Standard syntax */
 
@@ -4601,7 +4601,6 @@ iframe#twitter-widget-0 {
     cursor: pointer;
 }
 
-
 /* checkbox aspect */
 
 [type="checkbox"]:not(:checked)+label:before,
@@ -4637,7 +4636,6 @@ iframe#twitter-widget-0 {
     transform: scale(1);
 }
 
-
 /* disabled checkbox */
 
 [type="checkbox"]:disabled:not(:checked)+label:before,
@@ -4655,11 +4653,10 @@ iframe#twitter-widget-0 {
     color: #aaa;
 }
 
-
 /* hover style just for information */
 
 label:hover:before {
-    border: 1px solid #ccc!important;
+    border: 1px solid #ccc !important;
 }
 
 .sel-spo {
@@ -4881,7 +4878,7 @@ label:hover:before {
     }
     /* hover style just for information */
     label:hover:before {
-        border: 1px solid #ccc!important;
+        border: 1px solid #ccc !important;
     }
 }
 
@@ -7275,14 +7272,14 @@ h1.forgot-space {
 
 //table-scroll for all confirm-table
 .athswm-table {
-     ::-webkit-scrollbar {
+    ::-webkit-scrollbar {
         // height: 4px;
         // width: 6px;
     }
-     ::-webkit-scrollbar-track {
+    ::-webkit-scrollbar-track {
         background-color: transparent;
     }
-     ::-webkit-scrollbar-thumb {
+    ::-webkit-scrollbar-thumb {
         background-color: #555 !important;
     }
 }
@@ -7315,14 +7312,14 @@ h1.forgot-space {
         border: none;
     }
     .custom-uiselect {
-         ::-webkit-scrollbar {
+        ::-webkit-scrollbar {
             height: 4px;
             width: 6px;
         }
-         ::-webkit-scrollbar-track {
+        ::-webkit-scrollbar-track {
             background-color: transparent;
         }
-         ::-webkit-scrollbar-thumb {
+        ::-webkit-scrollbar-thumb {
             background-color: #555;
         }
         .ui-select-multiple>div {
@@ -7715,7 +7712,7 @@ h1.forgot-space {
 .video-close-btn {
     background: transparent;
     border: none;
-    color: #091a71;
+    color: #fff;
     line-height: 24px;
     margin: 0 4px;
     &:active,
@@ -7734,9 +7731,9 @@ h1.forgot-space {
     right: -14px;
     width: 30px;
     height: 30px;
-    background: #fff; // background: #091a71;
+    background: #000; // background: #091a71;
     border-radius: 100%;
-    border: 1px solid #0a1a72;
+    border: 1px solid #fff;
     &:active,
     &:focus,
     &:hover {
@@ -7783,8 +7780,7 @@ h1.forgot-space {
 // sfacity-selectmodal
 .sfacity-selectmodal+.modal-backdrop {
     //  {
-    background-color: transparent;
-    background-image: url('../img/bgmodal.jpg');
+    background: rgba(0, 0, 0, .43); // background-image: url('../img/bgmodal.jpg');
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -7797,6 +7793,12 @@ h1.forgot-space {
         background: transparent;
     }
     z-index: 10001 !important;
+}
+
+.sfacity-backgroundwhite {
+    .sfacity-modal {
+        background-color: #fff;
+    }
 }
 
 .newHead {

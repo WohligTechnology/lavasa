@@ -1,148 +1,36 @@
-<div class="sfacity-modal">
-  <div class="modal-container">
-    <a class="video-cross-close-term hidden-xs" href="https://mumbai.sfanow.in" title="Redirect To Mumbai">
-      <button type="button" aria-label="Close" class="video-close-btn">X</button>
-    </a>
-    <div class="modal-body">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <div class="img-holder">
-            <img src="img/banner.png" class="img-responsive" alt="">
-          </div>
-        </div>
-      </div>
-      <div class="sfavideo-content">
+<div class="sfacity-backgroundwhite">
+  <div class="sfacity-modal">
+    <div class="modal-container">
+      <a class="video-cross-close-term hidden-xs" href="https://mumbai.sfanow.in" title="Redirect To Mumbai">
+        <button type="button" aria-label="Close" class="video-close-btn">X</button>
+      </a>
+      <div class="modal-body">
         <div class="row">
-          <p class="text-uppercase text-center">To Participate in the upcoming sfa championship</p>
-          <p class="text-uppercase text-center">Kindly select one of the following options</p>
-        </div>
-        <div class="row">
-          <div class="col-md-offset-1 col-md-10 col-md-offset-0 col-sm-12 col-xs-12">
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <button class="btn btn-default video-city" type="submit" ng-click="openCity('mumbai','school')">Mumbai School Registration </button>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <button class="btn btn-default video-city" type="submit" ng-click="openCity('mumbai','college')">Mumbai College Registration</button>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <button class="btn btn-default video-city" type="submit" ng-click="openCity('hyderabad','school')">SFA Hyderabad 2017-18</button>
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="img-holder">
+              <img src="img/bluesfalogo.png" class="img-responsive" alt="">
             </div>
           </div>
         </div>
-        <div class="row" hidden>
-          <div class="col-md-offset-1 col-md-10 col-sm-12 col-xs-12">
-            <div class="day-header" ng-if="endday > 0">
-              <h2>Mumbai Registrations Closing in
-                <input type="text" class="sfa-input-modal" ng-model="endday" readonly>Days</h2>
+        <div class="sfavideo-content">
+          <div class="text-center">
+            <div class="sfacity-welcomecontent opensans-semibold">
+              Welcome to Sports For All
             </div>
-            <div class="day-header" ng-if="endday <= 0">
-              <h2>Registrations Closed</h2>
-            </div>
-          </div>
-        </div>
-        <div class="row" hidden>
-          <div class="last-date-holder text-center">
-            <h4>Mumbai Last Date to Register: 25
-              <sup>th</sup> November,2017</h4>
-          </div>
-        </div>
-        <div class="row" ng-if="endday >= 0" hidden>
-          <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12">
-            <div class="last-date-holder-text text-center">
-              <h4>There will be no further extension of Mumbai Registration closing date.</h4>
+            <div class="sfacity-kindlyenter opensans-semibold ">
+              Kindly Select Your City
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-offset-1 col-md-10 col-md-offset-0 col-sm-12 col-xs-12">
-            <div class="text-center mt15">
-              <a class="text-uppercase" href="https://mumbai.sfanow.in" target="_self">
-                Click here to go to Home Page
-              </a>
-            </div>
-            <div class="text-center mt15 hide">
-              <a class="text-uppercase" href="https://hyderabad.sfanow.in/liveupdates" style="color:#5aeba4" target="_self">
-                Click here for Live Updates of SFA Hyderabad 2017-18.
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="sfacity-modal hide">
-  <div class="modal-container">
-    <a class="video-cross-close-term hidden-xs" href="https://mumbai.sfanow.in" title="Redirect To Mumbai">
-      <button type="button" aria-label="Close" class="video-close-btn">X</button>
-      <!--<i class="fa fa-2x fa-times-circle-o" aria-hidden="true"></i>-->
-      <!--<i class="fa  fa-times" aria-hidden="true"></i>-->
-    </a>
-    <div class="modal-body">
-      <!-- <video controls autoplay>
-          <source ng-src="/img/video/SFA-CHAMPIONSHIP-2017.mp4" type="video/mp4">
-          <source ng-src="/img/video/SFA-CHAMPIONSHIP-2017.ogg" type="video/ogg"> Your browser does not support the video tag.
-        </video> -->
-      <!-- <div class="size" style="width:840px;height:440px"> -->
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <!-- <div class="videoSize">
-              <iframe width="100%" height="100%" ng-src="https://www.youtube.com/embed/dAUW5pUBNl8?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe> -->
-          <!-- <iframe width="100%" height="100%" src="https://player.vimeo.com/video/228948984?autoplay=1&cc_load_policy=1" frameborder="0"
-                allowfullscreen></iframe> -->
-          <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/fFOSiU7lvZ8?autoplay=1&cc_load_policy=1" frameborder="0"
-                allowfullscreen></iframe> -->
-          <!-- <iframe width="100%" height="100%" src="https://player.vimeo.com/video/128854100?autoplay=1&cc_load_policy=1" frameborder="0"
-                allowfullscreen></iframe> -->
-          <!-- </div> -->
-          <!-- <div class="hidden-xs">
-            <img src="img/About_Web_Hyd.jpg" class="img-responsive" alt="">
-          </div>
-          <div class="visible-xs">
-            <img src="img/About_Mobile_Mum.jpg" class="img-responsive" alt="">
-          </div> -->
-        </div>
-      </div>
-      <!-- </div> -->
-      <div class="sfavideo-content">
-        <div class="row">
-          <p class="text-uppercase text-center">Click here to Register</p>
-          <!-- <p class="text-uppercase text-center"> To Participate in the upcoming SFA championship kindly select the city first</p> -->
-        </div>
-        <div class="row">
-          <!-- <div class="col-md-offset-3 col-md-6 col-sm-offset-1 col-sm-10 col-xs-12"> -->
-          <div class="col-md-offset-1 col-md-10 col-sm-12 col-xs-12">
-            <!-- <div class="col-md-6 col-sm-6 col-xs-12">
-                <button class="btn btn-default video-city form-control" type="submit" ng-click="openCity('mumbai')">Mumbai</button>
+          <div class="row">
+            <div class="col-md-offset-1 col-md-10 col-md-offset-0 col-sm-12 col-xs-12">
+              <div class="col-md-6 col-sm-6 col-xs-12 text-right">
+                <button class="btn btn-default video-city form-control" type="submit" ng-click="openCity('mumbai','school')">Mumbai</button>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <button class="btn btn-default video-city form-control" type="submit" ng-click="openCity('hyderabad')">Hyderabad</button>
-              </div> -->
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <button class="btn btn-default video-city form-control" type="submit" ng-click="openCity('mumbai','school')">Mumbai School</button>
+                <button class="btn btn-default video-city form-control" type="submit" ng-click="openCity('hyderabad','school')">Hyderabad</button>
+              </div>
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <button class="btn btn-default video-city form-control" type="submit" ng-click="openCity('mumbai','college')">Mumbai College</button>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <button class="btn btn-default video-city form-control" type="submit" ng-click="openCity('hyderabad','school')">Hyderabad School</button>
-            </div>
-            <!-- <div class="col-md-4 col-sm-4 col-xs-12">
-                <button class="btn btn-default video-city form-control" type="submit" ng-click="openCity('ahmedabad')">Ahmedabad</button>
-              </div> -->
           </div>
-
-          <!--<ul class="list-inline">
-              <li>
-                <button class="btn btn-default video-city" type="submit">Mumbai</button>
-                </li>
-                <li>
-                  <button class="btn btn-default video-city" type="submit">Hyderabad</button>
-                </li>
-                <li>
-                  <button class="btn btn-default video-city" type="submit">Ahmedabad</button>
-                </li>
-                </ul>-->
         </div>
       </div>
     </div>
