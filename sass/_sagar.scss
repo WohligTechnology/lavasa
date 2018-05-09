@@ -198,7 +198,9 @@ $brand-green: #0eda85 !default; //green
 }
 
 .sfavideo-content {
-    // p {
+    .register-opennow {
+        font-size: 12px;
+    } // p {
     //     font-size: 20px;
     //     margin-top: 10px;
     // }
@@ -245,6 +247,7 @@ $brand-green: #0eda85 !default; //green
 
 .sfacity-kindlyenter {
     margin: 15px 0px;
+    font-size: 22px;
 }
 
 // END CITY-VIDEO

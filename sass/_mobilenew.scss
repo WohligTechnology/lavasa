@@ -27,20 +27,19 @@
   .liveupdates-drawsevents {
     margin-top: 10px;
   } // LIVE UPDATES END
-  .home-highlight h3{
+  .home-highlight h3 {
     font-size: 18px;
   }
 }
 
 @media screen and (max-width: 767px) {
   //Home Tickr
- .home-tickr .ticker-icon {
+  .home-tickr .ticker-icon {
     top: 3px;
-}
-.home-highlight h3{
-  font-size: 16px;
-}
-  //Home Tickr End
+  }
+  .home-highlight h3 {
+    font-size: 16px;
+  } //Home Tickr End
   // REGISTERED SPORTS
   .sportregistered-title {
     display: block;
@@ -107,7 +106,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .home-highlight h3{
+  .home-highlight h3 {
     font-size: 14px;
   }
   .sfavideo-content .video-city {
@@ -134,5 +133,18 @@
   }
   .sfacity-modal .last-date-holder h4 {
     font-size: 14px;
+  }
+  .sfacity-welcomecontent {
+    font-size: 16px;
+  }
+  .sfacity-kindlyenter {
+    font-size: 18px;
+  }
+  .sfavideo-content .register-opennow {
+    font-size: 14px;
+    margin: 8px 0px;
+  }
+  .sfavideo-content .btn {
+    margin: 0px;
   }
 }
