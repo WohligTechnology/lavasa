@@ -192,10 +192,10 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
             }
         });
     } else {
-        $scope.hideHome = false;
+        $scope.hideHome = true;
         TemplateService.footer = "";
         if (window.location.pathname != '/contact' && window.location.pathname != '/about-us') {
-            // $state.go('home');
+            $state.go('home');
             // window.open("https://hyderabad.sfanow.in/liveupdates", "_self");
         } else {
             // do nothing
@@ -4458,16 +4458,16 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     } else {
         $scope.hideHeaderContent = true;
     }
-    $uibModal.open({
-        animation: true,
-        scope: $scope,
-        backdrop: 'static',
-        backdropClass: 'blackOut',
-        keyboard: false,
-        templateUrl: "views/modal/city-video.html",
-        size: 'lg',
-        windowClass: 'sfacity-selectmodal'
-    });
+    // $uibModal.open({
+    //     animation: true,
+    //     scope: $scope,
+    //     backdrop: 'static',
+    //     backdropClass: 'blackOut',
+    //     keyboard: false,
+    //     templateUrl: "views/modal/city-video.html",
+    //     size: 'lg',
+    //     windowClass: 'sfacity-selectmodal'
+    // });
     //----------FOR SINGLE CITY-----------//
     // $scope.hideBlink = false;
     // if (window.location.host == tempLink || window.location.host == tempLinks) {
@@ -4851,6 +4851,46 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     } else if (window.location.host == link3) {
         $scope.selectedCity = 'ahmedabad';
     }
+
+    var a = window.location.host;
+    $scope.infoEmail = [];
+
+    if (a == 'localhost:8080') {
+        $scope.infoEmail = [{
+            'head': 'INFO LINE',
+            'data1': '7045684365 / 66 / 022 65522221',
+            'data2': '79811 75508 / 7045684367'
+        }, {
+            'head': 'EMAIL',
+            'data1': 'info@sfanow.in'
+        }, {
+            'head': 'INFO LINE',
+            'data1': '7045684367 / 79811 75508'
+        }, {
+            'head': 'EMAIL',
+            'data1': 'info.hyd@sfanow.in'
+        }];
+    } else if (a == 'mumbai.sfanow.in') {
+        $scope.infoEmail = [{
+            'head': 'INFO LINE',
+            'data1': '7045684365 / 66 / 022 65522221',
+            'data2': '79811 75508 / 7045684367'
+        }, {
+            'head': 'EMAIL',
+            'data1': 'info@sfanow.in'
+        }];
+    } else if (a == 'hyderabad.sfanow.in') {
+        $scope.infoEmail = [{
+            'head': 'INFO LINE',
+            'data1': '7045684367 / 79811 75508'
+        }, {
+            'head': 'EMAIL',
+            'data1': 'info.hyd@sfanow.in'
+        }];
+    } else if (a == 'sfanow.in') {
+        $scope.hide = true;
+    }
+
     if (window.location.host == link1) {
         $scope.registerSchool = sublink1;
         $scope.registerCollege = sublink2;
@@ -4880,6 +4920,32 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
     } else if (window.location.host == link3) {
         $scope.selectedCity = 'ahmedabad';
     }
+    $scope.getSponsor = function () {
+        if (window.location.host == link1) {
+            $scope.url = sublink1 + '/api/SponsorPage/getAllBySponsorType';
+        } else if (window.location.host == link2) {
+            $scope.url = sublink3 + '/api/SponsorPage/getAllBySponsorType';
+        } else if (window.location.host == link3) {
+            $scope.url = sublink5 + '/api/SponsorPage/getAllBySponsorType';
+        }
+        NavigationService.getSponsor($scope.url, function (data) {
+            console.log('Get Sponsor', data);
+            $scope.sponsorData = data.data.data;
+            console.log($scope.sponsorData, "console")
+        });
+    };
+    $scope.getSponsor();
+
+    $scope.goSponsor = function (data) {
+        // console.log(data)
+        if (data.insidePage === "true") {
+            $state.go('individual-sponsor', {
+                id: data._id
+            })
+        } else {
+            // console.log("nothing")
+        }
+    };
     if (window.location.host == link1) {
         $scope.registerSchool = sublink1;
         $scope.registerCollege = sublink2;

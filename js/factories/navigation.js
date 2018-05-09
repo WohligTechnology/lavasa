@@ -1,6 +1,16 @@
 var imgPath = adminUrl + "upload/readFile";
 var uploadUrl = adminUrl + "upload/";
 
+if (window.location.host == 'mumbai.sfanow.in') {
+    var adminUrl2 = "http://mumbaischool.sfanow.in/api/";
+} else if (window.location.host == 'hyderabad.sfanow.in') {
+    var adminUrl2 = "http://hyderabadschool.sfanow.in/api/";
+} else if (window.location.host == 'testmumbai.sfanow.in') {
+    var adminUrl2 = "http://mumbaischool.sfanow.in/api/";
+} else if (window.location.host == 'testhyderabad.sfanow.in') {
+    var adminUrl2 = "http://hyderabadschool.sfanow.in/api/";
+}
+
 // var imgPath2 = adminUrl2 + "upload/readFile";
 // var uploadUrl2 = adminUrl2 + "upload/";
 
@@ -542,6 +552,9 @@ firstApp.factory('NavigationService', function ($http, $window, $q, $timeout, $l
                 url: adminUrl + url,
                 method: 'POST'
             }).success(callback);
+        },
+        getSponsor: function (url, callback) {
+            $http.post(url).then(callback);
         },
     };
 });

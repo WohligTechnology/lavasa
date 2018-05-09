@@ -151,10 +151,26 @@ body {
     width: 301px;
     height: auto;
     margin: 0;
-    font-size: 16px;
+    font-size: 14px;
     padding: 10px;
     border: 1px solid #fff;
     border-radius: 15px;
+    p {
+        margin: 2px 0;
+    }
+}
+
+.v-align {
+    vertical-align: top;
+}
+
+.m-clear-auto {
+    margin: 0px auto;
+}
+
+.card-holder {
+    cursor: pointer;
+    margin: 0 0 30px;
 }
 
 .font-titling {
@@ -7791,8 +7807,15 @@ h1.forgot-space {
 .sfacity-selectmodal {
     .modal-content {
         background: transparent;
+        box-shadow: unset;
     }
     z-index: 10001 !important;
+}
+
+.modal-open {
+    .placingBlock {
+        display: none;
+    }
 }
 
 .sfacity-backgroundwhite {

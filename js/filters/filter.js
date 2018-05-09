@@ -298,5 +298,25 @@ firstApp.filter('medalicon', function () {
         medalImg = "img/medal-icon/" + input + "-" + type + ".png";
         return medalImg;
     }
-})
+});
 // FILTER MEDALS;
+
+firstApp.filter('serverimage2', function () {
+    return function (image, width, height, style) {
+        var other = "";
+        if (width && width !== "") {
+            other += "&width=" + width;
+        }
+        if (height && height !== "") {
+            other += "&height=" + height;
+        }
+        if (style && style !== "") {
+            other += "&style=" + style;
+        }
+        if (image && image !== null) {
+            return adminUrl2 + "upload/readFile?file=" + image + other;
+        } else {
+            return undefined;
+        }
+    };
+})

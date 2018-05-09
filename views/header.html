@@ -940,4 +940,15 @@
         </div>
 
     </nav>
+
+    <div class="placingBlock" ng-hide="hide">
+        <div ng-repeat="s in infoEmail">
+            <p class="display-inline v-align">{{s.head}} :&nbsp;</p>
+            <p class="display-inline v-align">
+                <span ng-if='!s.data2'>{{s.data1}}</span>
+                <span ng-if='s.data2'>{{s.data1}}
+                    <br>{{s.data2}}</span>
+            </p>
+        </div>
+    </div>
 </header>
