@@ -4969,19 +4969,21 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
                 "img": "img/footer/p4.jpg",
                 "href": "",
                 "game": "Energy Drink Partner"
-            }, {
-                "img": "img/footer/n2.jpg",
-                "href": "",
-                "game": "Smartphone Partner"
-            }, {
-                "img": "img/footer/n9.png",
-                "href": "",
-                "game": "Radio Partner"
-            }, {
-                "img": "img/footer/n11.png",
-                "href": "",
-                "game": "Health & Togetherness Partner"
             }
+            // ,{
+            //     "img": "img/footer/n2.jpg",
+            //     "href": "",
+            //     "game": "Smartphone Partner"
+            // }, {
+            //     "img": "img/footer/n9.png",
+            //     "href": "",
+            //     "game": "Radio Partner"
+            // }, {
+            //     "img": "img/footer/n11.png",
+            //     "href": "",
+            //     "game": "Health & Togetherness Partner"
+            // }
+
             //  {
             //     "img": "img/footer/p7.jpg",
             //     "href": "",
@@ -4994,6 +4996,14 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
         ];
     $scope.partner = // JavaScript Document
         [{
+            "img": "img/footer/n10.png",
+            "href": "",
+            "game": "Digital Parenting Partner"
+        }, {
+            "img": "img/footer/n12.png",
+            "href": "http://mumbaischool.sfanow.in/individual-sponsor/5a0d06ff772e85299c1bca66",
+            "game": "Sports Development Partner"
+        }, {
             "img": "img/footer/p1.jpg",
             "href": "",
             "game": "Venue Partner"
@@ -5002,43 +5012,40 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
             "href": "",
             "game": "Hospital Partner"
         }, {
-            "img": "img/footer/n10.png",
-            "href": "",
-            "game": "Digital Parenting Partner"
-        }, {
-            "img": "img/footer/n12.png",
-            "href": "",
-            "game": "Sports Development Partner"
-            // {
-            //     "img": "img/footer/na3.jpg",
-            //     "href": "",
-            //     "game": "Sports Surface Partner"
-            // }, {
-            //     "img": "img/footer/na6.jpg",
-            //     "href": "",
-            //     "game": "Sports Mentorship Partner"
-            // }, {
-            //     "img": "img/footer/na4.jpg",
-            //     "href": "",
-            //     "game": "Shooting Range Partner"
-            // }, {
-            //     "img": "img/footer/p5.jpg",
-            //     "href": "",
-            //     "game": "Medical Partner"
-            // }, {
-            //     "img": "img/footer/na5.jpg",
-            //     "href": "",
-            //     "game": "Event Partner"
-            // }
-        }, {
             "img": "img/footer/n13.png",
             "href": "",
             "game": "Goodwill Partner"
         }, {
-            "img": "img/footer/n14.png",
+            "img": "img/footer/n15.png",
             "href": "",
-            "game": "Online Promotional Partner"
+            "game": "Official Gaming Partner"
         }];
+    // {
+    //     "img": "img/footer/n14.png",
+    //     "href": "",
+    //     "game": "Online Promotional Partner"
+    // },
+    // {
+    //     "img": "img/footer/na3.jpg",
+    //     "href": "",
+    //     "game": "Sports Surface Partner"
+    // }, {
+    //     "img": "img/footer/na6.jpg",
+    //     "href": "",
+    //     "game": "Sports Mentorship Partner"
+    // }, {
+    //     "img": "img/footer/na4.jpg",
+    //     "href": "",
+    //     "game": "Shooting Range Partner"
+    // }, {
+    //     "img": "img/footer/p5.jpg",
+    //     "href": "",
+    //     "game": "Medical Partner"
+    // }, {
+    //     "img": "img/footer/na5.jpg",
+    //     "href": "",
+    //     "game": "Event Partner"
+    // }
 
 
     //  {
