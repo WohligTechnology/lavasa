@@ -5066,30 +5066,47 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
         "href": "",
         "game": "Under the aegis of SATS"
     }];
+    // $scope.sponsor_partner = [{
+    //     "img": "img/footer/hyd/enerzal.png",
+    //     "href": "",
+    //     "game": "Energy Drink Partner"
+    // }, {
+    //     "img": "img/footer/hyd/fever.png",
+    //     "href": "",
+    //     "game": "Radio Partner"
+    // }, {
+    //     "img": "img/footer/hyd/tv5.png",
+    //     "href": "",
+    //     "game": "News Channel Partner"
+    // }, {
+    //     "img": "img/footer/hyd/ibrand.png",
+    //     "href": "",
+    //     "game": "Marketing & Strategy Partner"
+    // }, {
+    //     "img": "img/footer/hyd/wizcraft.png",
+    //     "href": "",
+    //     "game": "Event Partner"
+    // }, {
+    //     "img": "img/footer/n12.png",
+    //     "href": "",
+    //     "game": "Sports Development Partner"
+    // }];
     $scope.sponsor_partner = [{
+        "img": "img/footer/n12.png",
+        "href": "",
+        "game": "Sports Development Partner"
+    }, {
         "img": "img/footer/hyd/enerzal.png",
         "href": "",
         "game": "Energy Drink Partner"
     }, {
-        "img": "img/footer/hyd/fever.png",
+        "img": "img/footer/n15.png",
         "href": "",
-        "game": "Radio Partner"
+        "game": "Official Gaming Partner"
     }, {
-        "img": "img/footer/hyd/tv5.png",
+        "img": "img/footer/n10.png",
         "href": "",
-        "game": "News Channel Partner"
-    }, {
-        "img": "img/footer/hyd/ibrand.png",
-        "href": "",
-        "game": "Marketing & Strategy Partner"
-    }, {
-        "img": "img/footer/hyd/wizcraft.png",
-        "href": "",
-        "game": "Event Partner"
-    }, {
-        "img": "img/footer/n12.png",
-        "href": "",
-        "game": "Sports Development Partner"
+        "game": "Digital Partnering Partner"
     }];
     // TV Support Partner
 
