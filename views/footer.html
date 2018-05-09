@@ -171,10 +171,10 @@
                                     <li ng-if="selectedCity!='hyderabad'">
                                         <a href="{{registerSchool}}/register/school" target="_blank">REGISTER AS A SCHOOL</a>
                                     </li>
-                                    <li ng-if="!registerSchool && selectedCity!='hyderabad' ">
+                                    <li ng-if="!registerSchool">
                                         <a ui-sref="faq">FAQs</a>
                                     </li>
-                                    <li ng-if="registerSchool && selectedCity!='hyderabad'">
+                                    <li ng-if="registerSchool">
                                         <a href="{{registerSchool}}/faq" target="_blank ">FAQs</a>
                                     </li>
 
