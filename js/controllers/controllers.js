@@ -4465,7 +4465,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     //     backdropClass: 'blackOut',
     //     keyboard: false,
     //     templateUrl: "views/modal/city-video.html",
-    //     size: 'lg',
+    //     size: 'md',
     //     windowClass: 'sfacity-selectmodal'
     // });
     //----------FOR SINGLE CITY-----------//
@@ -4781,7 +4781,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     backdropClass: 'blackOut',
                     keyboard: false,
                     templateUrl: "views/modal/city-video.html",
-                    size: 'lg',
+                    size: 'md',
                     windowClass: 'sfacity-selectmodal'
                 });
             }
@@ -4800,7 +4800,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
         //             backdropClass: 'blackOut',
         //             keyboard: false,
         //             templateUrl: "views/modal/city-video.html",
-        //             size: 'lg',
+        //             size: 'md',
         //             windowClass: 'sfacity-selectmodal'
         //         });
         //     }
@@ -4823,7 +4823,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     backdropClass: 'blackOut',
                     keyboard: false,
                     templateUrl: "views/modal/city-video.html",
-                    size: 'lg',
+                    size: 'md',
                     windowClass: 'sfacity-selectmodal'
                 });
             }
