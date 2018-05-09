@@ -159,27 +159,27 @@
                             <li>
                                 <label class="footer-champ-header">school championship</label>
                                 <ul class="padding0">
-                                    <li ng-if="!registerSchool ">
+                                    <li ng-if="!registerSchool && selectedCity!='hyderabad' ">
                                         <a ui-sref="aboutchampionship"> ABOUT CHAMPIONSHIP</a>
                                     </li>
-                                    <li ng-if="registerSchool ">
+                                    <li ng-if="registerSchool && selectedCity!='hyderabad' ">
                                         <a href="{{registerSchool}}/aboutchampionship " target="_blank "> ABOUT CHAMPIONSHIP</a>
                                     </li>
-                                    <li>
+                                    <li ng-if="selectedCity!='hyderabad'">
                                         <a href="{{registerSchool}}/register/player" target="_blank">REGISTER AS A PLAYER</a>
                                     </li>
-                                    <li>
+                                    <li ng-if="selectedCity!='hyderabad'">
                                         <a href="{{registerSchool}}/register/school" target="_blank">REGISTER AS A SCHOOL</a>
                                     </li>
-                                    <li ng-if="!registerSchool">
+                                    <li ng-if="!registerSchool && selectedCity!='hyderabad' ">
                                         <a ui-sref="faq">FAQs</a>
                                     </li>
-                                    <li ng-if="registerSchool">
+                                    <li ng-if="registerSchool && selectedCity!='hyderabad'">
                                         <a href="{{registerSchool}}/faq" target="_blank ">FAQs</a>
                                     </li>
 
                                 </ul>
-                                <ul class="padding0" ng-if="selectedCity ==='hyderabad'">
+                                <ul class="padding0" ng-if="selectedCity ==='Hyderabad'">
                                     <li ng-if="selectedCity==='Hyderabad'">
                                         <a ui-sref="liveupdates"> LIVE UPDATES</a>
                                     </li>
