@@ -31,7 +31,7 @@ var eventYear = '2018-19';
 
 
 var type = 'live';
-var sublink1 = "http://mumbaischool.sfanow.in";
+var sublink1 = "https://mumbaischool.sfanow.in";
 var sublink2 = "http://mumbaicollege.sfanow.in";
 var sublink3 = "http://hyderabadschool.sfanow.in";
 var sublink4 = "http://hyderabadcollege.sfanow.in";
@@ -1157,9 +1157,9 @@ firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, Navig
     $scope.loadMedia = function (year) {
         if (year == '2017') {
             if ($stateParams.type && $stateParams.folder) {
-                window.open("http://mumbaischool.sfanow.in/#media-gallery/" + $stateParams.type + "/" + $stateParams.folder, '_self');
+                window.open("https://mumbaischool.sfanow.in/#media-gallery/" + $stateParams.type + "/" + $stateParams.folder, '_self');
             } else {
-                window.open("http://mumbaischool.sfanow.in/#media-gallery", '_self');
+                window.open("https://mumbaischool.sfanow.in/#media-gallery", '_self');
             }
 
         }
@@ -1293,9 +1293,9 @@ firstApp.controller('MediaPressCtrl', function ($scope, TemplateService, Navigat
         if (year == '2017') {
             if ($stateParams.type && $stateParams.folder) {
                 console.log("im", $stateParams.type, $stateParams.folder);
-                window.open("http://mumbaischool.sfanow.in/#media-press/" + $stateParams.type + "/" + $stateParams.folder, '_self');
+                window.open("https://mumbaischool.sfanow.in/#media-press/" + $stateParams.type + "/" + $stateParams.folder, '_self');
             } else {
-                window.open("http://mumbaischool.sfanow.in/#media-press", '_self');
+                window.open("https://mumbaischool.sfanow.in/#media-press", '_self');
             }
 
         }
@@ -2725,7 +2725,7 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
     $scope.onChangeContingentYear = function () {
         console.log("getSchoolProfile", $scope.getSchoolProfile);
         if ($scope.filterStatistics.year == '2017') {
-            window.open("http://mumbaischool.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
+            window.open("https://mumbaischool.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
 
         }
         $scope.filterStatistics.pagenumber = 1;
@@ -2805,7 +2805,7 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
     $scope.changeYear = function () {
 
         if ($scope.filter.year == '2017') {
-            window.open("http://mumbaischool.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
+            window.open("https://mumbaischool.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
 
         }
         $scope.schooldata.Boys = 0;
@@ -3309,7 +3309,7 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
     $scope.getStudentProfile();
     $scope.changeYear = function () {
         if ($scope.filter.year == '2017') {
-            window.open("http://mumbaischool.sfanow.in/student-profile/" + 'MA16' + studentProfileId, '_self');
+            window.open("https://mumbaischool.sfanow.in/student-profile/" + 'MA16' + studentProfileId, '_self');
 
         }
         var constraints = {};
@@ -4447,7 +4447,11 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
         // $scope.hideBlink = true;
     });
     $rootScope.year15 = year15;
-    $rootScope.year16 = year18;
+    if ($state.current.name == 'home' || $state.current.name == 'champions' || $state.current.name == 'media-gallery' || $state.current.name == 'media-press' || $state.current.name == 'school-bio' || $state.current.name == 'school' || $state.current.name == 'school-profile' || $state.current.name == 'school-ranking' || $state.current.name == 'sport' || $state.current.name == 'student-bio' || $state.current.name == 'student-profile') {
+        $rootScope.year16 = year16;
+    } else {
+        $rootScope.year16 = year18;
+    }
     $rootScope.eventYear = eventYear
     if (window.location.host == mainLink) {
         if (window.location.pathname != '/contact' && window.location.pathname != '/about-us') {
@@ -4911,8 +4915,11 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
 firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope, NavigationService, errorService, toastr, $state, $uibModal, $rootScope) {
     $scope.template = TemplateService;
     $rootScope.year15 = year15;
-    // $rootScope.year16 = year16;
-    $rootScope.year16 = year18;
+    if ($state.current.name == 'home' || $state.current.name == 'champions' || $state.current.name == 'media-gallery' || $state.current.name == 'media-press' || $state.current.name == 'school-bio' || $state.current.name == 'school' || $state.current.name == 'school-profile' || $state.current.name == 'school-ranking' || $state.current.name == 'sport' || $state.current.name == 'student-bio' || $state.current.name == 'student-profile') {
+        $rootScope.year16 = year16;
+    } else {
+        $rootScope.year16 = year18;
+    }
     if (window.location.host == link1) {
         $scope.selectedCity = 'mumbai';
     } else if (window.location.host == link2) {
@@ -5001,7 +5008,7 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
             "game": "Digital Parenting Partner"
         }, {
             "img": "img/footer/n12.png",
-            "href": "http://mumbaischool.sfanow.in/individual-sponsor/5a0d06ff772e85299c1bca66",
+            "href": "https://mumbaischool.sfanow.in/individual-sponsor/5a0d06ff772e85299c1bca66",
             "game": "Sports Development Partner"
         }, {
             "img": "img/footer/p1.jpg",
@@ -5106,7 +5113,7 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
     }, {
         "img": "img/footer/n10.png",
         "href": "",
-        "game": "Digital Partnering Partner"
+        "game": "Digital Parenting Partner"
     }];
     // TV Support Partner
 

@@ -15,7 +15,7 @@ firstApp.service('cityService', function ($http, TemplateService, $state, toastr
     returnObj.year15 = '2015-16';
     returnObj.year16 = '2016-17';
 
-    returnObj.sublink1 = "http://mumbaischool.sfanow.in";
+    returnObj.sublink1 = "https://mumbaischool.sfanow.in";
     returnObj.sublink2 = "http://mumbaicollege.sfanow.in";
     returnObj.sublink3 = "http://hyderabadschool.sfanow.in";
     returnObj.sublink4 = "http://hyderabadcollege.sfanow.in";

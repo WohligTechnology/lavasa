@@ -53,7 +53,7 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
       $scope.drawObj.college = true;
       $scope.calenderLink = '';
       $scope.cityName = 'Mumbai';
-      $scope.schoolLink = "http://mumbaischool.sfanow.in";
+      $scope.schoolLink = "https://mumbaischool.sfanow.in";
       $scope.collegeLink = "http://mumbaicollege.sfanow.in";
     } else if (window.location.host == response.link2) {
       // $scope.drawObj.link = response.data.Hyderabad;
@@ -95,13 +95,13 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
     if (window.location.host == response.link1) {
       $scope.bannerss = [{
         "img": "img/mobweb-2.jpg",
-        "link": "http://mumbaischool.sfanow.in/register"
+        "link": "https://mumbaischool.sfanow.in/register"
       }, {
         "img": "img/mobweb-3.jpg",
         "link": "http://mumbaicollege.sfanow.in/register"
       }, {
         "img": "img/mobweb-1.jpg",
-        "link": "http://mumbaischool.sfanow.in/register"
+        "link": "https://mumbaischool.sfanow.in/register"
       }, {
         "img": "img/mobweb-4.jpg",
         "link": "http://mumbaicollege.sfanow.in/register"
