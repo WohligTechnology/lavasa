@@ -59,14 +59,14 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
       // $scope.drawObj.link = response.data.Hyderabad;
       $scope.drawObj.college = false;
       $scope.cityName = 'Hyderabad';
-      $scope.schoolLink = "http://hyderabadschool.sfanow.in";
+      $scope.schoolLink = "https://hyderabadschool.sfanow.in";
       $scope.calenderLink = '';
     } else if (window.location.host == response.link3) {
       // $scope.drawObj.link = response.data.Ahmedabad;
       $scope.drawObj.college = true;
       $scope.cityName = 'Ahmedabad';
       $scope.calenderLink = '';
-      $scope.schoolLink = "http://hyderabadschool.sfanow.in";
+      $scope.schoolLink = "https://hyderabadschool.sfanow.in";
     }
   });
   // ITIALISE VARIABLES END
@@ -109,13 +109,13 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
     } else if (window.location.host == response.link2) {
       $scope.bannerss = [{
         "img": "img/Hyderabad_4.jpg",
-        "link": "http://hyderabadschool.sfanow.in/register"
+        "link": "https://hyderabadschool.sfanow.in/register"
       }, {
         "img": "img/Hyderabad_5.jpg",
-        "link": "http://hyderabadschool.sfanow.in/register"
+        "link": "https://hyderabadschool.sfanow.in/register"
       }, {
         "img": "img/Hyderabad_6.jpg",
-        "link": "http://hyderabadschool.sfanow.in/register"
+        "link": "https://hyderabadschool.sfanow.in/register"
       }];
     } else if (window.location.host == response.link3) {
       $scope.bannerss = [{

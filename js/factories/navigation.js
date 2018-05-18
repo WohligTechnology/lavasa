@@ -4,11 +4,11 @@ var uploadUrl = adminUrl + "upload/";
 if (window.location.host == 'mumbai.sfanow.in') {
     var adminUrl2 = "https://mumbaischool.sfanow.in/api/";
 } else if (window.location.host == 'hyderabad.sfanow.in') {
-    var adminUrl2 = "http://hyderabadschool.sfanow.in/api/";
+    var adminUrl2 = "https://hyderabadschool.sfanow.in/api/";
 } else if (window.location.host == 'testmumbai.sfanow.in') {
     var adminUrl2 = "https://mumbaischool.sfanow.in/api/";
 } else if (window.location.host == 'testhyderabad.sfanow.in') {
-    var adminUrl2 = "http://hyderabadschool.sfanow.in/api/";
+    var adminUrl2 = "https://hyderabadschool.sfanow.in/api/";
 }
 
 // var imgPath2 = adminUrl2 + "upload/readFile";

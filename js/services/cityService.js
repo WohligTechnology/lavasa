@@ -17,7 +17,7 @@ firstApp.service('cityService', function ($http, TemplateService, $state, toastr
 
     returnObj.sublink1 = "https://mumbaischool.sfanow.in";
     returnObj.sublink2 = "http://mumbaicollege.sfanow.in";
-    returnObj.sublink3 = "http://hyderabadschool.sfanow.in";
+    returnObj.sublink3 = "https://hyderabadschool.sfanow.in";
     returnObj.sublink4 = "http://hyderabadcollege.sfanow.in";
     returnObj.sublink5 = "http://ahmedabadschool.sfanow.in";
     returnObj.sublink6 = "http://ahmedabadcollege.sfanow.in";

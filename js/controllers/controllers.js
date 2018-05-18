@@ -33,7 +33,7 @@ var eventYear = '2018-19';
 var type = 'live';
 var sublink1 = "https://mumbaischool.sfanow.in";
 var sublink2 = "http://mumbaicollege.sfanow.in";
-var sublink3 = "http://hyderabadschool.sfanow.in";
+var sublink3 = "https://hyderabadschool.sfanow.in";
 var sublink4 = "http://hyderabadcollege.sfanow.in";
 var sublink5 = "http://ahmedabadschool.sfanow.in";
 var sublink6 = "http://ahmedabadcollege.sfanow.in";
@@ -122,17 +122,17 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
                     // $scope.banners = [{
                     //     city: "Hyderabad",
                     //     image: "img/Hyderabad_1.jpg",
-                    //     link: "http://hyderabadschool.sfanow.in/register",
+                    //     link: "https://hyderabadschool.sfanow.in/register",
                     //     order: '1'
                     // }, {
                     //     city: "Hyderabad",
                     //     image: "img/Hyderabad_2.jpg",
-                    //     link: "http://hyderabadschool.sfanow.in/register",
+                    //     link: "https://hyderabadschool.sfanow.in/register",
                     //     order: '2'
                     // }, {
                     //     city: "Hyderabad",
                     //     image: "img/Hyderabad_3.jpg",
-                    //     link: "http://hyderabadschool.sfanow.in/register",
+                    //     link: "https://hyderabadschool.sfanow.in/register",
                     //     order: '3'
                     // }];
                 } else if (window.location.host == link3) {
