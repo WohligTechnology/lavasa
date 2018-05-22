@@ -272,8 +272,8 @@
                                         <span class="only-border"></span>
                                     </div>
                                 </div>
-                                <a ng-if="selectedCity!=='hyderabad'" class="dropdown-toggle mb25" data-toggle="dropdown" ng-mouseenter="optionss=!optionss"
-                                    ng-model="checkboxs">
+                                <!-- ng-if="selectedCity!=='hyderabad'" -->
+                                <a class="dropdown-toggle mb25" data-toggle="dropdown" ng-mouseenter="optionss=!optionss" ng-model="checkboxs">
                                     <span ng-if="selectedCity==='Hyderabad'">LIVE</span>
                                     <!-- <span ng-if="selectedCity!=='Hyderabad'">SFA</span> {{sfaCity | capitalize}} {{eventYear}} -->
                                     REGISTER NOW
@@ -562,7 +562,8 @@
                             <span class="only-border"></span>
                         </div>
                     </div>
-                    <div class="sfa-mum" ng-if="selectedCity!=='hyderabad'">
+                    <!-- ng-if="selectedCity!=='hyderabad'" -->
+                    <div class="sfa-mum">
                         <button type="button" name="button" class="btn btn-sfatop" ng-mouseenter="optionss=!optionss" ng-model="checkboxs">
                             <span ng-if="selectedCity==='Hyderabad'">LIVE</span>
                             <!-- <span ng-if="selectedCity!=='Hyderabad'">SFA</span> {{sfaCity | capitalize}} {{eventYear}} -->
@@ -649,8 +650,9 @@
                 </div>
                 <!-- SELECTED CITY  -->
                 <!-- MOBILE SFA HYD -->
+                <!-- ng-if="selectedCity!=='hyderabad'" -->
                 <div class="visible-xs" ng-hide="hideBlink == true">
-                    <div class="" ng-if="selectedCity!=='hyderabad'">
+                    <div class="">
                         <a class="dropdown-toggle mb25" data-toggle="dropdown">
                             <div class="sfa-mum sfa-mum-m">
                                 <button type="button" name="button" class="btn btn-sfatop margin0" ng-mouseenter="optionss=!optionss">
