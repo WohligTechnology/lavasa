@@ -13,21 +13,32 @@
                     <div class="text-center mt25">
                         <div class="tab-list sf-list text-up mob-tb">
                             <ul class="padding0 margin0">
-                                <li><a href="" ng-click="tabchange('rules',5)" class="{{classe}} font16">
-Rules and Regulations
-</a></li>
-                                <li ng-if="sport.sportid.name != 'Wrestling'"><a href="" ng-click="tabchange('2016',1);getWinners('2016')" class="{{classa}} font16">
-sfa mumbai {{year16}} <span ng-if="winners['2016'].length > 0">winners</span>
-</a></li>
-                                <li ng-if="sport.sportid.name != 'Wrestling'"><a href="" ng-click="tabchange('2015',2);getWinners('2015')" class="{{classb}} font16" ng-if="is2015Sport">
-sfa mumbai {{year15}}
-</a></li>
-                                <li><a href="" ng-click="tabchange('gallerys',3)" class="{{classc}} font16">
-gallery
-</a></li>
-                                <li><a href="" ng-click="tabchange('bio',4)" class="{{classd}} font16">
-sport’s bio
-</a></li>
+                                <li>
+                                    <a href="" ng-click="tabchange('rules',5)" class="{{classe}} font16">
+                                        Rules and Regulations
+                                    </a>
+                                </li>
+                                <li ng-if="sport.sportid.name != 'Wrestling'">
+                                    <a href="" ng-click="tabchange('2016',1);getWinners('2016')" class="{{classa}} font16">
+                                        sfa mumbai {{year16}}
+                                        <span ng-if="winners['2016'].length > 0">winners</span>
+                                    </a>
+                                </li>
+                                <li ng-if="sport.sportid.name != 'Wrestling'">
+                                    <a href="" ng-click="tabchange('2015',2);getWinners('2015')" class="{{classb}} font16" ng-if="is2015Sport">
+                                        sfa mumbai {{year15}}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" ng-click="tabchange('gallerys',3)" class="{{classc}} font16">
+                                        gallery
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" ng-click="tabchange('bio',4)" class="{{classd}} font16">
+                                        sport’s bio
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -222,18 +233,25 @@ sport’s bio
 
                                         <div ng-bind-html="sport.dateContent | rawHtml"></div>
                                         <div class="mt15">
-                                            <h4><span class="color-blue font-semi">Tournament Dates: &nbsp;</span>&nbsp;
-                                                <span ng-show="!sport.fromDate && !sport.toDate"> Not Available</span>{{sport.fromDate
-                                                | englishNumeralDate}} <span ng-show="sport.fromDate && sport.toDate"> &nbsp; to &nbsp;</span>{{sport.toDate
-                                                | englishNumeralDate}}</h4>
-                                            <h4><span class="color-blue font-semi">Venue : &nbsp;</span><span ng-show="!sport.venue">Not Available</span>                                                {{sport.venue}}</h4>
-                                            <h4><span class="color-blue font-semi">Last day for student registration: &nbsp;&nbsp;</span><span>&nbsp;{{sport.lastDate  | englishNumeralDate}}&nbsp;</span>                                                <span ng-if="sport.lastDate !== undefined && sport.lastDate == null">Registration Closed</span></h4>
+                                            <h4>
+                                                <span class="color-blue font-semi">Tournament Dates: &nbsp;</span>&nbsp;
+                                                <span ng-show="!sport.fromDate && !sport.toDate"> Not Available</span>{{sport.fromDate | englishNumeralDate}}
+                                                <span ng-show="sport.fromDate && sport.toDate">
+                                                    &nbsp; to &nbsp;</span>{{sport.toDate | englishNumeralDate}}</h4>
+                                            <h4>
+                                                <span class="color-blue font-semi">Venue : &nbsp;</span>
+                                                <span ng-show="!sport.venue">Not Available</span> {{sport.venue}}</h4>
+                                            <h4>
+                                                <span class="color-blue font-semi">Last day for student registration: &nbsp;&nbsp;</span>
+                                                <span>&nbsp;{{sport.lastDate | englishNumeralDate}}&nbsp;</span>
+                                                <span ng-if="sport.lastDate !== undefined && sport.lastDate == null">Registration Closed</span>
+                                            </h4>
                                         </div>
                                         <div class="float-right mt25" ng-if="!(sport.lastDate !== undefined && sport.lastDate == null)">
 
                                             <a ui-sref="registration">
-                                              <button type="button" name="button" class="btn btn-outline text-up ml15" ui-sref="registration">download form</button>
-                                          </a>
+                                                <button type="button" name="button" class="btn btn-outline text-up ml15" ui-sref="registration">download form</button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -242,7 +260,9 @@ sport’s bio
                                 <uib-accordion close-others="oneAtATime" class="text-up text-center ">
                                     <uib-accordion-group heading="schedules and draws" is-open="status.isFirstOpen">
                                         <!-- <p class="color-base f16">best contingent leader : <span class="color-blue font-semi"> Manav mehta</span></p> -->
-                                        <p><a class="color-blue font-semi" ui-sref="draw-schedule">Click here to continue</a></p>
+                                        <p>
+                                            <a class="color-blue font-semi" ui-sref="draw-schedule">Click here to continue</a>
+                                        </p>
                                     </uib-accordion-group>
                                     <uib-accordion-group heading="Tournament formats and rules" is-disabled="status.isFirstDisabled">
                                         <div class="data-box" ng-bind-html="sport.rules | rawHtml">
@@ -689,9 +709,9 @@ sport’s bio
                                 <div class="col-md-3">
                                     <div class="sfa-select dropArrowChange">
                                         <select ng-change="changeType(typeSelected)" class="select" ng-model="typeSelected">
-                                                      <option selected disabled value="">Select Type</option>
-                                                      <option value="school">School</option>
-                                                      <option value="college">College</option>
+                                            <option selected disabled value="">Select Type</option>
+                                            <option value="school">School</option>
+                                            <option value="college">College</option>
                                         </select>
                                         <span class="only-border"></span>
                                     </div>
@@ -708,7 +728,7 @@ sport’s bio
                                 <!--</div>-->
                             </div>
                             <div class="text-center" ng-if="ruleArray.length == 0">
-                                <h4 class="color-blue text-up font-semi mt20">{{sport.sportid.name}} IS NOT PART OF SFA 2017 {{typeSelected}} CHAMPIONSHIP</h4>
+                                <h4 class="color-blue text-up font-semi mt20">{{sport.sportid.name}} IS NOT PART OF SFA CHAMPIONSHIP 2018-19</h4>
                                 <!-- <h4 class="color-blue text-up font-semi">{{sport.sportid.name}} Rules & Regulations Updating Soon.</h4> -->
                             </div>
                             <div class="text-center" ng-if="ruleArray == undefined">
@@ -739,12 +759,16 @@ sport’s bio
                             <div class="text-center mt25">
                                 <div class="tab-list sf-list text-up oth-m">
                                     <ul class="padding0 margin0">
-                                        <li><a href="" ng-click="media('photo',1)" class="{{classes.classp}}">
-                        photos
-                        </a></li>
-                                        <li><a href="" ng-click="media('video',1)" class="{{classes.classv}}">
-                        match videos
-                        </a></li>
+                                        <li>
+                                            <a href="" ng-click="media('photo',1)" class="{{classes.classp}}">
+                                                photos
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="" ng-click="media('video',1)" class="{{classes.classv}}">
+                                                match videos
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <hr class="hr-padding" ng-if="mediaArr.data.length > 0">
@@ -762,7 +786,9 @@ sport’s bio
                                 </div>
                             </div>
                             <div class="row text-center" ng-if="mediaArr.data.length === 0">
-                                <h4><b>No Photos Found</b></h4>
+                                <h4>
+                                    <b>No Photos Found</b>
+                                </h4>
                             </div>
                             <uib-pagination ng-if="mediaArr.data.length > 0" ng-change="loadMedia();" total-items="mediaArr.total" ng-model="filter.pagenumber"
                                 items-per-page="12">
@@ -783,7 +809,9 @@ sport’s bio
                                 </div>
                             </div>
                             <div class="row text-center" ng-if="mediaArr.data.length === 0">
-                                <h4><b>No Videos Found</b></h4>
+                                <h4>
+                                    <b>No Videos Found</b>
+                                </h4>
                             </div>
                             <uib-pagination ng-if="mediaArr.data.length > 0" ng-change="loadMedia();" total-items="mediaArr.total" ng-model="filter.pagenumber"
                                 items-per-page="12">
