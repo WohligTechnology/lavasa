@@ -1361,9 +1361,14 @@ firstApp.controller('ContactCtrl', function ($scope, TemplateService, Navigation
 
     $scope.template = TemplateService.changecontent("contact");
     $scope.menutitle = NavigationService.makeactive("Contact");
-    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    if (window.location.host == mainLink) {
+        TemplateService.header = "";
+        TemplateService.footer = "";
+    } else {
+        TemplateService.header = "views/header.html";
+    }
     if (window.location.host == link1) {
         $scope.selectedCity = 'mumbai';
     } else if (window.location.host == link2) {
@@ -1857,6 +1862,14 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
     $scope.sportFolder = {};
     $scope.sport = {};
     $scope.is2015Sport = false;
+
+    if (window.location.host == link1) {
+        $scope.city = 'mumbai';
+    } else if (window.location.host == link2) {
+        $scope.city = 'hyderabad';
+    } else if (window.location.host == link3) {
+        $scope.city = 'ahmedabad';
+    }
 
 
     $scope.mediaArr = {};

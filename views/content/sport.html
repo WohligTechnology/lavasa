@@ -18,18 +18,18 @@
                                         Rules and Regulations
                                     </a>
                                 </li>
-                                <li ng-if="sport.sportid.name != 'Wrestling'">
+                                <li ng-if="sport.sportid.name != 'Wrestling' && city==='mumbai'">
                                     <a href="" ng-click="tabchange('2016',1);getWinners('2016')" class="{{classa}} font16">
                                         sfa mumbai {{year16}}
                                         <span ng-if="winners['2016'].length > 0">winners</span>
                                     </a>
                                 </li>
-                                <li ng-if="sport.sportid.name != 'Wrestling'">
+                                <li ng-if="sport.sportid.name != 'Wrestling' && city==='mumbai'">
                                     <a href="" ng-click="tabchange('2015',2);getWinners('2015')" class="{{classb}} font16" ng-if="is2015Sport">
                                         sfa mumbai {{year15}}
                                     </a>
                                 </li>
-                                <li>
+                                <li ng-if="city==='mumbai'">
                                     <a href="" ng-click="tabchange('gallerys',3)" class="{{classc}} font16">
                                         gallery
                                     </a>
