@@ -331,9 +331,14 @@ firstApp.controller('AboutUsCtrl', function ($scope, TemplateService, Navigation
     $scope.menutitle = NavigationService.makeactive("About-Us | SFA");
     TemplateService.description = "SFA brings you excellence in sports activities. Let your child participate in the best interschool competition events, get access to quality resources & excel! ";
     TemplateService.keywords = "best interschool competition, inter school competition, inter school competition events, gymnastics for kids, international sporting events, kids sports activities, sport activities";
-    TemplateService.header = "views/header.html";
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    if (window.location.host == mainLink) {
+        TemplateService.header = "";
+        TemplateService.footer = "";
+    } else {
+        TemplateService.header = "views/header.html";
+    }
 
 });
 firstApp.controller('VenueCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
