@@ -24,8 +24,8 @@ var year17 = '2017-18';
 var year18 = '2018-19';
 var eventYear = '2018-19';
 
-// var mainLink = "localhost:8080";
-// var link1 = "localhost:8080";
+var mainLink = "localhost:8080";
+var link1 = "localhost:8080";
 // var link2 = "localhost:8080";
 // var link3 = "localhost:8080";
 
@@ -37,8 +37,8 @@ var sublink3 = "https://hyderabadschool.sfanow.in";
 var sublink4 = "http://hyderabadcollege.sfanow.in";
 var sublink5 = "http://ahmedabadschool.sfanow.in";
 var sublink6 = "http://ahmedabadcollege.sfanow.in";
-var mainLink = "sfanow.in";
-var link1 = "mumbai.sfanow.in";
+// var mainLink = "sfanow.in";
+// var link1 = "mumbai.sfanow.in";
 var link2 = "hyderabad.sfanow.in";
 var link3 = "ahmedabad.sfanow.in";
 // var eventYear = '2017';
@@ -4465,10 +4465,15 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
         // $scope.hideBlink = true;
     });
     $rootScope.year15 = year15;
+    console.log('NAME - ', $state.current.name);
     if ($state.current.name == 'home' || $state.current.name == 'champions' || $state.current.name == 'media-gallery' || $state.current.name == 'media-press' || $state.current.name == 'school-bio' || $state.current.name == 'school' || $state.current.name == 'school-profile' || $state.current.name == 'school-ranking' || $state.current.name == 'sport' || $state.current.name == 'student-bio' || $state.current.name == 'media-press-inside' || $state.current.name == 'media-gallery-inside' || $state.current.name == 'student-profile') {
         $rootScope.year16 = year16;
     } else {
-        $rootScope.year16 = year18;
+        if ($state.current.name == '') {
+            $rootScope.year16 = year16;
+        } else {
+            $rootScope.year16 = year18;
+        }
     }
     $rootScope.eventYear = eventYear
     if (window.location.host == mainLink) {
@@ -4843,18 +4848,18 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
             // window.open("https://mumbai.sfanow.in", "_self");
             $.jStorage.flush();
             $scope.hideBlink = true;
-            if ($state.current.name == 'home') {
-                $uibModal.open({
-                    animation: true,
-                    scope: $scope,
-                    backdrop: 'static',
-                    backdropClass: 'blackOut',
-                    keyboard: false,
-                    templateUrl: "views/modal/city-video.html",
-                    size: 'md',
-                    windowClass: 'sfacity-selectmodal'
-                });
-            }
+            // if ($state.current.name == 'home') {
+            //     $uibModal.open({
+            //         animation: true,
+            //         scope: $scope,
+            //         backdrop: 'static',
+            //         backdropClass: 'blackOut',
+            //         keyboard: false,
+            //         templateUrl: "views/modal/city-video.html",
+            //         size: 'md',
+            //         windowClass: 'sfacity-selectmodal'
+            //     });
+            // }
         }
     } else if (window.location.host != mainLink) {
         if (window.location.host == link1) {
