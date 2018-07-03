@@ -4465,7 +4465,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
         // $scope.hideBlink = true;
     });
     $rootScope.year15 = year15;
-    if ($state.current.name == 'home' || $state.current.name == 'champions' || $state.current.name == 'media-gallery' || $state.current.name == 'media-press' || $state.current.name == 'school-bio' || $state.current.name == 'school' || $state.current.name == 'school-profile' || $state.current.name == 'school-ranking' || $state.current.name == 'sport' || $state.current.name == 'student-bio' || $state.current.name == 'student-profile') {
+    if ($state.current.name == 'home' || $state.current.name == 'champions' || $state.current.name == 'media-gallery' || $state.current.name == 'media-press' || $state.current.name == 'school-bio' || $state.current.name == 'school' || $state.current.name == 'school-profile' || $state.current.name == 'school-ranking' || $state.current.name == 'sport' || $state.current.name == 'student-bio' || $state.current.name == 'media-press-inside' || $state.current.name == 'media-gallery-inside' || $state.current.name == 'student-profile') {
         $rootScope.year16 = year16;
     } else {
         $rootScope.year16 = year18;
