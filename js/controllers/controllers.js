@@ -4915,7 +4915,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     } else if (a == 'hyderabad.sfanow.in') {
         $scope.infoEmail = [{
             'head': 'INFO LINE',
-            'data1': '7045684367 / 79811 75508'
+            'data1': '79811 75508'
         }, {
             'head': 'EMAIL',
             'data1': 'info.hyd@sfanow.in'
@@ -4923,6 +4923,8 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     } else if (a == 'sfanow.in') {
         $scope.hide = true;
     }
+
+    //  FOr Hyderabad:  'data1': '7045684367 / 79811 75508'
 
     if (window.location.host == link1) {
         $scope.registerSchool = sublink1;
