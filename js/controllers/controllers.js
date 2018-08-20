@@ -4906,8 +4906,8 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     } else if (a == 'mumbai.sfanow.in') {
         $scope.infoEmail = [{
             'head': 'INFO LINE',
-            'data1': '7045684365 / 66 / 022 65522221',
-            'data2': '79811 75508 / 7045684367'
+            'data1': '7045684365 / 7045684366',
+            'data2': '7045684367 / 8655585582'
         }, {
             'head': 'EMAIL',
             'data1': 'info@sfanow.in'
