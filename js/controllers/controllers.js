@@ -4974,6 +4974,17 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
             console.log('Get Sponsor', data);
             $scope.sponsorData = data.data.data;
             console.log($scope.sponsorData, "console")
+             _.each($scope.sponsorData, function (n) {
+                if (n._id === 'Sponsors') {
+                    _.each(n.info, function (m) {
+                        if (m.name == 'STORIA' || m.name == 'Storia' || m.name == 'storia') {
+                            if (m.status === 'enable' && m.insidePage == "true") {
+                                $rootScope.storiaId = m._id;
+                            }
+                        }
+                    });
+                }
+            })
         });
     };
     $scope.getSponsor();
