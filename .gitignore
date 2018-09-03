@@ -29,6 +29,7 @@ $RECYCLE.BIN/
 .LSOverride
 bower_components/
 node_modules/
+oldnode_modules/
 w/
 .sass-cache/
 *.tar
