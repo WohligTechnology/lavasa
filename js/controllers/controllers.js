@@ -4495,16 +4495,16 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     } else {
         $scope.hideHeaderContent = true;
     }
-    $uibModal.open({
-        animation: true,
-        scope: $scope,
-        backdrop: 'static',
-        backdropClass: 'blackOut',
-        keyboard: false,
-        templateUrl: "views/modal/city-video.html",
-        size: 'md',
-        windowClass: 'sfacity-selectmodal'
-    });
+    // $uibModal.open({
+    //     animation: true,
+    //     scope: $scope,
+    //     backdrop: 'static',
+    //     backdropClass: 'blackOut',
+    //     keyboard: false,
+    //     templateUrl: "views/modal/city-video.html",
+    //     size: 'md',
+    //     windowClass: 'sfacity-selectmodal'
+    // });
     //----------FOR SINGLE CITY-----------//
     // $scope.hideBlink = false;
     // if (window.location.host == tempLink || window.location.host == tempLinks) {
