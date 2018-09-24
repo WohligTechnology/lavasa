@@ -1,4 +1,5 @@
 $brand-green: #0eda85 !default; //green
+
 .mlr-5 {
     margin: 0px 5px;
 }
@@ -14,6 +15,7 @@ $brand-green: #0eda85 !default; //green
     -webkit-box-shadow: 0px 0px 3px 1px lightgrey;
     -moz-box-shadow: 0px 0px 3px 1px lightgray;
     box-shadow: 0px 0px 3px 1px lightgrey;
+
     &:after {
         display: none;
     }
@@ -56,6 +58,7 @@ $brand-green: #0eda85 !default; //green
     margin-right: 5px;
     border: 1px solid #091a71;
     vertical-align: middle;
+
     p {
         margin: 0;
     }
@@ -78,6 +81,7 @@ $brand-green: #0eda85 !default; //green
 
 .sportdetail-header {
     color: #f37720;
+
     h3 {
         margin: 10px 0;
     }
@@ -86,16 +90,20 @@ $brand-green: #0eda85 !default; //green
 .sportdetail-table {
     padding: 30px 10px;
     border-top: 2px solid #091a71;
+
     &:first-child {
         border-top: none;
     }
+
     .table {
         th {
             background: #091a71;
             color: #fff;
         }
+
         tr {
             background: transparent;
+
             td {
                 text-align: left;
             }
@@ -106,30 +114,38 @@ $brand-green: #0eda85 !default; //green
 .sport-individualtable {
     max-height: 310px;
     overflow-y: auto;
+
     .table {
         border: none;
+
         tbody {
             border: none;
+
             tr {
                 background-color: transparent;
                 border: none;
+
                 td {
                     padding: 8px;
                     border: none;
                     text-align: left;
                 }
+
                 .sportdetail-td {
                     border: 1px solid #ccc;
                     padding: 5px;
                 }
             }
         }
+
         thead {
             border: none;
+
             th {
                 color: #fff;
                 border: none;
             }
+
             .sportdetail-th {
                 padding: 8px;
                 background-color: #091a71;
@@ -142,30 +158,36 @@ $brand-green: #0eda85 !default; //green
 // CITY-VIDEO
 .sfacity-modal {
     background: rgba(10, 26, 114, 0.9);
+
     .img-holder {
         text-align: center;
+
         img {
             margin: 0 auto;
             width: 200px;
         }
     }
+
     .last-date-holder {
         h4 {
             color: #fff;
         }
     }
+
     .last-date-holder-text {
         h4 {
             color: #fff;
             font-size: 17px;
         }
     }
+
     .day-header {
         h2 {
             color: #fff;
             text-align: center;
             text-transform: uppercase;
         }
+
         .sfa-input-modal {
             width: 55px;
             padding: 5px 10px;
@@ -181,16 +203,20 @@ $brand-green: #0eda85 !default; //green
 
 .modal-container {
     padding: 15px;
+
     video::-internal-media-controls-download-button {
         display: none;
     }
+
     video::-webkit-media-controls-enclosure {
         overflow: hidden;
     }
+
     video::-webkit-media-controls-panel {
         width: calc(100% + 30px);
         /* Adjust as needed */
     }
+
     video {
         max-width: 100%;
         height: auto;
@@ -200,7 +226,9 @@ $brand-green: #0eda85 !default; //green
 .sfavideo-content {
     .register-opennow {
         font-size: 12px;
-    } // p {
+    }
+
+    // p {
     //     font-size: 20px;
     //     margin-top: 10px;
     // }
@@ -209,25 +237,32 @@ $brand-green: #0eda85 !default; //green
         margin-bottom: 0;
         color: #00a9ff;
     }
+
     p:first-child {
         margin-top: 30px;
     }
+
     p:nth-child(2) {
         margin-bottom: 30px;
     }
+
     .mt30 {
         margin: 30px 0 0;
     }
+
     a {
         font-size: 18px;
         color: #00a9ff;
+
         &:hover {
             text-decoration: underline;
         }
     }
+
     .btn {
         margin: 0 0 10px;
     }
+
     .video-city {
         padding: 0;
         border: 1px solid #000;
@@ -248,6 +283,51 @@ $brand-green: #0eda85 !default; //green
 .sfacity-kindlyenter {
     margin: 15px 0px;
     font-size: 22px;
+}
+
+// ANIMATIONS
+// blinkregister
+/* Chrome, Safari, Opera */
+@-webkit-keyframes blinkregister {
+    0% {
+        color: #333;
+        // transition: all 0.3s ease;
+    }
+
+    50% {
+        color: #3cb459;
+        // transition: all 0.3s ease;
+    }
+}
+
+/* Chrome, Safari, Opera END */
+/* Standard syntax */
+@keyframes blinkregister {
+    0% {
+        color: #333;
+        // transition: all 0.3s ease;
+    }
+
+    50% {
+        color: #3cb459;
+        // transition: all 0.3s ease;
+    }
+}
+
+/* Standard syntax END */
+// blinkregister
+// ANIMATIONS END
+
+.btn-mainregister {
+    padding: 3px 3px;
+    border: 1px solid #f58f00;
+    background-color: #f58f00;
+    margin: 3px 0 0;
+}
+
+.btn-mainregister-blink {
+    animation: blinkregister 1s infinite;
+    -webkit-animation: blinkregister 1s infinite;
 }
 
 // END CITY-VIDEO
@@ -292,30 +372,36 @@ $brand-green: #0eda85 !default; //green
 .liveupdate-rankingtableholder {
     .table {
         margin-bottom: 10px;
+
         >thead>tr {
             background-color: #10259c;
             color: #fff;
+
             >th {
                 border: none;
                 vertical-align: middle;
             }
         }
+
         >tbody>tr>td {
             border: none;
         }
     }
+
     .table-striped {
         >tbody {
             >tr {
                 &:nth-of-type(odd) {
                     background-color: #e5e5e5;
                 }
+
                 &:nth-of-type(even) {
                     background-color: #fff;
                 }
             }
         }
     }
+
     .result-tablemedal {
         width: 15px;
         margin: 0 auto;
@@ -358,6 +444,7 @@ $brand-green: #0eda85 !default; //green
     padding: 10px 0;
     background-color: #5b5b5b;
     color: #fff;
+
     p {
         margin: 0;
     }
@@ -381,16 +468,20 @@ $brand-green: #0eda85 !default; //green
 
 .home-tickr {
     margin: -35px 0 40px;
+
     .tickr-holder {
         overflow: hidden;
         height: 40px !important;
     }
+
     .ticker__item {
         font-size: 18px;
     }
+
     .angular-marquee {
         padding: 8px 0px;
     }
+
     .ticker-icon {
         top: 3px;
     }
@@ -405,6 +496,7 @@ $brand-green: #0eda85 !default; //green
     position: relative;
     float: left;
     cursor: pointer;
+
     &:first-child {
         width: 100%;
     }
@@ -432,6 +524,7 @@ $brand-green: #0eda85 !default; //green
     margin-bottom: 10px;
     position: relative;
     float: left;
+
     &:last-child {
         width: 100%;
     }
@@ -441,6 +534,7 @@ $brand-green: #0eda85 !default; //green
 .album-picholder {
     margin: 15px 0;
     border-radius: 0; // box-shadow: 0 0 3px #000;
+
     img {
         margin: 0px auto;
     }
@@ -451,6 +545,7 @@ $brand-green: #0eda85 !default; //green
         height: auto;
         margin: 30px auto;
     }
+
     .modal-header {
         padding: 10px 15px;
         position: relative;
@@ -459,10 +554,12 @@ $brand-green: #0eda85 !default; //green
         color: #fff;
         font-weight: 700;
         text-transform: uppercase;
+
         h4 {
             margin: 5px 0;
         }
     }
+
     .modal-close {
         width: 30px;
         height: 30px;
@@ -475,11 +572,13 @@ $brand-green: #0eda85 !default; //green
         line-height: 30px;
         text-align: center;
     }
+
     .modal-content {
         background-color: transparent;
         border: none;
         box-shadow: none;
     }
+
     .modal-body {
         padding: 0;
         background-color: rgba(0, 0, 0, 0.7);
@@ -502,6 +601,7 @@ $brand-green: #0eda85 !default; //green
     background: #d8485a;
     color: #fff;
     text-align: center;
+
     .fa-play {
         font-size: 18px;
         line-height: 30px;
@@ -531,6 +631,7 @@ $brand-green: #0eda85 !default; //green
     cursor: pointer;
     text-align: center;
     text-transform: uppercase;
+
     &.active,
     &:hover,
     &:active,
@@ -558,6 +659,7 @@ $brand-green: #0eda85 !default; //green
     text-align: center;
     line-height: 1.4;
     background: rgba(0, 0, 0, 0.3);
+
     p {
         width: 100%;
         position: absolute;
@@ -572,6 +674,7 @@ $brand-green: #0eda85 !default; //green
 
 .liveupdates-draw {
     height: 145px;
+
     .livedraw-text {
         p {
             font-size: 24px;
@@ -599,6 +702,7 @@ $brand-green: #0eda85 !default; //green
     padding: 0px 10px;
     border: 1px solid #ccc;
     vertical-align: middle;
+
     p {
         margin-bottom: 5px;
     }
@@ -607,9 +711,11 @@ $brand-green: #0eda85 !default; //green
 .livedraw-formholder {
     padding: 10px 5px;
     position: relative;
+
     &:hover {
         box-shadow: 0 0 3px #ccc;
     }
+
     &:after {
         content: '';
         position: absolute;
@@ -626,21 +732,26 @@ $brand-green: #0eda85 !default; //green
     width: 50%;
     height: 300px;
     float: left;
+
     ::-webkit-scrollbar {
         width: 5px;
         height: 5px;
     }
+
     ::-webkit-scrollbar-thumb {
         background-color: #ccc;
     }
+
     ::-webkit-scrollbar-track {
         background-color: transparent;
     }
+
     &:nth-of-type(odd) {
         .liveupdate-eventcard {
             background-color: $brand-green;
         }
     }
+
     &:nth-of-type(even) {
         .liveupdate-eventcard {
             background-color: $brand-success;
@@ -696,6 +807,7 @@ $brand-green: #0eda85 !default; //green
 
 .live-social-fb {
     border-bottom: 10px solid #fe9b30;
+
     .live-sociallogo {
         background-color: #fe9b30;
     }
@@ -703,6 +815,7 @@ $brand-green: #0eda85 !default; //green
 
 .live-social-twitter {
     border-bottom: 10px solid #00a8ff;
+
     .live-sociallogo {
         background-color: #00a8ff;
     }
@@ -710,6 +823,7 @@ $brand-green: #0eda85 !default; //green
 
 .live-social-insta {
     border-bottom: 10px solid #0dd984;
+
     .live-sociallogo {
         background-color: #0dd984;
     }
@@ -719,7 +833,7 @@ $brand-green: #0eda85 !default; //green
     position: absolute;
     top: 50%;
     left: 50%;
-    @include transform( translate(-50%,
+    @include transform(translate(-50%,
     -50%));
 }
 
@@ -732,6 +846,7 @@ $brand-green: #0eda85 !default; //green
 }
 
 $tickerDuration: 60s;
+
 .ticker {
     display: inline-block;
     white-space: nowrap; // display items in a line
@@ -744,6 +859,7 @@ $tickerDuration: 60s;
     -webkit-animation-name: ticker;
     animation-duration: $tickerDuration;
     -webkit-animation-duration: $tickerDuration;
+
     &__item {
         display: inline-block;
     }
@@ -777,6 +893,7 @@ $tickerDuration: 60s;
         transform: translate3d(0, 0, 0);
         visibility: visible;
     }
+
     100% {
         -webkit-transform: translate3d(-100%, 0, 0);
         transform: translate3d(-100%, 0, 0);
@@ -789,6 +906,7 @@ $tickerDuration: 60s;
         transform: translate3d(0, 0, 0);
         visibility: visible;
     }
+
     100% {
         -webkit-transform: translate3d(-100%, 0, 0);
         transform: translate3d(-100%, 0, 0);

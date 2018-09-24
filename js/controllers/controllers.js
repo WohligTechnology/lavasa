@@ -318,6 +318,8 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
             name: 'Chess'
         }, {
             name: 'Athletics'
+        }, {
+            name: 'Skating'
         }]
     }
     // SPORTS ICONS AS PER THE CITY END
@@ -557,6 +559,9 @@ firstApp.controller('SponserCtrl', function ($scope, TemplateService, Navigation
     }, {
         "img": "img/sports/Athletics.jpg",
         "name": "ATHLETICS"
+    }, {
+        "img": "img/sports/Skating.jpg",
+        "name": "Skating"
     }];
     $scope.target = [{
         "img": "img/sports/Shooting.jpg",
@@ -680,8 +685,8 @@ firstApp.controller('LeagueKnockoutCtrl', function ($scope, TemplateService, Nav
                     })
                     .value();
                 if (_.findIndex($scope.leagueknockouts, function (key) {
-                    return key.leagueknockoutround == 'Final';
-                }) !== -1) {
+                        return key.leagueknockoutround == 'Final';
+                    }) !== -1) {
                     $scope.knockouts = _.remove($scope.leagueknockouts, function (key) {
                         return key.leagueknockoutround == 'Final';
                     })[0];
@@ -1615,8 +1620,8 @@ firstApp.controller('DrawCtrl', function ($scope, TemplateService, NavigationSer
                     pseudoRound = [];
                     for (i = 0; i <= maxOrder; i++) {
                         if (_.findIndex(value, function (single) {
-                            return single.order == i;
-                        }) === -1) {
+                                return single.order == i;
+                            }) === -1) {
                             pseudoRound.push({
                                 order: -999
                             });
@@ -1630,8 +1635,8 @@ firstApp.controller('DrawCtrl', function ($scope, TemplateService, NavigationSer
                     console.log($scope.knockout.rounds);
                 });
                 if (_.findIndex($scope.knockout.rounds, function (key) {
-                    return key === '-1 Third Place';
-                }) !== -1) {
+                        return key === '-1 Third Place';
+                    }) !== -1) {
                     _.remove($scope.knockout.rounds, function (key) {
                         return key === '-1 Third Place';
                     });
@@ -2107,6 +2112,11 @@ firstApp.controller('SportCtrl', function ($scope, TemplateService, NavigationSe
             Title: "Train your Brain the Right Way with Chess Training in Mumbai| SFA",
             Description: "If you think your child has the intelligence to become a chess player, what are you waiting for? Start teaching them to play at chess tournaments in Mumbai!",
             Keywords: "Chess training, chess tournaments in Mumbai"
+        }, {
+            sport: "Skating",
+            Title: "Skating | SFA",
+            Description: "Skating",
+            Keywords: "Skating training, skating tournaments in Hyderabad"
         }];
         $scope.getRules = function (constraints) {
             $scope.ruleArray = [];
@@ -3718,8 +3728,8 @@ firstApp.controller('HeatsCtrl', function ($scope, TemplateService, NavigationSe
                     })
                     .value();
                 if (_.findIndex($scope.heat.heats, function (key) {
-                    return key.round == 'Final';
-                }) !== -1) {
+                        return key.round == 'Final';
+                    }) !== -1) {
                     $scope.heat.final = _.find($scope.heat.heats, function (key) {
                         return key.round == 'Final';
                     }).heats[0];
@@ -4106,7 +4116,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        },]
+        }, ]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -4123,7 +4133,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        },]
+        }, ]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -4140,7 +4150,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        },]
+        }, ]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -4157,7 +4167,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        },]
+        }, ]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -4174,7 +4184,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        },]
+        }, ]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -4191,7 +4201,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        },]
+        }, ]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -4208,7 +4218,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        },]
+        }, ]
     }, {
         match: "1",
         team1: "dhirubhai ambani intertional school",
@@ -4225,7 +4235,7 @@ firstApp.controller('RoundRobinCtrl', function ($scope, TemplateService, Navigat
         }, {
             score1: "11",
             score2: "5"
-        },]
+        }, ]
     }];
     $scope.profiles = function (participantType, id) {
         if (participantType == 'player') {
@@ -4485,16 +4495,16 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     } else {
         $scope.hideHeaderContent = true;
     }
-    // $uibModal.open({
-    //     animation: true,
-    //     scope: $scope,
-    //     backdrop: 'static',
-    //     backdropClass: 'blackOut',
-    //     keyboard: false,
-    //     templateUrl: "views/modal/city-video.html",
-    //     size: 'md',
-    //     windowClass: 'sfacity-selectmodal'
-    // });
+    $uibModal.open({
+        animation: true,
+        scope: $scope,
+        backdrop: 'static',
+        backdropClass: 'blackOut',
+        keyboard: false,
+        templateUrl: "views/modal/city-video.html",
+        size: 'md',
+        windowClass: 'sfacity-selectmodal'
+    });
     //----------FOR SINGLE CITY-----------//
     // $scope.hideBlink = false;
     // if (window.location.host == tempLink || window.location.host == tempLinks) {
@@ -4974,15 +4984,32 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
             console.log('Get Sponsor', data);
             $scope.sponsorData = data.data.data;
             console.log($scope.sponsorData, "console")
-             _.each($scope.sponsorData, function (n) {
-                if (n._id === 'Sponsors') {
-                    _.each(n.info, function (m) {
-                        if (m.name == 'STORIA' || m.name == 'Storia' || m.name == 'storia') {
-                            if (m.status === 'enable' && m.insidePage == "true") {
-                                $rootScope.storiaId = m._id;
+            _.each($scope.sponsorData, function (n) {
+                if ($scope.selectedCity == 'mumbai') {
+                    if (n._id === 'Sponsors') {
+                        _.each(n.info, function (m) {
+                            if (m.name == 'STORIA' || m.name == 'Storia' || m.name == 'storia') {
+                                if (m.status === 'enable' && m.insidePage == "true") {
+                                    $rootScope.storiaId = m._id;
+                                }
                             }
-                        }
-                    });
+                            if (m.name == 'ENERZAL' || m.name == 'Enerzal' || m.name == 'enerzal') {
+                                if (m.status === 'enable' && m.insidePage == "true") {
+                                    $rootScope.enerzalId = m._id;
+                                }
+                            }
+                        });
+                    }
+                } else {
+                    if (n._id === 'Sponsors & Partners') {
+                        _.each(n.info, function (m) {
+                            if (m.name == 'ENERZAL' || m.name == 'Enerzal' || m.name == 'enerzal') {
+                                if (m.status === 'enable' && m.insidePage == "true") {
+                                    $rootScope.enerzalId = m._id;
+                                }
+                            }
+                        });
+                    }
                 }
             })
         });
@@ -5194,6 +5221,8 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
         name: 'karate'
     }, {
         name: 'kho Kho'
+    }, {
+        name: 'skating'
     }, {
         name: 'shooting'
     }, {
