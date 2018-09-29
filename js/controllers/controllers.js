@@ -4917,7 +4917,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
         $scope.infoEmail = [{
             'head': 'INFO LINE',
             'data1': '7045684365 / 7045684366',
-            'data2': '7045684367 / 8655585582'
+            'data2': '8655585582'
         }, {
             'head': 'EMAIL',
             'data1': 'info@sfanow.in'
@@ -4933,7 +4933,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     } else if (a == 'sfanow.in') {
         $scope.hide = true;
     }
-
+    // For Mumbai: 7045684367 /
     //  FOr Hyderabad:  'data1': '7045684367 / 79811 75508'
 
     if (window.location.host == link1) {
