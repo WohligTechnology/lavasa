@@ -3336,9 +3336,9 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
     $scope.getStudentProfile();
     $scope.changeYear = function () {
         if ($scope.filter.year == '2017') {
-            window.open("https://mumbaischool2017.sfanow.in/student-profile/" + 'MS16' + studentProfileId, '_self');
+            window.open("https://mumbaischool2017.sfanow.in/student-profile/" + 'MA16' + studentProfileId, '_self');
         } else if ($scope.filter.year == '2018') {
-            window.open("https://mumbaischool.sfanow.in/student-profile/" + 'MS16' + studentProfileId, '_self');
+            window.open("https://mumbaischool.sfanow.in/student-profile/" + 'MA16' + studentProfileId, '_self');
         }
         var constraints = {};
         constraints.year = $scope.filter.year;
