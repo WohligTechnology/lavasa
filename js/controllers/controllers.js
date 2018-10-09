@@ -2718,7 +2718,7 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
         constraints.year = null;
         if ($scope.filterStatistics.year == '2015' || $scope.filterStatistics.year == '2016') {
             constraints.year = $scope.filterStatistics.year;
-        }
+        } 
         //end
         NavigationService.contingentStrengthByYear(constraints, function (response) {
             if (response.value) {
@@ -2751,7 +2751,14 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
     $scope.onChangeContingentYear = function () {
         console.log("getSchoolProfile", $scope.getSchoolProfile);
         if ($scope.filterStatistics.year == '2017') {
-            window.open("https://mumbaischool2017.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
+//             window.open("https://mumbaischool2017.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
+                var modal2017 = $uibModal.open({
+                    animation: $scope.animationsEnabled,
+                    templateUrl: 'views/modal/inform2017.html',
+                    size: 'sm',
+                    scope: $scope,
+                    windowClass: 'middlePos'
+                });
         } else if ($scope.filterStatistics.year == '2018') {
             window.open("https://mumbaischool.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
         }
@@ -2831,7 +2838,14 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
 
     $scope.changeYear = function () {
         if ($scope.filter.year == '2017') {
-            window.open("https://mumbaischool2017.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
+                var modal2017 = $uibModal.open({
+                    animation: $scope.animationsEnabled,
+                    templateUrl: 'views/modal/inform2017.html',
+                    size: 'sm',
+                    scope: $scope,
+                    windowClass: 'middlePos'
+                });
+//             window.open("https://mumbaischool2017.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
         } else if ($scope.filter.year == '2018') {
             window.open("https://mumbaischool.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
         }
@@ -3336,7 +3350,14 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
     $scope.getStudentProfile();
     $scope.changeYear = function () {
         if ($scope.filter.year == '2017') {
-            window.open("https://mumbaischool2017.sfanow.in/student-profile/" + 'MA16' + studentProfileId, '_self');
+                var modal2017 = $uibModal.open({
+                    animation: $scope.animationsEnabled,
+                    templateUrl: 'views/modal/inform2017.html',
+                    size: 'sm',
+                    scope: $scope,
+                    windowClass: 'middlePos'
+                });
+//             window.open("https://mumbaischool2017.sfanow.in/student-profile/" + 'MA16' + studentProfileId, '_self');
         } else if ($scope.filter.year == '2018') {
             window.open("https://mumbaischool.sfanow.in/student-profile/" + 'MA16' + studentProfileId, '_self');
         }
