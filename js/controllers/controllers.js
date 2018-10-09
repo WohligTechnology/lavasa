@@ -49,7 +49,7 @@ firstApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationSer
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("home");
     $scope.menutitle = NavigationService.makeactive("SPORTS FOR ALL | PROFESSIONAL SCHOOL & COLLEGE SPORTING SYSTEM");
-    TemplateService.description = "Mumbai’s largest professional sport event & tournament for athletes from Schools & Colleges. Click here for athlete bios & match videos. Register now for SFA MUMBAI 2017";
+    TemplateService.description = "Mumbai’s largest professional sport event & tournament for athletes from Schools & Colleges. Click here for athlete bios & match videos. Register now for SFA MUMBAI 2018";
     TemplateService.keywords = "inter college, inter school, tournament, sport event, tournament for athletes ,athlete bios , match videos";
     TemplateService.title = $scope.menutitle;
     // TemplateService.header = "views/header1.html";
@@ -1165,13 +1165,12 @@ firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, Navig
         });
     };
     $scope.loadMedia = function (year) {
-        if (year == '2017') {
+         if (year == '2018') {
             if ($stateParams.type && $stateParams.folder) {
-                window.open("https://mumbaischool.sfanow.in/#media-gallery/" + $stateParams.type + "/" + $stateParams.folder, '_self');
+                window.open("https://mumbaischool.sfanow.in/media-gallery/" + $stateParams.type + "/" + $stateParams.folder, '_self');
             } else {
-                window.open("https://mumbaischool.sfanow.in/#media-gallery", '_self');
+                window.open("https://mumbaischool.sfanow.in/media-gallery", '_self');
             }
-
         }
         $scope.mediaArr = undefined;
         NavigationService.getLimitedMedia($scope.filter, function (response) {
@@ -1300,14 +1299,13 @@ firstApp.controller('MediaPressCtrl', function ($scope, TemplateService, Navigat
     };
 
     $scope.loadMedia = function (year) {
-        if (year == '2017') {
+         if (year == '2018') {
             if ($stateParams.type && $stateParams.folder) {
                 console.log("im", $stateParams.type, $stateParams.folder);
                 window.open("https://mumbaischool.sfanow.in/#media-press/" + $stateParams.type + "/" + $stateParams.folder, '_self');
             } else {
                 window.open("https://mumbaischool.sfanow.in/#media-press", '_self');
             }
-
         }
         $scope.mediaArr = undefined;
         NavigationService.getLimitedMedia($scope.filter, function (response) {
@@ -2753,8 +2751,9 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
     $scope.onChangeContingentYear = function () {
         console.log("getSchoolProfile", $scope.getSchoolProfile);
         if ($scope.filterStatistics.year == '2017') {
+            window.open("https://mumbaischool2017.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
+        } else if ($scope.filterStatistics.year == '2018') {
             window.open("https://mumbaischool.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
-
         }
         $scope.filterStatistics.pagenumber = 1;
         $scope.contingent = {};
@@ -2831,10 +2830,10 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
     }];
 
     $scope.changeYear = function () {
-
         if ($scope.filter.year == '2017') {
+            window.open("https://mumbaischool2017.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
+        } else if ($scope.filter.year == '2018') {
             window.open("https://mumbaischool.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
-
         }
         $scope.schooldata.Boys = 0;
         $scope.schooldata.Girls = 0;
@@ -3337,8 +3336,9 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
     $scope.getStudentProfile();
     $scope.changeYear = function () {
         if ($scope.filter.year == '2017') {
-            window.open("https://mumbaischool.sfanow.in/student-profile/" + 'MA16' + studentProfileId, '_self');
-
+            window.open("https://mumbaischool2017.sfanow.in/student-profile/" + 'MS16' + studentProfileId, '_self');
+        } else if ($scope.filter.year == '2018') {
+            window.open("https://mumbaischool.sfanow.in/student-profile/" + 'MS16' + studentProfileId, '_self');
         }
         var constraints = {};
         constraints.year = $scope.filter.year;
