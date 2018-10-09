@@ -2761,10 +2761,11 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
                 });
         } else if ($scope.filterStatistics.year == '2018') {
             window.open("https://mumbaischool.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
-        }
+        } else {
         $scope.filterStatistics.pagenumber = 1;
         $scope.contingent = {};
         $scope.contingentStrengthByYear();
+        }
     };
 
     $scope.tabchange = function (tab, a) {
@@ -2848,7 +2849,7 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
 //             window.open("https://mumbaischool2017.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
         } else if ($scope.filter.year == '2018') {
             window.open("https://mumbaischool.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
-        }
+        } else {
         $scope.schooldata.Boys = 0;
         $scope.schooldata.Girls = 0;
         $scope.filter.sport = undefined;
@@ -2874,7 +2875,7 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
         $scope.filterStatistics.year = $scope.filter.year;
         $scope.contingentStrengthByYear();
         $scope.filterStatistics.pagenumber = 1;
-
+        }
     };
 
     $scope.selectSport = function (selected) {
@@ -3360,7 +3361,7 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
 //             window.open("https://mumbaischool2017.sfanow.in/student-profile/" + 'MA16' + studentProfileId, '_self');
         } else if ($scope.filter.year == '2018') {
             window.open("https://mumbaischool.sfanow.in/student-profile/" + 'MA16' + studentProfileId, '_self');
-        }
+        } else {
         var constraints = {};
         constraints.year = $scope.filter.year;
         if ($stateParams.id.substr(0, 3) == 'Old') {
@@ -3372,7 +3373,7 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
         $scope.studentStats = [];
         $scope.getStudentSport(constraints);
         $scope.studentMedalCount(constraints);
-
+        }
     };
 
     // $scope.changeYear = function () {
