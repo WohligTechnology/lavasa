@@ -3163,7 +3163,7 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
     $scope.SPORTDATA = {};
     $scope.medalData = {};
     console.log("PARAMS", $state.params.id);
-
+$scope.studentid = '';
     // var student_id = {
     //     _id: $state.params.id
     // };
@@ -3460,7 +3460,7 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
     };
     $scope.getStats = function (studentId) {
         if ($state.params.id.substr(0, 3) == 'Old') {
-            $scope.filterStatistics.student = studentId;
+            $scope.filterStatistics.student =  $scope.studentid;
         } else {
             $scope.filterStatistics.student = $stateParams.id;
         }
