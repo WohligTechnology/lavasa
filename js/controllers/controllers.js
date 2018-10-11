@@ -3466,7 +3466,7 @@ $scope.studentid = '';
         }
         $scope.studentStats = undefined;
 
-        NavigationService.getStatsForStudent($scope.filterStatistics, function (response) {
+           NavigationService.getStatsForStudent($scope.filterStatistics, function (response) {
             if (response.value) {
                 $scope.studentStats = response.data;
                 console.log($scope.studentStats);
@@ -3487,7 +3487,8 @@ $scope.studentid = '';
                             console.log("layout", key);
                             if (key[drawf].participantType == 'player') {
                                 console.log("");
-                                if (key[drawf][key[drawf].participantType + '1']._id == $stateParams.id) {
+                                // if (key[drawf][key[drawf].participantType + '1']._id == $stateParams.id) {
+                                if (key[drawf][key[drawf].participantType + '1']._id == $scope.studentid) {
                                     console.log("here");
                                     key.opponent.detail = key[drawf][key[drawf].participantType + '2'];
                                     key.opponent.result = drawf == "knockout" ? key[drawf]["result" + key[drawf].participantType + '2'] : key[drawf]["result2"];
@@ -3516,7 +3517,8 @@ $scope.studentid = '';
                             key.opponent = {};
                             key.self = {};
                             if (key.league.participantType == 'player') {
-                                if (key.league[key.league.participantType + '1']._id == $stateParams.id) {
+                                //  if (key.league[key.league.participantType + '1']._id == $stateParams.id) {
+                                if (key.league[key.league.participantType + '1']._id == $scope.studentid) {
                                     key.opponent.detail = key.league[key.league.participantType + '2'];
                                     key.opponent.result = key.league.result2;
                                     key.self.result = key.league.result1;
@@ -3547,7 +3549,8 @@ $scope.studentid = '';
                                             key.self = single;
                                         }
                                     } else {
-                                        if (single.player._id == $stateParams.id) {
+                                        // if (single.player._id == $stateParams.id) {
+                                        if (single.player._id == $scope.studentid) {
                                             key.self = single;
                                         }
                                     }
@@ -3559,7 +3562,8 @@ $scope.studentid = '';
                                             key.self = single;
                                         }
                                     } else {
-                                        if (single.player._id == $stateParams.id) {
+                                        // if (single.player._id == $stateParams.id) {
+                                        if (single.player._id == $scope.studentid) {
                                             key.heat.video = single.video;
                                             key.self = single;
                                         }
@@ -3575,7 +3579,8 @@ $scope.studentid = '';
                             console.log("layout", key);
                             if (key.leagueknockout.participantType == 'player') {
                                 console.log("");
-                                if (key.leagueknockout[key.leagueknockout.participantType + '1']._id == $stateParams.id) {
+                                //   if (key.leagueknockout[key.leagueknockout.participantType + '1']._id == $stateParams.id) {
+                                if (key.leagueknockout[key.leagueknockout.participantType + '1']._id == $scope.studentid) {
                                     console.log("here");
                                     key.opponent.detail = key.leagueknockout[key.leagueknockout.participantType + '2'];
                                     key.opponent.result = key.leagueknockout["result2"];
@@ -3604,7 +3609,8 @@ $scope.studentid = '';
                             if (key[drawf].heats.length == 0) {
                                 if (key.qualifyingknockout.participantType == 'player') {
                                     console.log("");
-                                    if (key.qualifyingknockout[key.qualifyingknockout.participantType + '1']._id == $stateParams.id) {
+                                    //  if (key.qualifyingknockout[key.qualifyingknockout.participantType + '1']._id == $stateParams.id) {
+                                    if (key.qualifyingknockout[key.qualifyingknockout.participantType + '1']._id == $scope.studentid) {
                                         console.log("here");
                                         key.opponent.detail = key.qualifyingknockout[key.qualifyingknockout.participantType + '2'];
                                         key.opponent.result = key.qualifyingknockout["result2"];
@@ -3632,7 +3638,8 @@ $scope.studentid = '';
                                             key.self = single;
                                         }
                                     } else {
-                                        if (single.player._id == $stateParams.id) {
+                                        // if (single.player._id == $stateParams.id) {
+                                        if (single.player._id == $scope.studentid) {
                                             key.self = single;
                                         }
                                     }
