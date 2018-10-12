@@ -89,8 +89,8 @@
                         <!-- SPONSER HEAD END -->
                     </div>
                     <!-- SPONSER IMAGE HODER -->
-                    <div class="sponser-card-holder">
-                        <div class="col-md-2 col-sm-4 col-xs-6" ng-if="image.status == 'enable'" ng-repeat="image in sponsorData[0].info track by $index">
+                    <div class="sponser-card-holder" ng-class="{'clear-row' : $index}" ng-repeat="images in sponsorData[0].info track by $index">
+                        <div class="col-md-2 col-sm-4 col-xs-6"  ng-repeat="image in images track by $index">
                             <div class="card-holder" ng-class="{'custom-cursor-sponsor':image.insidePage==='false'}">
                                 <div class="" ng-click="goSponsor(image)">
                                     <img ng-src="{{image.footerImage | serverimage2}}" alt="" class="img-responsive m-clear-auto">
@@ -112,8 +112,8 @@
                     <!-- PARTNER HEAD -->
 
                     <!-- PARTNER_IMAGE HODER -->
-                    <div class="partner-card-holder">
-                        <div class="col-md-2 col-sm-4 col-xs-6" ng-if="image.status == 'enable'" ng-repeat="image in sponsorData[1].info track by $index">
+                    <div class="partner-card-holder"  ng-class="{'clear-row' : $index}" ng-repeat="images in sponsorData[1].info track by $index">
+                        <div class="col-md-2 col-sm-4 col-xs-6" ng-repeat="image in images track by $index" >
                             <div class="card-holder" ng-class="{'custom-cursor-sponsor':image.insidePage==='false'}">
                                 <div class="" ng-click="goSponsor(image)">
                                     <img ng-src="{{image.footerImage | serverimage2}}" alt="" class="img-responsive m-clear-auto">

@@ -1165,7 +1165,7 @@ firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, Navig
         });
     };
     $scope.loadMedia = function (year) {
-         if (year == '2018') {
+        if (year == '2018') {
             if ($stateParams.type && $stateParams.folder) {
                 window.open("https://mumbaischool.sfanow.in/media-gallery/" + $stateParams.type + "/" + $stateParams.folder, '_self');
             } else {
@@ -1299,7 +1299,7 @@ firstApp.controller('MediaPressCtrl', function ($scope, TemplateService, Navigat
     };
 
     $scope.loadMedia = function (year) {
-         if (year == '2018') {
+        if (year == '2018') {
             if ($stateParams.type && $stateParams.folder) {
                 console.log("im", $stateParams.type, $stateParams.folder);
                 window.open("https://mumbaischool.sfanow.in/#media-press/" + $stateParams.type + "/" + $stateParams.folder, '_self');
@@ -2718,7 +2718,7 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
         constraints.year = null;
         if ($scope.filterStatistics.year == '2015' || $scope.filterStatistics.year == '2016') {
             constraints.year = $scope.filterStatistics.year;
-        } 
+        }
         //end
         NavigationService.contingentStrengthByYear(constraints, function (response) {
             if (response.value) {
@@ -2751,20 +2751,20 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
     $scope.onChangeContingentYear = function () {
         console.log("getSchoolProfile", $scope.getSchoolProfile);
         if ($scope.filterStatistics.year == '2017') {
-//             window.open("https://mumbaischool2017.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
-                var modal2017 = $uibModal.open({
-                    animation: $scope.animationsEnabled,
-                    templateUrl: 'views/modal/inform2017.html',
-                    size: 'sm',
-                    scope: $scope,
-                    windowClass: 'middlePos'
-                });
+            //             window.open("https://mumbaischool2017.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
+            var modal2017 = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/inform2017.html',
+                size: 'sm',
+                scope: $scope,
+                windowClass: 'middlePos'
+            });
         } else if ($scope.filterStatistics.year == '2018') {
             window.open("https://mumbaischool.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
         } else {
-        $scope.filterStatistics.pagenumber = 1;
-        $scope.contingent = {};
-        $scope.contingentStrengthByYear();
+            $scope.filterStatistics.pagenumber = 1;
+            $scope.contingent = {};
+            $scope.contingentStrengthByYear();
         }
     };
 
@@ -2839,42 +2839,42 @@ firstApp.controller('SchoolProfileCtrl', function ($scope, TemplateService, Navi
 
     $scope.changeYear = function () {
         if ($scope.filter.year == '2017') {
-                var modal2017 = $uibModal.open({
-                    animation: $scope.animationsEnabled,
-                    templateUrl: 'views/modal/inform2017.html',
-                    size: 'sm',
-                    scope: $scope,
-                    windowClass: 'middlePos'
-                });
-//             window.open("https://mumbaischool2017.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
+            var modal2017 = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/inform2017.html',
+                size: 'sm',
+                scope: $scope,
+                windowClass: 'middlePos'
+            });
+            //             window.open("https://mumbaischool2017.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
         } else if ($scope.filter.year == '2018') {
             window.open("https://mumbaischool.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
         } else {
-        $scope.schooldata.Boys = 0;
-        $scope.schooldata.Girls = 0;
-        $scope.filter.sport = undefined;
-        $scope.filterStatistics.sport = undefined;
-        var constraints = {};
-        constraints.year = $scope.filter.year;
-        if ($stateParams.id) {
-            if ($stateParams.id.substr(0, 3) == 'Old') {
-                NavigationService.getSchoolProfile($stateParams.id, function (data) {
-                    if (data.value) {
-                        constraints._id = data.data._id;
-                        constraints.school = data.data._id;
-                    }
-                });
-            } else {
-                constraints._id = $stateParams.id;
-                constraints.school = $stateParams.id;
+            $scope.schooldata.Boys = 0;
+            $scope.schooldata.Girls = 0;
+            $scope.filter.sport = undefined;
+            $scope.filterStatistics.sport = undefined;
+            var constraints = {};
+            constraints.year = $scope.filter.year;
+            if ($stateParams.id) {
+                if ($stateParams.id.substr(0, 3) == 'Old') {
+                    NavigationService.getSchoolProfile($stateParams.id, function (data) {
+                        if (data.value) {
+                            constraints._id = data.data._id;
+                            constraints.school = data.data._id;
+                        }
+                    });
+                } else {
+                    constraints._id = $stateParams.id;
+                    constraints.school = $stateParams.id;
+                }
             }
-        }
 
-        $scope.getSportParticipated(constraints);
-        $scope.schoolMedalCount(constraints);
-        $scope.filterStatistics.year = $scope.filter.year;
-        $scope.contingentStrengthByYear();
-        $scope.filterStatistics.pagenumber = 1;
+            $scope.getSportParticipated(constraints);
+            $scope.schoolMedalCount(constraints);
+            $scope.filterStatistics.year = $scope.filter.year;
+            $scope.contingentStrengthByYear();
+            $scope.filterStatistics.pagenumber = 1;
         }
     };
 
@@ -3163,7 +3163,7 @@ firstApp.controller('StudentProfileCtrl', function ($scope, $filter, TemplateSer
     $scope.SPORTDATA = {};
     $scope.medalData = {};
     console.log("PARAMS", $state.params.id);
-$scope.studentid = '';
+    $scope.studentid = '';
     // var student_id = {
     //     _id: $state.params.id
     // };
@@ -3351,28 +3351,28 @@ $scope.studentid = '';
     $scope.getStudentProfile();
     $scope.changeYear = function () {
         if ($scope.filter.year == '2017') {
-                var modal2017 = $uibModal.open({
-                    animation: $scope.animationsEnabled,
-                    templateUrl: 'views/modal/inform2017.html',
-                    size: 'sm',
-                    scope: $scope,
-                    windowClass: 'middlePos'
-                });
-//             window.open("https://mumbaischool2017.sfanow.in/student-profile/" + 'MA16' + studentProfileId, '_self');
+            var modal2017 = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/inform2017.html',
+                size: 'sm',
+                scope: $scope,
+                windowClass: 'middlePos'
+            });
+            //             window.open("https://mumbaischool2017.sfanow.in/student-profile/" + 'MA16' + studentProfileId, '_self');
         } else if ($scope.filter.year == '2018') {
             window.open("https://mumbaischool.sfanow.in/student-profile/" + 'MA16' + studentProfileId, '_self');
         } else {
-        var constraints = {};
-        constraints.year = $scope.filter.year;
-        if ($stateParams.id.substr(0, 3) == 'Old') {
-            constraints.student = $scope.studentProfile._id;
-        } else {
-            constraints.student = $stateParams.id;
-        }
-        $scope.filterStatistics.sport = undefined;
-        $scope.studentStats = [];
-        $scope.getStudentSport(constraints);
-        $scope.studentMedalCount(constraints);
+            var constraints = {};
+            constraints.year = $scope.filter.year;
+            if ($stateParams.id.substr(0, 3) == 'Old') {
+                constraints.student = $scope.studentProfile._id;
+            } else {
+                constraints.student = $stateParams.id;
+            }
+            $scope.filterStatistics.sport = undefined;
+            $scope.studentStats = [];
+            $scope.getStudentSport(constraints);
+            $scope.studentMedalCount(constraints);
         }
     };
 
@@ -3460,13 +3460,13 @@ $scope.studentid = '';
     };
     $scope.getStats = function (studentId) {
         if ($state.params.id.substr(0, 3) == 'Old') {
-            $scope.filterStatistics.student =  $scope.studentid;
+            $scope.filterStatistics.student = $scope.studentid;
         } else {
             $scope.filterStatistics.student = $stateParams.id;
         }
         $scope.studentStats = undefined;
 
-           NavigationService.getStatsForStudent($scope.filterStatistics, function (response) {
+        NavigationService.getStatsForStudent($scope.filterStatistics, function (response) {
             if (response.value) {
                 $scope.studentStats = response.data;
                 console.log($scope.studentStats);
@@ -5001,6 +5001,7 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
     } else if (window.location.host == link3) {
         $scope.selectedCity = 'ahmedabad';
     }
+
     $scope.getSponsor = function () {
         if (window.location.host == link1) {
             $scope.url = sublink1 + '/api/SponsorPage/getAllBySponsorType';
@@ -5012,8 +5013,19 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
         NavigationService.getSponsor($scope.url, function (data) {
             console.log('Get Sponsor', data);
             $scope.sponsorData = data.data.data;
-            console.log($scope.sponsorData, "console")
             _.each($scope.sponsorData, function (n) {
+                var sportdata = [];
+                _.each(n.info, function (m) {
+                    if (m.status == 'enable') {
+                        sportdata.push(m);
+                    }
+                })
+                if (sportdata.length > 0) {
+                    n.info = _.chunk(sportdata, 6)
+                }
+            })
+
+            _.each(data.data.data, function (n) {
                 if ($scope.selectedCity == 'mumbai') {
                     if (n._id === 'Sponsors') {
                         _.each(n.info, function (m) {
