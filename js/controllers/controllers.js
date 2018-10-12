@@ -4923,7 +4923,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
     } else if (window.location.host == link3) {
         $scope.selectedCity = 'ahmedabad';
     }
-
+   
     var a = window.location.host;
     $scope.infoEmail = [];
 
@@ -5001,7 +5001,7 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
     } else if (window.location.host == link3) {
         $scope.selectedCity = 'ahmedabad';
     }
-
+  
     $scope.getSponsor = function () {
         if (window.location.host == link1) {
             $scope.url = sublink1 + '/api/SponsorPage/getAllBySponsorType';

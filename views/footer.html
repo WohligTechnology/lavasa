@@ -171,6 +171,9 @@
                                     <li>
                                         <a href="{{registerSchool}}/register/school" target="_blank">REGISTER AS A SCHOOL</a>
                                     </li>
+                                    <li ng-if="selectedCity =='hyderabad'">
+                                        <a href="{{registerSchool}}/specialevents" target="_blank">THINGS TO LOOK OUT FOR</a>
+                                    </li>
                                     <li ng-if="!registerSchool">
                                         <a ui-sref="faq">FAQs</a>
                                     </li>
@@ -200,6 +203,9 @@
                                     </li>
                                     <li class="hide">
                                         <a href="{{registerSchool}}/register/school" target="_blank">REGISTER AS A SCHOOL</a>
+                                    </li>
+                                    <li ng-if="selectedCity =='hyderabad'">
+                                        <a href="{{registerSchool}}/specialevents" target="_blank">THINGS TO LOOK OUT FOR</a>
                                     </li>
                                     <li ng-if="!registerSchool ">
                                         <a ui-sref="championshipschedules ">CHAMPIONSHIP SCHEDULE</a>
