@@ -387,7 +387,7 @@
   </section>
   <!-- RANKING TABLES SECTION -->
   <!-- LIVE TICKR -->
-  <section ng-if="tickerData[0].tickerDetails.length>0 && cityName!='Hyderabad'">
+  <section ng-if="tickerData[0].tickerDetails.length>0 && cityName=='Hyderabad'">
     <div class="liveupdate-tickr">
       <div class="container relate">
         <div class="tickr-livelabel">LIVE</div>
@@ -457,10 +457,10 @@
   <section ng-if="phtoAlbum.length>0 || allphotos.length>0">
     <div class="liveupdate-imagesection">
       <div class="container">
-        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName != 'Hyderabad'">
+        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName == 'Hyderabad'">
           Live Update from sfa {{cityName}} championship 2018-19
         </div>
-        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName=='Hyderabad'">
+        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName != 'Hyderabad'">
           Highlights from sfa {{cityName}} championship 2018-19
         </div>
         <div class="row">
@@ -508,7 +508,7 @@
   </section>
   <!-- LIVE IMAGE SECTION END -->
   <!-- DRAWS SCHDULE SECTION -->
-  <section ng-if="cityName!='Hyderabad'">
+  <section ng-if="cityName=='Hyderabad'">
     <div class="liveupdates-draws">
       <div class="container">
         <div class="liveupdates-drawholder">
@@ -582,17 +582,17 @@
   <section ng-if="videoArr1.length>0 || videoArr2.length>0 ">
     <div class="liveupdate-imagesection">
       <div class="container">
-        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName == 'Hyderabad'">
+        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName != 'Hyderabad'">
           Highlights from the championship
         </div>
-        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName != 'Hyderabad'">
+        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName == 'Hyderabad'">
           Live Highlights from the championship
         </div>
         <div class="row">
           <div class="col-md-6 col-sm-6">
             <div class="liveupdate-album">
 
-              <div class="liveupdate-albumholder" ng-repeat="video in videoArr1|limitTo:3">
+              <div class="liveupdate-albumholder" ng-repeat="video in videoArr1|limitTo:1">
                 <a class="various fancybox.iframe" fancybox href="{{video.videoLink | linkvideo:video.videoSrc}}">
                   <img ng-src="{{video.thumbnail | uploadpath}}" alt="Banner" class="img-responsive">
                 </a>
@@ -606,7 +606,7 @@
           </div>
           <div class="col-md-6 col-sm-6">
             <div class="liveupdate-photo">
-              <div class="liveupdate-photoholder" ng-repeat="video in videoArr2|limitTo:3">
+              <div class="liveupdate-photoholder" ng-repeat="video in videoArr2|limitTo:1">
                 <a class="various fancybox.iframe" fancybox href="{{video.videoLink | linkvideo:video.videoSrc}}">
                   <img ng-src="{{video.thumbnail | uploadpath}}" alt="Banner" class="img-responsive">
                 </a>
