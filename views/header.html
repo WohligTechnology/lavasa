@@ -280,15 +280,22 @@
                                 <!-- ng-if="selectedCity!=='hyderabad'" -->
                                 <a class="dropdown-toggle mb25" data-toggle="dropdown" ng-mouseenter="optionss=!optionss"
                                     ng-model="checkboxs">
-                                    <span ng-if="selectedCity==='Hyderabad'">LIVE</span>
+                                    <span ng-if="selectedCity==='hyderabad'">LIVE</span>
                                     <span ng-if="selectedCity=='hyderabad'">SFA {{sfaCity | capitalize}} {{eventYear}}</span>
                                     <span ng-if="selectedCity!=='hyderabad'">REGISTER NOW</span>
-                                    
+
                                 </a>
                                 <ul class="dropdown-menu cl-pr forSm typePlace">
                                     <ul class="display-inline typeList">
                                         <li>
                                             <a>SCHOOL CHAMPIONSHIP</a>
+                                        </li>
+                                        <li class="live-update-color" ng-if="sfaCity =='hyderabad'">
+                                            <a ui-sref="liveupdates" style="color:#5aeba4 !important">LIVE UPDATES</a>
+                                        </li>
+                                        <li class="live-update-color" ng-if="sfaCity =='hyderabad'">
+                                            <a href="{{registerSchool}}/livescore" style="color:#5aeba4 !important">LIVE
+                                                SCORES</a>
                                         </li>
                                         <li>
                                             <a href="{{registerSchool}}/aboutchampionship" target="_blank">ABOUT
@@ -303,7 +310,7 @@
                                                 SCHOOL</a>
                                         </li>
                                         <li ng-if="selectedCity =='hyderabad'">
-                                            <a href="{{registerSchool}}/register/player" target="_blank">LOGIN  AS A
+                                            <a href="{{registerSchool}}/register/player" target="_blank">LOGIN AS A
                                                 PLAYER</a>
                                         </li>
                                         <li ng-if="selectedCity =='hyderabad'">
@@ -323,7 +330,8 @@
                                                 COACH AWARD</a>
                                         </li>
                                         <li ng-if="selectedCity =='hyderabad'">
-                                            <a href="{{registerSchool}}/specialevents" target="_blank">THINGS TO LOOK OUT FOR</a>
+                                            <a href="{{registerSchool}}/specialevents" target="_blank">THINGS TO LOOK
+                                                OUT FOR</a>
                                         </li>
                                         <li>
                                             <a href="{{registerSchool}}/faq" target="_blank">FAQs</a>
@@ -380,8 +388,8 @@
                                         </li>
                                         <!-- <li><a ui-sref="faq">SPECIAL EVENTS</a></li>
                                             <li><a ui-sref="faq">VENUE</a></li> -->
-                                      
-                                      
+
+
                                         <li>
                                             <a href="{{registerCollege}}/draws-schedule" target="_blank">DRAWS &amp;
                                                 SCHEDULES</a>
@@ -609,7 +617,7 @@
                     <div class="sfa-mum">
                         <button type="button" name="button" class="btn btn-sfatop" ng-mouseenter="optionss=!optionss"
                             ng-model="checkboxs">
-                            <span ng-if="selectedCity==='Hyderabad'">LIVE</span>
+                            <span ng-if="selectedCity==='hyderabad'">LIVE</span>
                             <!-- <span ng-if="selectedCity!=='Hyderabad'">SFA</span> {{sfaCity | capitalize}} {{eventYear}} -->
                             <span ng-if="selectedCity=='hyderabad'">SFA {{sfaCity | capitalize}} {{eventYear}}</span>
                             <span ng-if="selectedCity!=='hyderabad'">REGISTER NOW</span></button>
@@ -625,6 +633,13 @@
                                     <li>
                                         <p>SCHOOL CHAMPIONSHIP</p>
                                     </li>
+                                    <li class="live-update-color" ng-if="sfaCity =='hyderabad'">
+                                        <a ui-sref="liveupdates" style="color:#5aeba4 !important">LIVE UPDATES</a>
+                                    </li>
+                                    <li class="live-update-color" ng-if="sfaCity =='hyderabad'">
+                                        <a href="{{registerSchool}}/livescore" style="color:#5aeba4 !important">LIVE
+                                            SCORES</a>
+                                    </li>
                                     <li>
                                         <a href="{{registerSchool}}/aboutchampionship" target="_blank">ABOUT
                                             CHAMPIONSHIP</a>
@@ -638,7 +653,7 @@
                                             SCHOOL</a>
                                     </li>
                                     <li ng-if="selectedCity =='hyderabad'">
-                                        <a href="{{registerSchool}}/register/player" target="_blank">LOGIN  AS A
+                                        <a href="{{registerSchool}}/register/player" target="_blank">LOGIN AS A
                                             PLAYER</a>
                                     </li>
                                     <li ng-if="selectedCity =='hyderabad'">
@@ -658,7 +673,8 @@
                                             COACH AWARD</a>
                                     </li>
                                     <li ng-if="selectedCity =='hyderabad'">
-                                        <a href="{{registerSchool}}/specialevents" target="_blank">THINGS TO LOOK OUT FOR</a>
+                                        <a href="{{registerSchool}}/specialevents" target="_blank">THINGS TO LOOK OUT
+                                            FOR</a>
                                     </li>
                                     <li>
                                         <a href="{{registerSchool}}/faq" target="_blank">FAQs</a>
@@ -732,7 +748,7 @@
                         <a class="dropdown-toggle mb25" data-toggle="dropdown">
                             <div class="sfa-mum sfa-mum-m">
                                 <button type="button" name="button" class="btn btn-sfatop margin0" ng-mouseenter="optionss=!optionss">
-                                    <span ng-if="selectedCity==='Hyderabad'">LIVE</span>
+                                    <span ng-if="selectedCity==='hyderabad'">LIVE</span>
                                     <!-- <span ng-if="selectedCity!=='Hyderabad'">SFA</span> {{sfaCity | capitalize}} {{eventYear}} -->
                                     <span ng-if="selectedCity=='hyderabad'">SFA {{sfaCity | capitalize}} {{eventYear}}</span>
                                     <span ng-if="selectedCity!=='hyderabad'">REGISTER NOW</span></button>
@@ -744,6 +760,13 @@
                                 <li>
                                     <a>SCHOOL CHAMPIONSHIP</a>
                                 </li>
+                                <li class="live-update-color" ng-if="sfaCity =='hyderabad'">
+                                    <a ui-sref="liveupdates" style="color:#5aeba4 !important">LIVE UPDATES</a>
+                                </li>
+                                <li class="live-update-color" ng-if="sfaCity =='hyderabad'">
+                                    <a href="{{registerSchool}}/livescore" style="color:#5aeba4 !important">LIVE
+                                        SCORES</a>
+                                </li>
                                 <li>
                                     <a href="{{registerSchool}}/aboutchampionship" target="_blank">ABOUT CHAMPIONSHIP</a>
                                 </li>
@@ -754,7 +777,7 @@
                                     <a href="{{registerSchool}}/register/school">REGISTER AS A SCHOOL</a>
                                 </li>
                                 <li ng-if="selectedCity =='hyderabad'">
-                                    <a href="{{registerSchool}}/register/player" target="_blank">LOGIN  AS A
+                                    <a href="{{registerSchool}}/register/player" target="_blank">LOGIN AS A
                                         PLAYER</a>
                                 </li>
                                 <li ng-if="selectedCity =='hyderabad'">
