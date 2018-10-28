@@ -519,13 +519,27 @@
                   draws, schedules & results
                 </div>
                 <!-- FOR ONLY SCHOOLS -->
-                <div class="liveupdates-drawscard liveupdates-drawscardbig font-FjallaOne" ng-if="!drawObj.college">
+                <div class="liveupdates-drawscard liveupdates-draw font-FjallaOne" ng-if="!drawObj.college">
                   <a href="{{schoolLink}}/draws-schedule" target="_blank">
                     <div class="livedraw-text">
                       <p>School </br> Draws, Schedules & </br> Results</p>
                     </div>
                   </a>
                 </div>
+            <div class="liveupdates-drawscard liveupdates-draw font-FjallaOne" ng-if="!drawObj.college">
+                     <a href="{{schoolLink}}/livescore" target="_blank">
+                    <div class="livedraw-text">
+                      <p>School </br> Click Here For Live Scores</p>
+                    </div>
+                  </a>
+                </div>
+      <!--<div class="liveupdates-drawscard liveupdates-drawscardbig font-FjallaOne" ng-if="!drawObj.college">
+                  <a href="{{schoolLink}}/draws-schedule" target="_blank">
+                    <div class="livedraw-text">
+                      <p>School </br> Draws, Schedules & </br> Results</p>
+                    </div>
+                  </a>
+                </div>-->
                 <!-- FOR ONLY SCHOOLS END -->
                 <!-- FOR SCHOOLS AND COLLEGE -->
                 <div class="liveupdates-drawscard liveupdates-draw font-FjallaOne" ng-if="drawObj.college">
