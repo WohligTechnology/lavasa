@@ -57,7 +57,7 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
       $scope.collegeLink = "http://mumbaicollege.sfanow.in";
     } else if (window.location.host == response.link2) {
       // $scope.drawObj.link = response.data.Hyderabad;
-      $scope.drawObj.college = true;
+      $scope.drawObj.college = false;
       $scope.cityName = 'Hyderabad';
       $scope.schoolLink = "https://hyderabadschool.sfanow.in";
       $scope.calenderLink = '';
