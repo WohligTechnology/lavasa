@@ -229,7 +229,7 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
           } else if (window.location.host === response.link2) {
             //Hyderabad
             $scope.allVideos = _.cloneDeep($scope.allVideos.hyderabad);
-            $scope.allVideos = _.shuffle($scope.allVideos);
+            //$scope.allVideos = _.shuffle($scope.allVideos);
           } else if (window.location.host === response.link3) {
             //     //Ahmedabad
             $scope.allVideos = _.cloneDeep($scope.allVideos.ahmedabad);
@@ -237,7 +237,7 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
           }
 
         });
-        $scope.allVideos = _.chunk($scope.allVideos, 3);
+        //$scope.allVideos = _.chunk($scope.allVideos, 3);
         $scope.videoArr1 = _.cloneDeep($scope.allVideos[0]);
         $scope.videoArr2 = _.cloneDeep($scope.allVideos[1]);
       }
