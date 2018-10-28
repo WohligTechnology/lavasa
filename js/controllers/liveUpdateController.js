@@ -237,7 +237,7 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
           }
 
         });
-        //$scope.allVideos = _.chunk($scope.allVideos, 3);
+        $scope.allVideos = _.chunk($scope.allVideos, 2);
         $scope.videoArr1 = _.cloneDeep($scope.allVideos[0]);
         $scope.videoArr2 = _.cloneDeep($scope.allVideos[1]);
       }
