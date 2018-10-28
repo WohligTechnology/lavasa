@@ -1,45 +1,60 @@
 @media screen and (max-width: 1200px) {}
 
 @media screen and (max-width: 991px) {
+
   // SFA_VIEDO
   .sfavideo-content p,
   .sfavideo-content a {
-    font-size: 14px;
-  } // END SFA_VIEDO
+    font-size: 16px;
+  }
+
+  // END SFA_VIEDO
   .sfavideo-content .video-city {
     font-size: 13px;
     padding: 6px;
   }
+
   .sfacity-modal .last-date-holder-text h4 {
     font-size: 16px;
   }
+
   .sfavideo-content {
     .col-sm-4 {
       padding: 0;
     }
   }
+
   .sfacity-modal .img-holder img {
     width: 175px;
   }
+
   .sfacity-modal .day-header h2 {
     font-size: 24px;
-  } // LIVE UPDATES
+  }
+
+  // LIVE UPDATES
   .liveupdates-drawsevents {
     margin-top: 10px;
-  } // LIVE UPDATES END
+  }
+
+  // LIVE UPDATES END
   .home-highlight h3 {
     font-size: 18px;
   }
 }
 
 @media screen and (max-width: 767px) {
+
   //Home Tickr
   .home-tickr .ticker-icon {
     top: 3px;
   }
+
   .home-highlight h3 {
     font-size: 16px;
-  } //Home Tickr End
+  }
+
+  //Home Tickr End
   // REGISTERED SPORTS
   .sportregistered-title {
     display: block;
@@ -48,102 +63,134 @@
     margin-bottom: 5px;
     font-size: 14px;
   }
+
   .sportregistered-viewbtn {
     width: auto;
     padding: 5px 10px;
     font-size: 14px;
   }
+
   .list-sportregistered {
     padding: 10px 0;
     margin: 0;
   }
+
   .registersport-lists {
     border-bottom: 1px solid #ccc;
+
     &:last-child {
       border: none;
     }
-  } // REGISTERED SPORTS END
+  }
+
+  // REGISTERED SPORTS END
   // SPORTS DETAIL
   .sportsdetail-download {
     margin-top: -40px;
-  } // SPORTS DETAIL END
+  }
+
+  // SPORTS DETAIL END
   .sfavideo-content {
     .btn {
       width: 100%;
     }
   }
-  .sfavideo-content p,
-  .sfavideo-content a {
-    font-size: 16px;
-  }
+
+  // .sfavideo-content p,
+  // .sfavideo-content a {
+  //   font-size: 16px;
+  // }
+
   .sfavideo-content .video-city {
     font-size: 16px;
   }
+
   .sfacity-modal .day-header h2 {
     font-size: 18px;
   }
+
   .sfacity-modal .last-date-holder h4 {
     font-size: 14px;
   }
+
   .sfacity-modal .last-date-holder-text h4 {
     font-size: 14px;
-  } // LIVE UPDATES
+  }
+
+  // LIVE UPDATES
   .liveupdate-albumholder {
     width: auto;
     float: none;
   }
+
   .liveupdate-photoholder {
     width: auto;
     float: none;
   }
+
   .liveupdates-eventholder {
     width: auto;
     float: none;
   }
+
   .liveupdate-eventcard {
     padding: 40px 15px;
-  } // LIVE UPDATES END
+  }
+
+  // LIVE UPDATES END
 }
 
 @media screen and (max-width: 480px) {
   .home-highlight h3 {
     font-size: 14px;
   }
+
   .sfavideo-content .video-city {
     font-size: 12px;
   }
+
   .sfavideo-content p:nth-child(2) {
     margin-bottom: 20px;
   }
+
   .sfavideo-content p:first-child {
     margin-top: 20px;
   }
+
   .sfavideo-content .mt30 {
     margin: 10px 0 0;
   }
+
   .sfavideo-content p,
   .sfavideo-content a {
-    font-size: 11px;
+    font-size: 14px;
   }
+
   .sfacity-modal .img-holder img {
     width: 150px;
   }
+
   .sfacity-modal .day-header h2 {
     font-size: 16px;
   }
+
   .sfacity-modal .last-date-holder h4 {
     font-size: 14px;
   }
+
   .sfacity-welcomecontent {
     font-size: 16px;
   }
+
   .sfacity-kindlyenter {
     font-size: 18px;
   }
+
   .sfavideo-content .register-opennow {
     font-size: 14px;
     margin: 8px 0px;
   }
+
   .sfavideo-content .btn {
     margin: 0px;
   }
