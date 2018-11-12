@@ -186,10 +186,10 @@
                                     <li ng-if="selectedCity =='Hyderabad'">
                                         <a href="{{registerSchool}}/register/school" target="_blank">LOGIN AS A SCHOOL</a>
                                     </li> -->
-                                    <li ng-if="!registerSchool" class="hide">
+                                    <li ng-if="!registerSchool" ng-if="selectedCity==!hyderabad">
                                         <a ui-sref="championshipschedules ">CHAMPIONSHIP SCHEDULE</a>
                                     </li>
-                                    <li ng-if="registerSchool" class="hide">
+                                    <li ng-if="registerSchool" ng-if="selectedCity==!hyderabad">
                                         <a href="{{registerSchool}}/championship-schedules" target="_blank ">CHAMPIONSHIP
                                             SCHEDULE</a>
                                     </li>
@@ -237,10 +237,10 @@
                                         <a href="{{registerSchool}}/specialevents" target="_blank">THINGS TO LOOK OUT
                                             FOR</a>
                                     </li>
-                                    <li ng-if="!registerSchool" class="hide">
+                                    <li ng-if="!registerSchool" ng-if="selectedCity==!hyderabad">
                                         <a ui-sref="championshipschedules ">CHAMPIONSHIP SCHEDULE</a>
                                     </li>
-                                    <li ng-if="registerSchool" class="hide">
+                                    <li ng-if="registerSchool" ng-if="selectedCity==!hyderabad">
                                         <a href="{{registerSchool}}/championship-schedule " target="_blank ">CHAMPIONSHIP
                                             SCHEDULE</a>
                                     </li>

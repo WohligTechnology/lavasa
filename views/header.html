@@ -317,7 +317,7 @@
                                             <a href="{{registerSchool}}/register/school" target="_blank">LOGIN AS A
                                                 SCHOOL</a>
                                         </li> -->
-                                        <li class="hide">
+                                        <li ng-if="selectedCity==!hyderabad">
                                             <a href="{{registerSchool}}/draws-schedule" target="_blank">CHAMPIONSHIP
                                                 SCHEDULE</a>
                                         </li>
@@ -660,7 +660,7 @@
                                         <a href="{{registerSchool}}/register/school" target="_blank">LOGIN AS A
                                             SCHOOL</a>
                                     </li> -->
-                                    <li class="hide">
+                                    <li ng-if="selectedCity==!hyderabad">
                                         <a href="{{registerSchool}}/draws-schedule" target="_blank">CHAMPIONSHIP
                                             SCHEDULE</a>
                                     </li>
@@ -784,7 +784,7 @@
                                     <a href="{{registerSchool}}/register/school" target="_blank">LOGIN AS A
                                         SCHOOL</a>
                                 </li> -->
-                                <li class="hide">
+                                <li ng-if="selectedCity==!hyderabad">
                                     <a href="{{registerSchool}}/draws-schedule" target="_blank">CHAMPIONSHIP SCHEDULE</a>
                                 </li>
                                 <li ng-if="selectedCity!=='hyderabad'">
