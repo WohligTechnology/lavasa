@@ -136,12 +136,12 @@
                     <div class="f-list">
                         <span class="footer-header-color"> SPORTS</span>
                         <ul class="padding0 cl-nt">
-                            <li ng-repeat="sport in mumbaiFooter track by $index" ng-if="selectedCity !== 'hyderabad'">
+                            <li ng-repeat="sport in mumbaiFooter track by $index" ng-if="selectedCity !== 'Hyderabad'">
                                 <a ui-sref="sport({name:'{{sport.name | firstcapitalize}}'})" target="_new">
                                     {{sport.name}}
                                 </a>
                             </li>
-                            <li ng-repeat="sport in hyderabadFooter track by $index" ng-if="selectedCity ==='hyderabad'">
+                            <li ng-repeat="sport in hyderabadFooter track by $index" ng-if="selectedCity ==='Hyderabad'">
                                 <a ui-sref="sport({name:'{{sport.name | firstcapitalize}}'})" target="_new">
                                     {{sport.name}}
                                 </a>
@@ -159,10 +159,10 @@
                             <li>
                                 <label class="footer-champ-header">school championship</label>
                                 <ul class="padding0">
-                                    <li ng-if="selectedCity==='hyderabad'">
+                                    <li ng-if="selectedCity==='Hyderabad'">
                                         <a ui-sref="liveupdates"> LIVE UPDATES</a>
                                     </li>
-                                    <li class="" ng-if="selectedCity=='hyderabad'">
+                                    <li class="" ng-if="selectedCity=='Hyderabad'">
                                         <a href="{{registerSchool}}/livescore" target="_blank "> LIVE SCORE</a>
                                     </li>
                                     <li ng-if="!registerSchool">
@@ -180,10 +180,10 @@
                                         <a href="{{registerSchool}}/register/school" target="_blank">REGISTER AS A
                                             SCHOOL</a>
                                     </li>
-                                    <!-- <li ng-if="selectedCity =='hyderabad'">
+                                    <!-- <li ng-if="selectedCity =='Hyderabad'">
                                         <a href="{{registerSchool}}/register/player" target="_blank">LOGIN AS A PLAYER</a>
                                     </li>
-                                    <li ng-if="selectedCity =='hyderabad'">
+                                    <li ng-if="selectedCity =='Hyderabad'">
                                         <a href="{{registerSchool}}/register/school" target="_blank">LOGIN AS A SCHOOL</a>
                                     </li> -->
                                     <li ng-if="!registerSchool ">
@@ -193,7 +193,7 @@
                                         <a href="{{registerSchool}}/championship-schedules" target="_blank ">CHAMPIONSHIP
                                             SCHEDULE</a>
                                     </li>
-                                    <li ng-if="selectedCity =='hyderabad'">
+                                    <li ng-if="selectedCity =='Hyderabad'">
                                         <a href="{{registerSchool}}/specialevents" target="_blank">THINGS TO LOOK OUT
                                             FOR</a>
                                     </li>
@@ -206,16 +206,16 @@
 
                                 </ul>
                                 <ul class="padding0" ng-if="selectedCity ==='Hyderabad'">
-                                    <li ng-if="selectedCity==='hyderabad'">
+                                    <li ng-if="selectedCity==='Hyderabad'">
                                         <a ui-sref="liveupdates"> LIVE UPDATES</a>
                                     </li>
-                                    <li class="" ng-if="selectedCity=='hyderabad'">
+                                    <li class="" ng-if="selectedCity=='Hyderabad'">
                                         <a ui-sref="livescore"> LIVE SCORES</a>
                                     </li>
-                                    <li class="hide" ng-if="selectedCity!=='hyderabad'">
+                                    <li class="hide" ng-if="selectedCity!=='Hyderabad'">
                                         <a ui-sref="liveupdates"> LIVE UPDATES</a>
                                     </li>
-                                    <li class="hide" ng-if="selectedCity!=='hyderabad'">
+                                    <li class="hide" ng-if="selectedCity!=='Hyderabad'">
                                         <a ui-sref="livescore"> LIVE SCORES</a>
                                     </li>
                                     <li ng-if="!registerSchool ">
@@ -233,7 +233,7 @@
                                         <a href="{{registerSchool}}/register/school" target="_blank">REGISTER AS A
                                             SCHOOL</a>
                                     </li>
-                                    <li ng-if="selectedCity =='hyderabad'">
+                                    <li ng-if="selectedCity =='Hyderabad'">
                                         <a href="{{registerSchool}}/specialevents" target="_blank">THINGS TO LOOK OUT
                                             FOR</a>
                                     </li>
@@ -419,9 +419,9 @@
                         <!-- HYDERABAD END -->
 
                         <!-- MUMBAI RESULTS -->
-                        <span class="footer-header-color" ng-if="selectedCity !=='hyderabad'">RESULTS</span>
+                        <span class="footer-header-color" ng-if="selectedCity !=='Hyderabad'">RESULTS</span>
                         <!-- RESULTS HOLDER -->
-                        <ul class="padding0" ng-if="selectedCity !=='hyderabad'">
+                        <ul class="padding0" ng-if="selectedCity !=='Hyderabad'">
                             <li>
                                 <a href="{{registerSchool}}/results/" target="_blank " ui-sref="school-ranking">
                                     <span>SFA MUMBAI 2018</span>

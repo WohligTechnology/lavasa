@@ -387,7 +387,7 @@
   </section>
   <!-- RANKING TABLES SECTION -->
   <!-- LIVE TICKR -->
-  <section ng-if="tickerData[0].tickerDetails.length>0 && cityName=='Hyderabad'">
+  <section hidden ng-if="tickerData[0].tickerDetails.length>0 && cityName=='Hyderabad'">
     <div class="liveupdate-tickr">
       <div class="container relate">
         <div class="tickr-livelabel">LIVE</div>
@@ -405,7 +405,8 @@
         </div>
 
         <!-- lolwa -->
-        <div angular-marquee class="tickr-holder" scroll="ticker.scroll" duration="ticker.duration" duplicated="duplicated" gap="50">
+        <div angular-marquee class="tickr-holder" scroll="ticker.scroll" duration="ticker.duration" duplicated="duplicated"
+          gap="50">
 
           <div class="" ng-bind-html="tickrContent"></div>
 
@@ -457,10 +458,11 @@
   <section ng-if="phtoAlbum.length>0 || allphotos.length>0">
     <div class="liveupdate-imagesection">
       <div class="container">
-        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName == 'Hyderabad'">
+        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName == 'hyderabad'">
           Live Update from sfa {{cityName}} championship 2018-19
         </div>
-        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName != 'Hyderabad'">
+        <!--ng-if="cityName == 'Hyderabad'"-->
+        <div class="liveupdate-imagetitle font-FjallaOne">
           Highlights from sfa {{cityName}} championship 2018-19
         </div>
         <div class="row">
@@ -519,27 +521,27 @@
                   draws, schedules & results
                 </div>
                 <!-- FOR ONLY SCHOOLS -->
-                <div class="liveupdates-drawscard liveupdates-draw font-FjallaOne" ng-if="!drawObj.college">
+                <!--<div class="liveupdates-drawscard liveupdates-draw font-FjallaOne" ng-if="!drawObj.college">
                   <a href="{{schoolLink}}/draws-schedule" target="_blank">
                     <div class="livedraw-text">
                       <p>School </br> Draws, Schedules & </br> Results</p>
                     </div>
                   </a>
                 </div>
-            <div class="liveupdates-drawscard liveupdates-draw font-FjallaOne" ng-if="!drawObj.college">
-                     <a href="{{schoolLink}}/livescore" target="_blank">
+                <div class="liveupdates-drawscard liveupdates-draw font-FjallaOne" ng-if="!drawObj.college">
+                  <a href="{{schoolLink}}/livescore" target="_blank">
                     <div class="livedraw-text">
                       <p>School </br> Click Here For Live Scores</p>
                     </div>
                   </a>
-                </div>
-      <!--<div class="liveupdates-drawscard liveupdates-drawscardbig font-FjallaOne" ng-if="!drawObj.college">
-                  <a href="{{schoolLink}}/draws-schedule" target="_blank">
+                </div>-->
+                <div class="liveupdates-drawscard liveupdates-drawscardbig font-FjallaOne" ng-if="!drawObj.college">
+                  <a href="{{schoolLink}}/results/" target="_blank">
                     <div class="livedraw-text">
-                      <p>School </br> Draws, Schedules & </br> Results</p>
+                      <p>School Results</p>
                     </div>
                   </a>
-                </div>-->
+                </div>
                 <!-- FOR ONLY SCHOOLS END -->
                 <!-- FOR SCHOOLS AND COLLEGE -->
                 <div class="liveupdates-drawscard liveupdates-draw font-FjallaOne" ng-if="drawObj.college">
@@ -596,10 +598,11 @@
   <section ng-if="videoArr1.length>0 || videoArr2.length>0 ">
     <div class="liveupdate-imagesection">
       <div class="container">
-        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName != 'Hyderabad'">
+        <!--ng-if="cityName != 'Hyderabad'"-->
+        <div class="liveupdate-imagetitle font-FjallaOne">
           Highlights from the championship
         </div>
-        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName == 'Hyderabad'">
+        <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName == 'hyderabad'">
           Live Highlights from the championship
         </div>
         <div class="row">
@@ -659,8 +662,9 @@
               </div>
             </div>
             <div class="box-social">
-              <div class="fb-page" data-href="https://www.facebook.com/sportsforallnow" data-tabs="timeline" data-width="360" data-height="820"
-                data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+              <div class="fb-page" data-href="https://www.facebook.com/sportsforallnow" data-tabs="timeline" data-width="360"
+                data-height="820" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+                data-show-facepile="true">
                 <blockquote cite="https://www.facebook.com/sportsforallnow" class="fb-xfbml-parse-ignore">
                   <a href="https://www.facebook.com/sportsforallnow">Sports For All</a>
                 </blockquote>
@@ -677,7 +681,8 @@
               </div>
             </div>
             <div class="box-social">
-              <a class="twitter-timeline" href="https://twitter.com/sfanow" data-widget-id="641859487024869376">Tweets by @sfanow</a>
+              <a class="twitter-timeline" href="https://twitter.com/sfanow" data-widget-id="641859487024869376">Tweets
+                by @sfanow</a>
             </div>
           </div>
         </div>
@@ -690,8 +695,8 @@
             </div>
             <div class="box-social">
               <div class="fb-set" style="height: 820px;overflow-y: hidden;">
-                <iframe src="//lightwidget.com/widgets/836f36bbf5d959b8b1e7134bd93bf799.html" id="instansive_554a6dce8a" name="instansive_554a6dce8a"
-                  scrolling="yes" allowtransparency="true" class="instansive-widget" style="width: 100%;height: 100%; border: 0; overflow: hidden;"></iframe>
+                <iframe src="//lightwidget.com/widgets/836f36bbf5d959b8b1e7134bd93bf799.html" id="instansive_554a6dce8a"
+                  name="instansive_554a6dce8a" scrolling="yes" allowtransparency="true" class="instansive-widget" style="width: 100%;height: 100%; border: 0; overflow: hidden;"></iframe>
               </div>
             </div>
           </div>
