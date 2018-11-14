@@ -5012,7 +5012,7 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
         }
         NavigationService.getSponsor($scope.url, function (data) {
             console.log('Get Sponsor', data);
-            $scope.sponsorData = data.data.data;
+            $scope.sponsorData = _.cloneDeep(data.data.data);
             _.each($scope.sponsorData, function (n) {
                 var sportdata = [];
                 _.each(n.info, function (m) {
