@@ -5060,13 +5060,18 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
     $scope.goSponsor = function (data) {
         // console.log(data)
         if (data.insidePage === "true") {
-            $state.go('individual-sponsor', {
-                id: data._id
-            })
+            if (window.location.host == link1) {
+                window.open(sublink1 + '/individual-sponsor/' + data._id, '_self')
+            } else if (window.location.host == link2) {
+                window.open(sublink3 + '/individual-sponsor/' + data._id, '_self')
+            } else if (window.location.host == link3) {
+                window.open(sublink5 + '/individual-sponsor/' + data._id, '_self')
+            }
         } else {
             // console.log("nothing")
         }
     };
+   
     if (window.location.host == link1) {
         $scope.registerSchool = sublink1;
         $scope.registerCollege = sublink2;
