@@ -538,7 +538,7 @@
                 <div class="liveupdates-drawscard liveupdates-drawscardbig font-FjallaOne" ng-if="!drawObj.college">
                   <a href="{{schoolLink}}/results/" target="_blank">
                     <div class="livedraw-text">
-                      <p>School Results</p>
+                      <p>School Results SFA Hyderabad 2018-19</p>
                     </div>
                   </a>
                 </div>
@@ -609,7 +609,7 @@
           <div class="col-md-6 col-sm-6">
             <div class="liveupdate-album">
 
-              <div class="liveupdate-albumholder" ng-repeat="video in videoArr1|limitTo:1">
+              <div class="liveupdate-albumholder" ng-repeat="video in videoArr1|limitTo:3">
                 <a class="various fancybox.iframe" fancybox href="{{video.videoLink | linkvideo:video.videoSrc}}">
                   <img ng-src="{{video.thumbnail | uploadpath}}" alt="Banner" class="img-responsive">
                 </a>
@@ -623,7 +623,7 @@
           </div>
           <div class="col-md-6 col-sm-6">
             <div class="liveupdate-photo">
-              <div class="liveupdate-photoholder" ng-repeat="video in videoArr2|limitTo:1">
+              <div class="liveupdate-photoholder" ng-repeat="video in videoArr2|limitTo:3">
                 <a class="various fancybox.iframe" fancybox href="{{video.videoLink | linkvideo:video.videoSrc}}">
                   <img ng-src="{{video.thumbnail | uploadpath}}" alt="Banner" class="img-responsive">
                 </a>
