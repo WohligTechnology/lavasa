@@ -5057,11 +5057,13 @@ firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope,
                         });
                     }
                     if (n._id === 'Partners') {
-                        if (m.name == 'INSPIRE INSTITUTE OF SPORT' || m.name == 'Inspire Institute of Sport' || m.name == 'inspire institute of sport' || m.name == 'IIS' || m.name == 'iis') {
-                            if (m.status === 'enable' && m.insidePage == "true") {
-                                $rootScope.iisId = m._id;
+                        _.each(n.info, function (m) {
+                            if (m.name == 'INSPIRE INSTITUTE OF SPORT' || m.name == 'Inspire Institute of Sport' || m.name == 'inspire institute of sport' || m.name == 'IIS' || m.name == 'iis') {
+                                if (m.status === 'enable' && m.insidePage == "true") {
+                                    $rootScope.iisId = m._id;
+                                }
                             }
-                        }
+                        });
                     }
                 } else {
                     if (n._id === 'Sponsors & Partners') {
