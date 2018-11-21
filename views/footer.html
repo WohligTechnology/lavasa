@@ -169,16 +169,16 @@
                                         <a ui-sref="aboutchampionship"> ABOUT CHAMPIONSHIP</a>
                                     </li>
                                     <li ng-if="registerSchool">
-                                        <a href="{{registerSchool}}/aboutchampionship " target="_blank "> ABOUT
-                                            CHAMPIONSHIP</a>
+                                        <a href="{{registerSchool}}/aboutchampionship " target="_blank "> ABOUT CHAMPIONSHIP
+                                        </a>
                                     </li>
                                     <li ng-if="selectedCity =='mumbai'">
-                                        <a href="{{registerSchool}}/register/player" target="_blank">REGISTER AS A
-                                            PLAYER</a>
+                                        <a href="{{registerSchool}}/register/player" target="_blank">REGISTER AS A PLAYER
+                                        </a>
                                     </li>
                                     <li ng-if="selectedCity =='mumbai'">
-                                        <a href="{{registerSchool}}/register/school" target="_blank">REGISTER AS A
-                                            SCHOOL</a>
+                                        <a href="{{registerSchool}}/register/school" target="_blank">REGISTER AS A SCHOOL
+                                        </a>
                                     </li>
                                     <!-- <li ng-if="selectedCity =='Hyderabad'">
                                         <a href="{{registerSchool}}/register/player" target="_blank">LOGIN AS A PLAYER</a>
@@ -190,12 +190,18 @@
                                         <a ui-sref="championshipschedules ">CHAMPIONSHIP SCHEDULE</a>
                                     </li>
                                     <li ng-if="registerSchool" ng-if="selectedCity!=='hyderabad'">
-                                        <a href="{{registerSchool}}/championship-schedules" target="_blank ">CHAMPIONSHIP
-                                            SCHEDULE</a>
+                                        <a href="{{registerSchool}}/championship-schedules" target="_blank ">CHAMPIONSHIP SCHEDULE
+                                        </a>
                                     </li>
                                     <li ng-if="selectedCity =='hyderabad'">
-                                        <a href="{{registerSchool}}/specialevents" target="_blank">THINGS TO LOOK OUT
-                                            FOR</a>
+                                        <a href="{{registerSchool}}/specialevents" target="_blank">THINGS TO LOOK OUT FOR
+                                        </a>
+                                    </li>
+                                    <li ng-if="selectedCity!=='hyderabad'">
+                                        <a href="{{registerSchool}}/individual-sponsor/{{storiaId}}" target="_blank">STORIA SPORTS SCHOLARSHIP</a>
+                                    </li>
+                                    <li ng-if="selectedCity!=='hyderabad'">
+                                        <a href="{{registerSchool}}/individual-sponsor/{{iisId}}" target="_blank">IIS HIGH PERFORMANCE CENTER</a>
                                     </li>
                                     <li ng-if="!registerSchool">
                                         <a ui-sref="faq">FAQs</a>
@@ -222,34 +228,40 @@
                                         <a ui-sref="aboutchampionship"> ABOUT CHAMPIONSHIP</a>
                                     </li>
                                     <li ng-if="registerSchool ">
-                                        <a href="{{registerSchool}}/aboutchampionship " target="_blank "> ABOUT
-                                            CHAMPIONSHIP</a>
+                                        <a href="{{registerSchool}}/aboutchampionship " target="_blank "> ABOUT CHAMPIONSHIP
+                                        </a>
                                     </li>
                                     <li class="hide">
-                                        <a href="{{registerSchool}}/register/player" target="_blank">REGISTER AS A
-                                            PLAYER</a>
+                                        <a href="{{registerSchool}}/register/player" target="_blank">REGISTER AS A PLAYER
+                                        </a>
                                     </li>
                                     <li class="hide">
-                                        <a href="{{registerSchool}}/register/school" target="_blank">REGISTER AS A
-                                            SCHOOL</a>
+                                        <a href="{{registerSchool}}/register/school" target="_blank">REGISTER AS A SCHOOL
+                                        </a>
                                     </li>
                                     <li ng-if="selectedCity =='hyderabad'">
-                                        <a href="{{registerSchool}}/specialevents" target="_blank">THINGS TO LOOK OUT
-                                            FOR</a>
+                                        <a href="{{registerSchool}}/specialevents" target="_blank">THINGS TO LOOK OUT FOR
+                                        </a>
                                     </li>
                                     <li ng-if="!registerSchool" ng-if="selectedCity!=='hyderabad'">
                                         <a ui-sref="championshipschedules ">CHAMPIONSHIP SCHEDULE</a>
                                     </li>
                                     <li ng-if="registerSchool" ng-if="selectedCity!=='hyderabad'">
-                                        <a href="{{registerSchool}}/championship-schedule " target="_blank ">CHAMPIONSHIP
-                                            SCHEDULE</a>
+                                        <a href="{{registerSchool}}/championship-schedule " target="_blank ">CHAMPIONSHIP SCHEDULE
+                                        </a>
+                                    </li>
+                                    <li ng-if="selectedCity!=='hyderabad'">
+                                        <a href="{{registerSchool}}/individual-sponsor/{{storiaId}}" target="_blank">STORIA SPORTS SCHOLARSHIP</a>
+                                    </li>
+                                    <li ng-if="selectedCity!=='hyderabad'">
+                                        <a href="{{registerSchool}}/individual-sponsor/{{iisId}}" target="_blank">IIS HIGH PERFORMANCE CENTER</a>
                                     </li>
                                     <li ng-if="!registerSchool" class="hide">
                                         <a ui-sref="championshipschedule">DRAWS &amp; SCHEDULES</a>
                                     </li>
                                     <li ng-if="registerSchool" class="hide">
-                                        <a href="{{registerSchool}}/draws-schedule" target="_blank">DRAWS &amp;
-                                            SCHEDULES</a>
+                                        <a href="{{registerSchool}}/draws-schedule" target="_blank">DRAWS &amp; SCHEDULES
+                                        </a>
                                     </li>
                                     <li ng-if="!registerSchool">
                                         <a ui-sref="specialevents">SPECIAL EVENTS</a>
@@ -278,15 +290,15 @@
                                         <a ui-sref="championshipschedules ">CHAMPIONSHIP SCHEDULE</a>
                                     </li>
                                     <li ng-if="registerSchool" class="hide">
-                                        <a href="{{registerSchool}}/championship-schedule " target="_blank ">CHAMPIONSHIP
-                                            SCHEDULE</a>
+                                        <a href="{{registerSchool}}/championship-schedule " target="_blank ">CHAMPIONSHIP SCHEDULE
+                                        </a>
                                     </li>
                                     <li ng-if="!registerSchool" class="hide">
                                         <a ui-sref="championshipschedule">DRAWS &amp; SCHEDULES</a>
                                     </li>
                                     <li ng-if="registerSchool" class="hide">
-                                        <a href="{{registerSchool}}/draws-schedule" target="_blank">DRAWS &amp;
-                                            SCHEDULES</a>
+                                        <a href="{{registerSchool}}/draws-schedule" target="_blank">DRAWS &amp; SCHEDULES
+                                        </a>
                                     </li>
                                     <li ng-if="!registerSchool">
                                         <a ui-sref="specialevents">SPECIAL EVENTS</a>
@@ -444,14 +456,12 @@
                         <!-- GALLERY END -->
                         <!-- PRESS MEDIA -->
                         <div class="mt5">
-                            <a href="{{linkForAll}}media-press" target="_new" class="footer-header-color text-up">PRESS
-                                &amp; MEDIA</a>
+                            <a href="{{linkForAll}}media-press" target="_new" class="footer-header-color text-up">PRESS &amp; MEDIA</a>
                         </div>
                         <!-- PRESS MEDIA END -->
                         <!-- SPONSOR  -->
                         <div class="mt5">
-                            <a href="{{registerSchool}}/sponsors-partner" target="_new" class="footer-header-color text-up">SPONSORS
-                                &amp; PARTNERS</a>
+                            <a href="{{registerSchool}}/sponsors-partner" target="_new" class="footer-header-color text-up">SPONSORS &amp; PARTNERS</a>
                         </div>
                         <!-- SPONSOR END -->
                         <!-- ABOUT US -->
@@ -465,8 +475,8 @@
                         <!-- CONTACT -->
                         <div class="mt5">
                             <!-- ui-sref="contact" -->
-                            <a href="https://sfanow.in/contact" target="_new" class="footer-header-color text-up">CONTACT
-                                US</a>
+                            <a href="https://sfanow.in/contact" target="_new" class="footer-header-color text-up">CONTACT US
+                            </a>
                         </div>
                     </div>
                     <!-- RESULTS -->
@@ -510,10 +520,8 @@
                 <div class="col-md-12">
                     <div class="di">
                         <p class="color-white m-clear">Disclaimer:</p>
-                        <p class="di-inline color-white"> All material available on this website is intellectual
-                            property and copyrighted content of SFA Sporting
-                            Services Pvt. Ltd., unless otherwise indicated. Unauthorized use and/or duplication of this
-                            material
+                        <p class="di-inline color-white"> All material available on this website is intellectual property and copyrighted content of SFA Sporting
+                            Services Pvt. Ltd., unless otherwise indicated. Unauthorized use and/or duplication of this material
                             without written permission from this site’s author and/or owner is strictly prohibited</p>
                     </div>
                 </div>

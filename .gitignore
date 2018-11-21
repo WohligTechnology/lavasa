@@ -35,6 +35,7 @@ w/
 *.tar
 production/
 *.zip
+zip/
 css/
 # Thumbnails
 ._*
