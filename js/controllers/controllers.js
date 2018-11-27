@@ -1046,7 +1046,7 @@ firstApp.controller('SwissCtrl', function ($scope, TemplateService, NavigationSe
 
 });
 
-firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, cityService) {
+firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, cityService, $uibModal) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("media-gallery");
@@ -1171,6 +1171,15 @@ firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, Navig
             } else {
                 window.open("https://mumbaischool.sfanow.in/media-gallery", '_self');
             }
+        } else if (year == '2017') {
+            //             window.open("https://mumbaischool2017.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
+            var modal2017 = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/media2017.html',
+                size: 'sm',
+                scope: $scope,
+                windowClass: 'middlePos'
+            });
         }
         $scope.mediaArr = undefined;
         NavigationService.getLimitedMedia($scope.filter, function (response) {
@@ -1226,7 +1235,7 @@ firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, Navig
     ];
 });
 
-firstApp.controller('MediaPressCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, cityService) {
+firstApp.controller('MediaPressCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, cityService, $uibModal) {
     //Used to name the .html file
 
     $scope.template = TemplateService.changecontent("media-press");
@@ -1308,6 +1317,15 @@ firstApp.controller('MediaPressCtrl', function ($scope, TemplateService, Navigat
             } else {
                 window.open("https://mumbaischool.sfanow.in/#media-press", '_self');
             }
+        } else if (year == '2017') {
+            //             window.open("https://mumbaischool2017.sfanow.in/school-profile/" + 'MS16' + schoolProfileId, '_self');
+            var modal2017 = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'views/modal/media2017.html',
+                size: 'sm',
+                scope: $scope,
+                windowClass: 'middlePos'
+            });
         }
         $scope.mediaArr = undefined;
         NavigationService.getLimitedMedia($scope.filter, function (response) {
