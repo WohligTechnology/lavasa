@@ -6,17 +6,17 @@
 // var tempLink1 = "mumbai.sfanow.in";
 // var sublinkTemp = "http://mumbai.sfanow.in";
 
-var type = 'test';
-var sublink1 = "http://testmumbaischool.sfanow.in";
-var sublink2 = "http://testmumbaicollege.sfanow.in";
-var sublink3 = "http://testhyderabadschool.sfanow.in";
-var sublink4 = "http://testhyderabadcollege.sfanow.in";
-var sublink5 = "http://testahmedabadschool.sfanow.in";
-var sublink6 = "http://testahmedabadcollege.sfanow.in";
-var mainLink = "test.sfanow.in";
-var link1 = "testmumbai.sfanow.in";
-var link2 = "testhyderabad.sfanow.in";
-var link3 = "testahmedabad.sfanow.in";
+// var type = 'test';
+// var sublink1 = "http://testmumbaischool.sfanow.in";
+// var sublink2 = "http://testmumbaicollege.sfanow.in";
+// var sublink3 = "http://testhyderabadschool.sfanow.in";
+// var sublink4 = "http://testhyderabadcollege.sfanow.in";
+// var sublink5 = "http://testahmedabadschool.sfanow.in";
+// var sublink6 = "http://testahmedabadcollege.sfanow.in";
+// var mainLink = "test.sfanow.in";
+// var link1 = "testmumbai.sfanow.in";
+// var link2 = "testhyderabad.sfanow.in";
+// var link3 = "testahmedabad.sfanow.in";
 
 var year15 = '2015-16';
 var year16 = '2016-17';
@@ -30,17 +30,17 @@ var eventYear = '2018-19';
 // var link3 = "localhost:8080";
 
 
-// var type = 'live';
-// var sublink1 = "https://mumbaischool.sfanow.in";
-// var sublink2 = "http://mumbaicollege.sfanow.in";
-// var sublink3 = "https://hyderabadschool.sfanow.in";
-// var sublink4 = "http://hyderabadcollege.sfanow.in";
-// var sublink5 = "http://ahmedabadschool.sfanow.in";
-// var sublink6 = "http://ahmedabadcollege.sfanow.in";
-// var mainLink = "sfanow.in";
-// var link1 = "mumbai.sfanow.in";
-// var link2 = "hyderabad.sfanow.in";
-// var link3 = "ahmedabad.sfanow.in";
+var type = 'live';
+var sublink1 = "https://mumbaischool.sfanow.in";
+var sublink2 = "http://mumbaicollege.sfanow.in";
+var sublink3 = "https://hyderabadschool.sfanow.in";
+var sublink4 = "http://hyderabadcollege.sfanow.in";
+var sublink5 = "http://ahmedabadschool.sfanow.in";
+var sublink6 = "http://ahmedabadcollege.sfanow.in";
+var mainLink = "sfanow.in";
+var link1 = "mumbai.sfanow.in";
+var link2 = "hyderabad.sfanow.in";
+var link3 = "ahmedabad.sfanow.in";
 // var eventYear = '2017';
 // var year15 = '2015';
 // var year16 = '2016';
@@ -4563,15 +4563,15 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     if (type == 'school') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
-                        // sublink = sublink1 + "/register/player";
-                        sublink = sublink1 + "/draws-schedule";
+                        sublink = sublink1 + "/register/player";
+                        // sublink = sublink1 + "/draws-schedule";
                         // sublink = "https://" + link1 + "/liveupdates";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
-                        // sublink = sublink2 + "/register/player";
-                        sublink = sublink1 + "/draws-schedule";
+                        sublink = sublink2 + "/register/player";
+                        // sublink = sublink1 + "/draws-schedule";
                         // sublink = "https://" + link1 + "/liveupdates";
                         window.open(sublink, '_self');
                     }
@@ -4581,15 +4581,15 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     if (type == 'school') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
-                        // sublink = sublink1 + "/register/player";
-                        sublink = sublink1 + "/draws-schedule";
+                        sublink = sublink1 + "/register/player";
+                        // sublink = sublink1 + "/draws-schedule";
                         // sublink = "https://" + link1 + "/liveupdates";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
-                        // sublink = sublink2 + "/register/player";
-                        sublink = sublink1 + "/draws-schedule";
+                        sublink = sublink2 + "/register/player";
+                        // sublink = sublink1 + "/draws-schedule";
                         // sublink = "https://" + link1 + "/liveupdates";
                         window.open(sublink, '_self');
                     }
@@ -4598,15 +4598,15 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                     if (type == 'school') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
-                        // sublink = sublink1 + "/register/player";
-                        sublink = sublink1 + "/draws-schedule";
+                        sublink = sublink1 + "/register/player";
+                        // sublink = sublink1 + "/draws-schedule";
                         // sublink = "https://" + link1 + "/liveupdates";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
-                        // sublink = sublink2 + "/register/player";
-                        sublink = sublink1 + "/draws-schedule";
+                        sublink = sublink2 + "/register/player";
+                        // sublink = sublink1 + "/draws-schedule";
                         // sublink = "https://" + link1 + "/liveupdates";
                         window.open(sublink, '_self');
                     }
