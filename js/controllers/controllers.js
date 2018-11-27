@@ -4524,6 +4524,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
         // $scope.hideBlink = true;
     });
     $rootScope.year15 = year15;
+    $rootScope.year17 = year17;
     console.log('NAME - ', $state.current.name);
     if ($state.current.name == 'home' || $state.current.name == 'champions' || $state.current.name == 'media-gallery' || $state.current.name == 'media-press' || $state.current.name == 'school-bio' || $state.current.name == 'school' || $state.current.name == 'school-profile' || $state.current.name == 'school-ranking' || $state.current.name == 'sport' || $state.current.name == 'student-bio' || $state.current.name == 'media-press-inside' || $state.current.name == 'media-gallery-inside' || $state.current.name == 'student-profile' || $state.current.name == 'media-gallery-type' || $state.current.name == 'media-press-type') {
         $rootScope.year16 = year16;
@@ -5017,6 +5018,7 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
 firstApp.controller('footerctrl', function ($scope, TemplateService, $rootScope, NavigationService, errorService, toastr, $state, $uibModal, $rootScope) {
     $scope.template = TemplateService;
     $rootScope.year15 = year15;
+    $rootScope.year17 = year17;
     if ($state.current.name == 'home' || $state.current.name == 'champions' || $state.current.name == 'media-gallery' || $state.current.name == 'media-press' || $state.current.name == 'school-bio' || $state.current.name == 'school' || $state.current.name == 'school-profile' || $state.current.name == 'school-ranking' || $state.current.name == 'sport' || $state.current.name == 'student-bio' || $state.current.name == 'media-press-inside' || $state.current.name == 'media-gallery-inside' || $state.current.name == 'student-profile' || $state.current.name == 'media-gallery-type' || $state.current.name == 'media-press-type') {
         $rootScope.year16 = year16;
     } else {
