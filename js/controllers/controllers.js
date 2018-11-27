@@ -7,7 +7,7 @@
 // var sublinkTemp = "http://mumbai.sfanow.in";
 
 var type = 'test';
-// var sublink1 = "http://testmumbaischool.sfanow.in";
+var sublink1 = "http://testmumbaischool.sfanow.in";
 var sublink2 = "http://testmumbaicollege.sfanow.in";
 var sublink3 = "http://testhyderabadschool.sfanow.in";
 var sublink4 = "http://testhyderabadcollege.sfanow.in";
@@ -31,7 +31,7 @@ var eventYear = '2018-19';
 
 
 // var type = 'live';
-var sublink1 = "https://mumbaischool.sfanow.in";
+// var sublink1 = "https://mumbaischool.sfanow.in";
 // var sublink2 = "http://mumbaicollege.sfanow.in";
 // var sublink3 = "https://hyderabadschool.sfanow.in";
 // var sublink4 = "http://hyderabadcollege.sfanow.in";
@@ -1187,6 +1187,7 @@ firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, Navig
     if (!$stateParams.type && !$stateParams.folder) {
         $scope.filter.mediatype = "photo";
         $scope.flags.openGallery = false;
+        $scope.filter.year = "2016";
         $scope.tabchanges('photo', 1);
         $scope.getMediaFolders();
     } else {
@@ -4562,16 +4563,15 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
                         // sublink = sublink1 + "/register/player";
-                        // sublink = sublink1 + "/draws-schedule";
-                        sublink = "https://" + link1 + "/liveupdates";
+                        sublink = sublink1 + "/draws-schedule";
+                        // sublink = "https://" + link1 + "/liveupdates";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
                         // sublink = sublink2 + "/register/player";
-                        // sublink = sublink1 + "/register/player";
-                        // sublink = sublink1 + "/draws-schedule";
-                        sublink = "https://" + link1 + "/liveupdates";
+                        sublink = sublink1 + "/draws-schedule";
+                        // sublink = "https://" + link1 + "/liveupdates";
                         window.open(sublink, '_self');
                     }
                     break;
@@ -4581,16 +4581,15 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
                         // sublink = sublink1 + "/register/player";
-                        // sublink = sublink1 + "/draws-schedule";
-                        sublink = "https://" + link1 + "/liveupdates";
+                        sublink = sublink1 + "/draws-schedule";
+                        // sublink = "https://" + link1 + "/liveupdates";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
                         // sublink = sublink2 + "/register/player";
-                        // sublink = sublink1 + "/register/player";
-                        // sublink = sublink1 + "/draws-schedule";
-                        sublink = "https://" + link1 + "/liveupdates";
+                        sublink = sublink1 + "/draws-schedule";
+                        // sublink = "https://" + link1 + "/liveupdates";
                         window.open(sublink, '_self');
                     }
                     break;
@@ -4599,16 +4598,15 @@ firstApp.controller('headerctrl', function ($scope, TemplateService, $rootScope,
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
                         // sublink = sublink1 + "/register/player";
-                        // sublink = sublink1 + "/draws-schedule";
-                        sublink = "https://" + link1 + "/liveupdates";
+                        sublink = sublink1 + "/draws-schedule";
+                        // sublink = "https://" + link1 + "/liveupdates";
                         window.open(sublink, '_self');
                     } else if (type == 'college') {
                         NavigationService.setSfaCity(selectedCity);
                         $scope.sfaCity = 'mumbai';
                         // sublink = sublink2 + "/register/player";
-                        // sublink = sublink1 + "/register/player";
-                        // sublink = sublink1 + "/draws-schedule";
-                        sublink = "https://" + link1 + "/liveupdates";
+                        sublink = sublink1 + "/draws-schedule";
+                        // sublink = "https://" + link1 + "/liveupdates";
                         window.open(sublink, '_self');
                     }
                     break;
