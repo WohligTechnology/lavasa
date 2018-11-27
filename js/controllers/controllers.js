@@ -1203,6 +1203,7 @@ firstApp.controller('MediaGalleryCtrl', function ($scope, TemplateService, Navig
         } else if ($stateParams.type) {
             $scope.filter.mediatype = $stateParams.type;
             $scope.flags.openGallery = false;
+            $scope.filter.year = "2016";
             $scope.tabchanges($stateParams.type, 1);
             console.log($scope.filter);
             $scope.getMediaFolders();
