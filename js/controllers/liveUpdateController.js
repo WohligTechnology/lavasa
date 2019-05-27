@@ -106,6 +106,10 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
         "img": "img/mobweb-4.jpg",
         "link": "http://mumbaicollege.sfanow.in/register"
       }];
+      $scope.athleteUrl = "https://mumbaischool.sfanow.in/students"
+      $scope.schoolUrl = "http://mumbaischool.sfanow.in/school"
+      $scope.teamUrl = "http://mumbaischool.sfanow.in/team"
+
     } else if (window.location.host == response.link2) {
       $scope.bannerss = [{
         "img": "img/Hyderabad_4.jpg",
@@ -117,7 +121,10 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
         "img": "img/Hyderabad_6.jpg",
         "link": "https://hyderabadschool.sfanow.in/register"
       }];
-    } else if (window.location.host == response.link3) {
+      $scope.athleteUrl = "https://hyderabadschool.sfanow.in/students";
+      $scope.schoolUrl = "https://hyderabadschool.sfanow.in/school";
+      $scope.teamUrl = "https://hyderabadschool.sfanow.in/team";
+   } else if (window.location.host == response.link3) {
       $scope.bannerss = [{
         "img": "img/mobweb-2.jpg",
         "link": "http://ahmedabadschool.sfanow.in/register"
@@ -128,6 +135,10 @@ firstApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location
         "img": "img/mobweb-1.jpg",
         "link": "http://ahmedabadschool.sfanow.in/register"
       }];
+      $scope.athleteUrl = "https://ahmedabadschool.sfanow.in/students";
+      $scope.schoolUrl = "https://ahmedabadschool.sfanow.in/school";
+      $scope.teamUrl = "http://ahmedabadschool.sfanow.in//team";
+
     }
     // MOBILE BANNERS END
     // BANNERS END
