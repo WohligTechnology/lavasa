@@ -23,49 +23,8 @@
   </section>
   <!-- MOBILE BANNERS END -->
   <!-- HEADER BANNER END -->
-<!---->
-<section class="mt20 m-zeromob">
-    <div class="container">
-
-
-        <div class="sf-relative">
-            <div class="">
-                <div class="col-md-4 padding0">
-                    <div class="first-box sf-relative">
-                      <a href="{{athleteUrl}}" target="_blank">  <img src="img/st1.jpg" alt="" class="img-responsive width100 zm"></a>
-                        <div class="stupname sf-absulate banner-set">
-                            <h1 class="text-up banner-set sf-absulate color-white font-bold">Athletes</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 padding0">
-
-                    <div class="first-box sf-relative">
-                        <a href="{{schoolUrl}}" target="_blank"> <img src="img/st2.jpg" alt="" class="img-responsive width100 zm"></a>
-                        <div class="stupname sf-absulate banner-set">
-                            <h1 class="text-up banner-set sf-absulate color-white font-bold">schools</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 padding0">
-                    <div class="first-box sf-relative">
-                        <a href="{{teamUrl}}" target="_blank">  <img src="img/st3.jpg" alt="" class="img-responsive width100 zm"></a>
-                        <div class="stupname sf-absulate banner-set">
-                            <h1 class="text-up banner-set sf-absulate color-white font-bold">teams</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-  </div>
-</section>
-
-<!---->
-
-
   <!-- RANKING TABLES SECTION -->
-  <section hidden>
+  <section>
     <div class="liveupdate-rankingstable">
       <div class="container">
         <div class="row">
@@ -499,13 +458,11 @@
     <div class="liveupdate-imagesection">
       <div class="container">
         <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName !== 'Hyderabad'">
-          <!-- sfa {{cityName}} championship 2018-19 -->
-          sfa  championship in pictures
+          Live Update from sfa {{cityName}} championship 2018-19
         </div>
         <!---->
         <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName == 'Hyderabad'">
-          <!-- Highlights from sfa {{cityName}} championship 2018-19 -->
-          sfa championship in pictures
+          Highlights from sfa {{cityName}} championship 2018-19
         </div>
         <div class="row">
           <div class="col-md-6 col-sm-6">
@@ -552,7 +509,7 @@
   </section>
   <!-- LIVE IMAGE SECTION END -->
   <!-- DRAWS SCHDULE SECTION -->
-  <section >
+  <section>
     <div class="liveupdates-draws">
       <div class="container">
         <div class="liveupdates-drawholder">
@@ -560,7 +517,7 @@
             <div class="col-md-4">
               <div class="liveupdates-drawsschedule">
                 <div class="liveupdates-drawstitle font-FjallaOne">
-                  <!-- draws, schedules & results -->
+                  draws, schedules & results
                 </div>
                 <!-- FOR ONLY SCHOOLS -->
                 <!--<div class="liveupdates-drawscard liveupdates-draw font-FjallaOne" ng-if="!drawObj.college">
@@ -577,36 +534,47 @@
                     </div>
                   </a>
                 </div>-->
-                <!-- <div class="liveupdates-drawscard liveupdates-drawscardbig font-FjallaOne" ng-if="!drawObj.college && cityName == 'Hyderabad'">
+                <div class="liveupdates-drawscard liveupdates-drawscardbig font-FjallaOne" ng-if="!drawObj.college && cityName == 'Hyderabad'">
                   <a href="{{schoolLink}}/results/" target="_blank">
                     <div class="livedraw-text">
-                      <p>School Results SFA Hyderabad 2018-19</p>
+                      <p>School Results SFA {{cityName}} 2018-19</p>
                     </div>
                   </a>
-                </div> -->
+		<a href="{{schoolLink}}/livescore" target="_blank">
+                    <div class="livedraw-text">
+                      <p>Click Here For Live Scores</p>
+                    </div>
+                  </a>
+                </div>
                 <!-- FOR ONLY SCHOOLS END -->
                 <!-- FOR SCHOOLS AND COLLEGE -->
-                <div class="liveupdates-drawscard liveupdates-draw font-FjallaOne" ng-if="!drawObj.college">
-                    <!-- && cityName !== 'Hyderabad'" -->
-                  <a href=" https://sportsforall.ketto.org/contribute/contribute.php?fmd_id=26940" target="_blank">
-                      <!-- {{schoolLink}}/draws-schedule -->
+               <!-- <div class="liveupdates-drawscard liveupdates-draw font-FjallaOne" ng-if="!drawObj.college && cityName !== 'Hyderabad'">
+                  <a href="{{schoolLink}}/draws-schedule" target="_blank">
+                    <div class="livedraw-text">
+                      <p>School </br> Draws & Schedules</p>
+                    </div>
+                  </a>
+                </div>-->
+   <div class="liveupdates-drawscard liveupdates-drawscardbig font-FjallaOne" ng-if="!drawObj.college && cityName !== 'Hyderabad'">
+                  <a href="{{schoolLink}}/results/" target="_blank">
+                    <div class="livedraw-text">
+			<p>School Results SFA {{cityName}} 2018-19</p>
+                    </div>
+          </a>
+<a href="{{schoolLink}}/livescore" target="_blank">
+                    <div class="livedraw-text">
+                      <p> Click Here For Scores</p>
+                    </div>
+                  </a>
 
+                </div>
+                <!-- <div class="liveupdates-drawscard liveupdates-draw liveupdates-drawcollege font-FjallaOne" ng-if="!drawObj.college && cityName !== 'Hyderabad'">
+                  <a href="{{schoolLink}}/livescore" target="_blank">
                     <div class="livedraw-text">
-                      <!-- <p>School </br> Draws, Schedules & Results</p> -->
-                      <p>Be a part of the AJI Squad </br> Donate Now</p>
+                      <p>School </br> Click Here For Live Scores</p>
                     </div>
                   </a>
-                </div>
-                <div class="liveupdates-drawscard liveupdates-draw liveupdates-drawcollege font-FjallaOne" ng-if="!drawObj.college">
-                    <!-- && cityName !== 'Hyderabad'" -->
-                  <a href="https://www.bharatarmy.com/BAFoundation/sfanow" target="_blank">
-                    <!-- {{schoolLink}}/livescore  -->
-                    <div class="livedraw-text">
-                      <!-- <p>School </br> Click Here For Live Scores</p> -->
-                     <p>Bharat Army and Sports For All Partnership.</p>
-                    </div>
-                  </a>
-                </div>
+                </div>-->
                 <!-- FOR SCHOOLS AND COLLEGE END -->
               </div>
             </div>
@@ -649,12 +617,10 @@
       <div class="container">
         <!--ng-if="cityName != 'Hyderabad'"-->
         <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName == 'Hyderabad'">
-          <!-- Highlights from the championship -->
-          sfa movements
+          Highlights from the championship
         </div>
         <div class="liveupdate-imagetitle font-FjallaOne" ng-if="cityName !== 'Hyderabad'">
-           <!-- Highlights from the championship -->
-           sfa movements
+          Live Highlights from the championship
         </div>
         <div class="row">
           <div class="col-md-6 col-sm-6">
