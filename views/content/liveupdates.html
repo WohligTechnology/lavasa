@@ -559,7 +559,7 @@
           <div class="row">
             <div class="col-md-4">
               <div class="liveupdates-drawsschedule">
-                <div class="liveupdates-drawstitle font-FjallaOne " style="visibility: hidden">
+                <div class="liveupdates-drawstitle font-FjallaOne hidden">
                   draws, schedules & results
                 </div>
                 <!-- FOR ONLY SCHOOLS -->
@@ -593,17 +593,19 @@
 
                     <div class="livedraw-text">
                       <!-- <p>School </br> Draws, Schedules & Results</p> -->
-                      <p>Be a part of the AJI Squad </br> Donate Now</p>
+                      <!-- <p>Be a part of the AJI Squad </br> Donate Now</p> -->
+                      <p>Be a part of the AJI Squad <br/> Start a Fundraiser Now</p>
                     </div>
                   </a>
                 </div>
                 <div class="liveupdates-drawscard liveupdates-draw liveupdates-drawcollege font-FjallaOne" ng-if="!drawObj.college">
                     <!-- && cityName !== 'Hyderabad'" -->
-                  <a href="https://www.bharatarmy.com/BAFoundation/sfanow" target="_blank">
+                  <a href="https://sportsforall.ketto.org/contribute/contribute.php?fmd_id=26940" target="_blank">
                     <!-- {{schoolLink}}/livescore  -->
                     <div class="livedraw-text">
                       <!-- <p>School </br> Click Here For Live Scores</p> -->
-                     <p>Bharat Army and Sports For All Partnership.</p>
+                     <!-- <p>Bharat Army and Sports For All Partnership.</p> -->
+                     <p>Be a part of the AJI Squad </br> Donate Now</p>
                     </div>
                   </a>
                 </div>
@@ -612,7 +614,7 @@
             </div>
             <div class="col-md-8" ng-if="specialEvents || specialEvents.length>0">
               <div class="liveupdates-drawsevents">
-                <div class="liveupdates-drawstitle font-FjallaOne">
+                <div class="liveupdates-drawstitle font-FjallaOne hidden">
                   upcoming events
                 </div>
                 <div class="liveupdates-eventholder" ng-repeat="event in specialEvents|limitTo:2">
